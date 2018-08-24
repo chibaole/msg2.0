@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <view class='praise-title'>今日福利</view>
+    <div class='praise-title'><span></span>今日福利</div>
 
     <scroll-view  class="scroll-view_H" scroll-x="true" scroll-left>
 
@@ -87,16 +87,30 @@
 
   }
 </script>
-<style scoped>
+<style lang="scss" scoped>
   .container{
     /*border: 1px solid #000;*/
   }
 .praise-title{
-  font-size: 14px;
-  width: 64px;
+  font-family: PingFangSC-Medium;
+
+  font-size: 16px;
+  color: #666;
+  width: 75px;
   height: 16px;
+  line-height: 16px;
   background: #fff;
-  margin: 0px 0px 20px 33px ;
+  margin: 0px 0px 20px 25px ;
+  border: 0.1px solid #fff;
+  span{
+    width: 3px;
+    height: 14px;
+    display: inline-block;
+    margin-top: 1px;
+    margin-right: 8px;
+    background: #ff7f4f;
+  }
+
 }
   .scroll-view_H{
      /*height: 190rpx; */

@@ -1,6 +1,7 @@
 <template name="more$183232b4">
   <view class="_div data-v-2ebe8fe8 container">
-    <view class="_p data-v-2ebe8fe8 title">没事干研究院更多活动</view>
+    <view class="_p data-v-2ebe8fe8 title">
+      <label class="_span data-v-2ebe8fe8"></label>没事干研究院更多活动</view>
     <scroll-view class="_scroll-view data-v-2ebe8fe8 scroll-view_H" scroll-x="true" scroll-left>
       <view class="_div data-v-2ebe8fe8 scroll-view-item_H" wx:key="thing.title" key="{{thing.title}}" wx:for="{{things}}" wx:for-index="index" wx:for-item="thing">
         <view class="_div data-v-2ebe8fe8 recomend-box">

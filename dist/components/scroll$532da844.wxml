@@ -1,6 +1,7 @@
 <template name="scroll$532da844">
   <view class="_div data-v-8c08e6c0 container">
-    <view class="_view data-v-8c08e6c0 praise-title">今日福利</view>
+    <view class="_div data-v-8c08e6c0 praise-title">
+      <label class="_span data-v-8c08e6c0"></label>今日福利</view>
     <scroll-view class="_scroll-view data-v-8c08e6c0 scroll-view_H" scroll-x="true" scroll-left>
       <view class="_div data-v-8c08e6c0 scroll-view-item_H" wx:key="boon.uuid" key="{{boon.uuid}}" data-uuid="{{boon.uuid}}" wx:for="{{boons}}" wx:for-index="index" wx:for-item="boon">
         <view class="_div data-v-8c08e6c0 recomend-box">

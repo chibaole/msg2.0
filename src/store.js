@@ -26,6 +26,13 @@ export default new Vuex.Store({
         data: data
       })
       // let auth_code = res.auth_code
+      // if(res.auth_code === undefined){
+      //   let res = await request({
+      //     method: 'post',
+      //     url: `${apiDomain}/wx/login`,
+      //     data: data
+      //   })
+      // }
       let auth_code = '7o_WVWb5GZlcpBfASVUl9Q'
 
       wx.setStorageSync('auth_code', auth_code)
@@ -124,7 +131,7 @@ export default new Vuex.Store({
 //发起拼团
 
     async initGroup({commit},{...uuid_authCode}){
-      let uuid = uuid_authCode[0] || '123'
+      let uuid = uuid_authCode[0]
       let auth_code = uuid_authCode[1]
       let initGroup = await request({
         method:'post',
@@ -139,22 +146,28 @@ export default new Vuex.Store({
     },
 
 //拼团订单详情
-    async groupActivities_order({commit},uuid){
-          console.log(`拼团订单详情----${apiDomain}/group_activity_orders/${uuid}`)
+    async groupActivities_order({commit},{...uuid_authCode}){
+            let uuid = uuid_authCode[0]
+            let auth_code = uuid_authCode[1]
+
+          console.log(`拼团订单详情----${apiDomain}/group_activity_orders/${uuid}?auth_code=${auth_code}`)
           let orderData = await request({
             method:'get',
-            url:`${apiDomain}/group_activity_orders/${uuid}`
+            url:`${apiDomain}/group_activity_orders/${uuid}?auth_code=${auth_code}`
           })
 
       return orderData
 
     },
 //拼团发起详情
-    async groupActivitiesInit({commit},uuid){
+    async groupActivitiesInit({commit},{...uuid_authCode}){
+      let uuid = uuid_authCode[0]
+      let auth_code =uuid_authCode[1]
+
       console.log(`拼团发起详情---${apiDomain}/group_activity_initials/${uuid}`)
       let initOrder = await request({
         method:'get',
-        url:`${apiDomain}/group_activity_initials/${uuid}`
+        url:`${apiDomain}/group_activity_initials/${uuid}?auth_code=${auth_code}`
       })
       console.log(initOrder)
       return initOrder

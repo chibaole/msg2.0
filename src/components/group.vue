@@ -1,12 +1,12 @@
 <template>
   <div class="container">
-    <p class="componten_name">拼团</p>
+    <p class="componten_name"><span></span>拼团</p>
     <div class="group-tiem" v-for="group in groups" :key="group.uuid">
       <div class="pic"><img  :src="host + group.title_image_url" alt=""></div>
       <div class="info-box">
       <div class="group-info">
           <div class="group-text">{{group.title}}</div>
-          <div class="group-prj-price">${{group.current_price}} <span class="price">${{group.original_price}}</span></div>
+          <div class="group-prj-price">${{group.current_price}} <span class="price">¥{{group.original_price}}</span></div>
 
       </div>
       <div class="join-group" @click="goGroup" :data-groupname="groupname" :data-uuid="group.uuid">{{group.button.text}}</div>
@@ -71,7 +71,7 @@
   }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
   .container{
     font-family: PingFangSC-Medium;
     /*rrder: 1px solid #000;*/
@@ -82,9 +82,22 @@
 
   .componten_name{
     font-size: 16px;
+    height: 16px;
+    line-height: 16px;
     color: #666;
-    margin-left: 8px;
+
     margin-bottom: 20px;
+    font-family: PingFangSC-Medium;
+    border: 0.1px solid #fff;
+
+    span{
+      width: 3px;
+      height: 14px;
+      display: inline-block;
+      margin-top: 1px;
+      margin-right: 8px;
+      background: #ff7f4f;
+    }
 
   }
 

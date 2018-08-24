@@ -4,13 +4,16 @@ global.webpackJsonp([12],{
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_groupCard__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__utils_util__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_navbar__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_groupCard__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__utils_util__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_navbar__ = __webpack_require__(5);
+
 
 
 //
@@ -61,22 +64,21 @@ global.webpackJsonp([12],{
   },
 
   components: {
-    Card: __WEBPACK_IMPORTED_MODULE_2__components_groupCard__["a" /* default */],
-    Navbar: __WEBPACK_IMPORTED_MODULE_4__components_navbar__["a" /* default */]
+    Card: __WEBPACK_IMPORTED_MODULE_3__components_groupCard__["a" /* default */],
+    Navbar: __WEBPACK_IMPORTED_MODULE_5__components_navbar__["a" /* default */]
   },
 
   methods: {
     pay: function pay(e) {
       console.log(e);
-      var prjName = e.currentTarget.dataset.prjname;
-      var pjNum = e.currentTarget.dataset.groupnum;
+      var that = this;
+      var orderId = that.order_info.uuid; //需要支付的订单uuid
+
 
       wx.navigateTo({
-        url: '/pages/groupPj/order/main?initGroupId=' + this.initGroupId
+        url: '/pages/groupPj/order/main?orderId=' + orderId
       });
-      //          wx.navigateTo({
-      //            url: '/pages/groupPj/order/main?prjname=0'
-      //          })
+      //
       wx.requestPayment({
         'timeStamp': '',
         'nonceStr': '',
@@ -89,22 +91,23 @@ global.webpackJsonp([12],{
         'fail': function fail(res) {
           console.log(res);
           console.log('支付错误');
+          __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4__utils_util__["b" /* showModal */])('支付失败', '请尝试重新支付');
         }
       });
     },
     getGroup_orders: function getGroup_orders() {
       var _this = this;
 
-      return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
+      return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.mark(function _callee() {
         var that, order_info, order;
-        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+        return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
                 wx.removeStorageSync('current_orderinfo'); //每次先删除上一个缓存的订单信息
                 that = _this;
                 _context.next = 4;
-                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__utils_util__["a" /* get */])('/v1/group_activity_orders/' + that.order_uuid);
+                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4__utils_util__["a" /* get */])('/v1/group_activity_orders/' + that.order_uuid);
 
               case 4:
                 order_info = _context.sent;
@@ -126,22 +129,24 @@ global.webpackJsonp([12],{
   onLoad: function onLoad() {
     var _this2 = this;
 
-    return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee2() {
-      var that, orderData;
-      return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
+    return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.mark(function _callee2() {
+      var that, initGroupId, currentuser_code, uuid_authCode, orderData;
+      return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
         while (1) {
           switch (_context2.prev = _context2.next) {
             case 0:
               that = _this2;
+              initGroupId = _this2.$root.$mp.query.initGroupId; //获取发起拼团活动返回的订单ID
 
-              _this2.initGroupId = _this2.$root.$mp.query.initGroupId; //获取发起拼团活动返回的订单ID
-              console.log(_this2.initGroupId);
+              currentuser_code = wx.getStorageSync('auth_code');
+              uuid_authCode = [initGroupId, currentuser_code];
               //      that.getGroup_orders()
               //新api的形式
-              _context2.next = 5;
-              return that.$store.dispatch('groupActivities_order', _this2.initGroupId);
 
-            case 5:
+              _context2.next = 6;
+              return that.$store.dispatch('groupActivities_order', __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default()({}, uuid_authCode));
+
+            case 6:
               orderData = _context2.sent;
 
               console.log(orderData);
@@ -149,7 +154,7 @@ global.webpackJsonp([12],{
               console.log(that.order_info);
               console.log(orderData.group_activity_order);
 
-            case 10:
+            case 11:
             case 'end':
               return _context2.stop();
           }

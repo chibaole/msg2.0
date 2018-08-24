@@ -115,6 +115,7 @@
 
                       console.log(uuid_authCode)
                       let initGroupData = await that.$store.dispatch('initGroup',{...uuid_authCode})
+                      console.log(initGroupData)
                       let initGroupId = initGroupData.group_activity_order.uuid  //发起拼团返回的订单id
                       that.initGroupId = initGroupId
                       console.log(initGroupId)
@@ -132,7 +133,7 @@
       },
  //获取倒计时
       getlastTime() {
-
+//                      console.log('倒计时')
 
                       let that = this
                       let currentTime = (new Date()).getTime()   //当前的时间
@@ -155,6 +156,8 @@
                       that.time.hours = hours
                       that.time.minutes = minutes
 
+//          console.log(day,hours,minutes)
+
                        setTimeout(that.getlastTime, 1000)
 
 
@@ -164,7 +167,9 @@
     },
    async onLoad(){
       let that = this
-      that.group_uuid =  that.$root.$mp.query.group_uuid //获取活动列表的拼团的项目id
+     that.getlastTime()
+
+     that.group_uuid =  that.$root.$mp.query.group_uuid //获取活动列表的拼团活动uuid
 
       console.log(this.group_uuid)
 
@@ -183,15 +188,8 @@
      //通过富文本展示商品详情
      that.myDetail = that.group_activity.detail
 
-//      that.getLastTime()
     },
     mounted(){
-
-//      this.getGrouDetail()/
-      this.getlastTime()
-      console.log(this.group_activity )
-
-
     }
   }
 </script>

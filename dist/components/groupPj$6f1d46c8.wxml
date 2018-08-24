@@ -26,7 +26,9 @@
         <view class="_p data-v-b3a874ec step2">2.领取成功后，请扫码加群等待发货哦。</view>
       </view>
       <view class="_div data-v-b3a874ec line"></view>
-      <view class="_div data-v-b3a874ec pjDetail"> 商品详情 </view>
+      <view class="_div data-v-b3a874ec pjDetail"> 商品详情
+        <rich-text nodes="{{order_info.detail}}" class="_rich-text data-v-b3a874ec"></rich-text>
+      </view>
     </view>
     <view class="_div data-v-b3a874ec btn open_btn" bindtap="handleProxy" data-status="1" data-eventid="{{'0'}}" data-comkey="{{$k}}">
       <label class="_span data-v-b3a874ec">邀请好友一起享用</label>

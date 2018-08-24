@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <p class="title">没事干研究院更多活动</p>
+    <p class="title"><span></span>没事干研究院更多活动</p>
     <scroll-view  class="scroll-view_H" scroll-x="true" scroll-left>
 
       <div  class="scroll-view-item_H" v-for="thing in things" :key="thing.title">
@@ -44,7 +44,7 @@
 </script>
 
 
-<style scoped>
+<style lang="scss" scoped>
   .container{
     font-family: PingFangSC-Medium;
     border:0.1px solid #f7f7f7;
@@ -56,14 +56,22 @@
   }
 
   .title{
-    /*border: 1px solid #000;*/
-    margin: 35px 0 30px 8px;
+    border: 0.1px solid #f7f7f7;
+    margin: 35px 0 30px 0px;
 
     font-size: 16px;
     height: 16px;
     color: #666;
     line-height: 16px;
     text-align: left;
+    span{
+      width: 3px;
+      height: 14px;
+      display: inline-block;
+      margin-top: 1px;
+      margin-right: 8px;
+      background: #ff7f4f;
+    }
   }
   .scroll-view_H{
     /* height: 332rpx; */

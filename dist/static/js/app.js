@@ -69,6 +69,13 @@ var apiDomain = 'http://47.98.170.205/api/v1';
                 res = _context.sent;
 
                 // let auth_code = res.auth_code
+                // if(res.auth_code === undefined){
+                //   let res = await request({
+                //     method: 'post',
+                //     url: `${apiDomain}/wx/login`,
+                //     data: data
+                //   })
+                // }
                 auth_code = '7o_WVWb5GZlcpBfASVUl9Q';
 
                 wx.setStorageSync('auth_code', auth_code);
@@ -296,7 +303,7 @@ var apiDomain = 'http://47.98.170.205/api/v1';
           while (1) {
             switch (_context7.prev = _context7.next) {
               case 0:
-                uuid = uuid_authCode[0] || '123';
+                uuid = uuid_authCode[0];
                 auth_code = uuid_authCode[1];
                 _context7.next = 4;
                 return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_6__utils_wx__["c" /* request */])({
@@ -323,28 +330,34 @@ var apiDomain = 'http://47.98.170.205/api/v1';
     },
 
     //拼团订单详情
-    groupActivities_order: function groupActivities_order(_ref12, uuid) {
+    groupActivities_order: function groupActivities_order(_ref13, _ref12) {
       var _this8 = this;
 
-      var commit = _ref12.commit;
+      var commit = _ref13.commit;
+
+      var uuid_authCode = __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_objectWithoutProperties___default()(_ref12, []);
+
       return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.mark(function _callee8() {
-        var orderData;
+        var uuid, auth_code, orderData;
         return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.wrap(function _callee8$(_context8) {
           while (1) {
             switch (_context8.prev = _context8.next) {
               case 0:
-                console.log('\u62FC\u56E2\u8BA2\u5355\u8BE6\u60C5----' + apiDomain + '/group_activity_orders/' + uuid);
-                _context8.next = 3;
+                uuid = uuid_authCode[0];
+                auth_code = uuid_authCode[1];
+
+                console.log('\u62FC\u56E2\u8BA2\u5355\u8BE6\u60C5----' + apiDomain + '/group_activity_orders/' + uuid + '?auth_code=' + auth_code);
+                _context8.next = 5;
                 return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_6__utils_wx__["c" /* request */])({
                   method: 'get',
-                  url: apiDomain + '/group_activity_orders/' + uuid
+                  url: apiDomain + '/group_activity_orders/' + uuid + '?auth_code=' + auth_code
                 });
 
-              case 3:
+              case 5:
                 orderData = _context8.sent;
                 return _context8.abrupt('return', orderData);
 
-              case 5:
+              case 7:
               case 'end':
                 return _context8.stop();
             }
@@ -354,30 +367,36 @@ var apiDomain = 'http://47.98.170.205/api/v1';
     },
 
     //拼团发起详情
-    groupActivitiesInit: function groupActivitiesInit(_ref13, uuid) {
+    groupActivitiesInit: function groupActivitiesInit(_ref15, _ref14) {
       var _this9 = this;
 
-      var commit = _ref13.commit;
+      var commit = _ref15.commit;
+
+      var uuid_authCode = __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_objectWithoutProperties___default()(_ref14, []);
+
       return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.mark(function _callee9() {
-        var initOrder;
+        var uuid, auth_code, initOrder;
         return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.wrap(function _callee9$(_context9) {
           while (1) {
             switch (_context9.prev = _context9.next) {
               case 0:
+                uuid = uuid_authCode[0];
+                auth_code = uuid_authCode[1];
+
                 console.log('\u62FC\u56E2\u53D1\u8D77\u8BE6\u60C5---' + apiDomain + '/group_activity_initials/' + uuid);
-                _context9.next = 3;
+                _context9.next = 5;
                 return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_6__utils_wx__["c" /* request */])({
                   method: 'get',
-                  url: apiDomain + '/group_activity_initials/' + uuid
+                  url: apiDomain + '/group_activity_initials/' + uuid + '?auth_code=' + auth_code
                 });
 
-              case 3:
+              case 5:
                 initOrder = _context9.sent;
 
                 console.log(initOrder);
                 return _context9.abrupt('return', initOrder);
 
-              case 6:
+              case 8:
               case 'end':
                 return _context9.stop();
             }

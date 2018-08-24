@@ -182,6 +182,8 @@ global.webpackJsonp([11],{
 
               case 7:
                 initGroupData = _context3.sent;
+
+                console.log(initGroupData);
                 initGroupId = initGroupData.group_activity_order.uuid; //发起拼团返回的订单id
 
                 that.initGroupId = initGroupId;
@@ -196,7 +198,7 @@ global.webpackJsonp([11],{
                   __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__utils_util__["b" /* showModal */])('拼团错误', '无效的拼团');
                 }
 
-              case 12:
+              case 13:
               case 'end':
                 return _context3.stop();
             }
@@ -207,6 +209,7 @@ global.webpackJsonp([11],{
 
     //获取倒计时
     getlastTime: function getlastTime() {
+      //                      console.log('倒计时')
 
       var that = this;
       var currentTime = new Date().getTime(); //当前的时间
@@ -228,6 +231,8 @@ global.webpackJsonp([11],{
       that.time.hours = hours;
       that.time.minutes = minutes;
 
+      //          console.log(day,hours,minutes)
+
       setTimeout(that.getlastTime, 1000);
     }
   },
@@ -242,7 +247,9 @@ global.webpackJsonp([11],{
             case 0:
               that = _this4;
 
-              that.group_uuid = that.$root.$mp.query.group_uuid; //获取活动列表的拼团的项目id
+              that.getlastTime();
+
+              that.group_uuid = that.$root.$mp.query.group_uuid; //获取活动列表的拼团活动uuid
 
               console.log(_this4.group_uuid);
 
@@ -255,10 +262,10 @@ global.webpackJsonp([11],{
 
               console.log(uuid_authCode);
 
-              _context4.next = 9;
+              _context4.next = 10;
               return that.$store.dispatch('getGrouDetail', __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default()({}, uuid_authCode));
 
-            case 9:
+            case 10:
               group_activity = _context4.sent;
               //获取当前拼团活动详情
 
@@ -267,9 +274,7 @@ global.webpackJsonp([11],{
               //通过富文本展示商品详情
               that.myDetail = that.group_activity.detail;
 
-              //      that.getLastTime()
-
-            case 12:
+            case 13:
             case 'end':
               return _context4.stop();
           }
@@ -277,12 +282,7 @@ global.webpackJsonp([11],{
       }, _callee4, _this4);
     }))();
   },
-  mounted: function mounted() {
-
-    //      this.getGrouDetail()/
-    this.getlastTime();
-    console.log(this.group_activity);
-  }
+  mounted: function mounted() {}
 });
 
 /***/ }),

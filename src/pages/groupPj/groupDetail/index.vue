@@ -56,15 +56,14 @@
     methods:{
         pay(e){
           console.log(e)
-          let prjName = e.currentTarget.dataset.prjname
-          let pjNum = e.currentTarget.dataset.groupnum
+          let that = this
+          let orderId= that.order_info.uuid  //需要支付的订单uuid
+
 
           wx.navigateTo({
-            url: '/pages/groupPj/order/main?initGroupId=' + this.initGroupId,
+            url: '/pages/groupPj/order/main?orderId=' + orderId,
           })
-//          wx.navigateTo({
-//            url: '/pages/groupPj/order/main?prjname=0'
-//          })
+//
           wx.requestPayment({
             'timeStamp': '',
             'nonceStr': '',
@@ -77,6 +76,7 @@
             'fail':function(res){
               console.log(res)
               console.log('支付错误')
+              showModal('支付失败','请尝试重新支付')
             }
           })
         },
@@ -93,11 +93,12 @@
     },
    async onLoad(){
       let that = this
-      this.initGroupId =  this.$root.$mp.query.initGroupId //获取发起拼团活动返回的订单ID
-      console.log(this.initGroupId)
+      let initGroupId =  this.$root.$mp.query.initGroupId //获取发起拼团活动返回的订单ID
+     let currentuser_code = wx.getStorageSync('auth_code')
+     let uuid_authCode = [initGroupId,currentuser_code]
 //      that.getGroup_orders()
       //新api的形式
-      const orderData = await  that.$store.dispatch('groupActivities_order',this.initGroupId)
+      const orderData = await  that.$store.dispatch('groupActivities_order',{...uuid_authCode})
       console.log(orderData)
       that.order_info = orderData.group_activity_order
       console.log( that.order_info)

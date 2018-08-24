@@ -516,20 +516,6 @@ global.webpackJsonp([1],{
 
 /***/ }),
 
-/***/ 170:
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
-/***/ 173:
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
 /***/ 177:
 /***/ (function(module, exports) {
 
@@ -538,13 +524,6 @@ global.webpackJsonp([1],{
 /***/ }),
 
 /***/ 185:
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
-/***/ 187:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
@@ -614,7 +593,7 @@ if (false) {(function () {
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(173)
+  __webpack_require__(278)
 }
 var normalizeComponent = __webpack_require__(1)
 /* script */
@@ -668,7 +647,7 @@ if (false) {(function () {
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(170)
+  __webpack_require__(280)
 }
 var normalizeComponent = __webpack_require__(1)
 /* script */
@@ -722,7 +701,7 @@ if (false) {(function () {
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(187)
+  __webpack_require__(276)
 }
 var normalizeComponent = __webpack_require__(1)
 /* script */
@@ -776,7 +755,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "container"
   }, [_c('p', {
     staticClass: "title"
-  }, [_vm._v("没事干研究院更多活动")]), _vm._v(" "), _c('scroll-view', {
+  }, [_c('span'), _vm._v("没事干研究院更多活动")]), _vm._v(" "), _c('scroll-view', {
     staticClass: "scroll-view_H",
     attrs: {
       "scroll-x": "true",
@@ -831,7 +810,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "container"
   }, [_c('p', {
     staticClass: "componten_name"
-  }, [_vm._v("拼团")]), _vm._v(" "), _vm._l((_vm.groups), function(group, index) {
+  }, [_c('span'), _vm._v("拼团")]), _vm._v(" "), _vm._l((_vm.groups), function(group, index) {
     return _c('div', {
       key: group.uuid,
       staticClass: "group-tiem"
@@ -852,7 +831,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       staticClass: "group-prj-price"
     }, [_vm._v("$" + _vm._s(group.current_price) + " "), _c('span', {
       staticClass: "price"
-    }, [_vm._v("$" + _vm._s(group.original_price))])])]), _vm._v(" "), _c('div', {
+    }, [_vm._v("¥" + _vm._s(group.original_price))])])]), _vm._v(" "), _c('div', {
       staticClass: "join-group",
       attrs: {
         "data-groupname": _vm.groupname,
@@ -985,9 +964,7 @@ if (false) {
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "container"
-  }, [_c('view', {
-    staticClass: "praise-title"
-  }, [_vm._v("今日福利")]), _vm._v(" "), _c('scroll-view', {
+  }, [_vm._m(0), _vm._v(" "), _c('scroll-view', {
     staticClass: "scroll-view_H",
     attrs: {
       "scroll-x": "true",
@@ -1028,7 +1005,11 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }, [_vm._v(_vm._s(boon.button.text))])])
   }))], 1)
 }
-var staticRenderFns = []
+var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "praise-title"
+  }, [_c('span'), _vm._v("今日福利")])
+}]
 render._withStripped = true
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);
@@ -1045,6 +1026,27 @@ if (false) {
 /***/ (function(module, exports) {
 
 module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAYAAABV7bNHAAAAAXNSR0IArs4c6QAAAZxJREFUeAHt3EFqwkAYhmFTKghduusluhe66Wl6gS5dufQA7S269Aaew1VvUCgITf8sfnEzviOxiS1vQEbzTTLp44cohE4mbicFmpPpL4Zt287i9M+VS7w1TfNVOfd/TAugeTxqt/lYf/XNWAv/lXUFgndKIIFAAGIbJBAIQGyDBAIBiG2QQCAAsQ0SCAQgtkECgQDENkggEIDYBgkEAhDbIIFAAGIbJBAIQGyDBAIBiG2QQCAAsQ0SCAQgvs087iJYxfNFvh5gnJ6xxntc3/6M+X2nbuNukmV3kgNQPH+Ix1O38wq3x4Gv6TPX8zMoJQqjQAWY3C1QShRGgQowuVuglCiMAhVgcrdAKVEYBSrA5O7jL4qvsXOTwQDjXayxrlznJeYdvrxVHtNn2q7PwRc5Nn46eJ/0RSRHPomfQfAGCCQQCEBsgwQCAYhtkEAgALENEggEILZBAoEAxDZIIBCA2AYJBAIQ2yCBQABiGyQQCEBsgwQCAYhtkEAgALENEggEILZBAoEAxGP+F7yuvfdwfRl/xH3L3/liyPEHT051/Ns4/RgAAAAASUVORK5CYII="
+
+/***/ }),
+
+/***/ 276:
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ 278:
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ 280:
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ }),
 

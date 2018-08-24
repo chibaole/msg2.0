@@ -33,6 +33,8 @@
 
       <div class="pjDetail">
         商品详情
+        <rich-text :nodes="order_info.detail" ></rich-text>
+
       </div>
     </div>
 
@@ -116,7 +118,8 @@
         showBox: false,
         painting: {},
         navbar_title: '团购',
-        initGroupId:''
+        orderIdId:'',
+        myDetail:''
       }
     },
     components: {
@@ -382,14 +385,17 @@
    async mounted()
   {
     let that = this
-    that.initGroupId = that.$root.$mp.query.initGroupId //发起拼团活动返回订单uuid
+    that.orderId = that.$root.$mp.query.orderId //发起拼团活动返回订单uuid
     that.groupuer.length = that.groupNum
 
 //    that.getGroup_orders()
-    let initGroupId = that.initGroupId
+    let orderId = that.orderId
+     let currentuser_code = wx.getStorageSync('auth_code')
+     let uuid_authCode = [orderId,currentuser_code]
 
-    let orderData = await  that.$store.dispatch('groupActivitiesInit',initGroupId)
+    let orderData = await  that.$store.dispatch('groupActivitiesInit',{...uuid_authCode})
      that.order_info = orderData.group_activity_initial
+
      console.log(orderData)
 
      let order_user = that.order_info.users //[]
@@ -411,13 +417,14 @@
   onShareAppMessage(res)
   {
     var that = this
+    var initGroupId = '拼团活动uuid'
     if (res.from === 'button') {
       // 来自页面内转发按钮
       console.log(res.target)
     }
     return {
       title: that.order_info.title,
-      path: '/pages/groupPj/groupDetail/main' //参与拼团的页面
+      path: `/pages/groupPj/groupDetail/main?orderId=` //参与拼团的页面
     }
   }
 

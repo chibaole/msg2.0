@@ -4,17 +4,22 @@ global.webpackJsonp([4],{
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_groupCard__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vue2_countdown__ = __webpack_require__(234);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vue2_countdown___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_vue2_countdown__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_navbar__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__utils_util__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_groupCard__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vue2_countdown__ = __webpack_require__(234);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vue2_countdown___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_vue2_countdown__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_navbar__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__utils_util__ = __webpack_require__(10);
 
 
+
+//
+//
 //
 //
 //
@@ -127,13 +132,14 @@ global.webpackJsonp([4],{
       showBox: false,
       painting: {},
       navbar_title: '团购',
-      initGroupId: ''
+      orderIdId: '',
+      myDetail: ''
     };
   },
 
   components: {
-    Card: __WEBPACK_IMPORTED_MODULE_2__components_groupCard__["a" /* default */],
-    Navbar: __WEBPACK_IMPORTED_MODULE_4__components_navbar__["a" /* default */]
+    Card: __WEBPACK_IMPORTED_MODULE_3__components_groupCard__["a" /* default */],
+    Navbar: __WEBPACK_IMPORTED_MODULE_5__components_navbar__["a" /* default */]
 
   },
 
@@ -164,7 +170,7 @@ global.webpackJsonp([4],{
 
       if (leftTime <= 0) {
         leftTime = 0;
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_5__utils_util__["b" /* showModal */])('拼团失败', '来晚一步');
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_6__utils_util__["b" /* showModal */])('拼团失败', '来晚一步');
         return;
       } else {
         leftTime = allTime - (currentTime - startTime);
@@ -231,9 +237,9 @@ global.webpackJsonp([4],{
     getGroup_orders: function getGroup_orders() {
       var _this = this;
 
-      return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
+      return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.mark(function _callee() {
         var that, order_info, order;
-        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+        return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
@@ -381,26 +387,29 @@ global.webpackJsonp([4],{
   mounted: function mounted() {
     var _this2 = this;
 
-    return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee2() {
-      var that, initGroupId, orderData, order_user, left_user, group_type, i;
-      return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
+    return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.mark(function _callee2() {
+      var that, orderId, currentuser_code, uuid_authCode, orderData, order_user, left_user, group_type, i;
+      return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
         while (1) {
           switch (_context2.prev = _context2.next) {
             case 0:
               that = _this2;
 
-              that.initGroupId = that.$root.$mp.query.initGroupId; //发起拼团活动返回订单uuid
+              that.orderId = that.$root.$mp.query.orderId; //发起拼团活动返回订单uuid
               that.groupuer.length = that.groupNum;
 
               //    that.getGroup_orders()
-              initGroupId = that.initGroupId;
-              _context2.next = 6;
-              return that.$store.dispatch('groupActivitiesInit', initGroupId);
+              orderId = that.orderId;
+              currentuser_code = wx.getStorageSync('auth_code');
+              uuid_authCode = [orderId, currentuser_code];
+              _context2.next = 8;
+              return that.$store.dispatch('groupActivitiesInit', __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default()({}, uuid_authCode));
 
-            case 6:
+            case 8:
               orderData = _context2.sent;
 
               that.order_info = orderData.group_activity_initial;
+
               console.log(orderData);
 
               order_user = that.order_info.users; //[]
@@ -416,7 +425,7 @@ global.webpackJsonp([4],{
 
               that.getlastTime();
 
-            case 15:
+            case 17:
             case 'end':
               return _context2.stop();
           }
@@ -426,13 +435,14 @@ global.webpackJsonp([4],{
   },
   onShareAppMessage: function onShareAppMessage(res) {
     var that = this;
+    var initGroupId = '拼团活动uuid';
     if (res.from === 'button') {
       // 来自页面内转发按钮
       console.log(res.target);
     }
     return {
       title: that.order_info.title,
-      path: '/pages/groupPj/groupDetail/main' //参与拼团的页面
+      path: '/pages/groupPj/groupDetail/main?orderId=' //参与拼团的页面
     };
   }
 });
@@ -547,7 +557,12 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "line"
   }), _vm._v(" "), _c('div', {
     staticClass: "pjDetail"
-  }, [_vm._v("\n      商品详情\n    ")])], 1), _vm._v(" "), _c('div', {
+  }, [_vm._v("\n      商品详情\n      "), _c('rich-text', {
+    attrs: {
+      "nodes": _vm.order_info.detail,
+      "mpcomid": '2'
+    }
+  })], 1)], 1), _vm._v(" "), _c('div', {
     staticClass: "btn open_btn",
     attrs: {
       "data-status": "1",
