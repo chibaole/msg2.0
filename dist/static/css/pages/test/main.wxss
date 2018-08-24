@@ -1,0 +1,12 @@
+@import "/static/css/vendor.wxss";
+
+.share-image.data-v-3bd60e78 {
+  width: 650rpx;
+  height: 966rpx;
+  margin: 62rpx 50rpx 50rpx;
+  border: 2rpx solid #CCCCCC;
+  box-shadow: 0 0 32rpx #999999;
+}
+.btn.data-v-3bd60e78 {
+  width: 100%;
+}

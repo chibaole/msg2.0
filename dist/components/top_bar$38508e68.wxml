@@ -1,0 +1,11 @@
+<template name="top_bar$38508e68">
+  <view class="_div data-v-71eb7434 container">
+    <scroll-view scroll-x="true" class="_scroll-view data-v-71eb7434 xscroll_bar">
+      <view bindtap="handleProxy" data-id="item.menuId" data-eventid="{{'0-'+index}}" data-comkey="{{$k}}" wx:for="{{menus}}" wx:for-index="index" wx:for-item="item" class="_view data-v-71eb7434 {{activeClass}}">
+        <label class="_span data-v-71eb7434">{{item.menu}}</label>
+        <label class="_span data-v-71eb7434"></label>
+        <image src="http://oxnbz75b8.bkt.clouddn.com/plus.png" alt class="_img data-v-71eb7434"></image>
+      </view>
+    </scroll-view>
+  </view>
+</template>

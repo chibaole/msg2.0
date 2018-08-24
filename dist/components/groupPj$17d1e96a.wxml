@@ -1,0 +1,22 @@
+<import src="navbar$7457f0be" />
+<import src="groupCard$ad87fca4" />
+<template name="groupPj$17d1e96a">
+  <view class="_div data-v-97fa62a8 container">
+    <template data="{{...$root[$kk+'0'], $root}}" is="navbar$7457f0be"></template>
+    <template data="{{...$root[$kk+'1'], $root}}" is="groupCard$ad87fca4"></template>
+    <view class="_div data-v-97fa62a8 detail-order">
+      <view class="_h2 data-v-97fa62a8">订单详情</view>
+      <view class="_p data-v-97fa62a8">{{order_info.product.name}}
+        <label class="_span data-v-97fa62a8">¥{{order_info.current_price}}</label>
+      </view>
+    </view>
+    <view class="_div data-v-97fa62a8 address">
+      <view class="_p data-v-97fa62a8">地址：目前需填写收货地址
+        <label class="_span data-v-97fa62a8">(拼团成功后 提货时填写 )</label>
+      </view>
+    </view>
+    <view class="_div data-v-97fa62a8 pay">
+      <button bindtap="handleProxy" data-prjname="{{pjInfo.pjname}}" data-groupnum="{{pjInfo.groupNum}}" data-eventid="{{'0'}}" data-comkey="{{$k}}" class="_button data-v-97fa62a8">微信支付¥5</button>
+    </view>
+  </view>
+</template>

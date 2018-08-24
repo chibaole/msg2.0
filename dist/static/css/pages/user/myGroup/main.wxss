@@ -1,0 +1,120 @@
+@import "/static/css/vendor.wxss";
+
+@charset "UTF-8";
+.container.data-v-4656d1c7 {
+  font-family: PingFangSC-Regular;
+  font-weight: Regular;
+  color: #333;
+  background: #f7f7f7;
+  min-height: 1334rpx;
+}
+.container .getMore.data-v-4656d1c7 {
+  width: 160rpx;
+  height: 64rpx;
+  line-height: 64rpx;
+  text-align: center;
+  margin: 100rpx auto 0;
+  font-size: 28rpx;
+  color: #ff7f47;
+  border: 2rpx solid #ff7f47;
+  box-shadow: 0 0 16rpx 0 rgba(237, 237, 237, 0.4);
+}
+.groupList.data-v-4656d1c7 {
+  margin-top: 20rpx;
+}
+.groupList .groupItem.data-v-4656d1c7 {
+  width: 750rpx;
+  height: 260rpx;
+  background: #fff;
+  margin-bottom: 20rpx;
+}
+.groupList .groupItem .orderNum ._div.data-v-4656d1c7 {
+  display: inline-block;
+}
+.orderNum.data-v-4656d1c7 {
+  width: 650rpx;
+  height: 80rpx;
+  font-size: 28rpx;
+  line-height: 80rpx;
+  margin: 0 auto;
+  position: relative;
+  border-bottom: 4rpx solid #ededed;
+}
+.orderNum .left.data-v-4656d1c7 {
+  width: 450rpx;
+  height: 28rpx;
+}
+.orderNum .right.data-v-4656d1c7 {
+  width: 120rpx;
+}
+.orderNum .right ._span.data-v-4656d1c7 {
+  color: #ff7f4f;
+  display: inline-block;
+  vertical-align: middle;
+}
+.orderNum .right ._img.data-v-4656d1c7 {
+  width: 16rpx;
+  height: 26rpx;
+  display: inline-block;
+  position: absolute;
+  top: 30rpx;
+  right: 0;
+}
+.orderInfo.data-v-4656d1c7 {
+  position: relative;
+  width: 650rpx;
+  margin: 30rpx auto 0;
+}
+.orderInfo .price.data-v-4656d1c7 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-family: PingFangSC-Regular;
+  font-size: 28rpx;
+  color: #333;
+}
+.orderInfo .pic.data-v-4656d1c7 {
+  display: inline-block;
+}
+.orderInfo .pic ._img.data-v-4656d1c7 {
+  display: inline-block;
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 10rpx;
+  box-shadow: 0 8rpx 20rpx 0 rgba(204, 204, 204, 0.5);
+}
+.orderInfo .txt.data-v-4656d1c7 {
+  display: inline-block;
+  margin-left: 30rpx;
+  vertical-align: top;
+  font-family: PingFangSC-Regular;
+}
+.orderInfo .txt .name.data-v-4656d1c7 {
+  font-size: 28rpx;
+  color: #333;
+}
+.orderInfo .txt .group_type.data-v-4656d1c7,
+.orderInfo .txt .detail.data-v-4656d1c7 {
+  font-size: 24rpx;
+  color: #999;
+}
+.pos.data-v-4656d1c7 {
+  position: absolute;
+  top: 20rpx;
+  left: 46rpx;
+  opacity: 0;
+}
+.icon_kf.data-v-4656d1c7 {
+  width: 80rpx;
+  height: 80rpx;
+  display: inline-block;
+}
+.service.data-v-4656d1c7 {
+  line-height: 30rpx;
+  text-align: center;
+  width: 80rpx;
+  height: 80rpx;
+  position: fixed;
+  bottom: 100rpx;
+  right: 50rpx;
+}

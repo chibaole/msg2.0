@@ -1,0 +1,53 @@
+<import src="navbar$7457f0be" />
+<import src="groupCard$ad87fca4" />
+<template name="user$387b3350">
+  <view class="_div data-v-4958b0dc container">
+    <template data="{{...$root[$kk+'0'], $root}}" is="navbar$7457f0be"></template>
+    <template data="{{...$root[$kk+'1'], $root}}" is="groupCard$ad87fca4"></template>
+    <view class="_div data-v-4958b0dc receive">
+      <view class="_div data-v-4958b0dc title">收货人信息</view>
+      <view class="_div data-v-4958b0dc phone_address">
+        <view class="_div data-v-4958b0dc phone">
+          <label class="_span data-v-4958b0dc">收货信息：</label>
+          <label class="_span data-v-4958b0dc">{{}}土土</label>
+          <label class="_span data-v-4958b0dc">13216614843{{}}</label>
+        </view>
+        <view class="_div data-v-4958b0dc address">
+          <label class="_span data-v-4958b0dc">收货地址：</label>
+          <label class="_span data-v-4958b0dc addressDetail">{{}}上海市 静安区 光复路1号上海四行仓库抗战纪念馆223室上海市 静安区 光复路1号上海四行仓库抗战纪念馆223室</label>
+        </view>
+      </view>
+    </view>
+    <view class="_div data-v-4958b0dc orderinfo">
+      <view class="_div data-v-4958b0dc title">订单信息</view>
+      <view class="_div data-v-4958b0dc groupOrder">
+        <label class="_span data-v-4958b0dc">拼团订单：</label>
+        <label class="_span data-v-4958b0dc">13216614843{{}}</label>
+      </view>
+      <view class="_div data-v-4958b0dc orderTime">
+        <label class="_span data-v-4958b0dc">订单时间：</label>
+        <label class="_span data-v-4958b0dc">2018/12/17 23:21{{}}</label>
+      </view>
+      <view class="_div data-v-4958b0dc orderState">
+        <label class="_span data-v-4958b0dc">订单状态：</label>
+        <label class="_span data-v-4958b0dc">已发货{{}}</label>
+      </view>
+    </view>
+    <view class="_div data-v-4958b0dc express">
+      <view class="_div data-v-4958b0dc title">物流信息</view>
+      <view class="_div data-v-4958b0dc groupOrder">
+        <label class="_span data-v-4958b0dc">物流配送：</label>
+        <label class="_span data-v-4958b0dc">顺丰{{}}</label>
+      </view>
+      <view class="_div data-v-4958b0dc orderTime">
+        <label class="_span data-v-4958b0dc">运单编号：</label>
+        <label class="_span data-v-4958b0dc">534475800412{{}}</label>
+      </view>
+      <image src="../../../../../static/img/right.png" alt class="_img data-v-4958b0dc"></image>
+    </view>
+    <view class="_div data-v-4958b0dc service">
+      <contact-button size="22" class="_contact-button data-v-4958b0dc pos"></contact-button>
+      <image class="_img data-v-4958b0dc icon_kf" src="http://pbmrxkahq.bkt.clouddn.com/msgservice.png"></image>
+    </view>
+  </view>
+</template>

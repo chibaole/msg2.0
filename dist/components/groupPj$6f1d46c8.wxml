@@ -1,0 +1,49 @@
+<import src="navbar$7457f0be" />
+<import src="groupCard$ad87fca4" />
+<template name="groupPj$6f1d46c8">
+  <view class="_div data-v-b3a874ec container">
+    <template data="{{...$root[$kk+'0'], $root}}" is="navbar$7457f0be"></template>
+    <template data="{{...$root[$kk+'1'], $root}}" is="groupCard$ad87fca4"></template>
+    <view class="_div data-v-b3a874ec detail-order">
+      <view class="_h2 data-v-b3a874ec">拼团中 分享给好友组团</view>
+      <view class="_div data-v-b3a874ec order-info">
+        <view class="_div data-v-b3a874ec text">还差
+          <label class="_span data-v-b3a874ec">{{order_info.users_left}}</label>人参团,
+          <label class="_span data-v-b3a874ec">{{time.day}}</label>天
+          <label class="_span data-v-b3a874ec">{{time.hours}}</label>时
+          <label class="_span data-v-b3a874ec">{{time.minutes}}</label>分后结束 </view>
+      </view>
+      <view class="_div data-v-b3a874ec user">
+        <view class="_div data-v-b3a874ec pic" wx:for="{{order_info.users}}" wx:for-index="index" wx:for-item="item">
+          <image src="{{item.avatar_url}}" alt class="_img data-v-b3a874ec"></image>
+          <label class="_span data-v-b3a874ec mark" wx:if="{{item.is_initiator}}">团长</label>
+        </view>
+      </view>
+      <view class="_div data-v-b3a874ec line"></view>
+      <view class="_div data-v-b3a874ec group">
+        <view class="_h2 data-v-b3a874ec group-game">拼团玩法</view>
+        <view class="_p data-v-b3a874ec step1">1.免费领取 但要完成小作业，写食用反馈。</view>
+        <view class="_p data-v-b3a874ec step2">2.领取成功后，请扫码加群等待发货哦。</view>
+      </view>
+      <view class="_div data-v-b3a874ec line"></view>
+      <view class="_div data-v-b3a874ec pjDetail"> 商品详情 </view>
+    </view>
+    <view class="_div data-v-b3a874ec btn open_btn" bindtap="handleProxy" data-status="1" data-eventid="{{'0'}}" data-comkey="{{$k}}">
+      <label class="_span data-v-b3a874ec">邀请好友一起享用</label>
+    </view>
+    <view class="_div data-v-b3a874ec mask" wx:if="{{showBox}}">
+      <view class="_div data-v-b3a874ec meunBox" wx:if="{{showBox}}">
+        <image class="_img data-v-b3a874ec x" src="../../../../static/img/close2.png" alt bindtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}"></image>
+        <view class="_div data-v-b3a874ec title">分享加速抽奖</view>
+        <button class="_button data-v-b3a874ec friend" open-type="share">
+          <image src="../../../../static/img/wechatF.png" alt class="_img data-v-b3a874ec"></image>
+        </button>
+        <view class="_div data-v-b3a874ec createImg" bindtap="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}">
+          <image src="../../../../static/img/wechatimg.png" alt class="_img data-v-b3a874ec"></image>
+        </view>
+        <view class="_div data-v-b3a874ec wechatFriend" open-type="share">微信好友</view>
+        <view class="_div data-v-b3a874ec shengchengImg" bindtap="handleProxy" data-eventid="{{'3'}}" data-comkey="{{$k}}">生成分享图片</view>
+      </view>
+    </view>
+  </view>
+</template>

@@ -1,0 +1,16 @@
+<template name="vue2-countdown$83c4493e">
+  <view class="_div data-v-eeaf0e42">
+    <view wx:if="{{msTime.show}}" class="_p data-v-eeaf0e42">
+      <label wx:if="{{msTime.day>0}}" class="_span data-v-eeaf0e42">
+        <label class="_span data-v-eeaf0e42">{{msTime.day}}</label>
+        <view class="_i data-v-eeaf0e42">{{dayTxt}}</view>
+      </label>
+      <label class="_span data-v-eeaf0e42">{{msTime.hour}}</label>
+      <view class="_i data-v-eeaf0e42">{{hourTxt}}</view>
+      <label class="_span data-v-eeaf0e42">{{msTime.minutes}}</label>
+      <view class="_i data-v-eeaf0e42">{{minutesTxt}}</view>
+      <label class="_span data-v-eeaf0e42">{{msTime.seconds}}</label>
+      <view class="_i data-v-eeaf0e42">{{secondsTxt}}</view>
+    </view>
+  </view>
+</template>

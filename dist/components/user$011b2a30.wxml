@@ -1,0 +1,65 @@
+<import src="navbar$7457f0be" />
+<template name="user$011b2a30">
+  <view class="_div data-v-7ec0cb2e container">
+    <template data="{{...$root[$kk+'0'], $root}}" is="navbar$7457f0be"></template>
+    <view class="_div data-v-7ec0cb2e groupList">
+      <view class="_div data-v-7ec0cb2e groupItem">
+        <view class="_div data-v-7ec0cb2e orderNum">
+          <view class="_div data-v-7ec0cb2e left">订单号：
+            <label class="_span data-v-7ec0cb2e">{{}}534475800412</label>
+          </view>
+          <view class="_div data-v-7ec0cb2e right">
+            <label class="_span data-v-7ec0cb2e">未中奖{{}}</label>
+            <image src="../../../../static/img/right.png" alt class="_img data-v-7ec0cb2e"></image>
+          </view>
+        </view>
+        <view class="_div data-v-7ec0cb2e orderInfo">
+          <view class="_div data-v-7ec0cb2e pic">
+            <image src alt class="_img data-v-7ec0cb2e"></image>
+          </view>
+          <view class="_div data-v-7ec0cb2e txt">
+            <view class="_div data-v-7ec0cb2e name">{{}}限量5000份 | 凤梨酥6枚装</view>
+            <view class="_p data-v-7ec0cb2e group_type">{{}}三人团</view>
+            <view class="_p data-v-7ec0cb2e detail">{{}}商品描述详情</view>
+          </view>
+        </view>
+        <view class="_div data-v-7ec0cb2e explain">
+          <label class="_span data-v-7ec0cb2e">{{}}2018</label>年
+          <label class="_span data-v-7ec0cb2e">{{}}10</label>月
+          <sapn class="_sapn data-v-7ec0cb2e">{{}}99</sapn>日
+          <label class="_span data-v-7ec0cb2e">22：30{{}}</label>满10人开奖</view>
+      </view>
+      <view class="_div data-v-7ec0cb2e groupItem">
+        <view class="_div data-v-7ec0cb2e orderNum">
+          <view class="_div data-v-7ec0cb2e left">订单号：
+            <label class="_span data-v-7ec0cb2e">{{}}534475800412</label>
+          </view>
+          <view class="_div data-v-7ec0cb2e right">
+            <label class="_span data-v-7ec0cb2e">已发货{{}}</label>
+            <image src="../../../../static/img/right.png" alt class="_img data-v-7ec0cb2e"></image>
+          </view>
+        </view>
+        <view class="_div data-v-7ec0cb2e orderInfo">
+          <view class="_div data-v-7ec0cb2e pic">
+            <image src alt class="_img data-v-7ec0cb2e"></image>
+          </view>
+          <view class="_div data-v-7ec0cb2e txt">
+            <view class="_div data-v-7ec0cb2e name">{{}}限量5000份 | 凤梨酥6枚装</view>
+            <view class="_p data-v-7ec0cb2e group_type">{{}}三人团</view>
+            <view class="_p data-v-7ec0cb2e detail">{{}}商品描述详情</view>
+          </view>
+        </view>
+        <view class="_div data-v-7ec0cb2e explain">
+          <label class="_span data-v-7ec0cb2e">{{}}2018</label>年
+          <label class="_span data-v-7ec0cb2e">{{}}10</label>月
+          <sapn class="_sapn data-v-7ec0cb2e">{{}}99</sapn>日
+          <label class="_span data-v-7ec0cb2e">22：30{{}}</label>满20人开奖</view>
+      </view>
+    </view>
+    <view class="_div data-v-7ec0cb2e getMore" wx:if="{{true}}">加载更多</view>
+    <view class="_div data-v-7ec0cb2e service">
+      <contact-button size="22" class="_contact-button data-v-7ec0cb2e pos"></contact-button>
+      <image class="_img data-v-7ec0cb2e icon_kf" src="http://pbmrxkahq.bkt.clouddn.com/msgservice.png"></image>
+    </view>
+  </view>
+</template>

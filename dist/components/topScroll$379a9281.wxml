@@ -1,0 +1,14 @@
+<template name="topScroll$379a9281">
+  <view class="_div data-v-02773b02 container">
+    <scroll-view class="_scroll-view data-v-02773b02 item-box" scroll-x="true" scroll-left>
+      <view class="_div data-v-02773b02 item" wx:for="{{list}}" wx:for-index="index" wx:for-item="item">
+        <image src="{{item.pic}}" alt class="_img data-v-02773b02"></image>
+        <view class="_div data-v-02773b02 mask" wx:if="{{mark}}"></view>
+        <view class="_div data-v-02773b02 text">
+          <view class="_h2 data-v-02773b02">{{item.title}}</view>
+          <view class="_p data-v-02773b02">{{item.text}}</view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</template>

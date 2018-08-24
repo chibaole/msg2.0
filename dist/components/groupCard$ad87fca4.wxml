@@ -1,0 +1,19 @@
+<template name="groupCard$ad87fca4">
+  <view class="_div data-v-7065d1ac container">
+    <view class="_div data-v-7065d1ac wrap">
+      <view class="_div data-v-7065d1ac pj-info">
+        <view class="_div data-v-7065d1ac left">
+          <image src="http://oxl5leo53.bkt.clouddn.com/u=660634825,1514502894&fm=11&gp=0.jpg" alt class="_img data-v-7065d1ac"></image>
+        </view>
+        <view class="_div data-v-7065d1ac right">
+          <view class="_h2 data-v-7065d1ac">
+            <view class="_div data-v-7065d1ac mark">三人团</view>{{order_info.title}}</view>
+          <view class="_p data-v-7065d1ac">
+            <label class="_span data-v-7065d1ac">$5</label>
+            <label class="_span data-v-7065d1ac">$96</label>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>
