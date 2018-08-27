@@ -16,7 +16,10 @@
       </view>
     </view>
     <view class="_div data-v-97fa62a8 pay">
-      <button bindtap="handleProxy" data-prjname="{{pjInfo.pjname}}" data-groupnum="{{pjInfo.groupNum}}" data-eventid="{{'0'}}" data-comkey="{{$k}}" class="_button data-v-97fa62a8">微信支付¥5</button>
+      <button bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}" class="_button data-v-97fa62a8">
+        <image src="http://pbmrxkahq.bkt.clouddn.com/%E5%BE%AE%E4%BF%A1icon.png" alt class="_img data-v-97fa62a8"></image>
+        <label class="_span data-v-97fa62a8 paytxt">微信支付¥{{order_info.current_price}}</label>
+      </button>
     </view>
   </view>
 </template>

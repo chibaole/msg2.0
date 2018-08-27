@@ -8,8 +8,8 @@
       <div class="right">
 
 
-        <h2><div class="mark">三人团</div>{{order_info.title}}</h2>
-        <p><span>$5</span><span>$96</span></p>
+        <h2><div class="mark">{{order_info.group_type}}</div>{{order_info.title}}</h2>
+        <p><span>¥{{order_info.current_price}}</span><span>¥{{order_info.original_price}}</span></p>
       </div>
     </div>
     </div>

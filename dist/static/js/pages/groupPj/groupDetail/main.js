@@ -38,6 +38,8 @@ global.webpackJsonp([12],{
 //
 //
 //
+//
+//
 
 
 
@@ -169,13 +171,6 @@ global.webpackJsonp([12],{
 
 /***/ }),
 
-/***/ 188:
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
 /***/ 223:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -201,14 +196,19 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "pay"
   }, [_c('button', {
     attrs: {
-      "data-prjname": _vm.pjInfo.pjname,
-      "data-groupnum": _vm.pjInfo.groupNum,
       "eventid": '0'
     },
     on: {
       "click": _vm.pay
     }
-  }, [_vm._v("微信支付¥5")])], 1)], 1)
+  }, [_c('img', {
+    attrs: {
+      "src": "http://pbmrxkahq.bkt.clouddn.com/%E5%BE%AE%E4%BF%A1icon.png",
+      "alt": ""
+    }
+  }), _c('span', {
+    staticClass: "paytxt"
+  }, [_vm._v("微信支付¥" + _vm._s(_vm.order_info.current_price))])])], 1)], 1)
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -223,6 +223,13 @@ if (false) {
 
 /***/ }),
 
+/***/ 282:
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ 67:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -232,7 +239,7 @@ if (false) {
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(188)
+  __webpack_require__(282)
 }
 var normalizeComponent = __webpack_require__(1)
 /* script */

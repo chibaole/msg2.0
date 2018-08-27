@@ -1,25 +1,25 @@
 <template>
-  <div class="container">
+  <div class="container skeleton ">
+
     <div class='praise-title'><span></span>今日福利</div>
 
     <scroll-view  class="scroll-view_H" scroll-x="true" scroll-left>
 
-      <div  class="scroll-view-item_H" v-for="boon in boons" :key="boon.uuid"  :data-uuid = "boon.uuid">
-        <div class="recomend-box">
-          <div class="recomend-pic">
+      <div  class="scroll-view-item_H  " v-for="boon in boons" :key="boon.uuid"  :data-uuid = "boon.uuid">
+        <div class="recomend-box ">
+          <div class="recomend-pic  ">
             <img :src="host + boon.title_image_url" alt="">
           </div>
-          <div class="recomend-box-inner">
-            <div class="recomend-intitle">{{boon.title}}</div>
-            <div class="recomend-intitle little_title">{{boon.description}}</div>
+          <div class="recomend-box-inner ">
+            <div class="recomend-intitle ">{{boon.title}}</div>
+            <div class="recomend-intitle little_title ">{{boon.description}}</div>
 
           </div>
         </div>
-        <div class="recomend-method"  @click="attendBoon" :data-title="boon.title" :data-uuid = "boon.uuid" >{{boon.button.text}}</div>
+        <div class="recomend-method "  @click="attendBoon" :data-title="boon.title" :data-uuid = "boon.uuid" >{{boon.button.text}}</div>
 
       </div>
     </scroll-view>
-
 
   </div>
 </template>
@@ -36,7 +36,8 @@
 
         ],
         page:1,
-        host:config.host
+        host:config.host,
+        showSkeleton:true
       }
     },
     methods: {
@@ -75,6 +76,14 @@
 
 
       },
+    },
+    onLoad(){
+
+      const that = this
+      setTimeout(()=>{
+        that.showSkeleton = false
+      },10000)
+
     },
 
 

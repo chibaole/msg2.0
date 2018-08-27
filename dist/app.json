@@ -1,4 +1,7 @@
 {
+  "usingComponents": {
+    "skeleton": "../static/skeleton/skeleton"
+  },
   "pages": [
     "pages/home/main",
     "pages/cards/cardDetail/main",

@@ -31,6 +31,8 @@ global.webpackJsonp([1],{
 //
 //
 //
+//
+//
 
 
 
@@ -39,7 +41,8 @@ global.webpackJsonp([1],{
   data: function data() {
     return {
       groups: [],
-      host: 'http://47.98.170.205'
+      host: 'http://47.98.170.205',
+      showSkeleton: true
     };
   },
 
@@ -90,7 +93,9 @@ global.webpackJsonp([1],{
   onLoad: function onLoad() {
     var that = this;
     //      that.getGroup()
-
+    setTimeout(function () {
+      that.showSkeleton = false;
+    }, 5000);
   },
   mounted: function mounted() {
     var _this2 = this;
@@ -244,7 +249,8 @@ global.webpackJsonp([1],{
     return {
       boons: [],
       page: 1,
-      host: __WEBPACK_IMPORTED_MODULE_4__config__["a" /* default */].host
+      host: __WEBPACK_IMPORTED_MODULE_4__config__["a" /* default */].host,
+      showSkeleton: true
     };
   },
 
@@ -298,7 +304,13 @@ global.webpackJsonp([1],{
       }))();
     }
   },
+  onLoad: function onLoad() {
 
+    var that = this;
+    setTimeout(function () {
+      that.showSkeleton = false;
+    }, 10000);
+  },
   mounted: function mounted() {
     var _this2 = this;
 
@@ -401,7 +413,9 @@ global.webpackJsonp([1],{
       open: false,
       userInfo: {
         openid: ''
-      }
+      },
+      showSkeleton: true //骨架屏显示隐藏
+
     };
   },
 
@@ -479,19 +493,27 @@ global.webpackJsonp([1],{
     }
   },
   onLoad: function onLoad() {
-    //      this.signup()
-    //      var auth_code = await this.$store.dispatch('signup')
-
-
-    //      console.log(`这是store获取的${auth_code}`)
-
     var _this3 = this;
 
     return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee3() {
+      var that;
       return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee3$(_context3) {
         while (1) {
           switch (_context3.prev = _context3.next) {
             case 0:
+              //      this.signup()
+              //      var auth_code = await this.$store.dispatch('signup')
+
+
+              //      console.log(`这是store获取的${auth_code}`)
+
+              that = _this3;
+
+              setTimeout(function () {
+                that.showSkeleton = false;
+              }, 3000);
+
+            case 2:
             case 'end':
               return _context3.stop();
           }
@@ -807,32 +829,32 @@ if (false) {
 "use strict";
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
-    staticClass: "container"
+    staticClass: "container "
   }, [_c('p', {
-    staticClass: "componten_name"
+    staticClass: "componten_name "
   }, [_c('span'), _vm._v("拼团")]), _vm._v(" "), _vm._l((_vm.groups), function(group, index) {
     return _c('div', {
       key: group.uuid,
-      staticClass: "group-tiem"
+      staticClass: "group-tiem "
     }, [_c('div', {
-      staticClass: "pic"
+      staticClass: "pic "
     }, [_c('img', {
       attrs: {
         "src": _vm.host + group.title_image_url,
         "alt": ""
       }
     })]), _vm._v(" "), _c('div', {
-      staticClass: "info-box"
+      staticClass: "info-box "
     }, [_c('div', {
-      staticClass: "group-info"
+      staticClass: "group-info "
     }, [_c('div', {
-      staticClass: "group-text"
+      staticClass: "group-text "
     }, [_vm._v(_vm._s(group.title))]), _vm._v(" "), _c('div', {
-      staticClass: "group-prj-price"
+      staticClass: "group-prj-price "
     }, [_vm._v("$" + _vm._s(group.current_price) + " "), _c('span', {
-      staticClass: "price"
+      staticClass: "price "
     }, [_vm._v("¥" + _vm._s(group.original_price))])])]), _vm._v(" "), _c('div', {
-      staticClass: "join-group",
+      staticClass: "join-group ",
       attrs: {
         "data-groupname": _vm.groupname,
         "data-uuid": group.uuid,
@@ -916,12 +938,14 @@ if (false) {
 
 "use strict";
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [(_vm.open) ? _c('div', {
+  return _c('div', {
+    staticClass: "skeleton"
+  }, [(_vm.open) ? _c('div', {
     staticClass: "explain-box"
   }, [_c('p', [_vm._v("没事干研究院很凉快")])], 1) : _vm._e(), _vm._v(" "), _c('div', {
     staticClass: "clear"
   }), _vm._v(" "), _c('div', {
-    staticClass: "appname"
+    staticClass: "appname "
   }, [_vm._v("没事干研究院很酷"), _c('div', {
     staticClass: "explain",
     attrs: {
@@ -963,7 +987,7 @@ if (false) {
 "use strict";
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
-    staticClass: "container"
+    staticClass: "container skeleton "
   }, [_vm._m(0), _vm._v(" "), _c('scroll-view', {
     staticClass: "scroll-view_H",
     attrs: {
@@ -973,27 +997,27 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   }, _vm._l((_vm.boons), function(boon, index) {
     return _c('div', {
       key: boon.uuid,
-      staticClass: "scroll-view-item_H",
+      staticClass: "scroll-view-item_H  ",
       attrs: {
         "data-uuid": boon.uuid
       }
     }, [_c('div', {
-      staticClass: "recomend-box"
+      staticClass: "recomend-box "
     }, [_c('div', {
-      staticClass: "recomend-pic"
+      staticClass: "recomend-pic  "
     }, [_c('img', {
       attrs: {
         "src": _vm.host + boon.title_image_url,
         "alt": ""
       }
     })]), _vm._v(" "), _c('div', {
-      staticClass: "recomend-box-inner"
+      staticClass: "recomend-box-inner "
     }, [_c('div', {
-      staticClass: "recomend-intitle"
+      staticClass: "recomend-intitle "
     }, [_vm._v(_vm._s(boon.title))]), _vm._v(" "), _c('div', {
-      staticClass: "recomend-intitle little_title"
+      staticClass: "recomend-intitle little_title "
     }, [_vm._v(_vm._s(boon.description))])])]), _vm._v(" "), _c('div', {
-      staticClass: "recomend-method",
+      staticClass: "recomend-method ",
       attrs: {
         "data-title": boon.title,
         "data-uuid": boon.uuid,

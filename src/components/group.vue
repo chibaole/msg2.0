@@ -1,15 +1,17 @@
 <template>
-  <div class="container">
-    <p class="componten_name"><span></span>拼团</p>
-    <div class="group-tiem" v-for="group in groups" :key="group.uuid">
-      <div class="pic"><img  :src="host + group.title_image_url" alt=""></div>
-      <div class="info-box">
-      <div class="group-info">
-          <div class="group-text">{{group.title}}</div>
-          <div class="group-prj-price">${{group.current_price}} <span class="price">¥{{group.original_price}}</span></div>
+
+  <div class="container ">
+
+    <p class="componten_name "><span></span>拼团</p>
+    <div class="group-tiem " v-for="group in groups" :key="group.uuid">
+      <div class="pic " ><img  :src="host + group.title_image_url" alt=""></div>
+      <div class="info-box ">
+      <div class="group-info ">
+          <div class="group-text ">{{group.title}}</div>
+          <div class="group-prj-price ">${{group.current_price}} <span class="price ">¥{{group.original_price}}</span></div>
 
       </div>
-      <div class="join-group" @click="goGroup" :data-groupname="groupname" :data-uuid="group.uuid">{{group.button.text}}</div>
+      <div class="join-group " @click="goGroup" :data-groupname="groupname" :data-uuid="group.uuid">{{group.button.text}}</div>
       </div>
 
     </div>
@@ -27,7 +29,8 @@
         groups:[
 
         ],
-        host:'http://47.98.170.205'
+        host:'http://47.98.170.205',
+        showSkeleton:true
       }
     },
     methods:{
@@ -58,6 +61,9 @@
       onLoad(){
         let that = this
 //      that.getGroup()
+        setTimeout(()=>{
+          that.showSkeleton = false
+        },5000)
 
 
     },

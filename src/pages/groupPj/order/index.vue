@@ -39,7 +39,7 @@
     </div>
 
     <!--------------------------------------------------------------------------->
-    <div class="btn open_btn" @click="shareMenu" data-status="1"><span>邀请好友一起享用</span></div>
+    <div class="btn open_btn" @click="shareMenu" data-status="1" v-if="false"><span>邀请好友一起享用</span></div>
     <div class="mask" v-if="showBox">  <!-- 遮罩-->
 
       <div class="meunBox" v-if="showBox">
@@ -61,6 +61,13 @@
 
 
     </div>
+    <!--参团底部button-->
+    <div class="pay" v-if="true" >
+      <div class="price">¥{{order_info.current_price}}<span>还剩{{}}10份</span></div>
+      <div class="join-group" @click="attendGroup" :data-uuid="order_info.uuid" >一键参与</div>
+    </div>
+
+
 
 
     <!--<div :animation="animationData" class="drawer_attr_box"v-if="showModal"   >-->
@@ -145,6 +152,21 @@
             console.log('支付错误')
           }
         })
+      },
+     async attendGroup(){
+
+        const that = this
+//        const uuid = that.orderUuid
+//       参与拼团的订单uuid
+       const uuid = '123434'
+       const auth_code = wx.getStorageSync('auth_code')
+       const  uuid_authCode = [uuid,auth_code]
+       console.log(uuid_authCode)
+       const attendRes = await that.$store.dispatch('attendGroupActivities',{...uuid_authCode})
+       console.log(attendRes)
+       const orderUuid = attendRes.group_activity_order.uuid
+
+
       },
       getlastTime() {
         let that = this
@@ -375,41 +397,68 @@
 
 
   },
-  onLoad()
+   async onLoad()
   {
     var that = this
     var current_order = wx.getStorageSync('current_orderinfo') //取之前缓存的发起拼团数据
 //    that.order_info = current_order
 //    console.log(current_order)
-  },
-   async mounted()
-  {
-    let that = this
+
     that.orderId = that.$root.$mp.query.orderId //发起拼团活动返回订单uuid
     that.groupuer.length = that.groupNum
 
 //    that.getGroup_orders()
     let orderId = that.orderId
-     let currentuser_code = wx.getStorageSync('auth_code')
-     let uuid_authCode = [orderId,currentuser_code]
+    let currentuser_code = wx.getStorageSync('auth_code')
+    let uuid_authCode = [orderId,currentuser_code]
 
     let orderData = await  that.$store.dispatch('groupActivitiesInit',{...uuid_authCode})
-     that.order_info = orderData.group_activity_initial
 
-     console.log(orderData)
+    that.order_info = orderData.group_activity_initial
+    console.log('团购')
+    console.log(orderData)
 
-     let order_user = that.order_info.users //[]
-     let left_user = that.order_info.users_left //number
-     let group_type = that.order_info.group_type//3 / 5
-      for(var i = 0; i < left_user; i++){
-        order_user.push({})
-      }
-      console.log(order_user)
+    let order_user = that.order_info.users //[]
+    let left_user = that.order_info.users_left //number
+    let group_type = that.order_info.group_type//3 / 5
+    for(var i = 0; i < left_user; i++){
+      order_user.push({})
+    }
+    console.log(order_user)
 
 
 
 
     that.getlastTime()
+  },
+   async mounted()
+  {
+//    let that = this
+//    that.orderId = that.$root.$mp.query.orderId //发起拼团活动返回订单uuid
+//    that.groupuer.length = that.groupNum
+//
+////    that.getGroup_orders()
+//    let orderId = that.orderId
+//     let currentuser_code = wx.getStorageSync('auth_code')
+//     let uuid_authCode = [orderId,currentuser_code]
+//
+//    let orderData = await  that.$store.dispatch('groupActivitiesInit',{...uuid_authCode})
+//     that.order_info = orderData.group_activity_initial
+//
+//     console.log(that.order_info)
+//
+//     let order_user = that.order_info.users //[]
+//     let left_user = that.order_info.users_left //number
+//     let group_type = that.order_info.group_type//3 / 5
+//      for(var i = 0; i < left_user; i++){
+//        order_user.push({})
+//      }
+//      console.log(order_user)
+//
+//
+//
+//
+//    that.getlastTime()
 
 
   }
@@ -432,7 +481,7 @@
 
 
 </script>
-<style scoped>
+<style lang="scss" scoped>
   .container {
     font-family: "PingFang SC";
     font-weight: Regular;
@@ -823,6 +872,62 @@
     top: 15px;
     right: 15px;
 
+  }
+
+  /*参团底部button*/
+
+  .pay{
+    width: 100%;
+    height: 60px;
+    background: #fff;
+    /*border-top: 1px solid #000;*/
+    box-shadow: 0 -2px 8px  #ededed;
+    position: fixed;
+    bottom: 0;
+    z-index: 100;
+
+  }
+
+
+
+  .price{
+    display: inline-block;
+
+    width: 90px;
+    height: 25px;
+    line-height: 25px;
+    color:#f7412d;
+    background: #fff;
+    font-size: 18px;
+    text-align: left;
+
+    margin-left: 25px;
+    margin-top: 18px;
+
+    /*border:1px solid #000;*/
+
+  }
+  .price span{
+    font-size: 12px;
+    color: #999;
+  }
+
+  .join-group{
+    display: inline-block;
+    width: 140px;
+    height: 44px;
+    line-height: 44px;
+    border-radius: 22px 22px 22px 22px;
+    background: #ff7f4f;
+    box-shadow: 0 0 8px #ff7f4f;
+    text-align: center;
+    font-weight: Medium;
+    margin-top:8px;
+    margin-left: 95px;
+
+    font-family: PingFangSC-Medium;
+    font-size: 16px;
+    color: #fff;
   }
 
 

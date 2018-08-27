@@ -15,7 +15,9 @@
     </div>
 
     <div class="pay">
-      <button @click="pay" :data-prjname="pjInfo.pjname" :data-groupnum="pjInfo.groupNum">微信支付¥5</button>
+      <button @click="pay" >
+        <img src="http://pbmrxkahq.bkt.clouddn.com/%E5%BE%AE%E4%BF%A1icon.png" alt=""><span class="paytxt">微信支付¥{{order_info.current_price}}</span>
+      </button>
     </div>
   </div>
 </template>
@@ -111,7 +113,7 @@
 
   }
 </script>
-<style scoped>
+<style lang="scss" scoped>
 .container{
   font-family: "PingFang SC";
   font-weight: Regular;
@@ -264,6 +266,7 @@
     background: #fff;
     box-shadow: 0px -2px 8px #ededed;
 
+
   }
   .pay button{
     width: 325px;
@@ -274,5 +277,28 @@
     font-size: 16px;
     color: #fff;
     border-radius: 5px;
+    display: block;
+    line-height: 44px;
+    position: relative;
+    img{
+      width: 18px;
+      height: 18px;
+      margin-top: 13px;
+
+      display: inline-block;
+
+      /*border: 1px solid #000;*/
+      position: absolute;
+      left: 106px;
+
+    };
+    .paytxt{
+      display: inline-block;
+      /*border: 1px solid #000;*/
+      position: absolute;
+      top:0;
+      left:132px;
+    }
+
   }
 </style>

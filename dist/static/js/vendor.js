@@ -9431,7 +9431,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "right"
   }, [_c('h2', [_c('div', {
     staticClass: "mark"
-  }, [_vm._v("三人团")]), _vm._v(_vm._s(_vm.order_info.title))]), _vm._v(" "), _c('p', [_c('span', [_vm._v("$5")]), _c('span', [_vm._v("$96")])])], 1)])])])
+  }, [_vm._v(_vm._s(_vm.order_info.group_type))]), _vm._v(_vm._s(_vm.order_info.title))]), _vm._v(" "), _c('p', [_c('span', [_vm._v("¥" + _vm._s(_vm.order_info.current_price))]), _c('span', [_vm._v("¥" + _vm._s(_vm.order_info.original_price))])])], 1)])])])
 }
 var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {

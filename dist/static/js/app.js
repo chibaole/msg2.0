@@ -30,8 +30,8 @@ global.webpackJsonp([15],{
 
 __WEBPACK_IMPORTED_MODULE_3_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_4_vuex__["a" /* default */]);
 
-// const apiDomain = 'http://localhost:5757/v1'
-var apiDomain = 'http://47.98.170.205/api/v1';
+var apiDomain = 'http://localhost:5757/v1';
+// const apiDomain = 'http://47.98.170.205/api/v1'
 
 
 
@@ -380,30 +380,72 @@ var apiDomain = 'http://47.98.170.205/api/v1';
           while (1) {
             switch (_context9.prev = _context9.next) {
               case 0:
-                uuid = uuid_authCode[0];
+                console.log(uuid_authCode);
+                uuid = uuid_authCode[0] || '临时uuid';
                 auth_code = uuid_authCode[1];
 
-                console.log('\u62FC\u56E2\u53D1\u8D77\u8BE6\u60C5---' + apiDomain + '/group_activity_initials/' + uuid);
-                _context9.next = 5;
+                console.log('\u62FC\u56E2\u53D1\u8D77\u8BE6\u60C5---' + apiDomain + '/group_activity_initials/' + uuid + '?auth_code=' + auth_code + 'v');
+                _context9.next = 6;
                 return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_6__utils_wx__["c" /* request */])({
                   method: 'get',
                   url: apiDomain + '/group_activity_initials/' + uuid + '?auth_code=' + auth_code
                 });
 
-              case 5:
+              case 6:
                 initOrder = _context9.sent;
 
                 console.log(initOrder);
                 return _context9.abrupt('return', initOrder);
 
-              case 8:
+              case 9:
               case 'end':
                 return _context9.stop();
             }
           }
         }, _callee9, _this9);
       }))();
+    },
+
+    // 参与拼团
+
+    attendGroupActivities: function attendGroupActivities(_ref17, _ref16) {
+      var _this10 = this;
+
+      var commit = _ref17.commit;
+
+      var uuid_authCode = __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_objectWithoutProperties___default()(_ref16, []);
+
+      return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.mark(function _callee10() {
+        var attendData;
+        return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.wrap(function _callee10$(_context10) {
+          while (1) {
+            switch (_context10.prev = _context10.next) {
+              case 0:
+                console.log('一键参与拼团');
+
+                _context10.next = 3;
+                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_6__utils_wx__["c" /* request */])({
+                  method: 'post',
+                  url: apiDomain + '/group_activities/' + uuid_authCode[0] + '/attend?auth_code=' + uuid_authCode[1]
+                });
+
+              case 3:
+                attendData = _context10.sent;
+
+                console.log(attendData);
+                return _context10.abrupt('return', attendData);
+
+              case 6:
+              case 'end':
+                return _context10.stop();
+            }
+          }
+        }, _callee10, _this10);
+      }))();
     }
+
+    // 我的拼团订单详情页面
+
   }
 
 }));
@@ -489,6 +531,9 @@ app.$mount();
 /* harmony default export */ __webpack_exports__["default"] = ({
   config: {
 
+    usingComponents: {
+      'skeleton': '../static/skeleton/skeleton'
+    },
     pages: ['^pages/home/main', 'pages/project/main', 'pages/groupPj/main', 'pages/groupPj/groupDetail/main', 'pages/groupPj/order/main', 'pages/cards/main', 'pages/user/main', 'pages/user/myGroup/main', 'pages/user/myGroup/myGroupDetail/main', 'pages/user/myboonList/main', 'pages/user/myboonList/myBoon/main', 'pages/test/main'],
 
     'window': {

@@ -7,10 +7,10 @@
         </view>
         <view class="_div data-v-7065d1ac right">
           <view class="_h2 data-v-7065d1ac">
-            <view class="_div data-v-7065d1ac mark">三人团</view>{{order_info.title}}</view>
+            <view class="_div data-v-7065d1ac mark">{{order_info.group_type}}</view>{{order_info.title}}</view>
           <view class="_p data-v-7065d1ac">
-            <label class="_span data-v-7065d1ac">$5</label>
-            <label class="_span data-v-7065d1ac">$96</label>
+            <label class="_span data-v-7065d1ac">¥{{order_info.current_price}}</label>
+            <label class="_span data-v-7065d1ac">¥{{order_info.original_price}}</label>
           </view>
         </view>
       </view>

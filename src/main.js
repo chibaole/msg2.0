@@ -17,6 +17,9 @@ app.$mount()
 export default{
   config: {
 
+    usingComponents: {
+      'skeleton': '../static/skeleton/skeleton'
+    },
     pages: ['^pages/home/main','pages/project/main','pages/groupPj/main',
       'pages/groupPj/groupDetail/main','pages/groupPj/order/main',
       'pages/cards/main','pages/user/main','pages/user/myGroup/main',

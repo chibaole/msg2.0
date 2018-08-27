@@ -51,11 +51,11 @@
   font-size: 40rpx;
   font-weight: Medium;
 }
-.right  ._p ._span.data-v-97fa62a8 {
+.right ._p ._span.data-v-97fa62a8 {
   display: inline-block;
   margin-left: 10rpx;
 }
-.right  ._p ._span.data-v-97fa62a8:nth-child(1) {
+.right ._p ._span.data-v-97fa62a8:nth-child(1) {
   font-size: 40rpx;
   color: #D0021B;
   font-weight: Medium;
@@ -138,4 +138,21 @@
   font-size: 32rpx;
   color: #fff;
   border-radius: 10rpx;
+  display: block;
+  line-height: 88rpx;
+  position: relative;
+}
+.pay ._button ._img.data-v-97fa62a8 {
+  width: 36rpx;
+  height: 36rpx;
+  margin-top: 26rpx;
+  display: inline-block;
+  position: absolute;
+  left: 212rpx;
+}
+.pay ._button .paytxt.data-v-97fa62a8 {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 264rpx;
 }

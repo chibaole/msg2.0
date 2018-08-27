@@ -3,8 +3,8 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
-// const apiDomain = 'http://localhost:5757/v1'
-const apiDomain = 'http://47.98.170.205/api/v1'
+const apiDomain = 'http://localhost:5757/v1'
+// const apiDomain = 'http://47.98.170.205/api/v1'
 import {get, post, showModal} from '@/utils/util'
 
 
@@ -161,10 +161,11 @@ export default new Vuex.Store({
     },
 //拼团发起详情
     async groupActivitiesInit({commit},{...uuid_authCode}){
-      let uuid = uuid_authCode[0]
+      console.log(uuid_authCode)
+      let uuid = uuid_authCode[0] || '临时uuid'
       let auth_code =uuid_authCode[1]
 
-      console.log(`拼团发起详情---${apiDomain}/group_activity_initials/${uuid}`)
+      console.log(`拼团发起详情---${apiDomain}/group_activity_initials/${uuid}?auth_code=${auth_code}v`)
       let initOrder = await request({
         method:'get',
         url:`${apiDomain}/group_activity_initials/${uuid}?auth_code=${auth_code}`
@@ -173,6 +174,21 @@ export default new Vuex.Store({
       return initOrder
 
     },
+// 参与拼团
+
+    async attendGroupActivities({commit},{...uuid_authCode}){
+      console.log('一键参与拼团')
+
+      const attendData = await request({
+        method:'post',
+        url:`${apiDomain}/group_activities/${uuid_authCode[0]}/attend?auth_code=${uuid_authCode[1]}`
+      })
+      console.log(attendData)
+      return attendData
+
+    }
+
+
 // 我的拼团订单详情页面
   }
 

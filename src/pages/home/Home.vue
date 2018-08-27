@@ -1,12 +1,12 @@
 <template>
-  <div>
+  <div class="skeleton">
     <!--<Navbar></Navbar>-->
     <div class="explain-box" v-if="open">
       <p>没事干研究院很凉快</p>
     </div>
     <div class="clear"></div>
 
-    <div class="appname">没事干研究院很酷<div class="explain" @click="openBox">?</div>
+    <div class="appname ">没事干研究院很酷<div class="explain" @click="openBox">?</div>
     </div>
 
     <Scroll></Scroll>
@@ -54,7 +54,9 @@
         open:false,
         userInfo:{
           openid:''
-        }
+        },
+        showSkeleton: true   //骨架屏显示隐藏
+
       }
     },
     methods: {
@@ -102,6 +104,11 @@
 
 
 //      console.log(`这是store获取的${auth_code}`)
+
+      const that = this
+      setTimeout(()=>{
+        that.showSkeleton = false
+      },3000)
     },
     mounted () {
 
