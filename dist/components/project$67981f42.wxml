@@ -45,7 +45,7 @@
         <image src="http://pbmrxkahq.bkt.clouddn.com/%E6%9C%AA%E4%B8%AD%E5%A5%96.png" alt wx:if="{{priceResult.win == false}}" class="_img data-v-a0735dbe"></image>
         <view class="_p data-v-a0735dbe">{{priceResult.res}}</view>
       </view>
-      <view class="_div data-v-a0735dbe prizeWindow" wx:if="{{priceResult.win == true}}">去领奖</view>
+      <view class="_div data-v-a0735dbe prizeWindow" wx:if="{{priceResult.win == true}}" bindtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}">去领奖</view>
       <view class="_div data-v-a0735dbe nameList">
         <view class="_div data-v-a0735dbe line1"></view>
         <view class="_div data-v-a0735dbe line2"></view>
@@ -63,29 +63,29 @@
       </view>
     </view>
     <view class="_div data-v-a0735dbe btn-box" wx:if="{{boon.status== 'published'}}">
-      <template wx:if="{{open}}" bindinfo="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}" data="{{...$root[$kk+'1'], $root}}" is="diago$66d9fee3"></template>
+      <template wx:if="{{open}}" bindinfo="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}" data="{{...$root[$kk+'1'], $root}}" is="diago$66d9fee3"></template>
       <view class="_div data-v-a0735dbe add-prize">
-        <view class="_div data-v-a0735dbe btn2" bindtap="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}">加速开奖</view>
-        <view class="_div data-v-a0735dbe btn3" bindtap="handleProxy" data-eventid="{{'3'}}" data-comkey="{{$k}}">成为研究员概率翻倍</view>
+        <view class="_div data-v-a0735dbe btn2" bindtap="handleProxy" data-eventid="{{'3'}}" data-comkey="{{$k}}">加速开奖</view>
+        <view class="_div data-v-a0735dbe btn3" bindtap="handleProxy" data-eventid="{{'4'}}" data-comkey="{{$k}}">成为研究员概率翻倍</view>
       </view>
       <view class="_div data-v-a0735dbe mask" wx:if="{{showBox}}">
         <view class="_div data-v-a0735dbe meunBox" wx:if="{{showBox}}">
-          <image class="_img data-v-a0735dbe x" src="../../../static/img/close2.png" alt bindtap="handleProxy" data-eventid="{{'4'}}" data-comkey="{{$k}}"></image>
+          <image class="_img data-v-a0735dbe x" src="../../../static/img/close2.png" alt bindtap="handleProxy" data-eventid="{{'5'}}" data-comkey="{{$k}}"></image>
           <view class="_div data-v-a0735dbe title">分享加速抽奖</view>
           <button class="_button data-v-a0735dbe friend" open-type="share">
             <image src="../../../static/img/wechatF.png" alt class="_img data-v-a0735dbe"></image>
           </button>
-          <view class="_div data-v-a0735dbe createImg" bindtap="handleProxy" data-eventid="{{'5'}}" data-comkey="{{$k}}">
+          <view class="_div data-v-a0735dbe createImg" bindtap="handleProxy" data-eventid="{{'6'}}" data-comkey="{{$k}}">
             <image src="../../../static/img/wechatimg.png" alt class="_img data-v-a0735dbe"></image>
           </view>
           <view class="_div data-v-a0735dbe wechatFriend" open-type="share">微信好友</view>
-          <view class="_div data-v-a0735dbe shengchengImg" bindtap="handleProxy" data-eventid="{{'6'}}" data-comkey="{{$k}}">生成分享图片</view>
+          <view class="_div data-v-a0735dbe shengchengImg" bindtap="handleProxy" data-eventid="{{'7'}}" data-comkey="{{$k}}">生成分享图片</view>
         </view>
       </view>
     </view>
     <view class="_div data-v-a0735dbe btn-box" wx:if="{{boon.status== 'rewarded'}}">
       <view class="_div data-v-a0735dbe add-prize">
-        <view class="_div data-v-a0735dbe btn4" bindtap="handleProxy" data-eventid="{{'7'}}" data-comkey="{{$k}}">再去抽一个</view>
+        <view class="_div data-v-a0735dbe btn4" bindtap="handleProxy" data-eventid="{{'8'}}" data-comkey="{{$k}}">再去抽一个</view>
       </view>
     </view>
   </view>

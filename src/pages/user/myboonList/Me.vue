@@ -2,9 +2,9 @@
   <div class="container" >
     <Navbar :navbar_title="navbar_title"></Navbar>
     <div class="groupList">
-      <div class="groupItem">
+      <div class="groupItem" v-for="boon in boonList">
         <div class="orderNum">
-          <div class="left">订单号：<span>{{}}534475800412</span></div>
+          <div class="left">订单号：<span>{{boon.uuid}}</span></div>
           <div class="right">
             <span>未中奖{{}}</span>
             <img src="../../../../static/img/right.png" alt="">
@@ -78,7 +78,17 @@
 
     methods:{
 
+    },
+   async onLoad(){
+      const that = this
+      const auth_code = wx.getStorageSync('auth_code')
+      let data =  [that.page,that.size,auth_code]
+     const boonList = await that.$store.dispatch('myBoonList',{...data})
+     console.log(boonList.boon_orders)
+     that.boonList = boonList.boon_orders
+
     }
+
 
 
 

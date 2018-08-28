@@ -20,7 +20,6 @@
 
       </div>
     </scroll-view>
-
   </div>
 </template>
 <script>

@@ -6,7 +6,7 @@ global.webpackJsonp([4],{
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends__ = __webpack_require__(19);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator__);
@@ -140,7 +140,8 @@ global.webpackJsonp([4],{
       painting: {},
       navbar_title: '团购',
       orderIdId: '',
-      myDetail: ''
+      myDetail: '',
+      scanCode: false
     };
   },
 
@@ -532,6 +533,13 @@ global.webpackJsonp([4],{
 
 /***/ }),
 
+/***/ 191:
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ 194:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -638,7 +646,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "nodes": _vm.order_info.detail,
       "mpcomid": '2'
     }
-  })], 1)], 1), _vm._v(" "), (false) ? _c('div', {
+  })], 1)], 1), _vm._v(" "), (!_vm.scanCode) ? _c('div', {
     staticClass: "btn open_btn",
     attrs: {
       "data-status": "1",
@@ -699,7 +707,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     on: {
       "click": _vm.getImg
     }
-  }, [_vm._v("生成分享图片")])], 1) : _vm._e()]) : _vm._e(), _vm._v(" "), (true) ? _c('div', {
+  }, [_vm._v("生成分享图片")])], 1) : _vm._e()]) : _vm._e(), _vm._v(" "), (_vm.scanCode) ? _c('div', {
     staticClass: "pay"
   }, [_c('div', {
     staticClass: "price"
@@ -747,13 +755,6 @@ if (false) {
 
 /***/ }),
 
-/***/ 284:
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
 /***/ 69:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -763,7 +764,7 @@ if (false) {
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(284)
+  __webpack_require__(191)
 }
 var normalizeComponent = __webpack_require__(1)
 /* script */

@@ -39,7 +39,7 @@
     </div>
 
     <!--------------------------------------------------------------------------->
-    <div class="btn open_btn" @click="shareMenu" data-status="1" v-if="false"><span>邀请好友一起享用</span></div>
+    <div class="btn open_btn" @click="shareMenu" data-status="1" v-if="!scanCode"><span>邀请好友一起享用</span></div>
     <div class="mask" v-if="showBox">  <!-- 遮罩-->
 
       <div class="meunBox" v-if="showBox">
@@ -62,7 +62,7 @@
 
     </div>
     <!--参团底部button-->
-    <div class="pay" v-if="true" >
+    <div class="pay" v-if="scanCode" >
       <div class="price">¥{{order_info.current_price}}<span>还剩{{}}10份</span></div>
       <div class="join-group" @click="attendGroup" :data-uuid="order_info.uuid" >一键参与</div>
     </div>
@@ -126,7 +126,8 @@
         painting: {},
         navbar_title: '团购',
         orderIdId:'',
-        myDetail:''
+        myDetail:'',
+        scanCode:false
       }
     },
     components: {

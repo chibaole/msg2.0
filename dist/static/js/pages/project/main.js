@@ -42,7 +42,7 @@ global.webpackJsonp([3],{
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends__ = __webpack_require__(19);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator__);
@@ -53,6 +53,10 @@ global.webpackJsonp([3],{
 
 
 
+//
+//
+//
+//
 //
 //
 //
@@ -413,6 +417,25 @@ global.webpackJsonp([3],{
       wx.switchTab({
         url: '/pages/home/main'
       });
+    },
+    chooseAddress: function chooseAddress() {
+      console.log('领奖');
+      //        wx.chooseAddress({
+      //           success: function (res) {
+      //            console.log(res)
+      //          console.log(res.userName)
+      //          console.log(res.postalCode)
+      //          console.log(res.provinceName)
+      //          console.log(res.cityName)
+      //          console.log(res.countyName)
+      //          console.log(res.detailInfo)
+      //          console.log(res.nationalCode)
+      //          console.log(res.telNumber)
+      //        }
+      //      })
+    },
+    test: function test() {
+      console.log('测试领奖');
     }
   },
   onLoad: function onLoad() {
@@ -463,6 +486,13 @@ global.webpackJsonp([3],{
     };
   }
 });
+
+/***/ }),
+
+/***/ 189:
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ }),
 
@@ -629,12 +659,18 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "alt": ""
     }
   }) : _vm._e(), _vm._v(" "), _c('p', [_vm._v(_vm._s(_vm.priceResult.res))])], 1), _vm._v(" "), (_vm.priceResult.win == true) ? _c('div', {
-    staticClass: "prizeWindow"
+    staticClass: "prizeWindow",
+    attrs: {
+      "eventid": '1'
+    },
+    on: {
+      "click": _vm.chooseAddress
+    }
   }, [_vm._v("去领奖")]) : _vm._e(), _vm._v(" "), _vm._m(0), _vm._v(" "), _vm._m(1)]) : _vm._e(), _vm._v(" "), (_vm.boon.status == 'published') ? _c('div', {
     staticClass: "btn-box"
   }, [(_vm.open) ? _c('Diago', {
     attrs: {
-      "eventid": '1',
+      "eventid": '2',
       "mpcomid": '1'
     },
     on: {
@@ -645,7 +681,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   }, [_c('div', {
     staticClass: "btn2",
     attrs: {
-      "eventid": '2'
+      "eventid": '3'
     },
     on: {
       "click": _vm.shareMenu
@@ -653,7 +689,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   }, [_vm._v("加速开奖")]), _vm._v(" "), _c('div', {
     staticClass: "btn3",
     attrs: {
-      "eventid": '3'
+      "eventid": '4'
     },
     on: {
       "click": _vm.openDiago
@@ -667,7 +703,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     attrs: {
       "src": __webpack_require__(57),
       "alt": "",
-      "eventid": '4'
+      "eventid": '5'
     },
     on: {
       "click": _vm.shareMenu
@@ -687,7 +723,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   })]), _vm._v(" "), _c('div', {
     staticClass: "createImg",
     attrs: {
-      "eventid": '5'
+      "eventid": '6'
     },
     on: {
       "click": _vm.getImg
@@ -705,7 +741,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   }, [_vm._v("微信好友")]), _vm._v(" "), _c('div', {
     staticClass: "shengchengImg",
     attrs: {
-      "eventid": '6'
+      "eventid": '7'
     },
     on: {
       "click": _vm.getImg
@@ -717,7 +753,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   }, [_c('div', {
     staticClass: "btn4",
     attrs: {
-      "eventid": '7'
+      "eventid": '8'
     },
     on: {
       "click": _vm.againPrice
@@ -807,13 +843,6 @@ if (false) {
 
 /***/ }),
 
-/***/ 274:
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
 /***/ 71:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -823,7 +852,7 @@ if (false) {
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(274)
+  __webpack_require__(189)
 }
 var normalizeComponent = __webpack_require__(1)
 /* script */

@@ -58,18 +58,19 @@ global.webpackJsonp([2],{
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_wafer2_client_sdk__ = __webpack_require__(236);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_wafer2_client_sdk___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_wafer2_client_sdk__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_YearProgress__ = __webpack_require__(197);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__util__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__config__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_navbar__ = __webpack_require__(5);
-
-
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_wafer2_client_sdk__ = __webpack_require__(236);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_wafer2_client_sdk___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_wafer2_client_sdk__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_YearProgress__ = __webpack_require__(197);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__util__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__config__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_navbar__ = __webpack_require__(5);
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -128,8 +129,8 @@ global.webpackJsonp([2],{
 
 /* harmony default export */ __webpack_exports__["a"] = ({
   components: {
-    YearProgress: __WEBPACK_IMPORTED_MODULE_3__components_YearProgress__["a" /* default */],
-    Navbar: __WEBPACK_IMPORTED_MODULE_6__components_navbar__["a" /* default */]
+    YearProgress: __WEBPACK_IMPORTED_MODULE_1__components_YearProgress__["a" /* default */],
+    Navbar: __WEBPACK_IMPORTED_MODULE_4__components_navbar__["a" /* default */]
   },
   data: function data() {
     return {
@@ -143,89 +144,15 @@ global.webpackJsonp([2],{
   },
 
   methods: {
-    addBook: function addBook(isbn) {
-      var _this = this;
-
-      return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
-        var res;
-        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                _context.next = 2;
-                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4__util__["a" /* post */])('/weapp/addbook', {
-                  isbn: isbn,
-                  openid: _this.userinfo.openId
-                });
-
-              case 2:
-                res = _context.sent;
-
-                __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4__util__["b" /* showModal */])('添加成功', res.title);
-
-              case 4:
-              case 'end':
-                return _context.stop();
-            }
-          }
-        }, _callee, _this);
-      }))();
-    },
-    scanBook: function scanBook() {
-      var _this2 = this;
-
-      wx.scanCode({
-        success: function success(res) {
-          if (res.result) {
-            _this2.addBook(res.result);
-          }
-        }
+    goMygroup: function goMygroup() {
+      wx.navigateTo({
+        url: '/pages/user/myGroup/main'
       });
     },
-    login: function login(e) {
-      var _this3 = this;
-
-      return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee2() {
-        var self, auth_code, urlData, res;
-        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
-          while (1) {
-            switch (_context2.prev = _context2.next) {
-              case 0:
-                self = _this3;
-
-                console.log(e);
-                auth_code = wx.getStorageSync('auth_code');
-
-
-                console.log(e.mp.detail.userInfo);
-
-                console.log(e.mp.detail.encryptedData);
-
-                console.log(auth_code);
-                console.log(e.mp.detail.iv);
-
-                urlData = {
-                  auth_code: auth_code,
-                  encryptedData: e.mp.detail.encryptedData,
-                  iv: e.mp.detail.iv,
-                  userinfo: e.mp.detail.userInfo
-
-                };
-                _context2.next = 10;
-                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4__util__["a" /* post */])('/v1/wx/save_user_info', urlData);
-
-              case 10:
-                res = _context2.sent;
-
-                console.log(res);
-
-              case 12:
-              case 'end':
-                return _context2.stop();
-            }
-          }
-        }, _callee2, _this3);
-      }))();
+    myBoon: function myBoon() {
+      wx.navigateTo({
+        url: '/pages/user/myboonList/main'
+      });
     }
   },
   onShow: function onShow() {
@@ -380,66 +307,113 @@ if (false) {
 "use strict";
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
-    staticClass: "container",
-    style: ({
-      'padding-top': _vm.top + 'px'
-    })
+    staticClass: "container"
   }, [_c('div', {
+    staticClass: "navbartitle",
+    style: ({
+      'height': _vm.top + 'px'
+    })
+  }, [_c('span', [_vm._v("我的研究院")])]), _vm._v(" "), _c('div', {
     staticClass: "userinfo"
-  }, [_c('p', {
+  }, [_c('img', {
+    attrs: {
+      "src": "http://image.shengxinjing.cn/rate/unlogin.png"
+    }
+  }), _vm._v(" "), _c('p', {
     staticClass: "username"
   }, [_c('span', {
     staticClass: "foodname"
-  }, [_vm._v(_vm._s(_vm.userinfo.nickName) + " ")]), _vm._v(" "), _c('span', {
+  }, [_vm._v(_vm._s(_vm.userinfo.nickName))]), _vm._v(" "), _c('span', {
     staticClass: "foodLabel"
-  }, [_vm._v("新晋吃货")])]), _vm._v(" "), (_vm.userinfo.avatarUrl !== 'http://image.shengxinjing.cn/rate/unlogin.png') ? _c('img', {
+  }, [_vm._v("新晋吃货")])]), _vm._v(" "), _vm._m(0), _vm._v(" "), _vm._m(1)], 1), _vm._v(" "), _vm._m(2), _vm._v(" "), _c('div', {
+    staticClass: "mylist"
+  }, [_c('img', {
     attrs: {
-      "src": _vm.userinfo.avatarUrl,
+      "src": "",
       "alt": ""
     }
-  }) : _c('view', {
-    staticClass: "oepn-data"
-  }, [_c('open-data', {
+  }), _vm._v(" "), _c('span', {
+    staticClass: "list_title",
     attrs: {
-      "type": "userAvatarUrl",
-      "mpcomid": '0'
+      "eventid": '0'
+    },
+    on: {
+      "click": _vm.goMygroup
     }
-  })], 1)], 1), _vm._v(" "), _c('YearProgress', {
+  }, [_vm._v("我的拼团订单")])]), _vm._v(" "), _c('div', {
+    staticClass: "mylist"
+  }, [_c('img', {
     attrs: {
-      "mpcomid": '1'
+      "src": "",
+      "alt": ""
     }
-  }), _vm._v(" "), _c('div', {
-    staticClass: "fuli"
-  }, [_c('p', [_vm._v("吃货福利 "), _c('span', {
-    staticClass: "btn"
-  }, [_vm._v("签到领福利")])])], 1), _vm._v(" "), _c('div', {
-    staticClass: "fuli"
-  }, [_c('p', [_vm._v("心愿单")])], 1), _vm._v(" "), _c('div', {
-    staticClass: "fuli"
-  }, [_c('p', [_vm._v("我参与的任务")])], 1), _vm._v(" "), _c('div', {
-    staticClass: "fuli"
-  }, [_c('p', [_vm._v("我的盆友圈影响力"), _c('span', {
-    staticClass: "btn"
-  }, [_vm._v("分享有礼")])])], 1), _vm._v(" "), _c('button', {
-    staticClass: "join_msg"
-  }, [_vm._v("研究员福利→\t")]), _vm._v(" "), (_vm.nologin) ? _c('button', {
-    staticClass: "btn",
+  }), _vm._v(" "), _c('span', {
+    staticClass: "list_title",
     attrs: {
-      "open-type": "getUserInfo",
-      "lang": "zh_CN"
+      "eventid": '1'
+    },
+    on: {
+      "click": _vm.myBoon
     }
-  }, [_vm._v("点击登录")]) : _vm._e(), _vm._v(" "), _c('button', {
-    attrs: {
-      "open-type": "openSetting"
-    }
-  }, [_vm._v("打开授权设置页")]), _vm._v(" "), _c('button', {
-    attrs: {
-      "open-type": "getPhoneNumber",
-      "bindgetphonenumber": "getPhoneNumber"
-    }
-  }, [_vm._v("手机号 ")])], 1)
+  }, [_vm._v("我的抽奖")])]), _vm._v(" "), _vm._m(3), _vm._v(" "), _vm._m(4)])
 }
-var staticRenderFns = []
+var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('span', {
+    staticClass: "score"
+  }, [_vm._v("2.3K"), _c('span', {
+    staticClass: "score_text"
+  }, [_vm._v("个小麻花")])])
+},function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "desc"
+  }, [_c('span', {
+    staticClass: "small_score"
+  }, [_vm._v("小麻花积分")]), _vm._v(" "), _c('span', {
+    staticClass: "small_score_text"
+  }, [_vm._v("你还有3000{{}}个小麻花可以使用，快去使用")]), _vm._v(" "), _c('img', {
+    attrs: {
+      "src": "",
+      "alt": ""
+    }
+  })])
+},function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "mylist"
+  }, [_c('img', {
+    attrs: {
+      "src": "",
+      "alt": ""
+    }
+  }), _vm._v(" "), _c('span', {
+    staticClass: "list_title"
+  }, [_vm._v("签到")]), _vm._v(" "), _c('span', {
+    staticClass: "list_btn"
+  }, [_vm._v("签到赢取8折券")])])
+},function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "mylist"
+  }, [_c('img', {
+    attrs: {
+      "src": "",
+      "alt": ""
+    }
+  }), _vm._v(" "), _c('span', {
+    staticClass: "list_title"
+  }, [_vm._v("我的零食库")]), _vm._v(" "), _c('span', {
+    staticClass: "list_btn"
+  }, [_vm._v("分享有礼")])])
+},function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "mylist"
+  }, [_c('img', {
+    attrs: {
+      "src": "",
+      "alt": ""
+    }
+  }), _vm._v(" "), _c('span', {
+    staticClass: "list_title"
+  }, [_vm._v("我的发布")])])
+}]
 render._withStripped = true
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);

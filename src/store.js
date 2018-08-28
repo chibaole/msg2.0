@@ -3,12 +3,12 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
-const apiDomain = 'http://localhost:5757/v1'
-// const apiDomain = 'http://47.98.170.205/api/v1'
+// const apiDomain = 'http://localhost:5757/v1'
+const apiDomain = 'http://47.98.170.205/api/v1'
 import {get, post, showModal} from '@/utils/util'
 
 
-import {request,  login, } from "./utils/wx";
+import {request, login,} from "./utils/wx";
 
 
 export default new Vuex.Store({
@@ -48,18 +48,18 @@ export default new Vuex.Store({
       // let boons = await get('/v1/boons/today', {page: this.page})
 
       let boons = await request({
-        method:'get',
-        url:`${apiDomain}/boons/today`,
-        data:{}
+        method: 'get',
+        url: `${apiDomain}/boons/today`,
+        data: {}
       })
       console.log(boons)
-        return boons
+      return boons
 
     },
 
 //获取福利详情
 
-    async getBoons({commit},{...uuid_authCode}){
+    async getBoons({commit}, {...uuid_authCode}) {
       console.log(uuid_authCode[1])
       console.log(uuid_authCode[0])
 
@@ -67,11 +67,10 @@ export default new Vuex.Store({
       let auth_code = uuid_authCode[1]
 
 
-
       let prjInfo = await request({
-        method:'get',
-        url:`${apiDomain}/boons/${uuid}?auth_code=${auth_code}`,
-        data:{}
+        method: 'get',
+        url: `${apiDomain}/boons/${uuid}?auth_code=${auth_code}`,
+        data: {}
       })
       console.log(`获取福利详情----${apiDomain}/boons/${uuid}?auth_code=${auth_code}`)
 
@@ -82,13 +81,13 @@ export default new Vuex.Store({
       return prjInfo //某一项的福利详情
     },
     //参加福利
-    async attendBoon({commit},{...uuid_authCode}){
+    async attendBoon({commit}, {...uuid_authCode}) {
       let boonId = uuid_authCode[0] || '12'
       let auth_code = uuid_authCode[1]
       console.log(uuid_authCode)
       let res = await request({
-        method:'post',
-        url:`${apiDomain}/boons/${boonId}/attend?auth_code=${auth_code}`
+        method: 'post',
+        url: `${apiDomain}/boons/${boonId}/attend?auth_code=${auth_code}`
       })
       console.log(`参加福利------${apiDomain}/boons/${boonId}/attend?auth_code=${auth_code}`)
       console.log(res)
@@ -100,27 +99,27 @@ export default new Vuex.Store({
 
     //获取当前拼团活动数据列表
 
-    async getGroup({commit}){
+    async getGroup({commit}) {
       const group = await request({
-        method:'get',
-        url:`${apiDomain}/group_activities`,
-        data:{}
+        method: 'get',
+        url: `${apiDomain}/group_activities`,
+        data: {}
       })
       console.log(`store的 获取拼团列表-----${apiDomain}/group_activities`)
 
       console.log(group)
-      return  group
+      return group
     },
 
-//获取某一个拼团活动的详情
-    async  getGrouDetail({commit},{...uuid_authCode}){
-        let uuid = uuid_authCode[0]
-        let auth_code = uuid_authCode[1]
+//拼团活动详情
+    async getGrouDetail({commit}, {...uuid_authCode}) {
+      let uuid = uuid_authCode[0]
+      let auth_code = uuid_authCode[1]
       const groupDetail = await request({
-        method:'get',
-        url:`${apiDomain}/group_activities/${uuid}?auth_code=${auth_code}`
+        method: 'get',
+        url: `${apiDomain}/group_activities/${uuid}?auth_code=${auth_code}`
       })
-      console.log(`某个拼团的详情----${apiDomain}/group_activities/${uuid}?auth_code=${auth_code}`)
+      console.log(`拼团活动详情----${apiDomain}/group_activities/${uuid}?auth_code=${auth_code}`)
 
       console.log(groupDetail)
       return groupDetail
@@ -130,12 +129,12 @@ export default new Vuex.Store({
 
 //发起拼团
 
-    async initGroup({commit},{...uuid_authCode}){
+    async initGroup({commit}, {...uuid_authCode}) {
       let uuid = uuid_authCode[0]
       let auth_code = uuid_authCode[1]
       let initGroup = await request({
-        method:'post',
-        url:`${apiDomain}/group_activities/${uuid}/initial?auth_code=${auth_code}`
+        method: 'post',
+        url: `${apiDomain}/group_activities/${uuid}/initial?auth_code=${auth_code}`
 
       })
       console.log(`发起拼团的订单----${apiDomain}/group_activities/${uuid}/initial?auth_code=${auth_code}`)
@@ -146,29 +145,30 @@ export default new Vuex.Store({
     },
 
 //拼团订单详情
-    async groupActivities_order({commit},{...uuid_authCode}){
-            let uuid = uuid_authCode[0]
-            let auth_code = uuid_authCode[1]
+    async groupActivities_order({commit}, {...uuid_authCode}) {
+      let uuid = uuid_authCode[0]
+      let auth_code = uuid_authCode[1]
 
-          console.log(`拼团订单详情----${apiDomain}/group_activity_orders/${uuid}?auth_code=${auth_code}`)
-          let orderData = await request({
-            method:'get',
-            url:`${apiDomain}/group_activity_orders/${uuid}?auth_code=${auth_code}`
-          })
+      console.log(`拼团订单详情----${apiDomain}/group_activity_orders/${uuid}?auth_code=${auth_code}`)
+      let orderData = await request({
+        method: 'get',
+        url: `${apiDomain}/group_activity_orders/${uuid}?auth_code=${auth_code}`
+      })
 
       return orderData
 
     },
+
 //拼团发起详情
-    async groupActivitiesInit({commit},{...uuid_authCode}){
+    async groupActivitiesInit({commit}, {...uuid_authCode}) {
       console.log(uuid_authCode)
       let uuid = uuid_authCode[0] || '临时uuid'
-      let auth_code =uuid_authCode[1]
+      let auth_code = uuid_authCode[1]
 
       console.log(`拼团发起详情---${apiDomain}/group_activity_initials/${uuid}?auth_code=${auth_code}v`)
       let initOrder = await request({
-        method:'get',
-        url:`${apiDomain}/group_activity_initials/${uuid}?auth_code=${auth_code}`
+        method: 'get',
+        url: `${apiDomain}/group_activity_initials/${uuid}?auth_code=${auth_code}`
       })
       console.log(initOrder)
       return initOrder
@@ -176,20 +176,57 @@ export default new Vuex.Store({
     },
 // 参与拼团
 
-    async attendGroupActivities({commit},{...uuid_authCode}){
+    async attendGroupActivities({commit}, {...uuid_authCode}) {
       console.log('一键参与拼团')
 
       const attendData = await request({
-        method:'post',
-        url:`${apiDomain}/group_activities/${uuid_authCode[0]}/attend?auth_code=${uuid_authCode[1]}`
+        method: 'post',
+        url: `${apiDomain}/group_activities/${uuid_authCode[0]}/attend?auth_code=${uuid_authCode[1]}`
       })
       console.log(attendData)
       return attendData
 
-    }
+    },
+
 
 
 // 我的拼团订单详情页面
+    async myGroupList({commit},{...data}){
+      const page = data[0]
+      const size = data[1]
+      const auth_code = data[2]
+      const myGroupActivity = await request({
+        method:'get',
+        url:`${apiDomain}/group_activity_orders/mine?page=${page}&size=${size}&auth_code=${auth_code}`
+      })
+
+
+      return myGroupActivity || []
+
+
+
+
+    },
+//我的抽奖
+
+    async myBoonList({commit},{...data}){
+      const page = data[0]
+      const size = data[1]
+      const auth_code = data[2]
+      const myBoons = await request({
+        method:'get',
+        url:`${apiDomain}/boon_orders/mine?page=${page}&size=${size}&auth_code=${auth_code}`
+      })
+
+
+      return myBoons || []
+
+
+
+
+    },
+
+
   }
 
 })

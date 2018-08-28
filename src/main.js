@@ -20,9 +20,9 @@ export default{
     usingComponents: {
       'skeleton': '../static/skeleton/skeleton'
     },
-    pages: ['^pages/home/main','pages/project/main','pages/groupPj/main',
+    pages: ['pages/home/main','pages/project/main','pages/groupPj/main',
       'pages/groupPj/groupDetail/main','pages/groupPj/order/main',
-      'pages/cards/main','pages/user/main','pages/user/myGroup/main',
+      'pages/cards/main','^pages/user/main','pages/user/myGroup/main',
       'pages/user/myGroup/myGroupDetail/main','pages/user/myboonList/main','pages/user/myboonList/myBoon/main','pages/test/main',
     ],
 

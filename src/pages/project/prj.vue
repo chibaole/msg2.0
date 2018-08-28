@@ -55,8 +55,10 @@
     <!--抽奖未开奖显示的 '抽奖/待开奖按钮'-->
 
     <div class="openPrize" v-if="boon.status== 'rewarded'">
+    <!--<div class="openPrize" v-if="true">-->
 
-      <div class="pic">
+
+    <div class="pic">
         <img src="http://pbmrxkahq.bkt.clouddn.com/winning.png" alt="" v-if="priceResult.win == true">
         <img src="http://pbmrxkahq.bkt.clouddn.com/%E6%9C%AA%E4%B8%AD%E5%A5%96.png" alt="" v-if="priceResult.win == false">
 
@@ -65,7 +67,9 @@
 
       </div>
 
-      <div class="prizeWindow" v-if="priceResult.win == true">去领奖</div>
+      <div class="prizeWindow" v-if="priceResult.win == true" @click="chooseAddress">去领奖</div>
+      <!--<div class="prizeWindow">去领奖了</div>-->
+
       <div class="nameList">
         <div class="line1"></div>
         <div class="line2"></div>
@@ -335,7 +339,28 @@
           url:'/pages/home/main'
         })
 
+      },
+      chooseAddress(){
+        console.log('领奖')
+//        wx.chooseAddress({
+//           success: function (res) {
+//            console.log(res)
+//          console.log(res.userName)
+//          console.log(res.postalCode)
+//          console.log(res.provinceName)
+//          console.log(res.cityName)
+//          console.log(res.countyName)
+//          console.log(res.detailInfo)
+//          console.log(res.nationalCode)
+//          console.log(res.telNumber)
+//        }
+//      })
+      },
+
+      test(){
+        console.log('测试领奖')
       }
+
 
     },
    async onLoad(){

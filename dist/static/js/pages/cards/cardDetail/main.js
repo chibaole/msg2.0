@@ -185,7 +185,7 @@ var col1H = 0;var col2H = 0;
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util__["c" /* get */])('/weapp/booklist', {
+                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util__["b" /* get */])('/weapp/booklist', {
                   openid: _this.userinfo.openId
                 });
 
@@ -212,7 +212,7 @@ var col1H = 0;var col2H = 0;
             switch (_context2.prev = _context2.next) {
               case 0:
                 _context2.next = 2;
-                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util__["c" /* get */])('/weapp/commentlist', {
+                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util__["b" /* get */])('/weapp/commentlist', {
                   openid: _this2.userinfo.openId
                 });
 

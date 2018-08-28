@@ -83,7 +83,7 @@
           })
         },
       async getGroup_orders(){
-          wx.removeStorageSync('current_orderinfo')//每次先删除上一个缓存的订单信息
+          wx.removeStorageSync('current_orderinfo')//每次先删除上一个缓存的订
           let that = this
           let  order_info = await  get(`/v1/group_activity_orders/${that.order_uuid}`)
         let order = order_info.group_activity_order

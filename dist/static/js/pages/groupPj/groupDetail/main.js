@@ -4,7 +4,7 @@ global.webpackJsonp([12],{
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends__ = __webpack_require__(19);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator__);
@@ -106,7 +106,7 @@ global.webpackJsonp([12],{
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                wx.removeStorageSync('current_orderinfo'); //每次先删除上一个缓存的订单信息
+                wx.removeStorageSync('current_orderinfo'); //每次先删除上一个缓存的订
                 that = _this;
                 _context.next = 4;
                 return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4__utils_util__["a" /* get */])('/v1/group_activity_orders/' + that.order_uuid);
@@ -171,6 +171,13 @@ global.webpackJsonp([12],{
 
 /***/ }),
 
+/***/ 188:
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ 223:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -223,13 +230,6 @@ if (false) {
 
 /***/ }),
 
-/***/ 282:
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
 /***/ 67:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -239,7 +239,7 @@ if (false) {
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(282)
+  __webpack_require__(188)
 }
 var normalizeComponent = __webpack_require__(1)
 /* script */

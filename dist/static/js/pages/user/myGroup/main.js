@@ -4,10 +4,20 @@ global.webpackJsonp([8],{
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__util__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__config__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_navbar__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_groupCard__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__util__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__config__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_navbar__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_groupCard__ = __webpack_require__(16);
+
+
+
+//
 //
 //
 //
@@ -69,20 +79,56 @@ global.webpackJsonp([8],{
 
 /* harmony default export */ __webpack_exports__["a"] = ({
   components: {
-    Navbar: __WEBPACK_IMPORTED_MODULE_2__components_navbar__["a" /* default */],
-    Card: __WEBPACK_IMPORTED_MODULE_3__components_groupCard__["a" /* default */]
+    Navbar: __WEBPACK_IMPORTED_MODULE_5__components_navbar__["a" /* default */],
+    Card: __WEBPACK_IMPORTED_MODULE_6__components_groupCard__["a" /* default */]
   },
 
   data: function data() {
     return {
-      navbar_title: '我的拼团订单'
+      navbar_title: '我的拼团订单',
+      myGroup_list: [],
+      page: 1,
+      size: 10,
+      showGetmore: true
 
     };
   },
 
 
-  methods: {}
+  methods: {
+    addList: function addList() {}
+  },
+  onLoad: function onLoad() {
+    var _this = this;
 
+    return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
+      var that, auth_code, data, groupList;
+      return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              that = _this;
+              auth_code = wx.getStorageSync('auth_code');
+              data = [that.page, that.size, auth_code];
+              _context.next = 5;
+              return that.$store.dispatch('myGroupList', __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends___default()({}, data));
+
+            case 5:
+              groupList = _context.sent;
+
+
+              that.myGroup_list = groupList.group_activity_orders;
+
+              console.log(groupList);
+
+            case 8:
+            case 'end':
+              return _context.stop();
+          }
+        }
+      }, _callee, _this);
+    }))();
+  }
 });
 
 /***/ }),
@@ -108,25 +154,43 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }), _vm._v(" "), _c('div', {
     staticClass: "groupList"
-  }, [_c('div', {
+  }, [_vm._l((_vm.myGroup_list), function(item, index) {
+    return _c('div', {
+      staticClass: "groupItem"
+    }, [_c('div', {
+      staticClass: "orderNum"
+    }, [_vm._m(0, true), _vm._v(" "), _c('div', {
+      staticClass: "right"
+    }, [_c('span', [_vm._v("已发货" + _vm._s(item.status))]), _vm._v(" "), _c('img', {
+      attrs: {
+        "src": __webpack_require__(12),
+        "alt": ""
+      }
+    })])]), _vm._v(" "), _c('div', {
+      staticClass: "orderInfo"
+    }, [_c('div', {
+      staticClass: "pic"
+    }, [_c('img', {
+      attrs: {
+        "src": item.title_image_url,
+        "alt": ""
+      }
+    })]), _vm._v(" "), _c('div', {
+      staticClass: "txt"
+    }, [_c('div', {
+      staticClass: "name"
+    }, [_vm._v(_vm._s(item.title))]), _vm._v(" "), _c('p', {
+      staticClass: "group_type"
+    }, [_vm._v("{{}}三人团")]), _vm._v(" "), _c('p', {
+      staticClass: "detail"
+    }, [_vm._v(_vm._s(item.product.detail) + "1")])], 1), _vm._v(" "), _c('span', {
+      staticClass: "price"
+    }, [_vm._v("¥" + _vm._s(item.current_price))])])])
+  }), _vm._v(" "), _c('div', {
     staticClass: "groupItem"
-  }, [_vm._m(0), _vm._v(" "), _c('div', {
-    staticClass: "orderInfo"
   }, [_vm._m(1), _vm._v(" "), _c('div', {
-    staticClass: "txt"
-  }, [_c('div', {
-    staticClass: "name"
-  }, [_vm._v("{{}}限量5000份 | 凤梨酥6枚装")]), _vm._v(" "), _c('p', {
-    staticClass: "group_type"
-  }, [_vm._v("{{}}三人团")]), _vm._v(" "), _c('p', {
-    staticClass: "detail"
-  }, [_vm._v("{{}}商品描述详情")])], 1), _vm._v(" "), _c('span', {
-    staticClass: "price"
-  }, [_vm._v("{{}}¥5")])])]), _vm._v(" "), _c('div', {
-    staticClass: "groupItem"
-  }, [_vm._m(2), _vm._v(" "), _c('div', {
     staticClass: "orderInfo"
-  }, [_vm._m(3), _vm._v(" "), _c('div', {
+  }, [_vm._m(2), _vm._v(" "), _c('div', {
     staticClass: "txt"
   }, [_c('div', {
     staticClass: "name"
@@ -136,7 +200,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "detail"
   }, [_vm._v("{{}}商品描述详情")])], 1), _vm._v(" "), _c('span', {
     staticClass: "price"
-  }, [_vm._v("{{}}¥5")])])])]), _vm._v(" "), _c('div', {
+  }, [_vm._v("{{}}¥5")])])])], 2), _vm._v(" "), _c('div', {
     staticClass: "service"
   }, [_c('contact-button', {
     staticClass: "pos",
@@ -148,32 +212,20 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     attrs: {
       "src": "http://pbmrxkahq.bkt.clouddn.com/msgservice.png"
     }
-  })], 1), _vm._v(" "), (true) ? _c('div', {
-    staticClass: "getMore"
+  })], 1), _vm._v(" "), (_vm.showGetMore) ? _c('div', {
+    staticClass: "getMore",
+    attrs: {
+      "eventid": '0'
+    },
+    on: {
+      "click": _vm.addList
+    }
   }, [_vm._v("加载更多")]) : _vm._e()], 1)
 }
 var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
-    staticClass: "orderNum"
-  }, [_c('div', {
     staticClass: "left"
-  }, [_vm._v("订单号："), _c('span', [_vm._v("{{}}534475800412")])]), _vm._v(" "), _c('div', {
-    staticClass: "right"
-  }, [_c('span', [_vm._v("已发货{{}}")]), _vm._v(" "), _c('img', {
-    attrs: {
-      "src": __webpack_require__(12),
-      "alt": ""
-    }
-  })])])
-},function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "pic"
-  }, [_c('img', {
-    attrs: {
-      "src": "",
-      "alt": ""
-    }
-  })])
+  }, [_vm._v("订单号："), _c('span', [_vm._v("{{}}534475800412")])])
 },function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "orderNum"

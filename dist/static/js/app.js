@@ -30,8 +30,8 @@ global.webpackJsonp([15],{
 
 __WEBPACK_IMPORTED_MODULE_3_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_4_vuex__["a" /* default */]);
 
-var apiDomain = 'http://localhost:5757/v1';
-// const apiDomain = 'http://47.98.170.205/api/v1'
+// const apiDomain = 'http://localhost:5757/v1'
+var apiDomain = 'http://47.98.170.205/api/v1';
 
 
 
@@ -249,7 +249,7 @@ var apiDomain = 'http://localhost:5757/v1';
       }))();
     },
 
-    //获取某一个拼团活动的详情
+    //拼团活动详情
     getGrouDetail: function getGrouDetail(_ref9, _ref8) {
       var _this6 = this;
 
@@ -274,7 +274,7 @@ var apiDomain = 'http://localhost:5757/v1';
               case 4:
                 groupDetail = _context6.sent;
 
-                console.log('\u67D0\u4E2A\u62FC\u56E2\u7684\u8BE6\u60C5----' + apiDomain + '/group_activities/' + uuid + '?auth_code=' + auth_code);
+                console.log('\u62FC\u56E2\u6D3B\u52A8\u8BE6\u60C5----' + apiDomain + '/group_activities/' + uuid + '?auth_code=' + auth_code);
 
                 console.log(groupDetail);
                 return _context6.abrupt('return', groupDetail);
@@ -442,10 +442,80 @@ var apiDomain = 'http://localhost:5757/v1';
           }
         }, _callee10, _this10);
       }))();
-    }
+    },
 
     // 我的拼团订单详情页面
+    myGroupList: function myGroupList(_ref19, _ref18) {
+      var _this11 = this;
 
+      var commit = _ref19.commit;
+
+      var data = __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_objectWithoutProperties___default()(_ref18, []);
+
+      return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.mark(function _callee11() {
+        var page, size, auth_code, myGroupActivity;
+        return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.wrap(function _callee11$(_context11) {
+          while (1) {
+            switch (_context11.prev = _context11.next) {
+              case 0:
+                page = data[0];
+                size = data[1];
+                auth_code = data[2];
+                _context11.next = 5;
+                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_6__utils_wx__["c" /* request */])({
+                  method: 'get',
+                  url: apiDomain + '/group_activity_orders/mine?page=' + page + '&size=' + size + '&auth_code=' + auth_code
+                });
+
+              case 5:
+                myGroupActivity = _context11.sent;
+                return _context11.abrupt('return', myGroupActivity || []);
+
+              case 7:
+              case 'end':
+                return _context11.stop();
+            }
+          }
+        }, _callee11, _this11);
+      }))();
+    },
+
+    //我的抽奖
+
+    myBoonList: function myBoonList(_ref21, _ref20) {
+      var _this12 = this;
+
+      var commit = _ref21.commit;
+
+      var data = __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_objectWithoutProperties___default()(_ref20, []);
+
+      return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.mark(function _callee12() {
+        var page, size, auth_code, myBoons;
+        return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.wrap(function _callee12$(_context12) {
+          while (1) {
+            switch (_context12.prev = _context12.next) {
+              case 0:
+                page = data[0];
+                size = data[1];
+                auth_code = data[2];
+                _context12.next = 5;
+                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_6__utils_wx__["c" /* request */])({
+                  method: 'get',
+                  url: apiDomain + '/boon_orders/mine?page=' + page + '&size=' + size + '&auth_code=' + auth_code
+                });
+
+              case 5:
+                myBoons = _context12.sent;
+                return _context12.abrupt('return', myBoons || []);
+
+              case 7:
+              case 'end':
+                return _context12.stop();
+            }
+          }
+        }, _callee12, _this12);
+      }))();
+    }
   }
 
 }));
@@ -534,7 +604,7 @@ app.$mount();
     usingComponents: {
       'skeleton': '../static/skeleton/skeleton'
     },
-    pages: ['^pages/home/main', 'pages/project/main', 'pages/groupPj/main', 'pages/groupPj/groupDetail/main', 'pages/groupPj/order/main', 'pages/cards/main', 'pages/user/main', 'pages/user/myGroup/main', 'pages/user/myGroup/myGroupDetail/main', 'pages/user/myboonList/main', 'pages/user/myboonList/myBoon/main', 'pages/test/main'],
+    pages: ['pages/home/main', 'pages/project/main', 'pages/groupPj/main', 'pages/groupPj/groupDetail/main', 'pages/groupPj/order/main', 'pages/cards/main', '^pages/user/main', 'pages/user/myGroup/main', 'pages/user/myGroup/myGroupDetail/main', 'pages/user/myboonList/main', 'pages/user/myboonList/myBoon/main', 'pages/test/main'],
 
     'window': {
       'backgroundTextStyle': 'light',

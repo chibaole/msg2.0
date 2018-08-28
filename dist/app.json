@@ -3,16 +3,16 @@
     "skeleton": "../static/skeleton/skeleton"
   },
   "pages": [
-    "pages/home/main",
+    "pages/user/main",
     "pages/cards/cardDetail/main",
     "pages/cards/main",
     "pages/groupPj/groupDetail/main",
     "pages/groupPj/main",
     "pages/groupPj/order/main",
+    "pages/home/main",
     "pages/project/main",
     "pages/test/main",
     "pages/test2/main",
-    "pages/user/main",
     "pages/user/myboonList/main",
     "pages/user/myboonList/myBoon/main",
     "pages/user/myGroup/main",

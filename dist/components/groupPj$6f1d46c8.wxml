@@ -30,7 +30,7 @@
         <rich-text nodes="{{order_info.detail}}" class="_rich-text data-v-b3a874ec"></rich-text>
       </view>
     </view>
-    <view class="_div data-v-b3a874ec btn open_btn" bindtap="handleProxy" data-status="1" wx:if="{{false}}" data-eventid="{{'0'}}" data-comkey="{{$k}}">
+    <view class="_div data-v-b3a874ec btn open_btn" bindtap="handleProxy" data-status="1" wx:if="{{!scanCode}}" data-eventid="{{'0'}}" data-comkey="{{$k}}">
       <label class="_span data-v-b3a874ec">邀请好友一起享用</label>
     </view>
     <view class="_div data-v-b3a874ec mask" wx:if="{{showBox}}">
@@ -47,7 +47,7 @@
         <view class="_div data-v-b3a874ec shengchengImg" bindtap="handleProxy" data-eventid="{{'3'}}" data-comkey="{{$k}}">生成分享图片</view>
       </view>
     </view>
-    <view class="_div data-v-b3a874ec pay" wx:if="{{true}}">
+    <view class="_div data-v-b3a874ec pay" wx:if="{{scanCode}}">
       <view class="_div data-v-b3a874ec price">¥{{order_info.current_price}}
         <label class="_span data-v-b3a874ec">还剩{{}}10份</label>
       </view>

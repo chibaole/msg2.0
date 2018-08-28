@@ -2,24 +2,25 @@
   <div class="container" >
     <Navbar :navbar_title="navbar_title"></Navbar>
     <div class="groupList">
-      <div class="groupItem">
+      <div class="groupItem" v-for="item in  myGroup_list">
           <div class="orderNum">
             <div class="left">订单号：<span>{{}}534475800412</span></div>
             <div class="right">
-              <span>已发货{{}}</span>
+              <span>已发货{{item.status}}</span>
               <img src="../../../../static/img/right.png" alt="">
             </div>
           </div>
           <div class="orderInfo">
-            <div class="pic"><img src="" alt=""></div>
+            <div class="pic"><img :src="item.title_image_url" alt=""></div>
             <div class="txt">
-              <div class="name">{{}}限量5000份 | 凤梨酥6枚装</div>
+              <div class="name">{{item.title}}</div>
               <p class="group_type">{{}}三人团</p>
-              <p class="detail">{{}}商品描述详情</p>
+              <p class="detail">{{item.product.detail}}1</p>
             </div>
-            <span class="price">{{}}¥5</span>
+            <span class="price">¥{{item.current_price}}</span>
 
           </div>
+
       </div>
       <div class="groupItem">
         <div class="orderNum">
@@ -47,7 +48,7 @@
       <img class="icon_kf" src="http://pbmrxkahq.bkt.clouddn.com/msgservice.png">
     </div>
 
-      <div class="getMore" v-if="true">加载更多</div>
+      <div class="getMore" v-if="showGetMore" @click="addList">加载更多</div>
   </div>
 </template>
 <script>
@@ -65,15 +66,32 @@ export default {
 
   data () {
     return {
-      navbar_title:'我的拼团订单'
+      navbar_title:'我的拼团订单',
+      myGroup_list:[],
+      page:1,
+      size:10,
+      showGetmore:true
 
     }
 
   },
 
   methods:{
+    addList(){
 
     }
+
+    },
+  async onLoad(){
+    const that = this
+    const auth_code = wx.getStorageSync('auth_code')
+    const data = [that.page,that.size,auth_code]
+    const groupList = await that.$store.dispatch('myGroupList',{...data})
+
+    that.myGroup_list = groupList.group_activity_orders
+
+    console.log(groupList)
+  }
 
 
 

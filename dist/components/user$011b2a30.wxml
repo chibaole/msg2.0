@@ -3,10 +3,10 @@
   <view class="_div data-v-7ec0cb2e container">
     <template data="{{...$root[$kk+'0'], $root}}" is="navbar$7457f0be"></template>
     <view class="_div data-v-7ec0cb2e groupList">
-      <view class="_div data-v-7ec0cb2e groupItem">
+      <view class="_div data-v-7ec0cb2e groupItem" wx:for="{{boonList}}" wx:for-index="index" wx:for-item="boon">
         <view class="_div data-v-7ec0cb2e orderNum">
           <view class="_div data-v-7ec0cb2e left">订单号：
-            <label class="_span data-v-7ec0cb2e">{{}}534475800412</label>
+            <label class="_span data-v-7ec0cb2e">{{boon.uuid}}</label>
           </view>
           <view class="_div data-v-7ec0cb2e right">
             <label class="_span data-v-7ec0cb2e">未中奖{{}}</label>
