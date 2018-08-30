@@ -46,20 +46,20 @@
 
     <div class="btn1" v-if="boon.status== 'published'" >
 
-      <button  v-if="boon.participate_status == false" class="waiting">待开奖</button>
+      <button  v-if="boon.participate_status == true" class="waiting">待开奖</button>
 
-      <button @click="attendBoon" v-if="boon.participate_status == true" :class="prizeStyle">{{prize}}</button>
+      <button @click="attendBoon" v-if="boon.participate_status == false" :class="prizeStyle">{{prize}}</button>
 
     </div>
 
 
     <!--抽奖未开奖显示的 '抽奖/待开奖按钮'-->
-
-    <div class="openPrize" v-if="boon.status== 'rewarded'">
+    <div v-if="boon.participate_status===true">    <!--参加过-->
+      <div class="openPrize" v-if="boon.status== 'rewarded'  ">
     <!--<div class="openPrize" v-if="true">-->
 
 
-    <div class="pic">
+    <div class="pic"  >
         <img src="http://pbmrxkahq.bkt.clouddn.com/winning.png" alt="" v-if="boon.boon_order.status != 'lose'">
         <img src="http://pbmrxkahq.bkt.clouddn.com/%E6%9C%AA%E4%B8%AD%E5%A5%96.png" alt="" v-if="boon.boon_order.status === 'lose'">
 
@@ -92,7 +92,7 @@
 
 
     </div>
-
+    </div>
     <!--已开奖现实的获奖信息-->
 
 
@@ -347,27 +347,10 @@
         console.log('领奖')
        let that = this
        let data = [ ]
-       let uuid = that.boon.boon_order.uuid
+       let uuid = that.boon.boon_order.uuid //抽奖订单号
        let boon_status = that.boon.boon_order.status
        console.log(boon_status)
        if(boon_status ==='received'){
-         let res = await chooseAddress()
-
-         let auth_code = wx.getStorageSync('auth_code')
-         let address =   {
-           name:res.name,            //名字
-           postal_code:res.postalCode,// 邮编
-           tel_phone:res.telNumber,// 电话
-           province:res.provinceName,// 省
-           city:res.cityName,// 市
-           district:res.countyName,// 区
-           detail:res.detailInfo// 详细
-
-         }
-
-         data = [uuid,auth_code,address]
-         let address_res =  await  that.$store.dispatch('boonAddress',{...data})
-
 
 
          wx.navigateTo({
@@ -417,7 +400,7 @@
 
 //      that.getBoons()
       let boonData = await that.$store.dispatch('getBoons',{...uuid_authCode})
-     that.boon = boonData.boon
+      that.boon = boonData.boon
 
 
      let init_rewarded_users = boonData.boon.rewarded_users
@@ -431,6 +414,7 @@
        let init_rewarded_users = boonData.boon.rewarded_users
        that.init_rewarded_users = init_rewarded_users
      }
+
 //     that.init_rewarded_users = boonData.boon.rewarded_users
 
 //     await this.$store.dispatch('createBill', { ...this.userInfo, ...this.billInfo })

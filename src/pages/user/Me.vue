@@ -23,14 +23,14 @@
       <span class="list_title">签到</span>
       <span class="list_btn">签到赢取8折券</span>
     </div>
-    <div class="mylist">
+    <div class="mylist"  @click="goMygroup">
       <img src="http://pbmrxkahq.bkt.clouddn.com/%E6%88%91%E7%9A%84%E6%8B%BC%E5%9B%A2%E8%AE%A2%E5%8D%95icon.png" alt="">
-      <span class="list_title" @click="goMygroup">我的拼团订单</span>
+      <span class="list_title" >我的拼团订单</span>
       <!--<span class="list_btn">签到赢取8折券</span>-->
     </div>
-    <div class="mylist">
+    <div class="mylist" @click="myBoon">
       <img src="http://pbmrxkahq.bkt.clouddn.com/%E6%88%91%E7%9A%84%E6%8A%BD%E5%A5%96icon.png" alt="">
-      <span class="list_title" @click="myBoon">我的抽奖</span>
+      <span class="list_title" >我的抽奖</span>
       <!--<span class="list_btn">签到赢取8折券</span>-->
     </div>
     <div class="mylist">
@@ -49,6 +49,7 @@
       <!--<span class="list_btn">签到赢取8折券</span>-->
     </div>
 
+    <button open-type="getUserInfo" @getuserinfo="bindGetUserInfo" @click="getUserInfo1">获取权限</button>
 
 
   </div>
@@ -87,8 +88,40 @@ export default {
       wx.navigateTo({
         url:'/pages/user/myboonList/main'
       })
+    },
+    onGotUserInfo(e){
+      console.log(e)
     }
+,
+    getUserInfo1(){
+      let that = this
+      console.log('click事件首先触发')
+      // 判断小程序的API，回调，参数，组件等是否在当前版本可用。  为false 提醒用户升级微信版本
+      // console.log(wx.canIUse('button.open-type.getUserInfo'))
+      if(wx.canIUse('button.open-type.getUserInfo')){
+        // 用户版本可用
+      }else{
+        console.log('请升级微信版本')
+      }
+    },
+   async bindGetUserInfo(e) {
+     let that = this
 
+     if (e.mp.detail.rawData){
+        //用户按了允许授权按钮
+        console.log(e)
+        let data = [e.mp.detail.encryptedData,e.mp.detail.iv,e.mp.detail.signature,e.mp.detail.rawData]
+
+        let res = await that.$store.dispatch('saveInfo',{...data})
+//        let res = await that.$store.dispatch('test')
+
+        console.log(res)
+
+      } else {
+        //用户按了拒绝按钮
+        console.log('用户按了拒绝按钮')
+      }
+    }
 
 
 

@@ -42,15 +42,15 @@ global.webpackJsonp([3],{
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_diago__ = __webpack_require__(198);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_navbar__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_diago__ = __webpack_require__(200);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_navbar__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__utils_util__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__config__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__utils_wx__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__config__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__utils_wx__ = __webpack_require__(13);
 
 
 
@@ -427,8 +427,7 @@ global.webpackJsonp([3],{
       var _this3 = this;
 
       return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee3() {
-        var that, data, uuid, boon_status, res, auth_code, address, address_res, _res, _auth_code, _address, _address_res;
-
+        var that, data, uuid, boon_status, res, auth_code, address, address_res;
         return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee3$(_context3) {
           while (1) {
             switch (_context3.prev = _context3.next) {
@@ -436,20 +435,28 @@ global.webpackJsonp([3],{
                 console.log('领奖');
                 that = _this3;
                 data = [];
-                uuid = that.boon.boon_order.uuid;
+                uuid = that.boon.boon_order.uuid; //抽奖订单号
+
                 boon_status = that.boon.boon_order.status;
 
                 console.log(boon_status);
 
                 if (!(boon_status === 'received')) {
-                  _context3.next = 19;
+                  _context3.next = 10;
                   break;
                 }
 
-                _context3.next = 9;
+                wx.navigateTo({
+                  url: '/pages/user/myboonList/myBoon/main?uuid=' + uuid
+                });
+                _context3.next = 20;
+                break;
+
+              case 10:
+                _context3.next = 12;
                 return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__utils_wx__["a" /* chooseAddress */])();
 
-              case 9:
+              case 12:
                 res = _context3.sent;
                 auth_code = wx.getStorageSync('auth_code');
                 address = {
@@ -465,50 +472,17 @@ global.webpackJsonp([3],{
 
 
                 data = [uuid, auth_code, address];
-                _context3.next = 15;
+                _context3.next = 18;
                 return that.$store.dispatch('boonAddress', __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends___default()({}, data));
 
-              case 15:
+              case 18:
                 address_res = _context3.sent;
 
-
-                wx.navigateTo({
-                  url: '/pages/user/myboonList/myBoon/main?uuid=' + uuid
-                });
-                _context3.next = 29;
-                break;
-
-              case 19:
-                _context3.next = 21;
-                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__utils_wx__["a" /* chooseAddress */])();
-
-              case 21:
-                _res = _context3.sent;
-                _auth_code = wx.getStorageSync('auth_code');
-                _address = {
-                  name: _res.name, //名字
-                  postal_code: _res.postalCode, // 邮编
-                  tel_phone: _res.telNumber, // 电话
-                  province: _res.provinceName, // 省
-                  city: _res.cityName, // 市
-                  district: _res.countyName, // 区
-                  detail: _res.detailInfo // 详细
-
-                };
-
-
-                data = [uuid, _auth_code, _address];
-                _context3.next = 27;
-                return that.$store.dispatch('boonAddress', __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends___default()({}, data));
-
-              case 27:
-                _address_res = _context3.sent;
-
                 wx.navigateTo({
                   url: '/pages/user/myboonList/myBoon/main?uuid=' + uuid
                 });
 
-              case 29:
+              case 20:
               case 'end':
                 return _context3.stop();
             }
@@ -563,6 +537,7 @@ global.webpackJsonp([3],{
 
                 that.init_rewarded_users = _init_rewarded_users;
               }
+
               //     that.init_rewarded_users = boonData.boon.rewarded_users
 
               //     await this.$store.dispatch('createBill', { ...this.userInfo, ...this.billInfo })
@@ -590,30 +565,30 @@ global.webpackJsonp([3],{
 
 /***/ }),
 
-/***/ 189:
+/***/ 191:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 193:
+/***/ 195:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 198:
+/***/ 200:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_diago_vue__ = __webpack_require__(101);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_f211043e_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_diago_vue__ = __webpack_require__(229);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_f211043e_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_diago_vue__ = __webpack_require__(231);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(193)
+  __webpack_require__(195)
 }
 var normalizeComponent = __webpack_require__(1)
 /* script */
@@ -658,7 +633,7 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 224:
+/***/ 226:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -714,7 +689,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   }), _vm._v(_vm._s(_vm.boon.sponsor.name)), _c('img', {
     staticClass: "right_ico",
     attrs: {
-      "src": __webpack_require__(12),
+      "src": __webpack_require__(22),
       "alt": ""
     }
   })])], 1), _vm._v(" "), (_vm.boon.status === 'published') ? _c('div', {
@@ -735,9 +710,9 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "step2"
   }, [_vm._v("2.领取成功后，请扫码加群等待发货哦")])], 1)], 1) : _vm._e(), _vm._v(" "), (_vm.boon.status == 'published') ? _c('div', {
     staticClass: "btn1"
-  }, [(_vm.boon.participate_status == false) ? _c('button', {
+  }, [(_vm.boon.participate_status == true) ? _c('button', {
     staticClass: "waiting"
-  }, [_vm._v("待开奖")]) : _vm._e(), _vm._v(" "), (_vm.boon.participate_status == true) ? _c('button', {
+  }, [_vm._v("待开奖")]) : _vm._e(), _vm._v(" "), (_vm.boon.participate_status == false) ? _c('button', {
     class: _vm.prizeStyle,
     attrs: {
       "eventid": '0'
@@ -745,7 +720,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     on: {
       "click": _vm.attendBoon
     }
-  }, [_vm._v(_vm._s(_vm.prize))]) : _vm._e()], 1) : _vm._e(), _vm._v(" "), (_vm.boon.status == 'rewarded') ? _c('div', {
+  }, [_vm._v(_vm._s(_vm.prize))]) : _vm._e()], 1) : _vm._e(), _vm._v(" "), (_vm.boon.participate_status === true) ? _c('div', [(_vm.boon.status == 'rewarded') ? _c('div', {
     staticClass: "openPrize"
   }, [_c('div', {
     staticClass: "pic"
@@ -805,7 +780,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "src": "http://pbmrxkahq.bkt.clouddn.com/%E5%8A%A0%E8%BD%BD%E6%9B%B4%E5%A4%9Aicon.png",
       "alt": ""
     }
-  })]) : _vm._e()], 2)]) : _vm._e(), _vm._v(" "), (_vm.boon.status == 'published') ? _c('div', {
+  })]) : _vm._e()], 2)]) : _vm._e()]) : _vm._e(), _vm._v(" "), (_vm.boon.status == 'published') ? _c('div', {
     staticClass: "btn-box"
   }, [(_vm.open) ? _c('Diago', {
     attrs: {
@@ -922,7 +897,7 @@ if (false) {
 
 /***/ }),
 
-/***/ 229:
+/***/ 231:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -967,11 +942,11 @@ if (false) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_prj_vue__ = __webpack_require__(115);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_a0735dbe_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_prj_vue__ = __webpack_require__(224);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_a0735dbe_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_prj_vue__ = __webpack_require__(226);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(189)
+  __webpack_require__(191)
 }
 var normalizeComponent = __webpack_require__(1)
 /* script */

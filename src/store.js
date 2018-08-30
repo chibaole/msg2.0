@@ -3,8 +3,8 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
-const apiDomain = 'http://localhost:5757/v1'
-// const apiDomain = 'http://47.98.170.205/api/v1'
+// const apiDomain = 'http://localhost:5757/v1'
+const apiDomain = 'http://47.98.170.205/api/v1'
 import {get, post, showModal} from '@/utils/util'
 
 
@@ -17,6 +17,8 @@ export default new Vuex.Store({
 
     async signup({commit}) {
       console.log(` 注册用户-----${apiDomain}/wx/login`)
+
+
       let userData = await login()
       let code = userData.code
       let data = {code: code}
@@ -25,21 +27,45 @@ export default new Vuex.Store({
         url: `${apiDomain}/wx/login`,
         data: data
       })
-      // let auth_code = res.auth_code
-      // if(res.auth_code === undefined){
-      //   let res = await request({
-      //     method: 'post',
-      //     url: `${apiDomain}/wx/login`,
-      //     data: data
-      //   })
-      // }
-      let auth_code = '7o_WVWb5GZlcpBfASVUl9Q'
-
+      let auth_code = ''
+      if (res.data.auth_code === undefined) {
+        let res = await request({
+          method: 'post',
+          url: `${apiDomain}/wx/login`,
+          data: data
+        })
+        auth_code = res.data.auth_code
+      } else {
+        auth_code = res.data.auth_code
+      }
       wx.setStorageSync('auth_code', auth_code)
+
+
       return auth_code
 
     },
+    async saveInfo({commit}, {...data}) {
+      console.log('存用户信息')
+      // let data = [e.mp.detail.encryptedData, e.mp.detail.iv, e.mp.detail.signature, e.mp.detail.rawData]
+      let auth_code = wx.getStorageSync('auth_code')
+      let urlData = {
+        auth_code: auth_code,
+        encrypted_data: data[0],
+        iv: data[1],
+        signature: data[2],
 
+        raw_data: data[3],
+
+      }
+      let res = await request({
+        method: 'post',
+        url: `${apiDomain}/wx/save_user_info`,
+        data: urlData
+      })
+      return res.user
+
+
+    },
 
 //  获取今日福利信息
 
@@ -147,7 +173,7 @@ export default new Vuex.Store({
     },
 
 //拼团订单详情
-    async groupActivities_order({commit},{...uuid_authCode}) {
+    async groupActivities_order({commit}, {...uuid_authCode}) {
       console.log('拼团订单详情')
       let uuid = uuid_authCode[0]
       let auth_code = uuid_authCode[1]
@@ -165,7 +191,7 @@ export default new Vuex.Store({
 //拼团发起详情
     async groupActivitiesInit({commit}, {...uuid_authCode}) {
       console.log(uuid_authCode)
-      let uuid = uuid_authCode[0] || '临时uuid'
+      let uuid = uuid_authCode[0]
       let auth_code = uuid_authCode[1]
 
       console.log(`拼团发起详情---${apiDomain}/group_activity_initials/${uuid}?auth_code=${auth_code}v`)
@@ -192,56 +218,64 @@ export default new Vuex.Store({
     },
 
 
-
 // 我的拼团订单详情页面
-    async myGroupList({commit},{...data}){
+    async myGroupList({commit}, {...data}) {
       const page = data[0]
       const size = data[1]
       const auth_code = data[2]
       const myGroupActivity = await request({
-        method:'get',
-        url:`${apiDomain}/group_activity_orders/mine?page=${page}&size=${size}&auth_code=${auth_code}`
+        method: 'get',
+        url: `${apiDomain}/group_activity_orders/mine?page=${page}&size=${size}&auth_code=${auth_code}`
       })
 
 
       return myGroupActivity || []
 
+    },
 
-
-
+//我的拼团订单详情
+    async myBoonDetail({commit}, {...data}) {
+      console.log('我的订单详情')
+      let uuid = data[0]
+      let auth_code = data[1]
+      let res = await request({
+        method: 'get',
+        url: `${apiDomain}/group_activity_orders/${uuid}?auth_code=${auth_code}`
+      })
+      console.log(res)
+      return res
     },
 //我的抽奖
 
-    async myBoonList({commit},{...data}){
+    async myBoonList({commit}, {...data}) {
+      console.log('我的抽奖订单列表详情')
+
       const page = data[0]
       const size = data[1]
       const auth_code = data[2]
       const myBoons = await request({
-        method:'get',
-        url:`${apiDomain}/boon_orders/mine?page=${page}&size=${size}&auth_code=${auth_code}`
+        method: 'get',
+        url: `${apiDomain}/boon_orders/mine?page=${page}&size=${size}&auth_code=${auth_code}`
       })
-
-
       return myBoons || []
-
-
-
 
     },
 //我的抽奖订单详情
-async myBoonDetail({commit},{...data}){
-      console.log('我的订单详情')
+    async myBoonDetail({commit}, {...data}) {
+      console.log('我的抽奖订单详情')
       let uuid = data[0]
       let auth_code = data[1]
-  let res = await request({
-    method:'get',
-    url:`${apiDomain}/boon_orders/${uuid}?auth_code=${auth_code}`
-  })
-  console.log(res)
-  return res
-},
+      let res = await request({
+        method: 'get',
+        url: `${apiDomain}/boon_orders/${uuid}?auth_code=${auth_code}`
+      })
+      console.log(res)
+      return res
+    },
+
+
 // 抽奖地址选择
-async boonAddress({commit},{...data}){
+    async boonAddress({commit}, {...data}) {
 
       let uuid = data[0]
 
@@ -249,53 +283,58 @@ async boonAddress({commit},{...data}){
 
       let attributes = data[2]
 
-      let order_address  = {
-        auth_code:auth_code,
-        boon_order:{
-          address_attributes:attributes
+      let order_address = {
+        auth_code: auth_code,
+        boon_order: {
+          address_attributes: attributes
         }
       }
       console.log('这是抽奖地址数据')
       var jsonData = JSON.stringify(order_address)
       let res = await  request({
-        method:'put',
-        url:`${apiDomain}/boon_orders/${uuid}`,
-        data:order_address,
-        header:{
+        method: 'put',
+        url: `${apiDomain}/boon_orders/${uuid}`,
+        data: order_address,
+        header: {
           'content-type': 'application/json'
         }
       })
       return res
 
-},
+    },
 //拼团地址选择
-    async groupAddress({commit},{...data}){
-
+    async groupAddress({commit}, {...data}) {
+      console.log('拼团地址')
       let uuid = data[0]
 
       let auth_code = data[1]
 
       let attributes = data[2]
 
-      let order_address  = {
-        auth_code:auth_code,
-        boon_order:{
-          address_attributes:attributes
+      let order_address = {
+        auth_code: auth_code,
+        group_activity_order: {
+          address_attributes: attributes
         }
       }
       console.log(order_address)
 
       let res = await  request({
-        method:'put',
-        url:`${apiDomain}/group_activity_orders/${uuid}`,
-        data:order_address
+        method: 'put',
+        url: `${apiDomain}/group_activity_orders/${uuid}`,
+        data: order_address
       })
       console.log(res)
       return res
 
     }
 
-  }
+  },
+  async test({commit}) {
+    console.log('测试')
+
+    return 124
+  },
 
 })
 

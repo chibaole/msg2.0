@@ -117,6 +117,7 @@
     left: 0;
     width: 100%;
     background: rgba(255, 255, 255, 0.1);
+    z-index: 100;
     /*border: 1px solid #000;*/
 
   }

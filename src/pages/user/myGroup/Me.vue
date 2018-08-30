@@ -2,12 +2,12 @@
   <div class="container" >
     <Navbar :navbar_title="navbar_title"></Navbar>
     <div class="groupList"  v-for="item in  myGroup_list">
-      <div class="groupItem">
+      <div class="groupItem" @click="goDetail" :data-uuid='item.uuid'>
           <div class="orderNum">
             <div class="left">订单号：<span>{{}}534475800412</span></div>
-            <div class="right">
-              <span>已发货{{item.status}}</span>
-              <img src="../../../../static/img/right.png" alt="">
+            <div class="right"  >
+              <span>{{item.status}}</span>
+              <img src="http://pbmrxkahq.bkt.clouddn.com/%E6%9B%B4%E5%A4%9A.png" alt="">
             </div>
           </div>
           <div class="orderInfo">
@@ -49,9 +49,10 @@ export default {
     return {
       navbar_title:'我的拼团订单',
       myGroup_list:[],
+      all_list:[],
       page:1,
       size:10,
-      showGetmore:true
+      showGetMore:true
 
     }
 
@@ -59,7 +60,28 @@ export default {
 
   methods:{
     addList(){
+      let that = this
+      console.log(that.all_list)
+       that.size += 10
+      console.log(that.size)
 
+      if(that.size >= that.all_list.length){
+        that.size = that.all_list.length
+        that.myGroup_list = that.all_list
+        console.log()
+      }else {
+        that.myGroup_list = that.all_list.slice(0,that.size)
+
+      }
+
+    },
+    goDetail(e){
+      const this_uuid = e.currentTarget.dataset.uuid
+      console.log(this_uuid)
+
+      wx.navigateTo({
+        url:`/pages/user/myGroup/myGroupDetail/main?next_uuid=${this_uuid}`
+      })
     }
 
     },
@@ -68,11 +90,12 @@ export default {
     const auth_code = wx.getStorageSync('auth_code')
     const data = [that.page,that.size,auth_code]
     const groupList = await that.$store.dispatch('myGroupList',{...data})
+    const init_size = that.size
+    that.all_list = groupList.group_activity_orders
+    that.myGroup_list = that.all_list.slice(0,init_size)
 
-    that.myGroup_list = groupList.group_activity_orders
-    console.log(groupList)
-    console.log(groupList.group_activity_orders)
-    console.log(groupList.group_activity_orders)
+
+
   }
 
 

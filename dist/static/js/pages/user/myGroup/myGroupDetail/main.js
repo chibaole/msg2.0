@@ -4,44 +4,65 @@ global.webpackJsonp([7],{
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__util__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__config__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_navbar__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_groupCard__ = __webpack_require__(16);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__util__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__config__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_navbar__ = __webpack_require__(6);
 
+
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -50,36 +71,81 @@ global.webpackJsonp([7],{
 
 /* harmony default export */ __webpack_exports__["a"] = ({
   components: {
-    Navbar: __WEBPACK_IMPORTED_MODULE_2__components_navbar__["a" /* default */],
-    Card: __WEBPACK_IMPORTED_MODULE_3__components_groupCard__["a" /* default */]
+    Navbar: __WEBPACK_IMPORTED_MODULE_5__components_navbar__["a" /* default */]
   },
 
   data: function data() {
     return {
       navbar_title: '订单详情',
-      order_info: {
-        title: '限量 5000 份 | 凤梨酥 6 枚装'
-
-      }
+      order_info: {},
+      host: __WEBPACK_IMPORTED_MODULE_4__config__["a" /* default */].host
 
     };
   },
 
 
-  methods: {}
+  methods: {
+    clip_no: function clip_no() {
+      var this_text = this.order_info.delivery.delivery_no;
+      wx.setClipboardData({
+        data: this_text,
+        success: function success() {
+          wx.showToast({
+            title: '已复制运单号',
+            icon: 'success',
+            duration: 2000
+          });
+        }
+      });
+    }
+  },
+  onLoad: function onLoad() {
+    var _this = this;
 
+    return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
+      var that, this_uuid, auth_code, uuid_authCode, res;
+      return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              that = _this;
+              this_uuid = that.$root.$mp.query.next_uuid; //订单uuid
+
+              auth_code = wx.getStorageSync('auth_code');
+              uuid_authCode = [this_uuid, auth_code];
+              _context.next = 6;
+              return that.$store.dispatch('groupActivities_order', __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends___default()({}, uuid_authCode));
+
+            case 6:
+              res = _context.sent;
+
+
+              console.log(this_uuid);
+              console.log(res);
+
+              that.order_info = res.group_activity_order;
+              console.log(that.order_info);
+
+            case 11:
+            case 'end':
+              return _context.stop();
+          }
+        }
+      }, _callee, _this);
+    }))();
+  }
 });
 
 /***/ }),
 
-/***/ 179:
+/***/ 181:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 215:
+/***/ 217:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -91,12 +157,64 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "navbar_title": _vm.navbar_title,
       "mpcomid": '0'
     }
-  }), _vm._v(" "), _c('Card', {
+  }), _vm._v(" "), _c('div', {
+    staticClass: "wrap"
+  }, [_c('div', {
+    staticClass: "pj-info"
+  }, [_c('div', {
+    staticClass: "left"
+  }, [_c('img', {
     attrs: {
-      "order_info": _vm.order_info,
-      "mpcomid": '1'
+      "src": _vm.host + _vm.order_info.group_activity.title_image_url,
+      "alt": ""
     }
-  }), _vm._v(" "), _vm._m(0), _vm._v(" "), _vm._m(1), _vm._v(" "), _vm._m(2), _vm._v(" "), _c('div', {
+  })]), _vm._v(" "), _c('div', {
+    staticClass: "right"
+  }, [_c('h2', [_c('div', {
+    staticClass: "mark"
+  }, [_vm._v(_vm._s(_vm.order_info.group_activity.group_type))]), _vm._v(_vm._s(_vm.order_info.group_activity.title))]), _vm._v(" "), _c('p', [_c('span', [_vm._v("¥" + _vm._s(_vm.order_info.group_activity.current_price))]), _c('span', [_vm._v("¥" + _vm._s(_vm.order_info.group_activity.original_price))])])], 1)])]), _vm._v(" "), _c('div', {
+    staticClass: "receive"
+  }, [_c('div', {
+    staticClass: "title"
+  }, [_vm._v("收货人信息")]), _vm._v(" "), _c('div', {
+    staticClass: "phone_address"
+  }, [_c('div', {
+    staticClass: "phone"
+  }, [_c('span', [_vm._v("收货信息：")]), _vm._v(_vm._s(_vm.order_info.address.people))]), _vm._v(" "), _c('div', {
+    staticClass: "address"
+  }, [_c('span', [_vm._v("收货地址：")]), _c('span', {
+    staticClass: "addressDetail"
+  }, [_vm._v(_vm._s(_vm.order_info.address.detail))])])])]), _vm._v(" "), _c('div', {
+    staticClass: "orderinfo"
+  }, [_c('div', {
+    staticClass: "title"
+  }, [_vm._v("订单信息")]), _vm._v(" "), _c('div', {
+    staticClass: "groupOrder"
+  }, [_c('span', [_vm._v("拼团订单：")]), _c('span', [_vm._v(_vm._s(_vm.order_info.uuid))])]), _vm._v(" "), _c('div', {
+    staticClass: "orderTime"
+  }, [_c('span', [_vm._v("订单时间：")]), _c('span', [_vm._v(_vm._s(_vm.order_info.created_at))])]), _vm._v(" "), _c('div', {
+    staticClass: "orderState"
+  }, [_c('span', [_vm._v("订单状态：")]), _c('span', [_vm._v(_vm._s(_vm.order_info.status_display))])])]), _vm._v(" "), _c('div', {
+    staticClass: "express"
+  }, [_c('div', {
+    staticClass: "title"
+  }, [_vm._v("物流信息")]), _vm._v(" "), _c('div', {
+    staticClass: "groupOrder"
+  }, [_c('span', [_vm._v("物流配送：")]), _c('span', [_vm._v(_vm._s(_vm.order_info.delivery.company))])]), _vm._v(" "), _c('div', {
+    staticClass: "orderTime"
+  }, [_c('span', [_vm._v("运单编号：")]), _c('span', {
+    attrs: {
+      "eventid": '0'
+    },
+    on: {
+      "click": _vm.clip_no
+    }
+  }, [_vm._v(_vm._s(_vm.order_info.delivery.delivery_no))])]), _vm._v(" "), _c('img', {
+    attrs: {
+      "src": __webpack_require__(22),
+      "alt": ""
+    }
+  })]), _vm._v(" "), _c('div', {
     staticClass: "service"
   }, [_c('contact-button', {
     staticClass: "pos",
@@ -110,48 +228,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   })], 1)], 1)
 }
-var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "receive"
-  }, [_c('div', {
-    staticClass: "title"
-  }, [_vm._v("收货人信息")]), _vm._v(" "), _c('div', {
-    staticClass: "phone_address"
-  }, [_c('div', {
-    staticClass: "phone"
-  }, [_c('span', [_vm._v("收货信息：")]), _c('span', [_vm._v("{{}}土土")]), _c('span', [_vm._v("13216614843{{}}")])]), _vm._v(" "), _c('div', {
-    staticClass: "address"
-  }, [_c('span', [_vm._v("收货地址：")]), _c('span', {
-    staticClass: "addressDetail"
-  }, [_vm._v("{{}}上海市 静安区 光复路1号上海四行仓库抗战纪念馆223室上海市 静安区 光复路1号上海四行仓库抗战纪念馆223室")])])])])
-},function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "orderinfo"
-  }, [_c('div', {
-    staticClass: "title"
-  }, [_vm._v("订单信息")]), _vm._v(" "), _c('div', {
-    staticClass: "groupOrder"
-  }, [_c('span', [_vm._v("拼团订单：")]), _c('span', [_vm._v("13216614843{{}}")])]), _vm._v(" "), _c('div', {
-    staticClass: "orderTime"
-  }, [_c('span', [_vm._v("订单时间：")]), _c('span', [_vm._v("2018/12/17 23:21{{}}")])]), _vm._v(" "), _c('div', {
-    staticClass: "orderState"
-  }, [_c('span', [_vm._v("订单状态：")]), _c('span', [_vm._v("已发货{{}}")])])])
-},function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "express"
-  }, [_c('div', {
-    staticClass: "title"
-  }, [_vm._v("物流信息")]), _vm._v(" "), _c('div', {
-    staticClass: "groupOrder"
-  }, [_c('span', [_vm._v("物流配送：")]), _c('span', [_vm._v("顺丰{{}}")])]), _vm._v(" "), _c('div', {
-    staticClass: "orderTime"
-  }, [_c('span', [_vm._v("运单编号：")]), _c('span', [_vm._v("534475800412{{}}")])]), _vm._v(" "), _c('img', {
-    attrs: {
-      "src": __webpack_require__(12),
-      "alt": ""
-    }
-  })])
-}]
+var staticRenderFns = []
 render._withStripped = true
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);
@@ -169,11 +246,11 @@ if (false) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_Me_vue__ = __webpack_require__(120);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_4958b0dc_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_Me_vue__ = __webpack_require__(215);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_4958b0dc_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_Me_vue__ = __webpack_require__(217);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(179)
+  __webpack_require__(181)
 }
 var normalizeComponent = __webpack_require__(1)
 /* script */

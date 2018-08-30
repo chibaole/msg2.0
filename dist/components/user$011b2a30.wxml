@@ -2,15 +2,15 @@
 <template name="user$011b2a30">
   <view class="_div data-v-7ec0cb2e container">
     <template data="{{...$root[$kk+'0'], $root}}" is="navbar$7457f0be"></template>
-    <view class="_div data-v-7ec0cb2e groupList">
-      <view class="_div data-v-7ec0cb2e groupItem" wx:for="{{boonList}}" wx:for-index="index" wx:for-item="item">
+    <view class="_div data-v-7ec0cb2e groupList" wx:for="{{boonList}}" wx:for-index="index" wx:for-item="item">
+      <view class="_div data-v-7ec0cb2e groupItem" data-uuid="{{item.uuid}}" data-status="{{item.status}}" bindtap="handleProxy" data-eventid="{{'0-'+index}}" data-comkey="{{$k}}">
         <view class="_div data-v-7ec0cb2e orderNum">
           <view class="_div data-v-7ec0cb2e left">订单号：
             <label class="_span data-v-7ec0cb2e">{{item.uuid}}</label>
           </view>
-          <view class="_div data-v-7ec0cb2e right" data-uuid="{{item.uuid}}" bindtap="handleProxy" data-eventid="{{'0-'+index}}" data-comkey="{{$k}}">
+          <view class="_div data-v-7ec0cb2e right">
             <label class="_span data-v-7ec0cb2e">{{item.united_state_display}}</label>
-            <image src="../../../../static/img/right.png" alt class="_img data-v-7ec0cb2e"></image>
+            <image src="http://pbmrxkahq.bkt.clouddn.com/%E6%9B%B4%E5%A4%9A.png" alt class="_img data-v-7ec0cb2e"></image>
           </view>
         </view>
         <view class="_div data-v-7ec0cb2e orderInfo">

@@ -1,6 +1,6 @@
 global.webpackJsonp([15],{
 
-/***/ 180:
+/***/ 182:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
@@ -11,58 +11,66 @@ global.webpackJsonp([15],{
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_json_stringify__ = __webpack_require__(274);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_json_stringify___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_json_stringify__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_objectWithoutProperties__ = __webpack_require__(126);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_objectWithoutProperties___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_objectWithoutProperties__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_regenerator__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_regenerator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_asyncToGenerator__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_asyncToGenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_asyncToGenerator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vue__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_vuex__ = __webpack_require__(235);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__utils_util__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__utils_wx__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_defineProperty__ = __webpack_require__(126);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_defineProperty___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_defineProperty__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_json_stringify__ = __webpack_require__(123);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_json_stringify___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_json_stringify__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_objectWithoutProperties__ = __webpack_require__(127);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_objectWithoutProperties___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_objectWithoutProperties__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_asyncToGenerator__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_asyncToGenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_asyncToGenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_vue__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_vuex__ = __webpack_require__(237);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__utils_util__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__utils_wx__ = __webpack_require__(13);
 
 
 
 
 
 
-
-__WEBPACK_IMPORTED_MODULE_4_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_5_vuex__["a" /* default */]);
-
-var apiDomain = 'http://localhost:5757/v1';
-// const apiDomain = 'http://47.98.170.205/api/v1'
+var _actions;
 
 
 
 
-/* harmony default export */ __webpack_exports__["a"] = (new __WEBPACK_IMPORTED_MODULE_5_vuex__["a" /* default */].Store({
-  actions: {
+__WEBPACK_IMPORTED_MODULE_5_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_6_vuex__["a" /* default */]);
+
+// const apiDomain = 'http://localhost:5757/v1'
+var apiDomain = 'http://47.98.170.205/api/v1';
+
+
+
+
+/* harmony default export */ __webpack_exports__["a"] = (new __WEBPACK_IMPORTED_MODULE_6_vuex__["a" /* default */].Store({
+  actions: (_actions = {
     //仅注册用户 传递code  换取openid 建设账户体系
 
     signup: function signup(_ref) {
       var _this = this;
 
       var commit = _ref.commit;
-      return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_2_babel_runtime_regenerator___default.a.mark(function _callee() {
-        var userData, code, data, res, auth_code;
-        return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+      return __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.mark(function _callee() {
+        var userData, code, data, res, auth_code, _res;
+
+        return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
                 console.log(' \u6CE8\u518C\u7528\u6237-----' + apiDomain + '/wx/login');
+
                 _context.next = 3;
-                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__utils_wx__["b" /* login */])();
+                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["b" /* login */])();
 
               case 3:
                 userData = _context.sent;
                 code = userData.code;
                 data = { code: code };
                 _context.next = 8;
-                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__utils_wx__["d" /* request */])({
+                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
                   method: 'post',
                   url: apiDomain + '/wx/login',
                   data: data
@@ -70,21 +78,36 @@ var apiDomain = 'http://localhost:5757/v1';
 
               case 8:
                 res = _context.sent;
+                auth_code = '';
 
-                // let auth_code = res.auth_code
-                // if(res.auth_code === undefined){
-                //   let res = await request({
-                //     method: 'post',
-                //     url: `${apiDomain}/wx/login`,
-                //     data: data
-                //   })
-                // }
-                auth_code = '7o_WVWb5GZlcpBfASVUl9Q';
+                if (!(res.data.auth_code === undefined)) {
+                  _context.next = 17;
+                  break;
+                }
 
+                _context.next = 13;
+                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
+                  method: 'post',
+                  url: apiDomain + '/wx/login',
+                  data: data
+                });
+
+              case 13:
+                _res = _context.sent;
+
+                auth_code = _res.data.auth_code;
+                _context.next = 18;
+                break;
+
+              case 17:
+                auth_code = res.data.auth_code;
+
+              case 18:
                 wx.setStorageSync('auth_code', auth_code);
+
                 return _context.abrupt('return', auth_code);
 
-              case 12:
+              case 20:
               case 'end':
                 return _context.stop();
             }
@@ -92,36 +115,43 @@ var apiDomain = 'http://localhost:5757/v1';
         }, _callee, _this);
       }))();
     },
-
-    //  获取今日福利信息
-
-    getBoonsToday: function getBoonsToday(_ref2) {
+    saveInfo: function saveInfo(_ref3, _ref2) {
       var _this2 = this;
 
-      var commit = _ref2.commit;
-      return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_2_babel_runtime_regenerator___default.a.mark(function _callee2() {
-        var boons;
-        return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
+      var commit = _ref3.commit;
+
+      var data = __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_objectWithoutProperties___default()(_ref2, []);
+
+      return __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.mark(function _callee2() {
+        var auth_code, urlData, res;
+        return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
-                console.log('\u83B7\u53D6\u4ECA\u65E5\u798F\u5229-----' + apiDomain + '/boons/today');
-                // let boons = await get('/v1/boons/today', {page: this.page})
+                console.log('存用户信息');
+                // let data = [e.mp.detail.encryptedData, e.mp.detail.iv, e.mp.detail.signature, e.mp.detail.rawData]
+                auth_code = wx.getStorageSync('auth_code');
+                urlData = {
+                  auth_code: auth_code,
+                  encrypted_data: data[0],
+                  iv: data[1],
+                  signature: data[2],
 
-                _context2.next = 3;
-                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__utils_wx__["d" /* request */])({
-                  method: 'get',
-                  url: apiDomain + '/boons/today',
-                  data: {}
+                  raw_data: data[3]
+
+                };
+                _context2.next = 5;
+                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
+                  method: 'post',
+                  url: apiDomain + '/wx/save_user_info',
+                  data: urlData
                 });
 
-              case 3:
-                boons = _context2.sent;
+              case 5:
+                res = _context2.sent;
+                return _context2.abrupt('return', res.user);
 
-                console.log(boons);
-                return _context2.abrupt('return', boons);
-
-              case 6:
+              case 7:
               case 'end':
                 return _context2.stop();
             }
@@ -130,43 +160,35 @@ var apiDomain = 'http://localhost:5757/v1';
       }))();
     },
 
-    //获取福利详情
+    //  获取今日福利信息
 
-    getBoons: function getBoons(_ref4, _ref3) {
+    getBoonsToday: function getBoonsToday(_ref4) {
       var _this3 = this;
 
       var commit = _ref4.commit;
-
-      var uuid_authCode = __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_objectWithoutProperties___default()(_ref3, []);
-
-      return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_2_babel_runtime_regenerator___default.a.mark(function _callee3() {
-        var uuid, auth_code, prjInfo;
-        return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_regenerator___default.a.wrap(function _callee3$(_context3) {
+      return __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.mark(function _callee3() {
+        var boons;
+        return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.wrap(function _callee3$(_context3) {
           while (1) {
             switch (_context3.prev = _context3.next) {
               case 0:
-                console.log(uuid_authCode[1]);
-                console.log(uuid_authCode[0]);
+                console.log('\u83B7\u53D6\u4ECA\u65E5\u798F\u5229-----' + apiDomain + '/boons/today');
+                // let boons = await get('/v1/boons/today', {page: this.page})
 
-                uuid = uuid_authCode[0];
-                auth_code = uuid_authCode[1];
-                _context3.next = 6;
-                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__utils_wx__["d" /* request */])({
+                _context3.next = 3;
+                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
                   method: 'get',
-                  url: apiDomain + '/boons/' + uuid + '?auth_code=' + auth_code,
+                  url: apiDomain + '/boons/today',
                   data: {}
                 });
 
+              case 3:
+                boons = _context3.sent;
+
+                console.log(boons);
+                return _context3.abrupt('return', boons);
+
               case 6:
-                prjInfo = _context3.sent;
-
-                console.log('\u83B7\u53D6\u798F\u5229\u8BE6\u60C5----' + apiDomain + '/boons/' + uuid + '?auth_code=' + auth_code);
-
-                console.log(prjInfo);
-
-                return _context3.abrupt('return', prjInfo);
-
-              case 10:
               case 'end':
                 return _context3.stop();
             }
@@ -175,39 +197,43 @@ var apiDomain = 'http://localhost:5757/v1';
       }))();
     },
 
-    //参加福利
-    attendBoon: function attendBoon(_ref6, _ref5) {
+    //获取福利详情
+
+    getBoons: function getBoons(_ref6, _ref5) {
       var _this4 = this;
 
       var commit = _ref6.commit;
 
-      var uuid_authCode = __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_objectWithoutProperties___default()(_ref5, []);
+      var uuid_authCode = __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_objectWithoutProperties___default()(_ref5, []);
 
-      return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_2_babel_runtime_regenerator___default.a.mark(function _callee4() {
-        var boonId, auth_code, res;
-        return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_regenerator___default.a.wrap(function _callee4$(_context4) {
+      return __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.mark(function _callee4() {
+        var uuid, auth_code, prjInfo;
+        return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.wrap(function _callee4$(_context4) {
           while (1) {
             switch (_context4.prev = _context4.next) {
               case 0:
-                boonId = uuid_authCode[0] || '12';
-                auth_code = uuid_authCode[1];
+                console.log(uuid_authCode[1]);
+                console.log(uuid_authCode[0]);
 
-                console.log(uuid_authCode);
-                _context4.next = 5;
-                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__utils_wx__["d" /* request */])({
-                  method: 'post',
-                  url: apiDomain + '/boons/' + boonId + '/attend?auth_code=' + auth_code
+                uuid = uuid_authCode[0];
+                auth_code = uuid_authCode[1];
+                _context4.next = 6;
+                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
+                  method: 'get',
+                  url: apiDomain + '/boons/' + uuid + '?auth_code=' + auth_code,
+                  data: {}
                 });
 
-              case 5:
-                res = _context4.sent;
+              case 6:
+                prjInfo = _context4.sent;
 
-                console.log('\u53C2\u52A0\u798F\u5229------' + apiDomain + '/boons/' + boonId + '/attend?auth_code=' + auth_code);
-                console.log(res);
+                console.log('\u83B7\u53D6\u798F\u5229\u8BE6\u60C5----' + apiDomain + '/boons/' + uuid + '?auth_code=' + auth_code);
 
-                return _context4.abrupt('return', res);
+                console.log(prjInfo);
 
-              case 9:
+                return _context4.abrupt('return', prjInfo);
+
+              case 10:
               case 'end':
                 return _context4.stop();
             }
@@ -216,35 +242,39 @@ var apiDomain = 'http://localhost:5757/v1';
       }))();
     },
 
-    //获取当前拼团活动数据列表
-
-    getGroup: function getGroup(_ref7) {
+    //参加福利
+    attendBoon: function attendBoon(_ref8, _ref7) {
       var _this5 = this;
 
-      var commit = _ref7.commit;
-      return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_2_babel_runtime_regenerator___default.a.mark(function _callee5() {
-        var auth_code, group;
-        return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_regenerator___default.a.wrap(function _callee5$(_context5) {
+      var commit = _ref8.commit;
+
+      var uuid_authCode = __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_objectWithoutProperties___default()(_ref7, []);
+
+      return __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.mark(function _callee5() {
+        var boonId, auth_code, res;
+        return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.wrap(function _callee5$(_context5) {
           while (1) {
             switch (_context5.prev = _context5.next) {
               case 0:
-                auth_code = wx.getStorageSync('auth_code');
-                _context5.next = 3;
-                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__utils_wx__["d" /* request */])({
-                  method: 'get',
-                  url: apiDomain + '/group_activities?auth_code=' + auth_code,
-                  data: {}
+                boonId = uuid_authCode[0] || '12';
+                auth_code = uuid_authCode[1];
+
+                console.log(uuid_authCode);
+                _context5.next = 5;
+                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
+                  method: 'post',
+                  url: apiDomain + '/boons/' + boonId + '/attend?auth_code=' + auth_code
                 });
 
-              case 3:
-                group = _context5.sent;
+              case 5:
+                res = _context5.sent;
 
-                console.log('store\u7684 \u83B7\u53D6\u62FC\u56E2\u5217\u8868-----' + apiDomain + '/group_activities?auth_code=' + auth_code);
+                console.log('\u53C2\u52A0\u798F\u5229------' + apiDomain + '/boons/' + boonId + '/attend?auth_code=' + auth_code);
+                console.log(res);
 
-                console.log(group);
-                return _context5.abrupt('return', group);
+                return _context5.abrupt('return', res);
 
-              case 7:
+              case 9:
               case 'end':
                 return _context5.stop();
             }
@@ -253,37 +283,35 @@ var apiDomain = 'http://localhost:5757/v1';
       }))();
     },
 
-    //拼团活动详情
-    getGrouDetail: function getGrouDetail(_ref9, _ref8) {
+    //获取当前拼团活动数据列表
+
+    getGroup: function getGroup(_ref9) {
       var _this6 = this;
 
       var commit = _ref9.commit;
-
-      var uuid_authCode = __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_objectWithoutProperties___default()(_ref8, []);
-
-      return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_2_babel_runtime_regenerator___default.a.mark(function _callee6() {
-        var uuid, auth_code, groupDetail;
-        return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_regenerator___default.a.wrap(function _callee6$(_context6) {
+      return __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.mark(function _callee6() {
+        var auth_code, group;
+        return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.wrap(function _callee6$(_context6) {
           while (1) {
             switch (_context6.prev = _context6.next) {
               case 0:
-                uuid = uuid_authCode[0];
-                auth_code = uuid_authCode[1];
-                _context6.next = 4;
-                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__utils_wx__["d" /* request */])({
+                auth_code = wx.getStorageSync('auth_code');
+                _context6.next = 3;
+                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
                   method: 'get',
-                  url: apiDomain + '/group_activities/' + uuid + '?auth_code=' + auth_code
+                  url: apiDomain + '/group_activities?auth_code=' + auth_code,
+                  data: {}
                 });
 
-              case 4:
-                groupDetail = _context6.sent;
+              case 3:
+                group = _context6.sent;
 
-                console.log('\u62FC\u56E2\u6D3B\u52A8\u8BE6\u60C5----' + apiDomain + '/group_activities/' + uuid + '?auth_code=' + auth_code);
+                console.log('store\u7684 \u83B7\u53D6\u62FC\u56E2\u5217\u8868-----' + apiDomain + '/group_activities?auth_code=' + auth_code);
 
-                console.log(groupDetail);
-                return _context6.abrupt('return', groupDetail);
+                console.log(group);
+                return _context6.abrupt('return', group);
 
-              case 8:
+              case 7:
               case 'end':
                 return _context6.stop();
             }
@@ -292,37 +320,35 @@ var apiDomain = 'http://localhost:5757/v1';
       }))();
     },
 
-    //发起拼团
-
-    initGroup: function initGroup(_ref11, _ref10) {
+    //拼团活动详情
+    getGrouDetail: function getGrouDetail(_ref11, _ref10) {
       var _this7 = this;
 
       var commit = _ref11.commit;
 
-      var uuid_authCode = __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_objectWithoutProperties___default()(_ref10, []);
+      var uuid_authCode = __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_objectWithoutProperties___default()(_ref10, []);
 
-      return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_2_babel_runtime_regenerator___default.a.mark(function _callee7() {
-        var uuid, auth_code, initGroup;
-        return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_regenerator___default.a.wrap(function _callee7$(_context7) {
+      return __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.mark(function _callee7() {
+        var uuid, auth_code, groupDetail;
+        return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.wrap(function _callee7$(_context7) {
           while (1) {
             switch (_context7.prev = _context7.next) {
               case 0:
                 uuid = uuid_authCode[0];
                 auth_code = uuid_authCode[1];
                 _context7.next = 4;
-                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__utils_wx__["d" /* request */])({
-                  method: 'post',
-                  url: apiDomain + '/group_activities/' + uuid + '/initial?auth_code=' + auth_code
-
+                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
+                  method: 'get',
+                  url: apiDomain + '/group_activities/' + uuid + '?auth_code=' + auth_code
                 });
 
               case 4:
-                initGroup = _context7.sent;
+                groupDetail = _context7.sent;
 
-                console.log('\u53D1\u8D77\u62FC\u56E2\u7684\u8BA2\u5355----' + apiDomain + '/group_activities/' + uuid + '/initial?auth_code=' + auth_code);
+                console.log('\u62FC\u56E2\u6D3B\u52A8\u8BE6\u60C5----' + apiDomain + '/group_activities/' + uuid + '?auth_code=' + auth_code);
 
-                console.log(initGroup);
-                return _context7.abrupt('return', initGroup);
+                console.log(groupDetail);
+                return _context7.abrupt('return', groupDetail);
 
               case 8:
               case 'end':
@@ -333,38 +359,39 @@ var apiDomain = 'http://localhost:5757/v1';
       }))();
     },
 
-    //拼团订单详情
-    groupActivities_order: function groupActivities_order(_ref13, _ref12) {
+    //发起拼团
+
+    initGroup: function initGroup(_ref13, _ref12) {
       var _this8 = this;
 
       var commit = _ref13.commit;
 
-      var uuid_authCode = __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_objectWithoutProperties___default()(_ref12, []);
+      var uuid_authCode = __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_objectWithoutProperties___default()(_ref12, []);
 
-      return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_2_babel_runtime_regenerator___default.a.mark(function _callee8() {
-        var uuid, auth_code, orderData;
-        return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_regenerator___default.a.wrap(function _callee8$(_context8) {
+      return __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.mark(function _callee8() {
+        var uuid, auth_code, initGroup;
+        return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.wrap(function _callee8$(_context8) {
           while (1) {
             switch (_context8.prev = _context8.next) {
               case 0:
-                console.log('拼团订单详情');
                 uuid = uuid_authCode[0];
                 auth_code = uuid_authCode[1];
+                _context8.next = 4;
+                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
+                  method: 'post',
+                  url: apiDomain + '/group_activities/' + uuid + '/initial?auth_code=' + auth_code
 
-                console.log('\u62FC\u56E2\u8BA2\u5355\u8BE6\u60C5----' + apiDomain + '/group_activity_orders/' + uuid + '?auth_code=' + auth_code);
-                _context8.next = 6;
-                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__utils_wx__["d" /* request */])({
-                  method: 'get',
-                  url: apiDomain + '/group_activity_orders/' + uuid + '?auth_code=' + auth_code
                 });
 
-              case 6:
-                orderData = _context8.sent;
+              case 4:
+                initGroup = _context8.sent;
 
-                console.log(orderData);
-                return _context8.abrupt('return', orderData);
+                console.log('\u53D1\u8D77\u62FC\u56E2\u7684\u8BA2\u5355----' + apiDomain + '/group_activities/' + uuid + '/initial?auth_code=' + auth_code);
 
-              case 9:
+                console.log(initGroup);
+                return _context8.abrupt('return', initGroup);
+
+              case 8:
               case 'end':
                 return _context8.stop();
             }
@@ -373,36 +400,36 @@ var apiDomain = 'http://localhost:5757/v1';
       }))();
     },
 
-    //拼团发起详情
-    groupActivitiesInit: function groupActivitiesInit(_ref15, _ref14) {
+    //拼团订单详情
+    groupActivities_order: function groupActivities_order(_ref15, _ref14) {
       var _this9 = this;
 
       var commit = _ref15.commit;
 
-      var uuid_authCode = __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_objectWithoutProperties___default()(_ref14, []);
+      var uuid_authCode = __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_objectWithoutProperties___default()(_ref14, []);
 
-      return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_2_babel_runtime_regenerator___default.a.mark(function _callee9() {
-        var uuid, auth_code, initOrder;
-        return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_regenerator___default.a.wrap(function _callee9$(_context9) {
+      return __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.mark(function _callee9() {
+        var uuid, auth_code, orderData;
+        return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.wrap(function _callee9$(_context9) {
           while (1) {
             switch (_context9.prev = _context9.next) {
               case 0:
-                console.log(uuid_authCode);
-                uuid = uuid_authCode[0] || '临时uuid';
+                console.log('拼团订单详情');
+                uuid = uuid_authCode[0];
                 auth_code = uuid_authCode[1];
 
-                console.log('\u62FC\u56E2\u53D1\u8D77\u8BE6\u60C5---' + apiDomain + '/group_activity_initials/' + uuid + '?auth_code=' + auth_code + 'v');
+                console.log('\u62FC\u56E2\u8BA2\u5355\u8BE6\u60C5----' + apiDomain + '/group_activity_orders/' + uuid + '?auth_code=' + auth_code);
                 _context9.next = 6;
-                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__utils_wx__["d" /* request */])({
+                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
                   method: 'get',
-                  url: apiDomain + '/group_activity_initials/' + uuid + '?auth_code=' + auth_code
+                  url: apiDomain + '/group_activity_orders/' + uuid + '?auth_code=' + auth_code
                 });
 
               case 6:
-                initOrder = _context9.sent;
+                orderData = _context9.sent;
 
-                console.log(initOrder);
-                return _context9.abrupt('return', initOrder);
+                console.log(orderData);
+                return _context9.abrupt('return', orderData);
 
               case 9:
               case 'end':
@@ -413,36 +440,38 @@ var apiDomain = 'http://localhost:5757/v1';
       }))();
     },
 
-    // 参与拼团
-
-    attendGroupActivities: function attendGroupActivities(_ref17, _ref16) {
+    //拼团发起详情
+    groupActivitiesInit: function groupActivitiesInit(_ref17, _ref16) {
       var _this10 = this;
 
       var commit = _ref17.commit;
 
-      var uuid_authCode = __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_objectWithoutProperties___default()(_ref16, []);
+      var uuid_authCode = __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_objectWithoutProperties___default()(_ref16, []);
 
-      return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_2_babel_runtime_regenerator___default.a.mark(function _callee10() {
-        var attendData;
-        return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_regenerator___default.a.wrap(function _callee10$(_context10) {
+      return __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.mark(function _callee10() {
+        var uuid, auth_code, initOrder;
+        return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.wrap(function _callee10$(_context10) {
           while (1) {
             switch (_context10.prev = _context10.next) {
               case 0:
-                console.log('一键参与拼团');
+                console.log(uuid_authCode);
+                uuid = uuid_authCode[0];
+                auth_code = uuid_authCode[1];
 
-                _context10.next = 3;
-                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__utils_wx__["d" /* request */])({
-                  method: 'post',
-                  url: apiDomain + '/group_activities/' + uuid_authCode[0] + '/attend?auth_code=' + uuid_authCode[1]
+                console.log('\u62FC\u56E2\u53D1\u8D77\u8BE6\u60C5---' + apiDomain + '/group_activity_initials/' + uuid + '?auth_code=' + auth_code + 'v');
+                _context10.next = 6;
+                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
+                  method: 'get',
+                  url: apiDomain + '/group_activity_initials/' + uuid + '?auth_code=' + auth_code
                 });
 
-              case 3:
-                attendData = _context10.sent;
-
-                console.log(attendData);
-                return _context10.abrupt('return', attendData);
-
               case 6:
+                initOrder = _context10.sent;
+
+                console.log(initOrder);
+                return _context10.abrupt('return', initOrder);
+
+              case 9:
               case 'end':
                 return _context10.stop();
             }
@@ -451,34 +480,36 @@ var apiDomain = 'http://localhost:5757/v1';
       }))();
     },
 
-    // 我的拼团订单详情页面
-    myGroupList: function myGroupList(_ref19, _ref18) {
+    // 参与拼团
+
+    attendGroupActivities: function attendGroupActivities(_ref19, _ref18) {
       var _this11 = this;
 
       var commit = _ref19.commit;
 
-      var data = __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_objectWithoutProperties___default()(_ref18, []);
+      var uuid_authCode = __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_objectWithoutProperties___default()(_ref18, []);
 
-      return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_2_babel_runtime_regenerator___default.a.mark(function _callee11() {
-        var page, size, auth_code, myGroupActivity;
-        return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_regenerator___default.a.wrap(function _callee11$(_context11) {
+      return __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.mark(function _callee11() {
+        var attendData;
+        return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.wrap(function _callee11$(_context11) {
           while (1) {
             switch (_context11.prev = _context11.next) {
               case 0:
-                page = data[0];
-                size = data[1];
-                auth_code = data[2];
-                _context11.next = 5;
-                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__utils_wx__["d" /* request */])({
-                  method: 'get',
-                  url: apiDomain + '/group_activity_orders/mine?page=' + page + '&size=' + size + '&auth_code=' + auth_code
+                console.log('一键参与拼团');
+
+                _context11.next = 3;
+                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
+                  method: 'post',
+                  url: apiDomain + '/group_activities/' + uuid_authCode[0] + '/attend?auth_code=' + uuid_authCode[1]
                 });
 
-              case 5:
-                myGroupActivity = _context11.sent;
-                return _context11.abrupt('return', myGroupActivity || []);
+              case 3:
+                attendData = _context11.sent;
 
-              case 7:
+                console.log(attendData);
+                return _context11.abrupt('return', attendData);
+
+              case 6:
               case 'end':
                 return _context11.stop();
             }
@@ -487,18 +518,17 @@ var apiDomain = 'http://localhost:5757/v1';
       }))();
     },
 
-    //我的抽奖
-
-    myBoonList: function myBoonList(_ref21, _ref20) {
+    // 我的拼团订单详情页面
+    myGroupList: function myGroupList(_ref21, _ref20) {
       var _this12 = this;
 
       var commit = _ref21.commit;
 
-      var data = __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_objectWithoutProperties___default()(_ref20, []);
+      var data = __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_objectWithoutProperties___default()(_ref20, []);
 
-      return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_2_babel_runtime_regenerator___default.a.mark(function _callee12() {
-        var page, size, auth_code, myBoons;
-        return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_regenerator___default.a.wrap(function _callee12$(_context12) {
+      return __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.mark(function _callee12() {
+        var page, size, auth_code, myGroupActivity;
+        return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.wrap(function _callee12$(_context12) {
           while (1) {
             switch (_context12.prev = _context12.next) {
               case 0:
@@ -506,14 +536,14 @@ var apiDomain = 'http://localhost:5757/v1';
                 size = data[1];
                 auth_code = data[2];
                 _context12.next = 5;
-                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__utils_wx__["d" /* request */])({
+                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
                   method: 'get',
-                  url: apiDomain + '/boon_orders/mine?page=' + page + '&size=' + size + '&auth_code=' + auth_code
+                  url: apiDomain + '/group_activity_orders/mine?page=' + page + '&size=' + size + '&auth_code=' + auth_code
                 });
 
               case 5:
-                myBoons = _context12.sent;
-                return _context12.abrupt('return', myBoons || []);
+                myGroupActivity = _context12.sent;
+                return _context12.abrupt('return', myGroupActivity || []);
 
               case 7:
               case 'end':
@@ -524,17 +554,17 @@ var apiDomain = 'http://localhost:5757/v1';
       }))();
     },
 
-    //我的抽奖订单详情
+    //我的拼团订单详情
     myBoonDetail: function myBoonDetail(_ref23, _ref22) {
       var _this13 = this;
 
       var commit = _ref23.commit;
 
-      var data = __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_objectWithoutProperties___default()(_ref22, []);
+      var data = __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_objectWithoutProperties___default()(_ref22, []);
 
-      return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_2_babel_runtime_regenerator___default.a.mark(function _callee13() {
+      return __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.mark(function _callee13() {
         var uuid, auth_code, res;
-        return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_regenerator___default.a.wrap(function _callee13$(_context13) {
+        return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.wrap(function _callee13$(_context13) {
           while (1) {
             switch (_context13.prev = _context13.next) {
               case 0:
@@ -542,9 +572,9 @@ var apiDomain = 'http://localhost:5757/v1';
                 uuid = data[0];
                 auth_code = data[1];
                 _context13.next = 5;
-                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__utils_wx__["d" /* request */])({
+                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
                   method: 'get',
-                  url: apiDomain + '/boon_orders/' + uuid + '?auth_code=' + auth_code
+                  url: apiDomain + '/group_activity_orders/' + uuid + '?auth_code=' + auth_code
                 });
 
               case 5:
@@ -562,104 +592,193 @@ var apiDomain = 'http://localhost:5757/v1';
       }))();
     },
 
-    // 抽奖地址选择
-    boonAddress: function boonAddress(_ref25, _ref24) {
+    //我的抽奖
+
+    myBoonList: function myBoonList(_ref25, _ref24) {
       var _this14 = this;
 
       var commit = _ref25.commit;
 
-      var data = __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_objectWithoutProperties___default()(_ref24, []);
+      var data = __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_objectWithoutProperties___default()(_ref24, []);
 
-      return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_2_babel_runtime_regenerator___default.a.mark(function _callee14() {
-        var uuid, auth_code, attributes, order_address, jsonData, res;
-        return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_regenerator___default.a.wrap(function _callee14$(_context14) {
+      return __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.mark(function _callee14() {
+        var page, size, auth_code, myBoons;
+        return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.wrap(function _callee14$(_context14) {
           while (1) {
             switch (_context14.prev = _context14.next) {
               case 0:
-                uuid = data[0];
-                auth_code = data[1];
-                attributes = data[2];
-                order_address = {
-                  auth_code: auth_code,
-                  boon_order: {
-                    address_attributes: attributes
-                  }
-                };
+                console.log('我的抽奖订单列表详情');
 
-                console.log('这是抽奖地址数据');
-                jsonData = __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_json_stringify___default()(order_address);
-                _context14.next = 8;
-                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__utils_wx__["d" /* request */])({
-                  method: 'put',
-                  url: apiDomain + '/boon_orders/' + uuid,
-                  data: order_address,
-                  header: {
-                    'content-type': 'application/json'
-                  }
+                page = data[0];
+                size = data[1];
+                auth_code = data[2];
+                _context14.next = 6;
+                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
+                  method: 'get',
+                  url: apiDomain + '/boon_orders/mine?page=' + page + '&size=' + size + '&auth_code=' + auth_code
                 });
 
-              case 8:
-                res = _context14.sent;
-                return _context14.abrupt('return', res);
+              case 6:
+                myBoons = _context14.sent;
+                return _context14.abrupt('return', myBoons || []);
 
-              case 10:
+              case 8:
               case 'end':
                 return _context14.stop();
             }
           }
         }, _callee14, _this14);
       }))();
-    },
-
-    //拼团地址选择
-    groupAddress: function groupAddress(_ref27, _ref26) {
-      var _this15 = this;
-
-      var commit = _ref27.commit;
-
-      var data = __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_objectWithoutProperties___default()(_ref26, []);
-
-      return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_2_babel_runtime_regenerator___default.a.mark(function _callee15() {
-        var uuid, auth_code, attributes, order_address, res;
-        return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_regenerator___default.a.wrap(function _callee15$(_context15) {
-          while (1) {
-            switch (_context15.prev = _context15.next) {
-              case 0:
-                uuid = data[0];
-                auth_code = data[1];
-                attributes = data[2];
-                order_address = {
-                  auth_code: auth_code,
-                  boon_order: {
-                    address_attributes: attributes
-                  }
-                };
-
-                console.log(order_address);
-
-                _context15.next = 7;
-                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__utils_wx__["d" /* request */])({
-                  method: 'put',
-                  url: apiDomain + '/group_activity_orders/' + uuid,
-                  data: order_address
-                });
-
-              case 7:
-                res = _context15.sent;
-
-                console.log(res);
-                return _context15.abrupt('return', res);
-
-              case 10:
-              case 'end':
-                return _context15.stop();
-            }
-          }
-        }, _callee15, _this15);
-      }))();
     }
-  }
+  }, __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_defineProperty___default()(_actions, 'myBoonDetail', function myBoonDetail(_ref27, _ref26) {
+    var _this15 = this;
 
+    var commit = _ref27.commit;
+
+    var data = __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_objectWithoutProperties___default()(_ref26, []);
+
+    return __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.mark(function _callee15() {
+      var uuid, auth_code, res;
+      return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.wrap(function _callee15$(_context15) {
+        while (1) {
+          switch (_context15.prev = _context15.next) {
+            case 0:
+              console.log('我的抽奖订单详情');
+              uuid = data[0];
+              auth_code = data[1];
+              _context15.next = 5;
+              return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
+                method: 'get',
+                url: apiDomain + '/boon_orders/' + uuid + '?auth_code=' + auth_code
+              });
+
+            case 5:
+              res = _context15.sent;
+
+              console.log(res);
+              return _context15.abrupt('return', res);
+
+            case 8:
+            case 'end':
+              return _context15.stop();
+          }
+        }
+      }, _callee15, _this15);
+    }))();
+  }), __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_defineProperty___default()(_actions, 'boonAddress', function boonAddress(_ref29, _ref28) {
+    var _this16 = this;
+
+    var commit = _ref29.commit;
+
+    var data = __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_objectWithoutProperties___default()(_ref28, []);
+
+    return __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.mark(function _callee16() {
+      var uuid, auth_code, attributes, order_address, jsonData, res;
+      return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.wrap(function _callee16$(_context16) {
+        while (1) {
+          switch (_context16.prev = _context16.next) {
+            case 0:
+              uuid = data[0];
+              auth_code = data[1];
+              attributes = data[2];
+              order_address = {
+                auth_code: auth_code,
+                boon_order: {
+                  address_attributes: attributes
+                }
+              };
+
+              console.log('这是抽奖地址数据');
+              jsonData = __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_json_stringify___default()(order_address);
+              _context16.next = 8;
+              return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
+                method: 'put',
+                url: apiDomain + '/boon_orders/' + uuid,
+                data: order_address,
+                header: {
+                  'content-type': 'application/json'
+                }
+              });
+
+            case 8:
+              res = _context16.sent;
+              return _context16.abrupt('return', res);
+
+            case 10:
+            case 'end':
+              return _context16.stop();
+          }
+        }
+      }, _callee16, _this16);
+    }))();
+  }), __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_defineProperty___default()(_actions, 'groupAddress', function groupAddress(_ref31, _ref30) {
+    var _this17 = this;
+
+    var commit = _ref31.commit;
+
+    var data = __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_objectWithoutProperties___default()(_ref30, []);
+
+    return __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.mark(function _callee17() {
+      var uuid, auth_code, attributes, order_address, res;
+      return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.wrap(function _callee17$(_context17) {
+        while (1) {
+          switch (_context17.prev = _context17.next) {
+            case 0:
+              console.log('拼团地址');
+              uuid = data[0];
+              auth_code = data[1];
+              attributes = data[2];
+              order_address = {
+                auth_code: auth_code,
+                group_activity_order: {
+                  address_attributes: attributes
+                }
+              };
+
+              console.log(order_address);
+
+              _context17.next = 8;
+              return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
+                method: 'put',
+                url: apiDomain + '/group_activity_orders/' + uuid,
+                data: order_address
+              });
+
+            case 8:
+              res = _context17.sent;
+
+              console.log(res);
+              return _context17.abrupt('return', res);
+
+            case 11:
+            case 'end':
+              return _context17.stop();
+          }
+        }
+      }, _callee17, _this17);
+    }))();
+  }), _actions),
+  test: function test(_ref32) {
+    var _this18 = this;
+
+    var commit = _ref32.commit;
+    return __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.mark(function _callee18() {
+      return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.wrap(function _callee18$(_context18) {
+        while (1) {
+          switch (_context18.prev = _context18.next) {
+            case 0:
+              console.log('测试');
+
+              return _context18.abrupt('return', 124);
+
+            case 2:
+            case 'end':
+              return _context18.stop();
+          }
+        }
+      }, _callee18, _this18);
+    }))();
+  }
 }));
 
 /***/ }),
@@ -672,7 +791,7 @@ var apiDomain = 'http://localhost:5757/v1';
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(180)
+  __webpack_require__(182)
 }
 var normalizeComponent = __webpack_require__(1)
 /* script */
@@ -725,7 +844,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__App__ = __webpack_require__(64);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__store__ = __webpack_require__(63);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__utils_wx__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__utils_wx__ = __webpack_require__(13);
 
 
 
@@ -785,7 +904,7 @@ app.$mount();
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__utils_wx__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__utils_wx__ = __webpack_require__(13);
 
 
 
@@ -844,10 +963,12 @@ app.$mount();
           switch (_context2.prev = _context2.next) {
             case 0:
               console.log('小程序启动了');
+
               _context2.next = 3;
               return _this2.$store.dispatch('signup');
 
             case 3:
+
               console.log('注册成功');
 
             case 4:

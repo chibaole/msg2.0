@@ -5,13 +5,14 @@
 
     <!--<Card :order_info="order_info"></Card>-->
     <div class="pjCard">
-      <div class="pic"><img :src="boon_order.boon.title_image_url" alt=""></div>
+      <div class="pic"><img :src="host+boon_order.boon.title_image_url" alt=""></div>
       <div class="priceName">
         <h2 class="title">{{boon_order.boon.title }}</h2>
         <div class="sponsor">{{boon_order.boon.sponsor.description}}</div>
       </div>
 
     </div>
+
 
 
     <div class="receive">
@@ -72,7 +73,8 @@
           title:'酸奶补给大礼包x10',
 
         },
-        boon_order:{}
+        boon_order:{},
+        host:config.host
 
       }
 
@@ -81,32 +83,35 @@
     methods:{
 
     },
+
    async onLoad(){
       console.log('我的抽奖订单详情')
       var that = this
       let auth_code = wx.getStorageSync('auth_code')
-     console.log(auth_code)
 
      let uuid = that.$root.$mp.query.uuid //获取活动列表的拼团活动uuid
-     console.log('我的抽奖订单详情')
 
      let data = [uuid,auth_code]
      let boondata = await that.$store.dispatch('myBoonDetail',{...data})
-     console.log(boondata.boon_order)
-     if(boondata.boon_order.address == null){
-       boondata.boon_order.address= {
-         people:'',
-         detail:''
+
+     if(boondata.boon_order.address === null){
+       boondata.boon_order.address={
+         people:'1',
+         detail:'2'
 
        }
        that.boon_order = boondata.boon_order
 
+     }else {
+       that.boon_order = boondata.boon_order
+
+
      }
 
-   }
 
+       console.log(that.boon_order)
 
-
+     }
 
 
   }

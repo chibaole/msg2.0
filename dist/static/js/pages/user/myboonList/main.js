@@ -6,14 +6,14 @@ global.webpackJsonp([6],{
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__util__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__config__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_navbar__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_groupCard__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__config__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_navbar__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_groupCard__ = __webpack_require__(17);
 
 
 
@@ -80,11 +80,18 @@ global.webpackJsonp([6],{
     goBoonDetail: function goBoonDetail(e) {
       console.log(e);
       var uuid = e.currentTarget.dataset.uuid;
-
-      wx.navigateTo({
-        url: '/pages/user/myboonList/myBoon/main?uuid=' + uuid
-      });
-      console.log('/pages/user/myboonList/myBoon/main?uuid=' + uuid);
+      var status = e.currentTarget.dataset.status;
+      if (status === 'init') {
+        wx.showToast({
+          title: '莫急～还未开奖',
+          icon: 'success',
+          duration: 2000
+        });
+      } else {
+        wx.navigateTo({
+          url: '/pages/user/myboonList/myBoon/main?uuid=' + uuid
+        });
+      }
     }
   },
   onLoad: function onLoad() {
@@ -121,14 +128,14 @@ global.webpackJsonp([6],{
 
 /***/ }),
 
-/***/ 186:
+/***/ 188:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 221:
+/***/ 223:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -140,27 +147,28 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "navbar_title": _vm.navbar_title,
       "mpcomid": '0'
     }
-  }), _vm._v(" "), _c('div', {
-    staticClass: "groupList"
-  }, _vm._l((_vm.boonList), function(item, index) {
+  }), _vm._v(" "), _vm._l((_vm.boonList), function(item, index) {
     return _c('div', {
-      staticClass: "groupItem"
+      staticClass: "groupList"
     }, [_c('div', {
-      staticClass: "orderNum"
-    }, [_c('div', {
-      staticClass: "left"
-    }, [_vm._v("订单号："), _c('span', [_vm._v(_vm._s(item.uuid))])]), _vm._v(" "), _c('div', {
-      staticClass: "right",
+      staticClass: "groupItem",
       attrs: {
         "data-uuid": item.uuid,
+        "data-status": item.status,
         "eventid": '0-' + index
       },
       on: {
         "click": _vm.goBoonDetail
       }
+    }, [_c('div', {
+      staticClass: "orderNum"
+    }, [_c('div', {
+      staticClass: "left"
+    }, [_vm._v("订单号："), _c('span', [_vm._v(_vm._s(item.uuid))])]), _vm._v(" "), _c('div', {
+      staticClass: "right"
     }, [_c('span', [_vm._v(_vm._s(item.united_state_display))]), _vm._v(" "), _c('img', {
       attrs: {
-        "src": __webpack_require__(12),
+        "src": "http://pbmrxkahq.bkt.clouddn.com/%E6%9B%B4%E5%A4%9A.png",
         "alt": ""
       }
     })])]), _vm._v(" "), _c('div', {
@@ -182,8 +190,8 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       staticClass: "detail"
     }, [_vm._v(_vm._s(item.boon.description))])], 1)]), _vm._v(" "), _c('div', {
       staticClass: "explain"
-    }, [_c('span', [_vm._v(_vm._s(item.boon.lottery_detail))])])])
-  })), _vm._v(" "), (true) ? _c('div', {
+    }, [_c('span', [_vm._v(_vm._s(item.boon.lottery_detail))])])])])
+  }), _vm._v(" "), (true) ? _c('div', {
     staticClass: "getMore"
   }, [_vm._v("加载更多")]) : _vm._e(), _vm._v(" "), _c('div', {
     staticClass: "service"
@@ -197,7 +205,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     attrs: {
       "src": "http://pbmrxkahq.bkt.clouddn.com/msgservice.png"
     }
-  })], 1)], 1)
+  })], 1)], 2)
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -217,11 +225,11 @@ if (false) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_Me_vue__ = __webpack_require__(121);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_7ec0cb2e_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_Me_vue__ = __webpack_require__(221);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_7ec0cb2e_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_Me_vue__ = __webpack_require__(223);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(186)
+  __webpack_require__(188)
 }
 var normalizeComponent = __webpack_require__(1)
 /* script */

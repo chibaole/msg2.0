@@ -6,17 +6,18 @@ global.webpackJsonp([5],{
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__util__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__config__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_navbar__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_groupCard__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__config__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_navbar__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_groupCard__ = __webpack_require__(17);
 
 
 
+//
 //
 //
 //
@@ -91,13 +92,15 @@ global.webpackJsonp([5],{
         title: '酸奶补给大礼包x10'
 
       },
-      boon_order: {}
+      boon_order: {},
+      host: __WEBPACK_IMPORTED_MODULE_4__config__["a" /* default */].host
 
     };
   },
 
 
   methods: {},
+
   onLoad: function onLoad() {
     var _this = this;
 
@@ -110,31 +113,30 @@ global.webpackJsonp([5],{
               console.log('我的抽奖订单详情');
               that = _this;
               auth_code = wx.getStorageSync('auth_code');
-
-              console.log(auth_code);
-
               uuid = that.$root.$mp.query.uuid; //获取活动列表的拼团活动uuid
 
-              console.log('我的抽奖订单详情');
-
               data = [uuid, auth_code];
-              _context.next = 9;
+              _context.next = 7;
               return that.$store.dispatch('myBoonDetail', __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends___default()({}, data));
 
-            case 9:
+            case 7:
               boondata = _context.sent;
 
-              console.log(boondata.boon_order);
-              if (boondata.boon_order.address == null) {
+
+              if (boondata.boon_order.address === null) {
                 boondata.boon_order.address = {
-                  people: '',
-                  detail: ''
+                  people: '1',
+                  detail: '2'
 
                 };
                 that.boon_order = boondata.boon_order;
+              } else {
+                that.boon_order = boondata.boon_order;
               }
 
-            case 12:
+              console.log(that.boon_order);
+
+            case 10:
             case 'end':
               return _context.stop();
           }
@@ -146,14 +148,14 @@ global.webpackJsonp([5],{
 
 /***/ }),
 
-/***/ 182:
+/***/ 184:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 217:
+/***/ 219:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -171,7 +173,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "pic"
   }, [_c('img', {
     attrs: {
-      "src": _vm.boon_order.boon.title_image_url,
+      "src": _vm.host + _vm.boon_order.boon.title_image_url,
       "alt": ""
     }
   })]), _vm._v(" "), _c('div', {
@@ -212,7 +214,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "orderTime"
   }, [_c('span', [_vm._v("运单编号：")]), _c('span', [_vm._v(_vm._s(_vm.boon_order.delivery.delivery_no))])]), _vm._v(" "), _c('img', {
     attrs: {
-      "src": __webpack_require__(12),
+      "src": __webpack_require__(22),
       "alt": ""
     }
   })]), _vm._v(" "), _c('div', {
@@ -257,11 +259,11 @@ if (false) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_Me_vue__ = __webpack_require__(122);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_6d087ae9_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_Me_vue__ = __webpack_require__(217);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_6d087ae9_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_Me_vue__ = __webpack_require__(219);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(182)
+  __webpack_require__(184)
 }
 var normalizeComponent = __webpack_require__(1)
 /* script */

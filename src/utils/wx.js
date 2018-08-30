@@ -118,6 +118,9 @@ export const request = obj => new Promise((resolve, reject) => {
     url: obj.url,
     data: obj.data,
     method: obj.method,
+    header: {
+      'content-type': 'application/json' // 默认值
+    },
     success (res) {
       resolve(res.data.data)
     },
@@ -127,6 +130,7 @@ export const request = obj => new Promise((resolve, reject) => {
     }
   })
 })
+
 
 export const chooseImage = (count = 1, sourceType = ['album']) => new Promise((resolve, reject) => {
   wx.chooseImage({

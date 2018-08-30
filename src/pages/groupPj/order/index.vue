@@ -51,7 +51,9 @@
     </div>
 
     <!--------------------------------------------------------------------------->
-    <div class="btn open_btn" @click="shareMenu" data-status="1" v-if="!scanCode"><span>邀请好友一起享用</span></div>
+    <div class="btn open_btn" @click="shareMenu" data-status="1" v-if="order_info.status == 'grouping' "><span>邀请好友一起享用</span></div>
+    <div class="btn open_btn" @click="createGroup" data-status="1" v-if="order_info.status == 'failed' || order_info.status == 'success'"><span>重新开团</span></div>
+
     <div class="mask" v-if="showBox">  <!-- 遮罩-->
 
       <div class="meunBox" v-if="showBox">
@@ -101,6 +103,7 @@
   import CountDown from 'vue2-countdown'
   import Navbar from '@/components/navbar'
   import {showModal} from '@/utils/util'
+  import {chooseAddress} from '@/utils/wx'
 
   export default {
 
@@ -414,10 +417,11 @@
         let data = [ ]
         let uuid = that.orderId
         let order_status = that.order_info.status //success grouping init failed
-//        console.log(boon_status)
+
+        console.log(order_status)
         if(order_status ==='success'){
           let res = await chooseAddress()
-
+          console.log(res)
           let auth_code = wx.getStorageSync('auth_code')
           let address =   {
             name:res.name,            //名字
@@ -438,30 +442,19 @@
           wx.navigateTo({
             url:`/pages/user/myGroup/myGroupDetail/main?uuid=${uuid}`
           })
-        }else {
-          let res = await chooseAddress()
+        }else  {
+          console.log('order_status 不是success')
 
-          let auth_code = wx.getStorageSync('auth_code')
-          let address =   {
-            name:res.name,            //名字
-            postal_code:res.postalCode,// 邮编
-            tel_phone:res.telNumber,// 电话
-            province:res.provinceName,// 省
-            city:res.cityName,// 市
-            district:res.countyName,// 区
-            detail:res.detailInfo// 详细
-
-          }
-
-          data = [uuid,auth_code,address]
-          let address_res =  await  that.$store.dispatch('groupAddress',{...data})
-          wx.navigateTo({
-            url:`/pages/user/myGroup/myGroupDetail/main?uuid=${uuid}`
-          })
         }
 
 
       },
+      createGroup(){
+        //重新开团
+        wx.switchTab({
+          url: `/pages/home/main`
+        })
+      }
 
 
 
@@ -479,6 +472,7 @@
     let orderId = that.orderId
     let currentuser_code = wx.getStorageSync('auth_code')
     let uuid_authCode = [orderId,currentuser_code]
+     console.log(uuid_authCode)
 
     let orderData = await  that.$store.dispatch('groupActivitiesInit',{...uuid_authCode})
 

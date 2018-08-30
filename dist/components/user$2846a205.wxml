@@ -3,14 +3,14 @@
   <view class="_div data-v-4656d1c7 container">
     <template data="{{...$root[$kk+'0'], $root}}" is="navbar$7457f0be"></template>
     <view class="_div data-v-4656d1c7 groupList" wx:for="{{myGroup_list}}" wx:for-index="index" wx:for-item="item">
-      <view class="_div data-v-4656d1c7 groupItem">
+      <view class="_div data-v-4656d1c7 groupItem" bindtap="handleProxy" data-uuid="{{item.uuid}}" data-eventid="{{'0-'+index}}" data-comkey="{{$k}}">
         <view class="_div data-v-4656d1c7 orderNum">
           <view class="_div data-v-4656d1c7 left">订单号：
             <label class="_span data-v-4656d1c7">{{}}534475800412</label>
           </view>
           <view class="_div data-v-4656d1c7 right">
-            <label class="_span data-v-4656d1c7">已发货{{item.status}}</label>
-            <image src="../../../../static/img/right.png" alt class="_img data-v-4656d1c7"></image>
+            <label class="_span data-v-4656d1c7">{{item.status}}</label>
+            <image src="http://pbmrxkahq.bkt.clouddn.com/%E6%9B%B4%E5%A4%9A.png" alt class="_img data-v-4656d1c7"></image>
           </view>
         </view>
         <view class="_div data-v-4656d1c7 orderInfo">
@@ -30,6 +30,6 @@
       <contact-button size="22" class="_contact-button data-v-4656d1c7 pos"></contact-button>
       <image class="_img data-v-4656d1c7 icon_kf" src="http://pbmrxkahq.bkt.clouddn.com/msgservice.png"></image>
     </view>
-    <view class="_div data-v-4656d1c7 getMore" wx:if="{{showGetMore}}" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}">加载更多</view>
+    <view class="_div data-v-4656d1c7 getMore" wx:if="{{showGetMore}}" bindtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}">加载更多</view>
   </view>
 </template>

@@ -1,13 +1,13 @@
 <template>
   <div class="container" >
     <Navbar :navbar_title="navbar_title"></Navbar>
-    <div class="groupList" >
-      <div class="groupItem" v-for="item in boonList" >
+    <div class="groupList"  v-for="item in boonList">
+      <div class="groupItem"    :data-uuid="item.uuid" :data-status="item.status" @click="goBoonDetail">
         <div class="orderNum">
           <div class="left">订单号：<span>{{item.uuid}}</span></div>
-          <div class="right" :data-uuid="item.uuid" @click="goBoonDetail">
+          <div class="right">
             <span>{{item.united_state_display}}</span>
-            <img src="../../../../static/img/right.png" alt="">
+            <img src="http://pbmrxkahq.bkt.clouddn.com/%E6%9B%B4%E5%A4%9A.png" alt="">
           </div>
         </div>
         <div class="orderInfo">
@@ -61,11 +61,19 @@
       goBoonDetail(e){
         console.log(e)
         const uuid = e.currentTarget.dataset.uuid
+        const status = e.currentTarget.dataset.status
+        if(status === 'init'){
+              wx.showToast({
+                title:'莫急～还未开奖',
+                icon:'success',
+                duration:2000
+              })
+        }else {
+          wx.navigateTo({
+            url:'/pages/user/myboonList/myBoon/main?uuid='+ uuid
+          })
+        }
 
-        wx.navigateTo({
-          url:'/pages/user/myboonList/myBoon/main?uuid='+ uuid
-        })
-        console.log('/pages/user/myboonList/myBoon/main?uuid='+ uuid)
       }
 
     },

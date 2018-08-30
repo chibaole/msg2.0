@@ -16,7 +16,7 @@ module.exports = async(ctx) => {
       // grouping 拼团中
       // success 拼团成功
       // failed 拼团失败
-      status: 'init',
+      status: 'success',
       status_display: '等待发起',
       group_activity: {
         title: '标题',

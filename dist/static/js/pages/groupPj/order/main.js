@@ -6,15 +6,16 @@ global.webpackJsonp([4],{
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_groupCard__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vue2_countdown__ = __webpack_require__(234);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_groupCard__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vue2_countdown__ = __webpack_require__(236);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vue2_countdown___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_vue2_countdown__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_navbar__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_navbar__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__utils_util__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__utils_wx__ = __webpack_require__(13);
 
 
 
@@ -116,6 +117,9 @@ global.webpackJsonp([4],{
 //
 //
 //
+//
+//
+
 
 
 
@@ -434,22 +438,11 @@ global.webpackJsonp([4],{
         url: '/pages/test/main'
       });
     },
-    chooseAddress: function (_chooseAddress) {
-      function chooseAddress() {
-        return _chooseAddress.apply(this, arguments);
-      }
-
-      chooseAddress.toString = function () {
-        return _chooseAddress.toString();
-      };
-
-      return chooseAddress;
-    }(function () {
+    chooseAddress: function chooseAddress() {
       var _this3 = this;
 
       return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee3() {
-        var that, data, uuid, order_status, res, auth_code, address, address_res, _res, _auth_code, _address, _address_res;
-
+        var that, data, uuid, order_status, res, auth_code, address, address_res;
         return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee3$(_context3) {
           while (1) {
             switch (_context3.prev = _context3.next) {
@@ -459,18 +452,21 @@ global.webpackJsonp([4],{
                 data = [];
                 uuid = that.orderId;
                 order_status = that.order_info.status; //success grouping init failed
-                //        console.log(boon_status)
+
+                console.log(order_status);
 
                 if (!(order_status === 'success')) {
-                  _context3.next = 18;
+                  _context3.next = 20;
                   break;
                 }
 
-                _context3.next = 8;
-                return chooseAddress();
+                _context3.next = 9;
+                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__utils_wx__["a" /* chooseAddress */])();
 
-              case 8:
+              case 9:
                 res = _context3.sent;
+
+                console.log(res);
                 auth_code = wx.getStorageSync('auth_code');
                 address = {
                   name: res.name, //名字
@@ -485,57 +481,36 @@ global.webpackJsonp([4],{
 
 
                 data = [uuid, auth_code, address];
-                _context3.next = 14;
+                _context3.next = 16;
                 return that.$store.dispatch('groupAddress', __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends___default()({}, data));
 
-              case 14:
+              case 16:
                 address_res = _context3.sent;
 
 
                 wx.navigateTo({
                   url: '/pages/user/myGroup/myGroupDetail/main?uuid=' + uuid
                 });
-                _context3.next = 28;
+                _context3.next = 21;
                 break;
 
-              case 18:
-                _context3.next = 20;
-                return chooseAddress();
-
               case 20:
-                _res = _context3.sent;
-                _auth_code = wx.getStorageSync('auth_code');
-                _address = {
-                  name: _res.name, //名字
-                  postal_code: _res.postalCode, // 邮编
-                  tel_phone: _res.telNumber, // 电话
-                  province: _res.provinceName, // 省
-                  city: _res.cityName, // 市
-                  district: _res.countyName, // 区
-                  detail: _res.detailInfo // 详细
+                console.log('order_status 不是success');
 
-                };
-
-
-                data = [uuid, _auth_code, _address];
-                _context3.next = 26;
-                return that.$store.dispatch('groupAddress', __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends___default()({}, data));
-
-              case 26:
-                _address_res = _context3.sent;
-
-                wx.navigateTo({
-                  url: '/pages/user/myGroup/myGroupDetail/main?uuid=' + uuid
-                });
-
-              case 28:
+              case 21:
               case 'end':
                 return _context3.stop();
             }
           }
         }, _callee3, _this3);
       }))();
-    })
+    },
+    createGroup: function createGroup() {
+      //重新开团
+      wx.switchTab({
+        url: '/pages/home/main'
+      });
+    }
   },
   onLoad: function onLoad() {
     var _this4 = this;
@@ -557,10 +532,13 @@ global.webpackJsonp([4],{
               orderId = that.orderId;
               currentuser_code = wx.getStorageSync('auth_code');
               uuid_authCode = [orderId, currentuser_code];
-              _context4.next = 9;
+
+              console.log(uuid_authCode);
+
+              _context4.next = 10;
               return that.$store.dispatch('groupActivitiesInit', __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends___default()({}, uuid_authCode));
 
-            case 9:
+            case 10:
               orderData = _context4.sent;
 
 
@@ -577,7 +555,7 @@ global.webpackJsonp([4],{
 
               that.getlastTime();
 
-            case 16:
+            case 17:
             case 'end':
               return _context4.stop();
           }
@@ -643,20 +621,20 @@ global.webpackJsonp([4],{
 
 /***/ }),
 
-/***/ 191:
+/***/ 193:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 194:
+/***/ 196:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_mpvue_loader_lib_selector_type_script_index_0_vue2_countdown_vue__ = __webpack_require__(94);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mpvue_loader_lib_template_compiler_index_id_data_v_eeaf0e42_hasScoped_false_transformToRequire_video_src_source_src_img_src_image_xlink_href_mpvue_loader_lib_selector_type_template_index_0_vue2_countdown_vue__ = __webpack_require__(228);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mpvue_loader_lib_template_compiler_index_id_data_v_eeaf0e42_hasScoped_false_transformToRequire_video_src_source_src_img_src_image_xlink_href_mpvue_loader_lib_selector_type_template_index_0_vue2_countdown_vue__ = __webpack_require__(230);
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
@@ -701,7 +679,7 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 226:
+/***/ 228:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -767,7 +745,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "nodes": _vm.order_info.detail,
       "mpcomid": '1'
     }
-  })], 1)], 1), _vm._v(" "), (!_vm.scanCode) ? _c('div', {
+  })], 1)], 1), _vm._v(" "), (_vm.order_info.status == 'grouping') ? _c('div', {
     staticClass: "btn open_btn",
     attrs: {
       "data-status": "1",
@@ -776,7 +754,16 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     on: {
       "click": _vm.shareMenu
     }
-  }, [_c('span', [_vm._v("邀请好友一起享用")])]) : _vm._e(), _vm._v(" "), (_vm.showBox) ? _c('div', {
+  }, [_c('span', [_vm._v("邀请好友一起享用")])]) : _vm._e(), _vm._v(" "), (_vm.order_info.status == 'failed' || _vm.order_info.status == 'success') ? _c('div', {
+    staticClass: "btn open_btn",
+    attrs: {
+      "data-status": "1",
+      "eventid": '2'
+    },
+    on: {
+      "click": _vm.createGroup
+    }
+  }, [_c('span', [_vm._v("重新开团")])]) : _vm._e(), _vm._v(" "), (_vm.showBox) ? _c('div', {
     staticClass: "mask"
   }, [(_vm.showBox) ? _c('div', {
     staticClass: "meunBox"
@@ -785,7 +772,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     attrs: {
       "src": __webpack_require__(57),
       "alt": "",
-      "eventid": '2'
+      "eventid": '3'
     },
     on: {
       "click": _vm.shareMenu
@@ -805,7 +792,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   })]), _vm._v(" "), _c('div', {
     staticClass: "createImg",
     attrs: {
-      "eventid": '3'
+      "eventid": '4'
     },
     on: {
       "click": _vm.getImg
@@ -823,7 +810,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   }, [_vm._v("微信好友")]), _vm._v(" "), _c('div', {
     staticClass: "shengchengImg",
     attrs: {
-      "eventid": '4'
+      "eventid": '5'
     },
     on: {
       "click": _vm.getImg
@@ -836,7 +823,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "join-group",
     attrs: {
       "data-uuid": _vm.order_info.uuid,
-      "eventid": '5'
+      "eventid": '6'
     },
     on: {
       "click": _vm.attendGroup
@@ -865,7 +852,7 @@ if (false) {
 
 /***/ }),
 
-/***/ 228:
+/***/ 230:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -890,11 +877,11 @@ if (false) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_index_vue__ = __webpack_require__(113);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_b3a874ec_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_index_vue__ = __webpack_require__(226);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_b3a874ec_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_index_vue__ = __webpack_require__(228);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(191)
+  __webpack_require__(193)
 }
 var normalizeComponent = __webpack_require__(1)
 /* script */

@@ -22,7 +22,9 @@
     },
      async created() {
       console.log('小程序启动了')
-     await this.$store.dispatch('signup')
+
+       await this.$store.dispatch('signup')
+
        console.log('注册成功')
 
 

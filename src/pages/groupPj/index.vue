@@ -119,17 +119,18 @@
                       console.log(initGroupData)
 
                       if(initGroupData){
-                        console.log('点击了发起拼团')
                         let initGroupId = initGroupData.group_activity_order.uuid  //发起拼团返回的订单id
                         that.initGroupId = initGroupId
-
-
                         wx.navigateTo({
                           url: '/pages/groupPj/groupDetail/main?initGroupId=' + initGroupId
                         })
                       }else {
-                        console.log('拼团失败')
-                        showModal('无法拼团','你已在这个拼团活动')
+                        showModal('发起失败','你已经在这个拼团')
+//                        let orderId = wx.getStorageSync('orderId')
+//                        console.log(orderId)
+//                        wx.navigateTo({
+//                          url: '/pages/groupPj/order/main?orderId=' + orderId
+//                        })
                       }
 
 

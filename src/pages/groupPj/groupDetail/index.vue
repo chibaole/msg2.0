@@ -52,12 +52,10 @@
           console.log(e)
           let that = this
           let orderId= that.order_info.uuid  //需要支付的订单uuid
-
-
+          wx.setStorageSync('orderId',orderId) //存储拼团支付订单号
           wx.navigateTo({
             url: '/pages/groupPj/order/main?orderId=' + orderId,
           })
-//
           wx.requestPayment({
             'timeStamp': '',
             'nonceStr': '',
@@ -91,11 +89,9 @@
      let currentuser_code = wx.getStorageSync('auth_code')
      let uuid_authCode = [initGroupId,currentuser_code]
 
-     console.log(uuid_authCode)
 
 //      that.getGroup_orders()
       //新api的形式
-//                                                     groupActivities_order
       const orderData = await  that.$store.dispatch('groupActivities_order',{...uuid_authCode})
      console.log(orderData)
 
