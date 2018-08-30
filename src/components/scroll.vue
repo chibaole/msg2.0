@@ -90,6 +90,7 @@
       console.log('scroll加载今日福利数据')
      let boonsData  = await  this.$store.dispatch('getBoonsToday')
      this.boons = boonsData.boons
+     console.log(this.boons)
 
     }
 

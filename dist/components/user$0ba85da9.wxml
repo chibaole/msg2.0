@@ -3,7 +3,7 @@
     <view class="_div data-v-3105212a navbartitle" style=" {{('height:' + top + 'px' + ';')}}">
       <label class="_span data-v-3105212a">我的研究院</label>
     </view>
-    <view class="_div data-v-3105212a userinfo">
+    <view class="_div data-v-3105212a userinfo" style=" {{('margin-top:' + top + 'px' + ';')}}">
       <image src="http://image.shengxinjing.cn/rate/unlogin.png" class="_img data-v-3105212a"></image>
       <view class="_p data-v-3105212a username">
         <label class="_span data-v-3105212a foodname">{{userinfo.nickName}}</label>
@@ -19,26 +19,30 @@
       </view>
     </view>
     <view class="_div data-v-3105212a mylist">
-      <image src alt class="_img data-v-3105212a"></image>
+      <image src="http://pbmrxkahq.bkt.clouddn.com/%E7%AD%BE%E5%88%B0icon.png" alt class="_img data-v-3105212a"></image>
       <label class="_span data-v-3105212a list_title">签到</label>
       <label class="_span data-v-3105212a list_btn">签到赢取8折券</label>
     </view>
     <view class="_div data-v-3105212a mylist">
-      <image src alt class="_img data-v-3105212a"></image>
+      <image src="http://pbmrxkahq.bkt.clouddn.com/%E6%88%91%E7%9A%84%E6%8B%BC%E5%9B%A2%E8%AE%A2%E5%8D%95icon.png" alt class="_img data-v-3105212a"></image>
       <label class="_span data-v-3105212a list_title" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}">我的拼团订单</label>
     </view>
     <view class="_div data-v-3105212a mylist">
-      <image src alt class="_img data-v-3105212a"></image>
+      <image src="http://pbmrxkahq.bkt.clouddn.com/%E6%88%91%E7%9A%84%E6%8A%BD%E5%A5%96icon.png" alt class="_img data-v-3105212a"></image>
       <label class="_span data-v-3105212a list_title" bindtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}">我的抽奖</label>
     </view>
     <view class="_div data-v-3105212a mylist">
-      <image src alt class="_img data-v-3105212a"></image>
+      <image src="http://pbmrxkahq.bkt.clouddn.com/%E9%9B%B6%E9%A3%9F%E5%BA%93icon.png" alt class="_img data-v-3105212a"></image>
       <label class="_span data-v-3105212a list_title">我的零食库</label>
       <label class="_span data-v-3105212a list_btn">分享有礼</label>
     </view>
     <view class="_div data-v-3105212a mylist">
-      <image src alt class="_img data-v-3105212a"></image>
+      <image src="http://pbmrxkahq.bkt.clouddn.com/%E6%88%91%E7%9A%84%E5%8F%91%E5%B8%83icon.png" alt class="_img data-v-3105212a"></image>
       <label class="_span data-v-3105212a list_title">我的发布</label>
+    </view>
+    <view class="_div data-v-3105212a mylist">
+      <image src="http://pbmrxkahq.bkt.clouddn.com/%E6%94%B6%E8%97%8Ficon.png" alt class="_img data-v-3105212a"></image>
+      <label class="_span data-v-3105212a list_title">我的收藏</label>
     </view>
   </view>
 </template>

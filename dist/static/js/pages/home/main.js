@@ -292,7 +292,7 @@ global.webpackJsonp([1],{
                 //        wx.navigateTo({
                 //          url: '/pages/project/main?uuid=' + uuid + "&title=" + title
                 //        })
-                __WEBPACK_IMPORTED_MODULE_3__utils_wx__["b" /* default */].navigateTo('/pages/project/main?uuid=' + uuid + "&title=" + title);
+                __WEBPACK_IMPORTED_MODULE_3__utils_wx__["c" /* default */].navigateTo('/pages/project/main?uuid=' + uuid + "&title=" + title);
 
               case 5:
               case 'end':
@@ -327,8 +327,9 @@ global.webpackJsonp([1],{
               boonsData = _context2.sent;
 
               _this2.boons = boonsData.boons;
+              console.log(_this2.boons);
 
-            case 5:
+            case 6:
             case 'end':
               return _context2.stop();
           }
@@ -458,7 +459,7 @@ global.webpackJsonp([1],{
             switch (_context2.prev = _context2.next) {
               case 0:
                 _context2.next = 2;
-                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__utils_wx__["a" /* login */])();
+                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__utils_wx__["b" /* login */])();
 
               case 2:
                 codeinfo = _context2.sent;
@@ -981,10 +982,6 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   }), _vm._v(" "), _c('Group', {
     attrs: {
       "mpcomid": '1'
-    }
-  }), _vm._v(" "), _c('More', {
-    attrs: {
-      "mpcomid": '2'
     }
   })], 1)
 }

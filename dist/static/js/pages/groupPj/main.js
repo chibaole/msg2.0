@@ -12,6 +12,7 @@ global.webpackJsonp([11],{
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__utils_util__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_navbar__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__config__ = __webpack_require__(6);
 
 
 
@@ -78,7 +79,8 @@ global.webpackJsonp([11],{
       initGroupId: '',
       group_uuid: '',
       time: { day: '', hours: '', minutes: '' },
-      myDetail: ''
+      myDetail: '',
+      host: __WEBPACK_IMPORTED_MODULE_5__config__["a" /* default */].host
     };
   },
 
@@ -184,21 +186,22 @@ global.webpackJsonp([11],{
                 initGroupData = _context3.sent;
 
                 console.log(initGroupData);
-                initGroupId = initGroupData.group_activity_order.uuid; //发起拼团返回的订单id
 
-                that.initGroupId = initGroupId;
-                console.log(initGroupId);
-
-                if (initGroupId) {
+                if (initGroupData) {
                   console.log('点击了发起拼团');
+                  initGroupId = initGroupData.group_activity_order.uuid; //发起拼团返回的订单id
+
+                  that.initGroupId = initGroupId;
+
                   wx.navigateTo({
                     url: '/pages/groupPj/groupDetail/main?initGroupId=' + initGroupId
                   });
                 } else {
-                  __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__utils_util__["b" /* showModal */])('拼团错误', '无效的拼团');
+                  console.log('拼团失败');
+                  __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__utils_util__["b" /* showModal */])('无法拼团', '你已在这个拼团活动');
                 }
 
-              case 13:
+              case 10:
               case 'end':
                 return _context3.stop();
             }
@@ -312,7 +315,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "pic"
   }, [_c('img', {
     attrs: {
-      "src": _vm.group_activity.title_image_url,
+      "src": _vm.host + _vm.group_activity.title_image_url,
       "alt": ""
     }
   })]), _vm._v(" "), _c('div', {

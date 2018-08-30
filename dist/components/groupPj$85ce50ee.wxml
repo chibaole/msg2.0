@@ -4,7 +4,7 @@
     <template data="{{...$root[$kk+'0'], $root}}" is="navbar$7457f0be"></template>
     <view class="_div data-v-05960fcb top">
       <view class="_div data-v-05960fcb pic">
-        <image src="{{group_activity.title_image_url}}" alt class="_img data-v-05960fcb"></image>
+        <image src="{{host + group_activity.title_image_url}}" alt class="_img data-v-05960fcb"></image>
       </view>
       <view class="_div data-v-05960fcb timeLine">
         <view class="_p data-v-05960fcb">距离结束仅剩</view>

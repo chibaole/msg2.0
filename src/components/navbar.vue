@@ -44,7 +44,7 @@
 
     mounted() {
       const vm = this
-      console.log(    vm.statusBarHeight ,vm.titleBarHeight)
+//      console.log(    vm.statusBarHeight ,vm.titleBarHeight)
 
     },
     onLoad(){
@@ -55,11 +55,9 @@
 
           if (res.model.indexOf('iPhone X') !== -1) {
             totalTopHeight = 88
-            console.log('iphonex')
 
           } else if (res.model.indexOf('iPhone') !== -1) {
             totalTopHeight = 64
-            console.log('iphone')
 
           }
 
@@ -68,7 +66,6 @@
 
 
 
-          console.log(  statusBarHeight, titleBarHeight )
 
           vm.statusBarHeight = statusBarHeight
 
@@ -77,7 +74,6 @@
 
         },
         failure() {
-          console.log('fail')
           vm.globalData.statusBarHeight = 0
           vm.globalData.titleBarHeight = 0
         }

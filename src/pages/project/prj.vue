@@ -18,7 +18,7 @@
     <div class="sponsors">
       <p class="sponsors-info" >{{boon.sponsor.description}}</p>
       <navigator class="switchGoAnchor" target="miniProgram" open-type="navigate" :app-id="boon.sponsor.app_id" :path="boon.sponsor.app_path" extra-data="" version="release">
-        <img class="logo" :src="sesson_url" alt="">{{boon.sponsor.name}}<img class="right_ico" src="../../../static/img/right.png" alt="">
+        <img class="logo" :src="host+boon.sponsor.avatar_url" alt="">{{boon.sponsor.name}}<img class="right_ico" src="../../../static/img/right.png" alt="">
       </navigator>
 
     </div>
@@ -27,7 +27,7 @@
 
 
 
-    <div class="process-prize" v-if="boon.status== 'published'">
+    <div class="process-prize" v-if=" boon.status === 'published'">
       <h2>抽奖流程</h2>
       <div class="steps">
       <p class="step1">1.点击抽奖，等待开奖</p>
@@ -46,11 +46,12 @@
 
     <div class="btn1" v-if="boon.status== 'published'" >
 
-      <button  v-if="boon.participate_status == true" class="waiting">待开奖</button>
+      <button  v-if="boon.participate_status == false" class="waiting">待开奖</button>
 
-      <button @click="attendBoon" v-if="boon.participate_status == false" :class="prizeStyle">{{prize}}</button>
+      <button @click="attendBoon" v-if="boon.participate_status == true" :class="prizeStyle">{{prize}}</button>
 
     </div>
+
 
     <!--抽奖未开奖显示的 '抽奖/待开奖按钮'-->
 
@@ -59,15 +60,17 @@
 
 
     <div class="pic">
-        <img src="http://pbmrxkahq.bkt.clouddn.com/winning.png" alt="" v-if="priceResult.win == true">
-        <img src="http://pbmrxkahq.bkt.clouddn.com/%E6%9C%AA%E4%B8%AD%E5%A5%96.png" alt="" v-if="priceResult.win == false">
+        <img src="http://pbmrxkahq.bkt.clouddn.com/winning.png" alt="" v-if="boon.boon_order.status != 'lose'">
+        <img src="http://pbmrxkahq.bkt.clouddn.com/%E6%9C%AA%E4%B8%AD%E5%A5%96.png" alt="" v-if="boon.boon_order.status === 'lose'">
 
+        <p class="boon_order_text" v-if="boon.boon_order.status != 'lose' ">恭喜，您中奖了</p>
+        <p class="boon_order_text"v-if="boon.boon_order.status === 'lose'">好气哦，没有中奖～</p>
 
-        <p>{{priceResult.res}}</p>
+    </div>
 
-      </div>
+      <div class="prizeWindow" v-if="boon.boon_order.status === 'win'" @click="chooseAddress">去领奖</div>
+      <div class="prizeWindow" v-if="boon.boon_order.status === 'received'" @click="chooseAddress">已领奖</div>
 
-      <div class="prizeWindow" v-if="priceResult.win == true" @click="chooseAddress">去领奖</div>
       <!--<div class="prizeWindow">去领奖了</div>-->
 
       <div class="nameList">
@@ -75,13 +78,13 @@
         <div class="line2"></div>
         <div class="title">中奖者名单</div>
       </div>
-      <div class="userBox">
-        <div class="user">
-          <img src="http://p15hnzxrp.bkt.clouddn.com/tuzi2.jpeg" alt="">
-          <div class="nickname">{{}}天王盖被子</div>
+      <div class="userBox" >
+        <div class="user" v-for="uesr in boon.rewarded_users">
+          <img :src="uesr.avatar_url" alt="">
+          <div class="nickname">{{uesr.nick_name}}</div>
         </div>
 
-          <div class="getall">
+          <div class="getall" @click="getMoreUser" v-if="showGetMoreBtn">
            <span>加载全部</span>
             <img src="http://pbmrxkahq.bkt.clouddn.com/%E5%8A%A0%E8%BD%BD%E6%9B%B4%E5%A4%9Aicon.png" alt="">
           </div>
@@ -145,7 +148,7 @@
 
   import {get, post, showModal} from '@/utils/util'
   import config from '@/config'
-//  import wx from '@/utils/wx'
+  import {chooseAddress} from '@/utils/wx'
 
   export default {
     data(){
@@ -164,8 +167,9 @@
         navbar_title:'',
         host:config.host,
         haveOpen:'未开奖',
-        prizeStyle:'prize'
-
+        prizeStyle:'prize',
+        init_rewarded_users:[],
+        showGetMoreBtn:false
       }
     },
     components:{
@@ -192,8 +196,6 @@
 
        let res = await  that.$store.dispatch('attendBoon',{...uuid_authCode})
        console.log(res)
-
-
          that.prize = '待开奖'
        that.prizeStyle = 'waiting'
 
@@ -219,6 +221,7 @@
 
       },
       getImg(){
+        let that = this
           var painting = {
             width: 375,
             height: 557,
@@ -251,7 +254,7 @@
               // 文本表达
               {
                 type: 'text',
-                content: this.boon.description,                                                             //变量的名称
+                content: that.boon.description,                                                             //变量的名称
                 fontSize: 27.6,
                 lineHeight: 27.6,
                 color: '#454553',
@@ -340,25 +343,66 @@
         })
 
       },
-      chooseAddress(){
+     async chooseAddress(){
         console.log('领奖')
-//        wx.chooseAddress({
-//           success: function (res) {
-//            console.log(res)
-//          console.log(res.userName)
-//          console.log(res.postalCode)
-//          console.log(res.provinceName)
-//          console.log(res.cityName)
-//          console.log(res.countyName)
-//          console.log(res.detailInfo)
-//          console.log(res.nationalCode)
-//          console.log(res.telNumber)
-//        }
-//      })
-      },
+       let that = this
+       let data = [ ]
+       let uuid = that.boon.boon_order.uuid
+       let boon_status = that.boon.boon_order.status
+       console.log(boon_status)
+       if(boon_status ==='received'){
+         let res = await chooseAddress()
 
-      test(){
-        console.log('测试领奖')
+         let auth_code = wx.getStorageSync('auth_code')
+         let address =   {
+           name:res.name,            //名字
+           postal_code:res.postalCode,// 邮编
+           tel_phone:res.telNumber,// 电话
+           province:res.provinceName,// 省
+           city:res.cityName,// 市
+           district:res.countyName,// 区
+           detail:res.detailInfo// 详细
+
+         }
+
+         data = [uuid,auth_code,address]
+         let address_res =  await  that.$store.dispatch('boonAddress',{...data})
+
+
+
+         wx.navigateTo({
+           url:`/pages/user/myboonList/myBoon/main?uuid=${uuid}`
+         })
+       }else {
+         let res = await chooseAddress()
+
+         let auth_code = wx.getStorageSync('auth_code')
+         let address =   {
+           name:res.name,            //名字
+           postal_code:res.postalCode,// 邮编
+           tel_phone:res.telNumber,// 电话
+           province:res.provinceName,// 省
+           city:res.cityName,// 市
+           district:res.countyName,// 区
+           detail:res.detailInfo// 详细
+
+         }
+
+         data = [uuid,auth_code,address]
+         let address_res =  await  that.$store.dispatch('boonAddress',{...data})
+         wx.navigateTo({
+           url:`/pages/user/myboonList/myBoon/main?uuid=${uuid}`
+         })
+       }
+
+
+     },
+
+      getMoreUser(){
+        let that = this
+        console.log('加载更多中奖用户')
+        that.init_rewarded_users =  that.boon.rewarded_users
+        that.showGetmore = false
       }
 
 
@@ -374,6 +418,21 @@
 //      that.getBoons()
       let boonData = await that.$store.dispatch('getBoons',{...uuid_authCode})
      that.boon = boonData.boon
+
+
+     let init_rewarded_users = boonData.boon.rewarded_users
+
+     if(init_rewarded_users.length > 12){
+        that.showGetMoreBtn = true
+       init_rewarded_users = boonData.boon.rewarded_users.splice(0,12)
+       that.init_rewarded_users = init_rewarded_users
+
+     }else{
+       let init_rewarded_users = boonData.boon.rewarded_users
+       that.init_rewarded_users = init_rewarded_users
+     }
+//     that.init_rewarded_users = boonData.boon.rewarded_users
+
 //     await this.$store.dispatch('createBill', { ...this.userInfo, ...this.billInfo })
 
    },

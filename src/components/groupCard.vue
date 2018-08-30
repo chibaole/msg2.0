@@ -8,8 +8,8 @@
       <div class="right">
 
 
-        <h2><div class="mark">{{order_info.group_type}}</div>{{order_info.title}}</h2>
-        <p><span>¥{{order_info.current_price}}</span><span>¥{{order_info.original_price}}</span></p>
+        <h2><div class="mark">{{}}</div>{{order_info.group_activity.title}}</h2>
+        <p><span>¥{{order_info.group_activity.current_price}}</span><span>¥{{order_info.group_activity.original_price}}</span></p>
       </div>
     </div>
     </div>
@@ -21,14 +21,14 @@
     props:['order_info'],
     data(){
       return{
-        order_info:this.order_info
+
       }
     },
     methods:{
 
     },
     mounted(){
-      console.log(this.order_info.group_activity_order                               )
+      console.log(this.order_info )
     }
 
   }

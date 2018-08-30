@@ -4,10 +4,19 @@ global.webpackJsonp([5],{
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__util__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__config__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_navbar__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_groupCard__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__util__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__config__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_navbar__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_groupCard__ = __webpack_require__(16);
+
+
+
 //
 //
 //
@@ -71,8 +80,8 @@ global.webpackJsonp([5],{
 
 /* harmony default export */ __webpack_exports__["a"] = ({
   components: {
-    Navbar: __WEBPACK_IMPORTED_MODULE_2__components_navbar__["a" /* default */],
-    Card: __WEBPACK_IMPORTED_MODULE_3__components_groupCard__["a" /* default */]
+    Navbar: __WEBPACK_IMPORTED_MODULE_5__components_navbar__["a" /* default */],
+    Card: __WEBPACK_IMPORTED_MODULE_6__components_groupCard__["a" /* default */]
   },
 
   data: function data() {
@@ -81,14 +90,58 @@ global.webpackJsonp([5],{
       order_info: {
         title: '酸奶补给大礼包x10'
 
-      }
+      },
+      boon_order: {}
 
     };
   },
 
 
-  methods: {}
+  methods: {},
+  onLoad: function onLoad() {
+    var _this = this;
 
+    return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
+      var that, auth_code, uuid, data, boondata;
+      return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              console.log('我的抽奖订单详情');
+              that = _this;
+              auth_code = wx.getStorageSync('auth_code');
+
+              console.log(auth_code);
+
+              uuid = that.$root.$mp.query.uuid; //获取活动列表的拼团活动uuid
+
+              console.log('我的抽奖订单详情');
+
+              data = [uuid, auth_code];
+              _context.next = 9;
+              return that.$store.dispatch('myBoonDetail', __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends___default()({}, data));
+
+            case 9:
+              boondata = _context.sent;
+
+              console.log(boondata.boon_order);
+              if (boondata.boon_order.address == null) {
+                boondata.boon_order.address = {
+                  people: '',
+                  detail: ''
+
+                };
+                that.boon_order = boondata.boon_order;
+              }
+
+            case 12:
+            case 'end':
+              return _context.stop();
+          }
+        }
+      }, _callee, _this);
+    }))();
+  }
 });
 
 /***/ }),
@@ -114,13 +167,65 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }), _vm._v(" "), _c('div', {
     staticClass: "pjCard"
-  }, [_vm._m(0), _vm._v(" "), _c('div', {
+  }, [_c('div', {
+    staticClass: "pic"
+  }, [_c('img', {
+    attrs: {
+      "src": _vm.boon_order.boon.title_image_url,
+      "alt": ""
+    }
+  })]), _vm._v(" "), _c('div', {
     staticClass: "priceName"
   }, [_c('h2', {
     staticClass: "title"
-  }, [_vm._v("{{}}酸奶补给大包x10")]), _vm._v(" "), _c('div', {
+  }, [_vm._v(_vm._s(_vm.boon_order.boon.title))]), _vm._v(" "), _c('div', {
     staticClass: "sponsor"
-  }, [_vm._v("赞助商 安佳{{}}")])], 1)]), _vm._v(" "), _vm._m(1), _vm._v(" "), _vm._m(2), _vm._v(" "), _vm._m(3), _vm._v(" "), _vm._m(4), _vm._v(" "), _c('div', {
+  }, [_vm._v(_vm._s(_vm.boon_order.boon.sponsor.description))])], 1)]), _vm._v(" "), _c('div', {
+    staticClass: "receive"
+  }, [_c('div', {
+    staticClass: "title"
+  }, [_vm._v("收货人信息")]), _vm._v(" "), _c('div', {
+    staticClass: "phone_address"
+  }, [_c('div', {
+    staticClass: "phone"
+  }, [_c('span', [_vm._v("收货信息：")]), _c('span', [_vm._v(_vm._s(_vm.boon_order.address.people || "暂无收货人信息"))])]), _vm._v(" "), _c('div', {
+    staticClass: "address"
+  }, [_c('span', [_vm._v("收货地址：")]), _c('span', {
+    staticClass: "addressDetail"
+  }, [_vm._v(_vm._s(_vm.boon_order.address.detail))])])])]), _vm._v(" "), _c('div', {
+    staticClass: "orderinfo"
+  }, [_c('div', {
+    staticClass: "title"
+  }, [_vm._v("订单信息")]), _vm._v(" "), _c('div', {
+    staticClass: "groupOrder"
+  }, [_c('span', [_vm._v("拼团订单：")]), _c('span', [_vm._v(_vm._s(_vm.boon_order.uuid))])]), _vm._v(" "), _c('div', {
+    staticClass: "orderTime"
+  }, [_c('span', [_vm._v("订单时间：")]), _c('span', [_vm._v(_vm._s(_vm.boon_order.boon.lottery_info.lottery_time))])]), _vm._v(" "), _c('div', {
+    staticClass: "orderState"
+  }, [_c('span', [_vm._v("订单状态：")]), _c('span', [_vm._v(_vm._s(_vm.boon_order.order_status_display))])])]), _vm._v(" "), _c('div', {
+    staticClass: "express"
+  }, [_c('div', {
+    staticClass: "title"
+  }, [_vm._v("物流信息")]), _vm._v(" "), _c('div', {
+    staticClass: "groupOrder"
+  }, [_c('span', [_vm._v("物流配送：")]), _c('span', [_vm._v(_vm._s(_vm.boon_order.delivery.company))])]), _vm._v(" "), _c('div', {
+    staticClass: "orderTime"
+  }, [_c('span', [_vm._v("运单编号：")]), _c('span', [_vm._v(_vm._s(_vm.boon_order.delivery.delivery_no))])]), _vm._v(" "), _c('img', {
+    attrs: {
+      "src": __webpack_require__(12),
+      "alt": ""
+    }
+  })]), _vm._v(" "), _c('div', {
+    staticClass: "lottery"
+  }, [_c('div', {
+    staticClass: "title"
+  }, [_vm._v("开奖信息")]), _vm._v(" "), _c('div', {
+    staticClass: "groupOrder"
+  }, [_c('span', [_vm._v("抽奖玩法：")]), _c('span', [_vm._v(_vm._s(_vm.boon_order.boon.lottery_info.lottery_method))])]), _vm._v(" "), _c('div', {
+    staticClass: "orderTime"
+  }, [_c('span', [_vm._v("开奖时间：")]), _c('span', [_vm._v(_vm._s(_vm.boon_order.boon.lottery_info.lottery_time))])]), _vm._v(" "), _c('div', {
+    staticClass: "orderState"
+  }, [_c('span', [_vm._v("抽奖状态：")]), _c('span', [_vm._v(_vm._s(_vm.boon_order.status_display))])])]), _vm._v(" "), _c('div', {
     staticClass: "service"
   }, [_c('contact-button', {
     staticClass: "pos",
@@ -134,69 +239,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   })], 1)], 1)
 }
-var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "pic"
-  }, [_c('img', {
-    attrs: {
-      "src": "http://pbmrxkahq.bkt.clouddn.com/pj1.png",
-      "alt": ""
-    }
-  })])
-},function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "receive"
-  }, [_c('div', {
-    staticClass: "title"
-  }, [_vm._v("收货人信息")]), _vm._v(" "), _c('div', {
-    staticClass: "phone_address"
-  }, [_c('div', {
-    staticClass: "phone"
-  }, [_c('span', [_vm._v("收货信息：")]), _c('span', [_vm._v("{{}}土土")]), _c('span', [_vm._v("13216614843{{}}")])]), _vm._v(" "), _c('div', {
-    staticClass: "address"
-  }, [_c('span', [_vm._v("收货地址：")]), _c('span', {
-    staticClass: "addressDetail"
-  }, [_vm._v("{{}}上海市 静安区 光复路1号上海四行仓库抗战纪念馆223室上海市 静安区 光复路1号上海四行仓库抗战纪念馆223室")])])])])
-},function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "orderinfo"
-  }, [_c('div', {
-    staticClass: "title"
-  }, [_vm._v("订单信息")]), _vm._v(" "), _c('div', {
-    staticClass: "groupOrder"
-  }, [_c('span', [_vm._v("拼团订单：")]), _c('span', [_vm._v("13216614843{{}}")])]), _vm._v(" "), _c('div', {
-    staticClass: "orderTime"
-  }, [_c('span', [_vm._v("订单时间：")]), _c('span', [_vm._v("2018/12/17 23:21{{}}")])]), _vm._v(" "), _c('div', {
-    staticClass: "orderState"
-  }, [_c('span', [_vm._v("订单状态：")]), _c('span', [_vm._v("已发货{{}}")])])])
-},function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "express"
-  }, [_c('div', {
-    staticClass: "title"
-  }, [_vm._v("物流信息")]), _vm._v(" "), _c('div', {
-    staticClass: "groupOrder"
-  }, [_c('span', [_vm._v("物流配送：")]), _c('span', [_vm._v("顺丰{{}}")])]), _vm._v(" "), _c('div', {
-    staticClass: "orderTime"
-  }, [_c('span', [_vm._v("运单编号：")]), _c('span', [_vm._v("534475800412{{}}")])]), _vm._v(" "), _c('img', {
-    attrs: {
-      "src": __webpack_require__(12),
-      "alt": ""
-    }
-  })])
-},function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "lottery"
-  }, [_c('div', {
-    staticClass: "title"
-  }, [_vm._v("开奖信息")]), _vm._v(" "), _c('div', {
-    staticClass: "groupOrder"
-  }, [_c('span', [_vm._v("抽奖玩法：")]), _c('span', [_vm._v("满人开奖{{}}")])]), _vm._v(" "), _c('div', {
-    staticClass: "orderTime"
-  }, [_c('span', [_vm._v("开奖时间：")]), _c('span', [_vm._v("2018/12/17 23:21{{}}")])]), _vm._v(" "), _c('div', {
-    staticClass: "orderState"
-  }, [_c('span', [_vm._v("抽奖状态：")]), _c('span', [_vm._v("未中奖{{}}")])])])
-}]
+var staticRenderFns = []
 render._withStripped = true
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);

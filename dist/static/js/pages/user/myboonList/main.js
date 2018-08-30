@@ -54,26 +54,6 @@ global.webpackJsonp([6],{
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -89,13 +69,24 @@ global.webpackJsonp([6],{
 
   data: function data() {
     return {
-      navbar_title: '我的抽奖'
+      navbar_title: '我的抽奖',
+      boonList: []
 
     };
   },
 
 
-  methods: {},
+  methods: {
+    goBoonDetail: function goBoonDetail(e) {
+      console.log(e);
+      var uuid = e.currentTarget.dataset.uuid;
+
+      wx.navigateTo({
+        url: '/pages/user/myboonList/myBoon/main?uuid=' + uuid
+      });
+      console.log('/pages/user/myboonList/myBoon/main?uuid=' + uuid);
+    }
+  },
   onLoad: function onLoad() {
     var _this = this;
 
@@ -114,10 +105,11 @@ global.webpackJsonp([6],{
             case 5:
               boonList = _context.sent;
 
-              console.log(boonList.boon_orders);
+              console.log(boonList);
               that.boonList = boonList.boon_orders;
+              console.log(that.boonList);
 
-            case 8:
+            case 9:
             case 'end':
               return _context.stop();
           }
@@ -150,49 +142,48 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }), _vm._v(" "), _c('div', {
     staticClass: "groupList"
-  }, [_vm._l((_vm.boonList), function(boon, index) {
+  }, _vm._l((_vm.boonList), function(item, index) {
     return _c('div', {
       staticClass: "groupItem"
     }, [_c('div', {
       staticClass: "orderNum"
     }, [_c('div', {
       staticClass: "left"
-    }, [_vm._v("订单号："), _c('span', [_vm._v(_vm._s(boon.uuid))])]), _vm._v(" "), _vm._m(0, true)]), _vm._v(" "), _c('div', {
+    }, [_vm._v("订单号："), _c('span', [_vm._v(_vm._s(item.uuid))])]), _vm._v(" "), _c('div', {
+      staticClass: "right",
+      attrs: {
+        "data-uuid": item.uuid,
+        "eventid": '0-' + index
+      },
+      on: {
+        "click": _vm.goBoonDetail
+      }
+    }, [_c('span', [_vm._v(_vm._s(item.united_state_display))]), _vm._v(" "), _c('img', {
+      attrs: {
+        "src": __webpack_require__(12),
+        "alt": ""
+      }
+    })])]), _vm._v(" "), _c('div', {
       staticClass: "orderInfo"
-    }, [_vm._m(1, true), _vm._v(" "), _c('div', {
+    }, [_c('div', {
+      staticClass: "pic"
+    }, [_c('img', {
+      attrs: {
+        "src": item.boon.title_image_url,
+        "alt": ""
+      }
+    })]), _vm._v(" "), _c('div', {
       staticClass: "txt"
     }, [_c('div', {
       staticClass: "name"
-    }, [_vm._v("{{}}限量5000份 | 凤梨酥6枚装")]), _vm._v(" "), _c('p', {
+    }, [_vm._v(_vm._s(item.boon.title))]), _vm._v(" "), _c('p', {
       staticClass: "group_type"
-    }, [_vm._v("{{}}三人团")]), _vm._v(" "), _c('p', {
+    }, [_vm._v("{{}}")]), _vm._v(" "), _c('p', {
       staticClass: "detail"
-    }, [_vm._v("{{}}商品描述详情")])], 1)]), _vm._v(" "), _c('div', {
+    }, [_vm._v(_vm._s(item.boon.description))])], 1)]), _vm._v(" "), _c('div', {
       staticClass: "explain"
-    }, [_c('span', [_vm._v("{{}}2018")]), _vm._v("年 "), _c('span', [_vm._v("{{}}10")]), _vm._v("月 "), _c('sapn', {
-      attrs: {
-        "mpcomid": '1-' + index
-      }
-    }, [_vm._v("{{}}99")]), _vm._v("日 "), _c('span', [_vm._v("22：30{{}}")]), _vm._v("满10人开奖")], 1)])
-  }), _vm._v(" "), _c('div', {
-    staticClass: "groupItem"
-  }, [_vm._m(2), _vm._v(" "), _c('div', {
-    staticClass: "orderInfo"
-  }, [_vm._m(3), _vm._v(" "), _c('div', {
-    staticClass: "txt"
-  }, [_c('div', {
-    staticClass: "name"
-  }, [_vm._v("{{}}限量5000份 | 凤梨酥6枚装")]), _vm._v(" "), _c('p', {
-    staticClass: "group_type"
-  }, [_vm._v("{{}}三人团")]), _vm._v(" "), _c('p', {
-    staticClass: "detail"
-  }, [_vm._v("{{}}商品描述详情")])], 1)]), _vm._v(" "), _c('div', {
-    staticClass: "explain"
-  }, [_c('span', [_vm._v("{{}}2018")]), _vm._v("年 "), _c('span', [_vm._v("{{}}10")]), _vm._v("月 "), _c('sapn', {
-    attrs: {
-      "mpcomid": '2'
-    }
-  }, [_vm._v("{{}}99")]), _vm._v("日 "), _c('span', [_vm._v("22：30{{}}")]), _vm._v("满20人开奖")], 1)])], 2), _vm._v(" "), (true) ? _c('div', {
+    }, [_c('span', [_vm._v(_vm._s(item.boon.lottery_detail))])])])
+  })), _vm._v(" "), (true) ? _c('div', {
     staticClass: "getMore"
   }, [_vm._v("加载更多")]) : _vm._e(), _vm._v(" "), _c('div', {
     staticClass: "service"
@@ -208,47 +199,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   })], 1)], 1)
 }
-var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "right"
-  }, [_c('span', [_vm._v("未中奖{{}}")]), _vm._v(" "), _c('img', {
-    attrs: {
-      "src": __webpack_require__(12),
-      "alt": ""
-    }
-  })])
-},function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "pic"
-  }, [_c('img', {
-    attrs: {
-      "src": "",
-      "alt": ""
-    }
-  })])
-},function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "orderNum"
-  }, [_c('div', {
-    staticClass: "left"
-  }, [_vm._v("订单号："), _c('span', [_vm._v("{{}}534475800412")])]), _vm._v(" "), _c('div', {
-    staticClass: "right"
-  }, [_c('span', [_vm._v("已发货{{}}")]), _vm._v(" "), _c('img', {
-    attrs: {
-      "src": __webpack_require__(12),
-      "alt": ""
-    }
-  })])])
-},function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "pic"
-  }, [_c('img', {
-    attrs: {
-      "src": "",
-      "alt": ""
-    }
-  })])
-}]
+var staticRenderFns = []
 render._withStripped = true
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);

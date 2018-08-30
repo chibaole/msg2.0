@@ -104,6 +104,18 @@ global.webpackJsonp([4],{
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -205,20 +217,22 @@ global.webpackJsonp([4],{
     },
     getlastTime: function getlastTime() {
       var that = this;
+      //        console.log('倒计时')
       var startTime = that.order_info.initial_time_timestamp;
       var currentTime = new Date().getTime();
 
       var allTime = 86400000; //倒计时24小时
-      var leftTime = allTime - (currentTime - startTime);
+      //        let leftTime = allTime - ( currentTime - startTime)
 
-      if (leftTime <= 0) {
-        leftTime = 0;
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_6__utils_util__["b" /* showModal */])('拼团失败', '来晚一步');
-        return;
-      } else {
-        leftTime = allTime - (currentTime - startTime);
-      }
-      //        let leftTime = 86400 //总时间
+      //
+      //        if(leftTime<=0){
+      //          leftTime = 0
+      //          showModal('拼团失败','来晚一步')
+      //          return
+      //        }else {
+      //          leftTime = allTime - ( currentTime - startTime)
+      //        }
+      var leftTime = 86400; //总时间
 
       var day = Math.floor(leftTime / 1000 / 60 / 60 / 24); //剩余天数
 
@@ -425,7 +439,7 @@ global.webpackJsonp([4],{
     var _this3 = this;
 
     return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee3() {
-      var that, current_order, orderId, currentuser_code, uuid_authCode, orderData, order_user, left_user, group_type, i;
+      var that, current_order, orderId, currentuser_code, uuid_authCode, orderData, order_user, left_user, i;
       return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee3$(_context3) {
         while (1) {
           switch (_context3.prev = _context3.next) {
@@ -433,7 +447,6 @@ global.webpackJsonp([4],{
               that = _this3;
               current_order = wx.getStorageSync('current_orderinfo'); //取之前缓存的发起拼团数据
               //    that.order_info = current_order
-              //    console.log(current_order)
 
               that.orderId = that.$root.$mp.query.orderId; //发起拼团活动返回订单uuid
               that.groupuer.length = that.groupNum;
@@ -450,23 +463,19 @@ global.webpackJsonp([4],{
 
 
               that.order_info = orderData.group_activity_initial;
-              console.log('团购');
-              console.log(orderData);
 
               order_user = that.order_info.users; //[]
 
               left_user = that.order_info.users_left; //number
 
-              group_type = that.order_info.group_type; //3 / 5
-
               for (i = 0; i < left_user; i++) {
                 order_user.push({});
               }
-              console.log(order_user);
+              that.order_info.user = order_user;
 
               that.getlastTime();
 
-            case 19:
+            case 16:
             case 'end':
               return _context3.stop();
           }
@@ -491,7 +500,6 @@ global.webpackJsonp([4],{
     //
     //     let order_user = that.order_info.users //[]
     //     let left_user = that.order_info.users_left //number
-    //     let group_type = that.order_info.group_type//3 / 5
     //      for(var i = 0; i < left_user; i++){
     //        order_user.push({})
     //      }
@@ -603,14 +611,17 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "navbar_title": _vm.navbar_title,
       "mpcomid": '0'
     }
-  }), _vm._v(" "), _c('Card', {
-    attrs: {
-      "order_info": _vm.order_info,
-      "mpcomid": '1'
-    }
   }), _vm._v(" "), _c('div', {
+    staticClass: "wrap"
+  }, [_c('div', {
+    staticClass: "pj-info"
+  }, [_vm._m(0), _vm._v(" "), _c('div', {
+    staticClass: "right"
+  }, [_c('h2', [_c('div', {
+    staticClass: "mark"
+  }, [_vm._v(_vm._s(_vm.order_info.group_activity.group_type))]), _vm._v(_vm._s(_vm.order_info.group_activity.title))]), _vm._v(" "), _c('p', [_c('span', [_vm._v("¥" + _vm._s(_vm.order_info.group_activity.current_price))]), _c('span', [_vm._v("¥" + _vm._s(_vm.order_info.group_activity.original_price))])])], 1)])]), _vm._v(" "), _c('div', {
     staticClass: "detail-order"
-  }, [_c('h2', [_vm._v("拼团中 分享给好友组团")]), _vm._v(" "), _c('div', {
+  }, [_c('h2', [_c('span', [_vm._v(_vm._s(_vm.order_info.status_display))])]), _vm._v(" "), _c('div', {
     staticClass: "order-info"
   }, [_c('div', {
     staticClass: "text"
@@ -628,6 +639,8 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       staticClass: "mark"
     }, [_vm._v("团长")]) : _vm._e()])
   })), _vm._v(" "), _c('div', {
+    staticClass: "group_res"
+  }, [_vm._v("去填地址")]), _vm._v(" "), _c('div', {
     staticClass: "line"
   }), _vm._v(" "), _c('div', {
     staticClass: "group"
@@ -644,7 +657,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   }, [_vm._v("\n      商品详情\n      "), _c('rich-text', {
     attrs: {
       "nodes": _vm.order_info.detail,
-      "mpcomid": '2'
+      "mpcomid": '1'
     }
   })], 1)], 1), _vm._v(" "), (!_vm.scanCode) ? _c('div', {
     staticClass: "btn open_btn",
@@ -722,7 +735,16 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }, [_vm._v("一键参与")])]) : _vm._e()], 1)
 }
-var staticRenderFns = []
+var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "left"
+  }, [_c('img', {
+    attrs: {
+      "src": "http://oxl5leo53.bkt.clouddn.com/u=660634825,1514502894&fm=11&gp=0.jpg",
+      "alt": ""
+    }
+  })])
+}]
 render._withStripped = true
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);

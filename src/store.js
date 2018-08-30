@@ -100,12 +100,14 @@ export default new Vuex.Store({
     //获取当前拼团活动数据列表
 
     async getGroup({commit}) {
+      const auth_code = wx.getStorageSync('auth_code')
+
       const group = await request({
         method: 'get',
-        url: `${apiDomain}/group_activities`,
+        url: `${apiDomain}/group_activities?auth_code=${auth_code}`,
         data: {}
       })
-      console.log(`store的 获取拼团列表-----${apiDomain}/group_activities`)
+      console.log(`store的 获取拼团列表-----${apiDomain}/group_activities?auth_code=${auth_code}`)
 
       console.log(group)
       return group
@@ -145,7 +147,8 @@ export default new Vuex.Store({
     },
 
 //拼团订单详情
-    async groupActivities_order({commit}, {...uuid_authCode}) {
+    async groupActivities_order({commit},{...uuid_authCode}) {
+      console.log('拼团订单详情')
       let uuid = uuid_authCode[0]
       let auth_code = uuid_authCode[1]
 
@@ -154,7 +157,7 @@ export default new Vuex.Store({
         method: 'get',
         url: `${apiDomain}/group_activity_orders/${uuid}?auth_code=${auth_code}`
       })
-
+      console.log(orderData)
       return orderData
 
     },
@@ -225,7 +228,72 @@ export default new Vuex.Store({
 
 
     },
+//我的抽奖订单详情
+async myBoonDetail({commit},{...data}){
+      console.log('我的订单详情')
+      let uuid = data[0]
+      let auth_code = data[1]
+  let res = await request({
+    method:'get',
+    url:`${apiDomain}/boon_orders/${uuid}?auth_code=${auth_code}`
+  })
+  console.log(res)
+  return res
+},
+// 抽奖地址选择
+async boonAddress({commit},{...data}){
 
+      let uuid = data[0]
+
+      let auth_code = data[1]
+
+      let attributes = data[2]
+
+      let order_address  = {
+        auth_code:auth_code,
+        boon_order:{
+          address_attributes:attributes
+        }
+      }
+      console.log('这是抽奖地址数据')
+      var jsonData = JSON.stringify(order_address)
+      let res = await  request({
+        method:'put',
+        url:`${apiDomain}/boon_orders/${uuid}`,
+        data:order_address,
+        header:{
+          'content-type': 'application/json'
+        }
+      })
+      return res
+
+},
+//拼团地址选择
+    async groupAddress({commit},{...data}){
+
+      let uuid = data[0]
+
+      let auth_code = data[1]
+
+      let attributes = data[2]
+
+      let order_address  = {
+        auth_code:auth_code,
+        boon_order:{
+          address_attributes:attributes
+        }
+      }
+      console.log(order_address)
+
+      let res = await  request({
+        method:'put',
+        url:`${apiDomain}/group_activity_orders/${uuid}`,
+        data:order_address
+      })
+      console.log(res)
+      return res
+
+    }
 
   }
 

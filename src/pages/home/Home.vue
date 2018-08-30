@@ -11,7 +11,7 @@
 
     <Scroll></Scroll>
     <Group></Group>
-    <More></More>
+    <!--<More></More>-->
     <!--<button open-type="getUserInfo">登录</button>-->
     <!--<button open-type="getUserInfo" @getuserinfo="test">登录的按钮</button>-->
 

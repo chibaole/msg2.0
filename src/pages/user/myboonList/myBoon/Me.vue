@@ -5,10 +5,10 @@
 
     <!--<Card :order_info="order_info"></Card>-->
     <div class="pjCard">
-      <div class="pic"><img src="http://pbmrxkahq.bkt.clouddn.com/pj1.png" alt=""></div>
+      <div class="pic"><img :src="boon_order.boon.title_image_url" alt=""></div>
       <div class="priceName">
-        <h2 class="title">{{}}酸奶补给大包x10</h2>
-        <div class="sponsor">赞助商 安佳{{}}</div>
+        <h2 class="title">{{boon_order.boon.title }}</h2>
+        <div class="sponsor">{{boon_order.boon.sponsor.description}}</div>
       </div>
 
     </div>
@@ -17,30 +17,30 @@
     <div class="receive">
       <div class="title">收货人信息</div>
       <div class="phone_address">
-        <div class="phone"><span>收货信息：</span><span>{{}}土土</span><span>13216614843{{}}</span></div>
-        <div class="address"><span>收货地址：</span><span class="addressDetail">{{}}上海市 静安区 光复路1号上海四行仓库抗战纪念馆223室上海市 静安区 光复路1号上海四行仓库抗战纪念馆223室</span></div>
+        <div class="phone"><span>收货信息：</span><span>{{ boon_order.address.people || "暂无收货人信息"  }}</span></div>
+        <div class="address"><span>收货地址：</span><span class="addressDetail">{{boon_order.address.detail}}</span></div>
       </div>
 
     </div>
     <div class="orderinfo">
       <div class="title">订单信息</div>
-      <div class="groupOrder"><span>拼团订单：</span><span>13216614843{{}}</span></div>
-      <div class="orderTime"><span>订单时间：</span><span>2018/12/17 23:21{{}}</span></div>
-      <div class="orderState"><span>订单状态：</span><span>已发货{{}}</span></div>
+      <div class="groupOrder"><span>拼团订单：</span><span>{{boon_order.uuid}}</span></div>
+      <div class="orderTime"><span>订单时间：</span><span>{{boon_order.boon.lottery_info.lottery_time}}</span></div>
+      <div class="orderState"><span>订单状态：</span><span>{{boon_order.order_status_display}}</span></div>
     </div>
 
     <div class="express">
       <div class="title">物流信息</div>
-      <div class="groupOrder"><span>物流配送：</span><span>顺丰{{}}</span></div>
-      <div class="orderTime"><span>运单编号：</span><span>534475800412{{}}</span></div>
+      <div class="groupOrder"><span>物流配送：</span><span>{{boon_order.delivery.company}}</span></div>
+      <div class="orderTime"><span>运单编号：</span><span>{{boon_order.delivery.delivery_no}}</span></div>
       <img src="../../../../../static/img/right.png" alt="">
     </div>
 
     <div class="lottery">
       <div class="title">开奖信息</div>
-      <div class="groupOrder"><span>抽奖玩法：</span><span>满人开奖{{}}</span></div>
-      <div class="orderTime"><span>开奖时间：</span><span>2018/12/17 23:21{{}}</span></div>
-      <div class="orderState"><span>抽奖状态：</span><span>未中奖{{}}</span></div>
+      <div class="groupOrder"><span>抽奖玩法：</span><span>{{boon_order.boon.lottery_info.lottery_method}}</span></div>
+      <div class="orderTime"><span>开奖时间：</span><span>{{boon_order.boon.lottery_info.lottery_time}}</span></div>
+      <div class="orderState"><span>抽奖状态：</span><span>{{boon_order.status_display}}</span></div>
     </div>
 
 
@@ -71,7 +71,8 @@
         order_info:{
           title:'酸奶补给大礼包x10',
 
-        }
+        },
+        boon_order:{}
 
       }
 
@@ -79,7 +80,30 @@
 
     methods:{
 
-    }
+    },
+   async onLoad(){
+      console.log('我的抽奖订单详情')
+      var that = this
+      let auth_code = wx.getStorageSync('auth_code')
+     console.log(auth_code)
+
+     let uuid = that.$root.$mp.query.uuid //获取活动列表的拼团活动uuid
+     console.log('我的抽奖订单详情')
+
+     let data = [uuid,auth_code]
+     let boondata = await that.$store.dispatch('myBoonDetail',{...data})
+     console.log(boondata.boon_order)
+     if(boondata.boon_order.address == null){
+       boondata.boon_order.address= {
+         people:'',
+         detail:''
+
+       }
+       that.boon_order = boondata.boon_order
+
+     }
+
+   }
 
 
 

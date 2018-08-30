@@ -8,7 +8,7 @@
     <!--订单详情-->
     <div class="detail-order">
         <h2>订单详情</h2>
-        <p>{{order_info.product.name}}<span>¥{{order_info.current_price}}</span></p>
+        <p>{{order_info.group_activity.title}}<span>¥{{order_info.group_activity.current_price}}</span></p>
     </div>
     <div class="address">
       <p>地址：目前需填写收货地址<span>(拼团成功后 提货时填写 )</span></p>
@@ -16,7 +16,7 @@
 
     <div class="pay">
       <button @click="pay" >
-        <img src="http://pbmrxkahq.bkt.clouddn.com/%E5%BE%AE%E4%BF%A1icon.png" alt=""><span class="paytxt">微信支付¥{{order_info.current_price}}</span>
+        <img src="http://pbmrxkahq.bkt.clouddn.com/%E5%BE%AE%E4%BF%A1icon.png" alt=""><span class="paytxt">微信支付¥{{order_info.group_activity.current_price}}</span>
       </button>
     </div>
   </div>
@@ -34,15 +34,7 @@
     data(){
       return{
 
-        pjInfo: {
-          pic: '../../../static/img/share_pic.jpg',
-          pjname: '5元一盒凤梨酥6枚装',
-          groupNum: 3,
-          mark: '三人团',
-          pjtext: '只是梦想还在吃 有点吃不胖 没事要看田',
-          pjprice: '$5',
-          oldprice: '$96'
-        },
+
         order_uuid:'',
         order_info:{},
         navbar_title:'订单详情',
@@ -82,34 +74,38 @@
             }
           })
         },
-      async getGroup_orders(){
-          wx.removeStorageSync('current_orderinfo')//每次先删除上一个缓存的订
-          let that = this
-          let  order_info = await  get(`/v1/group_activity_orders/${that.order_uuid}`)
-        let order = order_info.group_activity_order
-        that.order_info = order
-
-        wx.setStorageSync('current_orderinfo',order)//缓存获取的拼团订单信息
-
-      }
+//      async getGroup_orders(){
+//          wx.removeStorageSync('current_orderinfo')//每次先删除上一个缓存的订
+//          let that = this
+//          let  order_info = await  get(`/v1/group_activity_orders/${that.order_uuid}`)
+//        let order = order_info.group_activity_order
+//        that.order_info = order
+//
+//        wx.setStorageSync('current_orderinfo',order)//缓存获取的拼团订单信息
+//
+//      }
     },
    async onLoad(){
       let that = this
       let initGroupId =  this.$root.$mp.query.initGroupId //获取发起拼团活动返回的订单ID
      let currentuser_code = wx.getStorageSync('auth_code')
      let uuid_authCode = [initGroupId,currentuser_code]
+
+     console.log(uuid_authCode)
+
 //      that.getGroup_orders()
       //新api的形式
+//                                                     groupActivities_order
       const orderData = await  that.$store.dispatch('groupActivities_order',{...uuid_authCode})
-      console.log(orderData)
-      that.order_info = orderData.group_activity_order
-      console.log( that.order_info)
-      console.log(orderData.group_activity_order)
+     console.log(orderData)
 
+      that.order_info = orderData.group_activity_order
+     console.log(that.order_info)
     },
-    mounted(){
-      console.log(this.order_info)
-    }
+
+   async mounted(){
+
+   }
 
   }
 </script>

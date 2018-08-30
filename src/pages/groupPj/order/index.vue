@@ -2,11 +2,25 @@
   <div class="container">
     <Navbar :navbar_title="navbar_title"></Navbar>
     <!--<Card ></Card>-->
-    <Card :order_info="order_info"></Card>
+    <!--<Card :order_info="order_info"></Card>-->
+    <div class="wrap">
+      <div class="pj-info">
+        <div class="left">
+          <img src="http://oxl5leo53.bkt.clouddn.com/u=660634825,1514502894&fm=11&gp=0.jpg" alt="">
+        </div>
+        <div class="right">
+
+
+          <h2><div class="mark">{{order_info.group_activity.group_type}}</div>{{order_info.group_activity.title}}</h2>
+          <p><span>¥{{order_info.group_activity.current_price}}</span><span>¥{{order_info.group_activity.original_price}}</span></p>
+        </div>
+      </div>
+    </div>
+
 
     <!--订单详情-->
     <div class="detail-order">
-      <h2>拼团中 分享给好友组团</h2>
+      <h2><span>{{order_info.status_display}}</span></h2>
       <div class="order-info">
         <div class="text">还差<span>{{order_info.users_left}}</span>人参团,
           <span>{{time.day}}</span>天
@@ -18,10 +32,8 @@
 
       <div class="user">
         <div class="pic" v-for="item in order_info.users"><img :src="item.avatar_url" alt=""><span class="mark" v-if="item.is_initiator">团长</span></div>
-
-
-
       </div>
+      <div class="group_res">去填地址</div>
       <div class="line"></div>
 
       <div class="group">
@@ -171,21 +183,22 @@
       },
       getlastTime() {
         let that = this
+//        console.log('倒计时')
         let startTime = that.order_info.initial_time_timestamp
         let currentTime = (new Date()).getTime()
 
         let allTime = 86400000 //倒计时24小时
-        let leftTime = allTime - ( currentTime - startTime)
+//        let leftTime = allTime - ( currentTime - startTime)
 
-
-        if(leftTime<=0){
-          leftTime = 0
-          showModal('拼团失败','来晚一步')
-          return
-        }else {
-          leftTime = allTime - ( currentTime - startTime)
-        }
-//        let leftTime = 86400 //总时间
+//
+//        if(leftTime<=0){
+//          leftTime = 0
+//          showModal('拼团失败','来晚一步')
+//          return
+//        }else {
+//          leftTime = allTime - ( currentTime - startTime)
+//        }
+        let leftTime = 86400 //总时间
 
         let day = Math.floor(leftTime/1000 / 60 / 60 / 24) //剩余天数
 
@@ -403,7 +416,6 @@
     var that = this
     var current_order = wx.getStorageSync('current_orderinfo') //取之前缓存的发起拼团数据
 //    that.order_info = current_order
-//    console.log(current_order)
 
     that.orderId = that.$root.$mp.query.orderId //发起拼团活动返回订单uuid
     that.groupuer.length = that.groupNum
@@ -416,21 +428,17 @@
     let orderData = await  that.$store.dispatch('groupActivitiesInit',{...uuid_authCode})
 
     that.order_info = orderData.group_activity_initial
-    console.log('团购')
-    console.log(orderData)
 
     let order_user = that.order_info.users //[]
     let left_user = that.order_info.users_left //number
-    let group_type = that.order_info.group_type//3 / 5
     for(var i = 0; i < left_user; i++){
       order_user.push({})
     }
-    console.log(order_user)
+     that.order_info.user = order_user
 
 
 
-
-    that.getlastTime()
+     that.getlastTime()
   },
    async mounted()
   {
@@ -450,7 +458,6 @@
 //
 //     let order_user = that.order_info.users //[]
 //     let left_user = that.order_info.users_left //number
-//     let group_type = that.order_info.group_type//3 / 5
 //      for(var i = 0; i < left_user; i++){
 //        order_user.push({})
 //      }
@@ -554,7 +561,10 @@
     margin-left: 15px;
     margin-right: 15px;
   }
-
+.group_res{
+  width:180px;
+  height: 45px;
+}
   .pic img {
     width: 100%;
     height: 100%;
@@ -930,6 +940,105 @@
     font-size: 16px;
     color: #fff;
   }
+
+
+
+  /*-----------*/
+  .wrap{
+    height: 125px;
+    background: #fff;
+    border: 0.5px solid #fff;
+
+  }
+  .pj-info{
+
+    /*border: 1px solid #000;*/
+
+
+    width: 325px;
+    height: 84px;
+    margin: 21px auto  20px;
+  }
+  .pj-info .left{
+    display: inline-block;
+    width: 80px;height: 80px;
+    margin-top: 4px;
+    border-radius: 5px;
+
+
+
+  }
+
+  .left img{
+    width:80px;
+    height: 80px;
+    margin-right: 0;
+    border-radius: 5px;
+
+  }
+
+
+
+
+  .pj-info .right{
+    position: relative;
+    display: inline-block;
+    height: 84px;
+    width: 225px;
+    /*border:1px solid #000;*/
+
+  }
+  .right h2 .mark{
+    width: 50px;height: 20px;
+    line-height: 20px;
+    text-align: center;
+    font-family:PingFangSC-Regular ;
+    font-size: 11px;
+    color:#ff7f4f;
+    border:1px solid #ff7f4f;
+    display: inline-block;
+    margin-right: 10px;
+    /*transform:rotate(-42deg);*/
+
+    /*position: absolute;*/
+    /*top:0px;*/
+    /*left: 0px;*/
+  }
+
+  .right h2{
+    display: inline-block;
+    font-size: 20px;
+    font-family:  PingFangSC-Medium;
+    color:#333;
+    /*margin-left: 60px;*/
+
+  }
+  .right p{
+    /*border: 1px solid #000;*/
+    margin-top: 13px;
+  }
+
+  .right  p span{
+    display: inline-block;
+    margin-left: 5px;
+  }
+
+  .right  p span:nth-child(1){
+    font-size: 20px; color: #D0021B;
+    font-weight: Medium;
+
+  }
+  /*.right p span:nth-child(2){*/
+  /*font-size: 12px; color: #D0021B;*/
+  /*font-weight: Regular;*/
+
+  /*}*/
+  .right p span:nth-child(2){
+    font-size: 12px; color: #D0021b;
+    font-weight: Regular;
+    text-decoration: line-through;
+  }
+
 
 
 </style>

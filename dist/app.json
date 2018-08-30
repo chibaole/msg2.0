@@ -3,16 +3,16 @@
     "skeleton": "../static/skeleton/skeleton"
   },
   "pages": [
-    "pages/user/main",
+    "pages/home/main",
     "pages/cards/cardDetail/main",
     "pages/cards/main",
     "pages/groupPj/groupDetail/main",
     "pages/groupPj/main",
     "pages/groupPj/order/main",
-    "pages/home/main",
     "pages/project/main",
     "pages/test/main",
     "pages/test2/main",
+    "pages/user/main",
     "pages/user/myboonList/main",
     "pages/user/myboonList/myBoon/main",
     "pages/user/myGroup/main",
@@ -32,11 +32,6 @@
         "pagePath": "pages/home/main",
         "iconPath": "static/img/home_gray.png",
         "selectedIconPath": "static/img/home_orange.png"
-      },
-      {
-        "pagePath": "pages/cards/main",
-        "iconPath": "static/img/explore_gray.png",
-        "selectedIconPath": "static/img/explore_orange.png"
       },
       {
         "pagePath": "pages/user/main",

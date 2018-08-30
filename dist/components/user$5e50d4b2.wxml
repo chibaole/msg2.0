@@ -4,11 +4,11 @@
     <template data="{{...$root[$kk+'0'], $root}}" is="navbar$7457f0be"></template>
     <view class="_div data-v-6d087ae9 pjCard">
       <view class="_div data-v-6d087ae9 pic">
-        <image src="http://pbmrxkahq.bkt.clouddn.com/pj1.png" alt class="_img data-v-6d087ae9"></image>
+        <image src="{{boon_order.boon.title_image_url}}" alt class="_img data-v-6d087ae9"></image>
       </view>
       <view class="_div data-v-6d087ae9 priceName">
-        <view class="_h2 data-v-6d087ae9 title">{{}}酸奶补给大包x10</view>
-        <view class="_div data-v-6d087ae9 sponsor">赞助商 安佳{{}}</view>
+        <view class="_h2 data-v-6d087ae9 title">{{boon_order.boon.title }}</view>
+        <view class="_div data-v-6d087ae9 sponsor">{{boon_order.boon.sponsor.description}}</view>
       </view>
     </view>
     <view class="_div data-v-6d087ae9 receive">
@@ -16,12 +16,11 @@
       <view class="_div data-v-6d087ae9 phone_address">
         <view class="_div data-v-6d087ae9 phone">
           <label class="_span data-v-6d087ae9">收货信息：</label>
-          <label class="_span data-v-6d087ae9">{{}}土土</label>
-          <label class="_span data-v-6d087ae9">13216614843{{}}</label>
+          <label class="_span data-v-6d087ae9">{{ boon_order.address.people || "暂无收货人信息" }}</label>
         </view>
         <view class="_div data-v-6d087ae9 address">
           <label class="_span data-v-6d087ae9">收货地址：</label>
-          <label class="_span data-v-6d087ae9 addressDetail">{{}}上海市 静安区 光复路1号上海四行仓库抗战纪念馆223室上海市 静安区 光复路1号上海四行仓库抗战纪念馆223室</label>
+          <label class="_span data-v-6d087ae9 addressDetail">{{boon_order.address.detail}}</label>
         </view>
       </view>
     </view>
@@ -29,26 +28,26 @@
       <view class="_div data-v-6d087ae9 title">订单信息</view>
       <view class="_div data-v-6d087ae9 groupOrder">
         <label class="_span data-v-6d087ae9">拼团订单：</label>
-        <label class="_span data-v-6d087ae9">13216614843{{}}</label>
+        <label class="_span data-v-6d087ae9">{{boon_order.uuid}}</label>
       </view>
       <view class="_div data-v-6d087ae9 orderTime">
         <label class="_span data-v-6d087ae9">订单时间：</label>
-        <label class="_span data-v-6d087ae9">2018/12/17 23:21{{}}</label>
+        <label class="_span data-v-6d087ae9">{{boon_order.boon.lottery_info.lottery_time}}</label>
       </view>
       <view class="_div data-v-6d087ae9 orderState">
         <label class="_span data-v-6d087ae9">订单状态：</label>
-        <label class="_span data-v-6d087ae9">已发货{{}}</label>
+        <label class="_span data-v-6d087ae9">{{boon_order.order_status_display}}</label>
       </view>
     </view>
     <view class="_div data-v-6d087ae9 express">
       <view class="_div data-v-6d087ae9 title">物流信息</view>
       <view class="_div data-v-6d087ae9 groupOrder">
         <label class="_span data-v-6d087ae9">物流配送：</label>
-        <label class="_span data-v-6d087ae9">顺丰{{}}</label>
+        <label class="_span data-v-6d087ae9">{{boon_order.delivery.company}}</label>
       </view>
       <view class="_div data-v-6d087ae9 orderTime">
         <label class="_span data-v-6d087ae9">运单编号：</label>
-        <label class="_span data-v-6d087ae9">534475800412{{}}</label>
+        <label class="_span data-v-6d087ae9">{{boon_order.delivery.delivery_no}}</label>
       </view>
       <image src="../../../../../static/img/right.png" alt class="_img data-v-6d087ae9"></image>
     </view>
@@ -56,15 +55,15 @@
       <view class="_div data-v-6d087ae9 title">开奖信息</view>
       <view class="_div data-v-6d087ae9 groupOrder">
         <label class="_span data-v-6d087ae9">抽奖玩法：</label>
-        <label class="_span data-v-6d087ae9">满人开奖{{}}</label>
+        <label class="_span data-v-6d087ae9">{{boon_order.boon.lottery_info.lottery_method}}</label>
       </view>
       <view class="_div data-v-6d087ae9 orderTime">
         <label class="_span data-v-6d087ae9">开奖时间：</label>
-        <label class="_span data-v-6d087ae9">2018/12/17 23:21{{}}</label>
+        <label class="_span data-v-6d087ae9">{{boon_order.boon.lottery_info.lottery_time}}</label>
       </view>
       <view class="_div data-v-6d087ae9 orderState">
         <label class="_span data-v-6d087ae9">抽奖状态：</label>
-        <label class="_span data-v-6d087ae9">未中奖{{}}</label>
+        <label class="_span data-v-6d087ae9">{{boon_order.status_display}}</label>
       </view>
     </view>
     <view class="_div data-v-6d087ae9 service">

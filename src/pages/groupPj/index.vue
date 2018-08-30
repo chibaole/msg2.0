@@ -4,7 +4,7 @@
     <Navbar :navbar_title="navbar_title"></Navbar>
 
     <div class="top">
-      <div class="pic"><img :src="group_activity.title_image_url" alt=""></div>
+      <div class="pic"><img :src="host + group_activity.title_image_url" alt=""></div>
 
           <div class="timeLine">
             <p>距离结束仅剩</p>
@@ -46,7 +46,7 @@
 
   import {get, post, showModal} from '@/utils/util'
   import Navbar from '@/components/navbar'
-
+  import config from '@/config'
   export default {
 
     components:{
@@ -61,7 +61,8 @@
         initGroupId:'',
         group_uuid:'',
         time:{day:'',hours:'',minutes:''},
-        myDetail:''
+        myDetail:'',
+        host:config.host
       }
 
     },
@@ -116,17 +117,19 @@
                       console.log(uuid_authCode)
                       let initGroupData = await that.$store.dispatch('initGroup',{...uuid_authCode})
                       console.log(initGroupData)
-                      let initGroupId = initGroupData.group_activity_order.uuid  //发起拼团返回的订单id
-                      that.initGroupId = initGroupId
-                      console.log(initGroupId)
 
-                      if(initGroupId){
+                      if(initGroupData){
                         console.log('点击了发起拼团')
+                        let initGroupId = initGroupData.group_activity_order.uuid  //发起拼团返回的订单id
+                        that.initGroupId = initGroupId
+
+
                         wx.navigateTo({
                           url: '/pages/groupPj/groupDetail/main?initGroupId=' + initGroupId
                         })
                       }else {
-                        showModal('拼团错误','无效的拼团')
+                        console.log('拼团失败')
+                        showModal('无法拼团','你已在这个拼团活动')
                       }
 
 

@@ -10,17 +10,17 @@ module.exports = async(ctx) => {
   let groupDetail = {
     group_activity: {
       // 唯一标识
-      uuid: uuid,
+      uuid: '',
       // 标题
       title: '5元1盒 | 凤梨酥6枚装',
       // 头图地址
-      title_image_url: 'http://pbmrxkahq.bkt.clouddn.com/group_pj1.png',
+      title_image_url: '',
       // 原价
       original_price: 85,
       // 现价
       current_price: 5,
       // 活动结束时间，时间戳，精确到毫秒
-      end_time: 1539974437000,
+      end_time: 1532674437000,
       // 团购类型
       group_type: '三人团',
       // 团购描述
@@ -42,19 +42,12 @@ module.exports = async(ctx) => {
         // 详情
         detail: ''
       },
-      // 参加状态
-      // 0 未参加
-      // 1 已参加
-      participation_status: 0 || 1,
       // 按钮文字，由服务端来控制按钮显示的文字
       button: {
         text: '发起拼团'
       }
-    }
   }
-
-
-
+  }
 
   if(uuid){
     ctx.state= {

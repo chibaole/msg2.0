@@ -1,6 +1,5 @@
 <import src="scroll$532da844" />
 <import src="group$71c9e504" />
-<import src="more$183232b4" />
 <template name="home$3b0ebc9c">
   <view class="_div data-v-75e665de skeleton">
     <view class="_div data-v-75e665de explain-box" wx:if="{{open}}">
@@ -12,6 +11,5 @@
     </view>
     <template data="{{...$root[$kk+'0'], $root}}" is="scroll$532da844"></template>
     <template data="{{...$root[$kk+'1'], $root}}" is="group$71c9e504"></template>
-    <template data="{{...$root[$kk+'2'], $root}}" is="more$183232b4"></template>
   </view>
 </template>

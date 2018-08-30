@@ -51,25 +51,6 @@ global.webpackJsonp([8],{
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -118,10 +99,11 @@ global.webpackJsonp([8],{
 
 
               that.myGroup_list = groupList.group_activity_orders;
-
               console.log(groupList);
+              console.log(groupList.group_activity_orders);
+              console.log(groupList.group_activity_orders);
 
-            case 8:
+            case 10:
             case 'end':
               return _context.stop();
           }
@@ -152,10 +134,10 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "navbar_title": _vm.navbar_title,
       "mpcomid": '0'
     }
-  }), _vm._v(" "), _c('div', {
-    staticClass: "groupList"
-  }, [_vm._l((_vm.myGroup_list), function(item, index) {
+  }), _vm._v(" "), _vm._l((_vm.myGroup_list), function(item, index) {
     return _c('div', {
+      staticClass: "groupList"
+    }, [_c('div', {
       staticClass: "groupItem"
     }, [_c('div', {
       staticClass: "orderNum"
@@ -183,24 +165,10 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       staticClass: "group_type"
     }, [_vm._v("{{}}三人团")]), _vm._v(" "), _c('p', {
       staticClass: "detail"
-    }, [_vm._v(_vm._s(item.product.detail) + "1")])], 1), _vm._v(" "), _c('span', {
+    }, [_vm._v("1")])], 1), _vm._v(" "), _c('span', {
       staticClass: "price"
-    }, [_vm._v("¥" + _vm._s(item.current_price))])])])
+    }, [_vm._v("¥" + _vm._s(item.current_price))])])])])
   }), _vm._v(" "), _c('div', {
-    staticClass: "groupItem"
-  }, [_vm._m(1), _vm._v(" "), _c('div', {
-    staticClass: "orderInfo"
-  }, [_vm._m(2), _vm._v(" "), _c('div', {
-    staticClass: "txt"
-  }, [_c('div', {
-    staticClass: "name"
-  }, [_vm._v("{{}}限量5000份 | 凤梨酥6枚装")]), _vm._v(" "), _c('p', {
-    staticClass: "group_type"
-  }, [_vm._v("{{}}三人团")]), _vm._v(" "), _c('p', {
-    staticClass: "detail"
-  }, [_vm._v("{{}}商品描述详情")])], 1), _vm._v(" "), _c('span', {
-    staticClass: "price"
-  }, [_vm._v("{{}}¥5")])])])], 2), _vm._v(" "), _c('div', {
     staticClass: "service"
   }, [_c('contact-button', {
     staticClass: "pos",
@@ -220,34 +188,12 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     on: {
       "click": _vm.addList
     }
-  }, [_vm._v("加载更多")]) : _vm._e()], 1)
+  }, [_vm._v("加载更多")]) : _vm._e()], 2)
 }
 var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "left"
   }, [_vm._v("订单号："), _c('span', [_vm._v("{{}}534475800412")])])
-},function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "orderNum"
-  }, [_c('div', {
-    staticClass: "left"
-  }, [_vm._v("订单号："), _c('span', [_vm._v("{{}}534475800412")])]), _vm._v(" "), _c('div', {
-    staticClass: "right"
-  }, [_c('span', [_vm._v("已发货{{}}")]), _vm._v(" "), _c('img', {
-    attrs: {
-      "src": __webpack_require__(12),
-      "alt": ""
-    }
-  })])])
-},function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "pic"
-  }, [_c('img', {
-    attrs: {
-      "src": "",
-      "alt": ""
-    }
-  })])
 }]
 render._withStripped = true
 var esExports = { render: render, staticRenderFns: staticRenderFns }

@@ -216,6 +216,18 @@ export const uploadFile = (obj) => new Promise((resolve, reject) => {
   })
 })
 
+export const chooseAddress = (obj)=> new Promise((reslove,reject)=>{
+  wx.chooseAddress({
+    success: function (res) {
+          reslove(res)
+    },
+    fail(e){
+      reject(e)
+    }
+  })
+})
+
+
 export default {
   getStorage,
   setStorage,
@@ -236,5 +248,6 @@ export default {
   stopPullDownRefresh,
   uploadFile,
 
-  getWxLoginResult
+  getWxLoginResult,
+  chooseAddress
 }

@@ -1,49 +1,29 @@
 <template>
   <div class="container" >
     <Navbar :navbar_title="navbar_title"></Navbar>
-    <div class="groupList">
-      <div class="groupItem" v-for="boon in boonList">
+    <div class="groupList" >
+      <div class="groupItem" v-for="item in boonList" >
         <div class="orderNum">
-          <div class="left">订单号：<span>{{boon.uuid}}</span></div>
-          <div class="right">
-            <span>未中奖{{}}</span>
+          <div class="left">订单号：<span>{{item.uuid}}</span></div>
+          <div class="right" :data-uuid="item.uuid" @click="goBoonDetail">
+            <span>{{item.united_state_display}}</span>
             <img src="../../../../static/img/right.png" alt="">
           </div>
         </div>
         <div class="orderInfo">
-          <div class="pic"><img src="" alt=""></div>
+          <div class="pic"><img :src="item.boon.title_image_url" alt=""></div>
           <div class="txt">
-            <div class="name">{{}}限量5000份 | 凤梨酥6枚装</div>
-            <p class="group_type">{{}}三人团</p>
-            <p class="detail">{{}}商品描述详情</p>
+            <div class="name">{{item.boon.title}}</div>
+            <p class="group_type">{{}}</p>
+            <p class="detail">{{item.boon.description}}</p>
           </div>
           <!--<span class="price">{{}}¥5</span>-->
 
 
         </div>
-        <div class="explain"><span>{{}}2018</span>年 <span>{{}}10</span>月 <sapn>{{}}99</sapn>日 <span>22：30{{}}</span>满10人开奖</div>
+        <div class="explain"><span>{{item.boon.lottery_detail}}</span></div>
       </div>
-      <div class="groupItem">
-        <div class="orderNum">
-          <div class="left">订单号：<span>{{}}534475800412</span></div>
-          <div class="right">
-            <span>已发货{{}}</span>
-            <img src="../../../../static/img/right.png" alt="">
-          </div>
-        </div>
-        <div class="orderInfo">
-          <div class="pic"><img src="" alt=""></div>
-          <div class="txt">
-            <div class="name">{{}}限量5000份 | 凤梨酥6枚装</div>
-            <p class="group_type">{{}}三人团</p>
-            <p class="detail">{{}}商品描述详情</p>
-          </div>
-          <!--<span class="price">{{}}¥5</span>-->
 
-        </div>
-        <div class="explain"><span>{{}}2018</span>年 <span>{{}}10</span>月 <sapn>{{}}99</sapn>日 <span>22：30{{}}</span>满20人开奖</div>
-
-      </div>
 
     </div>
 
@@ -70,13 +50,23 @@
 
     data () {
       return {
-        navbar_title:'我的抽奖'
+        navbar_title:'我的抽奖',
+        boonList:[]
 
       }
 
     },
 
     methods:{
+      goBoonDetail(e){
+        console.log(e)
+        const uuid = e.currentTarget.dataset.uuid
+
+        wx.navigateTo({
+          url:'/pages/user/myboonList/myBoon/main?uuid='+ uuid
+        })
+        console.log('/pages/user/myboonList/myBoon/main?uuid='+ uuid)
+      }
 
     },
    async onLoad(){
@@ -84,8 +74,9 @@
       const auth_code = wx.getStorageSync('auth_code')
       let data =  [that.page,that.size,auth_code]
      const boonList = await that.$store.dispatch('myBoonList',{...data})
-     console.log(boonList.boon_orders)
+     console.log(boonList)
      that.boonList = boonList.boon_orders
+     console.log(that.boonList)
 
     }
 

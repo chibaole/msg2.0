@@ -4,7 +4,7 @@
 
   <!--<Navbar></Navbar>-->
     <div class="navbartitle" :style="{'height':top+'px'}"><span>我的研究院</span></div>
-    <div class="userinfo" >
+    <div class="userinfo" :style="{'margin-top':top+'px'}" >
       <img src="http://image.shengxinjing.cn/rate/unlogin.png" >
       <p class="username">
         <span class="foodname">{{userinfo.nickName}}</span>
@@ -18,36 +18,37 @@
       </div>
     </div>
 
-    <!--<button class="join_msg">研究员福利&rarr;	</button>-->
-    <!--&lt;!&ndash;<button v-if='userinfo.openId' @click='scanBook' class='btn'>添加图书</button>&ndash;&gt;-->
-    <!--<button v-if="nologin" open-type="getUserInfo" lang="zh_CN" class='btn' >点击登录</button>-->
-    <!--<button open-type="openSetting">打开授权设置页</button>-->
-    <!--<button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">手机号 </button>-->
     <div class="mylist">
-      <img src="" alt="">
+      <img src="http://pbmrxkahq.bkt.clouddn.com/%E7%AD%BE%E5%88%B0icon.png" alt="">
       <span class="list_title">签到</span>
       <span class="list_btn">签到赢取8折券</span>
     </div>
     <div class="mylist">
-      <img src="" alt="">
+      <img src="http://pbmrxkahq.bkt.clouddn.com/%E6%88%91%E7%9A%84%E6%8B%BC%E5%9B%A2%E8%AE%A2%E5%8D%95icon.png" alt="">
       <span class="list_title" @click="goMygroup">我的拼团订单</span>
       <!--<span class="list_btn">签到赢取8折券</span>-->
     </div>
     <div class="mylist">
-      <img src="" alt="">
+      <img src="http://pbmrxkahq.bkt.clouddn.com/%E6%88%91%E7%9A%84%E6%8A%BD%E5%A5%96icon.png" alt="">
       <span class="list_title" @click="myBoon">我的抽奖</span>
       <!--<span class="list_btn">签到赢取8折券</span>-->
     </div>
     <div class="mylist">
-      <img src="" alt="">
+      <img src="http://pbmrxkahq.bkt.clouddn.com/%E9%9B%B6%E9%A3%9F%E5%BA%93icon.png" alt="">
       <span class="list_title">我的零食库</span>
       <span class="list_btn">分享有礼</span>
     </div>
     <div class="mylist">
-      <img src="" alt="">
+      <img src="http://pbmrxkahq.bkt.clouddn.com/%E6%88%91%E7%9A%84%E5%8F%91%E5%B8%83icon.png" alt="">
       <span class="list_title">我的发布</span>
       <!--<span class="list_btn">签到赢取8折券</span>-->
     </div>
+    <div class="mylist">
+      <img src="http://pbmrxkahq.bkt.clouddn.com/%E6%94%B6%E8%97%8Ficon.png" alt="">
+      <span class="list_title">我的收藏</span>
+      <!--<span class="list_btn">签到赢取8折券</span>-->
+    </div>
+
 
 
   </div>
@@ -159,6 +160,9 @@ export default {
   font-size: 17px;
   letter-spacing: -0.4px;
   color: #000;
+  position: fixed;
+  top:0;
+  z-index: 101;
   span{
     display: inline-block;
     width: 83px;

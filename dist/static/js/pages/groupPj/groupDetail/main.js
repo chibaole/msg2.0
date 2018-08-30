@@ -4,10 +4,10 @@ global.webpackJsonp([12],{
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_groupCard__ = __webpack_require__(16);
@@ -49,15 +49,6 @@ global.webpackJsonp([12],{
   data: function data() {
     return {
 
-      pjInfo: {
-        pic: '../../../static/img/share_pic.jpg',
-        pjname: '5元一盒凤梨酥6枚装',
-        groupNum: 3,
-        mark: '三人团',
-        pjtext: '只是梦想还在吃 有点吃不胖 没事要看田',
-        pjprice: '$5',
-        oldprice: '$96'
-      },
       order_uuid: '',
       order_info: {},
       navbar_title: '订单详情',
@@ -96,76 +87,62 @@ global.webpackJsonp([12],{
           __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4__utils_util__["b" /* showModal */])('支付失败', '请尝试重新支付');
         }
       });
-    },
-    getGroup_orders: function getGroup_orders() {
-      var _this = this;
-
-      return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.mark(function _callee() {
-        var that, order_info, order;
-        return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                wx.removeStorageSync('current_orderinfo'); //每次先删除上一个缓存的订
-                that = _this;
-                _context.next = 4;
-                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4__utils_util__["a" /* get */])('/v1/group_activity_orders/' + that.order_uuid);
-
-              case 4:
-                order_info = _context.sent;
-                order = order_info.group_activity_order;
-
-                that.order_info = order;
-
-                wx.setStorageSync('current_orderinfo', order); //缓存获取的拼团订单信息
-
-              case 8:
-              case 'end':
-                return _context.stop();
-            }
-          }
-        }, _callee, _this);
-      }))();
     }
   },
   onLoad: function onLoad() {
-    var _this2 = this;
+    var _this = this;
 
-    return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.mark(function _callee2() {
+    return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
       var that, initGroupId, currentuser_code, uuid_authCode, orderData;
-      return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
+      return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
         while (1) {
-          switch (_context2.prev = _context2.next) {
+          switch (_context.prev = _context.next) {
             case 0:
-              that = _this2;
-              initGroupId = _this2.$root.$mp.query.initGroupId; //获取发起拼团活动返回的订单ID
+              that = _this;
+              initGroupId = _this.$root.$mp.query.initGroupId; //获取发起拼团活动返回的订单ID
 
               currentuser_code = wx.getStorageSync('auth_code');
               uuid_authCode = [initGroupId, currentuser_code];
+
+
+              console.log(uuid_authCode);
+
               //      that.getGroup_orders()
               //新api的形式
+              //                                                     groupActivities_order
+              _context.next = 7;
+              return that.$store.dispatch('groupActivities_order', __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends___default()({}, uuid_authCode));
 
-              _context2.next = 6;
-              return that.$store.dispatch('groupActivities_order', __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default()({}, uuid_authCode));
-
-            case 6:
-              orderData = _context2.sent;
+            case 7:
+              orderData = _context.sent;
 
               console.log(orderData);
+
               that.order_info = orderData.group_activity_order;
               console.log(that.order_info);
-              console.log(orderData.group_activity_order);
 
             case 11:
+            case 'end':
+              return _context.stop();
+          }
+        }
+      }, _callee, _this);
+    }))();
+  },
+  mounted: function mounted() {
+    var _this2 = this;
+
+    return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee2() {
+      return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
             case 'end':
               return _context2.stop();
           }
         }
       }, _callee2, _this2);
     }))();
-  },
-  mounted: function mounted() {
-    console.log(this.order_info);
   }
 });
 
@@ -197,7 +174,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }), _vm._v(" "), _c('div', {
     staticClass: "detail-order"
-  }, [_c('h2', [_vm._v("订单详情")]), _vm._v(" "), _c('p', [_vm._v(_vm._s(_vm.order_info.product.name)), _c('span', [_vm._v("¥" + _vm._s(_vm.order_info.current_price))])])], 1), _vm._v(" "), _c('div', {
+  }, [_c('h2', [_vm._v("订单详情")]), _vm._v(" "), _c('p', [_vm._v(_vm._s(_vm.order_info.group_activity.title)), _c('span', [_vm._v("¥" + _vm._s(_vm.order_info.group_activity.current_price))])])], 1), _vm._v(" "), _c('div', {
     staticClass: "address"
   }, [_c('p', [_vm._v("地址：目前需填写收货地址"), _c('span', [_vm._v("(拼团成功后 提货时填写 )")])])], 1), _vm._v(" "), _c('div', {
     staticClass: "pay"
@@ -215,7 +192,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }), _c('span', {
     staticClass: "paytxt"
-  }, [_vm._v("微信支付¥" + _vm._s(_vm.order_info.current_price))])])], 1)], 1)
+  }, [_vm._v("微信支付¥" + _vm._s(_vm.order_info.group_activity.current_price))])])], 1)], 1)
 }
 var staticRenderFns = []
 render._withStripped = true

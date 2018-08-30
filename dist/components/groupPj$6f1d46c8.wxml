@@ -1,11 +1,26 @@
 <import src="navbar$7457f0be" />
-<import src="groupCard$ad87fca4" />
 <template name="groupPj$6f1d46c8">
   <view class="_div data-v-b3a874ec container">
     <template data="{{...$root[$kk+'0'], $root}}" is="navbar$7457f0be"></template>
-    <template data="{{...$root[$kk+'1'], $root}}" is="groupCard$ad87fca4"></template>
+    <view class="_div data-v-b3a874ec wrap">
+      <view class="_div data-v-b3a874ec pj-info">
+        <view class="_div data-v-b3a874ec left">
+          <image src="http://oxl5leo53.bkt.clouddn.com/u=660634825,1514502894&fm=11&gp=0.jpg" alt class="_img data-v-b3a874ec"></image>
+        </view>
+        <view class="_div data-v-b3a874ec right">
+          <view class="_h2 data-v-b3a874ec">
+            <view class="_div data-v-b3a874ec mark">{{order_info.group_activity.group_type}}</view>{{order_info.group_activity.title}}</view>
+          <view class="_p data-v-b3a874ec">
+            <label class="_span data-v-b3a874ec">¥{{order_info.group_activity.current_price}}</label>
+            <label class="_span data-v-b3a874ec">¥{{order_info.group_activity.original_price}}</label>
+          </view>
+        </view>
+      </view>
+    </view>
     <view class="_div data-v-b3a874ec detail-order">
-      <view class="_h2 data-v-b3a874ec">拼团中 分享给好友组团</view>
+      <view class="_h2 data-v-b3a874ec">
+        <label class="_span data-v-b3a874ec">{{order_info.status_display}}</label>
+      </view>
       <view class="_div data-v-b3a874ec order-info">
         <view class="_div data-v-b3a874ec text">还差
           <label class="_span data-v-b3a874ec">{{order_info.users_left}}</label>人参团,
@@ -19,6 +34,7 @@
           <label class="_span data-v-b3a874ec mark" wx:if="{{item.is_initiator}}">团长</label>
         </view>
       </view>
+      <view class="_div data-v-b3a874ec group_res">去填地址</view>
       <view class="_div data-v-b3a874ec line"></view>
       <view class="_div data-v-b3a874ec group">
         <view class="_h2 data-v-b3a874ec group-game">拼团玩法</view>

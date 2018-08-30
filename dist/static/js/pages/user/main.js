@@ -118,6 +118,7 @@ global.webpackJsonp([2],{
 //
 //
 //
+//
 
 
 
@@ -314,7 +315,10 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       'height': _vm.top + 'px'
     })
   }, [_c('span', [_vm._v("我的研究院")])]), _vm._v(" "), _c('div', {
-    staticClass: "userinfo"
+    staticClass: "userinfo",
+    style: ({
+      'margin-top': _vm.top + 'px'
+    })
   }, [_c('img', {
     attrs: {
       "src": "http://image.shengxinjing.cn/rate/unlogin.png"
@@ -329,7 +333,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "mylist"
   }, [_c('img', {
     attrs: {
-      "src": "",
+      "src": "http://pbmrxkahq.bkt.clouddn.com/%E6%88%91%E7%9A%84%E6%8B%BC%E5%9B%A2%E8%AE%A2%E5%8D%95icon.png",
       "alt": ""
     }
   }), _vm._v(" "), _c('span', {
@@ -344,7 +348,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "mylist"
   }, [_c('img', {
     attrs: {
-      "src": "",
+      "src": "http://pbmrxkahq.bkt.clouddn.com/%E6%88%91%E7%9A%84%E6%8A%BD%E5%A5%96icon.png",
       "alt": ""
     }
   }), _vm._v(" "), _c('span', {
@@ -355,7 +359,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     on: {
       "click": _vm.myBoon
     }
-  }, [_vm._v("我的抽奖")])]), _vm._v(" "), _vm._m(3), _vm._v(" "), _vm._m(4)])
+  }, [_vm._v("我的抽奖")])]), _vm._v(" "), _vm._m(3), _vm._v(" "), _vm._m(4), _vm._v(" "), _vm._m(5)])
 }
 var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('span', {
@@ -381,7 +385,7 @@ var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _
     staticClass: "mylist"
   }, [_c('img', {
     attrs: {
-      "src": "",
+      "src": "http://pbmrxkahq.bkt.clouddn.com/%E7%AD%BE%E5%88%B0icon.png",
       "alt": ""
     }
   }), _vm._v(" "), _c('span', {
@@ -394,7 +398,7 @@ var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _
     staticClass: "mylist"
   }, [_c('img', {
     attrs: {
-      "src": "",
+      "src": "http://pbmrxkahq.bkt.clouddn.com/%E9%9B%B6%E9%A3%9F%E5%BA%93icon.png",
       "alt": ""
     }
   }), _vm._v(" "), _c('span', {
@@ -407,12 +411,23 @@ var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _
     staticClass: "mylist"
   }, [_c('img', {
     attrs: {
-      "src": "",
+      "src": "http://pbmrxkahq.bkt.clouddn.com/%E6%88%91%E7%9A%84%E5%8F%91%E5%B8%83icon.png",
       "alt": ""
     }
   }), _vm._v(" "), _c('span', {
     staticClass: "list_title"
   }, [_vm._v("我的发布")])])
+},function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "mylist"
+  }, [_c('img', {
+    attrs: {
+      "src": "http://pbmrxkahq.bkt.clouddn.com/%E6%94%B6%E8%97%8Ficon.png",
+      "alt": ""
+    }
+  }), _vm._v(" "), _c('span', {
+    staticClass: "list_title"
+  }, [_vm._v("我的收藏")])])
 }]
 render._withStripped = true
 var esExports = { render: render, staticRenderFns: staticRenderFns }

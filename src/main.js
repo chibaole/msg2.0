@@ -20,9 +20,9 @@ export default{
     usingComponents: {
       'skeleton': '../static/skeleton/skeleton'
     },
-    pages: ['pages/home/main','pages/project/main','pages/groupPj/main',
+    pages: ['^pages/home/main','pages/project/main','pages/groupPj/main',
       'pages/groupPj/groupDetail/main','pages/groupPj/order/main',
-      'pages/cards/main','^pages/user/main','pages/user/myGroup/main',
+      'pages/cards/main','pages/user/main','pages/user/myGroup/main',
       'pages/user/myGroup/myGroupDetail/main','pages/user/myboonList/main','pages/user/myboonList/myBoon/main','pages/test/main',
     ],
 
@@ -41,11 +41,7 @@ export default{
           iconPath: 'static/img/home_gray.png',
           selectedIconPath: 'static/img/home_orange.png'
         },
-        {
-          pagePath: 'pages/cards/main',
-          iconPath: 'static/img/explore_gray.png',
-          selectedIconPath: 'static/img/explore_orange.png'
-        },
+
         {
           pagePath: 'pages/user/main',
           iconPath: 'static/img/me_gray.png',
@@ -56,3 +52,8 @@ export default{
     }
   }
 }
+// {
+//   pagePath: 'pages/cards/main',
+//     iconPath: 'static/img/explore_gray.png',
+//   selectedIconPath: 'static/img/explore_orange.png'
+// },

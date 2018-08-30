@@ -10,38 +10,58 @@ module.exports = async(ctx) => {
     group_activity_order: {
       // 唯一标识
       uuid: '',
-      // 标题
-      title: '限量 5000 份 | 凤梨酥 6 枚装',
-      // 题图
-      title_image_url: '题图',
-      // 拼团价
-      current_price: 5,
-      // 原价
-      original_price: 95,
-      // 团购类型
-      group_type: '三人团',
-      // 产品
-      product: {
-        // 名称
-        name: '凤梨酥',
-        // 原价
+      // 拼团发起单
+      group_activity_initial: {
+        uuid: '',
+        // 发起单状态
+        // init 等待发起
+        // grouping 拼团中
+        // success 拼团成功
+        // failed 拼团失败
+        status: 'init'
+      },
+      // 拼团活动
+      group_activity: {
+        uuid: '',
+        title: '标题',
+        title_image_url: '题图',
+        group_type: '三人团',
+        current_price: 5,
         original_price: 85,
-        // 规格
-        specification: '',
-        // 数量
-        num: 1,
-        // 详情
-        detail: ''
-      }
+        // 商品
+        product: {
+          // 名称
+          name: '凤梨酥',
+          // 原价
+          original_price: 85,
+          // 规格
+          specification: '',
+          // 数量
+          num: 1,
+          // 详情
+          detail: ''
+        }
+      },
+      // 配送信息
+      delivery: {
+        company: '顺丰快递',
+        delivery_no: '运单标号'
+      },
+      // 收货信息
+      address: {
+        people: '土土 11111111',
+        detail: '上海市 静安区 光复路'
+           }
     }
+
   }
-  if(uuid){
+
     ctx.state= {
       data: res,
       result: true,
       message: '操作成功',
     }
-  }
+
 
 
 

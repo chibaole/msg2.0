@@ -50,6 +50,7 @@ global.webpackJsonp([3],{
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_navbar__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__utils_util__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__config__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__utils_wx__ = __webpack_require__(17);
 
 
 
@@ -194,13 +195,16 @@ global.webpackJsonp([3],{
 //
 //
 //
+//
+//
+//
 
 
 
 
 
 
-//  import wx from '@/utils/wx'
+
 
 /* harmony default export */ __webpack_exports__["a"] = ({
   data: function data() {
@@ -219,8 +223,9 @@ global.webpackJsonp([3],{
       navbar_title: '',
       host: __WEBPACK_IMPORTED_MODULE_6__config__["a" /* default */].host,
       haveOpen: '未开奖',
-      prizeStyle: 'prize'
-
+      prizeStyle: 'prize',
+      init_rewarded_users: [],
+      showGetMoreBtn: false
     };
   },
 
@@ -257,7 +262,6 @@ global.webpackJsonp([3],{
                 res = _context.sent;
 
                 console.log(res);
-
                 that.prize = '待开奖';
                 that.prizeStyle = 'waiting';
 
@@ -309,6 +313,7 @@ global.webpackJsonp([3],{
       this.showBox = !this.showBox;
     },
     getImg: function getImg() {
+      var that = this;
       var painting = {
         width: 375,
         height: 557,
@@ -341,7 +346,7 @@ global.webpackJsonp([3],{
         // 文本表达
         {
           type: 'text',
-          content: this.boon.description, //变量的名称
+          content: that.boon.description, //变量的名称
           fontSize: 27.6,
           lineHeight: 27.6,
           color: '#454553',
@@ -419,35 +424,116 @@ global.webpackJsonp([3],{
       });
     },
     chooseAddress: function chooseAddress() {
-      console.log('领奖');
-      //        wx.chooseAddress({
-      //           success: function (res) {
-      //            console.log(res)
-      //          console.log(res.userName)
-      //          console.log(res.postalCode)
-      //          console.log(res.provinceName)
-      //          console.log(res.cityName)
-      //          console.log(res.countyName)
-      //          console.log(res.detailInfo)
-      //          console.log(res.nationalCode)
-      //          console.log(res.telNumber)
-      //        }
-      //      })
+      var _this3 = this;
+
+      return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee3() {
+        var that, data, uuid, boon_status, res, auth_code, address, address_res, _res, _auth_code, _address, _address_res;
+
+        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                console.log('领奖');
+                that = _this3;
+                data = [];
+                uuid = that.boon.boon_order.uuid;
+                boon_status = that.boon.boon_order.status;
+
+                console.log(boon_status);
+
+                if (!(boon_status === 'received')) {
+                  _context3.next = 19;
+                  break;
+                }
+
+                _context3.next = 9;
+                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__utils_wx__["a" /* chooseAddress */])();
+
+              case 9:
+                res = _context3.sent;
+                auth_code = wx.getStorageSync('auth_code');
+                address = {
+                  name: res.name, //名字
+                  postal_code: res.postalCode, // 邮编
+                  tel_phone: res.telNumber, // 电话
+                  province: res.provinceName, // 省
+                  city: res.cityName, // 市
+                  district: res.countyName, // 区
+                  detail: res.detailInfo // 详细
+
+                };
+
+
+                data = [uuid, auth_code, address];
+                _context3.next = 15;
+                return that.$store.dispatch('boonAddress', __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends___default()({}, data));
+
+              case 15:
+                address_res = _context3.sent;
+
+
+                wx.navigateTo({
+                  url: '/pages/user/myboonList/myBoon/main?uuid=' + uuid
+                });
+                _context3.next = 29;
+                break;
+
+              case 19:
+                _context3.next = 21;
+                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__utils_wx__["a" /* chooseAddress */])();
+
+              case 21:
+                _res = _context3.sent;
+                _auth_code = wx.getStorageSync('auth_code');
+                _address = {
+                  name: _res.name, //名字
+                  postal_code: _res.postalCode, // 邮编
+                  tel_phone: _res.telNumber, // 电话
+                  province: _res.provinceName, // 省
+                  city: _res.cityName, // 市
+                  district: _res.countyName, // 区
+                  detail: _res.detailInfo // 详细
+
+                };
+
+
+                data = [uuid, _auth_code, _address];
+                _context3.next = 27;
+                return that.$store.dispatch('boonAddress', __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends___default()({}, data));
+
+              case 27:
+                _address_res = _context3.sent;
+
+                wx.navigateTo({
+                  url: '/pages/user/myboonList/myBoon/main?uuid=' + uuid
+                });
+
+              case 29:
+              case 'end':
+                return _context3.stop();
+            }
+          }
+        }, _callee3, _this3);
+      }))();
     },
-    test: function test() {
-      console.log('测试领奖');
+    getMoreUser: function getMoreUser() {
+      var that = this;
+      console.log('加载更多中奖用户');
+      that.init_rewarded_users = that.boon.rewarded_users;
+      that.showGetmore = false;
     }
   },
   onLoad: function onLoad() {
-    var _this3 = this;
+    var _this4 = this;
 
-    return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee3() {
-      var that, currentuser_code, uuid_authCode, boonData;
-      return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee3$(_context3) {
+    return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee4() {
+      var that, currentuser_code, uuid_authCode, boonData, init_rewarded_users, _init_rewarded_users;
+
+      return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee4$(_context4) {
         while (1) {
-          switch (_context3.prev = _context3.next) {
+          switch (_context4.prev = _context4.next) {
             case 0:
-              that = _this3;
+              that = _this4;
 
               that.uuid = that.$root.$mp.query.uuid; //获取上一页传递的唯一标准uuid
               that.navbar_title = that.$root.$mp.query.title; //获取上一页传递的福利名称 做navbar的标题
@@ -457,21 +543,36 @@ global.webpackJsonp([3],{
 
               //      that.getBoons()
 
-              _context3.next = 7;
+              _context4.next = 7;
               return that.$store.dispatch('getBoons', __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends___default()({}, uuid_authCode));
 
             case 7:
-              boonData = _context3.sent;
+              boonData = _context4.sent;
 
               that.boon = boonData.boon;
+
+              init_rewarded_users = boonData.boon.rewarded_users;
+
+
+              if (init_rewarded_users.length > 12) {
+                that.showGetMoreBtn = true;
+                init_rewarded_users = boonData.boon.rewarded_users.splice(0, 12);
+                that.init_rewarded_users = init_rewarded_users;
+              } else {
+                _init_rewarded_users = boonData.boon.rewarded_users;
+
+                that.init_rewarded_users = _init_rewarded_users;
+              }
+              //     that.init_rewarded_users = boonData.boon.rewarded_users
+
               //     await this.$store.dispatch('createBill', { ...this.userInfo, ...this.billInfo })
 
-            case 9:
+            case 11:
             case 'end':
-              return _context3.stop();
+              return _context4.stop();
           }
         }
-      }, _callee3, _this3);
+      }, _callee4, _this4);
     }))();
   },
   mounted: function mounted() {},
@@ -607,7 +708,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   }, [_c('img', {
     staticClass: "logo",
     attrs: {
-      "src": _vm.sesson_url,
+      "src": _vm.host + _vm.boon.sponsor.avatar_url,
       "alt": ""
     }
   }), _vm._v(_vm._s(_vm.boon.sponsor.name)), _c('img', {
@@ -616,7 +717,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "src": __webpack_require__(12),
       "alt": ""
     }
-  })])], 1), _vm._v(" "), (_vm.boon.status == 'published') ? _c('div', {
+  })])], 1), _vm._v(" "), (_vm.boon.status === 'published') ? _c('div', {
     staticClass: "process-prize"
   }, [_c('h2', [_vm._v("抽奖流程")]), _vm._v(" "), _c('div', {
     staticClass: "steps"
@@ -634,9 +735,9 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "step2"
   }, [_vm._v("2.领取成功后，请扫码加群等待发货哦")])], 1)], 1) : _vm._e(), _vm._v(" "), (_vm.boon.status == 'published') ? _c('div', {
     staticClass: "btn1"
-  }, [(_vm.boon.participate_status == true) ? _c('button', {
+  }, [(_vm.boon.participate_status == false) ? _c('button', {
     staticClass: "waiting"
-  }, [_vm._v("待开奖")]) : _vm._e(), _vm._v(" "), (_vm.boon.participate_status == false) ? _c('button', {
+  }, [_vm._v("待开奖")]) : _vm._e(), _vm._v(" "), (_vm.boon.participate_status == true) ? _c('button', {
     class: _vm.prizeStyle,
     attrs: {
       "eventid": '0'
@@ -648,17 +749,21 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "openPrize"
   }, [_c('div', {
     staticClass: "pic"
-  }, [(_vm.priceResult.win == true) ? _c('img', {
+  }, [(_vm.boon.boon_order.status != 'lose') ? _c('img', {
     attrs: {
       "src": "http://pbmrxkahq.bkt.clouddn.com/winning.png",
       "alt": ""
     }
-  }) : _vm._e(), _vm._v(" "), (_vm.priceResult.win == false) ? _c('img', {
+  }) : _vm._e(), _vm._v(" "), (_vm.boon.boon_order.status === 'lose') ? _c('img', {
     attrs: {
       "src": "http://pbmrxkahq.bkt.clouddn.com/%E6%9C%AA%E4%B8%AD%E5%A5%96.png",
       "alt": ""
     }
-  }) : _vm._e(), _vm._v(" "), _c('p', [_vm._v(_vm._s(_vm.priceResult.res))])], 1), _vm._v(" "), (_vm.priceResult.win == true) ? _c('div', {
+  }) : _vm._e(), _vm._v(" "), (_vm.boon.boon_order.status != 'lose') ? _c('p', {
+    staticClass: "boon_order_text"
+  }, [_vm._v("恭喜，您中奖了")]) : _vm._e(), _vm._v(" "), (_vm.boon.boon_order.status === 'lose') ? _c('p', {
+    staticClass: "boon_order_text"
+  }, [_vm._v("好气哦，没有中奖～")]) : _vm._e()], 1), _vm._v(" "), (_vm.boon.boon_order.status === 'win') ? _c('div', {
     staticClass: "prizeWindow",
     attrs: {
       "eventid": '1'
@@ -666,11 +771,45 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     on: {
       "click": _vm.chooseAddress
     }
-  }, [_vm._v("去领奖")]) : _vm._e(), _vm._v(" "), _vm._m(0), _vm._v(" "), _vm._m(1)]) : _vm._e(), _vm._v(" "), (_vm.boon.status == 'published') ? _c('div', {
+  }, [_vm._v("去领奖")]) : _vm._e(), _vm._v(" "), (_vm.boon.boon_order.status === 'received') ? _c('div', {
+    staticClass: "prizeWindow",
+    attrs: {
+      "eventid": '2'
+    },
+    on: {
+      "click": _vm.chooseAddress
+    }
+  }, [_vm._v("已领奖")]) : _vm._e(), _vm._v(" "), _vm._m(0), _vm._v(" "), _c('div', {
+    staticClass: "userBox"
+  }, [_vm._l((_vm.boon.rewarded_users), function(uesr, index) {
+    return _c('div', {
+      staticClass: "user"
+    }, [_c('img', {
+      attrs: {
+        "src": uesr.avatar_url,
+        "alt": ""
+      }
+    }), _vm._v(" "), _c('div', {
+      staticClass: "nickname"
+    }, [_vm._v(_vm._s(uesr.nick_name))])])
+  }), _vm._v(" "), (_vm.showGetMoreBtn) ? _c('div', {
+    staticClass: "getall",
+    attrs: {
+      "eventid": '3'
+    },
+    on: {
+      "click": _vm.getMoreUser
+    }
+  }, [_c('span', [_vm._v("加载全部")]), _vm._v(" "), _c('img', {
+    attrs: {
+      "src": "http://pbmrxkahq.bkt.clouddn.com/%E5%8A%A0%E8%BD%BD%E6%9B%B4%E5%A4%9Aicon.png",
+      "alt": ""
+    }
+  })]) : _vm._e()], 2)]) : _vm._e(), _vm._v(" "), (_vm.boon.status == 'published') ? _c('div', {
     staticClass: "btn-box"
   }, [(_vm.open) ? _c('Diago', {
     attrs: {
-      "eventid": '2',
+      "eventid": '4',
       "mpcomid": '1'
     },
     on: {
@@ -681,7 +820,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   }, [_c('div', {
     staticClass: "btn2",
     attrs: {
-      "eventid": '3'
+      "eventid": '5'
     },
     on: {
       "click": _vm.shareMenu
@@ -689,7 +828,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   }, [_vm._v("加速开奖")]), _vm._v(" "), _c('div', {
     staticClass: "btn3",
     attrs: {
-      "eventid": '4'
+      "eventid": '6'
     },
     on: {
       "click": _vm.openDiago
@@ -703,7 +842,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     attrs: {
       "src": __webpack_require__(57),
       "alt": "",
-      "eventid": '5'
+      "eventid": '7'
     },
     on: {
       "click": _vm.shareMenu
@@ -723,7 +862,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   })]), _vm._v(" "), _c('div', {
     staticClass: "createImg",
     attrs: {
-      "eventid": '6'
+      "eventid": '8'
     },
     on: {
       "click": _vm.getImg
@@ -741,7 +880,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   }, [_vm._v("微信好友")]), _vm._v(" "), _c('div', {
     staticClass: "shengchengImg",
     attrs: {
-      "eventid": '7'
+      "eventid": '9'
     },
     on: {
       "click": _vm.getImg
@@ -753,7 +892,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   }, [_c('div', {
     staticClass: "btn4",
     attrs: {
-      "eventid": '8'
+      "eventid": '10'
     },
     on: {
       "click": _vm.againPrice
@@ -770,26 +909,6 @@ var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _
   }), _vm._v(" "), _c('div', {
     staticClass: "title"
   }, [_vm._v("中奖者名单")])])
-},function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "userBox"
-  }, [_c('div', {
-    staticClass: "user"
-  }, [_c('img', {
-    attrs: {
-      "src": "http://p15hnzxrp.bkt.clouddn.com/tuzi2.jpeg",
-      "alt": ""
-    }
-  }), _vm._v(" "), _c('div', {
-    staticClass: "nickname"
-  }, [_vm._v("{{}}天王盖被子")])]), _vm._v(" "), _c('div', {
-    staticClass: "getall"
-  }, [_c('span', [_vm._v("加载全部")]), _vm._v(" "), _c('img', {
-    attrs: {
-      "src": "http://pbmrxkahq.bkt.clouddn.com/%E5%8A%A0%E8%BD%BD%E6%9B%B4%E5%A4%9Aicon.png",
-      "alt": ""
-    }
-  })])])
 }]
 render._withStripped = true
 var esExports = { render: render, staticRenderFns: staticRenderFns }

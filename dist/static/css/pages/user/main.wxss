@@ -12,6 +12,9 @@
   font-size: 34rpx;
   letter-spacing: -0.8rpx;
   color: #000;
+  position: fixed;
+  top: 0;
+  z-index: 101;
 }
 .navbartitle ._span.data-v-3105212a {
   display: inline-block;
