@@ -8,7 +8,7 @@
       <div class="right">
 
 
-        <h2><div class="mark">{{}}</div>{{order_info.group_activity.title}}</h2>
+        <h2><div class="mark">{{order_info.group_activity.group_type}}</div>{{order_info.group_activity.title}}</h2>
         <p><span>¥{{order_info.group_activity.current_price}}</span><span>¥{{order_info.group_activity.original_price}}</span></p>
       </div>
     </div>

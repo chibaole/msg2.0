@@ -6175,7 +6175,6 @@ var request = function request(obj) {
     wx.request({
       url: obj.url,
       data: obj.data,
-      header: __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default()({ 'content-type': 'application/x-www-form-urlencoded' }, obj.header),
       method: obj.method,
       success: function success(res) {
         resolve(res.data.data);
@@ -9439,7 +9438,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "right"
   }, [_c('h2', [_c('div', {
     staticClass: "mark"
-  }, [_vm._v("{{}}")]), _vm._v(_vm._s(_vm.order_info.group_activity.title))]), _vm._v(" "), _c('p', [_c('span', [_vm._v("¥" + _vm._s(_vm.order_info.group_activity.current_price))]), _c('span', [_vm._v("¥" + _vm._s(_vm.order_info.group_activity.original_price))])])], 1)])])])
+  }, [_vm._v(_vm._s(_vm.order_info.group_activity.group_type))]), _vm._v(_vm._s(_vm.order_info.group_activity.title))]), _vm._v(" "), _c('p', [_c('span', [_vm._v("¥" + _vm._s(_vm.order_info.group_activity.current_price))]), _c('span', [_vm._v("¥" + _vm._s(_vm.order_info.group_activity.original_price))])])], 1)])])])
 }
 var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {

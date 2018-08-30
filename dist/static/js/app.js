@@ -33,8 +33,8 @@ global.webpackJsonp([15],{
 
 __WEBPACK_IMPORTED_MODULE_4_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_5_vuex__["a" /* default */]);
 
-// const apiDomain = 'http://localhost:5757/v1'
-var apiDomain = 'http://47.98.170.205/api/v1';
+var apiDomain = 'http://localhost:5757/v1';
+// const apiDomain = 'http://47.98.170.205/api/v1'
 
 
 

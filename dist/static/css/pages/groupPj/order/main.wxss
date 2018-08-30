@@ -58,6 +58,10 @@
 .group_res.data-v-b3a874ec {
   width: 360rpx;
   height: 90rpx;
+  line-height: 90rpx;
+  text-align: center;
+  border: 2rpx solid #ff7f47;
+  margin: 0 auto;
 }
 .pic ._img.data-v-b3a874ec {
   width: 100%;

@@ -33,7 +33,7 @@
       <div class="user">
         <div class="pic" v-for="item in order_info.users"><img :src="item.avatar_url" alt=""><span class="mark" v-if="item.is_initiator">团长</span></div>
       </div>
-      <div class="group_res">去填地址</div>
+      <div class="group_res" @click="chooseAddress">去填地址</div>
       <div class="line"></div>
 
       <div class="group">
@@ -407,10 +407,65 @@
     wx.navigateTo({
       url: '/pages/test/main'
     })
-  }
-
-
   },
+      async chooseAddress(){
+        console.log('领奖')
+        let that = this
+        let data = [ ]
+        let uuid = that.orderId
+        let order_status = that.order_info.status //success grouping init failed
+//        console.log(boon_status)
+        if(order_status ==='success'){
+          let res = await chooseAddress()
+
+          let auth_code = wx.getStorageSync('auth_code')
+          let address =   {
+            name:res.name,            //名字
+            postal_code:res.postalCode,// 邮编
+            tel_phone:res.telNumber,// 电话
+            province:res.provinceName,// 省
+            city:res.cityName,// 市
+            district:res.countyName,// 区
+            detail:res.detailInfo// 详细
+
+          }
+
+          data = [uuid,auth_code,address]
+          let address_res =  await  that.$store.dispatch('groupAddress',{...data})
+
+
+
+          wx.navigateTo({
+            url:`/pages/user/myGroup/myGroupDetail/main?uuid=${uuid}`
+          })
+        }else {
+          let res = await chooseAddress()
+
+          let auth_code = wx.getStorageSync('auth_code')
+          let address =   {
+            name:res.name,            //名字
+            postal_code:res.postalCode,// 邮编
+            tel_phone:res.telNumber,// 电话
+            province:res.provinceName,// 省
+            city:res.cityName,// 市
+            district:res.countyName,// 区
+            detail:res.detailInfo// 详细
+
+          }
+
+          data = [uuid,auth_code,address]
+          let address_res =  await  that.$store.dispatch('groupAddress',{...data})
+          wx.navigateTo({
+            url:`/pages/user/myGroup/myGroupDetail/main?uuid=${uuid}`
+          })
+        }
+
+
+      },
+
+
+
+    },
    async onLoad()
   {
     var that = this
@@ -564,6 +619,10 @@
 .group_res{
   width:180px;
   height: 45px;
+  line-height:45px;
+  text-align: center;
+  border: 1px solid #ff7f47;
+  margin: 0 auto;
 }
   .pic img {
     width: 100%;

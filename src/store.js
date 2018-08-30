@@ -3,8 +3,8 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
-// const apiDomain = 'http://localhost:5757/v1'
-const apiDomain = 'http://47.98.170.205/api/v1'
+const apiDomain = 'http://localhost:5757/v1'
+// const apiDomain = 'http://47.98.170.205/api/v1'
 import {get, post, showModal} from '@/utils/util'
 
 
