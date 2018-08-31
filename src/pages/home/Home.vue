@@ -75,35 +75,11 @@
 
         }
       },
-      async  signup(){
-        //仅注册用户 传递code  换取openid 建设账户体系
-        let codeinfo = await login()
-        let code = codeinfo.code
-        console.log('wx.login 获取的code为：'+code)
-        let data = {code:code}
-        let auth = await post('/v1/wx/login',data)
-        console.log(auth)
-        let auth_code = '7o_WVWb5GZlcpBfASVUl9Q'
-
-
-
-        wx.setStorageSync('auth_code',auth_code)
-
-        let currentuser_code = wx.getStorageSync('auth_code')
-        console.log(currentuser_code)
-
-
-
-      },
 
 
     },
     async onLoad(){
-//      this.signup()
-//      var auth_code = await this.$store.dispatch('signup')
 
-
-//      console.log(`这是store获取的${auth_code}`)
 
       const that = this
       setTimeout(()=>{
@@ -112,16 +88,7 @@
     },
     mounted () {
 
-      let that = this
-      let currentuser_code = wx.getStorageSync('auth_code')
-      console.log(currentuser_code)
-      if(currentuser_code){
-        return
-      }else {
-        that.signup()
-      }
 
-//      this.signup()
 
     }
 

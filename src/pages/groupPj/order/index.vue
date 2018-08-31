@@ -90,7 +90,7 @@
   import Navbar from '@/components/navbar'
   import {showModal} from '@/utils/util'
   import {chooseAddress} from '@/utils/wx'
-
+  import config from '@/config'
   export default {
 
 
@@ -130,7 +130,8 @@
         myDetail:'',
         scanCode:false,
         group_activity_initial_uuid:'',
-        group_activity_initials_finish:false
+        group_activity_initials_finish:false,
+        host:config.host
       }
     },
     components: {
@@ -281,12 +282,12 @@
   {
     let that = this
     let uuid = that.group_activity_initial_uuid
-    let page = 'pages/groupPj/order/main'
+    let page = "pages/isme/index"
     let data = [uuid,page]
     let res = await this.$store.dispatch('wxCode',{...data})
 
     console.log(res)
-    let wxCodeImg = res.wxa_qrcode_url
+    let wxCodeImg = that.host+res.wxa_qrcode_url
 
     this.painting = {
       width: 375,

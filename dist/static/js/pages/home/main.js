@@ -284,7 +284,7 @@ global.webpackJsonp([1],{
                 //        wx.navigateTo({
                 //          url: '/pages/project/main?uuid=' + uuid + "&title=" + title
                 //        })
-                __WEBPACK_IMPORTED_MODULE_3__utils_wx__["c" /* default */].navigateTo('/pages/project/main?uuid=' + uuid + "&title=" + title);
+                __WEBPACK_IMPORTED_MODULE_3__utils_wx__["b" /* default */].navigateTo('/pages/project/main?uuid=' + uuid + "&title=" + title);
 
               case 5:
               case 'end':
@@ -440,66 +440,18 @@ global.webpackJsonp([1],{
       } else {
         that.open = true;
       }
-    },
-    signup: function signup() {
-      var _this2 = this;
-
-      return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee2() {
-        var codeinfo, code, data, auth, auth_code, currentuser_code;
-        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
-          while (1) {
-            switch (_context2.prev = _context2.next) {
-              case 0:
-                _context2.next = 2;
-                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__utils_wx__["b" /* login */])();
-
-              case 2:
-                codeinfo = _context2.sent;
-                code = codeinfo.code;
-
-                console.log('wx.login 获取的code为：' + code);
-                data = { code: code };
-                _context2.next = 8;
-                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util__["a" /* post */])('/v1/wx/login', data);
-
-              case 8:
-                auth = _context2.sent;
-
-                console.log(auth);
-                auth_code = '7o_WVWb5GZlcpBfASVUl9Q';
-
-
-                wx.setStorageSync('auth_code', auth_code);
-
-                currentuser_code = wx.getStorageSync('auth_code');
-
-                console.log(currentuser_code);
-
-              case 14:
-              case 'end':
-                return _context2.stop();
-            }
-          }
-        }, _callee2, _this2);
-      }))();
     }
   },
   onLoad: function onLoad() {
-    var _this3 = this;
+    var _this2 = this;
 
-    return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee3() {
+    return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee2() {
       var that;
-      return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee3$(_context3) {
+      return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
         while (1) {
-          switch (_context3.prev = _context3.next) {
+          switch (_context2.prev = _context2.next) {
             case 0:
-              //      this.signup()
-              //      var auth_code = await this.$store.dispatch('signup')
-
-
-              //      console.log(`这是store获取的${auth_code}`)
-
-              that = _this3;
+              that = _this2;
 
               setTimeout(function () {
                 that.showSkeleton = false;
@@ -507,25 +459,13 @@ global.webpackJsonp([1],{
 
             case 2:
             case 'end':
-              return _context3.stop();
+              return _context2.stop();
           }
         }
-      }, _callee3, _this3);
+      }, _callee2, _this2);
     }))();
   },
-  mounted: function mounted() {
-
-    var that = this;
-    var currentuser_code = wx.getStorageSync('auth_code');
-    console.log(currentuser_code);
-    if (currentuser_code) {
-      return;
-    } else {
-      that.signup();
-    }
-
-    //      this.signup()
-  }
+  mounted: function mounted() {}
 });
 
 /***/ }),

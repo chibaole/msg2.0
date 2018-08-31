@@ -5726,8 +5726,8 @@ if (typeof __e == 'number') __e = core; // eslint-disable-line no-undef
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (immutable) */ __webpack_exports__["b"] = get;
-/* harmony export (immutable) */ __webpack_exports__["a"] = post;
+/* harmony export (immutable) */ __webpack_exports__["a"] = get;
+/* unused harmony export post */
 /* unused harmony export showModal */
 /* unused harmony export showSuccess */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise__ = __webpack_require__(18);
@@ -5894,14 +5894,14 @@ module.exports = function (it) {
 /* unused harmony export chooseLocation */
 /* unused harmony export removeStorage */
 /* unused harmony export clearStorage */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return login; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return login; });
 /* unused harmony export getWxLoginResult */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return request; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return request; });
 /* unused harmony export chooseImage */
 /* unused harmony export showShareMenu */
 /* unused harmony export pageScrollTo */
 /* unused harmony export getUserInfo */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return alert; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return alert; });
 /* unused harmony export navigateTo */
 /* unused harmony export redirectTo */
 /* unused harmony export startPullDownRefresh */
@@ -6178,7 +6178,7 @@ var chooseAddress = function chooseAddress(obj) {
   });
 };
 
-/* harmony default export */ __webpack_exports__["c"] = ({
+/* harmony default export */ __webpack_exports__["b"] = ({
   getStorage: getStorage,
   setStorage: setStorage,
   getLocation: getLocation,

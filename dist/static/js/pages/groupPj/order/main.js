@@ -16,6 +16,7 @@ global.webpackJsonp([4],{
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_navbar__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__utils_util__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__utils_wx__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__config__ = __webpack_require__(4);
 
 
 
@@ -145,7 +146,8 @@ global.webpackJsonp([4],{
       myDetail: '',
       scanCode: false,
       group_activity_initial_uuid: '',
-      group_activity_initials_finish: false
+      group_activity_initials_finish: false,
+      host: __WEBPACK_IMPORTED_MODULE_8__config__["a" /* default */].host
     };
   },
 
@@ -327,7 +329,7 @@ global.webpackJsonp([4],{
               case 0:
                 that = _this3;
                 uuid = that.group_activity_initial_uuid;
-                page = 'pages/groupPj/order/main';
+                page = "pages/isme/index";
                 data = [uuid, page];
                 _context3.next = 6;
                 return _this3.$store.dispatch('wxCode', __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends___default()({}, data));
@@ -337,7 +339,7 @@ global.webpackJsonp([4],{
 
 
                 console.log(res);
-                wxCodeImg = res.wxa_qrcode_url;
+                wxCodeImg = that.host + res.wxa_qrcode_url;
 
 
                 _this3.painting = {

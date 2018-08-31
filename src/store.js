@@ -28,16 +28,8 @@ export default new Vuex.Store({
         data: data
       })
       let auth_code = ''
-      if (res.data.auth_code === undefined) {
-        let res = await request({
-          method: 'post',
-          url: `${apiDomain}/wx/login`,
-          data: data
-        })
-        auth_code = res.data.auth_code
-      } else {
-        auth_code = res.data.auth_code
-      }
+      console.log(res)
+     auth_code = res.auth_code
       wx.setStorageSync('auth_code', auth_code)
 
 
@@ -127,15 +119,12 @@ export default new Vuex.Store({
 
     async getGroup({commit}) {
       const auth_code = wx.getStorageSync('auth_code')
-
+      console.log(auth_code)
       const group = await request({
         method: 'get',
         url: `${apiDomain}/group_activities?auth_code=${auth_code}`,
         data: {}
       })
-      console.log(`store的 获取拼团列表-----${apiDomain}/group_activities?auth_code=${auth_code}`)
-
-      console.log(group)
       return group
     },
 
@@ -223,9 +212,10 @@ export default new Vuex.Store({
       let uuid = data[0] //订单uuid
       let auth_code = wx.getStorageSync('auth_code')
       let page = data[1]
+
       let res = await request({
         method:'get',
-        url:`${apiDomain}/group_activity_initials/${uuid}/wxaqrcode?auth_code=${auth_code}`
+        url:`${apiDomain}/group_activity_initials/${uuid}/wxaqrcode?auth_code=${auth_code}&page=${page}`
       })
       console.log(res)
       return res
