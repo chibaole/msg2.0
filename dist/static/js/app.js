@@ -59,33 +59,30 @@ var apiDomain = 'http://47.98.170.205/api/v1';
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                console.log(' \u6CE8\u518C\u7528\u6237-----' + apiDomain + '/wx/login');
-
-                _context.next = 3;
+                _context.next = 2;
                 return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["e" /* login */])();
 
-              case 3:
+              case 2:
                 userData = _context.sent;
                 code = userData.code;
                 data = { code: code };
-                _context.next = 8;
+                _context.next = 7;
                 return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["c" /* request */])({
                   method: 'post',
                   url: apiDomain + '/wx/login',
                   data: data
                 });
 
-              case 8:
+              case 7:
                 res = _context.sent;
                 auth_code = '';
 
-                console.log(res);
                 auth_code = res.auth_code;
                 wx.setStorageSync('auth_code', auth_code);
 
                 return _context.abrupt('return', auth_code);
 
-              case 14:
+              case 12:
               case 'end':
                 return _context.stop();
             }
@@ -274,20 +271,18 @@ var apiDomain = 'http://47.98.170.205/api/v1';
             switch (_context6.prev = _context6.next) {
               case 0:
                 auth_code = wx.getStorageSync('auth_code');
-
-                console.log(auth_code);
-                _context6.next = 4;
+                _context6.next = 3;
                 return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["c" /* request */])({
                   method: 'get',
                   url: apiDomain + '/group_activities?auth_code=' + auth_code,
                   data: {}
                 });
 
-              case 4:
+              case 3:
                 group = _context6.sent;
                 return _context6.abrupt('return', group);
 
-              case 6:
+              case 5:
               case 'end':
                 return _context6.stop();
             }
@@ -364,10 +359,9 @@ var apiDomain = 'http://47.98.170.205/api/v1';
 
                 console.log('\u53D1\u8D77\u62FC\u56E2\u7684\u8BA2\u5355----' + apiDomain + '/group_activities/' + uuid + '/initial?auth_code=' + auth_code);
 
-                console.log(initGroup);
                 return _context8.abrupt('return', initGroup);
 
-              case 8:
+              case 7:
               case 'end':
                 return _context8.stop();
             }
@@ -393,21 +387,17 @@ var apiDomain = 'http://47.98.170.205/api/v1';
                 console.log('拼团订单详情');
                 uuid = uuid_authCode[0];
                 auth_code = uuid_authCode[1];
-
-                console.log('\u62FC\u56E2\u8BA2\u5355\u8BE6\u60C5----' + apiDomain + '/group_activity_orders/' + uuid + '?auth_code=' + auth_code);
-                _context9.next = 6;
+                _context9.next = 5;
                 return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["c" /* request */])({
                   method: 'get',
                   url: apiDomain + '/group_activity_orders/' + uuid + '?auth_code=' + auth_code
                 });
 
-              case 6:
+              case 5:
                 orderData = _context9.sent;
-
-                console.log(orderData);
                 return _context9.abrupt('return', orderData);
 
-              case 9:
+              case 7:
               case 'end':
                 return _context9.stop();
             }
