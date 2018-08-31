@@ -35,7 +35,7 @@
           <label class="_span data-v-b3a874ec mark" wx:if="{{item.is_initiator}}">团长</label>
         </view>
       </view>
-      <view class="_div data-v-b3a874ec group_res" wx:if="{{}}" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}">去填地址</view>
+      <view class="_div data-v-b3a874ec group_res" wx:if="{{order_info.status == 'success'}}" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}">去填地址</view>
       <view class="_div data-v-b3a874ec line"></view>
       <view class="_div data-v-b3a874ec group">
         <view class="_h2 data-v-b3a874ec group-game">拼团玩法</view>
@@ -47,10 +47,10 @@
         <rich-text nodes="{{order_info.detail}}" class="_rich-text data-v-b3a874ec"></rich-text>
       </view>
     </view>
-    <view class="_div data-v-b3a874ec btn open_btn" bindtap="handleProxy" data-status="1" wx:if="{{order_info.status == 'grouping' }}" data-eventid="{{'1'}}" data-comkey="{{$k}}">
+    <view class="_div data-v-b3a874ec btn open_btn" bindtap="handleProxy" data-status="1" data-eventid="{{'1'}}" data-comkey="{{$k}}">
       <label class="_span data-v-b3a874ec">邀请好友一起享用</label>
     </view>
-    <view class="_div data-v-b3a874ec btn open_btn" bindtap="handleProxy" data-status="1" wx:if="{{order_info.status == 'failed' || order_info.status == 'success'}}" data-eventid="{{'2'}}" data-comkey="{{$k}}">
+    <view class="_div data-v-b3a874ec btn open_btn" bindtap="handleProxy" data-status="1" wx:if="{{group_activity_initials_finish}}" data-eventid="{{'2'}}" data-comkey="{{$k}}">
       <label class="_span data-v-b3a874ec">重新开团</label>
     </view>
     <view class="_div data-v-b3a874ec mask" wx:if="{{showBox}}">
@@ -69,7 +69,7 @@
     </view>
     <view class="_div data-v-b3a874ec pay" wx:if="{{scanCode}}">
       <view class="_div data-v-b3a874ec price">¥{{order_info.current_price}}
-        <label class="_span data-v-b3a874ec">还剩{{}}10份</label>
+        <label class="_span data-v-b3a874ec">还剩{{}}</label>
       </view>
       <view class="_div data-v-b3a874ec join-group" bindtap="handleProxy" data-uuid="{{order_info.uuid}}" data-eventid="{{'6'}}" data-comkey="{{$k}}">一键参与</view>
     </view>

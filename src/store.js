@@ -59,7 +59,7 @@ export default new Vuex.Store({
       }
       let res = await request({
         method: 'post',
-        url: `${apiDomain}/wx/save_user_info`,
+        url: `${apiDomain}/wx/save_user_info?auth_code=${auth_code}`,
         data: urlData
       })
       return res.user
@@ -225,7 +225,7 @@ export default new Vuex.Store({
       let page = data[1]
       let res = await request({
         method:'get',
-        url:`${apiDomain}/group_activity_initials/${uuid}/wxaqrcode`
+        url:`${apiDomain}/group_activity_initials/${uuid}/wxaqrcode?auth_code=${auth_code}`
       })
       console.log(res)
       return res

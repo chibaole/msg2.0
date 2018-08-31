@@ -143,7 +143,7 @@ var apiDomain = 'http://47.98.170.205/api/v1';
                 _context2.next = 5;
                 return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
                   method: 'post',
-                  url: apiDomain + '/wx/save_user_info',
+                  url: apiDomain + '/wx/save_user_info?auth_code=' + auth_code,
                   data: urlData
                 });
 
@@ -540,7 +540,7 @@ var apiDomain = 'http://47.98.170.205/api/v1';
                 _context12.next = 5;
                 return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
                   method: 'get',
-                  url: apiDomain + '/group_activity_initials/' + uuid + '/wxaqrcode'
+                  url: apiDomain + '/group_activity_initials/' + uuid + '/wxaqrcode?auth_code=' + auth_code
                 });
 
               case 5:

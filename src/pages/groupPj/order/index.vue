@@ -33,7 +33,7 @@
       <div class="user">
         <div class="pic" v-for="item in order_info.users"><img :src="item.avatar_url" alt=""><span class="mark" v-if="item.is_initiator">团长</span></div>
       </div>
-      <div class="group_res" v-if="" @click="chooseAddress">去填地址</div>
+      <div class="group_res" v-if="order_info.status == 'success'" @click="fillAddress">去填地址</div>
       <div class="line"></div>
 
       <div class="group">
@@ -51,8 +51,8 @@
     </div>
 
     <!--------------------------------------------------------------------------->
-    <div class="btn open_btn" @click="shareMenu" data-status="1" v-if="order_info.status == 'grouping' "><span>邀请好友一起享用</span></div>
-    <div class="btn open_btn" @click="createGroup" data-status="1" v-if="order_info.status == 'failed' || order_info.status == 'success'"><span>重新开团</span></div>
+    <div class="btn open_btn" @click="shareMenu" data-status="1" ><span>邀请好友一起享用</span></div>
+    <div class="btn open_btn" @click="createGroup" data-status="1" v-if="group_activity_initials_finish"><span>重新开团</span></div>
 
     <div class="mask" v-if="showBox">  <!-- 遮罩-->
 
@@ -77,23 +77,9 @@
     </div>
     <!--参团底部button-->
     <div class="pay" v-if="scanCode" >
-      <div class="price">¥{{order_info.current_price}}<span>还剩{{}}10份</span></div>
+      <div class="price">¥{{order_info.current_price}}<span>还剩{{}}</span></div>
       <div class="join-group" @click="attendGroup" :data-uuid="order_info.uuid" >一键参与</div>
     </div>
-
-
-
-
-    <!--<div :animation="animationData" class="drawer_attr_box"v-if="showModal"   >-->
-    <!--<div class="close_icon" @click="setModalStatus" data-status="0">×</div>-->
-    <!--<div class="drawer_attr_content">-->
-    <!--<button  class="btn-fri" @click="sharfri" open-type="share">微信好友</button>-->
-    <!--<button class="btn-img">生成分享图</button>-->
-
-    <!--</div>-->
-    <!--</div>-->
-    <!--------------------------------------------------------------------------->
-
 
   </div>
 </template>
@@ -143,7 +129,8 @@
         orderIdId:'',
         myDetail:'',
         scanCode:false,
-        group_activity_initial_uuid:''
+        group_activity_initial_uuid:'',
+        group_activity_initials_finish:false
       }
     },
     components: {
@@ -292,7 +279,8 @@
 
  async getImg()
   {
-    let uuid = wx.getStorageSync('initGroupId')
+    let that = this
+    let uuid = that.group_activity_initial_uuid
     let page = 'pages/groupPj/order/main'
     let data = [uuid,page]
     let res = await this.$store.dispatch('wxCode',{...data})
@@ -419,7 +407,7 @@
       url: '/pages/test/main'
     })
   },
-      async chooseAddress(){
+      async fillAddress(){
         console.log('领奖')
         let that = this
         let data = [ ]
@@ -444,8 +432,6 @@
 
           data = [uuid,auth_code,address]
           let address_res =  await  that.$store.dispatch('groupAddress',{...data})
-
-
 
           wx.navigateTo({
             url:`/pages/user/myGroup/myGroupDetail/main?uuid=${uuid}`
@@ -473,14 +459,14 @@
     var that = this
 
     let group_activity_initial_uuid = that.$root.$mp.query.group_activity_initial_uuid //发起拼团活动返回订单uuid
-
+    that.group_activity_initial_uuid = group_activity_initial_uuid
+    console.log(group_activity_initial_uuid)
 
     let currentuser_code = wx.getStorageSync('auth_code')
     let uuid_authCode = [group_activity_initial_uuid,currentuser_code]
 
     let orderData = await  that.$store.dispatch('groupActivitiesInit',{...uuid_authCode})
 
-    that.order_info = orderData.group_activity_initial
 
     let order_user = that.order_info.users //[]
     let left_user = that.order_info.users_left //number
@@ -489,37 +475,19 @@
     }
      that.order_info.user = order_user
 
+    if(orderData.group_activity_initial.status === 'failed' || orderData.group_activity_initial.status === 'success' || orderData.group_activity_initial.status === 'init' ){
+      console.log('本次拼团结束')
+      that.group_activity_initial_finish = true
+
+    }
+    that.order_info = orderData.group_activity_initial
+
 
 
      that.getlastTime()
   },
    async mounted()
   {
-//    let that = this
-//    that.orderId = that.$root.$mp.query.orderId //发起拼团活动返回订单uuid
-//    that.groupuer.length = that.groupNum
-//
-////    that.getGroup_orders()
-//    let orderId = that.orderId
-//     let currentuser_code = wx.getStorageSync('auth_code')
-//     let uuid_authCode = [orderId,currentuser_code]
-//
-//    let orderData = await  that.$store.dispatch('groupActivitiesInit',{...uuid_authCode})
-//     that.order_info = orderData.group_activity_initial
-//
-//     console.log(that.order_info)
-//
-//     let order_user = that.order_info.users //[]
-//     let left_user = that.order_info.users_left //number
-//      for(var i = 0; i < left_user; i++){
-//        order_user.push({})
-//      }
-//      console.log(order_user)
-//
-//
-//
-//
-//    that.getlastTime()
 
 
   }

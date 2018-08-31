@@ -105,20 +105,6 @@ global.webpackJsonp([4],{
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -158,7 +144,8 @@ global.webpackJsonp([4],{
       orderIdId: '',
       myDetail: '',
       scanCode: false,
-      group_activity_initial_uuid: ''
+      group_activity_initial_uuid: '',
+      group_activity_initials_finish: false
     };
   },
 
@@ -333,18 +320,19 @@ global.webpackJsonp([4],{
       var _this3 = this;
 
       return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee3() {
-        var uuid, page, data, res, wxCodeImg;
+        var that, uuid, page, data, res, wxCodeImg;
         return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee3$(_context3) {
           while (1) {
             switch (_context3.prev = _context3.next) {
               case 0:
-                uuid = wx.getStorageSync('initGroupId');
+                that = _this3;
+                uuid = that.group_activity_initial_uuid;
                 page = 'pages/groupPj/order/main';
                 data = [uuid, page];
-                _context3.next = 5;
+                _context3.next = 6;
                 return _this3.$store.dispatch('wxCode', __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends___default()({}, data));
 
-              case 5:
+              case 6:
                 res = _context3.sent;
 
 
@@ -460,7 +448,7 @@ global.webpackJsonp([4],{
                   url: '/pages/test/main'
                 });
 
-              case 11:
+              case 12:
               case 'end':
                 return _context3.stop();
             }
@@ -468,7 +456,7 @@ global.webpackJsonp([4],{
         }, _callee3, _this3);
       }))();
     },
-    chooseAddress: function chooseAddress() {
+    fillAddress: function fillAddress() {
       var _this4 = this;
 
       return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee4() {
@@ -555,18 +543,16 @@ global.webpackJsonp([4],{
               that = _this5;
               group_activity_initial_uuid = that.$root.$mp.query.group_activity_initial_uuid; //发起拼团活动返回订单uuid
 
+              that.group_activity_initial_uuid = group_activity_initial_uuid;
+              console.log(group_activity_initial_uuid);
 
               currentuser_code = wx.getStorageSync('auth_code');
               uuid_authCode = [group_activity_initial_uuid, currentuser_code];
-              _context5.next = 7;
+              _context5.next = 9;
               return that.$store.dispatch('groupActivitiesInit', __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends___default()({}, uuid_authCode));
 
-            case 7:
+            case 9:
               orderData = _context5.sent;
-
-
-              that.order_info = orderData.group_activity_initial;
-
               order_user = that.order_info.users; //[]
 
               left_user = that.order_info.users_left; //number
@@ -576,9 +562,15 @@ global.webpackJsonp([4],{
               }
               that.order_info.user = order_user;
 
+              if (orderData.group_activity_initial.status === 'failed' || orderData.group_activity_initial.status === 'success' || orderData.group_activity_initial.status === 'init') {
+                console.log('本次拼团结束');
+                that.group_activity_initial_finish = true;
+              }
+              that.order_info = orderData.group_activity_initial;
+
               that.getlastTime();
 
-            case 14:
+            case 17:
             case 'end':
               return _context5.stop();
           }
@@ -587,33 +579,6 @@ global.webpackJsonp([4],{
     }))();
   },
   mounted: function mounted() {
-    //    let that = this
-    //    that.orderId = that.$root.$mp.query.orderId //发起拼团活动返回订单uuid
-    //    that.groupuer.length = that.groupNum
-    //
-    ////    that.getGroup_orders()
-    //    let orderId = that.orderId
-    //     let currentuser_code = wx.getStorageSync('auth_code')
-    //     let uuid_authCode = [orderId,currentuser_code]
-    //
-    //    let orderData = await  that.$store.dispatch('groupActivitiesInit',{...uuid_authCode})
-    //     that.order_info = orderData.group_activity_initial
-    //
-    //     console.log(that.order_info)
-    //
-    //     let order_user = that.order_info.users //[]
-    //     let left_user = that.order_info.users_left //number
-    //      for(var i = 0; i < left_user; i++){
-    //        order_user.push({})
-    //      }
-    //      console.log(order_user)
-    //
-    //
-    //
-    //
-    //    that.getlastTime()
-
-
     var _this6 = this;
 
     return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee6() {
@@ -743,15 +708,15 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }), (item.is_initiator) ? _c('span', {
       staticClass: "mark"
     }, [_vm._v("团长")]) : _vm._e()])
-  })), _vm._v(" "), _c('div', {
+  })), _vm._v(" "), (_vm.order_info.status == 'success') ? _c('div', {
     staticClass: "group_res",
     attrs: {
       "eventid": '0'
     },
     on: {
-      "click": _vm.chooseAddress
+      "click": _vm.fillAddress
     }
-  }, [_vm._v("去填地址")]), _vm._v(" "), _c('div', {
+  }, [_vm._v("去填地址")]) : _vm._e(), _vm._v(" "), _c('div', {
     staticClass: "line"
   }), _vm._v(" "), _c('div', {
     staticClass: "group"
@@ -770,7 +735,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "nodes": _vm.order_info.detail,
       "mpcomid": '1'
     }
-  })], 1)], 1), _vm._v(" "), (_vm.order_info.status == 'grouping') ? _c('div', {
+  })], 1)], 1), _vm._v(" "), _c('div', {
     staticClass: "btn open_btn",
     attrs: {
       "data-status": "1",
@@ -779,7 +744,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     on: {
       "click": _vm.shareMenu
     }
-  }, [_c('span', [_vm._v("邀请好友一起享用")])]) : _vm._e(), _vm._v(" "), (_vm.order_info.status == 'failed' || _vm.order_info.status == 'success') ? _c('div', {
+  }, [_c('span', [_vm._v("邀请好友一起享用")])]), _vm._v(" "), (_vm.group_activity_initials_finish) ? _c('div', {
     staticClass: "btn open_btn",
     attrs: {
       "data-status": "1",
@@ -844,7 +809,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "pay"
   }, [_c('div', {
     staticClass: "price"
-  }, [_vm._v("¥" + _vm._s(_vm.order_info.current_price)), _c('span', [_vm._v("还剩{{}}10份")])]), _vm._v(" "), _c('div', {
+  }, [_vm._v("¥" + _vm._s(_vm.order_info.current_price)), _c('span', [_vm._v("还剩{{}}")])]), _vm._v(" "), _c('div', {
     staticClass: "join-group",
     attrs: {
       "data-uuid": _vm.order_info.uuid,
