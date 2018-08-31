@@ -65,8 +65,8 @@ global.webpackJsonp([12],{
     pay: function pay(e) {
       console.log(e);
       var that = this;
-      var group_activity_initial_uuid = that.order_info.group_activity_initial.uuid; //需要支付的订单uuid
-      wx.setStorageSync('group_activity_initial_uuid', group_activity_initial_uuid); //存储拼团支付订单号
+      var group_activity_initial_uuid = that.order_info.group_activity_initial.uuid;
+      wx.setStorageSync('group_activity_initial_uuid', group_activity_initial_uuid);
       wx.navigateTo({
         url: '/pages/groupPj/order/main?group_activity_initial_uuid=' + group_activity_initial_uuid
       });

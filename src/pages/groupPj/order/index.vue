@@ -285,10 +285,7 @@
     let page = "pages/isme/index"
     let data = [uuid,page]
     let res = await this.$store.dispatch('wxCode',{...data})
-
-    console.log(res)
     let wxCodeImg = that.host+res.wxa_qrcode_url
-
     this.painting = {
       width: 375,
       height: 557,
@@ -468,19 +465,22 @@
 
     let orderData = await  that.$store.dispatch('groupActivitiesInit',{...uuid_authCode})
 
+    let order_user = orderData.group_activity_initial.users //[]
 
-    let order_user = that.order_info.users //[]
-    let left_user = that.order_info.users_left //number
+    let left_user = orderData.group_activity_initial.users_left //number
+
     for(var i = 0; i < left_user; i++){
       order_user.push({})
     }
-     that.order_info.user = order_user
+
+    orderData.group_activity_initial.users = order_user
 
     if(orderData.group_activity_initial.status === 'failed' || orderData.group_activity_initial.status === 'success' || orderData.group_activity_initial.status === 'init' ){
       console.log('本次拼团结束')
       that.group_activity_initial_finish = true
 
     }
+
     that.order_info = orderData.group_activity_initial
 
 
@@ -496,14 +496,15 @@
   onShareAppMessage(res)
   {
     var that = this
-    var initGroupId = '拼团活动uuid'
+    let uuid = that.group_activity_initial_uuid
+
     if (res.from === 'button') {
       // 来自页面内转发按钮
       console.log(res.target)
     }
     return {
       title: that.order_info.title,
-      path: `/pages/groupPj/groupDetail/main?orderId=` //参与拼团的页面
+      path: `/pages/groupPj/order/main?group_activity_initial_uuid=${uuid}` //参与拼团的页面
     }
   }
 

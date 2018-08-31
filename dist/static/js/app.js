@@ -60,14 +60,14 @@ var apiDomain = 'http://47.98.170.205/api/v1';
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["e" /* login */])();
+                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["f" /* login */])();
 
               case 2:
                 userData = _context.sent;
                 code = userData.code;
                 data = { code: code };
                 _context.next = 7;
-                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["c" /* request */])({
+                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
                   method: 'post',
                   url: apiDomain + '/wx/login',
                   data: data
@@ -104,7 +104,7 @@ var apiDomain = 'http://47.98.170.205/api/v1';
             switch (_context2.prev = _context2.next) {
               case 0:
                 console.log('存用户信息');
-                // let data = [e.mp.detail.encryptedData, e.mp.detail.iv, e.mp.detail.signature, e.mp.detail.rawData]
+
                 auth_code = wx.getStorageSync('auth_code');
                 urlData = {
                   auth_code: auth_code,
@@ -116,7 +116,7 @@ var apiDomain = 'http://47.98.170.205/api/v1';
 
                 };
                 _context2.next = 5;
-                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["c" /* request */])({
+                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
                   method: 'post',
                   url: apiDomain + '/wx/save_user_info?auth_code=' + auth_code,
                   data: urlData
@@ -124,9 +124,14 @@ var apiDomain = 'http://47.98.170.205/api/v1';
 
               case 5:
                 res = _context2.sent;
+
+                wx.setStorageSync('userinfo', res.user);
+
+                console.log('存用户信息OK');
+
                 return _context2.abrupt('return', res.user);
 
-              case 7:
+              case 9:
               case 'end':
                 return _context2.stop();
             }
@@ -151,7 +156,7 @@ var apiDomain = 'http://47.98.170.205/api/v1';
                 // let boons = await get('/v1/boons/today', {page: this.page})
 
                 _context3.next = 3;
-                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["c" /* request */])({
+                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
                   method: 'get',
                   url: apiDomain + '/boons/today',
                   data: {}
@@ -193,7 +198,7 @@ var apiDomain = 'http://47.98.170.205/api/v1';
                 uuid = uuid_authCode[0];
                 auth_code = uuid_authCode[1];
                 _context4.next = 6;
-                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["c" /* request */])({
+                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
                   method: 'get',
                   url: apiDomain + '/boons/' + uuid + '?auth_code=' + auth_code,
                   data: {}
@@ -236,7 +241,7 @@ var apiDomain = 'http://47.98.170.205/api/v1';
 
                 console.log(uuid_authCode);
                 _context5.next = 5;
-                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["c" /* request */])({
+                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
                   method: 'post',
                   url: apiDomain + '/boons/' + boonId + '/attend?auth_code=' + auth_code
                 });
@@ -272,7 +277,7 @@ var apiDomain = 'http://47.98.170.205/api/v1';
               case 0:
                 auth_code = wx.getStorageSync('auth_code');
                 _context6.next = 3;
-                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["c" /* request */])({
+                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
                   method: 'get',
                   url: apiDomain + '/group_activities?auth_code=' + auth_code,
                   data: {}
@@ -308,7 +313,7 @@ var apiDomain = 'http://47.98.170.205/api/v1';
                 uuid = uuid_authCode[0];
                 auth_code = uuid_authCode[1];
                 _context7.next = 4;
-                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["c" /* request */])({
+                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
                   method: 'get',
                   url: apiDomain + '/group_activities/' + uuid + '?auth_code=' + auth_code
                 });
@@ -348,7 +353,7 @@ var apiDomain = 'http://47.98.170.205/api/v1';
                 uuid = uuid_authCode[0];
                 auth_code = uuid_authCode[1];
                 _context8.next = 4;
-                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["c" /* request */])({
+                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
                   method: 'post',
                   url: apiDomain + '/group_activities/' + uuid + '/initial?auth_code=' + auth_code
 
@@ -388,7 +393,7 @@ var apiDomain = 'http://47.98.170.205/api/v1';
                 uuid = uuid_authCode[0];
                 auth_code = uuid_authCode[1];
                 _context9.next = 5;
-                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["c" /* request */])({
+                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
                   method: 'get',
                   url: apiDomain + '/group_activity_orders/' + uuid + '?auth_code=' + auth_code
                 });
@@ -422,22 +427,24 @@ var apiDomain = 'http://47.98.170.205/api/v1';
               case 0:
                 console.log(uuid_authCode);
                 uuid = uuid_authCode[0];
+
+                uuid === '' ? uuid = '1223' : uuid = uuid_authCode[0];
                 auth_code = uuid_authCode[1];
 
-                console.log('\u62FC\u56E2\u53D1\u8D77\u8BE6\u60C5---' + apiDomain + '/group_activity_initials/' + uuid + '?auth_code=' + auth_code + 'v');
-                _context10.next = 6;
-                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["c" /* request */])({
+                console.log('\u62FC\u56E2\u53D1\u8D77\u8BE6\u60C5---' + apiDomain + '/group_activity_initials/' + uuid + '?auth_code=' + auth_code);
+                _context10.next = 7;
+                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
                   method: 'get',
                   url: apiDomain + '/group_activity_initials/' + uuid + '?auth_code=' + auth_code
                 });
 
-              case 6:
+              case 7:
                 initOrder = _context10.sent;
 
                 console.log(initOrder);
                 return _context10.abrupt('return', initOrder);
 
-              case 9:
+              case 10:
               case 'end':
                 return _context10.stop();
             }
@@ -464,7 +471,7 @@ var apiDomain = 'http://47.98.170.205/api/v1';
                 console.log('一键参与拼团');
 
                 _context11.next = 3;
-                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["c" /* request */])({
+                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
                   method: 'post',
                   url: apiDomain + '/group_activities/' + uuid_authCode[0] + '/attend?auth_code=' + uuid_authCode[1]
                 });
@@ -504,7 +511,7 @@ var apiDomain = 'http://47.98.170.205/api/v1';
                 auth_code = wx.getStorageSync('auth_code');
                 page = data[1];
                 _context12.next = 5;
-                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["c" /* request */])({
+                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
                   method: 'get',
                   url: apiDomain + '/group_activity_initials/' + uuid + '/wxaqrcode?auth_code=' + auth_code + '&page=' + page
                 });
@@ -542,7 +549,7 @@ var apiDomain = 'http://47.98.170.205/api/v1';
                 size = data[1];
                 auth_code = data[2];
                 _context13.next = 5;
-                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["c" /* request */])({
+                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
                   method: 'get',
                   url: apiDomain + '/group_activity_orders/mine?page=' + page + '&size=' + size + '&auth_code=' + auth_code
                 });
@@ -578,7 +585,7 @@ var apiDomain = 'http://47.98.170.205/api/v1';
                 uuid = data[0];
                 auth_code = data[1];
                 _context14.next = 5;
-                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["c" /* request */])({
+                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
                   method: 'get',
                   url: apiDomain + '/group_activity_orders/' + uuid + '?auth_code=' + auth_code
                 });
@@ -619,7 +626,7 @@ var apiDomain = 'http://47.98.170.205/api/v1';
                 size = data[1];
                 auth_code = data[2];
                 _context15.next = 6;
-                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["c" /* request */])({
+                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
                   method: 'get',
                   url: apiDomain + '/boon_orders/mine?page=' + page + '&size=' + size + '&auth_code=' + auth_code
                 });
@@ -653,7 +660,7 @@ var apiDomain = 'http://47.98.170.205/api/v1';
               uuid = data[0];
               auth_code = data[1];
               _context16.next = 5;
-              return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["c" /* request */])({
+              return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
                 method: 'get',
                 url: apiDomain + '/boon_orders/' + uuid + '?auth_code=' + auth_code
               });
@@ -697,7 +704,7 @@ var apiDomain = 'http://47.98.170.205/api/v1';
               console.log('这是抽奖地址数据');
               jsonData = __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_json_stringify___default()(order_address);
               _context17.next = 8;
-              return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["c" /* request */])({
+              return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
                 method: 'put',
                 url: apiDomain + '/boon_orders/' + uuid,
                 data: order_address,
@@ -744,7 +751,7 @@ var apiDomain = 'http://47.98.170.205/api/v1';
               console.log(order_address);
 
               _context18.next = 8;
-              return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["c" /* request */])({
+              return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
                 method: 'put',
                 url: apiDomain + '/group_activity_orders/' + uuid,
                 data: order_address
@@ -860,8 +867,8 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.config.productionTip = false;
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.prototype.$store = __WEBPACK_IMPORTED_MODULE_2__store__["a" /* default */]; //注册Store
 
 
-__WEBPACK_IMPORTED_MODULE_0_vue___default.a.prototype.$http = __WEBPACK_IMPORTED_MODULE_3__utils_wx__["c" /* request */];
-__WEBPACK_IMPORTED_MODULE_0_vue___default.a.prototype.$alert = __WEBPACK_IMPORTED_MODULE_3__utils_wx__["d" /* alert */];
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.prototype.$http = __WEBPACK_IMPORTED_MODULE_3__utils_wx__["d" /* request */];
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.prototype.$alert = __WEBPACK_IMPORTED_MODULE_3__utils_wx__["e" /* alert */];
 var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a(__WEBPACK_IMPORTED_MODULE_1__App__["a" /* default */]);
 app.$mount();
 
@@ -929,7 +936,7 @@ app.$mount();
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__utils_wx__["e" /* login */])();
+                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__utils_wx__["f" /* login */])();
 
               case 2:
                 codeinfo = _context.sent;
@@ -964,20 +971,34 @@ app.$mount();
     var _this2 = this;
 
     return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee2() {
+      var auth_code;
       return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
         while (1) {
           switch (_context2.prev = _context2.next) {
             case 0:
               console.log('小程序启动了');
+              auth_code = wx.getStorageSync('auth_code');
 
-              _context2.next = 3;
+              if (!auth_code) {
+                _context2.next = 6;
+                break;
+              }
+
+              console.log('已经注册');
+              _context2.next = 10;
+              break;
+
+            case 6:
+              console.log('未登录过即将登录');
+
+              _context2.next = 9;
               return _this2.$store.dispatch('signup');
 
-            case 3:
+            case 9:
 
-              console.log('注册成功');
+              console.log('登录ok');
 
-            case 4:
+            case 10:
             case 'end':
               return _context2.stop();
           }

@@ -280,13 +280,9 @@ global.webpackJsonp([1],{
                 title = e.currentTarget.dataset.title;
 
 
-                console.log('/pages/project/main?uuid=' + uuid + "&title=" + title);
-                //        wx.navigateTo({
-                //          url: '/pages/project/main?uuid=' + uuid + "&title=" + title
-                //        })
-                __WEBPACK_IMPORTED_MODULE_3__utils_wx__["b" /* default */].navigateTo('/pages/project/main?uuid=' + uuid + "&title=" + title);
+                __WEBPACK_IMPORTED_MODULE_3__utils_wx__["c" /* default */].navigateTo('/pages/project/main?boons_uuid=' + uuid + "&title=" + title);
 
-              case 5:
+              case 4:
               case 'end':
                 return _context.stop();
             }

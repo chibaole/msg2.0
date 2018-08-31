@@ -33,7 +33,7 @@ export default new Vuex.Store({
     },
     async saveInfo({commit}, {...data}) {
       console.log('存用户信息')
-      // let data = [e.mp.detail.encryptedData, e.mp.detail.iv, e.mp.detail.signature, e.mp.detail.rawData]
+
       let auth_code = wx.getStorageSync('auth_code')
       let urlData = {
         auth_code: auth_code,
@@ -49,6 +49,10 @@ export default new Vuex.Store({
         url: `${apiDomain}/wx/save_user_info?auth_code=${auth_code}`,
         data: urlData
       })
+      wx.setStorageSync('userinfo',res.user)
+
+      console.log('存用户信息OK')
+
       return res.user
 
 
@@ -172,9 +176,10 @@ export default new Vuex.Store({
     async groupActivitiesInit({commit}, {...uuid_authCode}) {
       console.log(uuid_authCode)
       let uuid = uuid_authCode[0]
+      uuid === ''?uuid='1223':uuid=uuid_authCode[0]
       let auth_code = uuid_authCode[1]
 
-      console.log(`拼团发起详情---${apiDomain}/group_activity_initials/${uuid}?auth_code=${auth_code}v`)
+      console.log(`拼团发起详情---${apiDomain}/group_activity_initials/${uuid}?auth_code=${auth_code}`)
       let initOrder = await request({
         method: 'get',
         url: `${apiDomain}/group_activity_initials/${uuid}?auth_code=${auth_code}`

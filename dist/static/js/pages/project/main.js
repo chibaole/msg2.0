@@ -226,6 +226,7 @@ global.webpackJsonp([3],{
       prizeStyle: 'prize',
       init_rewarded_users: [],
       showGetMoreBtn: false
+
     };
   },
 
@@ -313,110 +314,136 @@ global.webpackJsonp([3],{
       this.showBox = !this.showBox;
     },
     getImg: function getImg() {
-      var that = this;
-      var painting = {
-        width: 375,
-        height: 557,
-        clear: true,
-        views: [
+      var _this3 = this;
 
-        //            绘制白色背景
-        {
-          type: 'rect',
-          background: '#fff',
-          top: 0,
-          left: 0,
-          width: 375,
-          height: 557
-        },
+      return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee3() {
+        var that, uuid, page, data, res, wxCodeImg, painting;
+        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                that = _this3;
+                uuid = that.uuid;
+                page = "pages/isme/index";
+                data = [uuid, page];
+                _context3.next = 6;
+                return _this3.$store.dispatch('wxCode', __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends___default()({}, data));
 
-        //            绘制的头图
-        {
-          type: 'image',
-          url: 'http://oxl5leo53.bkt.clouddn.com/u=1204211051,3834529407&fm=11&gp=0.jpg', //变化图片
-          top: 0,
-          left: 0,
-          width: 375,
-          height: 173
-        },
-        //            绘制的背景图
+              case 6:
+                res = _context3.sent;
+                wxCodeImg = that.host + res.wxa_qrcode_url;
+                painting = {
+                  width: 375,
+                  height: 557,
+                  clear: true,
+                  views: [
+
+                  //            绘制白色背景
+                  {
+                    type: 'rect',
+                    background: '#fff',
+                    top: 0,
+                    left: 0,
+                    width: 375,
+                    height: 557
+                  },
+
+                  //            绘制的头图
+                  {
+                    type: 'image',
+                    url: 'http://oxl5leo53.bkt.clouddn.com/u=1204211051,3834529407&fm=11&gp=0.jpg', //变化图片
+                    top: 0,
+                    left: 0,
+                    width: 375,
+                    height: 173
+                  },
+                  //            绘制的背景图
 
 
-        //http://p15hnzxrp.bkt.clouddn.com/wechatapp2.5.jpg
-        // 文本表达
-        {
-          type: 'text',
-          content: that.boon.description, //变量的名称
-          fontSize: 27.6,
-          lineHeight: 27.6,
-          color: '#454553',
-          textAlign: 'left',
-          top: 217.35,
-          left: 64.4,
-          width: 244.95,
-          MaxLineNumber: 2, //最大两行 超出...
-          breakWord: true, //换行
-          bolder: true //加粗
-        }, {
-          type: 'text',
-          content: '500人自动开奖', //变量的价格
-          fontSize: 18.4,
-          color: '#4a4a4a',
-          textAlign: 'left',
-          top: 256.45,
-          left: 124.2
+                  //http://p15hnzxrp.bkt.clouddn.com/wechatapp2.5.jpg
+                  // 文本表达
+                  {
+                    type: 'text',
+                    content: that.boon.description, //变量的名称
+                    fontSize: 27.6,
+                    lineHeight: 27.6,
+                    color: '#454553',
+                    textAlign: 'left',
+                    top: 217.35,
+                    left: 64.4,
+                    width: 244.95,
+                    MaxLineNumber: 2, //最大两行 超出...
+                    breakWord: true, //换行
+                    bolder: true //加粗
+                  }, {
+                    type: 'text',
+                    content: '500人自动开奖', //变量的价格
+                    fontSize: 18.4,
+                    color: '#4a4a4a',
+                    textAlign: 'left',
+                    top: 256.45,
+                    left: 124.2
 
-        }, {
-          type: 'text',
-          content: '已有',
-          fontSize: 18.4,
-          color: '#4a4a4a',
-          textAlign: 'left',
-          top: 361.1,
-          left: 124.2 //根据价格字符个数 变化
+                  }, {
+                    type: 'text',
+                    content: '已有',
+                    fontSize: 18.4,
+                    color: '#4a4a4a',
+                    textAlign: 'left',
+                    top: 361.1,
+                    left: 124.2 //根据价格字符个数 变化
 
-        }, {
-          type: 'text',
-          content: '443', //根据参与实际人数 变化
-          fontSize: 18.4,
-          color: '#ff7f4f',
-          textAlign: 'left',
-          top: 361.1,
-          left: 161 //
-        }, {
-          type: 'text',
-          content: '人参与',
-          fontSize: 18.4,
-          color: '#4a4a4a',
-          textAlign: 'left',
-          top: 361.1,
-          left: 195.5,
-          lineHeight: 18.4,
-          MaxLineNumber: 2,
-          breakWord: true
-        }, {
-          type: 'image',
-          url: 'http://p15hnzxrp.bkt.clouddn.com/wechatapp2.5.jpg',
-          top: 396.75,
-          left: 139.15,
-          width: 96.6,
-          height: 96.6
-        }, {
-          type: 'text',
-          content: '长按识别小程序码参与抽奖',
-          fontSize: 16.1,
-          color: '#4a4a4a',
-          textAlign: 'left',
-          top: 504.85,
-          left: 92,
-          lineHeight: 16.1,
-          MaxLineNumber: 2,
-          breakWord: true,
-          width: 193.2
-        }]
-      };
-      wx.setStorageSync('painting', painting);
-      wx.navigateTo({ url: '/pages/test/main' });
+                  }, {
+                    type: 'text',
+                    content: '443', //根据参与实际人数 变化
+                    fontSize: 18.4,
+                    color: '#ff7f4f',
+                    textAlign: 'left',
+                    top: 361.1,
+                    left: 161 //
+                  }, {
+                    type: 'text',
+                    content: '人参与',
+                    fontSize: 18.4,
+                    color: '#4a4a4a',
+                    textAlign: 'left',
+                    top: 361.1,
+                    left: 195.5,
+                    lineHeight: 18.4,
+                    MaxLineNumber: 2,
+                    breakWord: true
+                  }, {
+                    type: 'image',
+                    url: wxCodeImg,
+                    top: 396.75,
+                    left: 139.15,
+                    width: 96.6,
+                    height: 96.6
+                  }, {
+                    type: 'text',
+                    content: '长按识别小程序码参与抽奖',
+                    fontSize: 16.1,
+                    color: '#4a4a4a',
+                    textAlign: 'left',
+                    top: 504.85,
+                    left: 92,
+                    lineHeight: 16.1,
+                    MaxLineNumber: 2,
+                    breakWord: true,
+                    width: 193.2
+                  }]
+                };
+
+                wx.setStorageSync('painting', painting);
+                wx.navigateTo({ url: '/pages/test/main' });
+
+              case 11:
+              case 'end':
+                return _context3.stop();
+            }
+          }
+        }, _callee3, _this3);
+      }))();
     },
     againPrice: function againPrice() {
       wx.switchTab({
@@ -424,16 +451,16 @@ global.webpackJsonp([3],{
       });
     },
     chooseAddress: function chooseAddress() {
-      var _this3 = this;
+      var _this4 = this;
 
-      return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee3() {
+      return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee4() {
         var that, data, uuid, boon_status, res, auth_code, address, address_res;
-        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee3$(_context3) {
+        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee4$(_context4) {
           while (1) {
-            switch (_context3.prev = _context3.next) {
+            switch (_context4.prev = _context4.next) {
               case 0:
                 console.log('领奖');
-                that = _this3;
+                that = _this4;
                 data = [];
                 uuid = that.boon.boon_order.uuid; //抽奖订单号
 
@@ -442,22 +469,22 @@ global.webpackJsonp([3],{
                 console.log(boon_status);
 
                 if (!(boon_status === 'received')) {
-                  _context3.next = 10;
+                  _context4.next = 10;
                   break;
                 }
 
                 wx.navigateTo({
                   url: '/pages/user/myboonList/myBoon/main?uuid=' + uuid
                 });
-                _context3.next = 20;
+                _context4.next = 20;
                 break;
 
               case 10:
-                _context3.next = 12;
-                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__utils_wx__["a" /* chooseAddress */])();
+                _context4.next = 12;
+                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__utils_wx__["b" /* chooseAddress */])();
 
               case 12:
-                res = _context3.sent;
+                res = _context4.sent;
                 auth_code = wx.getStorageSync('auth_code');
                 address = {
                   name: res.name, //名字
@@ -472,11 +499,11 @@ global.webpackJsonp([3],{
 
 
                 data = [uuid, auth_code, address];
-                _context3.next = 18;
+                _context4.next = 18;
                 return that.$store.dispatch('boonAddress', __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends___default()({}, data));
 
               case 18:
-                address_res = _context3.sent;
+                address_res = _context4.sent;
 
                 wx.navigateTo({
                   url: '/pages/user/myboonList/myBoon/main?uuid=' + uuid
@@ -484,10 +511,10 @@ global.webpackJsonp([3],{
 
               case 20:
               case 'end':
-                return _context3.stop();
+                return _context4.stop();
             }
           }
-        }, _callee3, _this3);
+        }, _callee4, _this4);
       }))();
     },
     getMoreUser: function getMoreUser() {
@@ -498,18 +525,18 @@ global.webpackJsonp([3],{
     }
   },
   onLoad: function onLoad() {
-    var _this4 = this;
+    var _this5 = this;
 
-    return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee4() {
+    return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee5() {
       var that, currentuser_code, uuid_authCode, boonData, init_rewarded_users, _init_rewarded_users;
 
-      return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee4$(_context4) {
+      return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee5$(_context5) {
         while (1) {
-          switch (_context4.prev = _context4.next) {
+          switch (_context5.prev = _context5.next) {
             case 0:
-              that = _this4;
+              that = _this5;
 
-              that.uuid = that.$root.$mp.query.uuid; //获取上一页传递的唯一标准uuid
+              that.uuid = that.$root.$mp.query.boons_uuid; //获取上一页传递的唯一标准uuid
               that.navbar_title = that.$root.$mp.query.title; //获取上一页传递的福利名称 做navbar的标题
               currentuser_code = wx.getStorageSync('auth_code');
               uuid_authCode = [that.uuid, currentuser_code];
@@ -517,11 +544,11 @@ global.webpackJsonp([3],{
 
               //      that.getBoons()
 
-              _context4.next = 7;
+              _context5.next = 7;
               return that.$store.dispatch('getBoons', __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends___default()({}, uuid_authCode));
 
             case 7:
-              boonData = _context4.sent;
+              boonData = _context5.sent;
 
               that.boon = boonData.boon;
 
@@ -544,10 +571,10 @@ global.webpackJsonp([3],{
 
             case 11:
             case 'end':
-              return _context4.stop();
+              return _context5.stop();
           }
         }
-      }, _callee4, _this4);
+      }, _callee5, _this5);
     }))();
   },
   mounted: function mounted() {},

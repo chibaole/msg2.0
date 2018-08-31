@@ -22,10 +22,19 @@
     },
      async created() {
       console.log('小程序启动了')
+        let auth_code = wx.getStorageSync('auth_code')
+       if(auth_code){
+        console.log('已经注册')
+       }else {
+         console.log('未登录过即将登录')
 
-       await this.$store.dispatch('signup')
+         await this.$store.dispatch('signup')
 
-       console.log('注册成功')
+         console.log('登录ok')
+
+
+       }
+
 
 
 

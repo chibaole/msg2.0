@@ -5,9 +5,9 @@
   <!--<Navbar></Navbar>-->
     <div class="navbartitle" :style="{'height':top+'px'}"><span>我的研究院</span></div>
     <div class="userinfo" :style="{'margin-top':top+'px'}" >
-      <img src="http://image.shengxinjing.cn/rate/unlogin.png" >
+      <img :src='userinfo.avatar_url' >
       <p class="username">
-        <span class="foodname">{{userinfo.nickName}}</span>
+        <span class="foodname">{{userinfo.nick_name}}</span>
         <span class="foodLabel">新晋吃货</span>
       </p>
       <span class="score">2.3K<span class="score_text">个小麻花</span></span>
@@ -59,6 +59,7 @@ import qcloud from 'wafer2-client-sdk'
 import YearProgress from '@/components/YearProgress'
 
 import {showSuccess, post, showModal} from '@/util'
+import {checkSession} from '@/utils/wx'
 import config from '@/config'
 
 import Navbar from '@/components/navbar'
@@ -71,8 +72,8 @@ export default {
   data () {
     return {
       userinfo: {
-        avatarUrl: 'http://image.shengxinjing.cn/rate/unlogin.png',
-        nickName: '空空的地方'
+        avatar_url: 'http://image.shengxinjing.cn/rate/unlogin.png',
+        nick_name: '空空的地方'
       },
       nologin:true,
       top:68
@@ -96,8 +97,6 @@ export default {
     getUserInfo1(){
       let that = this
       console.log('click事件首先触发')
-      // 判断小程序的API，回调，参数，组件等是否在当前版本可用。  为false 提醒用户升级微信版本
-      // console.log(wx.canIUse('button.open-type.getUserInfo'))
       if(wx.canIUse('button.open-type.getUserInfo')){
         // 用户版本可用
       }else{
@@ -106,21 +105,42 @@ export default {
     },
    async bindGetUserInfo(e) {
      let that = this
+      let sesssion_res = await checkSession()
+     console.log(sesssion_res.errMsg)
+     if(sesssion_res.errMsg === 'checkSession:ok'){
+       //session_key 未过期，并且在本生命周期一直有效
+       if (e.mp.detail.rawData){
+         //用户按了允许授权按钮
+         let data = [e.mp.detail.encryptedData,e.mp.detail.iv,e.mp.detail.signature,e.mp.detail.rawData]
 
-     if (e.mp.detail.rawData){
-        //用户按了允许授权按钮
-        console.log(e)
-        let data = [e.mp.detail.encryptedData,e.mp.detail.iv,e.mp.detail.signature,e.mp.detail.rawData]
+          await that.$store.dispatch('saveInfo',{...data})
 
-        let res = await that.$store.dispatch('saveInfo',{...data})
-//        let res = await that.$store.dispatch('test')
 
-        console.log(res)
+       } else {
+         //用户按了拒绝按钮
+         console.log('用户按了拒绝按钮')
+       }
+     }else {
+       console.log('session 过期')
 
-      } else {
-        //用户按了拒绝按钮
-        console.log('用户按了拒绝按钮')
-      }
+       await that.$store.dispatch('signup')
+
+       console.log('重新登录成功')
+     }
+
+//     wx.checkSession({
+//       success: async function(){
+//
+//       },
+//       fail:async function(){
+//
+//
+//       }
+//     })
+
+
+
+
     }
 
 
@@ -129,9 +149,11 @@ export default {
   onShow () {
     let that = this
     let userinfo = wx.getStorageSync('userinfo')
+    console.log(userinfo)
 
     if (userinfo) {
-      this.userinfo = userinfo
+      that.userinfo = userinfo
+      console.log(userinfo)
     }else {
        console.log('暂无用户信息 点击登录' )
     }

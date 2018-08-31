@@ -229,7 +229,17 @@ export const chooseAddress = (obj)=> new Promise((reslove,reject)=>{
     }
   })
 })
+export const checkSession = ()=>new Promise((reslove,reject)=>{
+  wx.checkSession({
+    success:function (res) {
+      reslove(res)
+    },
+    fail(e){
+      reject(e)
+    }
+  })
 
+})
 
 export default {
   getStorage,

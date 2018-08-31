@@ -66,11 +66,8 @@
 
 
 
-        console.log('/pages/project/main?uuid=' + uuid + "&title=" + title)
-//        wx.navigateTo({
-//          url: '/pages/project/main?uuid=' + uuid + "&title=" + title
-//        })
-        wx.navigateTo('/pages/project/main?uuid=' + uuid + "&title=" + title)
+
+        wx.navigateTo('/pages/project/main?boons_uuid=' + uuid + "&title=" + title)
 
 
 

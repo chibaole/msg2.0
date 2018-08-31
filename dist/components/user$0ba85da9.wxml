@@ -4,9 +4,9 @@
       <label class="_span data-v-3105212a">我的研究院</label>
     </view>
     <view class="_div data-v-3105212a userinfo" style=" {{('margin-top:' + top + 'px' + ';')}}">
-      <image src="http://image.shengxinjing.cn/rate/unlogin.png" class="_img data-v-3105212a"></image>
+      <image src="{{userinfo.avatar_url}}" class="_img data-v-3105212a"></image>
       <view class="_p data-v-3105212a username">
-        <label class="_span data-v-3105212a foodname">{{userinfo.nickName}}</label>
+        <label class="_span data-v-3105212a foodname">{{userinfo.nick_name}}</label>
         <label class="_span data-v-3105212a foodLabel">新晋吃货</label>
       </view>
       <label class="_span data-v-3105212a score">2.3K

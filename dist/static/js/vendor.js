@@ -5894,20 +5894,21 @@ module.exports = function (it) {
 /* unused harmony export chooseLocation */
 /* unused harmony export removeStorage */
 /* unused harmony export clearStorage */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return login; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return login; });
 /* unused harmony export getWxLoginResult */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return request; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return request; });
 /* unused harmony export chooseImage */
 /* unused harmony export showShareMenu */
 /* unused harmony export pageScrollTo */
 /* unused harmony export getUserInfo */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return alert; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return alert; });
 /* unused harmony export navigateTo */
 /* unused harmony export redirectTo */
 /* unused harmony export startPullDownRefresh */
 /* unused harmony export stopPullDownRefresh */
 /* unused harmony export uploadFile */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return chooseAddress; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return chooseAddress; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return checkSession; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_promise__ = __webpack_require__(18);
@@ -6177,8 +6178,20 @@ var chooseAddress = function chooseAddress(obj) {
     });
   });
 };
+var checkSession = function checkSession() {
+  return new __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_promise___default.a(function (reslove, reject) {
+    wx.checkSession({
+      success: function success(res) {
+        reslove(res);
+      },
+      fail: function fail(e) {
+        reject(e);
+      }
+    });
+  });
+};
 
-/* harmony default export */ __webpack_exports__["b"] = ({
+/* harmony default export */ __webpack_exports__["c"] = ({
   getStorage: getStorage,
   setStorage: setStorage,
   getLocation: getLocation,

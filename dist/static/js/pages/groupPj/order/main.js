@@ -336,11 +336,7 @@ global.webpackJsonp([4],{
 
               case 6:
                 res = _context3.sent;
-
-
-                console.log(res);
                 wxCodeImg = that.host + res.wxa_qrcode_url;
-
 
                 _this3.painting = {
                   width: 375,
@@ -450,7 +446,7 @@ global.webpackJsonp([4],{
                   url: '/pages/test/main'
                 });
 
-              case 12:
+              case 11:
               case 'end':
                 return _context3.stop();
             }
@@ -481,7 +477,7 @@ global.webpackJsonp([4],{
                 }
 
                 _context4.next = 9;
-                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__utils_wx__["a" /* chooseAddress */])();
+                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__utils_wx__["b" /* chooseAddress */])();
 
               case 9:
                 res = _context4.sent;
@@ -555,19 +551,21 @@ global.webpackJsonp([4],{
 
             case 9:
               orderData = _context5.sent;
-              order_user = that.order_info.users; //[]
+              order_user = orderData.group_activity_initial.users; //[]
 
-              left_user = that.order_info.users_left; //number
+              left_user = orderData.group_activity_initial.users_left; //number
 
               for (i = 0; i < left_user; i++) {
                 order_user.push({});
               }
-              that.order_info.user = order_user;
+
+              orderData.group_activity_initial.users = order_user;
 
               if (orderData.group_activity_initial.status === 'failed' || orderData.group_activity_initial.status === 'success' || orderData.group_activity_initial.status === 'init') {
                 console.log('本次拼团结束');
                 that.group_activity_initial_finish = true;
               }
+
               that.order_info = orderData.group_activity_initial;
 
               that.getlastTime();
@@ -597,14 +595,15 @@ global.webpackJsonp([4],{
   },
   onShareAppMessage: function onShareAppMessage(res) {
     var that = this;
-    var initGroupId = '拼团活动uuid';
+    var uuid = that.group_activity_initial_uuid;
+
     if (res.from === 'button') {
       // 来自页面内转发按钮
       console.log(res.target);
     }
     return {
       title: that.order_info.title,
-      path: '/pages/groupPj/groupDetail/main?orderId=' //参与拼团的页面
+      path: '/pages/groupPj/order/main?group_activity_initial_uuid=' + uuid //参与拼团的页面
     };
   }
 });

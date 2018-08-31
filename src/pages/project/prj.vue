@@ -169,7 +169,8 @@
         haveOpen:'未开奖',
         prizeStyle:'prize',
         init_rewarded_users:[],
-        showGetMoreBtn:false
+        showGetMoreBtn:false,
+
       }
     },
     components:{
@@ -220,8 +221,14 @@
           this.showBox = !this.showBox
 
       },
-      getImg(){
+     async getImg(){
         let that = this
+        let uuid = that.uuid
+        let page = "pages/isme/index"
+        let data = [uuid,page]
+        let res = await this.$store.dispatch('wxCode',{...data})
+        let wxCodeImg = that.host+res.wxa_qrcode_url
+
           var painting = {
             width: 375,
             height: 557,
@@ -312,7 +319,7 @@
               },
               {
                 type: 'image',
-                url: 'http://p15hnzxrp.bkt.clouddn.com/wechatapp2.5.jpg',
+                url: wxCodeImg,
                 top: 396.75,
                 left: 139.15,
                 width: 96.6,
@@ -392,7 +399,7 @@
     },
    async onLoad(){
       let that = this
-      that.uuid =  that.$root.$mp.query.uuid //获取上一页传递的唯一标准uuid
+      that.uuid =  that.$root.$mp.query.boons_uuid //获取上一页传递的唯一标准uuid
       that.navbar_title =  that.$root.$mp.query.title //获取上一页传递的福利名称 做navbar的标题
      let currentuser_code = wx.getStorageSync('auth_code')
      let uuid_authCode = [that.uuid,currentuser_code]

@@ -68,8 +68,9 @@ global.webpackJsonp([2],{
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_wafer2_client_sdk___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_wafer2_client_sdk__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_YearProgress__ = __webpack_require__(199);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__util__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__config__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_navbar__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__utils_wx__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__config__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_navbar__ = __webpack_require__(6);
 
 
 
@@ -129,6 +130,7 @@ global.webpackJsonp([2],{
 //
 //
 //
+
 
 
 
@@ -141,13 +143,13 @@ global.webpackJsonp([2],{
 /* harmony default export */ __webpack_exports__["a"] = ({
   components: {
     YearProgress: __WEBPACK_IMPORTED_MODULE_4__components_YearProgress__["a" /* default */],
-    Navbar: __WEBPACK_IMPORTED_MODULE_7__components_navbar__["a" /* default */]
+    Navbar: __WEBPACK_IMPORTED_MODULE_8__components_navbar__["a" /* default */]
   },
   data: function data() {
     return {
       userinfo: {
-        avatarUrl: 'http://image.shengxinjing.cn/rate/unlogin.png',
-        nickName: '空空的地方'
+        avatar_url: 'http://image.shengxinjing.cn/rate/unlogin.png',
+        nick_name: '空空的地方'
       },
       nologin: true,
       top: 68
@@ -171,8 +173,6 @@ global.webpackJsonp([2],{
     getUserInfo1: function getUserInfo1() {
       var that = this;
       console.log('click事件首先触发');
-      // 判断小程序的API，回调，参数，组件等是否在当前版本可用。  为false 提醒用户升级微信版本
-      // console.log(wx.canIUse('button.open-type.getUserInfo'))
       if (wx.canIUse('button.open-type.getUserInfo')) {
         // 用户版本可用
       } else {
@@ -183,39 +183,58 @@ global.webpackJsonp([2],{
       var _this = this;
 
       return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
-        var that, data, res;
+        var that, sesssion_res, data;
         return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
                 that = _this;
+                _context.next = 3;
+                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_6__utils_wx__["a" /* checkSession */])();
+
+              case 3:
+                sesssion_res = _context.sent;
+
+                console.log(sesssion_res.errMsg);
+
+                if (!(sesssion_res.errMsg === 'checkSession:ok')) {
+                  _context.next = 15;
+                  break;
+                }
 
                 if (!e.mp.detail.rawData) {
-                  _context.next = 10;
+                  _context.next = 12;
                   break;
                 }
 
                 //用户按了允许授权按钮
-                console.log(e);
                 data = [e.mp.detail.encryptedData, e.mp.detail.iv, e.mp.detail.signature, e.mp.detail.rawData];
-                _context.next = 6;
+                _context.next = 10;
                 return that.$store.dispatch('saveInfo', __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends___default()({}, data));
 
-              case 6:
-                res = _context.sent;
-
-                //        let res = await that.$store.dispatch('test')
-
-                console.log(res);
-
-                _context.next = 11;
+              case 10:
+                _context.next = 13;
                 break;
 
-              case 10:
+              case 12:
                 //用户按了拒绝按钮
                 console.log('用户按了拒绝按钮');
 
-              case 11:
+              case 13:
+                _context.next = 19;
+                break;
+
+              case 15:
+                console.log('session 过期');
+
+                _context.next = 18;
+                return that.$store.dispatch('signup');
+
+              case 18:
+
+                console.log('重新登录成功');
+
+              case 19:
               case 'end':
                 return _context.stop();
             }
@@ -227,9 +246,11 @@ global.webpackJsonp([2],{
   onShow: function onShow() {
     var that = this;
     var userinfo = wx.getStorageSync('userinfo');
+    console.log(userinfo);
 
     if (userinfo) {
-      this.userinfo = userinfo;
+      that.userinfo = userinfo;
+      console.log(userinfo);
     } else {
       console.log('暂无用户信息 点击登录');
     }
@@ -389,13 +410,13 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     })
   }, [_c('img', {
     attrs: {
-      "src": "http://image.shengxinjing.cn/rate/unlogin.png"
+      "src": _vm.userinfo.avatar_url
     }
   }), _vm._v(" "), _c('p', {
     staticClass: "username"
   }, [_c('span', {
     staticClass: "foodname"
-  }, [_vm._v(_vm._s(_vm.userinfo.nickName))]), _vm._v(" "), _c('span', {
+  }, [_vm._v(_vm._s(_vm.userinfo.nick_name))]), _vm._v(" "), _c('span', {
     staticClass: "foodLabel"
   }, [_vm._v("新晋吃货")])]), _vm._v(" "), _vm._m(0), _vm._v(" "), _vm._m(1)], 1), _vm._v(" "), _vm._m(2), _vm._v(" "), _c('div', {
     staticClass: "mylist",

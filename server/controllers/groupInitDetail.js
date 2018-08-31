@@ -4,8 +4,6 @@
 module.exports = async(ctx) => {
   console.log('拼团订单详情的请求')
 
-  let uuid =  ctx.params.uuid
-  console.log(uuid)
   let res = {
 
     group_activity_initial: {
