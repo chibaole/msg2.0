@@ -40,18 +40,17 @@ global.webpackJsonp([1],{
 /* harmony default export */ __webpack_exports__["a"] = ({
   data: function data() {
     return {
-      groups: [],
-      host: 'http://47.98.170.205',
-      showSkeleton: true
+      group_activities: [],
+      host: 'http://47.98.170.205'
     };
   },
 
   methods: {
     goGroup: function goGroup(e) {
-      var uuid = e.currentTarget.dataset.uuid;
-      console.log(uuid);
+      var group_activities_uuid = e.currentTarget.dataset.uuid;
+      //          console.log(uuid)
       wx.navigateTo({
-        url: '/pages/groupPj/main?group_uuid=' + uuid
+        url: '/pages/groupPj/main?group_activities_uuid=' + group_activities_uuid
       });
     },
     getGroup: function getGroup() {
@@ -91,17 +90,10 @@ global.webpackJsonp([1],{
   },
 
   onLoad: function onLoad() {
-    var that = this;
-    //      that.getGroup()
-    setTimeout(function () {
-      that.showSkeleton = false;
-    }, 5000);
-  },
-  mounted: function mounted() {
     var _this2 = this;
 
     return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee2() {
-      var groupList;
+      var group_activities;
       return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
         while (1) {
           switch (_context2.prev = _context2.next) {
@@ -110,12 +102,12 @@ global.webpackJsonp([1],{
               return _this2.$store.dispatch('getGroup');
 
             case 2:
-              groupList = _context2.sent;
+              group_activities = _context2.sent;
 
+              console.log(group_activities);
+              _this2.group_activities = group_activities.group_activities;
 
-              _this2.groups = groupList.group_activities;
-
-            case 4:
+            case 5:
             case 'end':
               return _context2.stop();
           }
@@ -853,15 +845,15 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "container "
   }, [_c('p', {
     staticClass: "componten_name "
-  }, [_c('span'), _vm._v("拼团")]), _vm._v(" "), _vm._l((_vm.groups), function(group, index) {
+  }, [_c('span'), _vm._v("拼团")]), _vm._v(" "), _vm._l((_vm.group_activities), function(group_activitie, index) {
     return _c('div', {
-      key: group.uuid,
+      key: group_activitie.uuid,
       staticClass: "group-tiem "
     }, [_c('div', {
       staticClass: "pic "
     }, [_c('img', {
       attrs: {
-        "src": _vm.host + group.title_image_url,
+        "src": _vm.host + group_activitie.title_image_url,
         "alt": ""
       }
     })]), _vm._v(" "), _c('div', {
@@ -870,21 +862,21 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       staticClass: "group-info "
     }, [_c('div', {
       staticClass: "group-text "
-    }, [_vm._v(_vm._s(group.title))]), _vm._v(" "), _c('div', {
+    }, [_vm._v(_vm._s(group_activitie.title))]), _vm._v(" "), _c('div', {
       staticClass: "group-prj-price "
-    }, [_vm._v("$" + _vm._s(group.current_price) + " "), _c('span', {
+    }, [_vm._v("$" + _vm._s(group_activitie.current_price) + " "), _c('span', {
       staticClass: "price "
-    }, [_vm._v("¥" + _vm._s(group.original_price))])])]), _vm._v(" "), _c('div', {
+    }, [_vm._v("¥" + _vm._s(group_activitie.original_price))])])]), _vm._v(" "), _c('div', {
       staticClass: "join-group ",
       attrs: {
         "data-groupname": _vm.groupname,
-        "data-uuid": group.uuid,
+        "data-uuid": group_activitie.uuid,
         "eventid": '0-' + index
       },
       on: {
         "click": _vm.goGroup
       }
-    }, [_vm._v(_vm._s(group.button.text))])])])
+    }, [_vm._v(_vm._s(group_activitie.button.text))])])])
   })], 2)
 }
 var staticRenderFns = []

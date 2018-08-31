@@ -76,8 +76,8 @@ global.webpackJsonp([11],{
       uuid: '',
       group_activity: {},
       navbar_title: '拼团',
-      initGroupId: '',
-      group_uuid: '',
+      group_activity_order_uuid: '',
+      group_activities_uuid: '',
       time: { day: '', hours: '', minutes: '' },
       myDetail: '',
       host: __WEBPACK_IMPORTED_MODULE_5__config__["a" /* default */].host
@@ -167,38 +167,34 @@ global.webpackJsonp([11],{
       var _this3 = this;
 
       return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.mark(function _callee3() {
-        var that, uuid, currentuser_code, uuid_authCode, initGroupData, initGroupId;
+        var that, group_activitys_uuid, currentuser_code, uuid_authCode, initGroupData, group_activity_order_uuid;
         return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.wrap(function _callee3$(_context3) {
           while (1) {
             switch (_context3.prev = _context3.next) {
               case 0:
                 that = _this3;
-                uuid = that.group_activity.uuid;
+                group_activitys_uuid = that.group_activities_uuid;
                 currentuser_code = wx.getStorageSync('auth_code');
-                uuid_authCode = [uuid, currentuser_code];
+                uuid_authCode = [group_activitys_uuid, currentuser_code];
                 _context3.next = 6;
                 return that.$store.dispatch('initGroup', __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default()({}, uuid_authCode));
 
               case 6:
                 initGroupData = _context3.sent;
 
+
                 console.log(initGroupData);
 
                 if (initGroupData) {
-                  initGroupId = initGroupData.group_activity_order.uuid; //发起拼团返回的订单id
+                  group_activity_order_uuid = initGroupData.group_activity_order.uuid; //发起拼团返回的订单id
 
-                  that.initGroupId = initGroupId;
-                  console.log('定单uuid' + initGroupId);
+                  that.group_activity_order_uuid = group_activity_order_uuid;
+                  console.log('定单uuid' + group_activity_order_uuid);
                   wx.navigateTo({
-                    url: '/pages/groupPj/groupDetail/main?initGroupId=' + initGroupId
+                    url: '/pages/groupPj/groupDetail/main?group_activity_order_uuid=' + group_activity_order_uuid
                   });
                 } else {
                   __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__utils_util__["b" /* showModal */])('发起失败', '你已经在这个拼团');
-                  //                        let orderId = wx.getStorageSync('orderId')
-                  //                        console.log(orderId)
-                  //                        wx.navigateTo({
-                  //                          url: '/pages/groupPj/order/main?orderId=' + orderId
-                  //                        })
                 }
 
               case 9:
@@ -243,7 +239,7 @@ global.webpackJsonp([11],{
     var _this4 = this;
 
     return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.mark(function _callee4() {
-      var that, uuid, currentuser_code, uuid_authCode, group_activity, group_activity_uuid;
+      var that, uuid, currentuser_code, uuid_authCode, group_activity;
       return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.wrap(function _callee4$(_context4) {
         while (1) {
           switch (_context4.prev = _context4.next) {
@@ -252,29 +248,22 @@ global.webpackJsonp([11],{
 
               that.getlastTime();
 
-              that.group_uuid = that.$root.$mp.query.group_uuid; //获取活动列表的拼团活动uuid
+              that.group_activities_uuid = that.$root.$mp.query.group_activities_uuid; //获取活动列表的group_activities_uuid
 
-              console.log(_this4.group_uuid);
-
-              //      that.getGrouDetail()
-
-              uuid = that.group_uuid;
+              uuid = that.group_activities_uuid;
               currentuser_code = wx.getStorageSync('auth_code');
               uuid_authCode = [uuid, currentuser_code];
-              _context4.next = 9;
+              _context4.next = 8;
               return that.$store.dispatch('getGrouDetail', __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default()({}, uuid_authCode));
 
-            case 9:
+            case 8:
               group_activity = _context4.sent;
               //获取当前拼团活动详情
               that.group_activity = group_activity.group_activity;
-              group_activity_uuid = that.group_activity.uuid;
-
               //通过富文本展示商品详情
-
               that.myDetail = that.group_activity.detail;
 
-            case 13:
+            case 11:
             case 'end':
               return _context4.stop();
           }

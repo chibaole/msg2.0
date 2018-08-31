@@ -474,11 +474,9 @@
 
     let group_activity_initial_uuid = that.$root.$mp.query.group_activity_initial_uuid //发起拼团活动返回订单uuid
 
-    console.log(group_activity_initial_uuid)
 
     let currentuser_code = wx.getStorageSync('auth_code')
     let uuid_authCode = [group_activity_initial_uuid,currentuser_code]
-     console.log(uuid_authCode)
 
     let orderData = await  that.$store.dispatch('groupActivitiesInit',{...uuid_authCode})
 

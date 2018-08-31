@@ -65,12 +65,12 @@ global.webpackJsonp([12],{
     pay: function pay(e) {
       console.log(e);
       var that = this;
-      var orderId = that.order_info.group_activity_initial.uuid; //需要支付的订单uuid
-      wx.setStorageSync('orderId', orderId); //存储拼团支付订单号
+      var group_activity_initial_uuid = that.order_info.group_activity_initial.uuid; //需要支付的订单uuid
+      wx.setStorageSync('group_activity_initial_uuid', group_activity_initial_uuid); //存储拼团支付订单号
       wx.navigateTo({
-        url: '/pages/groupPj/order/main?group_activity_initial_uuid=' + orderId
+        url: '/pages/groupPj/order/main?group_activity_initial_uuid=' + group_activity_initial_uuid
       });
-      console.log('/pages/groupPj/order/main?group_activity_initial_uuid=' + orderId);
+      console.log('/pages/groupPj/order/main?group_activity_initial_uuid=' + group_activity_initial_uuid);
       wx.requestPayment({
         'timeStamp': '',
         'nonceStr': '',
@@ -92,16 +92,16 @@ global.webpackJsonp([12],{
     var _this = this;
 
     return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
-      var that, initGroupId, currentuser_code, uuid_authCode, orderData;
+      var that, group_activity_order_uuid, currentuser_code, uuid_authCode, orderData;
       return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
               that = _this;
-              initGroupId = _this.$root.$mp.query.initGroupId; //获取发起拼团活动返回的订单ID
+              group_activity_order_uuid = _this.$root.$mp.query.group_activity_order_uuid; //获取发起拼团活动返回的订单ID
 
               currentuser_code = wx.getStorageSync('auth_code');
-              uuid_authCode = [initGroupId, currentuser_code];
+              uuid_authCode = [group_activity_order_uuid, currentuser_code];
 
               //      that.getGroup_orders()
               //新api的形式

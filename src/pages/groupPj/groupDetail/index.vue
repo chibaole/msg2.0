@@ -51,12 +51,12 @@
         pay(e){
           console.log(e)
           let that = this
-          let orderId= that.order_info.group_activity_initial.uuid  //需要支付的订单uuid
-          wx.setStorageSync('orderId',orderId) //存储拼团支付订单号
+          let group_activity_initial_uuid= that.order_info.group_activity_initial.uuid  //需要支付的订单uuid
+          wx.setStorageSync('group_activity_initial_uuid',group_activity_initial_uuid) //存储拼团支付订单号
           wx.navigateTo({
-            url: '/pages/groupPj/order/main?group_activity_initial_uuid=' + orderId,
+            url: '/pages/groupPj/order/main?group_activity_initial_uuid=' + group_activity_initial_uuid,
           })
-          console.log('/pages/groupPj/order/main?group_activity_initial_uuid=' + orderId)
+          console.log('/pages/groupPj/order/main?group_activity_initial_uuid=' + group_activity_initial_uuid)
           wx.requestPayment({
             'timeStamp': '',
             'nonceStr': '',
@@ -86,9 +86,9 @@
     },
    async onLoad(){
       let that = this
-      let initGroupId =  this.$root.$mp.query.initGroupId //获取发起拼团活动返回的订单ID
+      let group_activity_order_uuid =  this.$root.$mp.query.group_activity_order_uuid //获取发起拼团活动返回的订单ID
      let currentuser_code = wx.getStorageSync('auth_code')
-     let uuid_authCode = [initGroupId,currentuser_code]
+     let uuid_authCode = [group_activity_order_uuid,currentuser_code]
 
 
 //      that.getGroup_orders()

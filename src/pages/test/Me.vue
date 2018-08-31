@@ -4,7 +4,6 @@
     <img :src="shareImage" class="share-image" />
     <canvasdrawer :painting="painting" class="canvasdrawer" @getImage="eventGetImage"/>
 
-    <!--<button @click="eventDraw" class="btn">绘制</button>-->
     <button @click="eventSave" class="btn">保存图片</button>
   </div>
 </template>
@@ -65,10 +64,7 @@
 
     },
 
-    created () {
-      // 调用应用实例的方法获取全局数据
-//      this.eventDraw()
-    }
+
   }
 </script>
 

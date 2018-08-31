@@ -58,8 +58,8 @@
         uuid:'',
         group_activity:{},
         navbar_title:'拼团',
-        initGroupId:'',
-        group_uuid:'',
+        group_activity_order_uuid:'',
+        group_activities_uuid:'',
         time:{day:'',hours:'',minutes:''},
         myDetail:'',
         host:config.host
@@ -110,27 +110,25 @@
 //发起拼团订单
       async initGroup(){
                       let that = this
-                      let uuid = that.group_activity.uuid
+                      let group_activitys_uuid = that.group_activities_uuid
                        let currentuser_code = wx.getStorageSync('auth_code')
-                      let uuid_authCode = [uuid,currentuser_code]
+                      let uuid_authCode = [group_activitys_uuid,currentuser_code]
 
                       let initGroupData = await that.$store.dispatch('initGroup',{...uuid_authCode})
+
+
                       console.log(initGroupData)
 
                       if(initGroupData){
-                        let initGroupId = initGroupData.group_activity_order.uuid  //发起拼团返回的订单id
-                        that.initGroupId = initGroupId
-                        console.log('定单uuid'+initGroupId)
+                        let group_activity_order_uuid = initGroupData.group_activity_order.uuid  //发起拼团返回的订单id
+                        that.group_activity_order_uuid = group_activity_order_uuid
+                        console.log('定单uuid'+group_activity_order_uuid)
                         wx.navigateTo({
-                          url: '/pages/groupPj/groupDetail/main?initGroupId=' + initGroupId
+                          url: '/pages/groupPj/groupDetail/main?group_activity_order_uuid=' + group_activity_order_uuid
                         })
                       }else {
                         showModal('发起失败','你已经在这个拼团')
-//                        let orderId = wx.getStorageSync('orderId')
-//                        console.log(orderId)
-//                        wx.navigateTo({
-//                          url: '/pages/groupPj/order/main?orderId=' + orderId
-//                        })
+
                       }
 
 
@@ -173,22 +171,13 @@
       let that = this
      that.getlastTime()
 
-     that.group_uuid =  that.$root.$mp.query.group_uuid //获取活动列表的拼团活动uuid
+     that.group_activities_uuid =  that.$root.$mp.query.group_activities_uuid //获取活动列表的group_activities_uuid
 
-      console.log(this.group_uuid)
-
-//      that.getGrouDetail()
-
-     let uuid = that.group_uuid
+     let uuid = that.group_activities_uuid
      let currentuser_code = wx.getStorageSync('auth_code')
      let uuid_authCode = [uuid,currentuser_code]
-
-
       let group_activity = await that.$store.dispatch('getGrouDetail',{...uuid_authCode})  //获取当前拼团活动详情
      that.group_activity =  group_activity.group_activity
-     let group_activity_uuid = that.group_activity.uuid
-
-
      //通过富文本展示商品详情
      that.myDetail = that.group_activity.detail
 

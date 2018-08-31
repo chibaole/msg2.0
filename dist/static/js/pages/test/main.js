@@ -8,10 +8,6 @@ global.webpackJsonp([10],{
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_defineProperty___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_defineProperty__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_navbar__ = __webpack_require__(6);
 
-
-var _components$data$moun;
-
-//
 //
 //
 //
@@ -26,7 +22,7 @@ var _components$data$moun;
 // import card from '@/components/card'
 
 
-/* harmony default export */ __webpack_exports__["a"] = (_components$data$moun = {
+/* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_defineProperty___default()({
 
   components: {
     Navbar: __WEBPACK_IMPORTED_MODULE_1__components_navbar__["a" /* default */]
@@ -71,12 +67,9 @@ var _components$data$moun;
       });
     }
   }
-}, __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_defineProperty___default()(_components$data$moun, 'mounted', function mounted() {
+}, 'mounted', function mounted() {
   this.eventDraw();
-}), __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_defineProperty___default()(_components$data$moun, 'created', function created() {
-  // 调用应用实例的方法获取全局数据
-  //      this.eventDraw()
-}), _components$data$moun);
+}));
 
 /***/ }),
 

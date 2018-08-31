@@ -555,17 +555,13 @@ global.webpackJsonp([4],{
               that = _this5;
               group_activity_initial_uuid = that.$root.$mp.query.group_activity_initial_uuid; //发起拼团活动返回订单uuid
 
-              console.log(group_activity_initial_uuid);
 
               currentuser_code = wx.getStorageSync('auth_code');
               uuid_authCode = [group_activity_initial_uuid, currentuser_code];
-
-              console.log(uuid_authCode);
-
-              _context5.next = 9;
+              _context5.next = 7;
               return that.$store.dispatch('groupActivitiesInit', __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends___default()({}, uuid_authCode));
 
-            case 9:
+            case 7:
               orderData = _context5.sent;
 
 
@@ -582,7 +578,7 @@ global.webpackJsonp([4],{
 
               that.getlastTime();
 
-            case 16:
+            case 14:
             case 'end':
               return _context5.stop();
           }

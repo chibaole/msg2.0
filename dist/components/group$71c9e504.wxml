@@ -2,18 +2,18 @@
   <view class="_div data-v-318ee708 container ">
     <view class="_p data-v-318ee708 componten_name ">
       <label class="_span data-v-318ee708"></label>拼团</view>
-    <view class="_div data-v-318ee708 group-tiem " wx:key="group.uuid" key="{{group.uuid}}" wx:for="{{groups}}" wx:for-index="index" wx:for-item="group">
+    <view class="_div data-v-318ee708 group-tiem " wx:key="group_activitie.uuid" key="{{group_activitie.uuid}}" wx:for="{{group_activities}}" wx:for-index="index" wx:for-item="group_activitie">
       <view class="_div data-v-318ee708 pic ">
-        <image src="{{host + group.title_image_url}}" alt class="_img data-v-318ee708"></image>
+        <image src="{{host + group_activitie.title_image_url}}" alt class="_img data-v-318ee708"></image>
       </view>
       <view class="_div data-v-318ee708 info-box ">
         <view class="_div data-v-318ee708 group-info ">
-          <view class="_div data-v-318ee708 group-text ">{{group.title}}</view>
-          <view class="_div data-v-318ee708 group-prj-price ">${{group.current_price}}
-            <label class="_span data-v-318ee708 price ">¥{{group.original_price}}</label>
+          <view class="_div data-v-318ee708 group-text ">{{group_activitie.title}}</view>
+          <view class="_div data-v-318ee708 group-prj-price ">${{group_activitie.current_price}}
+            <label class="_span data-v-318ee708 price ">¥{{group_activitie.original_price}}</label>
           </view>
         </view>
-        <view class="_div data-v-318ee708 join-group " bindtap="handleProxy" data-groupname="{{groupname}}" data-uuid="{{group.uuid}}" data-eventid="{{'0-'+index}}" data-comkey="{{$k}}">{{group.button.text}}</view>
+        <view class="_div data-v-318ee708 join-group " bindtap="handleProxy" data-groupname="{{groupname}}" data-uuid="{{group_activitie.uuid}}" data-eventid="{{'0-'+index}}" data-comkey="{{$k}}">{{group_activitie.button.text}}</view>
       </view>
     </view>
   </view>

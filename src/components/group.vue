@@ -3,15 +3,15 @@
   <div class="container ">
 
     <p class="componten_name "><span></span>拼团</p>
-    <div class="group-tiem " v-for="group in groups" :key="group.uuid">
-      <div class="pic " ><img  :src="host + group.title_image_url" alt=""></div>
+    <div class="group-tiem " v-for="group_activitie in group_activities" :key="group_activitie.uuid">
+      <div class="pic " ><img  :src="host + group_activitie.title_image_url" alt=""></div>
       <div class="info-box ">
       <div class="group-info ">
-          <div class="group-text ">{{group.title}}</div>
-          <div class="group-prj-price ">${{group.current_price}} <span class="price ">¥{{group.original_price}}</span></div>
+          <div class="group-text ">{{group_activitie.title}}</div>
+          <div class="group-prj-price ">${{group_activitie.current_price}} <span class="price ">¥{{group_activitie.original_price}}</span></div>
 
       </div>
-      <div class="join-group " @click="goGroup" :data-groupname="groupname" :data-uuid="group.uuid">{{group.button.text}}</div>
+      <div class="join-group " @click="goGroup" :data-groupname="groupname" :data-uuid="group_activitie.uuid">{{group_activitie.button.text}}</div>
       </div>
 
     </div>
@@ -26,19 +26,18 @@
   export default {
     data(){
       return{
-        groups:[
+        group_activities:[
 
         ],
         host:'http://47.98.170.205',
-        showSkeleton:true
       }
     },
     methods:{
       goGroup(e){
-        let  uuid = e.currentTarget.dataset.uuid
-          console.log(uuid)
+        let  group_activities_uuid = e.currentTarget.dataset.uuid
+//          console.log(uuid)
           wx.navigateTo({
-             url: '/pages/groupPj/main?group_uuid=' + uuid
+             url: '/pages/groupPj/main?group_activities_uuid=' + group_activities_uuid
           })
       },
 
@@ -58,20 +57,11 @@
     },
 
 
-      onLoad(){
-        let that = this
-//      that.getGroup()
-        setTimeout(()=>{
-          that.showSkeleton = false
-        },5000)
 
-
-    },
-   async mounted(){
-////      that.getGroup()
-     let groupList =  await this.$store.dispatch('getGroup')
-
-     this.groups = groupList.group_activities
+   async onLoad(){
+     let group_activities =  await this.$store.dispatch('getGroup')
+      console.log(group_activities)
+     this.group_activities = group_activities.group_activities
 
     }
   }
