@@ -51,11 +51,12 @@
         pay(e){
           console.log(e)
           let that = this
-          let orderId= that.order_info.uuid  //需要支付的订单uuid
+          let orderId= that.order_info.group_activity_initial.uuid  //需要支付的订单uuid
           wx.setStorageSync('orderId',orderId) //存储拼团支付订单号
           wx.navigateTo({
-            url: '/pages/groupPj/order/main?orderId=' + orderId,
+            url: '/pages/groupPj/order/main?group_activity_initial_uuid=' + orderId,
           })
+          console.log('/pages/groupPj/order/main?group_activity_initial_uuid=' + orderId)
           wx.requestPayment({
             'timeStamp': '',
             'nonceStr': '',
@@ -93,6 +94,7 @@
 //      that.getGroup_orders()
       //新api的形式
       const orderData = await  that.$store.dispatch('groupActivities_order',{...uuid_authCode})
+
      console.log(orderData)
 
       that.order_info = orderData.group_activity_order

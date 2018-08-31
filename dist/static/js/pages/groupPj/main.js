@@ -173,16 +173,13 @@ global.webpackJsonp([11],{
             switch (_context3.prev = _context3.next) {
               case 0:
                 that = _this3;
-                uuid = that.group_uuid;
+                uuid = that.group_activity.uuid;
                 currentuser_code = wx.getStorageSync('auth_code');
                 uuid_authCode = [uuid, currentuser_code];
-
-
-                console.log(uuid_authCode);
-                _context3.next = 7;
+                _context3.next = 6;
                 return that.$store.dispatch('initGroup', __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default()({}, uuid_authCode));
 
-              case 7:
+              case 6:
                 initGroupData = _context3.sent;
 
                 console.log(initGroupData);
@@ -191,6 +188,7 @@ global.webpackJsonp([11],{
                   initGroupId = initGroupData.group_activity_order.uuid; //发起拼团返回的订单id
 
                   that.initGroupId = initGroupId;
+                  console.log('定单uuid' + initGroupId);
                   wx.navigateTo({
                     url: '/pages/groupPj/groupDetail/main?initGroupId=' + initGroupId
                   });
@@ -203,7 +201,7 @@ global.webpackJsonp([11],{
                   //                        })
                 }
 
-              case 10:
+              case 9:
               case 'end':
                 return _context3.stop();
             }
@@ -245,7 +243,7 @@ global.webpackJsonp([11],{
     var _this4 = this;
 
     return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.mark(function _callee4() {
-      var that, uuid, currentuser_code, uuid_authCode, group_activity;
+      var that, uuid, currentuser_code, uuid_authCode, group_activity, group_activity_uuid;
       return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.wrap(function _callee4$(_context4) {
         while (1) {
           switch (_context4.prev = _context4.next) {
@@ -263,20 +261,17 @@ global.webpackJsonp([11],{
               uuid = that.group_uuid;
               currentuser_code = wx.getStorageSync('auth_code');
               uuid_authCode = [uuid, currentuser_code];
-
-
-              console.log(uuid_authCode);
-
-              _context4.next = 10;
+              _context4.next = 9;
               return that.$store.dispatch('getGrouDetail', __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default()({}, uuid_authCode));
 
-            case 10:
+            case 9:
               group_activity = _context4.sent;
               //获取当前拼团活动详情
-
               that.group_activity = group_activity.group_activity;
+              group_activity_uuid = that.group_activity.uuid;
 
               //通过富文本展示商品详情
+
               that.myDetail = that.group_activity.detail;
 
             case 13:

@@ -157,7 +157,8 @@ global.webpackJsonp([4],{
       navbar_title: '团购',
       orderIdId: '',
       myDetail: '',
-      scanCode: false
+      scanCode: false,
+      group_activity_initial_uuid: ''
     };
   },
 
@@ -329,126 +330,155 @@ global.webpackJsonp([4],{
       this.showBox = !this.showBox;
     },
     getImg: function getImg() {
-
-      this.painting = {
-        width: 375,
-        height: 557,
-        clear: true,
-        views: [
-
-        //            绘制白色背景
-        {
-          type: 'rect',
-          background: '#fff',
-          top: 0,
-          left: 0,
-          width: 375,
-          height: 557
-        },
-
-        //            绘制的头图
-        {
-          type: 'image',
-          url: 'http://oxl5leo53.bkt.clouddn.com/u=1204211051,3834529407&fm=11&gp=0.jpg', //变化图片
-          top: 0,
-          left: 0,
-          width: 375,
-          height: 173
-        },
-        //            绘制的背景图
-
-
-        //http://p15hnzxrp.bkt.clouddn.com/wechatapp2.5.jpg
-        // 文本表达
-        {
-          type: 'text',
-          content: this.order_info.title, //变量的名称
-          fontSize: 27.6,
-          lineHeight: 27.6,
-          color: '#454553',
-          textAlign: 'left',
-          top: 217.35,
-          left: 23,
-          width: 328.9,
-          MaxLineNumber: 2, //最大两行 超出...
-          breakWord: true, //换行
-          bolder: true //加粗
-        }, {
-          type: 'text',
-          content: '￥5', //变量的价格
-          fontSize: 20.7,
-          color: '#f83713',
-          textAlign: 'left',
-          top: 296.7,
-          left: 133.4,
-          bolder: true
-        }, {
-          type: 'text',
-          content: '拼团价',
-          fontSize: 13.8,
-          color: '#f83713',
-          textAlign: 'left',
-          top: 304.75,
-          left: 150 * 1.15 //根据价格字符个数 变化
-
-        }, {
-          type: 'text',
-          content: '95', //根据价格字符个数 变化
-          fontSize: 13 * 1.15,
-          color: '#999',
-          textAlign: 'left',
-          top: 265 * 1.15,
-          left: 190 * 1.15, //根据价格字符个数 变化
-          textDecoration: 'line-through'
-        }, {
-          type: 'text',
-          content: '参团仅限新用户哦~',
-          fontSize: 16 * 1.15,
-          color: '#4a4a4a',
-          textAlign: 'left',
-          top: 314 * 1.15,
-          left: 95 * 1.15,
-          lineHeight: 16 * 1.15,
-          MaxLineNumber: 2,
-          breakWord: true,
-          width: 136 * 1.15
-        }, {
-          type: 'image',
-          url: 'http://p15hnzxrp.bkt.clouddn.com/wechatapp2.5.jpg',
-          top: 345 * 1.15,
-          left: 121 * 1.15,
-          width: 84 * 1.15,
-          height: 84 * 1.15
-        }, {
-          type: 'text',
-          content: '长按识别，参与拼团',
-          fontSize: 14 * 1.15,
-          color: '#4a4a4a',
-          textAlign: 'left',
-          top: 439 * 1.15,
-          left: 100 * 1.15,
-          lineHeight: 14 * 1.15,
-          MaxLineNumber: 2,
-          breakWord: true,
-          width: 156 * 1.15
-        }]
-      };
-      wx.setStorageSync('painting', this.painting);
-      wx.navigateTo({
-        url: '/pages/test/main'
-      });
-    },
-    chooseAddress: function chooseAddress() {
       var _this3 = this;
 
       return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee3() {
-        var that, data, uuid, order_status, res, auth_code, address, address_res;
+        var uuid, page, data, res, wxCodeImg;
         return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee3$(_context3) {
           while (1) {
             switch (_context3.prev = _context3.next) {
               case 0:
+                uuid = wx.getStorageSync('initGroupId');
+                page = 'pages/groupPj/order/main';
+                data = [uuid, page];
+                _context3.next = 5;
+                return _this3.$store.dispatch('wxCode', __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends___default()({}, data));
+
+              case 5:
+                res = _context3.sent;
+
+
+                console.log(res);
+                wxCodeImg = res.wxa_qrcode_url;
+
+
+                _this3.painting = {
+                  width: 375,
+                  height: 557,
+                  clear: true,
+                  views: [
+
+                  //            绘制白色背景
+                  {
+                    type: 'rect',
+                    background: '#fff',
+                    top: 0,
+                    left: 0,
+                    width: 375,
+                    height: 557
+                  },
+
+                  //            绘制的头图
+                  {
+                    type: 'image',
+                    url: 'http://oxl5leo53.bkt.clouddn.com/u=1204211051,3834529407&fm=11&gp=0.jpg', //变化图片
+                    top: 0,
+                    left: 0,
+                    width: 375,
+                    height: 173
+                  },
+                  //            绘制的背景图
+
+
+                  //http://p15hnzxrp.bkt.clouddn.com/wechatapp2.5.jpg
+                  // 文本表达
+                  {
+                    type: 'text',
+                    content: _this3.order_info.title, //变量的名称
+                    fontSize: 27.6,
+                    lineHeight: 27.6,
+                    color: '#454553',
+                    textAlign: 'left',
+                    top: 217.35,
+                    left: 23,
+                    width: 328.9,
+                    MaxLineNumber: 2, //最大两行 超出...
+                    breakWord: true, //换行
+                    bolder: true //加粗
+                  }, {
+                    type: 'text',
+                    content: '￥5', //变量的价格
+                    fontSize: 20.7,
+                    color: '#f83713',
+                    textAlign: 'left',
+                    top: 296.7,
+                    left: 133.4,
+                    bolder: true
+                  }, {
+                    type: 'text',
+                    content: '拼团价',
+                    fontSize: 13.8,
+                    color: '#f83713',
+                    textAlign: 'left',
+                    top: 304.75,
+                    left: 150 * 1.15 //根据价格字符个数 变化
+
+                  }, {
+                    type: 'text',
+                    content: '95', //根据价格字符个数 变化
+                    fontSize: 13 * 1.15,
+                    color: '#999',
+                    textAlign: 'left',
+                    top: 265 * 1.15,
+                    left: 190 * 1.15, //根据价格字符个数 变化
+                    textDecoration: 'line-through'
+                  }, {
+                    type: 'text',
+                    content: '参团仅限新用户哦~',
+                    fontSize: 16 * 1.15,
+                    color: '#4a4a4a',
+                    textAlign: 'left',
+                    top: 314 * 1.15,
+                    left: 95 * 1.15,
+                    lineHeight: 16 * 1.15,
+                    MaxLineNumber: 2,
+                    breakWord: true,
+                    width: 136 * 1.15
+                  }, {
+                    type: 'image',
+                    url: wxCodeImg,
+                    top: 345 * 1.15,
+                    left: 121 * 1.15,
+                    width: 84 * 1.15,
+                    height: 84 * 1.15
+                  }, {
+                    type: 'text',
+                    content: '长按识别，参与拼团',
+                    fontSize: 14 * 1.15,
+                    color: '#4a4a4a',
+                    textAlign: 'left',
+                    top: 439 * 1.15,
+                    left: 100 * 1.15,
+                    lineHeight: 14 * 1.15,
+                    MaxLineNumber: 2,
+                    breakWord: true,
+                    width: 156 * 1.15
+                  }]
+                };
+                wx.setStorageSync('painting', _this3.painting);
+                wx.navigateTo({
+                  url: '/pages/test/main'
+                });
+
+              case 11:
+              case 'end':
+                return _context3.stop();
+            }
+          }
+        }, _callee3, _this3);
+      }))();
+    },
+    chooseAddress: function chooseAddress() {
+      var _this4 = this;
+
+      return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee4() {
+        var that, data, uuid, order_status, res, auth_code, address, address_res;
+        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee4$(_context4) {
+          while (1) {
+            switch (_context4.prev = _context4.next) {
+              case 0:
                 console.log('领奖');
-                that = _this3;
+                that = _this4;
                 data = [];
                 uuid = that.orderId;
                 order_status = that.order_info.status; //success grouping init failed
@@ -456,15 +486,15 @@ global.webpackJsonp([4],{
                 console.log(order_status);
 
                 if (!(order_status === 'success')) {
-                  _context3.next = 20;
+                  _context4.next = 20;
                   break;
                 }
 
-                _context3.next = 9;
+                _context4.next = 9;
                 return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__utils_wx__["a" /* chooseAddress */])();
 
               case 9:
-                res = _context3.sent;
+                res = _context4.sent;
 
                 console.log(res);
                 auth_code = wx.getStorageSync('auth_code');
@@ -481,17 +511,17 @@ global.webpackJsonp([4],{
 
 
                 data = [uuid, auth_code, address];
-                _context3.next = 16;
+                _context4.next = 16;
                 return that.$store.dispatch('groupAddress', __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends___default()({}, data));
 
               case 16:
-                address_res = _context3.sent;
+                address_res = _context4.sent;
 
 
                 wx.navigateTo({
                   url: '/pages/user/myGroup/myGroupDetail/main?uuid=' + uuid
                 });
-                _context3.next = 21;
+                _context4.next = 21;
                 break;
 
               case 20:
@@ -499,10 +529,10 @@ global.webpackJsonp([4],{
 
               case 21:
               case 'end':
-                return _context3.stop();
+                return _context4.stop();
             }
           }
-        }, _callee3, _this3);
+        }, _callee4, _this4);
       }))();
     },
     createGroup: function createGroup() {
@@ -513,33 +543,30 @@ global.webpackJsonp([4],{
     }
   },
   onLoad: function onLoad() {
-    var _this4 = this;
+    var _this5 = this;
 
-    return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee4() {
-      var that, current_order, orderId, currentuser_code, uuid_authCode, orderData, order_user, left_user, i;
-      return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee4$(_context4) {
+    return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee5() {
+      var that, group_activity_initial_uuid, currentuser_code, uuid_authCode, orderData, order_user, left_user, i;
+      return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee5$(_context5) {
         while (1) {
-          switch (_context4.prev = _context4.next) {
+          switch (_context5.prev = _context5.next) {
             case 0:
-              that = _this4;
-              current_order = wx.getStorageSync('current_orderinfo'); //取之前缓存的发起拼团数据
-              //    that.order_info = current_order
+              console.log('支付后的订单详情');
+              that = _this5;
+              group_activity_initial_uuid = that.$root.$mp.query.group_activity_initial_uuid; //发起拼团活动返回订单uuid
 
-              that.orderId = that.$root.$mp.query.orderId; //发起拼团活动返回订单uuid
-              that.groupuer.length = that.groupNum;
+              console.log(group_activity_initial_uuid);
 
-              //    that.getGroup_orders()
-              orderId = that.orderId;
               currentuser_code = wx.getStorageSync('auth_code');
-              uuid_authCode = [orderId, currentuser_code];
+              uuid_authCode = [group_activity_initial_uuid, currentuser_code];
 
               console.log(uuid_authCode);
 
-              _context4.next = 10;
+              _context5.next = 9;
               return that.$store.dispatch('groupActivitiesInit', __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends___default()({}, uuid_authCode));
 
-            case 10:
-              orderData = _context4.sent;
+            case 9:
+              orderData = _context5.sent;
 
 
               that.order_info = orderData.group_activity_initial;
@@ -555,12 +582,12 @@ global.webpackJsonp([4],{
 
               that.getlastTime();
 
-            case 17:
+            case 16:
             case 'end':
-              return _context4.stop();
+              return _context5.stop();
           }
         }
-      }, _callee4, _this4);
+      }, _callee5, _this5);
     }))();
   },
   mounted: function mounted() {
@@ -591,18 +618,18 @@ global.webpackJsonp([4],{
     //    that.getlastTime()
 
 
-    var _this5 = this;
+    var _this6 = this;
 
-    return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee5() {
-      return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee5$(_context5) {
+    return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee6() {
+      return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee6$(_context6) {
         while (1) {
-          switch (_context5.prev = _context5.next) {
+          switch (_context6.prev = _context6.next) {
             case 0:
             case 'end':
-              return _context5.stop();
+              return _context6.stop();
           }
         }
-      }, _callee5, _this5);
+      }, _callee6, _this6);
     }))();
   },
   onShareAppMessage: function onShareAppMessage(res) {
@@ -701,7 +728,9 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "mark"
   }, [_vm._v(_vm._s(_vm.order_info.group_activity.group_type))]), _vm._v(_vm._s(_vm.order_info.group_activity.title))]), _vm._v(" "), _c('p', [_c('span', [_vm._v("¥" + _vm._s(_vm.order_info.group_activity.current_price))]), _c('span', [_vm._v("¥" + _vm._s(_vm.order_info.group_activity.original_price))])])], 1)])]), _vm._v(" "), _c('div', {
     staticClass: "detail-order"
-  }, [_c('h2', [_c('span', [_vm._v(_vm._s(_vm.order_info.status_display))])]), _vm._v(" "), _c('div', {
+  }, [_c('h2', [_c('span', [_vm._v(_vm._s(_vm.order_info.status_display))]), _c('span', {
+    staticClass: "refund"
+  }, [_vm._v("已退款")])]), _vm._v(" "), _c('div', {
     staticClass: "order-info"
   }, [_c('div', {
     staticClass: "text"

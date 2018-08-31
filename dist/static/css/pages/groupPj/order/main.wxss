@@ -21,6 +21,9 @@
   color: #454553;
   margin: 42rpx 348rpx auto 50rpx;
 }
+.detail-order ._h2 .refund.data-v-b3a874ec {
+  display: none;
+}
 .detail-order .order-info .text.data-v-b3a874ec {
   height: 28rpx;
   line-height: 28rpx;

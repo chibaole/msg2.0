@@ -20,6 +20,7 @@
     <view class="_div data-v-b3a874ec detail-order">
       <view class="_h2 data-v-b3a874ec">
         <label class="_span data-v-b3a874ec">{{order_info.status_display}}</label>
+        <label class="_span data-v-b3a874ec refund">已退款</label>
       </view>
       <view class="_div data-v-b3a874ec order-info">
         <view class="_div data-v-b3a874ec text">还差
@@ -34,7 +35,7 @@
           <label class="_span data-v-b3a874ec mark" wx:if="{{item.is_initiator}}">团长</label>
         </view>
       </view>
-      <view class="_div data-v-b3a874ec group_res" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}">去填地址</view>
+      <view class="_div data-v-b3a874ec group_res" wx:if="{{}}" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}">去填地址</view>
       <view class="_div data-v-b3a874ec line"></view>
       <view class="_div data-v-b3a874ec group">
         <view class="_h2 data-v-b3a874ec group-game">拼团玩法</view>

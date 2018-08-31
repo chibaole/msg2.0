@@ -65,11 +65,12 @@ global.webpackJsonp([12],{
     pay: function pay(e) {
       console.log(e);
       var that = this;
-      var orderId = that.order_info.uuid; //需要支付的订单uuid
+      var orderId = that.order_info.group_activity_initial.uuid; //需要支付的订单uuid
       wx.setStorageSync('orderId', orderId); //存储拼团支付订单号
       wx.navigateTo({
-        url: '/pages/groupPj/order/main?orderId=' + orderId
+        url: '/pages/groupPj/order/main?group_activity_initial_uuid=' + orderId
       });
+      console.log('/pages/groupPj/order/main?group_activity_initial_uuid=' + orderId);
       wx.requestPayment({
         'timeStamp': '',
         'nonceStr': '',
@@ -110,6 +111,7 @@ global.webpackJsonp([12],{
 
             case 6:
               orderData = _context.sent;
+
 
               console.log(orderData);
 

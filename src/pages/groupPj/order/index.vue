@@ -20,7 +20,7 @@
 
     <!--订单详情-->
     <div class="detail-order">
-      <h2><span>{{order_info.status_display}}</span></h2>
+      <h2><span>{{order_info.status_display}}</span><span class="refund" >已退款</span></h2>
       <div class="order-info">
         <div class="text">还差<span>{{order_info.users_left}}</span>人参团,
           <span>{{time.day}}</span>天
@@ -33,7 +33,7 @@
       <div class="user">
         <div class="pic" v-for="item in order_info.users"><img :src="item.avatar_url" alt=""><span class="mark" v-if="item.is_initiator">团长</span></div>
       </div>
-      <div class="group_res" @click="chooseAddress">去填地址</div>
+      <div class="group_res" v-if="" @click="chooseAddress">去填地址</div>
       <div class="line"></div>
 
       <div class="group">
@@ -142,7 +142,8 @@
         navbar_title: '团购',
         orderIdId:'',
         myDetail:'',
-        scanCode:false
+        scanCode:false,
+        group_activity_initial_uuid:''
       }
     },
     components: {
@@ -289,8 +290,15 @@
   }
   ,
 
-  getImg()
+ async getImg()
   {
+    let uuid = wx.getStorageSync('initGroupId')
+    let page = 'pages/groupPj/order/main'
+    let data = [uuid,page]
+    let res = await this.$store.dispatch('wxCode',{...data})
+
+    console.log(res)
+    let wxCodeImg = res.wxa_qrcode_url
 
     this.painting = {
       width: 375,
@@ -384,7 +392,7 @@
         },
         {
           type: 'image',
-          url: 'http://p15hnzxrp.bkt.clouddn.com/wechatapp2.5.jpg',
+          url: wxCodeImg,
           top: 345 * 1.15,
           left: 121 * 1.15,
           width: 84 * 1.15,
@@ -461,17 +469,15 @@
     },
    async onLoad()
   {
+    console.log('支付后的订单详情')
     var that = this
-    var current_order = wx.getStorageSync('current_orderinfo') //取之前缓存的发起拼团数据
-//    that.order_info = current_order
 
-    that.orderId = that.$root.$mp.query.orderId //发起拼团活动返回订单uuid
-    that.groupuer.length = that.groupNum
+    let group_activity_initial_uuid = that.$root.$mp.query.group_activity_initial_uuid //发起拼团活动返回订单uuid
 
-//    that.getGroup_orders()
-    let orderId = that.orderId
+    console.log(group_activity_initial_uuid)
+
     let currentuser_code = wx.getStorageSync('auth_code')
-    let uuid_authCode = [orderId,currentuser_code]
+    let uuid_authCode = [group_activity_initial_uuid,currentuser_code]
      console.log(uuid_authCode)
 
     let orderData = await  that.$store.dispatch('groupActivitiesInit',{...uuid_authCode})
@@ -565,6 +571,9 @@
     font-size: 16px;
     color: #454553;
     margin: 21px 174px auto 25px;
+    .refund{
+      display: none;
+    }
   }
 
   .detail-order .order-info .text {
@@ -575,7 +584,6 @@
     font-size: 14px;
     color: #454553;
     margin: 15px 100px auto 25px;
-    /*border: 1px solid #000;*/
   }
 
   .detail-order .order-info .text span {

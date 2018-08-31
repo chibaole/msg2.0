@@ -518,8 +518,9 @@ var apiDomain = 'http://47.98.170.205/api/v1';
       }))();
     },
 
-    // 我的拼团订单详情页面
-    myGroupList: function myGroupList(_ref21, _ref20) {
+    //邀请好友二维码
+
+    wxCode: function wxCode(_ref21, _ref20) {
       var _this12 = this;
 
       var commit = _ref21.commit;
@@ -527,25 +528,28 @@ var apiDomain = 'http://47.98.170.205/api/v1';
       var data = __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_objectWithoutProperties___default()(_ref20, []);
 
       return __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.mark(function _callee12() {
-        var page, size, auth_code, myGroupActivity;
+        var uuid, auth_code, page, res;
         return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.wrap(function _callee12$(_context12) {
           while (1) {
             switch (_context12.prev = _context12.next) {
               case 0:
-                page = data[0];
-                size = data[1];
-                auth_code = data[2];
+                uuid = data[0]; //订单uuid
+
+                auth_code = wx.getStorageSync('auth_code');
+                page = data[1];
                 _context12.next = 5;
                 return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
                   method: 'get',
-                  url: apiDomain + '/group_activity_orders/mine?page=' + page + '&size=' + size + '&auth_code=' + auth_code
+                  url: apiDomain + '/group_activity_initials/' + uuid + '/wxaqrcode'
                 });
 
               case 5:
-                myGroupActivity = _context12.sent;
-                return _context12.abrupt('return', myGroupActivity || []);
+                res = _context12.sent;
 
-              case 7:
+                console.log(res);
+                return _context12.abrupt('return', res);
+
+              case 8:
               case 'end':
                 return _context12.stop();
             }
@@ -554,8 +558,8 @@ var apiDomain = 'http://47.98.170.205/api/v1';
       }))();
     },
 
-    //我的拼团订单详情
-    myBoonDetail: function myBoonDetail(_ref23, _ref22) {
+    // 我的拼团订单详情页面
+    myGroupList: function myGroupList(_ref23, _ref22) {
       var _this13 = this;
 
       var commit = _ref23.commit;
@@ -563,27 +567,25 @@ var apiDomain = 'http://47.98.170.205/api/v1';
       var data = __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_objectWithoutProperties___default()(_ref22, []);
 
       return __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.mark(function _callee13() {
-        var uuid, auth_code, res;
+        var page, size, auth_code, myGroupActivity;
         return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.wrap(function _callee13$(_context13) {
           while (1) {
             switch (_context13.prev = _context13.next) {
               case 0:
-                console.log('我的订单详情');
-                uuid = data[0];
-                auth_code = data[1];
+                page = data[0];
+                size = data[1];
+                auth_code = data[2];
                 _context13.next = 5;
                 return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
                   method: 'get',
-                  url: apiDomain + '/group_activity_orders/' + uuid + '?auth_code=' + auth_code
+                  url: apiDomain + '/group_activity_orders/mine?page=' + page + '&size=' + size + '&auth_code=' + auth_code
                 });
 
               case 5:
-                res = _context13.sent;
+                myGroupActivity = _context13.sent;
+                return _context13.abrupt('return', myGroupActivity || []);
 
-                console.log(res);
-                return _context13.abrupt('return', res);
-
-              case 8:
+              case 7:
               case 'end':
                 return _context13.stop();
             }
@@ -592,9 +594,8 @@ var apiDomain = 'http://47.98.170.205/api/v1';
       }))();
     },
 
-    //我的抽奖
-
-    myBoonList: function myBoonList(_ref25, _ref24) {
+    //我的拼团订单详情
+    myBoonDetail: function myBoonDetail(_ref25, _ref24) {
       var _this14 = this;
 
       var commit = _ref25.commit;
@@ -602,25 +603,25 @@ var apiDomain = 'http://47.98.170.205/api/v1';
       var data = __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_objectWithoutProperties___default()(_ref24, []);
 
       return __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.mark(function _callee14() {
-        var page, size, auth_code, myBoons;
+        var uuid, auth_code, res;
         return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.wrap(function _callee14$(_context14) {
           while (1) {
             switch (_context14.prev = _context14.next) {
               case 0:
-                console.log('我的抽奖订单列表详情');
-
-                page = data[0];
-                size = data[1];
-                auth_code = data[2];
-                _context14.next = 6;
+                console.log('我的订单详情');
+                uuid = data[0];
+                auth_code = data[1];
+                _context14.next = 5;
                 return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
                   method: 'get',
-                  url: apiDomain + '/boon_orders/mine?page=' + page + '&size=' + size + '&auth_code=' + auth_code
+                  url: apiDomain + '/group_activity_orders/' + uuid + '?auth_code=' + auth_code
                 });
 
-              case 6:
-                myBoons = _context14.sent;
-                return _context14.abrupt('return', myBoons || []);
+              case 5:
+                res = _context14.sent;
+
+                console.log(res);
+                return _context14.abrupt('return', res);
 
               case 8:
               case 'end':
@@ -629,43 +630,47 @@ var apiDomain = 'http://47.98.170.205/api/v1';
           }
         }, _callee14, _this14);
       }))();
-    }
-  }, __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_defineProperty___default()(_actions, 'myBoonDetail', function myBoonDetail(_ref27, _ref26) {
-    var _this15 = this;
+    },
 
-    var commit = _ref27.commit;
+    //我的抽奖
 
-    var data = __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_objectWithoutProperties___default()(_ref26, []);
+    myBoonList: function myBoonList(_ref27, _ref26) {
+      var _this15 = this;
 
-    return __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.mark(function _callee15() {
-      var uuid, auth_code, res;
-      return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.wrap(function _callee15$(_context15) {
-        while (1) {
-          switch (_context15.prev = _context15.next) {
-            case 0:
-              console.log('我的抽奖订单详情');
-              uuid = data[0];
-              auth_code = data[1];
-              _context15.next = 5;
-              return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
-                method: 'get',
-                url: apiDomain + '/boon_orders/' + uuid + '?auth_code=' + auth_code
-              });
+      var commit = _ref27.commit;
 
-            case 5:
-              res = _context15.sent;
+      var data = __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_objectWithoutProperties___default()(_ref26, []);
 
-              console.log(res);
-              return _context15.abrupt('return', res);
+      return __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.mark(function _callee15() {
+        var page, size, auth_code, myBoons;
+        return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.wrap(function _callee15$(_context15) {
+          while (1) {
+            switch (_context15.prev = _context15.next) {
+              case 0:
+                console.log('我的抽奖订单列表详情');
 
-            case 8:
-            case 'end':
-              return _context15.stop();
+                page = data[0];
+                size = data[1];
+                auth_code = data[2];
+                _context15.next = 6;
+                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
+                  method: 'get',
+                  url: apiDomain + '/boon_orders/mine?page=' + page + '&size=' + size + '&auth_code=' + auth_code
+                });
+
+              case 6:
+                myBoons = _context15.sent;
+                return _context15.abrupt('return', myBoons || []);
+
+              case 8:
+              case 'end':
+                return _context15.stop();
+            }
           }
-        }
-      }, _callee15, _this15);
-    }))();
-  }), __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_defineProperty___default()(_actions, 'boonAddress', function boonAddress(_ref29, _ref28) {
+        }, _callee15, _this15);
+      }))();
+    }
+  }, __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_defineProperty___default()(_actions, 'myBoonDetail', function myBoonDetail(_ref29, _ref28) {
     var _this16 = this;
 
     var commit = _ref29.commit;
@@ -673,10 +678,45 @@ var apiDomain = 'http://47.98.170.205/api/v1';
     var data = __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_objectWithoutProperties___default()(_ref28, []);
 
     return __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.mark(function _callee16() {
-      var uuid, auth_code, attributes, order_address, jsonData, res;
+      var uuid, auth_code, res;
       return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.wrap(function _callee16$(_context16) {
         while (1) {
           switch (_context16.prev = _context16.next) {
+            case 0:
+              console.log('我的抽奖订单详情');
+              uuid = data[0];
+              auth_code = data[1];
+              _context16.next = 5;
+              return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
+                method: 'get',
+                url: apiDomain + '/boon_orders/' + uuid + '?auth_code=' + auth_code
+              });
+
+            case 5:
+              res = _context16.sent;
+
+              console.log(res);
+              return _context16.abrupt('return', res);
+
+            case 8:
+            case 'end':
+              return _context16.stop();
+          }
+        }
+      }, _callee16, _this16);
+    }))();
+  }), __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_defineProperty___default()(_actions, 'boonAddress', function boonAddress(_ref31, _ref30) {
+    var _this17 = this;
+
+    var commit = _ref31.commit;
+
+    var data = __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_objectWithoutProperties___default()(_ref30, []);
+
+    return __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.mark(function _callee17() {
+      var uuid, auth_code, attributes, order_address, jsonData, res;
+      return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.wrap(function _callee17$(_context17) {
+        while (1) {
+          switch (_context17.prev = _context17.next) {
             case 0:
               uuid = data[0];
               auth_code = data[1];
@@ -690,7 +730,7 @@ var apiDomain = 'http://47.98.170.205/api/v1';
 
               console.log('这是抽奖地址数据');
               jsonData = __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_json_stringify___default()(order_address);
-              _context16.next = 8;
+              _context17.next = 8;
               return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
                 method: 'put',
                 url: apiDomain + '/boon_orders/' + uuid,
@@ -701,28 +741,28 @@ var apiDomain = 'http://47.98.170.205/api/v1';
               });
 
             case 8:
-              res = _context16.sent;
-              return _context16.abrupt('return', res);
+              res = _context17.sent;
+              return _context17.abrupt('return', res);
 
             case 10:
             case 'end':
-              return _context16.stop();
+              return _context17.stop();
           }
         }
-      }, _callee16, _this16);
+      }, _callee17, _this17);
     }))();
-  }), __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_defineProperty___default()(_actions, 'groupAddress', function groupAddress(_ref31, _ref30) {
-    var _this17 = this;
+  }), __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_defineProperty___default()(_actions, 'groupAddress', function groupAddress(_ref33, _ref32) {
+    var _this18 = this;
 
-    var commit = _ref31.commit;
+    var commit = _ref33.commit;
 
-    var data = __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_objectWithoutProperties___default()(_ref30, []);
+    var data = __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_objectWithoutProperties___default()(_ref32, []);
 
-    return __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.mark(function _callee17() {
+    return __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.mark(function _callee18() {
       var uuid, auth_code, attributes, order_address, res;
-      return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.wrap(function _callee17$(_context17) {
+      return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.wrap(function _callee18$(_context18) {
         while (1) {
-          switch (_context17.prev = _context17.next) {
+          switch (_context18.prev = _context18.next) {
             case 0:
               console.log('拼团地址');
               uuid = data[0];
@@ -737,7 +777,7 @@ var apiDomain = 'http://47.98.170.205/api/v1';
 
               console.log(order_address);
 
-              _context17.next = 8;
+              _context18.next = 8;
               return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
                 method: 'put',
                 url: apiDomain + '/group_activity_orders/' + uuid,
@@ -745,38 +785,38 @@ var apiDomain = 'http://47.98.170.205/api/v1';
               });
 
             case 8:
-              res = _context17.sent;
+              res = _context18.sent;
 
               console.log(res);
-              return _context17.abrupt('return', res);
+              return _context18.abrupt('return', res);
 
             case 11:
-            case 'end':
-              return _context17.stop();
-          }
-        }
-      }, _callee17, _this17);
-    }))();
-  }), _actions),
-  test: function test(_ref32) {
-    var _this18 = this;
-
-    var commit = _ref32.commit;
-    return __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.mark(function _callee18() {
-      return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.wrap(function _callee18$(_context18) {
-        while (1) {
-          switch (_context18.prev = _context18.next) {
-            case 0:
-              console.log('测试');
-
-              return _context18.abrupt('return', 124);
-
-            case 2:
             case 'end':
               return _context18.stop();
           }
         }
       }, _callee18, _this18);
+    }))();
+  }), _actions),
+  test: function test(_ref34) {
+    var _this19 = this;
+
+    var commit = _ref34.commit;
+    return __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.mark(function _callee19() {
+      return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.wrap(function _callee19$(_context19) {
+        while (1) {
+          switch (_context19.prev = _context19.next) {
+            case 0:
+              console.log('测试');
+
+              return _context19.abrupt('return', 124);
+
+            case 2:
+            case 'end':
+              return _context19.stop();
+          }
+        }
+      }, _callee19, _this19);
     }))();
   }
 }));

@@ -110,17 +110,17 @@
 //发起拼团订单
       async initGroup(){
                       let that = this
-                      let uuid = that.group_uuid
+                      let uuid = that.group_activity.uuid
                        let currentuser_code = wx.getStorageSync('auth_code')
                       let uuid_authCode = [uuid,currentuser_code]
 
-                      console.log(uuid_authCode)
                       let initGroupData = await that.$store.dispatch('initGroup',{...uuid_authCode})
                       console.log(initGroupData)
 
                       if(initGroupData){
                         let initGroupId = initGroupData.group_activity_order.uuid  //发起拼团返回的订单id
                         that.initGroupId = initGroupId
+                        console.log('定单uuid'+initGroupId)
                         wx.navigateTo({
                           url: '/pages/groupPj/groupDetail/main?initGroupId=' + initGroupId
                         })
@@ -183,11 +183,11 @@
      let currentuser_code = wx.getStorageSync('auth_code')
      let uuid_authCode = [uuid,currentuser_code]
 
-     console.log(uuid_authCode)
 
       let group_activity = await that.$store.dispatch('getGrouDetail',{...uuid_authCode})  //获取当前拼团活动详情
-
      that.group_activity =  group_activity.group_activity
+     let group_activity_uuid = that.group_activity.uuid
+
 
      //通过富文本展示商品详情
      that.myDetail = that.group_activity.detail

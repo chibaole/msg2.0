@@ -216,7 +216,21 @@ export default new Vuex.Store({
       return attendData
 
     },
+//邀请好友二维码
 
+    async wxCode({commit},{...data}){
+
+      let uuid = data[0] //订单uuid
+      let auth_code = wx.getStorageSync('auth_code')
+      let page = data[1]
+      let res = await request({
+        method:'get',
+        url:`${apiDomain}/group_activity_initials/${uuid}/wxaqrcode`
+      })
+      console.log(res)
+      return res
+
+    },
 
 // 我的拼团订单详情页面
     async myGroupList({commit}, {...data}) {
