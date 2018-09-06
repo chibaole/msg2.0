@@ -130,9 +130,30 @@ global.webpackJsonp([2],{
 //
 //
 //
-
-
-
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -149,20 +170,32 @@ global.webpackJsonp([2],{
     return {
       userinfo: {
         avatar_url: 'http://image.shengxinjing.cn/rate/unlogin.png',
-        nick_name: '空空的地方'
+        nick_name: '空空的地方',
+
+        level_display: '',
+        is_authorized: true
       },
       nologin: true,
-      top: 68
+      top: 68,
+      login_show: true
     };
   },
 
   methods: {
-    goMygroup: function goMygroup() {
+    goMygroup: function goMygroup(e) {
+      var that = this;
+      console.log(e);
+      var form_id = e.mp.detail.formId;
+      console.log(form_id);
       wx.navigateTo({
         url: '/pages/user/myGroup/main'
       });
     },
-    myBoon: function myBoon() {
+    myBoon: function myBoon(e) {
+      var that = this;
+      console.log(e);
+      var form_id = e.mp.detail.formId;
+      console.log(form_id);
       wx.navigateTo({
         url: '/pages/user/myboonList/main'
       });
@@ -198,12 +231,12 @@ global.webpackJsonp([2],{
                 console.log(sesssion_res.errMsg);
 
                 if (!(sesssion_res.errMsg === 'checkSession:ok')) {
-                  _context.next = 15;
+                  _context.next = 16;
                   break;
                 }
 
                 if (!e.mp.detail.rawData) {
-                  _context.next = 12;
+                  _context.next = 13;
                   break;
                 }
 
@@ -213,28 +246,28 @@ global.webpackJsonp([2],{
                 return that.$store.dispatch('saveInfo', __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends___default()({}, data));
 
               case 10:
-                _context.next = 13;
+                that.login_show = false;
+                _context.next = 14;
                 break;
 
-              case 12:
+              case 13:
                 //用户按了拒绝按钮
                 console.log('用户按了拒绝按钮');
 
-              case 13:
-                _context.next = 19;
+              case 14:
+                _context.next = 21;
                 break;
 
-              case 15:
+              case 16:
                 console.log('session 过期');
-
-                _context.next = 18;
+                _context.next = 19;
                 return that.$store.dispatch('signup');
 
-              case 18:
-
+              case 19:
+                that.login_show = false;
                 console.log('重新登录成功');
 
-              case 19:
+              case 21:
               case 'end':
                 return _context.stop();
             }
@@ -244,16 +277,45 @@ global.webpackJsonp([2],{
     }
   },
   onShow: function onShow() {
-    var that = this;
-    var userinfo = wx.getStorageSync('userinfo');
-    console.log(userinfo);
+    var _this2 = this;
 
-    if (userinfo) {
-      that.userinfo = userinfo;
-      console.log(userinfo);
-    } else {
-      console.log('暂无用户信息 点击登录');
-    }
+    return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee2() {
+      var that, userinfo, user_profile;
+      return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              that = _this2;
+              userinfo = wx.getStorageSync('userinfo');
+
+
+              console.log(userinfo);
+
+              if (userinfo) {
+                that.userinfo = userinfo;
+                that.login_show = false;
+                console.log(userinfo);
+              } else {
+                console.log('暂无用户信息 点击登录');
+                that.login_show = true;
+              }
+              _context2.next = 6;
+              return that.$store.dispatch('user_info');
+
+            case 6:
+              user_profile = _context2.sent;
+
+              that.userinfo.level_display = user_profile.user.level_display;
+              //   console.log(user_profile)
+
+
+            case 8:
+            case 'end':
+              return _context2.stop();
+          }
+        }
+      }, _callee2, _this2);
+    }))();
   },
   onLoad: function onLoad() {
 
@@ -418,14 +480,43 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "foodname"
   }, [_vm._v(_vm._s(_vm.userinfo.nick_name))]), _vm._v(" "), _c('span', {
     staticClass: "foodLabel"
-  }, [_vm._v("新晋吃货")])]), _vm._v(" "), _vm._m(0), _vm._v(" "), _vm._m(1)], 1), _vm._v(" "), _vm._m(2), _vm._v(" "), _c('div', {
-    staticClass: "mylist",
+  }, [_vm._v(_vm._s(_vm.userinfo.level_display))])]), _vm._v(" "), _vm._m(0), _vm._v(" "), _vm._m(1)], 1), _vm._v(" "), _c('form', {
     attrs: {
+      "report-submit": true,
       "eventid": '0'
     },
     on: {
-      "click": _vm.goMygroup
+      "submit": _vm.sign_in
     }
+  }, [_c('button', {
+    attrs: {
+      "formType": "submit"
+    }
+  }, [_c('div', {
+    staticClass: "mylist"
+  }, [_c('img', {
+    attrs: {
+      "src": "http://pbmrxkahq.bkt.clouddn.com/%E7%AD%BE%E5%88%B0icon.png",
+      "alt": ""
+    }
+  }), _vm._v(" "), _c('span', {
+    staticClass: "list_title"
+  }, [_vm._v("签到")]), _vm._v(" "), _c('span', {
+    staticClass: "list_btn"
+  }, [_vm._v("签到赢取8折券")])])])], 1), _vm._v(" "), _c('form', {
+    attrs: {
+      "report-submit": true,
+      "eventid": '1'
+    },
+    on: {
+      "submit": _vm.goMygroup
+    }
+  }, [_c('button', {
+    attrs: {
+      "formType": "submit"
+    }
+  }, [_c('div', {
+    staticClass: "mylist"
   }, [_c('img', {
     attrs: {
       "src": "http://pbmrxkahq.bkt.clouddn.com/%E6%88%91%E7%9A%84%E6%8B%BC%E5%9B%A2%E8%AE%A2%E5%8D%95icon.png",
@@ -433,14 +524,20 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }), _vm._v(" "), _c('span', {
     staticClass: "list_title"
-  }, [_vm._v("我的拼团订单")])]), _vm._v(" "), _c('div', {
-    staticClass: "mylist",
+  }, [_vm._v("我的拼团订单")])])])], 1), _vm._v(" "), _c('form', {
     attrs: {
-      "eventid": '1'
+      "report-submit": true,
+      "eventid": '2'
     },
     on: {
-      "click": _vm.myBoon
+      "submit": _vm.myBoon
     }
+  }, [_c('button', {
+    attrs: {
+      "formType": "submit"
+    }
+  }, [_c('div', {
+    staticClass: "mylist"
   }, [_c('img', {
     attrs: {
       "src": "http://pbmrxkahq.bkt.clouddn.com/%E6%88%91%E7%9A%84%E6%8A%BD%E5%A5%96icon.png",
@@ -448,16 +545,77 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }), _vm._v(" "), _c('span', {
     staticClass: "list_title"
-  }, [_vm._v("我的抽奖")])]), _vm._v(" "), _vm._m(3), _vm._v(" "), _vm._m(4), _vm._v(" "), _vm._m(5), _vm._v(" "), _c('button', {
+  }, [_vm._v("我的抽奖")])])])], 1), _vm._v(" "), _c('form', {
+    attrs: {
+      "report-submit": true,
+      "eventid": '3'
+    },
+    on: {
+      "submit": _vm.myStore
+    }
+  }, [_c('button', {
+    attrs: {
+      "formType": "submit"
+    }
+  }, [_c('div', {
+    staticClass: "mylist"
+  }, [_c('img', {
+    attrs: {
+      "src": "http://pbmrxkahq.bkt.clouddn.com/%E9%9B%B6%E9%A3%9F%E5%BA%93icon.png",
+      "alt": ""
+    }
+  }), _vm._v(" "), _c('span', {
+    staticClass: "list_title"
+  }, [_vm._v("我的零食库")]), _vm._v(" "), _c('span', {
+    staticClass: "list_btn"
+  }, [_vm._v("分享有礼")])])])], 1), _vm._v(" "), _c('form', {
+    attrs: {
+      "report-submit": true,
+      "eventid": '4'
+    },
+    on: {
+      "submit": _vm.myPublic
+    }
+  }, [_c('button', {
+    attrs: {
+      "formType": "submit"
+    }
+  }, [_c('div', {
+    staticClass: "mylist"
+  }, [_c('img', {
+    attrs: {
+      "src": "http://pbmrxkahq.bkt.clouddn.com/%E6%88%91%E7%9A%84%E5%8F%91%E5%B8%83icon.png",
+      "alt": ""
+    }
+  }), _vm._v(" "), _c('span', {
+    staticClass: "list_title"
+  }, [_vm._v("我的发布")])])])], 1), _vm._v(" "), _c('form', {
+    attrs: {
+      "report-submit": true,
+      "eventid": '5'
+    },
+    on: {
+      "submit": _vm.my_trove
+    }
+  }, [_c('button', [_c('div', {
+    staticClass: "mylist"
+  }, [_c('img', {
+    attrs: {
+      "src": "http://pbmrxkahq.bkt.clouddn.com/%E6%94%B6%E8%97%8Ficon.png",
+      "alt": ""
+    }
+  }), _vm._v(" "), _c('span', {
+    staticClass: "list_title"
+  }, [_vm._v("我的收藏")])])])], 1), _vm._v(" "), (_vm.login_show) ? _c('button', {
     attrs: {
       "open-type": "getUserInfo",
-      "eventid": '2'
+      "eventid": '6'
     },
     on: {
       "getuserinfo": _vm.bindGetUserInfo,
       "click": _vm.getUserInfo1
     }
-  }, [_vm._v("获取权限")])], 1)
+  }, [_vm._v("获取权限")]) : _vm._e()], 1)
 }
 var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('span', {
@@ -478,54 +636,6 @@ var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _
       "alt": ""
     }
   })])
-},function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "mylist"
-  }, [_c('img', {
-    attrs: {
-      "src": "http://pbmrxkahq.bkt.clouddn.com/%E7%AD%BE%E5%88%B0icon.png",
-      "alt": ""
-    }
-  }), _vm._v(" "), _c('span', {
-    staticClass: "list_title"
-  }, [_vm._v("签到")]), _vm._v(" "), _c('span', {
-    staticClass: "list_btn"
-  }, [_vm._v("签到赢取8折券")])])
-},function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "mylist"
-  }, [_c('img', {
-    attrs: {
-      "src": "http://pbmrxkahq.bkt.clouddn.com/%E9%9B%B6%E9%A3%9F%E5%BA%93icon.png",
-      "alt": ""
-    }
-  }), _vm._v(" "), _c('span', {
-    staticClass: "list_title"
-  }, [_vm._v("我的零食库")]), _vm._v(" "), _c('span', {
-    staticClass: "list_btn"
-  }, [_vm._v("分享有礼")])])
-},function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "mylist"
-  }, [_c('img', {
-    attrs: {
-      "src": "http://pbmrxkahq.bkt.clouddn.com/%E6%88%91%E7%9A%84%E5%8F%91%E5%B8%83icon.png",
-      "alt": ""
-    }
-  }), _vm._v(" "), _c('span', {
-    staticClass: "list_title"
-  }, [_vm._v("我的发布")])])
-},function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "mylist"
-  }, [_c('img', {
-    attrs: {
-      "src": "http://pbmrxkahq.bkt.clouddn.com/%E6%94%B6%E8%97%8Ficon.png",
-      "alt": ""
-    }
-  }), _vm._v(" "), _c('span', {
-    staticClass: "list_title"
-  }, [_vm._v("我的收藏")])])
 }]
 render._withStripped = true
 var esExports = { render: render, staticRenderFns: staticRenderFns }

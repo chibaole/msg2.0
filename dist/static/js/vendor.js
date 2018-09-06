@@ -5621,7 +5621,8 @@ module.exports = __webpack_require__(233);
 
 // const host = 'http://localhost:5757'    //本地api
 // const host = 'http://47.98.170.205/api' //线上api
-var host = 'http://47.98.170.205';
+// const host = 'http://47.98.170.205'
+var host = 'https://msg.chibaole.cc';
 // http://47.98.170.205/api/v1/boons/today?auth_code=7o_WVWb5GZlcpBfASVUl9Q
 
 

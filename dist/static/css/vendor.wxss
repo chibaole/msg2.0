@@ -191,7 +191,7 @@
   text-align: center;
   width: 300rpx;
   display: inline-block;
-  margin: 0 auto;
+  margin-right: 225rpx;
 }
 .scroll-content .item.data-v-ad332f3a {
   height: 60rpx;

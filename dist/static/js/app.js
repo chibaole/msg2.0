@@ -37,18 +37,15 @@ var _actions;
 
 
 
+
 __WEBPACK_IMPORTED_MODULE_5_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_6_vuex__["a" /* default */]);
-
-// const apiDomain = 'http://localhost:5757/v1'
-var apiDomain = 'http://47.98.170.205/api/v1';
-
-
-
-
+var apiDomain = 'http://localhost:5757/v1';
+// const apiDomain = 'http://47.98.170.205/api/v1'
+// const apiDomain = 'https://msg.chibaole.cc/api/v1'
 /* harmony default export */ __webpack_exports__["a"] = (new __WEBPACK_IMPORTED_MODULE_6_vuex__["a" /* default */].Store({
   actions: (_actions = {
-    //仅注册用户 传递code  换取openid 建设账户体系
 
+    //仅注册用户 传递code  换取openid 建设账户体系
     signup: function signup(_ref) {
       var _this = this;
 
@@ -79,7 +76,6 @@ var apiDomain = 'http://47.98.170.205/api/v1';
 
                 auth_code = res.auth_code;
                 wx.setStorageSync('auth_code', auth_code);
-
                 return _context.abrupt('return', auth_code);
 
               case 12:
@@ -90,6 +86,8 @@ var apiDomain = 'http://47.98.170.205/api/v1';
         }, _callee, _this);
       }))();
     },
+
+    //用户点击 存储用户信息
     saveInfo: function saveInfo(_ref3, _ref2) {
       var _this2 = this;
 
@@ -103,35 +101,28 @@ var apiDomain = 'http://47.98.170.205/api/v1';
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
-                console.log('存用户信息');
-
                 auth_code = wx.getStorageSync('auth_code');
                 urlData = {
                   auth_code: auth_code,
                   encrypted_data: data[0],
                   iv: data[1],
                   signature: data[2],
-
                   raw_data: data[3]
-
                 };
-                _context2.next = 5;
+                _context2.next = 4;
                 return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
                   method: 'post',
                   url: apiDomain + '/wx/save_user_info?auth_code=' + auth_code,
                   data: urlData
                 });
 
-              case 5:
+              case 4:
                 res = _context2.sent;
 
-                wx.setStorageSync('userinfo', res.user);
-
-                console.log('存用户信息OK');
-
+                wx.setStorageSync('userinfo', res.user); //本地存储userinfo
                 return _context2.abrupt('return', res.user);
 
-              case 9:
+              case 7:
               case 'end':
                 return _context2.stop();
             }
@@ -141,7 +132,6 @@ var apiDomain = 'http://47.98.170.205/api/v1';
     },
 
     //  获取今日福利信息
-
     getBoonsToday: function getBoonsToday(_ref4) {
       var _this3 = this;
 
@@ -153,8 +143,6 @@ var apiDomain = 'http://47.98.170.205/api/v1';
             switch (_context3.prev = _context3.next) {
               case 0:
                 console.log('\u83B7\u53D6\u4ECA\u65E5\u798F\u5229-----' + apiDomain + '/boons/today');
-                // let boons = await get('/v1/boons/today', {page: this.page})
-
                 _context3.next = 3;
                 return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
                   method: 'get',
@@ -164,11 +152,9 @@ var apiDomain = 'http://47.98.170.205/api/v1';
 
               case 3:
                 boons = _context3.sent;
-
-                console.log(boons);
                 return _context3.abrupt('return', boons);
 
-              case 6:
+              case 5:
               case 'end':
                 return _context3.stop();
             }
@@ -178,7 +164,6 @@ var apiDomain = 'http://47.98.170.205/api/v1';
     },
 
     //获取福利详情
-
     getBoons: function getBoons(_ref6, _ref5) {
       var _this4 = this;
 
@@ -192,28 +177,22 @@ var apiDomain = 'http://47.98.170.205/api/v1';
           while (1) {
             switch (_context4.prev = _context4.next) {
               case 0:
-                console.log(uuid_authCode[1]);
-                console.log(uuid_authCode[0]);
-
                 uuid = uuid_authCode[0];
                 auth_code = uuid_authCode[1];
-                _context4.next = 6;
+                _context4.next = 4;
                 return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
                   method: 'get',
                   url: apiDomain + '/boons/' + uuid + '?auth_code=' + auth_code,
                   data: {}
                 });
 
-              case 6:
+              case 4:
                 prjInfo = _context4.sent;
 
                 console.log('\u83B7\u53D6\u798F\u5229\u8BE6\u60C5----' + apiDomain + '/boons/' + uuid + '?auth_code=' + auth_code);
-
-                console.log(prjInfo);
-
                 return _context4.abrupt('return', prjInfo);
 
-              case 10:
+              case 7:
               case 'end':
                 return _context4.stop();
             }
@@ -238,23 +217,19 @@ var apiDomain = 'http://47.98.170.205/api/v1';
               case 0:
                 boonId = uuid_authCode[0] || '12';
                 auth_code = uuid_authCode[1];
-
-                console.log(uuid_authCode);
-                _context5.next = 5;
+                _context5.next = 4;
                 return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
                   method: 'post',
                   url: apiDomain + '/boons/' + boonId + '/attend?auth_code=' + auth_code
                 });
 
-              case 5:
+              case 4:
                 res = _context5.sent;
 
                 console.log('\u53C2\u52A0\u798F\u5229------' + apiDomain + '/boons/' + boonId + '/attend?auth_code=' + auth_code);
-                console.log(res);
-
                 return _context5.abrupt('return', res);
 
-              case 9:
+              case 7:
               case 'end':
                 return _context5.stop();
             }
@@ -264,7 +239,6 @@ var apiDomain = 'http://47.98.170.205/api/v1';
     },
 
     //获取当前拼团活动数据列表
-
     getGroup: function getGroup(_ref9) {
       var _this6 = this;
 
@@ -285,9 +259,11 @@ var apiDomain = 'http://47.98.170.205/api/v1';
 
               case 3:
                 group = _context6.sent;
+
+                console.log('\u62FC\u56E2\u6D3B\u52A8\u5217\u8868' + apiDomain + '/group_activities?auth_code=' + auth_code);
                 return _context6.abrupt('return', group);
 
-              case 5:
+              case 6:
               case 'end':
                 return _context6.stop();
             }
@@ -312,21 +288,19 @@ var apiDomain = 'http://47.98.170.205/api/v1';
               case 0:
                 uuid = uuid_authCode[0];
                 auth_code = uuid_authCode[1];
-                _context7.next = 4;
+
+                console.log('\u62FC\u56E2\u6D3B\u52A8\u8BE6\u60C5----' + apiDomain + '/group_activities/' + uuid + '?auth_code=' + auth_code);
+                _context7.next = 5;
                 return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
                   method: 'get',
                   url: apiDomain + '/group_activities/' + uuid + '?auth_code=' + auth_code
                 });
 
-              case 4:
+              case 5:
                 groupDetail = _context7.sent;
-
-                console.log('\u62FC\u56E2\u6D3B\u52A8\u8BE6\u60C5----' + apiDomain + '/group_activities/' + uuid + '?auth_code=' + auth_code);
-
-                console.log(groupDetail);
                 return _context7.abrupt('return', groupDetail);
 
-              case 8:
+              case 7:
               case 'end':
                 return _context7.stop();
             }
@@ -336,7 +310,6 @@ var apiDomain = 'http://47.98.170.205/api/v1';
     },
 
     //发起拼团
-
     initGroup: function initGroup(_ref13, _ref12) {
       var _this8 = this;
 
@@ -352,18 +325,16 @@ var apiDomain = 'http://47.98.170.205/api/v1';
               case 0:
                 uuid = uuid_authCode[0];
                 auth_code = uuid_authCode[1];
-                _context8.next = 4;
+
+                console.log('\u53D1\u8D77\u62FC\u56E2\u7684\u8BA2\u5355----' + apiDomain + '/group_activities/' + uuid + '/initial?auth_code=' + auth_code);
+                _context8.next = 5;
                 return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
                   method: 'post',
                   url: apiDomain + '/group_activities/' + uuid + '/initial?auth_code=' + auth_code
-
                 });
 
-              case 4:
+              case 5:
                 initGroup = _context8.sent;
-
-                console.log('\u53D1\u8D77\u62FC\u56E2\u7684\u8BA2\u5355----' + apiDomain + '/group_activities/' + uuid + '/initial?auth_code=' + auth_code);
-
                 return _context8.abrupt('return', initGroup);
 
               case 7:
@@ -389,9 +360,10 @@ var apiDomain = 'http://47.98.170.205/api/v1';
           while (1) {
             switch (_context9.prev = _context9.next) {
               case 0:
-                console.log('拼团订单详情');
                 uuid = uuid_authCode[0];
                 auth_code = uuid_authCode[1];
+
+                console.log('\u62FC\u56E2\u8BA2\u5355\u8BE6\u60C5-------' + apiDomain + '/group_activity_orders/' + uuid + '?auth_code=' + auth_code);
                 _context9.next = 5;
                 return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
                   method: 'get',
@@ -425,26 +397,23 @@ var apiDomain = 'http://47.98.170.205/api/v1';
           while (1) {
             switch (_context10.prev = _context10.next) {
               case 0:
-                console.log(uuid_authCode);
                 uuid = uuid_authCode[0];
 
                 uuid === '' ? uuid = '1223' : uuid = uuid_authCode[0];
                 auth_code = uuid_authCode[1];
 
-                console.log('\u62FC\u56E2\u53D1\u8D77\u8BE6\u60C5---' + apiDomain + '/group_activity_initials/' + uuid + '?auth_code=' + auth_code);
-                _context10.next = 7;
+                console.log('\u62FC\u56E2\u5355\u8BE6\u60C5---' + apiDomain + '/group_activity_initials/' + uuid + '?auth_code=' + auth_code);
+                _context10.next = 6;
                 return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
                   method: 'get',
                   url: apiDomain + '/group_activity_initials/' + uuid + '?auth_code=' + auth_code
                 });
 
-              case 7:
+              case 6:
                 initOrder = _context10.sent;
-
-                console.log(initOrder);
                 return _context10.abrupt('return', initOrder);
 
-              case 10:
+              case 8:
               case 'end':
                 return _context10.stop();
             }
@@ -454,7 +423,6 @@ var apiDomain = 'http://47.98.170.205/api/v1';
     },
 
     // 参与拼团
-
     attendGroupActivities: function attendGroupActivities(_ref19, _ref18) {
       var _this11 = this;
 
@@ -468,21 +436,18 @@ var apiDomain = 'http://47.98.170.205/api/v1';
           while (1) {
             switch (_context11.prev = _context11.next) {
               case 0:
-                console.log('一键参与拼团');
-
+                console.log('\u53C2\u4E0E\u62FC\u56E2------------' + apiDomain + '/group_activity_initials/' + uuid_authCode[0] + '/attend?auth_code=' + uuid_authCode[1]);
                 _context11.next = 3;
                 return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
                   method: 'post',
-                  url: apiDomain + '/group_activities/' + uuid_authCode[0] + '/attend?auth_code=' + uuid_authCode[1]
+                  url: apiDomain + '/group_activity_initials/' + uuid_authCode[0] + '/attend?auth_code=' + uuid_authCode[1]
                 });
 
               case 3:
                 attendData = _context11.sent;
-
-                console.log(attendData);
                 return _context11.abrupt('return', attendData);
 
-              case 6:
+              case 5:
               case 'end':
                 return _context11.stop();
             }
@@ -492,7 +457,6 @@ var apiDomain = 'http://47.98.170.205/api/v1';
     },
 
     //邀请好友二维码
-
     wxCode: function wxCode(_ref21, _ref20) {
       var _this12 = this;
 
@@ -518,11 +482,9 @@ var apiDomain = 'http://47.98.170.205/api/v1';
 
               case 5:
                 res = _context12.sent;
-
-                console.log(res);
                 return _context12.abrupt('return', res);
 
-              case 8:
+              case 7:
               case 'end':
                 return _context12.stop();
             }
@@ -581,22 +543,19 @@ var apiDomain = 'http://47.98.170.205/api/v1';
           while (1) {
             switch (_context14.prev = _context14.next) {
               case 0:
-                console.log('我的订单详情');
                 uuid = data[0];
                 auth_code = data[1];
-                _context14.next = 5;
+                _context14.next = 4;
                 return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
                   method: 'get',
                   url: apiDomain + '/group_activity_orders/' + uuid + '?auth_code=' + auth_code
                 });
 
-              case 5:
+              case 4:
                 res = _context14.sent;
-
-                console.log(res);
                 return _context14.abrupt('return', res);
 
-              case 8:
+              case 6:
               case 'end':
                 return _context14.stop();
             }
@@ -606,7 +565,6 @@ var apiDomain = 'http://47.98.170.205/api/v1';
     },
 
     //我的抽奖
-
     myBoonList: function myBoonList(_ref27, _ref26) {
       var _this15 = this;
 
@@ -620,22 +578,20 @@ var apiDomain = 'http://47.98.170.205/api/v1';
           while (1) {
             switch (_context15.prev = _context15.next) {
               case 0:
-                console.log('我的抽奖订单列表详情');
-
                 page = data[0];
                 size = data[1];
                 auth_code = data[2];
-                _context15.next = 6;
+                _context15.next = 5;
                 return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
                   method: 'get',
                   url: apiDomain + '/boon_orders/mine?page=' + page + '&size=' + size + '&auth_code=' + auth_code
                 });
 
-              case 6:
+              case 5:
                 myBoons = _context15.sent;
                 return _context15.abrupt('return', myBoons || []);
 
-              case 8:
+              case 7:
               case 'end':
                 return _context15.stop();
             }
@@ -667,11 +623,9 @@ var apiDomain = 'http://47.98.170.205/api/v1';
 
             case 5:
               res = _context16.sent;
-
-              console.log(res);
               return _context16.abrupt('return', res);
 
-            case 8:
+            case 7:
             case 'end':
               return _context16.stop();
           }
@@ -700,10 +654,8 @@ var apiDomain = 'http://47.98.170.205/api/v1';
                   address_attributes: attributes
                 }
               };
-
-              console.log('这是抽奖地址数据');
               jsonData = __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_json_stringify___default()(order_address);
-              _context17.next = 8;
+              _context17.next = 7;
               return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
                 method: 'put',
                 url: apiDomain + '/boon_orders/' + uuid,
@@ -713,11 +665,11 @@ var apiDomain = 'http://47.98.170.205/api/v1';
                 }
               });
 
-            case 8:
+            case 7:
               res = _context17.sent;
               return _context17.abrupt('return', res);
 
-            case 10:
+            case 9:
             case 'end':
               return _context17.stop();
           }
@@ -737,7 +689,6 @@ var apiDomain = 'http://47.98.170.205/api/v1';
         while (1) {
           switch (_context18.prev = _context18.next) {
             case 0:
-              console.log('拼团地址');
               uuid = data[0];
               auth_code = data[1];
               attributes = data[2];
@@ -747,51 +698,82 @@ var apiDomain = 'http://47.98.170.205/api/v1';
                   address_attributes: attributes
                 }
               };
-
-              console.log(order_address);
-
-              _context18.next = 8;
+              _context18.next = 6;
               return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
                 method: 'put',
                 url: apiDomain + '/group_activity_orders/' + uuid,
                 data: order_address
               });
 
-            case 8:
+            case 6:
               res = _context18.sent;
-
-              console.log(res);
               return _context18.abrupt('return', res);
 
-            case 11:
+            case 8:
             case 'end':
               return _context18.stop();
           }
         }
       }, _callee18, _this18);
     }))();
-  }), _actions),
-  test: function test(_ref34) {
+  }), __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_defineProperty___default()(_actions, 'group_pay', function group_pay(_ref34, uuid) {
     var _this19 = this;
 
     var commit = _ref34.commit;
     return __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.mark(function _callee19() {
+      var _uuid, auth_code, payres;
+
       return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.wrap(function _callee19$(_context19) {
         while (1) {
           switch (_context19.prev = _context19.next) {
             case 0:
-              console.log('测试');
+              _uuid = uuid;
+              auth_code = wx.getStorageSync('auth_code');
 
-              return _context19.abrupt('return', 124);
+              console.log(apiDomain + '/group_activity_orders/' + _uuid + '/pay?auth_code=' + auth_code);
+              payres = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
+                method: 'get',
+                url: apiDomain + '/group_activity_orders/' + _uuid + '/pay?auth_code=' + auth_code
+              });
+              return _context19.abrupt('return', payres);
 
-            case 2:
+            case 5:
             case 'end':
               return _context19.stop();
           }
         }
       }, _callee19, _this19);
     }))();
-  }
+  }), __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_defineProperty___default()(_actions, 'user_info', function user_info(_ref35, uuid) {
+    var _this20 = this;
+
+    var commit = _ref35.commit;
+    return __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.mark(function _callee20() {
+      var auth_code, user_profile;
+      return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.wrap(function _callee20$(_context20) {
+        while (1) {
+          switch (_context20.prev = _context20.next) {
+            case 0:
+              auth_code = wx.getStorageSync('auth_code');
+              _context20.next = 3;
+              return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
+                method: 'get',
+                url: apiDomain + '/users/profile?auth_code=' + auth_code
+              });
+
+            case 3:
+              user_profile = _context20.sent;
+              return _context20.abrupt('return', user_profile);
+
+            case 5:
+            case 'end':
+              return _context20.stop();
+          }
+        }
+      }, _callee20, _this20);
+    }))();
+  }), _actions)
+
 }));
 
 /***/ }),
@@ -990,12 +972,10 @@ app.$mount();
 
             case 6:
               console.log('未登录过即将登录');
-
               _context2.next = 9;
               return _this2.$store.dispatch('signup');
 
             case 9:
-
               console.log('登录ok');
 
             case 10:

@@ -124,6 +124,7 @@
 .pay.data-v-97fa62a8 {
   position: fixed;
   bottom: 0;
+  left: 0;
   width: 100%;
   height: 120rpx;
   background: #fff;
@@ -155,4 +156,22 @@
   position: absolute;
   top: 0;
   left: 264rpx;
+}
+._form.data-v-97fa62a8 {
+  display: inline-block;
+  height: 120rpx;
+  width: 750rpx;
+  position: fixed;
+  bottom: 0;
+}
+._form .form_button.data-v-97fa62a8 {
+  display: inline-block;
+  background: none;
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+}
+._form ._button.data-v-97fa62a8::after {
+  border-radius: 0;
+  border: none;
 }

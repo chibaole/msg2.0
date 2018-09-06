@@ -12,14 +12,18 @@
     </view>
     <view class="_div data-v-97fa62a8 address">
       <view class="_p data-v-97fa62a8">地址：目前需填写收货地址
-        <label class="_span data-v-97fa62a8">(拼团成功后 提货时填写 )</label>
+        <label class="_span data-v-97fa62a8">(拼团成功后 提货时填写)</label>
       </view>
     </view>
-    <view class="_div data-v-97fa62a8 pay">
-      <button bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}" class="_button data-v-97fa62a8">
-        <image src="http://pbmrxkahq.bkt.clouddn.com/%E5%BE%AE%E4%BF%A1icon.png" alt class="_img data-v-97fa62a8"></image>
-        <label class="_span data-v-97fa62a8 paytxt">微信支付¥{{order_info.group_activity.current_price}}</label>
+    <form report-submit="{{true}}" bindsubmit="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}" class="_form data-v-97fa62a8">
+      <button class="_button data-v-97fa62a8 form_button" formType="submit">
+        <view class="_div data-v-97fa62a8 pay">
+          <button bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}" class="_button data-v-97fa62a8">
+            <image src="http://pbmrxkahq.bkt.clouddn.com/%E5%BE%AE%E4%BF%A1icon.png" alt class="_img data-v-97fa62a8"></image>
+            <label class="_span data-v-97fa62a8 paytxt">微信支付¥{{order_info.group_activity.current_price}}</label>
+          </button>
+        </view>
       </button>
-    </view>
+    </form>
   </view>
 </template>

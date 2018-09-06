@@ -16,7 +16,20 @@
 
           </div>
         </div>
-        <div class="recomend-method "  @click="attendBoon" :data-title="boon.title" :data-uuid = "boon.uuid" >{{boon.button.text}}</div>
+        <!--<div class="recomend-method "  @click="attendBoon" :data-title="boon.title" :data-uuid = "boon.uuid" >{{boon.button.text}}</div>-->
+        <form @submit = 'formSubmit' :report-submit=true :data-title="boon.title" :data-uuid = "boon.uuid" >
+          <button formType="submit">
+            <div class="test">
+              {{boon.button.text}}
+            </div>
+
+          </button>
+
+
+        </form>
+
+
+
 
       </div>
     </scroll-view>
@@ -36,7 +49,8 @@
         ],
         page:1,
         host:config.host,
-        showSkeleton:true
+        showSkeleton:true,
+        formIdString:''
       }
     },
     methods: {
@@ -58,6 +72,24 @@
 //
 //
 //      },
+      formSubmit: function(e) {
+        console.log(e)
+        var that  = this
+        if (e.mp.detail.formId != 'the formId is a mock one') {
+//          this.setData({
+//            formIdString: e.detail.formId + "," + this.data.formIdString
+//          })
+
+          that.formIdString = e.detail.formId + that.formIdString
+        }
+        console.log(that.formIdString)
+        let uuid = e.currentTarget.dataset.uuid
+        let title = e.currentTarget.dataset.title
+        console.log(uuid,title)
+        wx.navigateTo('/pages/project/main?boons_uuid=' + uuid + "&title=" + title)
+
+      },
+
       async attendBoon(e) {
         //跳转到福利详情页
         var that = this
@@ -72,6 +104,7 @@
 
 
       },
+
     },
     onLoad(){
 
@@ -221,7 +254,7 @@
 
   }
 .recomend-method{
-  /*background: #E0502C;*/
+
   display: inline-block;
   width: 70px;
   height: 30px;
@@ -231,11 +264,48 @@
   color: #ff7f4f;
   font-size: 12px;
   border:1px solid #ff7f4f;
-  /*position: relative;*/
-  /*z-index: 15;*/
-  /*border-bottom: 1px solid #ff7f4f ;*/
-  /*margin-bottom: 10px ;*/
-  /*padding-left: 10px;*/
-  /*padding-right: 10px;*/
+
 }
+/*-----*/
+
+  form{
+    display: inline-block;
+    /*border:1px solid #000;*/
+    background: #fff;
+    button{
+      background: #fff;
+
+      display: inline-block;
+      width: 70px;
+      height: 30px;
+      line-height: 30px;
+      text-align: center;
+      border-radius: 15px;
+      color: #ff7f4f;
+      font-size: 12px;
+      border:1px solid #ff7f4f;
+    }
+  }
+
+
+  /*-------*/
+  .btn{
+    width: 20rpx;
+    height: 20rpx;
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+    position: fixed;
+    top: 0;
+  }
+  button::after{
+    border:none;
+  }
+  .aa{
+    width: 200rpx;
+    height: 200rpx;
+    position:fixed;
+    top: 0;
+  }
+
 </style>

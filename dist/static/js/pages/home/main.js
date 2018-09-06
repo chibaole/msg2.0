@@ -33,6 +33,10 @@ global.webpackJsonp([1],{
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -41,14 +45,16 @@ global.webpackJsonp([1],{
   data: function data() {
     return {
       group_activities: [],
-      host: 'http://47.98.170.205'
+      host: __WEBPACK_IMPORTED_MODULE_3__config__["a" /* default */].host
     };
   },
 
   methods: {
     goGroup: function goGroup(e) {
       var group_activities_uuid = e.currentTarget.dataset.uuid;
-      //          console.log(uuid)
+      var formId = e.mp.detail.formId;
+      console.log(formId);
+
       wx.navigateTo({
         url: '/pages/groupPj/main?group_activities_uuid=' + group_activities_uuid
       });
@@ -229,6 +235,19 @@ global.webpackJsonp([1],{
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -241,7 +260,8 @@ global.webpackJsonp([1],{
       boons: [],
       page: 1,
       host: __WEBPACK_IMPORTED_MODULE_4__config__["a" /* default */].host,
-      showSkeleton: true
+      showSkeleton: true,
+      formIdString: ''
     };
   },
 
@@ -265,6 +285,23 @@ global.webpackJsonp([1],{
     //
     //
     //      },
+    formSubmit: function formSubmit(e) {
+      console.log(e);
+      var that = this;
+      if (e.mp.detail.formId != 'the formId is a mock one') {
+        //          this.setData({
+        //            formIdString: e.detail.formId + "," + this.data.formIdString
+        //          })
+
+        that.formIdString = e.detail.formId + that.formIdString;
+      }
+      console.log(that.formIdString);
+      var uuid = e.currentTarget.dataset.uuid;
+      var title = e.currentTarget.dataset.title;
+      console.log(uuid, title);
+      __WEBPACK_IMPORTED_MODULE_3__utils_wx__["c" /* default */].navigateTo('/pages/project/main?boons_uuid=' + uuid + "&title=" + title);
+    },
+
     attendBoon: function attendBoon(e) {
       var _this = this;
 
@@ -802,17 +839,21 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       staticClass: "group-prj-price "
     }, [_vm._v("$" + _vm._s(group_activitie.current_price) + " "), _c('span', {
       staticClass: "price "
-    }, [_vm._v("¥" + _vm._s(group_activitie.original_price))])])]), _vm._v(" "), _c('div', {
-      staticClass: "join-group ",
+    }, [_vm._v("¥" + _vm._s(group_activitie.original_price))])])]), _vm._v(" "), _c('form', {
       attrs: {
+        "report-submit": true,
         "data-groupname": _vm.groupname,
         "data-uuid": group_activitie.uuid,
         "eventid": '0-' + index
       },
       on: {
-        "click": _vm.goGroup
+        "submit": _vm.goGroup
       }
-    }, [_vm._v(_vm._s(group_activitie.button.text))])])])
+    }, [_c('button', {
+      attrs: {
+        "formType": "submit"
+      }
+    }, [_vm._v(_vm._s(group_activitie.button.text))])], 1)], 1)])
   })], 2)
 }
 var staticRenderFns = []
@@ -961,17 +1002,23 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       staticClass: "recomend-intitle "
     }, [_vm._v(_vm._s(boon.title))]), _vm._v(" "), _c('div', {
       staticClass: "recomend-intitle little_title "
-    }, [_vm._v(_vm._s(boon.description))])])]), _vm._v(" "), _c('div', {
-      staticClass: "recomend-method ",
+    }, [_vm._v(_vm._s(boon.description))])])]), _vm._v(" "), _c('form', {
       attrs: {
+        "report-submit": true,
         "data-title": boon.title,
         "data-uuid": boon.uuid,
         "eventid": '0-' + index
       },
       on: {
-        "click": _vm.attendBoon
+        "submit": _vm.formSubmit
       }
-    }, [_vm._v(_vm._s(boon.button.text))])])
+    }, [_c('button', {
+      attrs: {
+        "formType": "submit"
+      }
+    }, [_c('div', {
+      staticClass: "test"
+    }, [_vm._v("\n            " + _vm._s(boon.button.text) + "\n          ")])])], 1)], 1)
   }))], 1)
 }
 var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;

@@ -11,14 +11,30 @@
         <p>{{order_info.group_activity.title}}<span>¥{{order_info.group_activity.current_price}}</span></p>
     </div>
     <div class="address">
-      <p>地址：目前需填写收货地址<span>(拼团成功后 提货时填写 )</span></p>
+      <p>地址：目前需填写收货地址<span>(拼团成功后 提货时填写)</span></p>
     </div>
 
-    <div class="pay">
-      <button @click="pay" >
-        <img src="http://pbmrxkahq.bkt.clouddn.com/%E5%BE%AE%E4%BF%A1icon.png" alt=""><span class="paytxt">微信支付¥{{order_info.group_activity.current_price}}</span>
+
+    <form :report-submit="true" @submit="pay">
+      <button class="form_button" formType="submit">
+          <div class="pay">
+            <button @click="pay" >
+              <img src="http://pbmrxkahq.bkt.clouddn.com/%E5%BE%AE%E4%BF%A1icon.png" alt=""><span class="paytxt">微信支付¥{{order_info.group_activity.current_price}}</span>
+            </button>
+          </div>
       </button>
-    </div>
+    </form>
+
+
+
+    <!--<form  :report-submit="true"  @submit="goMygroup">-->
+      <!--<button  formType="submit" >-->
+        <!--<div class="mylist" >-->
+          <!--<img src="http://pbmrxkahq.bkt.clouddn.com/%E6%88%91%E7%9A%84%E6%8B%BC%E5%9B%A2%E8%AE%A2%E5%8D%95icon.png" alt="">-->
+          <!--<span class="list_title" >我的拼团订单</span>-->
+        <!--</div>-->
+      <!--</button>-->
+    <!--</form>-->
   </div>
 </template>
 
@@ -38,7 +54,8 @@
         order_uuid:'',
         order_info:{},
         navbar_title:'订单详情',
-        initGroupId:''
+        initGroupId:'',
+        group_activity_order_uuid:''
       }
     },
     components:{
@@ -48,47 +65,54 @@
     ,
 
     methods:{
-        pay(e){
+    async    pay(e){
           console.log(e)
           let that = this
-          let group_activity_initial_uuid= that.order_info.group_activity_initial.uuid
-          wx.setStorageSync('group_activity_initial_uuid',group_activity_initial_uuid)
-          wx.navigateTo({
-            url: '/pages/groupPj/order/main?group_activity_initial_uuid=' + group_activity_initial_uuid,
-          })
-          console.log('/pages/groupPj/order/main?group_activity_initial_uuid=' + group_activity_initial_uuid)
+          let order_uuid = that.group_activity_order_uuid //订单uuid
+          let pay_res = await that.$store.dispatch('group_pay',order_uuid)
+
+          let form_id =  e.mp.detail.formId
+          console.log(form_id)
+          console.log(pay_res)
           wx.requestPayment({
-            'timeStamp': '',
-            'nonceStr': '',
-            'package': '',
-            'signType': 'MD5',
-            'paySign': '',
+            'timeStamp': String(pay_res.time_stamp),
+            'nonceStr': String(pay_res.nonce_str),
+            'package': String(pay_res.package),
+            'signType':String(pay_res.sign_type),
+            'paySign': String(pay_res.pay_sign),
             'success':function(res){
               console.log(res)
+              let group_activity_initial_uuid= that.order_info.group_activity_initial.uuid
+
+              wx.setStorageSync('group_activity_initial_uuid',group_activity_initial_uuid)
+              wx.navigateTo({
+                url: '/pages/groupPj/order/main?group_activity_initial_uuid=' + group_activity_initial_uuid,
+              })
+              console.log('/pages/groupPj/order/main?group_activity_initial_uuid=' + group_activity_initial_uuid)
             },
             'fail':function(res){
               console.log(res)
               console.log('支付错误')
               showModal('支付失败','请尝试重新支付')
+
+              let group_activity_initial_uuid= that.order_info.group_activity_initial.uuid
+
+              wx.setStorageSync('group_activity_initial_uuid',group_activity_initial_uuid)
+              wx.navigateTo({
+                url: '/pages/groupPj/order/main?group_activity_initial_uuid=' + group_activity_initial_uuid,
+              })
+              console.log('/pages/groupPj/order/main?group_activity_initial_uuid=' + group_activity_initial_uuid)
             }
           })
         },
-//      async getGroup_orders(){
-//          wx.removeStorageSync('current_orderinfo')//每次先删除上一个缓存的订
-//          let that = this
-//          let  order_info = await  get(`/v1/group_activity_orders/${that.order_uuid}`)
-//        let order = order_info.group_activity_order
-//        that.order_info = order
-//
-//        wx.setStorageSync('current_orderinfo',order)//缓存获取的拼团订单信息
-//
-//      }
+
     },
    async onLoad(){
       let that = this
-      let group_activity_order_uuid =  this.$root.$mp.query.group_activity_order_uuid //获取发起拼团活动返回的订单ID
+      let group_activity_orders_uuid =  this.$root.$mp.query.group_activity_orders_uuid //获取发起拼团活动返回的订单ID
+     that.group_activity_order_uuid = group_activity_orders_uuid
      let currentuser_code = wx.getStorageSync('auth_code')
-     let uuid_authCode = [group_activity_order_uuid,currentuser_code]
+     let uuid_authCode = [group_activity_orders_uuid,currentuser_code]
 
 
 //      that.getGroup_orders()
@@ -253,6 +277,7 @@
   .pay{
     position: fixed;
     bottom: 0;
+    left:0;
 
     width: 100%;
     height: 60px;
@@ -295,4 +320,30 @@
     }
 
   }
+
+form{
+  /*border:1px solid #000;*/
+  display: inline-block;
+  height: 60px;width: 375px;
+  position: fixed;
+  bottom: 0;
+
+
+  .form_button {
+    display: inline-block;
+    background: none;
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    /*border:1px solid #000;*/
+
+
+  };
+  button::after{
+    border-radius:0;
+    border:none;
+
+  }
+}
+
 </style>

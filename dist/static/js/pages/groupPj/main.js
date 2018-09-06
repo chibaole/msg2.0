@@ -60,6 +60,13 @@ global.webpackJsonp([11],{
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -163,11 +170,11 @@ global.webpackJsonp([11],{
     },
 
     //发起拼团订单
-    initGroup: function initGroup() {
+    initGroup: function initGroup(e) {
       var _this3 = this;
 
       return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.mark(function _callee3() {
-        var that, group_activitys_uuid, currentuser_code, uuid_authCode, initGroupData, group_activity_order_uuid;
+        var that, group_activitys_uuid, currentuser_code, uuid_authCode, initGroupData, form_id, group_activity_order_uuid;
         return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.wrap(function _callee3$(_context3) {
           while (1) {
             switch (_context3.prev = _context3.next) {
@@ -181,23 +188,22 @@ global.webpackJsonp([11],{
 
               case 6:
                 initGroupData = _context3.sent;
+                form_id = e.mp.detail.formId;
 
-
+                console.log(form_id);
                 console.log(initGroupData);
-
                 if (initGroupData) {
                   group_activity_order_uuid = initGroupData.group_activity_order.uuid; //发起拼团返回的订单id
 
                   that.group_activity_order_uuid = group_activity_order_uuid;
-                  console.log('定单uuid' + group_activity_order_uuid);
                   wx.navigateTo({
-                    url: '/pages/groupPj/groupDetail/main?group_activity_order_uuid=' + group_activity_order_uuid
+                    url: '/pages/groupPj/groupDetail/main?group_activity_orders_uuid=' + group_activity_order_uuid
                   });
                 } else {
                   __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__utils_util__["b" /* showModal */])('发起失败', '你已经在这个拼团');
                 }
 
-              case 9:
+              case 11:
               case 'end':
                 return _context3.stop();
             }
@@ -208,7 +214,6 @@ global.webpackJsonp([11],{
 
     //获取倒计时
     getlastTime: function getlastTime() {
-      //                      console.log('倒计时')
 
       var that = this;
       var currentTime = new Date().getTime(); //当前的时间
@@ -216,9 +221,7 @@ global.webpackJsonp([11],{
       var endTime = that.group_activity.end_time; //1532674437000
 
       var leftTime = endTime - currentTime; //总时间
-      if (leftTime <= 0) {
-        //                        showModal('拼团结束','活动结束了')
-      }
+      leftTime < 0 ? leftTime = 0 : leftTime = endTime - currentTime;
 
       var day = Math.floor(leftTime / 1000 / 60 / 60 / 24); //剩余天数
 
@@ -230,9 +233,14 @@ global.webpackJsonp([11],{
       that.time.hours = hours;
       that.time.minutes = minutes;
 
-      //          console.log(day,hours,minutes)
+      //                    console.log(day,hours,minutes)
 
-      setTimeout(that.getlastTime, 1000);
+      var param = setTimeout(that.getlastTime, 1000);
+      if (leftTime <= 0) {
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__utils_util__["b" /* showModal */])('拼团结束', '活动结束了');
+        leftTime = 0;
+        clearTimeout(param);
+      }
     }
   },
   onLoad: function onLoad() {
@@ -273,13 +281,6 @@ global.webpackJsonp([11],{
   },
   mounted: function mounted() {}
 });
-
-/***/ }),
-
-/***/ 170:
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
 
 /***/ }),
 
@@ -337,18 +338,21 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   })], 1), _vm._v(" "), _c('div', {
     staticClass: "pay"
-  }, [_c('div', {
+  }, [_c('span', {
     staticClass: "price"
-  }, [_vm._v("¥" + _vm._s(_vm.group_activity.current_price)), _c('span', [_vm._v("还剩" + _vm._s(_vm.group_activity.stock) + "份")])]), _vm._v(" "), _c('div', {
-    staticClass: "join-group",
+  }, [_vm._v("¥" + _vm._s(_vm.group_activity.current_price)), _c('span', [_vm._v("还剩" + _vm._s(_vm.group_activity.stock) + "份")])]), _vm._v(" "), _c('form', {
     attrs: {
-      "data-prjname": _vm.pjname,
+      "report-submit": true,
       "eventid": '0'
     },
     on: {
-      "click": _vm.initGroup
+      "submit": _vm.initGroup
     }
-  }, [_vm._v(_vm._s(_vm.group_activity.button.text))])])], 1)
+  }, [_c('button', {
+    attrs: {
+      "formType": "submit"
+    }
+  }, [_vm._v(_vm._s(_vm.group_activity.button.text))])], 1)], 1)], 1)
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -363,6 +367,13 @@ if (false) {
 
 /***/ }),
 
+/***/ 277:
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ 68:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -372,7 +383,7 @@ if (false) {
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(170)
+  __webpack_require__(277)
 }
 var normalizeComponent = __webpack_require__(1)
 /* script */

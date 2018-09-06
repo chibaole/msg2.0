@@ -13,7 +13,9 @@
             <label class="_span data-v-318ee708 price ">¥{{group_activitie.original_price}}</label>
           </view>
         </view>
-        <view class="_div data-v-318ee708 join-group " bindtap="handleProxy" data-groupname="{{groupname}}" data-uuid="{{group_activitie.uuid}}" data-eventid="{{'0-'+index}}" data-comkey="{{$k}}">{{group_activitie.button.text}}</view>
+        <form bindsubmit="handleProxy" report-submit="{{true}}" data-groupname="{{groupname}}" data-uuid="{{group_activitie.uuid}}" data-eventid="{{'0-'+index}}" data-comkey="{{$k}}" class="_form data-v-318ee708">
+          <button formType="submit" class="_button data-v-318ee708">{{group_activitie.button.text}}</button>
+        </form>
       </view>
     </view>
   </view>

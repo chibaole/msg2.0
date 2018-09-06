@@ -27,17 +27,9 @@
         console.log('已经注册')
        }else {
          console.log('未登录过即将登录')
-
          await this.$store.dispatch('signup')
-
          console.log('登录ok')
-
-
        }
-
-
-
-
     }
 
   }

@@ -20,7 +20,7 @@ module.exports = async(ctx) => {
       // 现价
       current_price: 5,
       // 活动结束时间，时间戳，精确到毫秒
-      end_time: 1532674437000,
+      end_time: 1535974437000,
       // 团购类型
       group_type: '三人团',
       // 团购描述

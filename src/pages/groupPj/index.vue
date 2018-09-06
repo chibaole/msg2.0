@@ -37,8 +37,15 @@
     </div>
 
     <div class="pay">
-      <div class="price">¥{{group_activity.current_price}}<span>还剩{{group_activity.stock}}份</span></div>
-      <div class="join-group" @click="initGroup" :data-prjname="pjname" >{{group_activity.button.text}}</div>
+      <!--<div class="price">¥{{group_activity.current_price}}<span>还剩{{group_activity.stock}}份</span></div>-->
+
+      <!--<div class="join-group" @click="initGroup" :data-prjname="pjname" >{{group_activity.button.text}}</div>-->
+      <span class="price">¥{{group_activity.current_price}}<span>还剩{{group_activity.stock}}份</span></span>
+
+      <form  @submit = 'initGroup'  :report-submit=true  >
+        <button formType="submit">{{group_activity.button.text}}</button>
+      </form>
+
     </div>
   </div>
 </template>
@@ -108,34 +115,28 @@
 
                     },
 //发起拼团订单
-      async initGroup(){
+      async initGroup(e){
                       let that = this
                       let group_activitys_uuid = that.group_activities_uuid
                        let currentuser_code = wx.getStorageSync('auth_code')
                       let uuid_authCode = [group_activitys_uuid,currentuser_code]
 
                       let initGroupData = await that.$store.dispatch('initGroup',{...uuid_authCode})
-
-
+                      let form_id = e.mp.detail.formId
+                      console.log(form_id)
                       console.log(initGroupData)
-
                       if(initGroupData){
                         let group_activity_order_uuid = initGroupData.group_activity_order.uuid  //发起拼团返回的订单id
                         that.group_activity_order_uuid = group_activity_order_uuid
-                        console.log('定单uuid'+group_activity_order_uuid)
                         wx.navigateTo({
-                          url: '/pages/groupPj/groupDetail/main?group_activity_order_uuid=' + group_activity_order_uuid
+                          url: '/pages/groupPj/groupDetail/main?group_activity_orders_uuid=' + group_activity_order_uuid
                         })
                       }else {
                         showModal('发起失败','你已经在这个拼团')
-
                       }
-
-
       },
  //获取倒计时
       getlastTime() {
-//                      console.log('倒计时')
 
                       let that = this
                       let currentTime = (new Date()).getTime()   //当前的时间
@@ -143,9 +144,8 @@
                       let endTime =  that.group_activity.end_time  //1532674437000
 
                       let leftTime = endTime - currentTime //总时间
-                       if(leftTime<=0){
-//                        showModal('拼团结束','活动结束了')
-                       }
+                      leftTime < 0?leftTime = 0 : leftTime = endTime - currentTime
+
 
                        let day = Math.floor(leftTime/1000 / 60 / 60 / 24) //剩余天数
 
@@ -158,10 +158,14 @@
                       that.time.hours = hours
                       that.time.minutes = minutes
 
-//          console.log(day,hours,minutes)
+//                    console.log(day,hours,minutes)
 
-                       setTimeout(that.getlastTime, 1000)
-
+                       var param = setTimeout(that.getlastTime, 1000)
+                      if(leftTime<=0){
+                        showModal('拼团结束','活动结束了')
+                        leftTime = 0
+                        clearTimeout(param)
+                      }
 
                      }
 
@@ -174,7 +178,9 @@
      that.group_activities_uuid =  that.$root.$mp.query.group_activities_uuid //获取活动列表的group_activities_uuid
 
      let uuid = that.group_activities_uuid
+
      let currentuser_code = wx.getStorageSync('auth_code')
+
      let uuid_authCode = [uuid,currentuser_code]
       let group_activity = await that.$store.dispatch('getGrouDetail',{...uuid_authCode})  //获取当前拼团活动详情
      that.group_activity =  group_activity.group_activity
@@ -182,11 +188,12 @@
      that.myDetail = that.group_activity.detail
 
     },
+
     mounted(){
     }
   }
 </script>
-<style scoped>
+<style scoped lang="scss">
 .container{
   font-family: "PingFang SC";
   font-weight: Regular;
@@ -389,7 +396,7 @@
   width: 100%;
   height: 60px;
   background: #fff;
-  /*border-top: 1px solid #000;*/
+  /*border: 1px solid #000;*/
   box-shadow: 0 -2px 8px  #ededed;
   position: fixed;
   bottom: 0;
@@ -401,44 +408,81 @@
 
 .price{
   display: inline-block;
-
+  float: left;
   width: 90px;
-  height: 25px;
-  line-height: 25px;
+  height: 44px;
+  line-height: 44px;
   color:#f7412d;
   background: #fff;
   font-size: 18px;
   text-align: left;
-
   margin-left: 25px;
-  margin-top: 18px;
+  margin-top: 8px;
+  span{
+    font-size: 12px;
+    color: #999;
+  }
 
-  /*border:1px solid #000;*/
+  /*border:1px solid red;*/
 
 }
-.price span{
-  font-size: 12px;
-  color: #999;
-}
 
-.join-group{
-  display: inline-block;
-  width: 140px;
-  height: 44px;
-  line-height: 44px;
-  border-radius: 22px 22px 22px 22px;
-  background: #ff7f4f;
-  box-shadow: 0 0 8px #ff7f4f;
-  text-align: center;
-  font-weight: Medium;
-  margin-top:8px;
-  margin-left: 95px;
 
-  font-family: PingFangSC-Medium;
-  font-size: 16px;
-  color: #fff;
-}
+/*.join-group{*/
+  /*display: inline-block;*/
+  /*width: 140px;*/
+  /*height: 44px;*/
+  /*line-height: 44px;*/
+  /*border-radius: 22px 22px 22px 22px;*/
+  /*background: #ff7f4f;*/
+  /*box-shadow: 0 0 8px #ff7f4f;*/
+  /*text-align: center;*/
+  /*font-weight: Medium;*/
+  /*margin-top:8px;*/
+  /*margin-left: 95px;*/
 
+  /*font-family: PingFangSC-Medium;*/
+  /*font-size: 16px;*/
+  /*color: #fff;*/
+
+  /*button:{*/
+
+  /*}*/
+/*}*/
+
+
+  form{
+    display: inline-block;
+    width: 140px;
+    height: 44px;
+    line-height: 44px;
+    border-radius: 22px 22px 22px 22px;
+    background: #ff7f4f;
+    box-shadow: 0 0 8px #ff7f4f;
+    text-align: center;
+    font-weight: Medium;
+    margin-top:8px;
+    margin-left: 95px;
+    /*border:1px solid blue;*/
+
+
+    button{
+      display: inline-block;
+      background: #ff7f4f;
+      color: #fff;
+      font-family: PingFangSC-Medium;
+      height: 44px;
+      line-height: 44px;
+
+
+      font-size: 16px;
+      /*border:1px solid blue*/
+    }
+    button::after{
+      border:none;
+    }
+
+  }
 
 </style>
 

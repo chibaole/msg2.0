@@ -32,10 +32,12 @@
       <rich-text nodes="{{myDetail}}" class="_rich-text data-v-05960fcb"></rich-text>
     </view>
     <view class="_div data-v-05960fcb pay">
-      <view class="_div data-v-05960fcb price">¥{{group_activity.current_price}}
+      <label class="_span data-v-05960fcb price">¥{{group_activity.current_price}}
         <label class="_span data-v-05960fcb">还剩{{group_activity.stock}}份</label>
-      </view>
-      <view class="_div data-v-05960fcb join-group" bindtap="handleProxy" data-prjname="{{pjname}}" data-eventid="{{'0'}}" data-comkey="{{$k}}">{{group_activity.button.text}}</view>
+      </label>
+      <form bindsubmit="handleProxy" report-submit="{{true}}" data-eventid="{{'0'}}" data-comkey="{{$k}}" class="_form data-v-05960fcb">
+        <button formType="submit" class="_button data-v-05960fcb">{{group_activity.button.text}}</button>
+      </form>
     </view>
   </view>
 </template>

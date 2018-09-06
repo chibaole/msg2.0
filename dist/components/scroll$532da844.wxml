@@ -13,7 +13,11 @@
             <view class="_div data-v-8c08e6c0 recomend-intitle little_title ">{{boon.description}}</view>
           </view>
         </view>
-        <view class="_div data-v-8c08e6c0 recomend-method " bindtap="handleProxy" data-title="{{boon.title}}" data-uuid="{{boon.uuid}}" data-eventid="{{'0-'+index}}" data-comkey="{{$k}}">{{boon.button.text}}</view>
+        <form bindsubmit="handleProxy" report-submit="{{true}}" data-title="{{boon.title}}" data-uuid="{{boon.uuid}}" data-eventid="{{'0-'+index}}" data-comkey="{{$k}}" class="_form data-v-8c08e6c0">
+          <button formType="submit" class="_button data-v-8c08e6c0">
+            <view class="_div data-v-8c08e6c0 test"> {{boon.button.text}} </view>
+          </button>
+        </form>
       </view>
     </scroll-view>
   </view>

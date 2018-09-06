@@ -148,7 +148,8 @@
 
     width: 150px;
     display: inline-block;
-    margin: 0 auto;
+    /*margin: 0 auto;*/
+    margin-right: 112.5px;
     /*border: 1px solid #000;*/
 
   }

@@ -4,10 +4,10 @@ global.webpackJsonp([12],{
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_groupCard__ = __webpack_require__(17);
@@ -16,6 +16,22 @@ global.webpackJsonp([12],{
 
 
 
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -52,7 +68,8 @@ global.webpackJsonp([12],{
       order_uuid: '',
       order_info: {},
       navbar_title: '订单详情',
-      initGroupId: ''
+      initGroupId: '',
+      group_activity_order_uuid: ''
     };
   },
 
@@ -63,54 +80,91 @@ global.webpackJsonp([12],{
 
   methods: {
     pay: function pay(e) {
-      console.log(e);
-      var that = this;
-      var group_activity_initial_uuid = that.order_info.group_activity_initial.uuid;
-      wx.setStorageSync('group_activity_initial_uuid', group_activity_initial_uuid);
-      wx.navigateTo({
-        url: '/pages/groupPj/order/main?group_activity_initial_uuid=' + group_activity_initial_uuid
-      });
-      console.log('/pages/groupPj/order/main?group_activity_initial_uuid=' + group_activity_initial_uuid);
-      wx.requestPayment({
-        'timeStamp': '',
-        'nonceStr': '',
-        'package': '',
-        'signType': 'MD5',
-        'paySign': '',
-        'success': function success(res) {
-          console.log(res);
-        },
-        'fail': function fail(res) {
-          console.log(res);
-          console.log('支付错误');
-          __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4__utils_util__["b" /* showModal */])('支付失败', '请尝试重新支付');
-        }
-      });
+      var _this = this;
+
+      return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.mark(function _callee() {
+        var that, order_uuid, pay_res, form_id;
+        return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                console.log(e);
+                that = _this;
+                order_uuid = that.group_activity_order_uuid; //订单uuid
+
+                _context.next = 5;
+                return that.$store.dispatch('group_pay', order_uuid);
+
+              case 5:
+                pay_res = _context.sent;
+                form_id = e.mp.detail.formId;
+
+                console.log(form_id);
+                console.log(pay_res);
+                wx.requestPayment({
+                  'timeStamp': String(pay_res.time_stamp),
+                  'nonceStr': String(pay_res.nonce_str),
+                  'package': String(pay_res.package),
+                  'signType': String(pay_res.sign_type),
+                  'paySign': String(pay_res.pay_sign),
+                  'success': function success(res) {
+                    console.log(res);
+                    var group_activity_initial_uuid = that.order_info.group_activity_initial.uuid;
+
+                    wx.setStorageSync('group_activity_initial_uuid', group_activity_initial_uuid);
+                    wx.navigateTo({
+                      url: '/pages/groupPj/order/main?group_activity_initial_uuid=' + group_activity_initial_uuid
+                    });
+                    console.log('/pages/groupPj/order/main?group_activity_initial_uuid=' + group_activity_initial_uuid);
+                  },
+                  'fail': function fail(res) {
+                    console.log(res);
+                    console.log('支付错误');
+                    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4__utils_util__["b" /* showModal */])('支付失败', '请尝试重新支付');
+
+                    var group_activity_initial_uuid = that.order_info.group_activity_initial.uuid;
+
+                    wx.setStorageSync('group_activity_initial_uuid', group_activity_initial_uuid);
+                    wx.navigateTo({
+                      url: '/pages/groupPj/order/main?group_activity_initial_uuid=' + group_activity_initial_uuid
+                    });
+                    console.log('/pages/groupPj/order/main?group_activity_initial_uuid=' + group_activity_initial_uuid);
+                  }
+                });
+
+              case 10:
+              case 'end':
+                return _context.stop();
+            }
+          }
+        }, _callee, _this);
+      }))();
     }
   },
   onLoad: function onLoad() {
-    var _this = this;
+    var _this2 = this;
 
-    return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
-      var that, group_activity_order_uuid, currentuser_code, uuid_authCode, orderData;
-      return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+    return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.mark(function _callee2() {
+      var that, group_activity_orders_uuid, currentuser_code, uuid_authCode, orderData;
+      return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
         while (1) {
-          switch (_context.prev = _context.next) {
+          switch (_context2.prev = _context2.next) {
             case 0:
-              that = _this;
-              group_activity_order_uuid = _this.$root.$mp.query.group_activity_order_uuid; //获取发起拼团活动返回的订单ID
+              that = _this2;
+              group_activity_orders_uuid = _this2.$root.$mp.query.group_activity_orders_uuid; //获取发起拼团活动返回的订单ID
 
+              that.group_activity_order_uuid = group_activity_orders_uuid;
               currentuser_code = wx.getStorageSync('auth_code');
-              uuid_authCode = [group_activity_order_uuid, currentuser_code];
+              uuid_authCode = [group_activity_orders_uuid, currentuser_code];
 
               //      that.getGroup_orders()
               //新api的形式
 
-              _context.next = 6;
-              return that.$store.dispatch('groupActivities_order', __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends___default()({}, uuid_authCode));
+              _context2.next = 7;
+              return that.$store.dispatch('groupActivities_order', __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default()({}, uuid_authCode));
 
-            case 6:
-              orderData = _context.sent;
+            case 7:
+              orderData = _context2.sent;
 
 
               console.log(orderData);
@@ -118,27 +172,27 @@ global.webpackJsonp([12],{
               that.order_info = orderData.group_activity_order;
               console.log(that.order_info);
 
-            case 10:
-            case 'end':
-              return _context.stop();
-          }
-        }
-      }, _callee, _this);
-    }))();
-  },
-  mounted: function mounted() {
-    var _this2 = this;
-
-    return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee2() {
-      return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
-        while (1) {
-          switch (_context2.prev = _context2.next) {
-            case 0:
+            case 11:
             case 'end':
               return _context2.stop();
           }
         }
       }, _callee2, _this2);
+    }))();
+  },
+  mounted: function mounted() {
+    var _this3 = this;
+
+    return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.mark(function _callee3() {
+      return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.wrap(function _callee3$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+            case 'end':
+              return _context3.stop();
+          }
+        }
+      }, _callee3, _this3);
     }))();
   }
 });
@@ -173,7 +227,20 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "detail-order"
   }, [_c('h2', [_vm._v("订单详情")]), _vm._v(" "), _c('p', [_vm._v(_vm._s(_vm.order_info.group_activity.title)), _c('span', [_vm._v("¥" + _vm._s(_vm.order_info.group_activity.current_price))])])], 1), _vm._v(" "), _c('div', {
     staticClass: "address"
-  }, [_c('p', [_vm._v("地址：目前需填写收货地址"), _c('span', [_vm._v("(拼团成功后 提货时填写 )")])])], 1), _vm._v(" "), _c('div', {
+  }, [_c('p', [_vm._v("地址：目前需填写收货地址"), _c('span', [_vm._v("(拼团成功后 提货时填写)")])])], 1), _vm._v(" "), _c('form', {
+    attrs: {
+      "report-submit": true,
+      "eventid": '1'
+    },
+    on: {
+      "submit": _vm.pay
+    }
+  }, [_c('button', {
+    staticClass: "form_button",
+    attrs: {
+      "formType": "submit"
+    }
+  }, [_c('div', {
     staticClass: "pay"
   }, [_c('button', {
     attrs: {
@@ -189,7 +256,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }), _c('span', {
     staticClass: "paytxt"
-  }, [_vm._v("微信支付¥" + _vm._s(_vm.order_info.group_activity.current_price))])])], 1)], 1)
+  }, [_vm._v("微信支付¥" + _vm._s(_vm.order_info.group_activity.current_price))])])], 1)])], 1)], 1)
 }
 var staticRenderFns = []
 render._withStripped = true

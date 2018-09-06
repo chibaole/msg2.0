@@ -6,12 +6,16 @@
     <div class="group-tiem " v-for="group_activitie in group_activities" :key="group_activitie.uuid">
       <div class="pic " ><img  :src="host + group_activitie.title_image_url" alt=""></div>
       <div class="info-box ">
-      <div class="group-info ">
-          <div class="group-text ">{{group_activitie.title}}</div>
-          <div class="group-prj-price ">${{group_activitie.current_price}} <span class="price ">¥{{group_activitie.original_price}}</span></div>
+        <div class="group-info ">
+            <div class="group-text ">{{group_activitie.title}}</div>
+            <div class="group-prj-price ">${{group_activitie.current_price}} <span class="price ">¥{{group_activitie.original_price}}</span></div>
 
-      </div>
-      <div class="join-group " @click="goGroup" :data-groupname="groupname" :data-uuid="group_activitie.uuid">{{group_activitie.button.text}}</div>
+        </div>
+        <!--<div class="join-group " @click="goGroup" :data-groupname="groupname" :data-uuid="group_activitie.uuid">{{group_activitie.button.text}}</div>-->
+
+        <form @submit = 'goGroup'  :report-submit=true :data-groupname="groupname" :data-uuid="group_activitie.uuid" >
+          <button formType="submit">{{group_activitie.button.text}}</button>
+        </form>
       </div>
 
     </div>
@@ -29,13 +33,15 @@
         group_activities:[
 
         ],
-        host:'http://47.98.170.205',
+        host:config.host,
       }
     },
     methods:{
       goGroup(e){
         let  group_activities_uuid = e.currentTarget.dataset.uuid
-//          console.log(uuid)
+        let formId = e.mp.detail.formId
+        console.log(formId)
+
           wx.navigateTo({
              url: '/pages/groupPj/main?group_activities_uuid=' + group_activities_uuid
           })
@@ -133,24 +139,42 @@
     text-align: center;
     background:#ff7f4f ;
     /*background: linear-gradient(to top, #ff7f4f  , #e93b56);*/
-
-
-
     border-radius: 14px;
     font-size: 12px;
     width: 62px;
     height: 28px;
     line-height: 28px;
-
     color: #fff;
+    float: right;
+    margin-top: 53px;
+  }
+
+  form{
+    display: inline-block;
+    /*border:1px solid #000;*/
+    text-align: center;
+    border-radius: 14px;
+    width: 62px;
+    height: 28px;
+    background:#ff7f4f ;
 
     float: right;
     margin-top: 53px;
+    button{
+      display: inline-block;
+      font-size: 12px;
+      width: 62px;
+      height: 28px;
+      border-radius: 14px;
 
-    /*box-shadow: 0 0 8px #e93b56  ;*/
-    /*h-shadow v-shadow blur spread color inset;*/
+      background:#ff7f4f ;
 
-
+      line-height: 28px;
+      color: #fff;
+    }
+    button::after{
+      border: none;
+    }
 
   }
   .group-text{

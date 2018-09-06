@@ -204,6 +204,7 @@
   box-shadow: 0 -4rpx 16rpx #ededed;
   position: fixed;
   bottom: 0;
+  left: 0;
   z-index: 100;
   padding: 0;
   margin: 0;
@@ -323,6 +324,7 @@
   box-shadow: 0 -4rpx 16rpx  #ededed;
   position: fixed;
   bottom: 0;
+  left: 0;
   z-index: 100;
 }
 .price.data-v-b3a874ec {
@@ -421,4 +423,18 @@
   color: #D0021b;
   font-weight: Regular;
   text-decoration: line-through;
+}
+._form.data-v-b3a874ec {
+  border: none;
+  display: block;
+}
+._form ._button.data-v-b3a874ec {
+  display: block;
+  background: none;
+  margin: 0 auto;
+  border: none;
+}
+._form ._button.data-v-b3a874ec::after {
+  border-radius: 0;
+  border: none;
 }

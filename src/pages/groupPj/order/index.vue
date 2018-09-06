@@ -33,7 +33,19 @@
       <div class="user">
         <div class="pic" v-for="item in order_info.users"><img :src="item.avatar_url" alt=""><span class="mark" v-if="item.is_initiator">团长</span></div>
       </div>
-      <div class="group_res" v-if="order_info.status == 'success'" @click="fillAddress">去填地址</div>
+
+
+      <!--<div class="group_res" v-if="order_info.status == 'success'" @click="fillAddress">去填地址</div>-->
+
+      <form :report-submit="true" @submit="fillAddress">
+        <button class="form_button" formType="submit">
+          <div class="group_res" v-if="order_info.status == 'success'" @click="fillAddress">去填地址</div>
+        </button>
+      </form>
+
+
+
+
       <div class="line"></div>
 
       <div class="group">
@@ -51,8 +63,17 @@
     </div>
 
     <!--------------------------------------------------------------------------->
-    <div class="btn open_btn" @click="shareMenu" data-status="1" ><span>邀请好友一起享用</span></div>
-    <div class="btn open_btn" @click="createGroup" data-status="1" v-if="group_activity_initials_finish"><span>重新开团</span></div>
+
+    <form :report-submit="true" @submit="shareMenu">
+      <button class="form_button" formType="submit">
+      <div class="btn open_btn"  data-status="1" ><span>邀请好友一起享用</span></div>
+      </button>
+    </form>
+        <form :report-submit="true" @submit="createGroup">
+          <button class="form_button" formType="submit">
+      <div class="btn open_btn" @click="createGroup" data-status="1" v-if="group_activity_initials_finish"><span>重新开团</span></div>
+      </button>
+    </form>
 
     <div class="mask" v-if="showBox">  <!-- 遮罩-->
 
@@ -76,8 +97,9 @@
 
     </div>
     <!--参团底部button-->
-    <div class="pay" v-if="scanCode" >
-      <div class="price">¥{{order_info.current_price}}<span>还剩{{}}</span></div>
+    <div class="pay" v-if="order_info.is_initiator == false" >
+    <!--<div class="pay"  >-->
+    <div class="price">¥{{order_info.current_price}}<span>还剩{{}}</span></div>
       <div class="join-group" @click="attendGroup" :data-uuid="order_info.uuid" >一键参与</div>
     </div>
 
@@ -128,7 +150,7 @@
         navbar_title: '团购',
         orderIdId:'',
         myDetail:'',
-        scanCode:false,
+        scanCode:true,
         group_activity_initial_uuid:'',
         group_activity_initials_finish:false,
         host:config.host
@@ -142,7 +164,9 @@
     ,
 
     methods: {
-      pay() {
+     async pay() {
+//        let uuid =
+//        const paydata = this.$store.dispatch('group_pay',uuid)
         wx.requestPayment({
           'timeStamp': '',
           'nonceStr': '',
@@ -158,18 +182,24 @@
           }
         })
       },
-     async attendGroup(){
 
+      async attendGroup(){
+//    一键参与 扫码或者点击分享进入
         const that = this
-//        const uuid = that.orderUuid
-//       参与拼团的订单uuid
-       const uuid = '123434'
-       const auth_code = wx.getStorageSync('auth_code')
-       const  uuid_authCode = [uuid,auth_code]
-       console.log(uuid_authCode)
-       const attendRes = await that.$store.dispatch('attendGroupActivities',{...uuid_authCode})
-       console.log(attendRes)
-       const orderUuid = attendRes.group_activity_order.uuid
+
+        let uuid = that.group_activity_initial_uuid
+        let auth_code = wx.getStorageSync('auth_code')
+        let uuid_authCode = [uuid,auth_code]
+//         参与拼团
+        let group_activity_orders = await that.$store.dispatch('attendGroupActivities',{...uuid_authCode})
+        console.log(group_activity_orders)
+        let group_activity_order_uuid = group_activity_orders.group_activity_order.uuid
+        console.log(group_activity_order_uuid)
+
+        //支付参与拼团的订单
+
+        let join_res = await that.$store.dispatch('group_pay',group_activity_order_uuid )
+        console.log(join_res)
 
 
       },
@@ -270,9 +300,10 @@
 
   }
   ,
-  shareMenu()
+  shareMenu(e)
   {
     console.log(this.showBox)
+    console.log(e.mp.detail.formId)
     this.showBox = !this.showBox
 
   }
@@ -405,13 +436,14 @@
       url: '/pages/test/main'
     })
   },
-      async fillAddress(){
+      async fillAddress(e){
         console.log('领奖')
         let that = this
         let data = [ ]
         let uuid = that.orderId
         let order_status = that.order_info.status //success grouping init failed
-
+        let form_id = e.mp.detail.formId
+        console.log(form_id)
         console.log(order_status)
         if(order_status ==='success'){
           let res = await chooseAddress()
@@ -451,14 +483,16 @@
 
 
     },
-   async onLoad()
+   async onLoad(options)
   {
     console.log('支付后的订单详情')
+    console.log('参数'+options)
+    console.log(options)
     var that = this
+//                                              group_activity_initial_uuid
+    let group_activity_initial_uuid = options.group_activity_initial_uuid //发起拼团活动返回订单uuid
 
-    let group_activity_initial_uuid = that.$root.$mp.query.group_activity_initial_uuid //发起拼团活动返回订单uuid
     that.group_activity_initial_uuid = group_activity_initial_uuid
-    console.log(group_activity_initial_uuid)
 
     let currentuser_code = wx.getStorageSync('auth_code')
     let uuid_authCode = [group_activity_initial_uuid,currentuser_code]
@@ -476,7 +510,7 @@
     orderData.group_activity_initial.users = order_user
 
     if(orderData.group_activity_initial.status === 'failed' || orderData.group_activity_initial.status === 'success' || orderData.group_activity_initial.status === 'init' ){
-      console.log('本次拼团结束')
+      console.log(orderData.group_activity_initial.status+'本次拼团结束')
       that.group_activity_initial_finish = true
 
     }
@@ -767,6 +801,7 @@
     box-shadow: 0 -2px 8px #ededed;
     position: fixed;
     bottom: 0;
+    left: 0;
     z-index: 100;
     padding: 0;
     margin: 0;
@@ -924,6 +959,7 @@
     box-shadow: 0 -2px 8px  #ededed;
     position: fixed;
     bottom: 0;
+    left:0;
     z-index: 100;
 
   }
@@ -1069,5 +1105,23 @@
   }
 
 
+
+  form{
+    border:none;
+    display: block;
+    button {
+      display: block;
+      background: none;
+      margin: 0 auto;
+      border:none;
+
+
+    };
+    button::after{
+      border-radius:0;
+      border:none;
+
+    }
+  }
 
 </style>

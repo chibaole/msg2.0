@@ -1,14 +1,13 @@
 <template>
   <!--<div class="container" :style="{'padding-top':top + 'px'}">-->
   <div class="container" >
-
   <!--<Navbar></Navbar>-->
     <div class="navbartitle" :style="{'height':top+'px'}"><span>我的研究院</span></div>
     <div class="userinfo" :style="{'margin-top':top+'px'}" >
       <img :src='userinfo.avatar_url' >
       <p class="username">
         <span class="foodname">{{userinfo.nick_name}}</span>
-        <span class="foodLabel">新晋吃货</span>
+        <span class="foodLabel">{{userinfo.level_display}}</span>
       </p>
       <span class="score">2.3K<span class="score_text">个小麻花</span></span>
       <div class="desc">
@@ -18,52 +17,74 @@
       </div>
     </div>
 
-    <div class="mylist">
-      <img src="http://pbmrxkahq.bkt.clouddn.com/%E7%AD%BE%E5%88%B0icon.png" alt="">
-      <span class="list_title">签到</span>
-      <span class="list_btn">签到赢取8折券</span>
-    </div>
-    <div class="mylist"  @click="goMygroup">
+
+    <form  :report-submit="true" @submit="sign_in">
+      <button formType="submit">
+        <div class="mylist">
+        <img src="http://pbmrxkahq.bkt.clouddn.com/%E7%AD%BE%E5%88%B0icon.png" alt="">
+        <span class="list_title">签到</span>
+        <span class="list_btn">签到赢取8折券</span>
+        </div>
+      </button>
+    </form>
+
+    <!--<form @submit = ''  :report-submit=true >-->
+      <!--<button formType="submit">{{group_activitie.button.text}}</button>-->
+    <!--</form>-->
+    <form  :report-submit="true"  @submit="goMygroup">
+      <button  formType="submit" >
+    <div class="mylist" >
       <img src="http://pbmrxkahq.bkt.clouddn.com/%E6%88%91%E7%9A%84%E6%8B%BC%E5%9B%A2%E8%AE%A2%E5%8D%95icon.png" alt="">
       <span class="list_title" >我的拼团订单</span>
-      <!--<span class="list_btn">签到赢取8折券</span>-->
     </div>
-    <div class="mylist" @click="myBoon">
+      </button>
+    </form>
+
+    <form  :report-submit="true" @submit="myBoon">
+      <button formType="submit" >
+    <div class="mylist" >
       <img src="http://pbmrxkahq.bkt.clouddn.com/%E6%88%91%E7%9A%84%E6%8A%BD%E5%A5%96icon.png" alt="">
       <span class="list_title" >我的抽奖</span>
-      <!--<span class="list_btn">签到赢取8折券</span>-->
     </div>
+      </button>
+    </form>
+
+    <form  :report-submit="true"  @submit="myStore">
+      <button formType="submit" >
     <div class="mylist">
       <img src="http://pbmrxkahq.bkt.clouddn.com/%E9%9B%B6%E9%A3%9F%E5%BA%93icon.png" alt="">
       <span class="list_title">我的零食库</span>
       <span class="list_btn">分享有礼</span>
     </div>
+      </button>
+    </form>
+
+    <form  :report-submit="true" @submit="myPublic">
+      <button  formType="submit">
     <div class="mylist">
       <img src="http://pbmrxkahq.bkt.clouddn.com/%E6%88%91%E7%9A%84%E5%8F%91%E5%B8%83icon.png" alt="">
       <span class="list_title">我的发布</span>
-      <!--<span class="list_btn">签到赢取8折券</span>-->
     </div>
+      </button>
+    </form>
+    <form  :report-submit="true" @submit="my_trove">
+      <button >
     <div class="mylist">
       <img src="http://pbmrxkahq.bkt.clouddn.com/%E6%94%B6%E8%97%8Ficon.png" alt="">
       <span class="list_title">我的收藏</span>
-      <!--<span class="list_btn">签到赢取8折券</span>-->
     </div>
-
-    <button open-type="getUserInfo" @getuserinfo="bindGetUserInfo" @click="getUserInfo1">获取权限</button>
-
-
+      </button>
+    </form>
+    <button open-type="getUserInfo" @getuserinfo="bindGetUserInfo" @click="getUserInfo1" v-if="login_show">获取权限</button>
   </div>
 </template>
 <script>
 import qcloud from 'wafer2-client-sdk'
 import YearProgress from '@/components/YearProgress'
-
 import {showSuccess, post, showModal} from '@/util'
 import {checkSession} from '@/utils/wx'
 import config from '@/config'
-
 import Navbar from '@/components/navbar'
-
 export default {
   components: {
     YearProgress,
@@ -73,19 +94,31 @@ export default {
     return {
       userinfo: {
         avatar_url: 'http://image.shengxinjing.cn/rate/unlogin.png',
-        nick_name: '空空的地方'
+        nick_name: '空空的地方',
+
+        level_display: '',
+        is_authorized: true
       },
       nologin:true,
-      top:68
+      top:68,
+      login_show:true
     }
   },
   methods: {
-    goMygroup(){
+    goMygroup(e){
+      let that = this
+      console.log(e)
+      let form_id = e.mp.detail.formId
+      console.log(form_id)
       wx.navigateTo({
           url:'/pages/user/myGroup/main'
       })
     },
-    myBoon(){
+    myBoon(e){
+      let that = this
+      console.log(e)
+      let form_id = e.mp.detail.formId
+      console.log(form_id)
       wx.navigateTo({
         url:'/pages/user/myboonList/main'
       })
@@ -114,49 +147,38 @@ export default {
          let data = [e.mp.detail.encryptedData,e.mp.detail.iv,e.mp.detail.signature,e.mp.detail.rawData]
 
           await that.$store.dispatch('saveInfo',{...data})
-
-
+          that.login_show = false
        } else {
          //用户按了拒绝按钮
          console.log('用户按了拒绝按钮')
        }
      }else {
        console.log('session 过期')
-
        await that.$store.dispatch('signup')
-
+       that.login_show = false
        console.log('重新登录成功')
      }
-
-//     wx.checkSession({
-//       success: async function(){
-//
-//       },
-//       fail:async function(){
-//
-//
-//       }
-//     })
-
-
-
-
     }
-
-
-
   },
-  onShow () {
+ async onShow () {
     let that = this
     let userinfo = wx.getStorageSync('userinfo')
+
     console.log(userinfo)
 
     if (userinfo) {
       that.userinfo = userinfo
+      that.login_show = false
       console.log(userinfo)
     }else {
        console.log('暂无用户信息 点击登录' )
+      that.login_show = true
+
     }
+    let user_profile = await that.$store.dispatch('user_info')
+   that.userinfo.level_display = user_profile.user.level_display
+//   console.log(user_profile)
+
 
   },
   onLoad () {
@@ -276,14 +298,15 @@ export default {
 
   .foodLabel{
     display: inline-block;
-    color: #000;
-    width: 54px;
-    height:18px;
+    color: #fff;
+    /*height:18px;*/
+    /*line-height: 18px;*/
     font-family: PingFangSC-Regular;
     border-radius: 13px;
     font-size: 10px;
-    margin-left: 0;
+    margin-left: 5px;
     background: rgba(#fc9e79, 0.4);
+    padding: 2px 5px;
 
   };
   .desc{
@@ -357,7 +380,7 @@ export default {
     display: inline-block;
     position: absolute;
     top:25px;
-
+    left:0
   };
   .list_title{
 
@@ -389,8 +412,25 @@ export default {
   }
 
 
-}
 
+}
+form{
+  border:none;
+ display: block;
+  button {
+    display: block;
+    background: none;
+    margin: 0 auto;
+    border:none;
+
+
+  };
+  button::after{
+    border-radius:0;
+    border:none;
+
+  }
+}
 
 </style>
 
