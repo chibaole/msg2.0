@@ -4,13 +4,13 @@ global.webpackJsonp([11],{
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__utils_util__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__utils_util__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_navbar__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__config__ = __webpack_require__(4);
 
@@ -71,7 +71,6 @@ global.webpackJsonp([11],{
 
 
 
-
 /* harmony default export */ __webpack_exports__["a"] = ({
 
   components: {
@@ -86,13 +85,12 @@ global.webpackJsonp([11],{
       group_activity_order_uuid: '',
       group_activities_uuid: '',
       time: { day: '', hours: '', minutes: '' },
-      myDetail: '',
-      host: __WEBPACK_IMPORTED_MODULE_5__config__["a" /* default */].host
+      myDetail: ''
     };
   },
 
   methods: {
-    //跳转到拼团订单
+    // 跳转到拼团订单
     goGroupDetail: function goGroupDetail(e) {
       var prjName = e.currentTarget.dataset.prjname;
       var pjNum = e.currentTarget.dataset.groupNum;
@@ -102,7 +100,7 @@ global.webpackJsonp([11],{
       });
     },
 
-    //获取拼团产品信息
+    // 获取拼团产品信息
     getGrouDetail: function getGrouDetail() {
       var _this = this;
 
@@ -133,7 +131,7 @@ global.webpackJsonp([11],{
       }))();
     },
 
-    //发起拼团
+    // 发起拼团
     attendGroup: function attendGroup() {
       var _this2 = this;
 
@@ -143,7 +141,7 @@ global.webpackJsonp([11],{
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
-                //发起拼团
+                // 发起拼团
                 that = _this2;
                 uuid = that.uuid;
                 currentuser_code = wx.getStorageSync('auth_code');
@@ -169,7 +167,7 @@ global.webpackJsonp([11],{
       }))();
     },
 
-    //发起拼团订单
+    // 发起拼团订单
     initGroup: function initGroup(e) {
       var _this3 = this;
 
@@ -193,7 +191,7 @@ global.webpackJsonp([11],{
                 console.log(form_id);
                 console.log(initGroupData);
                 if (initGroupData) {
-                  group_activity_order_uuid = initGroupData.group_activity_order.uuid; //发起拼团返回的订单id
+                  group_activity_order_uuid = initGroupData.group_activity_order.uuid; // 发起拼团返回的订单id
 
                   that.group_activity_order_uuid = group_activity_order_uuid;
                   wx.navigateTo({
@@ -212,18 +210,17 @@ global.webpackJsonp([11],{
       }))();
     },
 
-    //获取倒计时
+    // 获取倒计时
     getlastTime: function getlastTime() {
-
       var that = this;
-      var currentTime = new Date().getTime(); //当前的时间
+      var currentTime = new Date().getTime(); // 当前的时间
 
-      var endTime = that.group_activity.end_time; //1532674437000
+      var endTime = that.group_activity.end_time; // 1532674437000
 
-      var leftTime = endTime - currentTime; //总时间
+      var leftTime = endTime - currentTime; // 总时间
       leftTime < 0 ? leftTime = 0 : leftTime = endTime - currentTime;
 
-      var day = Math.floor(leftTime / 1000 / 60 / 60 / 24); //剩余天数
+      var day = Math.floor(leftTime / 1000 / 60 / 60 / 24); // 剩余天数
 
       var hours = Math.floor(leftTime / 1000 / 60 / 60 % 24);
 
@@ -256,7 +253,7 @@ global.webpackJsonp([11],{
 
               that.getlastTime();
 
-              that.group_activities_uuid = that.$root.$mp.query.group_activities_uuid; //获取活动列表的group_activities_uuid
+              that.group_activities_uuid = that.$root.$mp.query.group_activities_uuid; // 获取活动列表的group_activities_uuid
 
               uuid = that.group_activities_uuid;
               currentuser_code = wx.getStorageSync('auth_code');
@@ -266,9 +263,9 @@ global.webpackJsonp([11],{
 
             case 8:
               group_activity = _context4.sent;
-              //获取当前拼团活动详情
+              // 获取当前拼团活动详情
               that.group_activity = group_activity.group_activity;
-              //通过富文本展示商品详情
+              // 通过富文本展示商品详情
               that.myDetail = that.group_activity.detail;
 
             case 11:
@@ -281,6 +278,13 @@ global.webpackJsonp([11],{
   },
   mounted: function mounted() {}
 });
+
+/***/ }),
+
+/***/ 170:
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ }),
 
@@ -302,7 +306,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "pic"
   }, [_c('img', {
     attrs: {
-      "src": _vm.host + _vm.group_activity.title_image_url,
+      "src": _vm.group_activity.title_image_url,
       "alt": ""
     }
   })]), _vm._v(" "), _c('div', {
@@ -367,13 +371,6 @@ if (false) {
 
 /***/ }),
 
-/***/ 277:
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
 /***/ 68:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -383,7 +380,7 @@ if (false) {
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(277)
+  __webpack_require__(170)
 }
 var normalizeComponent = __webpack_require__(1)
 /* script */

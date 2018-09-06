@@ -13,60 +13,51 @@
   </div>
 </template>
 <script>
-  export  default {
-   data(){
-     return{
-       activeIndex: 0,
-       activeClass:'item',
-       menus: [
-         {
-           'menuId': 1,
-           'menu': '吃饱了'
-         },
-         {
-           'menuId': 2,
-           'menu': '没事干'
-         },
-         {
-           'menuId': 3,
-           'menu': '淘宝上的美食推荐'
-         },
-         {
-           'menuId': 4,
-           'menu': '研究院成果'
-         }
-       ]
-     }
-   },
-    methods:{
-
-
+  export default {
+    data () {
+      return {
+        activeIndex: 0,
+        activeClass: 'item',
+        menus: [
+          {
+            'menuId': 1,
+            'menu': '吃饱了'
+          },
+          {
+            'menuId': 2,
+            'menu': '没事干'
+          },
+          {
+            'menuId': 3,
+            'menu': '淘宝上的美食推荐'
+          },
+          {
+            'menuId': 4,
+            'menu': '研究院成果'
+          }
+        ]
+      }
+    },
+    methods: {
 
       tabChange: function (e) {
         let that = this
-        var index = e.currentTarget.dataset.index;
-
-
+        var index = e.currentTarget.dataset.index
 
         that.activeIndex = index
-
-
       },
-      selected(e){
+      selected (e) {
         let that = this
-
-
       }
 
     },
     onShow: function () {
-     let that = this
+      let that = this
       // 页面显示
-      var span = wx.getSystemInfoSync().windowWidth / that.menus.length + 'px';
+      var span = wx.getSystemInfoSync().windowWidth / that.menus.length + 'px'
 
       that.itemWith = this.menus.length <= 5 ? span : '160rpx'
-
-    },
+    }
   }
 </script>
 

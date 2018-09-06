@@ -4,14 +4,14 @@ global.webpackJsonp([12],{
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_groupCard__ = __webpack_require__(17);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__utils_util__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_groupCard__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__utils_util__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_navbar__ = __webpack_require__(6);
 
 
@@ -90,7 +90,7 @@ global.webpackJsonp([12],{
               case 0:
                 console.log(e);
                 that = _this;
-                order_uuid = that.group_activity_order_uuid; //订单uuid
+                order_uuid = that.group_activity_order_uuid; // 订单uuid
 
                 _context.next = 5;
                 return that.$store.dispatch('group_pay', order_uuid);
@@ -151,14 +151,14 @@ global.webpackJsonp([12],{
           switch (_context2.prev = _context2.next) {
             case 0:
               that = _this2;
-              group_activity_orders_uuid = _this2.$root.$mp.query.group_activity_orders_uuid; //获取发起拼团活动返回的订单ID
+              group_activity_orders_uuid = _this2.$root.$mp.query.group_activity_orders_uuid; // 获取发起拼团活动返回的订单ID
 
               that.group_activity_order_uuid = group_activity_orders_uuid;
               currentuser_code = wx.getStorageSync('auth_code');
               uuid_authCode = [group_activity_orders_uuid, currentuser_code];
 
               //      that.getGroup_orders()
-              //新api的形式
+              // 新api的形式
 
               _context2.next = 7;
               return that.$store.dispatch('groupActivities_order', __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default()({}, uuid_authCode));

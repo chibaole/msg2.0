@@ -115,8 +115,7 @@
   import config from '@/config'
   export default {
 
-
-    data() {
+    data () {
       return {
         time: {
           day: '',
@@ -148,68 +147,65 @@
         showBox: false,
         painting: {},
         navbar_title: '团购',
-        orderIdId:'',
-        myDetail:'',
-        scanCode:true,
-        group_activity_initial_uuid:'',
-        group_activity_initials_finish:false,
-        host:config.host
+        orderIdId: '',
+        myDetail: '',
+        scanCode: true,
+        group_activity_initial_uuid: '',
+        group_activity_initials_finish: false,
+        host: config.host
       }
     },
     components: {
       Card,
       Navbar
 
-    }
-    ,
+    },
 
-    methods: {
-     async pay() {
+  methods: {
+    async pay () {
 //        let uuid =
 //        const paydata = this.$store.dispatch('group_pay',uuid)
-        wx.requestPayment({
-          'timeStamp': '',
-          'nonceStr': '',
-          'package': '',
-          'signType': 'MD5',
-          'paySign': '',
-          'success': function (res) {
-            console.log(res)
-          },
-          'fail': function (res) {
-            console.log(res)
-            console.log('支付错误')
-          }
-        })
-      },
+      wx.requestPayment({
+        'timeStamp': '',
+        'nonceStr': '',
+        'package': '',
+        'signType': 'MD5',
+        'paySign': '',
+        'success': function (res) {
+          console.log(res)
+        },
+        'fail': function (res) {
+          console.log(res)
+          console.log('支付错误')
+        }
+      })
+    },
 
-      async attendGroup(){
+    async attendGroup () {
 //    一键参与 扫码或者点击分享进入
-        const that = this
+      const that = this
 
-        let uuid = that.group_activity_initial_uuid
-        let auth_code = wx.getStorageSync('auth_code')
-        let uuid_authCode = [uuid,auth_code]
+      let uuid = that.group_activity_initial_uuid
+      let auth_code = wx.getStorageSync('auth_code')
+      let uuid_authCode = [uuid, auth_code]
 //         参与拼团
-        let group_activity_orders = await that.$store.dispatch('attendGroupActivities',{...uuid_authCode})
-        console.log(group_activity_orders)
-        let group_activity_order_uuid = group_activity_orders.group_activity_order.uuid
-        console.log(group_activity_order_uuid)
+      let group_activity_orders = await that.$store.dispatch('attendGroupActivities', {...uuid_authCode})
+      console.log(group_activity_orders)
+      let group_activity_order_uuid = group_activity_orders.group_activity_order.uuid
+      console.log(group_activity_order_uuid)
 
-        //支付参与拼团的订单
+        // 支付参与拼团的订单
 
-        let join_res = await that.$store.dispatch('group_pay',group_activity_order_uuid )
-        console.log(join_res)
-
-
-      },
-      getlastTime() {
-        let that = this
+      let join_res = await that.$store.dispatch('group_pay', group_activity_order_uuid)
+      console.log(join_res)
+    },
+    getlastTime () {
+      let that = this
 //        console.log('倒计时')
-        let startTime = that.order_info.initial_time_timestamp
-        let currentTime = (new Date()).getTime()
+      let startTime = that.order_info.initial_time_timestamp
+      let currentTime = (new Date()).getTime()
 
-        let allTime = 86400000 //倒计时24小时
+      let allTime = 86400000 // 倒计时24小时
 //        let leftTime = allTime - ( currentTime - startTime)
 
 //
@@ -220,37 +216,33 @@
 //        }else {
 //          leftTime = allTime - ( currentTime - startTime)
 //        }
-        let leftTime = 86400 //总时间
+      let leftTime = 86400 // 总时间
 
-        let day = Math.floor(leftTime/1000 / 60 / 60 / 24) //剩余天数
+      let day = Math.floor(leftTime / 1000 / 60 / 60 / 24) // 剩余天数
 
-        let hours = Math.floor(leftTime/1000/60/60%24)
+      let hours = Math.floor(leftTime / 1000 / 60 / 60 % 24)
 
-        let minutes = Math.floor(leftTime/1000/60%60)
+      let minutes = Math.floor(leftTime / 1000 / 60 % 60)
 
-        that.time.day = day
-        that.time.hours = hours
-        that.time.minutes = minutes
-        setTimeout(that.getlastTime, 1000);
-
-
-      },
-  share()
-  {
+      that.time.day = day
+      that.time.hours = hours
+      that.time.minutes = minutes
+      setTimeout(that.getlastTime, 1000)
+    },
+  share () {
     let that = this
     that.showshare = !that.showshare
 //
-  }
-  ,
+  },
   setModalStatus: function (e) {
     console.log(this.showModal)
     let that = this
-    console.log("设置显示状态，1显示0不显示", e.currentTarget.dataset.status);
-    console.log(e.currentTarget.dataset)
+    console.log('设置显示状态，1显示0不显示', e.currentTarget.dataset.status)
+  console.log(e.currentTarget.dataset)
 
     var animation = wx.createAnimation({
       duration: 200,
-      timingFunction: "linear",
+      timingFunction: 'linear',
       delay: 0
     })
 
@@ -267,56 +259,41 @@
       that.showModal = true
       console.log('这个时候应该显示' + that.showModal)
     } else if (e.currentTarget.dataset.status === '0') {
-
       console.log('这个是status = 0')
 
       that.showModal = false
-
-
     }
     setTimeout(function () {
       animation.translateY(0).step()
 
       that.animationData = animation
-
-
-    }.bind(that), 200)
-  }
-  ,
-  sharfri()
-  {
-    //分享给朋友
-  }
-  ,
+    }, 200)
+  },
+  sharfri () {
+    // 分享给朋友
+  },
   async
-  getGroup_orders()
-  {
+  getGroup_orders () {
     let that = this
     let order_info = await
-    get(`/v1/group_activity_orders/${that.order_uuid}`) //获取拼团订单
+    get(`/v1/group_activity_orders/${that.order_uuid}`) // 获取拼团订单
     let order = order_info.group_activity_order
     console.log(order)
     that.order_info = order
-
-  }
-  ,
-  shareMenu(e)
-  {
+  },
+  shareMenu (e) {
     console.log(this.showBox)
     console.log(e.mp.detail.formId)
     this.showBox = !this.showBox
+  },
 
-  }
-  ,
-
- async getImg()
-  {
+  async getImg () {
     let that = this
     let uuid = that.group_activity_initial_uuid
-    let page = "pages/isme/index"
-    let data = [uuid,page]
-    let res = await this.$store.dispatch('wxCode',{...data})
-    let wxCodeImg = that.host+res.wxa_qrcode_url
+    let page = 'pages/isme/index'
+    let data = [uuid, page]
+    let res = await this.$store.dispatch('wxCode', {...data})
+    let wxCodeImg = that.host + res.wxa_qrcode_url
     this.painting = {
       width: 375,
       height: 557,
@@ -336,7 +313,7 @@
         //            绘制的头图
         {
           type: 'image',
-          url: 'http://oxl5leo53.bkt.clouddn.com/u=1204211051,3834529407&fm=11&gp=0.jpg',                  //变化图片
+          url: 'http://oxl5leo53.bkt.clouddn.com/u=1204211051,3834529407&fm=11&gp=0.jpg',                  // 变化图片
           top: 0,
           left: 0,
           width: 375,
@@ -344,12 +321,11 @@
         },
         //            绘制的背景图
 
-
-//http://p15hnzxrp.bkt.clouddn.com/wechatapp2.5.jpg
+// http://p15hnzxrp.bkt.clouddn.com/wechatapp2.5.jpg
         // 文本表达
         {
           type: 'text',
-          content: this.order_info.title,                                                             //变量的名称
+          content: this.order_info.title,                                                             // 变量的名称
           fontSize: 27.6,
           lineHeight: 27.6,
           color: '#454553',
@@ -357,15 +333,14 @@
           top: 217.35,
           left: 23,
           width: 328.9,
-          MaxLineNumber: 2,                                                                         //最大两行 超出...
-          breakWord: true,  //换行
-          bolder: true  //加粗
+          MaxLineNumber: 2,                                                                         // 最大两行 超出...
+          breakWord: true,  // 换行
+          bolder: true  // 加粗
         },
-
 
         {
           type: 'text',
-          content: '￥5',                                                                                //变量的价格
+          content: '￥5',                                                                                // 变量的价格
           fontSize: 20.7,
           color: '#f83713',
           textAlign: 'left',
@@ -380,17 +355,17 @@
           color: '#f83713',
           textAlign: 'left',
           top: 304.75,
-          left: 150 * 1.15,                                                                      //根据价格字符个数 变化
+          left: 150 * 1.15                                                                      // 根据价格字符个数 变化
 
         },
         {
           type: 'text',
-          content: '95',                                                                       //根据价格字符个数 变化
+          content: '95',                                                                       // 根据价格字符个数 变化
           fontSize: 13 * 1.15,
           color: '#999',
           textAlign: 'left',
           top: 265 * 1.15,
-          left: 190 * 1.15,                                                                      //根据价格字符个数 变化
+          left: 190 * 1.15,                                                                      // 根据价格字符个数 变化
           textDecoration: 'line-through'
         },
 
@@ -436,99 +411,86 @@
       url: '/pages/test/main'
     })
   },
-      async fillAddress(e){
-        console.log('领奖')
-        let that = this
-        let data = [ ]
-        let uuid = that.orderId
-        let order_status = that.order_info.status //success grouping init failed
-        let form_id = e.mp.detail.formId
-        console.log(form_id)
-        console.log(order_status)
-        if(order_status ==='success'){
-          let res = await chooseAddress()
-          console.log(res)
-          let auth_code = wx.getStorageSync('auth_code')
-          let address =   {
-            name:res.name,            //名字
-            postal_code:res.postalCode,// 邮编
-            tel_phone:res.telNumber,// 电话
-            province:res.provinceName,// 省
-            city:res.cityName,// 市
-            district:res.countyName,// 区
-            detail:res.detailInfo// 详细
-
-          }
-
-          data = [uuid,auth_code,address]
-          let address_res =  await  that.$store.dispatch('groupAddress',{...data})
-
-          wx.navigateTo({
-            url:`/pages/user/myGroup/myGroupDetail/main?uuid=${uuid}`
-          })
-        }else  {
-          console.log('order_status 不是success')
+    async fillAddress (e) {
+      console.log('领奖')
+      let that = this
+      let data = [ ]
+      let uuid = that.orderId
+      let order_status = that.order_info.status // success grouping init failed
+      let form_id = e.mp.detail.formId
+      console.log(form_id)
+      console.log(order_status)
+      if (order_status === 'success') {
+        let res = await chooseAddress()
+        console.log(res)
+        let auth_code = wx.getStorageSync('auth_code')
+        let address = {
+          name: res.name,            // 名字
+          postal_code: res.postalCode, // 邮编
+          tel_phone: res.telNumber, // 电话
+          province: res.provinceName, // 省
+          city: res.cityName, // 市
+          district: res.countyName, // 区
+          detail: res.detailInfo// 详细
 
         }
 
+        data = [uuid, auth_code, address]
+        let address_res = await that.$store.dispatch('groupAddress', {...data})
 
-      },
-      createGroup(){
-        //重新开团
-        wx.switchTab({
-          url: `/pages/home/main`
+        wx.navigateTo({
+          url: `/pages/user/myGroup/myGroupDetail/main?uuid=${uuid}`
         })
+      } else {
+        console.log('order_status 不是success')
+      }
+    },
+    createGroup () {
+        // 重新开团
+      wx.switchTab({
+        url: `/pages/home/main`
+      })
+    }
+
+  },
+    async onLoad (options) {
+      console.log('支付后的订单详情')
+      console.log('参数' + options)
+      console.log(options)
+      var that = this
+//                                              group_activity_initial_uuid
+      let group_activity_initial_uuid = options.group_activity_initial_uuid // 发起拼团活动返回订单uuid
+
+      that.group_activity_initial_uuid = group_activity_initial_uuid
+
+      let currentuser_code = wx.getStorageSync('auth_code')
+      let uuid_authCode = [group_activity_initial_uuid, currentuser_code]
+
+      let orderData = await that.$store.dispatch('groupActivitiesInit', {...uuid_authCode})
+
+      let order_user = orderData.group_activity_initial.users // []
+
+      let left_user = orderData.group_activity_initial.users_left // number
+
+      for (var i = 0; i < left_user; i++) {
+        order_user.push({})
       }
 
+      orderData.group_activity_initial.users = order_user
 
+      if (orderData.group_activity_initial.status === 'failed' || orderData.group_activity_initial.status === 'success' || orderData.group_activity_initial.status === 'init') {
+        console.log(orderData.group_activity_initial.status + '本次拼团结束')
+        that.group_activity_initial_finish = true
+      }
 
-    },
-   async onLoad(options)
-  {
-    console.log('支付后的订单详情')
-    console.log('参数'+options)
-    console.log(options)
-    var that = this
-//                                              group_activity_initial_uuid
-    let group_activity_initial_uuid = options.group_activity_initial_uuid //发起拼团活动返回订单uuid
+      that.order_info = orderData.group_activity_initial
 
-    that.group_activity_initial_uuid = group_activity_initial_uuid
-
-    let currentuser_code = wx.getStorageSync('auth_code')
-    let uuid_authCode = [group_activity_initial_uuid,currentuser_code]
-
-    let orderData = await  that.$store.dispatch('groupActivitiesInit',{...uuid_authCode})
-
-    let order_user = orderData.group_activity_initial.users //[]
-
-    let left_user = orderData.group_activity_initial.users_left //number
-
-    for(var i = 0; i < left_user; i++){
-      order_user.push({})
-    }
-
-    orderData.group_activity_initial.users = order_user
-
-    if(orderData.group_activity_initial.status === 'failed' || orderData.group_activity_initial.status === 'success' || orderData.group_activity_initial.status === 'init' ){
-      console.log(orderData.group_activity_initial.status+'本次拼团结束')
-      that.group_activity_initial_finish = true
-
-    }
-
-    that.order_info = orderData.group_activity_initial
-
-
-
-     that.getlastTime()
+      that.getlastTime()
   },
-   async mounted()
-  {
+    async mounted () {
 
-
-  }
-  ,
-  onShareAppMessage(res)
-  {
+  },
+  onShareAppMessage (res) {
     var that = this
     let uuid = that.group_activity_initial_uuid
 
@@ -538,12 +500,11 @@
     }
     return {
       title: that.order_info.title,
-      path: `/pages/groupPj/order/main?group_activity_initial_uuid=${uuid}` //参与拼团的页面
+      path: `/pages/groupPj/order/main?group_activity_initial_uuid=${uuid}` // 参与拼团的页面
     }
   }
 
   }
-
 
 </script>
 <style lang="scss" scoped>

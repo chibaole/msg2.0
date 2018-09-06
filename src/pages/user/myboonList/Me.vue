@@ -17,18 +17,11 @@
             <p class="group_type">{{}}</p>
             <p class="detail">{{item.boon.description}}</p>
           </div>
-          <!--<span class="price">{{}}¥5</span>-->
-
-
         </div>
         <div class="explain"><span>{{item.boon.lottery_detail}}</span></div>
       </div>
-
-
     </div>
-
     <div class="getMore" v-if="true">加载更多</div>
-
     <div class="service">
       <contact-button size="22" class='pos'></contact-button>
       <img class="icon_kf" src="http://pbmrxkahq.bkt.clouddn.com/msgservice.png">
@@ -36,7 +29,6 @@
   </div>
 </template>
 <script>
-
   import {showSuccess, post, showModal} from '@/util'
   import config from '@/config'
   import Navbar from '@/components/navbar'
@@ -50,48 +42,40 @@
 
     data () {
       return {
-        navbar_title:'我的抽奖',
-        boonList:[]
+        navbar_title: '我的抽奖',
+        boonList: []
 
       }
-
     },
 
-    methods:{
-      goBoonDetail(e){
+    methods: {
+      goBoonDetail (e) {
         console.log(e)
         const uuid = e.currentTarget.dataset.uuid
         const status = e.currentTarget.dataset.status
-        if(status === 'init'){
-              wx.showToast({
-                title:'莫急～还未开奖',
-                icon:'success',
-                duration:2000
-              })
-        }else {
+        if (status === 'init') {
+          wx.showToast({
+            title: '莫急～还未开奖',
+            icon: 'success',
+            duration: 2000
+          })
+        } else {
           wx.navigateTo({
-            url:'/pages/user/myboonList/myBoon/main?uuid='+ uuid
+            url: '/pages/user/myboonList/myBoon/main?uuid=' + uuid
           })
         }
-
       }
 
     },
-   async onLoad(){
+    async onLoad () {
       const that = this
       const auth_code = wx.getStorageSync('auth_code')
-      let data =  [that.page,that.size,auth_code]
-     const boonList = await that.$store.dispatch('myBoonList',{...data})
-     console.log(boonList)
-     that.boonList = boonList.boon_orders
-     console.log(that.boonList)
-
+      let data = [that.page, that.size, auth_code]
+      const boonList = await that.$store.dispatch('myBoonList', {...data})
+      console.log(boonList)
+      that.boonList = boonList.boon_orders
+      console.log(that.boonList)
     }
-
-
-
-
-
 
   }
 </script>

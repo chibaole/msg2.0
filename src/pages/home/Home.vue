@@ -21,19 +21,16 @@
 
 </template>
 <script>
-
-
-
   import {get, post, showModal} from '@/util'
   import {login} from '@/utils/wx'
   import TopSwiper from '@/components/TopSwiper'
   import Scroll from '@/components/scroll'
   import Group from '@/components/group'
-  import More from  '@/components/more'
+  import More from '@/components/more'
 
 //  import wx from '../../utils/wx'
 
-  import  config from '@/config'
+  import config from '@/config'
 
   import Navbar from '@/components/navbar'
 
@@ -51,11 +48,11 @@
         page: 0,
         more: true,
         tops: [],
-        open:false,
-        userInfo:{
-          openid:''
+        open: false,
+        userInfo: {
+          openid: ''
         },
-        showSkeleton: true   //骨架屏显示隐藏
+        showSkeleton: true   // 骨架屏显示隐藏
 
       }
     },
@@ -64,31 +61,25 @@
 //        const tops = await get('/weapp/top')
         this.tops = tops.list
       },
-      openBox(){
-          let that = this
-          let open = this.open
+      openBox () {
+        let that = this
+        let open = this.open
         console.log(open)
-        if(open){
-            that.open = false
-        }else {
+        if (open) {
+          that.open = false
+        } else {
           that.open = true
-
         }
-      },
-
+      }
 
     },
-    async onLoad(){
-
-
+    async onLoad () {
       const that = this
-      setTimeout(()=>{
+      setTimeout(() => {
         that.showSkeleton = false
-      },3000)
+      }, 3000)
     },
     mounted () {
-
-
 
     }
 

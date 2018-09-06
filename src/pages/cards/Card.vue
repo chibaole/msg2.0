@@ -47,7 +47,7 @@ import topBar from '@/components/top_bar'
 import topScroll from '@/components/topScroll'
 import Navbar from '@/components/navbar'
 
-let col1H = 0;let col2H = 0;
+let col1H = 0; let col2H = 0
 
 export default {
   data () {
@@ -57,102 +57,93 @@ export default {
       userinfo: {},
       list: [
         {
-          id:1,
+          id: 1,
           url: 'http://pbmrxkahq.bkt.clouddn.com/640%20%281%29.jpeg',
 //          http://pbmrxkahq.bkt.clouddn.com/640%20%281%29.jpeg
           title: '《虫师》',
-          text:'收到回复收到方便收到回复诶特特诶诶榧对萨达姆收到回复是多少粉丝和粉丝的方式点击 回复就是电话喝酒哦儿童画忒提哦是看美女新女性表示对方舒服收到粉红色收到你说的比较舒服收到',
-          likenum:100
+          text: '收到回复收到方便收到回复诶特特诶诶榧对萨达姆收到回复是多少粉丝和粉丝的方式点击 回复就是电话喝酒哦儿童画忒提哦是看美女新女性表示对方舒服收到粉红色收到你说的比较舒服收到',
+          likenum: 100
 
         },
         {
-          id:2,
+          id: 2,
 
           url: 'http://pbmrxkahq.bkt.clouddn.com/640.jpeg',
           title: '《loading》',
-          text:'收到回复收到方便收到回复诶特特诶诶榧对萨达姆收到回复是多少粉丝和粉丝的方式点击 回复就是电话喝酒哦儿童画忒提哦是看美女新女性表示对方舒服收到粉红色收到你说的比较舒服收到',
-          likenum:100
-
+          text: '收到回复收到方便收到回复诶特特诶诶榧对萨达姆收到回复是多少粉丝和粉丝的方式点击 回复就是电话喝酒哦儿童画忒提哦是看美女新女性表示对方舒服收到粉红色收到你说的比较舒服收到',
+          likenum: 100
 
         },
         {
-          id:3,
+          id: 3,
 
           url: 'http://pbmrxkahq.bkt.clouddn.com/640%20%282%29.jpeg',
           title: '《冰与火之歌》',
-          text:'收到回复收到方便收到回复诶特特诶诶榧对萨达姆收到回复是多少粉丝和粉丝的方式点击 回复就是电话喝酒哦儿童画忒提哦是看美女新女性表示对方舒服收到粉红色收到你说的比较舒服收到',
-          likenum:100
-
+          text: '收到回复收到方便收到回复诶特特诶诶榧对萨达姆收到回复是多少粉丝和粉丝的方式点击 回复就是电话喝酒哦儿童画忒提哦是看美女新女性表示对方舒服收到粉红色收到你说的比较舒服收到',
+          likenum: 100
 
         },
         {
-          id:4,
+          id: 4,
 
           url: 'http://pbmrxkahq.bkt.clouddn.com/640%20%281%29.jpeg',
           title: '《鹿丸》',
-          text:'收到回复收到方便收到回复诶特特诶诶榧对萨达姆收到回复是多少粉丝和粉丝的方式点击 回复就是电话喝酒哦儿童画忒提哦是看美女新女性表示对方舒服收到粉红色收到你说的比较舒服收到',
-          likenum:100
-
+          text: '收到回复收到方便收到回复诶特特诶诶榧对萨达姆收到回复是多少粉丝和粉丝的方式点击 回复就是电话喝酒哦儿童画忒提哦是看美女新女性表示对方舒服收到粉红色收到你说的比较舒服收到',
+          likenum: 100
 
         },
         {
-          id:5,
+          id: 5,
 
           url: 'http://pbmrxkahq.bkt.clouddn.com/640.jpeg',
           title: '《星空》',
-          text:'收到回复收到方便收到回复诶特特诶诶榧对萨达姆收到回复是多少粉丝和粉丝的方式点击 回复就是电话喝酒哦儿童画忒提哦是看美女新女性表示对方舒服收到粉红色收到你说的比较舒服收到',
-          likenum:100
-
+          text: '收到回复收到方便收到回复诶特特诶诶榧对萨达姆收到回复是多少粉丝和粉丝的方式点击 回复就是电话喝酒哦儿童画忒提哦是看美女新女性表示对方舒服收到粉红色收到你说的比较舒服收到',
+          likenum: 100
 
         },
         {
-          id:6,
+          id: 6,
 
           url: 'http://pbmrxkahq.bkt.clouddn.com/640%20%281%29.jpeg',
           title: '《虫师》',
-          text:'收到回复收到方便收到回复诶特特诶诶榧对萨达姆收到回复是多少粉丝和粉丝的方式点击 回复就是电话喝酒哦儿童画忒提哦是看美女新女性表示对方舒服收到粉红色收到你说的比较舒服收到',
-          likenum:100
-
+          text: '收到回复收到方便收到回复诶特特诶诶榧对萨达姆收到回复是多少粉丝和粉丝的方式点击 回复就是电话喝酒哦儿童画忒提哦是看美女新女性表示对方舒服收到粉红色收到你说的比较舒服收到',
+          likenum: 100
 
         },
         {
-          id:7,
+          id: 7,
 
           url: 'http://pbmrxkahq.bkt.clouddn.com/640.jpeg',
           title: '《loading》',
-          text:'收到回复收到方便收到回复诶特特诶诶榧对萨达姆收到回复是多少粉丝和粉丝的方式点击 回复就是电话喝酒哦儿童画忒提哦是看美女新女性表示对方舒服收到粉红色收到你说的比较舒服收到',
-          likenum:100
-
+          text: '收到回复收到方便收到回复诶特特诶诶榧对萨达姆收到回复是多少粉丝和粉丝的方式点击 回复就是电话喝酒哦儿童画忒提哦是看美女新女性表示对方舒服收到粉红色收到你说的比较舒服收到',
+          likenum: 100
 
         },
         {
-          id:8,
+          id: 8,
 
           url: 'http://pbmrxkahq.bkt.clouddn.com/640%20%282%29.jpeg',
           title: '《冰与火之歌》',
-          text:'收到回复收到方便收到回复诶特特诶诶榧对萨达姆收到回复是多少粉丝和粉丝的方式点击 回复就是电话喝酒哦儿童画忒提哦是看美女新女性表示对方舒服收到粉红色收到你说的比较舒服收到',
-          likenum:100
-
+          text: '收到回复收到方便收到回复诶特特诶诶榧对萨达姆收到回复是多少粉丝和粉丝的方式点击 回复就是电话喝酒哦儿童画忒提哦是看美女新女性表示对方舒服收到粉红色收到你说的比较舒服收到',
+          likenum: 100
 
         },
         {
-          id:9,
+          id: 9,
 
           url: 'http://pbmrxkahq.bkt.clouddn.com/640%20%281%29.jpeg',
           title: '《鹿丸》',
-          text:'收到回复收到方便收到回复诶特特诶诶榧对萨达姆收到回复是多少粉丝和粉丝的方式点击 回复就是电话喝酒哦儿童画忒提哦是看美女新女性表示对方舒服收到粉红色收到你说的比较舒服收到',
-          likenum:100
-
+          text: '收到回复收到方便收到回复诶特特诶诶榧对萨达姆收到回复是多少粉丝和粉丝的方式点击 回复就是电话喝酒哦儿童画忒提哦是看美女新女性表示对方舒服收到粉红色收到你说的比较舒服收到',
+          likenum: 100
 
         },
         {
-          id:10,
+          id: 10,
 
           url: 'http://pbmrxkahq.bkt.clouddn.com/640.jpeg',
           title: '《星空》',
-          text:'收到回复收到方便收到回复诶特特诶诶榧对萨达姆收到回复是多少粉丝和粉丝的方式点击 回复就是电话喝酒哦儿童画忒提哦是看美女新女性表示对方舒服收到粉红色收到你说的比较舒服收到',
-          likenum:100
-
+          text: '收到回复收到方便收到回复诶特特诶诶榧对萨达姆收到回复是多少粉丝和粉丝的方式点击 回复就是电话喝酒哦儿童画忒提哦是看美女新女性表示对方舒服收到粉红色收到你说的比较舒服收到',
+          likenum: 100
 
         }
       ],
@@ -160,10 +151,10 @@ export default {
       rightHeight: 0,
       length: 10,
       pageNo: 1,
-      descHeight: 30, //图片文字描述的高度
+      descHeight: 30, // 图片文字描述的高度
       pageStatus: true,
-      clicked:false,
-      likeImg:'http://oxnbz75b8.bkt.clouddn.com/praise_gray@3x.png',
+      clicked: false,
+      likeImg: 'http://oxnbz75b8.bkt.clouddn.com/praise_gray@3x.png'
     }
   },
   components: {
@@ -192,53 +183,49 @@ export default {
       })
       this.comments = comments.list
     },
-    loadImage(e) {
-      var vm = this;
-      var windowWidth = wx.getSystemInfoSync().windowWidth;
-      var index = e.currentTarget.dataset.index;
-      vm.data.list[index].height = windowWidth / 2 / e.detail.width * e.detail.height;
-      var count = 0;
+    loadImage (e) {
+      var vm = this
+      var windowWidth = wx.getSystemInfoSync().windowWidth
+      var index = e.currentTarget.dataset.index
+      vm.data.list[index].height = windowWidth / 2 / e.detail.width * e.detail.height
+      var count = 0
       for (var i = (vm.data.pageNo - 1) * vm.data.length; i < vm.data.list.length; i++) {
         if (vm.data.list[i].height) {
-          count++;
+          count++
         }
       }
       if (count == vm.data.length) {
         for (var i = (vm.data.pageNo - 1) * vm.data.length; i < vm.data.list.length; i++) {
           if (vm.data.leftHeight <= vm.data.rightHeight) {
-            vm.data.list[i].top = vm.data.leftHeight;
-            vm.data.list[i].left = windowWidth * 0.005;
+            vm.data.list[i].top = vm.data.leftHeight
+            vm.data.list[i].left = windowWidth * 0.005
             vm.setData({
               leftHeight: vm.data.leftHeight + vm.data.list[i].height + vm.data.descHeight
-            });
+            })
           } else {
-            vm.data.list[i].top = vm.data.rightHeight;
-            vm.data.list[i].left = windowWidth / 2 - windowWidth * 0.005;
+            vm.data.list[i].top = vm.data.rightHeight
+            vm.data.list[i].left = windowWidth / 2 - windowWidth * 0.005
             vm.setData({
               rightHeight: vm.data.rightHeight + vm.data.list[i].height + vm.data.descHeight
-            });
+            })
           }
         }
 //
         vm.list = vm.data.list
       }
     },
-    like(e){
+    like (e) {
       let that = this
       console.log(e)
       let clicked = e.currentTarget.dataset.like
       console.log(clicked)
-      if(clicked ===  false ){
+      if (clicked === false) {
         that.likeImg = 'http://oxnbz75b8.bkt.clouddn.com/Heart.png'
         that.clicked = true
-
-      }else if(clicked ===  true){
+      } else if (clicked === true) {
         that.likeImg = 'http://oxnbz75b8.bkt.clouddn.com/praise_gray@3x.png'
         that.clicked = false
-
-
       }
-
     }
 
   },
@@ -255,11 +242,10 @@ export default {
       }
     }
   },
-  mounted(){
+  mounted () {
 //    this.loadImage(e)
 //    this.like(e)
   }
-
 
 }
 </script>

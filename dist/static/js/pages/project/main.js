@@ -42,15 +42,15 @@ global.webpackJsonp([3],{
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_diago__ = __webpack_require__(200);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_navbar__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__utils_util__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__utils_util__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__config__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__utils_wx__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__utils_wx__ = __webpack_require__(10);
 
 
 
@@ -221,7 +221,6 @@ global.webpackJsonp([3],{
       sesson_url: 'http://pbmrxkahq.bkt.clouddn.com/anodor.png',
       showBox: false,
       navbar_title: '',
-      host: __WEBPACK_IMPORTED_MODULE_6__config__["a" /* default */].host,
       haveOpen: '未开奖',
       prizeStyle: 'prize',
       init_rewarded_users: [],
@@ -236,7 +235,7 @@ global.webpackJsonp([3],{
   },
 
   methods: {
-    //参加福利 即抽奖操作
+    // 参加福利 即抽奖操作
     attendBoon: function attendBoon() {
       var _this = this;
 
@@ -279,7 +278,7 @@ global.webpackJsonp([3],{
       that.open = true;
     },
 
-    //url: /api/v1/boons/:uuid/attend
+    // url: /api/v1/boons/:uuid/attend
 
     getBoons: function getBoons() {
       var _this2 = this;
@@ -299,7 +298,7 @@ global.webpackJsonp([3],{
 
                 console.log(prjInfo);
 
-                _this2.boon = prjInfo; //福利详情
+                _this2.boon = prjInfo; // 福利详情
 
               case 6:
               case 'end':
@@ -324,14 +323,14 @@ global.webpackJsonp([3],{
               case 0:
                 that = _this3;
                 uuid = that.uuid;
-                page = "pages/isme/index";
+                page = 'pages/isme/index';
                 data = [uuid, page];
                 _context3.next = 6;
                 return _this3.$store.dispatch('wxCode', __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends___default()({}, data));
 
               case 6:
                 res = _context3.sent;
-                wxCodeImg = that.host + res.wxa_qrcode_url;
+                wxCodeImg = res.wxa_qrcode_url;
                 painting = {
                   width: 375,
                   height: 557,
@@ -351,7 +350,7 @@ global.webpackJsonp([3],{
                   //            绘制的头图
                   {
                     type: 'image',
-                    url: 'http://oxl5leo53.bkt.clouddn.com/u=1204211051,3834529407&fm=11&gp=0.jpg', //变化图片
+                    url: 'http://oxl5leo53.bkt.clouddn.com/u=1204211051,3834529407&fm=11&gp=0.jpg', // 变化图片
                     top: 0,
                     left: 0,
                     width: 375,
@@ -359,12 +358,11 @@ global.webpackJsonp([3],{
                   },
                   //            绘制的背景图
 
-
-                  //http://p15hnzxrp.bkt.clouddn.com/wechatapp2.5.jpg
+                  // http://p15hnzxrp.bkt.clouddn.com/wechatapp2.5.jpg
                   // 文本表达
                   {
                     type: 'text',
-                    content: that.boon.description, //变量的名称
+                    content: that.boon.description, // 变量的名称
                     fontSize: 27.6,
                     lineHeight: 27.6,
                     color: '#454553',
@@ -372,12 +370,12 @@ global.webpackJsonp([3],{
                     top: 217.35,
                     left: 64.4,
                     width: 244.95,
-                    MaxLineNumber: 2, //最大两行 超出...
-                    breakWord: true, //换行
-                    bolder: true //加粗
+                    MaxLineNumber: 2, // 最大两行 超出...
+                    breakWord: true, // 换行
+                    bolder: true // 加粗
                   }, {
                     type: 'text',
-                    content: '500人自动开奖', //变量的价格
+                    content: '500人自动开奖', // 变量的价格
                     fontSize: 18.4,
                     color: '#4a4a4a',
                     textAlign: 'left',
@@ -391,11 +389,11 @@ global.webpackJsonp([3],{
                     color: '#4a4a4a',
                     textAlign: 'left',
                     top: 361.1,
-                    left: 124.2 //根据价格字符个数 变化
+                    left: 124.2 // 根据价格字符个数 变化
 
                   }, {
                     type: 'text',
-                    content: '443', //根据参与实际人数 变化
+                    content: '443', // 根据参与实际人数 变化
                     fontSize: 18.4,
                     color: '#ff7f4f',
                     textAlign: 'left',
@@ -462,7 +460,7 @@ global.webpackJsonp([3],{
                 console.log('领奖');
                 that = _this4;
                 data = [];
-                uuid = that.boon.boon_order.uuid; //抽奖订单号
+                uuid = that.boon.boon_order.uuid; // 抽奖订单号
 
                 boon_status = that.boon.boon_order.status;
 
@@ -487,7 +485,7 @@ global.webpackJsonp([3],{
                 res = _context4.sent;
                 auth_code = wx.getStorageSync('auth_code');
                 address = {
-                  name: res.name, //名字
+                  name: res.name, // 名字
                   postal_code: res.postalCode, // 邮编
                   tel_phone: res.telNumber, // 电话
                   province: res.provinceName, // 省
@@ -536,11 +534,11 @@ global.webpackJsonp([3],{
             case 0:
               that = _this5;
 
-              that.uuid = that.$root.$mp.query.boons_uuid; //获取上一页传递的唯一标准uuid
-              that.navbar_title = that.$root.$mp.query.title; //获取上一页传递的福利名称 做navbar的标题
+              that.uuid = that.$root.$mp.query.boons_uuid; // 获取上一页传递的唯一标准uuid
+              that.navbar_title = that.$root.$mp.query.title; // 获取上一页传递的福利名称 做navbar的标题
               currentuser_code = wx.getStorageSync('auth_code');
               uuid_authCode = [that.uuid, currentuser_code];
-              //根据获得uuid 查询数据出来
+              // 根据获得uuid 查询数据出来
 
               //      that.getBoons()
 
@@ -678,7 +676,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "pic"
   }, [_c('img', {
     attrs: {
-      "src": _vm.host + _vm.boon.title_image_url,
+      "src": _vm.boon.title_image_url,
       "alt": ""
     }
   })]), _vm._v(" "), _c('div', {
@@ -710,13 +708,13 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   }, [_c('img', {
     staticClass: "logo",
     attrs: {
-      "src": _vm.host + _vm.boon.sponsor.avatar_url,
+      "src": _vm.boon.sponsor.avatar_url,
       "alt": ""
     }
   }), _vm._v(_vm._s(_vm.boon.sponsor.name)), _c('img', {
     staticClass: "right_ico",
     attrs: {
-      "src": __webpack_require__(22),
+      "src": __webpack_require__(36),
       "alt": ""
     }
   })])], 1), _vm._v(" "), (_vm.boon.status === 'published') ? _c('div', {
@@ -842,7 +840,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   }, [_c('img', {
     staticClass: "x",
     attrs: {
-      "src": __webpack_require__(57),
+      "src": "http://pbmrxkahq.bkt.clouddn.com/close.png",
       "alt": "",
       "eventid": '7'
     },
@@ -858,7 +856,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }, [_c('img', {
     attrs: {
-      "src": __webpack_require__(58),
+      "src": "http://pbmrxkahq.bkt.clouddn.com/wechatF.png",
       "alt": ""
     }
   })]), _vm._v(" "), _c('div', {
@@ -871,7 +869,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }, [_c('img', {
     attrs: {
-      "src": __webpack_require__(59),
+      "src": "http://pbmrxkahq.bkt.clouddn.com/wechatimg.png",
       "alt": ""
     }
   })]), _vm._v(" "), _c('div', {
@@ -1040,7 +1038,7 @@ app.$mount();
       'navigationBarBackgroundColor': '#EA5149',
       'navigationBarTitleText': '酸奶众测福利领取',
       'navigationBarTextStyle': 'light',
-      'navigationStyle': "default"
+      'navigationStyle': 'default'
     }
   }
 });

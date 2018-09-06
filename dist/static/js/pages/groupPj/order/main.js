@@ -4,18 +4,18 @@ global.webpackJsonp([4],{
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_groupCard__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_groupCard__ = __webpack_require__(21);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vue2_countdown__ = __webpack_require__(236);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vue2_countdown___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_vue2_countdown__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_navbar__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__utils_util__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__utils_wx__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__utils_util__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__utils_wx__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__config__ = __webpack_require__(4);
 
 
@@ -240,7 +240,7 @@ global.webpackJsonp([4],{
 
                 console.log(group_activity_order_uuid);
 
-                //支付参与拼团的订单
+                // 支付参与拼团的订单
 
                 _context2.next = 12;
                 return that.$store.dispatch('group_pay', group_activity_order_uuid);
@@ -264,7 +264,7 @@ global.webpackJsonp([4],{
       var startTime = that.order_info.initial_time_timestamp;
       var currentTime = new Date().getTime();
 
-      var allTime = 86400000; //倒计时24小时
+      var allTime = 86400000; // 倒计时24小时
       //        let leftTime = allTime - ( currentTime - startTime)
 
       //
@@ -275,9 +275,9 @@ global.webpackJsonp([4],{
       //        }else {
       //          leftTime = allTime - ( currentTime - startTime)
       //        }
-      var leftTime = 86400; //总时间
+      var leftTime = 86400; // 总时间
 
-      var day = Math.floor(leftTime / 1000 / 60 / 60 / 24); //剩余天数
+      var day = Math.floor(leftTime / 1000 / 60 / 60 / 24); // 剩余天数
 
       var hours = Math.floor(leftTime / 1000 / 60 / 60 % 24);
 
@@ -297,12 +297,12 @@ global.webpackJsonp([4],{
     setModalStatus: function setModalStatus(e) {
       console.log(this.showModal);
       var that = this;
-      console.log("设置显示状态，1显示0不显示", e.currentTarget.dataset.status);
+      console.log('设置显示状态，1显示0不显示', e.currentTarget.dataset.status);
       console.log(e.currentTarget.dataset);
 
       var animation = wx.createAnimation({
         duration: 200,
-        timingFunction: "linear",
+        timingFunction: 'linear',
         delay: 0
       });
 
@@ -319,7 +319,6 @@ global.webpackJsonp([4],{
         that.showModal = true;
         console.log('这个时候应该显示' + that.showModal);
       } else if (e.currentTarget.dataset.status === '0') {
-
         console.log('这个是status = 0');
 
         that.showModal = false;
@@ -328,11 +327,10 @@ global.webpackJsonp([4],{
         animation.translateY(0).step();
 
         that.animationData = animation;
-      }.bind(that), 200);
+      }, 200);
     },
-
     sharfri: function sharfri() {
-      //分享给朋友
+      // 分享给朋友
     },
     getGroup_orders: function getGroup_orders() {
       var _this3 = this;
@@ -349,7 +347,7 @@ global.webpackJsonp([4],{
 
               case 3:
                 order_info = _context3.sent;
-                //获取拼团订单
+                // 获取拼团订单
                 order = order_info.group_activity_order;
 
                 console.log(order);
@@ -379,7 +377,7 @@ global.webpackJsonp([4],{
               case 0:
                 that = _this4;
                 uuid = that.group_activity_initial_uuid;
-                page = "pages/isme/index";
+                page = 'pages/isme/index';
                 data = [uuid, page];
                 _context4.next = 6;
                 return _this4.$store.dispatch('wxCode', __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default()({}, data));
@@ -407,7 +405,7 @@ global.webpackJsonp([4],{
                   //            绘制的头图
                   {
                     type: 'image',
-                    url: 'http://oxl5leo53.bkt.clouddn.com/u=1204211051,3834529407&fm=11&gp=0.jpg', //变化图片
+                    url: 'http://oxl5leo53.bkt.clouddn.com/u=1204211051,3834529407&fm=11&gp=0.jpg', // 变化图片
                     top: 0,
                     left: 0,
                     width: 375,
@@ -415,12 +413,11 @@ global.webpackJsonp([4],{
                   },
                   //            绘制的背景图
 
-
-                  //http://p15hnzxrp.bkt.clouddn.com/wechatapp2.5.jpg
+                  // http://p15hnzxrp.bkt.clouddn.com/wechatapp2.5.jpg
                   // 文本表达
                   {
                     type: 'text',
-                    content: _this4.order_info.title, //变量的名称
+                    content: _this4.order_info.title, // 变量的名称
                     fontSize: 27.6,
                     lineHeight: 27.6,
                     color: '#454553',
@@ -428,12 +425,12 @@ global.webpackJsonp([4],{
                     top: 217.35,
                     left: 23,
                     width: 328.9,
-                    MaxLineNumber: 2, //最大两行 超出...
-                    breakWord: true, //换行
-                    bolder: true //加粗
+                    MaxLineNumber: 2, // 最大两行 超出...
+                    breakWord: true, // 换行
+                    bolder: true // 加粗
                   }, {
                     type: 'text',
-                    content: '￥5', //变量的价格
+                    content: '￥5', // 变量的价格
                     fontSize: 20.7,
                     color: '#f83713',
                     textAlign: 'left',
@@ -447,16 +444,16 @@ global.webpackJsonp([4],{
                     color: '#f83713',
                     textAlign: 'left',
                     top: 304.75,
-                    left: 150 * 1.15 //根据价格字符个数 变化
+                    left: 150 * 1.15 // 根据价格字符个数 变化
 
                   }, {
                     type: 'text',
-                    content: '95', //根据价格字符个数 变化
+                    content: '95', // 根据价格字符个数 变化
                     fontSize: 13 * 1.15,
                     color: '#999',
                     textAlign: 'left',
                     top: 265 * 1.15,
-                    left: 190 * 1.15, //根据价格字符个数 变化
+                    left: 190 * 1.15, // 根据价格字符个数 变化
                     textDecoration: 'line-through'
                   }, {
                     type: 'text',
@@ -517,7 +514,7 @@ global.webpackJsonp([4],{
                 that = _this5;
                 data = [];
                 uuid = that.orderId;
-                order_status = that.order_info.status; //success grouping init failed
+                order_status = that.order_info.status; // success grouping init failed
 
                 form_id = e.mp.detail.formId;
 
@@ -538,7 +535,7 @@ global.webpackJsonp([4],{
                 console.log(res);
                 auth_code = wx.getStorageSync('auth_code');
                 address = {
-                  name: res.name, //名字
+                  name: res.name, // 名字
                   postal_code: res.postalCode, // 邮编
                   tel_phone: res.telNumber, // 电话
                   province: res.provinceName, // 省
@@ -575,7 +572,7 @@ global.webpackJsonp([4],{
       }))();
     },
     createGroup: function createGroup() {
-      //重新开团
+      // 重新开团
       wx.switchTab({
         url: '/pages/home/main'
       });
@@ -596,7 +593,7 @@ global.webpackJsonp([4],{
               that = _this6;
               //                                              group_activity_initial_uuid
 
-              group_activity_initial_uuid = options.group_activity_initial_uuid; //发起拼团活动返回订单uuid
+              group_activity_initial_uuid = options.group_activity_initial_uuid; // 发起拼团活动返回订单uuid
 
               that.group_activity_initial_uuid = group_activity_initial_uuid;
 
@@ -607,9 +604,9 @@ global.webpackJsonp([4],{
 
             case 10:
               orderData = _context6.sent;
-              order_user = orderData.group_activity_initial.users; //[]
+              order_user = orderData.group_activity_initial.users; // []
 
-              left_user = orderData.group_activity_initial.users_left; //number
+              left_user = orderData.group_activity_initial.users_left; // number
 
               for (i = 0; i < left_user; i++) {
                 order_user.push({});
@@ -659,7 +656,7 @@ global.webpackJsonp([4],{
     }
     return {
       title: that.order_info.title,
-      path: '/pages/groupPj/order/main?group_activity_initial_uuid=' + uuid //参与拼团的页面
+      path: '/pages/groupPj/order/main?group_activity_initial_uuid=' + uuid // 参与拼团的页面
     };
   }
 });
@@ -951,6 +948,27 @@ if (false) {
      require("vue-hot-reload-api").rerender("data-v-eeaf0e42", esExports)
   }
 }
+
+/***/ }),
+
+/***/ 57:
+/***/ (function(module, exports) {
+
+module.exports = "data:image/png;base64,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ZWF0ZQAyMDE4LTA2LTI4VDIxOjU2OjExKzA4OjAwFhGfvAAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxNC0wNS0wMVQyMDo0OTo0MyswODowMBrTyDUAAABDdEVYdHNvZnR3YXJlAC91c3IvbG9jYWwvaW1hZ2VtYWdpY2svc2hhcmUvZG9jL0ltYWdlTWFnaWNrLTcvL2luZGV4Lmh0bWy9tXkKAAAAJXRFWHRzdmc6Y29tbWVudAAgR2VuZXJhdGVkIGJ5IEljb01vb24uaW8gMMvLSAAAABh0RVh0VGh1bWI6OkRvY3VtZW50OjpQYWdlcwAxp/+7LwAAABh0RVh0VGh1bWI6OkltYWdlOjpIZWlnaHQANzExFQDWVQAAABd0RVh0VGh1bWI6OkltYWdlOjpXaWR0aAA3MTGG8YYIAAAAGXRFWHRUaHVtYjo6TWltZXR5cGUAaW1hZ2UvcG5nP7JWTgAAABd0RVh0VGh1bWI6Ok1UaW1lADEzOTg5NDg1ODMkGKneAAAAEXRFWHRUaHVtYjo6U2l6ZQA5MTAwQhYI4GQAAABidEVYdFRodW1iOjpVUkkAZmlsZTovLy9ob21lL3d3d3Jvb3QvbmV3c2l0ZS93d3cuZWFzeWljb24ubmV0L2Nkbi1pbWcuZWFzeWljb24uY24vc3JjLzExNTc2LzExNTc2ODMucG5ndsRAiQAAAABJRU5ErkJggg=="
+
+/***/ }),
+
+/***/ 58:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "static/img/wechatF.png";
+
+/***/ }),
+
+/***/ 59:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "static/img/wechatimg.png";
 
 /***/ }),
 

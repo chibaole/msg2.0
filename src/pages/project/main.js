@@ -12,7 +12,7 @@ export default{
       'navigationBarBackgroundColor': '#EA5149',
       'navigationBarTitleText': '酸奶众测福利领取',
       'navigationBarTextStyle': 'light',
-      'navigationStyle':"default"
-    },
+      'navigationStyle': 'default'
+    }
   }
 }

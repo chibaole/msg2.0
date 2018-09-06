@@ -3,18 +3,14 @@
     <Navbar></Navbar>
     <img :src="shareImage" class="share-image" />
     <canvasdrawer :painting="painting" class="canvasdrawer" @getImage="eventGetImage"/>
-
     <button @click="eventSave" class="btn">保存图片</button>
   </div>
 </template>
 
 <script>
-  // import card from '@/components/card'
   import Navbar from '@/components/navbar'
-
   export default {
-
-    components:{
+    components: {
       Navbar
 
     },
@@ -34,9 +30,7 @@
         wx.hideLoading()
         this.shareImage = event.target.tempFilePath
 
-        wx.removeStorageSync('painting')//绘制图片完成 删除绘制图片需要的数据
-
-
+        wx.removeStorageSync('painting')// 绘制图片完成 删除绘制图片需要的数据
       },
       eventDraw () {
         wx.showLoading({
@@ -59,11 +53,9 @@
         })
       }
     },
-    mounted(){
+    mounted () {
       this.eventDraw()
-
-    },
-
+    }
 
   }
 </script>

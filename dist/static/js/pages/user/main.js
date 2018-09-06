@@ -60,27 +60,20 @@ global.webpackJsonp([2],{
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_wafer2_client_sdk__ = __webpack_require__(238);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_wafer2_client_sdk___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_wafer2_client_sdk__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_YearProgress__ = __webpack_require__(199);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__util__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__utils_wx__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__util__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__utils_wx__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__config__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_navbar__ = __webpack_require__(6);
 
 
 
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -170,7 +163,7 @@ global.webpackJsonp([2],{
     return {
       userinfo: {
         avatar_url: 'http://image.shengxinjing.cn/rate/unlogin.png',
-        nick_name: '空空的地方',
+        nick_name: '没事干研究院',
 
         level_display: '',
         is_authorized: true
@@ -240,7 +233,7 @@ global.webpackJsonp([2],{
                   break;
                 }
 
-                //用户按了允许授权按钮
+                // 用户按了允许授权按钮
                 data = [e.mp.detail.encryptedData, e.mp.detail.iv, e.mp.detail.signature, e.mp.detail.rawData];
                 _context.next = 10;
                 return that.$store.dispatch('saveInfo', __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends___default()({}, data));
@@ -251,7 +244,7 @@ global.webpackJsonp([2],{
                 break;
 
               case 13:
-                //用户按了拒绝按钮
+                // 用户按了拒绝按钮
                 console.log('用户按了拒绝按钮');
 
               case 14:
@@ -288,28 +281,22 @@ global.webpackJsonp([2],{
               that = _this2;
               userinfo = wx.getStorageSync('userinfo');
 
-
-              console.log(userinfo);
-
               if (userinfo) {
                 that.userinfo = userinfo;
                 that.login_show = false;
                 console.log(userinfo);
               } else {
-                console.log('暂无用户信息 点击登录');
                 that.login_show = true;
               }
-              _context2.next = 6;
+              _context2.next = 5;
               return that.$store.dispatch('user_info');
 
-            case 6:
+            case 5:
               user_profile = _context2.sent;
 
               that.userinfo.level_display = user_profile.user.level_display;
-              //   console.log(user_profile)
 
-
-            case 8:
+            case 7:
             case 'end':
               return _context2.stop();
           }
@@ -318,12 +305,10 @@ global.webpackJsonp([2],{
     }))();
   },
   onLoad: function onLoad() {
-
     var vm = this;
     wx.getSystemInfo({
       success: function success(res) {
         var totalTopHeight = 68;
-
         if (res.model.indexOf('iPhone X') !== -1) {
           totalTopHeight = 88;
           console.log('iphonex');
@@ -331,15 +316,10 @@ global.webpackJsonp([2],{
           totalTopHeight = 64;
           console.log('iphone');
         }
-
         var statusBarHeight = res.statusBarHeight;
-        var titleBarHeight = totalTopHeight - res.statusBarHeight; //44
-
-
+        var titleBarHeight = totalTopHeight - res.statusBarHeight; // 44
         console.log(statusBarHeight, titleBarHeight);
-
         vm.statusBarHeight = statusBarHeight;
-
         vm.titleBarHeight = titleBarHeight;
         vm.top = statusBarHeight + titleBarHeight;
       },

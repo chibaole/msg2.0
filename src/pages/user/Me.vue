@@ -1,5 +1,4 @@
 <template>
-  <!--<div class="container" :style="{'padding-top':top + 'px'}">-->
   <div class="container" >
   <!--<Navbar></Navbar>-->
     <div class="navbartitle" :style="{'height':top+'px'}"><span>我的研究院</span></div>
@@ -16,8 +15,6 @@
         <img src="" alt="">
       </div>
     </div>
-
-
     <form  :report-submit="true" @submit="sign_in">
       <button formType="submit">
         <div class="mylist">
@@ -27,10 +24,6 @@
         </div>
       </button>
     </form>
-
-    <!--<form @submit = ''  :report-submit=true >-->
-      <!--<button formType="submit">{{group_activitie.button.text}}</button>-->
-    <!--</form>-->
     <form  :report-submit="true"  @submit="goMygroup">
       <button  formType="submit" >
     <div class="mylist" >
@@ -94,124 +87,103 @@ export default {
     return {
       userinfo: {
         avatar_url: 'http://image.shengxinjing.cn/rate/unlogin.png',
-        nick_name: '空空的地方',
+        nick_name: '没事干研究院',
 
         level_display: '',
         is_authorized: true
       },
-      nologin:true,
-      top:68,
-      login_show:true
+      nologin: true,
+      top: 68,
+      login_show: true
     }
   },
   methods: {
-    goMygroup(e){
+    goMygroup (e) {
       let that = this
       console.log(e)
       let form_id = e.mp.detail.formId
       console.log(form_id)
       wx.navigateTo({
-          url:'/pages/user/myGroup/main'
+        url: '/pages/user/myGroup/main'
       })
     },
-    myBoon(e){
+    myBoon (e) {
       let that = this
       console.log(e)
       let form_id = e.mp.detail.formId
       console.log(form_id)
       wx.navigateTo({
-        url:'/pages/user/myboonList/main'
+        url: '/pages/user/myboonList/main'
       })
     },
-    onGotUserInfo(e){
+    onGotUserInfo (e) {
       console.log(e)
-    }
-,
-    getUserInfo1(){
+    },
+    getUserInfo1 () {
       let that = this
       console.log('click事件首先触发')
-      if(wx.canIUse('button.open-type.getUserInfo')){
+      if (wx.canIUse('button.open-type.getUserInfo')) {
         // 用户版本可用
-      }else{
+      } else {
         console.log('请升级微信版本')
       }
     },
-   async bindGetUserInfo(e) {
-     let that = this
+    async bindGetUserInfo (e) {
+      let that = this
       let sesssion_res = await checkSession()
-     console.log(sesssion_res.errMsg)
-     if(sesssion_res.errMsg === 'checkSession:ok'){
-       //session_key 未过期，并且在本生命周期一直有效
-       if (e.mp.detail.rawData){
-         //用户按了允许授权按钮
-         let data = [e.mp.detail.encryptedData,e.mp.detail.iv,e.mp.detail.signature,e.mp.detail.rawData]
-
-          await that.$store.dispatch('saveInfo',{...data})
+      console.log(sesssion_res.errMsg)
+      if (sesssion_res.errMsg === 'checkSession:ok') {
+       // session_key 未过期，并且在本生命周期一直有效
+        if (e.mp.detail.rawData) {
+         // 用户按了允许授权按钮
+          let data = [e.mp.detail.encryptedData, e.mp.detail.iv, e.mp.detail.signature, e.mp.detail.rawData]
+          await that.$store.dispatch('saveInfo', {...data})
           that.login_show = false
-       } else {
-         //用户按了拒绝按钮
-         console.log('用户按了拒绝按钮')
-       }
-     }else {
-       console.log('session 过期')
-       await that.$store.dispatch('signup')
-       that.login_show = false
-       console.log('重新登录成功')
-     }
+        } else {
+         // 用户按了拒绝按钮
+          console.log('用户按了拒绝按钮')
+        }
+      } else {
+        console.log('session 过期')
+        await that.$store.dispatch('signup')
+        that.login_show = false
+        console.log('重新登录成功')
+      }
     }
   },
- async onShow () {
+  async onShow () {
     let that = this
     let userinfo = wx.getStorageSync('userinfo')
-
-    console.log(userinfo)
-
     if (userinfo) {
       that.userinfo = userinfo
       that.login_show = false
       console.log(userinfo)
-    }else {
-       console.log('暂无用户信息 点击登录' )
+    } else {
       that.login_show = true
-
     }
     let user_profile = await that.$store.dispatch('user_info')
-   that.userinfo.level_display = user_profile.user.level_display
-//   console.log(user_profile)
-
-
+    that.userinfo.level_display = user_profile.user.level_display
   },
   onLoad () {
-
-    const  vm = this
+    const vm = this
     wx.getSystemInfo({
-      success: function(res) {
+      success: function (res) {
         let totalTopHeight = 68
-
         if (res.model.indexOf('iPhone X') !== -1) {
           totalTopHeight = 88
           console.log('iphonex')
-
         } else if (res.model.indexOf('iPhone') !== -1) {
           totalTopHeight = 64
           console.log('iphone')
-
         }
-
         let statusBarHeight = res.statusBarHeight
-        let titleBarHeight = totalTopHeight - res.statusBarHeight //44
-
-
-
-        console.log(  statusBarHeight, titleBarHeight )
-
+        let titleBarHeight = totalTopHeight - res.statusBarHeight // 44
+        console.log(statusBarHeight, titleBarHeight)
         vm.statusBarHeight = statusBarHeight
-
         vm.titleBarHeight = titleBarHeight
         vm.top = statusBarHeight + titleBarHeight
-
       },
-      failure() {
+      failure () {
         console.log('fail')
         vm.globalData.statusBarHeight = 0
         vm.globalData.titleBarHeight = 0
@@ -226,7 +198,6 @@ export default {
   /*padding:0 30rpx;*/
   font-family: "PingFang SC";
   font-weight: Regular;
-
 }
 .navbartitle{
   background: #fff;
@@ -247,8 +218,6 @@ export default {
     /*border: 1px solid #000;*/
     margin-top: 32px;
   }
-
-
 }
 .userinfo{
   margin:0px auto 10px;
@@ -261,13 +230,10 @@ export default {
     display: inline-block;
     width: 70px;
     height:70px;
-
     border-radius: 50%;
     position: absolute;
     top:40px;
     left: 25px;
-
-
     };
   .score{
     display: inline-block;
@@ -292,8 +258,6 @@ export default {
     position: absolute;
     top:53px;
     left: 110px;
-
-
   };
 
   .foodLabel{
@@ -307,12 +271,9 @@ export default {
     margin-left: 5px;
     background: rgba(#fc9e79, 0.4);
     padding: 2px 5px;
-
   };
   .desc{
-
     height:16px;
-    /*border:1px solid #000;*/
     font-family: PingFangSC-Regular;
     font-size: 12px;
     color: #fff;
@@ -326,9 +287,7 @@ export default {
       margin-right: 10px;
       border:1px solid #fff;
       border-radius: 2px;
-
       box-sizing: border-box;
-
     };
     .small_score_text{
       font-size: 12px;
@@ -336,11 +295,6 @@ export default {
     }
 
   }
-
-
-
-
-
 }
 
 #open-data {
@@ -364,8 +318,6 @@ export default {
 
 }
 .mylist{
-
-  /*border:1px solid #000;*/
   border-bottom: 2px solid #ededed;
   height: 70px;
   width: 325px;
@@ -383,11 +335,9 @@ export default {
     left:0
   };
   .list_title{
-
     display: inline-block;
     height: 20px;
     line-height: 20px;
-    /*border: 1px solid #000;*/
     font-family: PingFangSC-Medium;
     color:#454553;
     position: absolute;
@@ -408,11 +358,7 @@ export default {
     position:absolute;
     bottom:25px;
     right: 0;
-
   }
-
-
-
 }
 form{
   border:none;
@@ -422,8 +368,6 @@ form{
     background: none;
     margin: 0 auto;
     border:none;
-
-
   };
   button::after{
     border-radius:0;

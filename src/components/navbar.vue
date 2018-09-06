@@ -14,73 +14,60 @@
 
 
 <script>
+  export default {
 
-  export  default {
+    props: ['navbar_title'],
+    data () {
+      return {
+        globalData: {
+          statusBarHeight: 0,
+          titleBarHeight: 0
 
-      props:['navbar_title'],
-      data(){
-        return{
-          globalData:{
-            statusBarHeight:0,
-            titleBarHeight:0
+        },
+        statusBarHeight: 0,
+        titleBarHeight: 0,
+        top: 0
 
-          },
-          statusBarHeight:0,
-          titleBarHeight:0,
-          top:0
-
-
-
-        }
-      },
-    methods:{
-        goBack(){
-          wx.navigateBack({
-              url:''
-          })
-
-        }
+      }
+    },
+    methods: {
+      goBack () {
+        wx.navigateBack({
+          url: ''
+        })
+      }
     },
 
-    mounted() {
+    mounted () {
       const vm = this
 //      console.log(    vm.statusBarHeight ,vm.titleBarHeight)
-
     },
-    onLoad(){
-        const  vm = this
+    onLoad () {
+      const vm = this
       wx.getSystemInfo({
-        success: function(res) {
+        success: function (res) {
           let totalTopHeight = 68
 
           if (res.model.indexOf('iPhone X') !== -1) {
             totalTopHeight = 88
-
           } else if (res.model.indexOf('iPhone') !== -1) {
             totalTopHeight = 64
-
           }
 
           let statusBarHeight = res.statusBarHeight
-          let titleBarHeight = totalTopHeight - res.statusBarHeight //44
-
-
-
+          let titleBarHeight = totalTopHeight - res.statusBarHeight // 44
 
           vm.statusBarHeight = statusBarHeight
 
           vm.titleBarHeight = titleBarHeight
           vm.top = statusBarHeight + titleBarHeight
-
         },
-        failure() {
+        failure () {
           vm.globalData.statusBarHeight = 0
           vm.globalData.titleBarHeight = 0
         }
       })
-
-
-    },
+    }
 //    export const login = () => new Promise((resolve, reject) => {
 //      console.log('进入login函数')
 //      wx.login({

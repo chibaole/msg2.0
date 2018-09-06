@@ -4,7 +4,7 @@
 
     <p class="componten_name "><span></span>拼团</p>
     <div class="group-tiem " v-for="group_activitie in group_activities" :key="group_activitie.uuid">
-      <div class="pic " ><img  :src="host + group_activitie.title_image_url" alt=""></div>
+      <div class="pic " ><img  :src="group_activitie.title_image_url" alt=""></div>
       <div class="info-box ">
         <div class="group-info ">
             <div class="group-text ">{{group_activitie.title}}</div>
@@ -28,47 +28,42 @@
   import config from '@/config'
 
   export default {
-    data(){
-      return{
-        group_activities:[
+    data () {
+      return {
+        group_activities: [
 
         ],
-        host:config.host,
       }
     },
-    methods:{
-      goGroup(e){
-        let  group_activities_uuid = e.currentTarget.dataset.uuid
+    methods: {
+      goGroup (e) {
+        let group_activities_uuid = e.currentTarget.dataset.uuid
         let formId = e.mp.detail.formId
         console.log(formId)
 
-          wx.navigateTo({
-             url: '/pages/groupPj/main?group_activities_uuid=' + group_activities_uuid
-          })
+        wx.navigateTo({
+          url: '/pages/groupPj/main?group_activities_uuid=' + group_activities_uuid
+        })
       },
 
-
-      async getGroup(){
+      async getGroup () {
         let that = this
         let urlData = {
-          page:0,
-          size:0
+          page: 0,
+          size: 0
         }
 
         console.log('/v1/group_activities')
-        let group = await get('/v1/group_activities',urlData )
+        let group = await get('/v1/group_activities', urlData)
         that.groups = group.group_activities
         console.log(group)
       }
     },
 
-
-
-   async onLoad(){
-     let group_activities =  await this.$store.dispatch('getGroup')
+    async onLoad () {
+      let group_activities = await this.$store.dispatch('getGroup')
       console.log(group_activities)
-     this.group_activities = group_activities.group_activities
-
+      this.group_activities = group_activities.group_activities
     }
   }
 </script>

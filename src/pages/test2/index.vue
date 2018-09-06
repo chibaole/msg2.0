@@ -17,42 +17,40 @@
 </template>
 
 <script>
-
   export default {
 
-
-    data(){
-      return{
+    data () {
+      return {
         hidden: true
 
       }
     },
-    onLoad(){
+    onLoad () {
       let promise1 = new Promise(function (resolve, reject) {
         wx.getImageInfo({
           src: '../../../static/img/qrcode.jpg',
           success: function (res) {
             console.log(res)
-            resolve(res);
+            resolve(res)
           }
         })
-      });
+      })
       let promise2 = new Promise(function (resolve, reject) {
         wx.getImageInfo({
           src: '../../../static/img/qrbg.png',
           success: function (res) {
             console.log(res)
-            resolve(res);
+            resolve(res)
           }
         })
-      });
+      })
       Promise.all([
         promise1, promise2
       ]).then(res => {
         console.log(res)
         const ctx = wx.createCanvasContext('shareImg')
 
-        //主要就是计算好各个图文的位置
+        // 主要就是计算好各个图文的位置
         ctx.drawImage('../../' + res[0].path, 158, 190, 210, 210)
         ctx.drawImage('../../' + res[1].path, 0, 0, 545, 771)
 
@@ -66,7 +64,7 @@
         ctx.draw()
       })
     },
-    methods:{
+    methods: {
       /**
        * 生成分享图
        */
@@ -86,8 +84,7 @@
           destHeight: 771,
           canvasId: 'shareImg',
           success: function (res) {
-            console.log(res.tempFilePath);
-
+            console.log(res.tempFilePath)
 
 //            that.setData({
 //              prurl: res.tempFilePath,
@@ -96,8 +93,6 @@
 
             that.prurl = res.tempFilePath
             that.hiddebn = false
-
-
 
             wx.hideLoading()
           },
@@ -112,10 +107,10 @@
        */
       save () {
         var that = this
-        //生产环境时 记得这里要加入获取相册授权的代码
+        // 生产环境时 记得这里要加入获取相册授权的代码
         wx.saveImageToPhotosAlbum({
           filePath: that.data.prurl,
-          success(res) {
+          success (res) {
             wx.showModal({
               content: '图片已保存到相册，赶紧晒一下吧~',
               showCancel: false,
@@ -123,8 +118,7 @@
               confirmColor: '#72B9C3',
               success: function (res) {
                 if (res.confirm) {
-                  console.log('用户点击确定');
-
+                  console.log('用户点击确定')
 
 //                  that.setData({
 //                    hidden: true
@@ -136,13 +130,10 @@
             })
           }
         })
-
       }
     }
 
-
   }
-
 
 </script>
 

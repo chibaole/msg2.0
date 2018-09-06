@@ -39,95 +39,90 @@
 </template>
 
 <script>
-  import Card from  '@/components/groupCard'
+  import Card from '@/components/groupCard'
   import {get, post, showModal} from '@/utils/util'
   import Navbar from '@/components/navbar'
 
-
   export default {
 
+    data () {
+      return {
 
-    data(){
-      return{
-
-
-        order_uuid:'',
-        order_info:{},
-        navbar_title:'订单详情',
-        initGroupId:'',
-        group_activity_order_uuid:''
+        order_uuid: '',
+        order_info: {},
+        navbar_title: '订单详情',
+        initGroupId: '',
+        group_activity_order_uuid: ''
       }
     },
-    components:{
+    components: {
       Card,
       Navbar
-    }
-    ,
-
-    methods:{
-    async    pay(e){
-          console.log(e)
-          let that = this
-          let order_uuid = that.group_activity_order_uuid //订单uuid
-          let pay_res = await that.$store.dispatch('group_pay',order_uuid)
-
-          let form_id =  e.mp.detail.formId
-          console.log(form_id)
-          console.log(pay_res)
-          wx.requestPayment({
-            'timeStamp': String(pay_res.time_stamp),
-            'nonceStr': String(pay_res.nonce_str),
-            'package': String(pay_res.package),
-            'signType':String(pay_res.sign_type),
-            'paySign': String(pay_res.pay_sign),
-            'success':function(res){
-              console.log(res)
-              let group_activity_initial_uuid= that.order_info.group_activity_initial.uuid
-
-              wx.setStorageSync('group_activity_initial_uuid',group_activity_initial_uuid)
-              wx.navigateTo({
-                url: '/pages/groupPj/order/main?group_activity_initial_uuid=' + group_activity_initial_uuid,
-              })
-              console.log('/pages/groupPj/order/main?group_activity_initial_uuid=' + group_activity_initial_uuid)
-            },
-            'fail':function(res){
-              console.log(res)
-              console.log('支付错误')
-              showModal('支付失败','请尝试重新支付')
-
-              let group_activity_initial_uuid= that.order_info.group_activity_initial.uuid
-
-              wx.setStorageSync('group_activity_initial_uuid',group_activity_initial_uuid)
-              wx.navigateTo({
-                url: '/pages/groupPj/order/main?group_activity_initial_uuid=' + group_activity_initial_uuid,
-              })
-              console.log('/pages/groupPj/order/main?group_activity_initial_uuid=' + group_activity_initial_uuid)
-            }
-          })
-        },
-
     },
-   async onLoad(){
-      let that = this
-      let group_activity_orders_uuid =  this.$root.$mp.query.group_activity_orders_uuid //获取发起拼团活动返回的订单ID
-     that.group_activity_order_uuid = group_activity_orders_uuid
-     let currentuser_code = wx.getStorageSync('auth_code')
-     let uuid_authCode = [group_activity_orders_uuid,currentuser_code]
 
+  methods: {
+    async    pay (e) {
+      console.log(e)
+      let that = this
+      let order_uuid = that.group_activity_order_uuid // 订单uuid
+      let pay_res = await that.$store.dispatch('group_pay', order_uuid)
+
+      let form_id = e.mp.detail.formId
+      console.log(form_id)
+      console.log(pay_res)
+      wx.requestPayment({
+        'timeStamp': String(pay_res.time_stamp),
+        'nonceStr': String(pay_res.nonce_str),
+        'package': String(pay_res.package),
+        'signType': String(pay_res.sign_type),
+        'paySign': String(pay_res.pay_sign),
+        'success': function (res) {
+          console.log(res)
+          let group_activity_initial_uuid = that.order_info.group_activity_initial.uuid
+
+          wx.setStorageSync('group_activity_initial_uuid', group_activity_initial_uuid)
+          wx.navigateTo({
+            url: '/pages/groupPj/order/main?group_activity_initial_uuid=' + group_activity_initial_uuid
+          })
+          console.log('/pages/groupPj/order/main?group_activity_initial_uuid=' + group_activity_initial_uuid)
+        },
+        'fail': function (res) {
+          console.log(res)
+          console.log('支付错误')
+          showModal('支付失败', '请尝试重新支付')
+
+          let group_activity_initial_uuid = that.order_info.group_activity_initial.uuid
+
+          wx.setStorageSync('group_activity_initial_uuid', group_activity_initial_uuid)
+          wx.navigateTo({
+            url: '/pages/groupPj/order/main?group_activity_initial_uuid=' + group_activity_initial_uuid
+          })
+          console.log('/pages/groupPj/order/main?group_activity_initial_uuid=' + group_activity_initial_uuid)
+        }
+      })
+    }
+
+  },
+    async onLoad () {
+      let that = this
+      let group_activity_orders_uuid = this.$root.$mp.query.group_activity_orders_uuid // 获取发起拼团活动返回的订单ID
+      that.group_activity_order_uuid = group_activity_orders_uuid
+      let currentuser_code = wx.getStorageSync('auth_code')
+      let uuid_authCode = [group_activity_orders_uuid, currentuser_code]
 
 //      that.getGroup_orders()
-      //新api的形式
-      const orderData = await  that.$store.dispatch('groupActivities_order',{...uuid_authCode})
+      // 新api的形式
+      const orderData = await that.$store.dispatch('groupActivities_order', {...uuid_authCode})
 
-     console.log(orderData)
+      console.log(orderData)
 
       that.order_info = orderData.group_activity_order
-     console.log(that.order_info)
+      console.log(that.order_info)
     },
 
-   async mounted(){
+    async mounted () {
 
-   }
+    }
 
   }
 </script>

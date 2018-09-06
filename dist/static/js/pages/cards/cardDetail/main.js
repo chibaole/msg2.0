@@ -8,7 +8,7 @@ global.webpackJsonp([14],{
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__util__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__util__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_CommentList__ = __webpack_require__(54);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_Card__ = __webpack_require__(53);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_top_bar__ = __webpack_require__(56);
@@ -155,7 +155,7 @@ var col1H = 0;var col2H = 0;
       rightHeight: 0,
       length: 10,
       pageNo: 1,
-      descHeight: 30, //图片文字描述的高度
+      descHeight: 30, // 图片文字描述的高度
       pageStatus: true,
       clicked: false,
       likeImg: 'http://oxnbz75b8.bkt.clouddn.com/praise_gray@3x.png'

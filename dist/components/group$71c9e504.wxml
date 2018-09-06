@@ -4,7 +4,7 @@
       <label class="_span data-v-318ee708"></label>拼团</view>
     <view class="_div data-v-318ee708 group-tiem " wx:key="group_activitie.uuid" key="{{group_activitie.uuid}}" wx:for="{{group_activities}}" wx:for-index="index" wx:for-item="group_activitie">
       <view class="_div data-v-318ee708 pic ">
-        <image src="{{host + group_activitie.title_image_url}}" alt class="_img data-v-318ee708"></image>
+        <image src="{{group_activitie.title_image_url}}" alt class="_img data-v-318ee708"></image>
       </view>
       <view class="_div data-v-318ee708 info-box ">
         <view class="_div data-v-318ee708 group-info ">

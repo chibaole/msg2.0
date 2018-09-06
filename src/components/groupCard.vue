@@ -18,17 +18,17 @@
 
 <script>
   export default {
-    props:['order_info'],
-    data(){
-      return{
+    props: ['order_info'],
+    data () {
+      return {
 
       }
     },
-    methods:{
+    methods: {
 
     },
-    mounted(){
-      console.log(this.order_info )
+    mounted () {
+      console.log(this.order_info)
     }
 
   }

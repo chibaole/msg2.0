@@ -5,7 +5,7 @@
     <view class="_div data-v-4958b0dc wrap">
       <view class="_div data-v-4958b0dc pj-info">
         <view class="_div data-v-4958b0dc left">
-          <image src="{{host+order_info.group_activity.title_image_url}}" alt class="_img data-v-4958b0dc"></image>
+          <image src="{{order_info.group_activity.title_image_url}}" alt class="_img data-v-4958b0dc"></image>
         </view>
         <view class="_div data-v-4958b0dc right">
           <view class="_h2 data-v-4958b0dc">

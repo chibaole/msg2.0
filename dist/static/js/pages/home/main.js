@@ -8,7 +8,7 @@ global.webpackJsonp([1],{
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__utils_util__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__utils_util__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__config__ = __webpack_require__(4);
 
 
@@ -44,8 +44,7 @@ global.webpackJsonp([1],{
 /* harmony default export */ __webpack_exports__["a"] = ({
   data: function data() {
     return {
-      group_activities: [],
-      host: __WEBPACK_IMPORTED_MODULE_3__config__["a" /* default */].host
+      group_activities: []
     };
   },
 
@@ -133,7 +132,7 @@ global.webpackJsonp([1],{
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__utils_util__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__utils_util__ = __webpack_require__(12);
 
 
 //
@@ -206,8 +205,8 @@ global.webpackJsonp([1],{
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__utils_util__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__utils_wx__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__utils_util__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__utils_wx__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__config__ = __webpack_require__(4);
 
 
@@ -253,15 +252,13 @@ global.webpackJsonp([1],{
 
 
 
-
 /* harmony default export */ __webpack_exports__["a"] = ({
   data: function data() {
     return {
       boons: [],
       page: 1,
-      host: __WEBPACK_IMPORTED_MODULE_4__config__["a" /* default */].host,
       showSkeleton: true,
-      formIdString: ''
+      formId: ''
     };
   },
 
@@ -272,36 +269,19 @@ global.webpackJsonp([1],{
     scroll: function scroll(e) {
       console.log(e);
     },
-
-
-    //      async getBoonsToday() {
-    //
-    //        console.log('获取今日福利')
-    //
-    //        let boons = await get('/v1/boons/today', {page: this.page})
-    ////       console.log(boons)
-    //        this.boons = boons
-    //       console.log(boons)
-    //
-    //
-    //      },
     formSubmit: function formSubmit(e) {
       console.log(e);
       var that = this;
       if (e.mp.detail.formId != 'the formId is a mock one') {
-        //          this.setData({
-        //            formIdString: e.detail.formId + "," + this.data.formIdString
-        //          })
 
-        that.formIdString = e.detail.formId + that.formIdString;
+        that.formId = e.mp.detail.formId + that.formId;
       }
-      console.log(that.formIdString);
+      console.log(that.formId);
       var uuid = e.currentTarget.dataset.uuid;
       var title = e.currentTarget.dataset.title;
       console.log(uuid, title);
-      __WEBPACK_IMPORTED_MODULE_3__utils_wx__["c" /* default */].navigateTo('/pages/project/main?boons_uuid=' + uuid + "&title=" + title);
+      __WEBPACK_IMPORTED_MODULE_3__utils_wx__["c" /* default */].navigateTo('/pages/project/main?boons_uuid=' + uuid + '&title=' + title);
     },
-
     attendBoon: function attendBoon(e) {
       var _this = this;
 
@@ -311,13 +291,13 @@ global.webpackJsonp([1],{
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                //跳转到福利详情页
+                // 跳转到福利详情页
                 that = _this;
                 uuid = e.currentTarget.dataset.uuid;
                 title = e.currentTarget.dataset.title;
 
 
-                __WEBPACK_IMPORTED_MODULE_3__utils_wx__["c" /* default */].navigateTo('/pages/project/main?boons_uuid=' + uuid + "&title=" + title);
+                __WEBPACK_IMPORTED_MODULE_3__utils_wx__["c" /* default */].navigateTo('/pages/project/main?boons_uuid=' + uuid + '&title=' + title);
 
               case 4:
               case 'end':
@@ -329,13 +309,6 @@ global.webpackJsonp([1],{
     }
   },
   onLoad: function onLoad() {
-
-    var that = this;
-    setTimeout(function () {
-      that.showSkeleton = false;
-    }, 10000);
-  },
-  mounted: function mounted() {
     var _this2 = this;
 
     return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee2() {
@@ -361,6 +334,33 @@ global.webpackJsonp([1],{
         }
       }, _callee2, _this2);
     }))();
+  },
+  onShow: function onShow() {
+    var _this3 = this;
+
+    return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee3() {
+      var boonsData;
+      return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee3$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              console.log('scroll加载今日福利数据');
+              _context3.next = 3;
+              return _this3.$store.dispatch('getBoonsToday');
+
+            case 3:
+              boonsData = _context3.sent;
+
+              _this3.boons = boonsData.boons;
+              console.log(_this3.boons);
+
+            case 6:
+            case 'end':
+              return _context3.stop();
+          }
+        }
+      }, _callee3, _this3);
+    }))();
   }
 });
 
@@ -374,8 +374,8 @@ global.webpackJsonp([1],{
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__util__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__utils_wx__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__util__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__utils_wx__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_TopSwiper__ = __webpack_require__(198);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_scroll__ = __webpack_require__(203);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_group__ = __webpack_require__(201);
@@ -414,7 +414,6 @@ global.webpackJsonp([1],{
 
 
 
-
 //  import wx from '../../utils/wx'
 
 
@@ -439,7 +438,7 @@ global.webpackJsonp([1],{
       userInfo: {
         openid: ''
       },
-      showSkeleton: true //骨架屏显示隐藏
+      showSkeleton: true // 骨架屏显示隐藏
 
     };
   },
@@ -826,7 +825,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       staticClass: "pic "
     }, [_c('img', {
       attrs: {
-        "src": _vm.host + group_activitie.title_image_url,
+        "src": group_activitie.title_image_url,
         "alt": ""
       }
     })]), _vm._v(" "), _c('div', {
@@ -993,7 +992,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       staticClass: "recomend-pic  "
     }, [_c('img', {
       attrs: {
-        "src": _vm.host + boon.title_image_url,
+        "src": boon.title_image_url,
         "alt": ""
       }
     })]), _vm._v(" "), _c('div', {

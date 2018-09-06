@@ -34,18 +34,18 @@
 //        }
 //      }
 //    },
-    data() {
-      return{
-      showCanvas: true,
+    data () {
+      return {
+        showCanvas: true,
 
-      width: 100,
-      height: 100,
+        width: 100,
+        height: 100,
 
-      index: 0,
-      imageList: [],
-      tempFileList: [],
+        index: 0,
+        imageList: [],
+        tempFileList: [],
 
-      isPainting: false
+        isPainting: false
       }
     },
     ctx: null,
@@ -183,7 +183,7 @@
               this.drawTextLine(left, fillTop, textDecoration, color, fontSize, fillText)
               fillText = ''
               fillTop += lineHeight
-              lineNum ++
+              lineNum++
             }
           }
           this.ctx.fillText(fillText, left, fillTop)
@@ -278,12 +278,10 @@
         }, this)
       }
     },
-    mounted(){
-
-        wx.removeStorageSync('canvasdrawer_pic_cache')
-        this.cache = wx.getStorageSync('canvasdrawer_pic_cache') || {}
-        this.ctx = wx.createCanvasContext('canvasdrawer', this)
-
+    mounted () {
+      wx.removeStorageSync('canvasdrawer_pic_cache')
+      this.cache = wx.getStorageSync('canvasdrawer_pic_cache') || {}
+      this.ctx = wx.createCanvasContext('canvasdrawer', this)
     }
 
   }

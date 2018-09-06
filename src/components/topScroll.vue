@@ -15,28 +15,28 @@
 
 <script>
   export default {
-          data(){
-            return{
-              mark:true,
-              list:[{
-                title:'哈哈哈',
-                text:'大家疯狂的家',
-                pic:'../../static/img/share_pic.jpg'
-              },
-                {
-                  title:'哈哈哈',
-                  text:'大家疯狂的家',
-                  pic:'../../static/img/share_pic.jpg'
-                },
-                {
-                  title:'哈哈哈',
-                  text:'大家疯狂的家你的烦恼',
-                  pic:'../../static/img/share_pic.jpg'
-                }
+    data () {
+      return {
+        mark: true,
+        list: [{
+          title: '哈哈哈',
+          text: '大家疯狂的家',
+          pic: '../../static/img/share_pic.jpg'
+        },
+        {
+          title: '哈哈哈',
+          text: '大家疯狂的家',
+          pic: '../../static/img/share_pic.jpg'
+        },
+        {
+          title: '哈哈哈',
+          text: '大家疯狂的家你的烦恼',
+          pic: '../../static/img/share_pic.jpg'
+        }
 
-              ]
-            }
-          }
+        ]
+      }
+    }
   }
 </script>
 

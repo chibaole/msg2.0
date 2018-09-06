@@ -6,10 +6,7 @@
 const host = 'https://msg.chibaole.cc'
 // http://47.98.170.205/api/v1/boons/today?auth_code=7o_WVWb5GZlcpBfASVUl9Q
 
-
-
-  const config = {
+const config = {
   host
-
 }
 export default config

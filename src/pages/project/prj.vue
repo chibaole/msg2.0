@@ -5,7 +5,7 @@
 
 
     <div class="pic-info">
-    <div class="pic"><img :src=" host + boon.title_image_url" alt=""></div>
+    <div class="pic"><img :src="boon.title_image_url" alt=""></div>
 
     <div class="prj-info">
       <p class="prj-name">{{boon.description}}</p>
@@ -18,7 +18,7 @@
     <div class="sponsors">
       <p class="sponsors-info" >{{boon.sponsor.description}}</p>
       <navigator class="switchGoAnchor" target="miniProgram" open-type="navigate" :app-id="boon.sponsor.app_id" :path="boon.sponsor.app_path" extra-data="" version="release">
-        <img class="logo" :src="host+boon.sponsor.avatar_url" alt="">{{boon.sponsor.name}}<img class="right_ico" src="../../../static/img/right.png" alt="">
+        <img class="logo" :src="boon.sponsor.avatar_url" alt="">{{boon.sponsor.name}}<img class="right_ico" src="../../../static/img/right.png" alt="">
       </navigator>
 
     </div>
@@ -109,16 +109,16 @@
       <div class="mask" v-if="showBox">  <!-- 遮罩-->
 
           <div  class="meunBox"  v-if="showBox">
-            <img class="x" src="../../../static/img/close2.png" alt="" @click="shareMenu">
+            <img class="x" src="http://pbmrxkahq.bkt.clouddn.com/close.png" alt="" @click="shareMenu">
 
             <div class="title">分享加速抽奖</div>
 
             <button class="friend" open-type="share">
-              <img src="../../../static/img/wechatF.png" alt="">
+              <img src="http://pbmrxkahq.bkt.clouddn.com/wechatF.png" alt="">
             </button>
 
             <div class="createImg" @click="getImg">
-              <img src="../../../static/img/wechatimg.png" alt="">
+              <img src="http://pbmrxkahq.bkt.clouddn.com/wechatimg.png" alt="">
             </div>
             <div class="wechatFriend" open-type="share">微信好友</div>
             <div class="shengchengImg" @click="getImg">生成分享图片</div>
@@ -151,288 +151,269 @@
   import {chooseAddress} from '@/utils/wx'
 
   export default {
-    data(){
-      return{
-        prize:'抽奖',
-        open:false,
-        uuid:'',
-        prjInfo:{
-          name:'',
-          id:''
+    data () {
+      return {
+        prize: '抽奖',
+        open: false,
+        uuid: '',
+        prjInfo: {
+          name: '',
+          id: ''
         },
-        boon:{},
-        title:'',
-        sesson_url:'http://pbmrxkahq.bkt.clouddn.com/anodor.png',
-        showBox:false,
-        navbar_title:'',
-        host:config.host,
-        haveOpen:'未开奖',
-        prizeStyle:'prize',
-        init_rewarded_users:[],
-        showGetMoreBtn:false,
+        boon: {},
+        title: '',
+        sesson_url: 'http://pbmrxkahq.bkt.clouddn.com/anodor.png',
+        showBox: false,
+        navbar_title: '',
+        haveOpen: '未开奖',
+        prizeStyle: 'prize',
+        init_rewarded_users: [],
+        showGetMoreBtn: false
 
       }
     },
-    components:{
+    components: {
       Diago,
       Navbar
     },
 
-    methods:{
-      //参加福利 即抽奖操作
-     async attendBoon(){
-
+    methods: {
+      // 参加福利 即抽奖操作
+      async attendBoon () {
         var that = this
 
-
-       let currentuser_code = wx.getStorageSync('auth_code')
+        let currentuser_code = wx.getStorageSync('auth_code')
 
 //        let attendBoon_data = await post(`/v1/boons/${that.uuid}/attend?auth_code=${currentuser_code}`)
 //
 //        console.log(attendBoon_data)
 
-       let boonID = that.boon.uuid
-       let auth_code = currentuser_code
-       let uuid_authCode = [boonID,auth_code]
+        let boonID = that.boon.uuid
+        let auth_code = currentuser_code
+        let uuid_authCode = [boonID, auth_code]
 
-       let res = await  that.$store.dispatch('attendBoon',{...uuid_authCode})
-       console.log(res)
-         that.prize = '待开奖'
-       that.prizeStyle = 'waiting'
-
-
-
+        let res = await that.$store.dispatch('attendBoon', {...uuid_authCode})
+        console.log(res)
+        that.prize = '待开奖'
+        that.prizeStyle = 'waiting'
       },
-      openDiago(){
-       var  that = this
-        that.open= true
+      openDiago () {
+        var that = this
+        that.open = true
       },
-//url: /api/v1/boons/:uuid/attend
+// url: /api/v1/boons/:uuid/attend
 
-      async getBoons(){
+      async getBoons () {
         var auth_code = wx.getStorageSync('auth_code')
-        let prjInfo = await get(`/v1/boons/${this.uuid}?auth_code=${auth_code }`)
+        let prjInfo = await get(`/v1/boons/${this.uuid}?auth_code=${auth_code}`)
         console.log(prjInfo)
 
-        this.boon = prjInfo //福利详情
+        this.boon = prjInfo // 福利详情
       },
-      shareMenu(){
+      shareMenu () {
         console.log(this.showBox)
-          this.showBox = !this.showBox
-
+        this.showBox = !this.showBox
       },
-     async getImg(){
+      async getImg () {
         let that = this
         let uuid = that.uuid
-        let page = "pages/isme/index"
-        let data = [uuid,page]
-        let res = await this.$store.dispatch('wxCode',{...data})
-        let wxCodeImg = that.host+res.wxa_qrcode_url
+        let page = 'pages/isme/index'
+        let data = [uuid, page]
+        let res = await this.$store.dispatch('wxCode', {...data})
+        let wxCodeImg = res.wxa_qrcode_url
 
-          var painting = {
-            width: 375,
-            height: 557,
-            clear: true,
-            views: [
+        var painting = {
+          width: 375,
+          height: 557,
+          clear: true,
+          views: [
 
 //            绘制白色背景
-              {
-                type: 'rect',
-                background: '#fff',
-                top: 0,
-                left: 0,
-                width: 375,
-                height: 557
-              },
+            {
+              type: 'rect',
+              background: '#fff',
+              top: 0,
+              left: 0,
+              width: 375,
+              height: 557
+            },
 
               //            绘制的头图
-              {
-                type: 'image',
-                url: 'http://oxl5leo53.bkt.clouddn.com/u=1204211051,3834529407&fm=11&gp=0.jpg',                  //变化图片
-                top: 0,
-                left: 0,
-                width: 375,
-                height: 173
-              },
+            {
+              type: 'image',
+              url: 'http://oxl5leo53.bkt.clouddn.com/u=1204211051,3834529407&fm=11&gp=0.jpg',                  // 变化图片
+              top: 0,
+              left: 0,
+              width: 375,
+              height: 173
+            },
               //            绘制的背景图
 
-
-//http://p15hnzxrp.bkt.clouddn.com/wechatapp2.5.jpg
+// http://p15hnzxrp.bkt.clouddn.com/wechatapp2.5.jpg
               // 文本表达
-              {
-                type: 'text',
-                content: that.boon.description,                                                             //变量的名称
-                fontSize: 27.6,
-                lineHeight: 27.6,
-                color: '#454553',
-                textAlign: 'left',
-                top: 217.35,
-                left:64.4,
-                width: 244.95,
-                MaxLineNumber: 2,                                                                         //最大两行 超出...
-                breakWord: true,  //换行
-                bolder: true  //加粗
-              },
+            {
+              type: 'text',
+              content: that.boon.description,                                                             // 变量的名称
+              fontSize: 27.6,
+              lineHeight: 27.6,
+              color: '#454553',
+              textAlign: 'left',
+              top: 217.35,
+              left: 64.4,
+              width: 244.95,
+              MaxLineNumber: 2,                                                                         // 最大两行 超出...
+              breakWord: true,  // 换行
+              bolder: true  // 加粗
+            },
 
+            {
+              type: 'text',
+              content: '500人自动开奖',                                                                                // 变量的价格
+              fontSize: 18.4,
+              color: '#4a4a4a',
+              textAlign: 'left',
+              top: 256.45,
+              left: 124.2
 
-              {
-                type: 'text',
-                content: '500人自动开奖',                                                                                //变量的价格
-                fontSize: 18.4,
-                color: '#4a4a4a',
-                textAlign: 'left',
-                top: 256.45,
-                left: 124.2
+            },
+            {
+              type: 'text',
+              content: '已有',
+              fontSize: 18.4,
+              color: '#4a4a4a',
+              textAlign: 'left',
+              top: 361.1,
+              left: 124.2                                                                      // 根据价格字符个数 变化
 
-              },
-              {
-                type: 'text',
-                content: '已有',
-                fontSize: 18.4,
-                color: '#4a4a4a',
-                textAlign: 'left',
-                top: 361.1,
-                left:124.2,                                                                      //根据价格字符个数 变化
+            },
+            {
+              type: 'text',
+              content: '443',                                                                       // 根据参与实际人数 变化
+              fontSize: 18.4,
+              color: '#ff7f4f',
+              textAlign: 'left',
+              top: 361.1,
+              left: 161                                                                      //
+            },
 
-              },
-              {
-                type: 'text',
-                content: '443',                                                                       //根据参与实际人数 变化
-                fontSize: 18.4,
-                color: '#ff7f4f',
-                textAlign: 'left',
-                top: 361.1,
-                left: 161                                                                      //
-              },
+            {
+              type: 'text',
+              content: '人参与',
+              fontSize: 18.4,
+              color: '#4a4a4a',
+              textAlign: 'left',
+              top: 361.1,
+              left: 195.5,
+              lineHeight: 18.4,
+              MaxLineNumber: 2,
+              breakWord: true
+            },
+            {
+              type: 'image',
+              url: wxCodeImg,
+              top: 396.75,
+              left: 139.15,
+              width: 96.6,
+              height: 96.6
+            },
+            {
+              type: 'text',
+              content: '长按识别小程序码参与抽奖',
+              fontSize: 16.1,
+              color: '#4a4a4a',
+              textAlign: 'left',
+              top: 504.85,
+              left: 92,
+              lineHeight: 16.1,
+              MaxLineNumber: 2,
+              breakWord: true,
+              width: 193.2
+            }
 
-              {
-                type: 'text',
-                content: '人参与',
-                fontSize: 18.4,
-                color: '#4a4a4a',
-                textAlign: 'left',
-                top: 361.1,
-                left: 195.5,
-                lineHeight: 18.4,
-                MaxLineNumber: 2,
-                breakWord: true
-              },
-              {
-                type: 'image',
-                url: wxCodeImg,
-                top: 396.75,
-                left: 139.15,
-                width: 96.6,
-                height: 96.6
-              },
-              {
-                type: 'text',
-                content: '长按识别小程序码参与抽奖',
-                fontSize: 16.1,
-                color: '#4a4a4a',
-                textAlign: 'left',
-                top: 504.85,
-                left: 92,
-                lineHeight: 16.1,
-                MaxLineNumber: 2,
-                breakWord: true,
-                width: 193.2
-              }
-
-            ]
-          }
-        wx.setStorageSync('painting' , painting)
-        wx.navigateTo({url:'/pages/test/main'})
+          ]
+        }
+        wx.setStorageSync('painting', painting)
+        wx.navigateTo({url: '/pages/test/main'})
       },
-      againPrice(){
+      againPrice () {
         wx.switchTab({
-          url:'/pages/home/main'
+          url: '/pages/home/main'
         })
-
       },
-     async chooseAddress(){
+      async chooseAddress () {
         console.log('领奖')
-       let that = this
-       let data = [ ]
-       let uuid = that.boon.boon_order.uuid //抽奖订单号
-       let boon_status = that.boon.boon_order.status
-       console.log(boon_status)
-       if(boon_status ==='received'){
+        let that = this
+        let data = [ ]
+        let uuid = that.boon.boon_order.uuid // 抽奖订单号
+        let boon_status = that.boon.boon_order.status
+        console.log(boon_status)
+        if (boon_status === 'received') {
+          wx.navigateTo({
+            url: `/pages/user/myboonList/myBoon/main?uuid=${uuid}`
+          })
+        } else {
+          let res = await chooseAddress()
 
+          let auth_code = wx.getStorageSync('auth_code')
+          let address = {
+            name: res.name,            // 名字
+            postal_code: res.postalCode, // 邮编
+            tel_phone: res.telNumber, // 电话
+            province: res.provinceName, // 省
+            city: res.cityName, // 市
+            district: res.countyName, // 区
+            detail: res.detailInfo// 详细
 
-         wx.navigateTo({
-           url:`/pages/user/myboonList/myBoon/main?uuid=${uuid}`
-         })
-       }else {
-         let res = await chooseAddress()
+          }
 
-         let auth_code = wx.getStorageSync('auth_code')
-         let address =   {
-           name:res.name,            //名字
-           postal_code:res.postalCode,// 邮编
-           tel_phone:res.telNumber,// 电话
-           province:res.provinceName,// 省
-           city:res.cityName,// 市
-           district:res.countyName,// 区
-           detail:res.detailInfo// 详细
+          data = [uuid, auth_code, address]
+          let address_res = await that.$store.dispatch('boonAddress', {...data})
+          wx.navigateTo({
+            url: `/pages/user/myboonList/myBoon/main?uuid=${uuid}`
+          })
+        }
+      },
 
-         }
-
-         data = [uuid,auth_code,address]
-         let address_res =  await  that.$store.dispatch('boonAddress',{...data})
-         wx.navigateTo({
-           url:`/pages/user/myboonList/myBoon/main?uuid=${uuid}`
-         })
-       }
-
-
-     },
-
-      getMoreUser(){
+      getMoreUser () {
         let that = this
         console.log('加载更多中奖用户')
-        that.init_rewarded_users =  that.boon.rewarded_users
+        that.init_rewarded_users = that.boon.rewarded_users
         that.showGetmore = false
       }
 
-
     },
-   async onLoad(){
+    async onLoad () {
       let that = this
-      that.uuid =  that.$root.$mp.query.boons_uuid //获取上一页传递的唯一标准uuid
-      that.navbar_title =  that.$root.$mp.query.title //获取上一页传递的福利名称 做navbar的标题
-     let currentuser_code = wx.getStorageSync('auth_code')
-     let uuid_authCode = [that.uuid,currentuser_code]
-      //根据获得uuid 查询数据出来
+      that.uuid = that.$root.$mp.query.boons_uuid // 获取上一页传递的唯一标准uuid
+      that.navbar_title = that.$root.$mp.query.title // 获取上一页传递的福利名称 做navbar的标题
+      let currentuser_code = wx.getStorageSync('auth_code')
+      let uuid_authCode = [that.uuid, currentuser_code]
+      // 根据获得uuid 查询数据出来
 
 //      that.getBoons()
-      let boonData = await that.$store.dispatch('getBoons',{...uuid_authCode})
+      let boonData = await that.$store.dispatch('getBoons', {...uuid_authCode})
       that.boon = boonData.boon
 
+      let init_rewarded_users = boonData.boon.rewarded_users
 
-     let init_rewarded_users = boonData.boon.rewarded_users
-
-     if(init_rewarded_users.length > 12){
+      if (init_rewarded_users.length > 12) {
         that.showGetMoreBtn = true
-       init_rewarded_users = boonData.boon.rewarded_users.splice(0,12)
-       that.init_rewarded_users = init_rewarded_users
-
-     }else{
-       let init_rewarded_users = boonData.boon.rewarded_users
-       that.init_rewarded_users = init_rewarded_users
-     }
+        init_rewarded_users = boonData.boon.rewarded_users.splice(0, 12)
+        that.init_rewarded_users = init_rewarded_users
+      } else {
+        let init_rewarded_users = boonData.boon.rewarded_users
+        that.init_rewarded_users = init_rewarded_users
+      }
 
 //     that.init_rewarded_users = boonData.boon.rewarded_users
 
 //     await this.$store.dispatch('createBill', { ...this.userInfo, ...this.billInfo })
-
-   },
+    },
     mounted () {
-
 
     },
 
-    onShareAppMessage(res){
+    onShareAppMessage (res) {
       if (res.from === 'button') {
         // 来自页面内转发按钮
         console.log(res.target)
@@ -442,10 +423,6 @@
         path: '/page/user?id=123'
       }
     }
-
-
-
-
 
   }
 </script>

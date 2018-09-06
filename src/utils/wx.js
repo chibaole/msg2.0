@@ -83,7 +83,7 @@ export const login = () => new Promise((resolve, reject) => {
   })
 })
 
-export const  getWxLoginResult = () => new Promise((resolve,reject) => {
+export const getWxLoginResult = () => new Promise((resolve, reject) => {
   wx.login({
     success: function (loginResult) {
       wx.getUserInfo({
@@ -92,26 +92,24 @@ export const  getWxLoginResult = () => new Promise((resolve,reject) => {
             code: loginResult.code,
             encryptedData: userResult.encryptedData,
             iv: userResult.iv,
-            userInfo: userResult.userInfo,
-          });
+            userInfo: userResult.userInfo
+          })
         },
 
         fail: function (userError) {
           // var error = new LoginError(constants.ERR_WX_GET_USER_INFO, '获取微信用户信息失败，请检查网络状态');
-          error.detail = userError;
-          reject(error);
-        },
-      });
+          error.detail = userError
+          reject(error)
+        }
+      })
     },
 
     fail: function (loginError) {
-      var error =  '微信登录失败，请检查网络状态';
-      reject(error);
-    },
-  });
-
+      var error = '微信登录失败，请检查网络状态'
+      reject(error)
+    }
+  })
 })
-
 
 export const request = obj => new Promise((resolve, reject) => {
   wx.request({
@@ -130,7 +128,6 @@ export const request = obj => new Promise((resolve, reject) => {
     }
   })
 })
-
 
 export const chooseImage = (count = 1, sourceType = ['album']) => new Promise((resolve, reject) => {
   wx.chooseImage({
@@ -219,26 +216,25 @@ export const uploadFile = (obj) => new Promise((resolve, reject) => {
   })
 })
 
-export const chooseAddress = (obj)=> new Promise((reslove,reject)=>{
+export const chooseAddress = (obj) => new Promise((reslove, reject) => {
   wx.chooseAddress({
     success: function (res) {
-          reslove(res)
+      reslove(res)
     },
-    fail(e){
+    fail (e) {
       reject(e)
     }
   })
 })
-export const checkSession = ()=>new Promise((reslove,reject)=>{
+export const checkSession = () => new Promise((reslove, reject) => {
   wx.checkSession({
-    success:function (res) {
+    success: function (res) {
       reslove(res)
     },
-    fail(e){
+    fail (e) {
       reject(e)
     }
   })
-
 })
 
 export default {

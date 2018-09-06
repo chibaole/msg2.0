@@ -5,7 +5,7 @@
     <template data="{{...$root[$kk+'0'], $root}}" is="navbar$7457f0be"></template>
     <view class="_div data-v-a0735dbe pic-info">
       <view class="_div data-v-a0735dbe pic">
-        <image src="{{ host + boon.title_image_url}}" alt class="_img data-v-a0735dbe"></image>
+        <image src="{{boon.title_image_url}}" alt class="_img data-v-a0735dbe"></image>
       </view>
       <view class="_div data-v-a0735dbe prj-info">
         <view class="_p data-v-a0735dbe prj-name">{{boon.description}}</view>
@@ -18,7 +18,7 @@
     <view class="_div data-v-a0735dbe sponsors">
       <view class="_p data-v-a0735dbe sponsors-info">{{boon.sponsor.description}}</view>
       <navigator class="_navigator data-v-a0735dbe switchGoAnchor" target="miniProgram" open-type="navigate" app-id="{{boon.sponsor.app_id}}" path="{{boon.sponsor.app_path}}" extra-data version="release">
-        <image class="_img data-v-a0735dbe logo" src="{{host+boon.sponsor.avatar_url}}" alt></image>{{boon.sponsor.name}}
+        <image class="_img data-v-a0735dbe logo" src="{{boon.sponsor.avatar_url}}" alt></image>{{boon.sponsor.name}}
         <image class="_img data-v-a0735dbe right_ico" src="../../../static/img/right.png" alt></image>
       </navigator>
     </view>
@@ -74,13 +74,13 @@
       </view>
       <view class="_div data-v-a0735dbe mask" wx:if="{{showBox}}">
         <view class="_div data-v-a0735dbe meunBox" wx:if="{{showBox}}">
-          <image class="_img data-v-a0735dbe x" src="../../../static/img/close2.png" alt bindtap="handleProxy" data-eventid="{{'7'}}" data-comkey="{{$k}}"></image>
+          <image class="_img data-v-a0735dbe x" src="http://pbmrxkahq.bkt.clouddn.com/close.png" alt bindtap="handleProxy" data-eventid="{{'7'}}" data-comkey="{{$k}}"></image>
           <view class="_div data-v-a0735dbe title">分享加速抽奖</view>
           <button class="_button data-v-a0735dbe friend" open-type="share">
-            <image src="../../../static/img/wechatF.png" alt class="_img data-v-a0735dbe"></image>
+            <image src="http://pbmrxkahq.bkt.clouddn.com/wechatF.png" alt class="_img data-v-a0735dbe"></image>
           </button>
           <view class="_div data-v-a0735dbe createImg" bindtap="handleProxy" data-eventid="{{'8'}}" data-comkey="{{$k}}">
-            <image src="../../../static/img/wechatimg.png" alt class="_img data-v-a0735dbe"></image>
+            <image src="http://pbmrxkahq.bkt.clouddn.com/wechatimg.png" alt class="_img data-v-a0735dbe"></image>
           </view>
           <view class="_div data-v-a0735dbe wechatFriend" open-type="share">微信好友</view>
           <view class="_div data-v-a0735dbe shengchengImg" bindtap="handleProxy" data-eventid="{{'9'}}" data-comkey="{{$k}}">生成分享图片</view>

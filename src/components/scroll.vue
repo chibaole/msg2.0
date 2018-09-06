@@ -8,7 +8,7 @@
       <div  class="scroll-view-item_H  " v-for="boon in boons" :key="boon.uuid"  :data-uuid = "boon.uuid">
         <div class="recomend-box ">
           <div class="recomend-pic  ">
-            <img :src="host + boon.title_image_url" alt="">
+            <img :src="boon.title_image_url" alt="">
           </div>
           <div class="recomend-box-inner ">
             <div class="recomend-intitle ">{{boon.title}}</div>
@@ -36,92 +36,66 @@
   </div>
 </template>
 <script>
-
   import {get, post, showModal} from '@/utils/util'
   import wx from '@/utils/wx'
 
-  import config from'@/config'
+  import config from '@/config'
   export default {
-    data(){
-      return{
-        boons:[
+    data () {
+      return {
+        boons: [
 
         ],
-        page:1,
-        host:config.host,
-        showSkeleton:true,
-        formIdString:''
+        page: 1,
+        showSkeleton: true,
+        formId: ''
       }
     },
     methods: {
-      scrolltolower() {
+      scrolltolower () {
         console.log(7)
       },
-      scroll(e) {
+      scroll (e) {
         console.log(e)
       },
 
-//      async getBoonsToday() {
-//
-//        console.log('获取今日福利')
-//
-//        let boons = await get('/v1/boons/today', {page: this.page})
-////       console.log(boons)
-//        this.boons = boons
-//       console.log(boons)
-//
-//
-//      },
-      formSubmit: function(e) {
+      formSubmit (e) {
         console.log(e)
-        var that  = this
+        var that = this
         if (e.mp.detail.formId != 'the formId is a mock one') {
-//          this.setData({
-//            formIdString: e.detail.formId + "," + this.data.formIdString
-//          })
 
-          that.formIdString = e.detail.formId + that.formIdString
+
+          that.formId = e.mp.detail.formId + that.formId
         }
-        console.log(that.formIdString)
+        console.log(that.formId)
         let uuid = e.currentTarget.dataset.uuid
         let title = e.currentTarget.dataset.title
-        console.log(uuid,title)
-        wx.navigateTo('/pages/project/main?boons_uuid=' + uuid + "&title=" + title)
-
+        console.log(uuid, title)
+        wx.navigateTo('/pages/project/main?boons_uuid=' + uuid + '&title=' + title)
       },
 
-      async attendBoon(e) {
-        //跳转到福利详情页
+      async attendBoon (e) {
+        // 跳转到福利详情页
         var that = this
         let uuid = e.currentTarget.dataset.uuid
         let title = e.currentTarget.dataset.title
 
-
-
-
-        wx.navigateTo('/pages/project/main?boons_uuid=' + uuid + "&title=" + title)
-
-
-
-      },
+        wx.navigateTo('/pages/project/main?boons_uuid=' + uuid + '&title=' + title)
+      }
 
     },
-    onLoad(){
-
-      const that = this
-      setTimeout(()=>{
-        that.showSkeleton = false
-      },10000)
-
-    },
-
-
-   async mounted(){
+   async onLoad () {
       console.log('scroll加载今日福利数据')
-     let boonsData  = await  this.$store.dispatch('getBoonsToday')
-     this.boons = boonsData.boons
-     console.log(this.boons)
+      let boonsData = await this.$store.dispatch('getBoonsToday')
+      this.boons = boonsData.boons
+      console.log(this.boons)
+    },
 
+    async onShow () {
+      console.log('scroll加载今日福利数据')
+      let boonsData = await this.$store.dispatch('getBoonsToday')
+      this.boons = boonsData.boons
+      console.log(this.boons)
     }
 
   }

@@ -1,15 +1,12 @@
 <template>
   <div class="container" >
     <Navbar :navbar_title="navbar_title"></Navbar>
-    <!--<Card :order_info="order_info"></Card>-->
     <div class="wrap">
       <div class="pj-info">
         <div class="left">
-          <img :src="host+order_info.group_activity.title_image_url" alt="">
+          <img :src="order_info.group_activity.title_image_url" alt="">
         </div>
         <div class="right">
-
-
           <h2><div class="mark">{{order_info.group_activity.group_type}}</div>{{order_info.group_activity.title}}</h2>
           <p><span>¥{{order_info.group_activity.current_price}}</span><span>¥{{order_info.group_activity.original_price}}</span></p>
         </div>
@@ -46,7 +43,6 @@
   </div>
 </template>
 <script>
-
   import {showSuccess, post, showModal} from '@/util'
   import config from '@/config'
   import Navbar from '@/components/navbar'
@@ -58,53 +54,35 @@
 
     data () {
       return {
-        navbar_title:'订单详情',
-        order_info:{},
-        host:config.host
+        navbar_title: '订单详情',
+        order_info: {},
 
       }
-
     },
 
-    methods:{
-        clip_no(){
-          let this_text =this.order_info.delivery.delivery_no
-          wx.setClipboardData({
-            data:this_text,
-            success(){
-              wx.showToast({
-                title: '已复制运单号',
-                icon: 'success',
-                duration: 2000
-              })
-            }
-          })
-
-        }
+    methods: {
+      clip_no () {
+        let this_text = this.order_info.delivery.delivery_no
+        wx.setClipboardData({
+          data: this_text,
+          success () {
+            wx.showToast({
+              title: '已复制运单号',
+              icon: 'success',
+              duration: 2000
+            })
+          }
+        })
+      }
     },
-   async onLoad(){
+    async onLoad () {
       let that = this
-      let this_uuid = that.$root.$mp.query.next_uuid //订单uuid
+      let this_uuid = that.$root.$mp.query.next_uuid // 订单uuid
       let auth_code = wx.getStorageSync('auth_code')
-      let uuid_authCode = [this_uuid,auth_code]
-      let res = await that.$store.dispatch('groupActivities_order',{...uuid_authCode})
-
-
-      console.log(this_uuid)
-      console.log(res)
-
-     that.order_info = res.group_activity_order
-     console.log(that.order_info)
-
-
-
-
-
-   }
-
-
-
-
+      let uuid_authCode = [this_uuid, auth_code]
+      let res = await that.$store.dispatch('groupActivities_order', {...uuid_authCode})
+      that.order_info = res.group_activity_order
+    }
 
   }
 </script>

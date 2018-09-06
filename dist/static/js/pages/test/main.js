@@ -17,13 +17,9 @@ global.webpackJsonp([10],{
 //
 //
 //
-//
-
-// import card from '@/components/card'
 
 
 /* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_defineProperty___default()({
-
   components: {
     Navbar: __WEBPACK_IMPORTED_MODULE_1__components_navbar__["a" /* default */]
 
@@ -43,8 +39,7 @@ global.webpackJsonp([10],{
       wx.hideLoading();
       this.shareImage = event.target.tempFilePath;
 
-      wx.removeStorageSync('painting'); //绘制图片完成 删除绘制图片需要的数据
-
+      wx.removeStorageSync('painting'); // 绘制图片完成 删除绘制图片需要的数据
     },
     eventDraw: function eventDraw() {
       wx.showLoading({

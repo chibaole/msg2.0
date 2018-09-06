@@ -21,9 +21,7 @@ function request (url, method, data, header = {}) {
       success: function (res) {
         // console.log(res)
         if (res.statusCode === 200) {
-
           resolve(res.data.data)
-
         } else {
           showModal('失败', res.data.message)
           reject(res.data)
@@ -35,8 +33,8 @@ function request (url, method, data, header = {}) {
 
 export function showModal (title, content) {
   wx.showModal({
-    title:title,
-    content:content,
+    title: title,
+    content: content,
     showCancel: false
   })
 }

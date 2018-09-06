@@ -4,7 +4,7 @@ global.webpackJsonp([9],{
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise__);
 
 //
@@ -25,7 +25,6 @@ global.webpackJsonp([9],{
 //
 //
 //
-
 
 /* harmony default export */ __webpack_exports__["a"] = ({
   data: function data() {
@@ -57,7 +56,7 @@ global.webpackJsonp([9],{
       console.log(res);
       var ctx = wx.createCanvasContext('shareImg');
 
-      //主要就是计算好各个图文的位置
+      // 主要就是计算好各个图文的位置
       ctx.drawImage('../../' + res[0].path, 158, 190, 210, 210);
       ctx.drawImage('../../' + res[1].path, 0, 0, 545, 771);
 
@@ -116,7 +115,7 @@ global.webpackJsonp([9],{
      */
     save: function save() {
       var that = this;
-      //生产环境时 记得这里要加入获取相册授权的代码
+      // 生产环境时 记得这里要加入获取相册授权的代码
       wx.saveImageToPhotosAlbum({
         filePath: that.data.prurl,
         success: function success(res) {

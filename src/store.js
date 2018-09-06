@@ -1,16 +1,16 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import {get, post, showModal} from '@/utils/util'
-import {request, login,} from "./utils/wx";
+import {request, login} from './utils/wx'
 Vue.use(Vuex)
-const apiDomain = 'http://localhost:5757/v1'
+// const apiDomain = 'http://localhost:5757/v1'
 // const apiDomain = 'http://47.98.170.205/api/v1'
-// const apiDomain = 'https://msg.chibaole.cc/api/v1'
+const apiDomain = 'https://msg.chibaole.cc/api/v1'
 export default new Vuex.Store({
   actions: {
 
-    //仅注册用户 传递code  换取openid 建设账户体系
-    async signup({commit}) {
+    // 仅注册用户 传递code  换取openid 建设账户体系
+    async signup ({commit}) {
       let userData = await login()
       let code = userData.code
       let data = {code: code}
@@ -25,27 +25,27 @@ export default new Vuex.Store({
       return auth_code
     },
 
-    //用户点击 存储用户信息
-    async saveInfo({commit}, {...data}) {
+    // 用户点击 存储用户信息
+    async saveInfo ({commit}, {...data}) {
       let auth_code = wx.getStorageSync('auth_code')
       let urlData = {
         auth_code: auth_code,
         encrypted_data: data[0],
         iv: data[1],
         signature: data[2],
-        raw_data: data[3],
+        raw_data: data[3]
       }
       let res = await request({
         method: 'post',
         url: `${apiDomain}/wx/save_user_info?auth_code=${auth_code}`,
         data: urlData
       })
-      wx.setStorageSync('userinfo', res.user)//本地存储userinfo
+      wx.setStorageSync('userinfo', res.user)// 本地存储userinfo
       return res.user
     },
 
 //  获取今日福利信息
-    async getBoonsToday({commit}) {
+    async getBoonsToday ({commit}) {
       console.log(`获取今日福利-----${apiDomain}/boons/today`)
       let boons = await request({
         method: 'get',
@@ -55,8 +55,8 @@ export default new Vuex.Store({
       return boons
     },
 
-    //获取福利详情
-    async getBoons({commit}, {...uuid_authCode}) {
+    // 获取福利详情
+    async getBoons ({commit}, {...uuid_authCode}) {
       let uuid = uuid_authCode[0]
       let auth_code = uuid_authCode[1]
       let prjInfo = await request({
@@ -65,11 +65,11 @@ export default new Vuex.Store({
         data: {}
       })
       console.log(`获取福利详情----${apiDomain}/boons/${uuid}?auth_code=${auth_code}`)
-      return prjInfo //某一项的福利详情
+      return prjInfo // 某一项的福利详情
     },
 
-    //参加福利
-    async attendBoon({commit}, {...uuid_authCode}) {
+    // 参加福利
+    async attendBoon ({commit}, {...uuid_authCode}) {
       let boonId = uuid_authCode[0] || '12'
       let auth_code = uuid_authCode[1]
       let res = await request({
@@ -80,8 +80,8 @@ export default new Vuex.Store({
       return res
     },
 
-    //获取当前拼团活动数据列表
-    async getGroup({commit}) {
+    // 获取当前拼团活动数据列表
+    async getGroup ({commit}) {
       const auth_code = wx.getStorageSync('auth_code')
       const group = await request({
         method: 'get',
@@ -92,8 +92,8 @@ export default new Vuex.Store({
       return group
     },
 
-    //拼团活动详情
-    async getGrouDetail({commit}, {...uuid_authCode}) {
+    // 拼团活动详情
+    async getGrouDetail ({commit}, {...uuid_authCode}) {
       let uuid = uuid_authCode[0]
       let auth_code = uuid_authCode[1]
       console.log(`拼团活动详情----${apiDomain}/group_activities/${uuid}?auth_code=${auth_code}`)
@@ -104,8 +104,8 @@ export default new Vuex.Store({
       return groupDetail
     },
 
-    //发起拼团
-    async initGroup({commit}, {...uuid_authCode}) {
+    // 发起拼团
+    async initGroup ({commit}, {...uuid_authCode}) {
       let uuid = uuid_authCode[0]
       let auth_code = uuid_authCode[1]
       console.log(`发起拼团的订单----${apiDomain}/group_activities/${uuid}/initial?auth_code=${auth_code}`)
@@ -116,8 +116,8 @@ export default new Vuex.Store({
       return initGroup
     },
 
-    //拼团订单详情
-    async groupActivities_order({commit}, {...uuid_authCode}) {
+    // 拼团订单详情
+    async groupActivities_order ({commit}, {...uuid_authCode}) {
       let uuid = uuid_authCode[0]
       let auth_code = uuid_authCode[1]
       console.log(`拼团订单详情-------${apiDomain}/group_activity_orders/${uuid}?auth_code=${auth_code}`)
@@ -128,8 +128,8 @@ export default new Vuex.Store({
       return orderData
     },
 
-    //拼团发起详情
-    async groupActivitiesInit({commit}, {...uuid_authCode}) {
+    // 拼团发起详情
+    async groupActivitiesInit ({commit}, {...uuid_authCode}) {
       let uuid = uuid_authCode[0]
       uuid === '' ? uuid = '1223' : uuid = uuid_authCode[0]
       let auth_code = uuid_authCode[1]
@@ -142,7 +142,7 @@ export default new Vuex.Store({
     },
 
     // 参与拼团
-    async attendGroupActivities({commit}, {...uuid_authCode}) {
+    async attendGroupActivities ({commit}, {...uuid_authCode}) {
       console.log(`参与拼团------------${apiDomain}/group_activity_initials/${uuid_authCode[0]}/attend?auth_code=${uuid_authCode[1]}`)
       const attendData = await request({
         method: 'post',
@@ -151,9 +151,9 @@ export default new Vuex.Store({
       return attendData
     },
 
-    //邀请好友二维码
-    async wxCode({commit}, {...data}) {
-      let uuid = data[0] //订单uuid
+    // 邀请好友二维码
+    async wxCode ({commit}, {...data}) {
+      let uuid = data[0] // 订单uuid
       let auth_code = wx.getStorageSync('auth_code')
       let page = data[1]
       let res = await request({
@@ -164,7 +164,7 @@ export default new Vuex.Store({
     },
 
     // 我的拼团订单详情页面
-    async myGroupList({commit}, {...data}) {
+    async myGroupList ({commit}, {...data}) {
       const page = data[0]
       const size = data[1]
       const auth_code = data[2]
@@ -175,19 +175,19 @@ export default new Vuex.Store({
       return myGroupActivity || []
     },
 
-    //我的拼团订单详情
-    async myBoonDetail({commit}, {...data}) {
-      let uuid = data[0]
-      let auth_code = data[1]
-      let res = await request({
-        method: 'get',
-        url: `${apiDomain}/group_activity_orders/${uuid}?auth_code=${auth_code}`
-      })
-      return res
-    },
+    // 我的拼团订单详情
+    // async myBoonDetail ({commit}, {...data}) {
+    //   let uuid = data[0]
+    //   let auth_code = data[1]
+    //   let res = await request({
+    //     method: 'get',
+    //     url: `${apiDomain}/group_activity_orders/${uuid}?auth_code=${auth_code}`
+    //   })
+    //   return res
+    // },
 
-    //我的抽奖
-    async myBoonList({commit}, {...data}) {
+    // 我的抽奖
+    async myBoonList ({commit}, {...data}) {
       const page = data[0]
       const size = data[1]
       const auth_code = data[2]
@@ -198,8 +198,8 @@ export default new Vuex.Store({
       return myBoons || []
     },
 
-    //我的抽奖订单详情
-    async myBoonDetail({commit}, {...data}) {
+    // 我的抽奖订单详情
+    async myBoonDetail ({commit}, {...data}) {
       console.log('我的抽奖订单详情')
       let uuid = data[0]
       let auth_code = data[1]
@@ -211,7 +211,7 @@ export default new Vuex.Store({
     },
 
     // 抽奖地址选择
-    async boonAddress({commit}, {...data}) {
+    async boonAddress ({commit}, {...data}) {
       let uuid = data[0]
       let auth_code = data[1]
       let attributes = data[2]
@@ -222,7 +222,7 @@ export default new Vuex.Store({
         }
       }
       var jsonData = JSON.stringify(order_address)
-      let res = await  request({
+      let res = await request({
         method: 'put',
         url: `${apiDomain}/boon_orders/${uuid}`,
         data: order_address,
@@ -233,8 +233,8 @@ export default new Vuex.Store({
       return res
     },
 
-    //拼团地址选择
-    async groupAddress({commit}, {...data}) {
+    // 拼团地址选择
+    async groupAddress ({commit}, {...data}) {
       let uuid = data[0]
       let auth_code = data[1]
       let attributes = data[2]
@@ -244,7 +244,7 @@ export default new Vuex.Store({
           address_attributes: attributes
         }
       }
-      let res = await  request({
+      let res = await request({
         method: 'put',
         url: `${apiDomain}/group_activity_orders/${uuid}`,
         data: order_address
@@ -252,8 +252,8 @@ export default new Vuex.Store({
       return res
     },
 
-    //拼团支付
-    async group_pay({commit}, uuid) {
+    // 拼团支付
+    async group_pay ({commit}, uuid) {
       let _uuid = uuid
       let auth_code = wx.getStorageSync('auth_code')
       console.log(`${apiDomain}/group_activity_orders/${_uuid}/pay?auth_code=${auth_code}`)
@@ -264,8 +264,8 @@ export default new Vuex.Store({
       return payres
     },
 
-    //用户信息详情获取
-    async user_info({commit}, uuid) {
+    // 用户信息详情获取
+    async user_info ({commit}, uuid) {
       let auth_code = wx.getStorageSync('auth_code')
       let user_profile = await request({
         method: 'get',
@@ -273,11 +273,7 @@ export default new Vuex.Store({
       })
       return user_profile
     }
-  },
+  }
 
 })
-
-
-
-
 

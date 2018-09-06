@@ -6,7 +6,7 @@
       <view class="_div data-v-8c08e6c0 scroll-view-item_H  " wx:key="boon.uuid" key="{{boon.uuid}}" data-uuid="{{boon.uuid}}" wx:for="{{boons}}" wx:for-index="index" wx:for-item="boon">
         <view class="_div data-v-8c08e6c0 recomend-box ">
           <view class="_div data-v-8c08e6c0 recomend-pic  ">
-            <image src="{{host + boon.title_image_url}}" alt class="_img data-v-8c08e6c0"></image>
+            <image src="{{boon.title_image_url}}" alt class="_img data-v-8c08e6c0"></image>
           </view>
           <view class="_div data-v-8c08e6c0 recomend-box-inner ">
             <view class="_div data-v-8c08e6c0 recomend-intitle ">{{boon.title}}</view>

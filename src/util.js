@@ -30,8 +30,8 @@ function request (url, method, data, header = {}) {
 
 export function showModal (title, content) {
   wx.showModal({
-    title:title,
-    content:content,
+    title: title,
+    content: content,
     showCancel: false
   })
 }

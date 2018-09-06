@@ -6,28 +6,17 @@ global.webpackJsonp([5],{
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__util__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__util__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__config__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_navbar__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_groupCard__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_groupCard__ = __webpack_require__(21);
 
 
 
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -92,9 +81,7 @@ global.webpackJsonp([5],{
         title: '酸奶补给大礼包x10'
 
       },
-      boon_order: {},
-      host: __WEBPACK_IMPORTED_MODULE_4__config__["a" /* default */].host
-
+      boon_order: {}
     };
   },
 
@@ -113,7 +100,7 @@ global.webpackJsonp([5],{
               console.log('我的抽奖订单详情');
               that = _this;
               auth_code = wx.getStorageSync('auth_code');
-              uuid = that.$root.$mp.query.uuid; //获取活动列表的拼团活动uuid
+              uuid = that.$root.$mp.query.uuid; // 获取活动列表的拼团活动uuid
 
               data = [uuid, auth_code];
               _context.next = 7;
@@ -173,7 +160,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "pic"
   }, [_c('img', {
     attrs: {
-      "src": _vm.host + _vm.boon_order.boon.title_image_url,
+      "src": _vm.boon_order.boon.title_image_url,
       "alt": ""
     }
   })]), _vm._v(" "), _c('div', {
@@ -214,7 +201,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "orderTime"
   }, [_c('span', [_vm._v("运单编号：")]), _c('span', [_vm._v(_vm._s(_vm.boon_order.delivery.delivery_no))])]), _vm._v(" "), _c('img', {
     attrs: {
-      "src": __webpack_require__(22),
+      "src": __webpack_require__(36),
       "alt": ""
     }
   })]), _vm._v(" "), _c('div', {

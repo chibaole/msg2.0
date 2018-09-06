@@ -15,17 +15,17 @@
 
 <script>
   export default {
-    data(){
-      return{
+    data () {
+      return {
 
       }
     },
-    methods:{
-      cancleDiago(){
-            var open = false
-            this.$emit('info',open)
+    methods: {
+      cancleDiago () {
+        var open = false
+        this.$emit('info', open)
       }
-    },
+    }
 
   }
 </script>

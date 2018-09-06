@@ -6,11 +6,11 @@ global.webpackJsonp([7],{
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__util__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__util__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__config__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_navbar__ = __webpack_require__(6);
 
@@ -60,10 +60,6 @@ global.webpackJsonp([7],{
 //
 //
 //
-//
-//
-//
-
 
 
 
@@ -77,8 +73,7 @@ global.webpackJsonp([7],{
   data: function data() {
     return {
       navbar_title: '订单详情',
-      order_info: {},
-      host: __WEBPACK_IMPORTED_MODULE_4__config__["a" /* default */].host
+      order_info: {}
 
     };
   },
@@ -109,7 +104,7 @@ global.webpackJsonp([7],{
           switch (_context.prev = _context.next) {
             case 0:
               that = _this;
-              this_uuid = that.$root.$mp.query.next_uuid; //订单uuid
+              this_uuid = that.$root.$mp.query.next_uuid; // 订单uuid
 
               auth_code = wx.getStorageSync('auth_code');
               uuid_authCode = [this_uuid, auth_code];
@@ -119,14 +114,9 @@ global.webpackJsonp([7],{
             case 6:
               res = _context.sent;
 
-
-              console.log(this_uuid);
-              console.log(res);
-
               that.order_info = res.group_activity_order;
-              console.log(that.order_info);
 
-            case 11:
+            case 8:
             case 'end':
               return _context.stop();
           }
@@ -165,7 +155,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "left"
   }, [_c('img', {
     attrs: {
-      "src": _vm.host + _vm.order_info.group_activity.title_image_url,
+      "src": _vm.order_info.group_activity.title_image_url,
       "alt": ""
     }
   })]), _vm._v(" "), _c('div', {
@@ -211,7 +201,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }, [_vm._v(_vm._s(_vm.order_info.delivery.delivery_no))])]), _vm._v(" "), _c('img', {
     attrs: {
-      "src": __webpack_require__(22),
+      "src": __webpack_require__(36),
       "alt": ""
     }
   })]), _vm._v(" "), _c('div', {

@@ -26,19 +26,17 @@
   import {get, post, showModal} from '@/utils/util'
 
   export default {
-    data(){
-      return{
-        things:[
+    data () {
+      return {
+        things: [
 
         ]
       }
     },
-   async mounted(){
+    async mounted () {
 //      this.things  = await this.$store.dispatch('getMore')
-     var urlData = {}
-     this.things = await  get('/v1/getMore',urlData)
-
-
+      var urlData = {}
+      this.things = await get('/v1/getMore', urlData)
     }
   }
 </script>
