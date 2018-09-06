@@ -98,7 +98,7 @@
 
     <div class="btn-box" v-if="boon.status== 'published'">
 
-      <Diago v-if="open" @info="get"></Diago>
+      <Diago v-if="open" v-on:childByValue="childByValue"></Diago>
       <!--发起客服功能-->
       <div class="add-prize">
         <div class="btn2" @click="shareMenu">加速开奖</div>
@@ -190,9 +190,9 @@
 
         let boonID = that.boon.uuid
         let auth_code = currentuser_code
-        let uuid_authCode = [boonID, auth_code]
+        let uuid_authCode= [boonID, auth_code]
 
-        let res = await that.$store.dispatch('attendBoon', {...uuid_authCode})
+        let res = await that.$store.dispatch('attendBoon', {...uuid_auth_code})
         console.log(res)
         that.prize = '待开奖'
         that.prizeStyle = 'waiting'
@@ -200,6 +200,10 @@
       openDiago () {
         var that = this
         that.open = true
+      },
+      childByValue (childValue) {
+        this.open = childValue
+        console.log(this.open)
       },
 // url: /api/v1/boons/:uuid/attend
 
@@ -215,9 +219,10 @@
         this.showBox = !this.showBox
       },
       async getImg () {
+
         let that = this
         let uuid = that.uuid
-        let page = 'pages/isme/index'
+        let page = 'pages/project/main'
         let data = [uuid, page]
         let res = await this.$store.dispatch('wxCode', {...data})
         let wxCodeImg = res.wxa_qrcode_url
@@ -352,6 +357,7 @@
             url: `/pages/user/myboonList/myBoon/main?uuid=${uuid}`
           })
         } else {
+          console.log('还没有领过奖 添加地址')
           let res = await chooseAddress()
 
           let auth_code = wx.getStorageSync('auth_code')
@@ -382,12 +388,12 @@
       }
 
     },
-    async onLoad () {
+    async onLoad (options) {
       let that = this
-      that.uuid = that.$root.$mp.query.boons_uuid // 获取上一页传递的唯一标准uuid
+      that.uuid = options.boons_uuid // 获取上一页传递的唯一标准uuid
       that.navbar_title = that.$root.$mp.query.title // 获取上一页传递的福利名称 做navbar的标题
       let currentuser_code = wx.getStorageSync('auth_code')
-      let uuid_authCode = [that.uuid, currentuser_code]
+      let uuid_authCode= [that.uuid, currentuser_code]
       // 根据获得uuid 查询数据出来
 
 //      that.getBoons()
@@ -414,13 +420,14 @@
     },
 
     onShareAppMessage (res) {
+      let that = this
       if (res.from === 'button') {
         // 来自页面内转发按钮
         console.log(res.target)
       }
       return {
-        title: '自定义转发标题',
-        path: '/page/user?id=123'
+        title: '邀你抽奖',
+        path: '/pages/project/main?boons_uuid='+ that.uuid
       }
     }
 

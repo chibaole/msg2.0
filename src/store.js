@@ -176,15 +176,15 @@ export default new Vuex.Store({
     },
 
     // 我的拼团订单详情
-    // async myBoonDetail ({commit}, {...data}) {
-    //   let uuid = data[0]
-    //   let auth_code = data[1]
-    //   let res = await request({
-    //     method: 'get',
-    //     url: `${apiDomain}/group_activity_orders/${uuid}?auth_code=${auth_code}`
-    //   })
-    //   return res
-    // },
+    async myBoonDetail ({commit}, {...data}) {
+      let uuid = data[0]
+      let auth_code = data[1]
+      let res = await request({
+        method: 'get',
+        url: `${apiDomain}/group_activity_orders/${uuid}?auth_code=${auth_code}`
+      })
+      return res
+    },
 
     // 我的抽奖
     async myBoonList ({commit}, {...data}) {

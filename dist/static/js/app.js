@@ -11,54 +11,60 @@ global.webpackJsonp([15],{
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_json_stringify__ = __webpack_require__(123);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_json_stringify___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_json_stringify__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_objectWithoutProperties__ = __webpack_require__(127);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_objectWithoutProperties___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_objectWithoutProperties__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_regenerator__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_regenerator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_asyncToGenerator__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_asyncToGenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_asyncToGenerator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vue__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_vuex__ = __webpack_require__(237);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__utils_util__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__utils_wx__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_defineProperty__ = __webpack_require__(126);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_defineProperty___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_defineProperty__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_json_stringify__ = __webpack_require__(123);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_json_stringify___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_json_stringify__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_objectWithoutProperties__ = __webpack_require__(127);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_objectWithoutProperties___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_objectWithoutProperties__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_asyncToGenerator__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_asyncToGenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_asyncToGenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_vue__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_vuex__ = __webpack_require__(237);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__utils_util__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__utils_wx__ = __webpack_require__(10);
 
 
 
 
 
 
+var _actions;
 
 
-__WEBPACK_IMPORTED_MODULE_4_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_5_vuex__["a" /* default */]);
+
+
+
+__WEBPACK_IMPORTED_MODULE_5_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_6_vuex__["a" /* default */]);
 // const apiDomain = 'http://localhost:5757/v1'
 // const apiDomain = 'http://47.98.170.205/api/v1'
 var apiDomain = 'https://msg.chibaole.cc/api/v1';
-/* harmony default export */ __webpack_exports__["a"] = (new __WEBPACK_IMPORTED_MODULE_5_vuex__["a" /* default */].Store({
-  actions: {
+/* harmony default export */ __webpack_exports__["a"] = (new __WEBPACK_IMPORTED_MODULE_6_vuex__["a" /* default */].Store({
+  actions: (_actions = {
 
     // 仅注册用户 传递code  换取openid 建设账户体系
     signup: function signup(_ref) {
       var _this = this;
 
       var commit = _ref.commit;
-      return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_2_babel_runtime_regenerator___default.a.mark(function _callee() {
+      return __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.mark(function _callee() {
         var userData, code, data, res, auth_code;
-        return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+        return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__utils_wx__["f" /* login */])();
+                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["f" /* login */])();
 
               case 2:
                 userData = _context.sent;
                 code = userData.code;
                 data = { code: code };
                 _context.next = 7;
-                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__utils_wx__["d" /* request */])({
+                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
                   method: 'post',
                   url: apiDomain + '/wx/login',
                   data: data
@@ -87,11 +93,11 @@ var apiDomain = 'https://msg.chibaole.cc/api/v1';
 
       var commit = _ref3.commit;
 
-      var data = __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_objectWithoutProperties___default()(_ref2, []);
+      var data = __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_objectWithoutProperties___default()(_ref2, []);
 
-      return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_2_babel_runtime_regenerator___default.a.mark(function _callee2() {
+      return __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.mark(function _callee2() {
         var auth_code, urlData, res;
-        return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
+        return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
@@ -104,7 +110,7 @@ var apiDomain = 'https://msg.chibaole.cc/api/v1';
                   raw_data: data[3]
                 };
                 _context2.next = 4;
-                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__utils_wx__["d" /* request */])({
+                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
                   method: 'post',
                   url: apiDomain + '/wx/save_user_info?auth_code=' + auth_code,
                   data: urlData
@@ -130,15 +136,15 @@ var apiDomain = 'https://msg.chibaole.cc/api/v1';
       var _this3 = this;
 
       var commit = _ref4.commit;
-      return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_2_babel_runtime_regenerator___default.a.mark(function _callee3() {
+      return __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.mark(function _callee3() {
         var boons;
-        return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_regenerator___default.a.wrap(function _callee3$(_context3) {
+        return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.wrap(function _callee3$(_context3) {
           while (1) {
             switch (_context3.prev = _context3.next) {
               case 0:
                 console.log('\u83B7\u53D6\u4ECA\u65E5\u798F\u5229-----' + apiDomain + '/boons/today');
                 _context3.next = 3;
-                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__utils_wx__["d" /* request */])({
+                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
                   method: 'get',
                   url: apiDomain + '/boons/today',
                   data: {}
@@ -163,18 +169,18 @@ var apiDomain = 'https://msg.chibaole.cc/api/v1';
 
       var commit = _ref6.commit;
 
-      var uuid_authCode = __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_objectWithoutProperties___default()(_ref5, []);
+      var uuid_authCode = __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_objectWithoutProperties___default()(_ref5, []);
 
-      return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_2_babel_runtime_regenerator___default.a.mark(function _callee4() {
+      return __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.mark(function _callee4() {
         var uuid, auth_code, prjInfo;
-        return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_regenerator___default.a.wrap(function _callee4$(_context4) {
+        return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.wrap(function _callee4$(_context4) {
           while (1) {
             switch (_context4.prev = _context4.next) {
               case 0:
                 uuid = uuid_authCode[0];
                 auth_code = uuid_authCode[1];
                 _context4.next = 4;
-                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__utils_wx__["d" /* request */])({
+                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
                   method: 'get',
                   url: apiDomain + '/boons/' + uuid + '?auth_code=' + auth_code,
                   data: {}
@@ -201,18 +207,18 @@ var apiDomain = 'https://msg.chibaole.cc/api/v1';
 
       var commit = _ref8.commit;
 
-      var uuid_authCode = __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_objectWithoutProperties___default()(_ref7, []);
+      var uuid_authCode = __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_objectWithoutProperties___default()(_ref7, []);
 
-      return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_2_babel_runtime_regenerator___default.a.mark(function _callee5() {
+      return __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.mark(function _callee5() {
         var boonId, auth_code, res;
-        return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_regenerator___default.a.wrap(function _callee5$(_context5) {
+        return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.wrap(function _callee5$(_context5) {
           while (1) {
             switch (_context5.prev = _context5.next) {
               case 0:
                 boonId = uuid_authCode[0] || '12';
                 auth_code = uuid_authCode[1];
                 _context5.next = 4;
-                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__utils_wx__["d" /* request */])({
+                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
                   method: 'post',
                   url: apiDomain + '/boons/' + boonId + '/attend?auth_code=' + auth_code
                 });
@@ -237,15 +243,15 @@ var apiDomain = 'https://msg.chibaole.cc/api/v1';
       var _this6 = this;
 
       var commit = _ref9.commit;
-      return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_2_babel_runtime_regenerator___default.a.mark(function _callee6() {
+      return __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.mark(function _callee6() {
         var auth_code, group;
-        return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_regenerator___default.a.wrap(function _callee6$(_context6) {
+        return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.wrap(function _callee6$(_context6) {
           while (1) {
             switch (_context6.prev = _context6.next) {
               case 0:
                 auth_code = wx.getStorageSync('auth_code');
                 _context6.next = 3;
-                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__utils_wx__["d" /* request */])({
+                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
                   method: 'get',
                   url: apiDomain + '/group_activities?auth_code=' + auth_code,
                   data: {}
@@ -272,11 +278,11 @@ var apiDomain = 'https://msg.chibaole.cc/api/v1';
 
       var commit = _ref11.commit;
 
-      var uuid_authCode = __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_objectWithoutProperties___default()(_ref10, []);
+      var uuid_authCode = __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_objectWithoutProperties___default()(_ref10, []);
 
-      return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_2_babel_runtime_regenerator___default.a.mark(function _callee7() {
+      return __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.mark(function _callee7() {
         var uuid, auth_code, groupDetail;
-        return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_regenerator___default.a.wrap(function _callee7$(_context7) {
+        return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.wrap(function _callee7$(_context7) {
           while (1) {
             switch (_context7.prev = _context7.next) {
               case 0:
@@ -285,7 +291,7 @@ var apiDomain = 'https://msg.chibaole.cc/api/v1';
 
                 console.log('\u62FC\u56E2\u6D3B\u52A8\u8BE6\u60C5----' + apiDomain + '/group_activities/' + uuid + '?auth_code=' + auth_code);
                 _context7.next = 5;
-                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__utils_wx__["d" /* request */])({
+                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
                   method: 'get',
                   url: apiDomain + '/group_activities/' + uuid + '?auth_code=' + auth_code
                 });
@@ -309,11 +315,11 @@ var apiDomain = 'https://msg.chibaole.cc/api/v1';
 
       var commit = _ref13.commit;
 
-      var uuid_authCode = __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_objectWithoutProperties___default()(_ref12, []);
+      var uuid_authCode = __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_objectWithoutProperties___default()(_ref12, []);
 
-      return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_2_babel_runtime_regenerator___default.a.mark(function _callee8() {
+      return __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.mark(function _callee8() {
         var uuid, auth_code, initGroup;
-        return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_regenerator___default.a.wrap(function _callee8$(_context8) {
+        return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.wrap(function _callee8$(_context8) {
           while (1) {
             switch (_context8.prev = _context8.next) {
               case 0:
@@ -322,7 +328,7 @@ var apiDomain = 'https://msg.chibaole.cc/api/v1';
 
                 console.log('\u53D1\u8D77\u62FC\u56E2\u7684\u8BA2\u5355----' + apiDomain + '/group_activities/' + uuid + '/initial?auth_code=' + auth_code);
                 _context8.next = 5;
-                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__utils_wx__["d" /* request */])({
+                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
                   method: 'post',
                   url: apiDomain + '/group_activities/' + uuid + '/initial?auth_code=' + auth_code
                 });
@@ -346,11 +352,11 @@ var apiDomain = 'https://msg.chibaole.cc/api/v1';
 
       var commit = _ref15.commit;
 
-      var uuid_authCode = __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_objectWithoutProperties___default()(_ref14, []);
+      var uuid_authCode = __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_objectWithoutProperties___default()(_ref14, []);
 
-      return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_2_babel_runtime_regenerator___default.a.mark(function _callee9() {
+      return __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.mark(function _callee9() {
         var uuid, auth_code, orderData;
-        return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_regenerator___default.a.wrap(function _callee9$(_context9) {
+        return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.wrap(function _callee9$(_context9) {
           while (1) {
             switch (_context9.prev = _context9.next) {
               case 0:
@@ -359,7 +365,7 @@ var apiDomain = 'https://msg.chibaole.cc/api/v1';
 
                 console.log('\u62FC\u56E2\u8BA2\u5355\u8BE6\u60C5-------' + apiDomain + '/group_activity_orders/' + uuid + '?auth_code=' + auth_code);
                 _context9.next = 5;
-                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__utils_wx__["d" /* request */])({
+                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
                   method: 'get',
                   url: apiDomain + '/group_activity_orders/' + uuid + '?auth_code=' + auth_code
                 });
@@ -383,11 +389,11 @@ var apiDomain = 'https://msg.chibaole.cc/api/v1';
 
       var commit = _ref17.commit;
 
-      var uuid_authCode = __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_objectWithoutProperties___default()(_ref16, []);
+      var uuid_authCode = __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_objectWithoutProperties___default()(_ref16, []);
 
-      return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_2_babel_runtime_regenerator___default.a.mark(function _callee10() {
+      return __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.mark(function _callee10() {
         var uuid, auth_code, initOrder;
-        return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_regenerator___default.a.wrap(function _callee10$(_context10) {
+        return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.wrap(function _callee10$(_context10) {
           while (1) {
             switch (_context10.prev = _context10.next) {
               case 0:
@@ -398,7 +404,7 @@ var apiDomain = 'https://msg.chibaole.cc/api/v1';
 
                 console.log('\u62FC\u56E2\u5355\u8BE6\u60C5---' + apiDomain + '/group_activity_initials/' + uuid + '?auth_code=' + auth_code);
                 _context10.next = 6;
-                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__utils_wx__["d" /* request */])({
+                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
                   method: 'get',
                   url: apiDomain + '/group_activity_initials/' + uuid + '?auth_code=' + auth_code
                 });
@@ -422,17 +428,17 @@ var apiDomain = 'https://msg.chibaole.cc/api/v1';
 
       var commit = _ref19.commit;
 
-      var uuid_authCode = __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_objectWithoutProperties___default()(_ref18, []);
+      var uuid_authCode = __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_objectWithoutProperties___default()(_ref18, []);
 
-      return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_2_babel_runtime_regenerator___default.a.mark(function _callee11() {
+      return __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.mark(function _callee11() {
         var attendData;
-        return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_regenerator___default.a.wrap(function _callee11$(_context11) {
+        return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.wrap(function _callee11$(_context11) {
           while (1) {
             switch (_context11.prev = _context11.next) {
               case 0:
                 console.log('\u53C2\u4E0E\u62FC\u56E2------------' + apiDomain + '/group_activity_initials/' + uuid_authCode[0] + '/attend?auth_code=' + uuid_authCode[1]);
                 _context11.next = 3;
-                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__utils_wx__["d" /* request */])({
+                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
                   method: 'post',
                   url: apiDomain + '/group_activity_initials/' + uuid_authCode[0] + '/attend?auth_code=' + uuid_authCode[1]
                 });
@@ -456,11 +462,11 @@ var apiDomain = 'https://msg.chibaole.cc/api/v1';
 
       var commit = _ref21.commit;
 
-      var data = __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_objectWithoutProperties___default()(_ref20, []);
+      var data = __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_objectWithoutProperties___default()(_ref20, []);
 
-      return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_2_babel_runtime_regenerator___default.a.mark(function _callee12() {
+      return __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.mark(function _callee12() {
         var uuid, auth_code, page, res;
-        return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_regenerator___default.a.wrap(function _callee12$(_context12) {
+        return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.wrap(function _callee12$(_context12) {
           while (1) {
             switch (_context12.prev = _context12.next) {
               case 0:
@@ -469,7 +475,7 @@ var apiDomain = 'https://msg.chibaole.cc/api/v1';
                 auth_code = wx.getStorageSync('auth_code');
                 page = data[1];
                 _context12.next = 5;
-                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__utils_wx__["d" /* request */])({
+                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
                   method: 'get',
                   url: apiDomain + '/group_activity_initials/' + uuid + '/wxaqrcode?auth_code=' + auth_code + '&page=' + page
                 });
@@ -493,11 +499,11 @@ var apiDomain = 'https://msg.chibaole.cc/api/v1';
 
       var commit = _ref23.commit;
 
-      var data = __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_objectWithoutProperties___default()(_ref22, []);
+      var data = __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_objectWithoutProperties___default()(_ref22, []);
 
-      return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_2_babel_runtime_regenerator___default.a.mark(function _callee13() {
+      return __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.mark(function _callee13() {
         var page, size, auth_code, myGroupActivity;
-        return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_regenerator___default.a.wrap(function _callee13$(_context13) {
+        return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.wrap(function _callee13$(_context13) {
           while (1) {
             switch (_context13.prev = _context13.next) {
               case 0:
@@ -505,7 +511,7 @@ var apiDomain = 'https://msg.chibaole.cc/api/v1';
                 size = data[1];
                 auth_code = data[2];
                 _context13.next = 5;
-                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__utils_wx__["d" /* request */])({
+                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
                   method: 'get',
                   url: apiDomain + '/group_activity_orders/mine?page=' + page + '&size=' + size + '&auth_code=' + auth_code
                 });
@@ -524,44 +530,32 @@ var apiDomain = 'https://msg.chibaole.cc/api/v1';
     },
 
     // 我的拼团订单详情
-    // async myBoonDetail ({commit}, {...data}) {
-    //   let uuid = data[0]
-    //   let auth_code = data[1]
-    //   let res = await request({
-    //     method: 'get',
-    //     url: `${apiDomain}/group_activity_orders/${uuid}?auth_code=${auth_code}`
-    //   })
-    //   return res
-    // },
-
-    // 我的抽奖
-    myBoonList: function myBoonList(_ref25, _ref24) {
+    myBoonDetail: function myBoonDetail(_ref25, _ref24) {
       var _this14 = this;
 
       var commit = _ref25.commit;
 
-      var data = __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_objectWithoutProperties___default()(_ref24, []);
+      var data = __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_objectWithoutProperties___default()(_ref24, []);
 
-      return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_2_babel_runtime_regenerator___default.a.mark(function _callee14() {
-        var page, size, auth_code, myBoons;
-        return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_regenerator___default.a.wrap(function _callee14$(_context14) {
+      return __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.mark(function _callee14() {
+        var uuid, auth_code, res;
+        return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.wrap(function _callee14$(_context14) {
           while (1) {
             switch (_context14.prev = _context14.next) {
               case 0:
-                page = data[0];
-                size = data[1];
-                auth_code = data[2];
-                _context14.next = 5;
-                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__utils_wx__["d" /* request */])({
+                uuid = data[0];
+                auth_code = data[1];
+                _context14.next = 4;
+                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
                   method: 'get',
-                  url: apiDomain + '/boon_orders/mine?page=' + page + '&size=' + size + '&auth_code=' + auth_code
+                  url: apiDomain + '/group_activity_orders/' + uuid + '?auth_code=' + auth_code
                 });
 
-              case 5:
-                myBoons = _context14.sent;
-                return _context14.abrupt('return', myBoons || []);
+              case 4:
+                res = _context14.sent;
+                return _context14.abrupt('return', res);
 
-              case 7:
+              case 6:
               case 'end':
                 return _context14.stop();
             }
@@ -570,32 +564,32 @@ var apiDomain = 'https://msg.chibaole.cc/api/v1';
       }))();
     },
 
-    // 我的抽奖订单详情
-    myBoonDetail: function myBoonDetail(_ref27, _ref26) {
+    // 我的抽奖
+    myBoonList: function myBoonList(_ref27, _ref26) {
       var _this15 = this;
 
       var commit = _ref27.commit;
 
-      var data = __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_objectWithoutProperties___default()(_ref26, []);
+      var data = __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_objectWithoutProperties___default()(_ref26, []);
 
-      return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_2_babel_runtime_regenerator___default.a.mark(function _callee15() {
-        var uuid, auth_code, res;
-        return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_regenerator___default.a.wrap(function _callee15$(_context15) {
+      return __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.mark(function _callee15() {
+        var page, size, auth_code, myBoons;
+        return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.wrap(function _callee15$(_context15) {
           while (1) {
             switch (_context15.prev = _context15.next) {
               case 0:
-                console.log('我的抽奖订单详情');
-                uuid = data[0];
-                auth_code = data[1];
+                page = data[0];
+                size = data[1];
+                auth_code = data[2];
                 _context15.next = 5;
-                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__utils_wx__["d" /* request */])({
+                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
                   method: 'get',
-                  url: apiDomain + '/boon_orders/' + uuid + '?auth_code=' + auth_code
+                  url: apiDomain + '/boon_orders/mine?page=' + page + '&size=' + size + '&auth_code=' + auth_code
                 });
 
               case 5:
-                res = _context15.sent;
-                return _context15.abrupt('return', res);
+                myBoons = _context15.sent;
+                return _context15.abrupt('return', myBoons || []);
 
               case 7:
               case 'end':
@@ -604,160 +598,181 @@ var apiDomain = 'https://msg.chibaole.cc/api/v1';
           }
         }, _callee15, _this15);
       }))();
-    },
-
-    // 抽奖地址选择
-    boonAddress: function boonAddress(_ref29, _ref28) {
-      var _this16 = this;
-
-      var commit = _ref29.commit;
-
-      var data = __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_objectWithoutProperties___default()(_ref28, []);
-
-      return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_2_babel_runtime_regenerator___default.a.mark(function _callee16() {
-        var uuid, auth_code, attributes, order_address, jsonData, res;
-        return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_regenerator___default.a.wrap(function _callee16$(_context16) {
-          while (1) {
-            switch (_context16.prev = _context16.next) {
-              case 0:
-                uuid = data[0];
-                auth_code = data[1];
-                attributes = data[2];
-                order_address = {
-                  auth_code: auth_code,
-                  boon_order: {
-                    address_attributes: attributes
-                  }
-                };
-                jsonData = __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_json_stringify___default()(order_address);
-                _context16.next = 7;
-                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__utils_wx__["d" /* request */])({
-                  method: 'put',
-                  url: apiDomain + '/boon_orders/' + uuid,
-                  data: order_address,
-                  header: {
-                    'content-type': 'application/json'
-                  }
-                });
-
-              case 7:
-                res = _context16.sent;
-                return _context16.abrupt('return', res);
-
-              case 9:
-              case 'end':
-                return _context16.stop();
-            }
-          }
-        }, _callee16, _this16);
-      }))();
-    },
-
-    // 拼团地址选择
-    groupAddress: function groupAddress(_ref31, _ref30) {
-      var _this17 = this;
-
-      var commit = _ref31.commit;
-
-      var data = __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_objectWithoutProperties___default()(_ref30, []);
-
-      return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_2_babel_runtime_regenerator___default.a.mark(function _callee17() {
-        var uuid, auth_code, attributes, order_address, res;
-        return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_regenerator___default.a.wrap(function _callee17$(_context17) {
-          while (1) {
-            switch (_context17.prev = _context17.next) {
-              case 0:
-                uuid = data[0];
-                auth_code = data[1];
-                attributes = data[2];
-                order_address = {
-                  auth_code: auth_code,
-                  group_activity_order: {
-                    address_attributes: attributes
-                  }
-                };
-                _context17.next = 6;
-                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__utils_wx__["d" /* request */])({
-                  method: 'put',
-                  url: apiDomain + '/group_activity_orders/' + uuid,
-                  data: order_address
-                });
-
-              case 6:
-                res = _context17.sent;
-                return _context17.abrupt('return', res);
-
-              case 8:
-              case 'end':
-                return _context17.stop();
-            }
-          }
-        }, _callee17, _this17);
-      }))();
-    },
-
-    // 拼团支付
-    group_pay: function group_pay(_ref32, uuid) {
-      var _this18 = this;
-
-      var commit = _ref32.commit;
-      return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_2_babel_runtime_regenerator___default.a.mark(function _callee18() {
-        var _uuid, auth_code, payres;
-
-        return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_regenerator___default.a.wrap(function _callee18$(_context18) {
-          while (1) {
-            switch (_context18.prev = _context18.next) {
-              case 0:
-                _uuid = uuid;
-                auth_code = wx.getStorageSync('auth_code');
-
-                console.log(apiDomain + '/group_activity_orders/' + _uuid + '/pay?auth_code=' + auth_code);
-                payres = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__utils_wx__["d" /* request */])({
-                  method: 'get',
-                  url: apiDomain + '/group_activity_orders/' + _uuid + '/pay?auth_code=' + auth_code
-                });
-                return _context18.abrupt('return', payres);
-
-              case 5:
-              case 'end':
-                return _context18.stop();
-            }
-          }
-        }, _callee18, _this18);
-      }))();
-    },
-
-    // 用户信息详情获取
-    user_info: function user_info(_ref33, uuid) {
-      var _this19 = this;
-
-      var commit = _ref33.commit;
-      return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_2_babel_runtime_regenerator___default.a.mark(function _callee19() {
-        var auth_code, user_profile;
-        return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_regenerator___default.a.wrap(function _callee19$(_context19) {
-          while (1) {
-            switch (_context19.prev = _context19.next) {
-              case 0:
-                auth_code = wx.getStorageSync('auth_code');
-                _context19.next = 3;
-                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__utils_wx__["d" /* request */])({
-                  method: 'get',
-                  url: apiDomain + '/users/profile?auth_code=' + auth_code
-                });
-
-              case 3:
-                user_profile = _context19.sent;
-                return _context19.abrupt('return', user_profile);
-
-              case 5:
-              case 'end':
-                return _context19.stop();
-            }
-          }
-        }, _callee19, _this19);
-      }))();
     }
-  }
+  }, __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_defineProperty___default()(_actions, 'myBoonDetail', function myBoonDetail(_ref29, _ref28) {
+    var _this16 = this;
+
+    var commit = _ref29.commit;
+
+    var data = __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_objectWithoutProperties___default()(_ref28, []);
+
+    return __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.mark(function _callee16() {
+      var uuid, auth_code, res;
+      return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.wrap(function _callee16$(_context16) {
+        while (1) {
+          switch (_context16.prev = _context16.next) {
+            case 0:
+              console.log('我的抽奖订单详情');
+              uuid = data[0];
+              auth_code = data[1];
+              _context16.next = 5;
+              return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
+                method: 'get',
+                url: apiDomain + '/boon_orders/' + uuid + '?auth_code=' + auth_code
+              });
+
+            case 5:
+              res = _context16.sent;
+              return _context16.abrupt('return', res);
+
+            case 7:
+            case 'end':
+              return _context16.stop();
+          }
+        }
+      }, _callee16, _this16);
+    }))();
+  }), __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_defineProperty___default()(_actions, 'boonAddress', function boonAddress(_ref31, _ref30) {
+    var _this17 = this;
+
+    var commit = _ref31.commit;
+
+    var data = __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_objectWithoutProperties___default()(_ref30, []);
+
+    return __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.mark(function _callee17() {
+      var uuid, auth_code, attributes, order_address, jsonData, res;
+      return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.wrap(function _callee17$(_context17) {
+        while (1) {
+          switch (_context17.prev = _context17.next) {
+            case 0:
+              uuid = data[0];
+              auth_code = data[1];
+              attributes = data[2];
+              order_address = {
+                auth_code: auth_code,
+                boon_order: {
+                  address_attributes: attributes
+                }
+              };
+              jsonData = __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_json_stringify___default()(order_address);
+              _context17.next = 7;
+              return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
+                method: 'put',
+                url: apiDomain + '/boon_orders/' + uuid,
+                data: order_address,
+                header: {
+                  'content-type': 'application/json'
+                }
+              });
+
+            case 7:
+              res = _context17.sent;
+              return _context17.abrupt('return', res);
+
+            case 9:
+            case 'end':
+              return _context17.stop();
+          }
+        }
+      }, _callee17, _this17);
+    }))();
+  }), __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_defineProperty___default()(_actions, 'groupAddress', function groupAddress(_ref33, _ref32) {
+    var _this18 = this;
+
+    var commit = _ref33.commit;
+
+    var data = __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_objectWithoutProperties___default()(_ref32, []);
+
+    return __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.mark(function _callee18() {
+      var uuid, auth_code, attributes, order_address, res;
+      return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.wrap(function _callee18$(_context18) {
+        while (1) {
+          switch (_context18.prev = _context18.next) {
+            case 0:
+              uuid = data[0];
+              auth_code = data[1];
+              attributes = data[2];
+              order_address = {
+                auth_code: auth_code,
+                group_activity_order: {
+                  address_attributes: attributes
+                }
+              };
+              _context18.next = 6;
+              return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
+                method: 'put',
+                url: apiDomain + '/group_activity_orders/' + uuid,
+                data: order_address
+              });
+
+            case 6:
+              res = _context18.sent;
+              return _context18.abrupt('return', res);
+
+            case 8:
+            case 'end':
+              return _context18.stop();
+          }
+        }
+      }, _callee18, _this18);
+    }))();
+  }), __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_defineProperty___default()(_actions, 'group_pay', function group_pay(_ref34, uuid) {
+    var _this19 = this;
+
+    var commit = _ref34.commit;
+    return __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.mark(function _callee19() {
+      var _uuid, auth_code, payres;
+
+      return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.wrap(function _callee19$(_context19) {
+        while (1) {
+          switch (_context19.prev = _context19.next) {
+            case 0:
+              _uuid = uuid;
+              auth_code = wx.getStorageSync('auth_code');
+
+              console.log(apiDomain + '/group_activity_orders/' + _uuid + '/pay?auth_code=' + auth_code);
+              payres = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
+                method: 'get',
+                url: apiDomain + '/group_activity_orders/' + _uuid + '/pay?auth_code=' + auth_code
+              });
+              return _context19.abrupt('return', payres);
+
+            case 5:
+            case 'end':
+              return _context19.stop();
+          }
+        }
+      }, _callee19, _this19);
+    }))();
+  }), __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_defineProperty___default()(_actions, 'user_info', function user_info(_ref35, uuid) {
+    var _this20 = this;
+
+    var commit = _ref35.commit;
+    return __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.mark(function _callee20() {
+      var auth_code, user_profile;
+      return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.wrap(function _callee20$(_context20) {
+        while (1) {
+          switch (_context20.prev = _context20.next) {
+            case 0:
+              auth_code = wx.getStorageSync('auth_code');
+              _context20.next = 3;
+              return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
+                method: 'get',
+                url: apiDomain + '/users/profile?auth_code=' + auth_code
+              });
+
+            case 3:
+              user_profile = _context20.sent;
+              return _context20.abrupt('return', user_profile);
+
+            case 5:
+            case 'end':
+              return _context20.stop();
+          }
+        }
+      }, _callee20, _this20);
+    }))();
+  }), _actions)
 
 }));
 

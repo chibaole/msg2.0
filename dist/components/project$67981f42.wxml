@@ -67,7 +67,7 @@
       </view>
     </view>
     <view class="_div data-v-a0735dbe btn-box" wx:if="{{boon.status== 'published'}}">
-      <template wx:if="{{open}}" bindinfo="handleProxy" data-eventid="{{'4'}}" data-comkey="{{$k}}" data="{{...$root[$kk+'1'], $root}}" is="diago$66d9fee3"></template>
+      <template wx:if="{{open}}" bindchildByValue="handleProxy" data-eventid="{{'4'}}" data-comkey="{{$k}}" data="{{...$root[$kk+'1'], $root}}" is="diago$66d9fee3"></template>
       <view class="_div data-v-a0735dbe add-prize">
         <view class="_div data-v-a0735dbe btn2" bindtap="handleProxy" data-eventid="{{'5'}}" data-comkey="{{$k}}">加速开奖</view>
         <view class="_div data-v-a0735dbe btn3" bindtap="handleProxy" data-eventid="{{'6'}}" data-comkey="{{$k}}">成为研究员概率翻倍</view>

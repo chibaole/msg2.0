@@ -22,13 +22,18 @@ global.webpackJsonp([3],{
 
 /* harmony default export */ __webpack_exports__["a"] = ({
   data: function data() {
-    return {};
+    return {
+      showChild: 'true'
+    };
   },
 
   methods: {
     cancleDiago: function cancleDiago() {
       var open = false;
       this.$emit('info', open);
+    },
+    closeChild: function closeChild() {
+      this.$emit('childByValue', false);
     }
   }
 
@@ -256,7 +261,7 @@ global.webpackJsonp([3],{
                 auth_code = currentuser_code;
                 uuid_authCode = [boonID, auth_code];
                 _context.next = 7;
-                return that.$store.dispatch('attendBoon', __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends___default()({}, uuid_authCode));
+                return that.$store.dispatch('attendBoon', __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends___default()({}, uuid_auth_code));
 
               case 7:
                 res = _context.sent;
@@ -276,6 +281,10 @@ global.webpackJsonp([3],{
     openDiago: function openDiago() {
       var that = this;
       that.open = true;
+    },
+    childByValue: function childByValue(childValue) {
+      this.open = childValue;
+      console.log(this.open);
     },
 
     // url: /api/v1/boons/:uuid/attend
@@ -323,7 +332,7 @@ global.webpackJsonp([3],{
               case 0:
                 that = _this3;
                 uuid = that.uuid;
-                page = 'pages/isme/index';
+                page = 'pages/project/main';
                 data = [uuid, page];
                 _context3.next = 6;
                 return _this3.$store.dispatch('wxCode', __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends___default()({}, data));
@@ -474,14 +483,15 @@ global.webpackJsonp([3],{
                 wx.navigateTo({
                   url: '/pages/user/myboonList/myBoon/main?uuid=' + uuid
                 });
-                _context4.next = 20;
+                _context4.next = 21;
                 break;
 
               case 10:
-                _context4.next = 12;
+                console.log('还没有领过奖 添加地址');
+                _context4.next = 13;
                 return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__utils_wx__["b" /* chooseAddress */])();
 
-              case 12:
+              case 13:
                 res = _context4.sent;
                 auth_code = wx.getStorageSync('auth_code');
                 address = {
@@ -497,17 +507,17 @@ global.webpackJsonp([3],{
 
 
                 data = [uuid, auth_code, address];
-                _context4.next = 18;
+                _context4.next = 19;
                 return that.$store.dispatch('boonAddress', __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends___default()({}, data));
 
-              case 18:
+              case 19:
                 address_res = _context4.sent;
 
                 wx.navigateTo({
                   url: '/pages/user/myboonList/myBoon/main?uuid=' + uuid
                 });
 
-              case 20:
+              case 21:
               case 'end':
                 return _context4.stop();
             }
@@ -522,7 +532,7 @@ global.webpackJsonp([3],{
       that.showGetmore = false;
     }
   },
-  onLoad: function onLoad() {
+  onLoad: function onLoad(options) {
     var _this5 = this;
 
     return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee5() {
@@ -534,7 +544,7 @@ global.webpackJsonp([3],{
             case 0:
               that = _this5;
 
-              that.uuid = that.$root.$mp.query.boons_uuid; // 获取上一页传递的唯一标准uuid
+              that.uuid = options.boons_uuid; // 获取上一页传递的唯一标准uuid
               that.navbar_title = that.$root.$mp.query.title; // 获取上一页传递的福利名称 做navbar的标题
               currentuser_code = wx.getStorageSync('auth_code');
               uuid_authCode = [that.uuid, currentuser_code];
@@ -577,13 +587,14 @@ global.webpackJsonp([3],{
   },
   mounted: function mounted() {},
   onShareAppMessage: function onShareAppMessage(res) {
+    var that = this;
     if (res.from === 'button') {
       // 来自页面内转发按钮
       console.log(res.target);
     }
     return {
-      title: '自定义转发标题',
-      path: '/page/user?id=123'
+      title: '邀你抽奖',
+      path: '/pages/project/main?boons_uuid=' + that.uuid
     };
   }
 });
@@ -813,7 +824,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "mpcomid": '1'
     },
     on: {
-      "info": _vm.get
+      "childByValue": _vm.childByValue
     }
   }) : _vm._e(), _vm._v(" "), _c('div', {
     staticClass: "add-prize"
@@ -930,7 +941,13 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   return _c('div', {
     staticClass: "container"
   }, [_c('div', {
-    staticClass: "mark"
+    staticClass: "mark",
+    attrs: {
+      "eventid": '0'
+    },
+    on: {
+      "click": _vm.closeChild
+    }
   }), _vm._v(" "), _c('div', {
     staticClass: "prize-info"
   }, [_c('p', {
@@ -942,7 +959,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   }, [_vm._v("账号为研究员账号的用户抽奖概率是普通用户的2倍。")]), _vm._v(" "), _c('button', {
     attrs: {
       "open-type": "contact",
-      "eventid": '0'
+      "eventid": '1'
     },
     on: {
       "click": _vm.cancleDiago

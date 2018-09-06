@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="mark"  ></div>
+    <div class="mark" @click="closeChild" ></div>
     <div class="prize-info">
         <p class="text">账号为研究员账号的用户抽奖概率是普通用户的2倍。</p>
         <p class="text">账号为研究员账号的用户抽奖概率是普通用户的2倍。</p>
@@ -17,13 +17,17 @@
   export default {
     data () {
       return {
-
+          showChild:'true'
       }
     },
     methods: {
       cancleDiago () {
         var open = false
         this.$emit('info', open)
+      },
+      closeChild(){
+        this.$emit('childByValue', false)
+
       }
     }
 
