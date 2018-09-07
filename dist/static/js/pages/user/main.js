@@ -147,6 +147,8 @@ global.webpackJsonp([2],{
 //
 //
 //
+//
+//
 
 
 
@@ -164,7 +166,6 @@ global.webpackJsonp([2],{
       userinfo: {
         avatar_url: 'http://image.shengxinjing.cn/rate/unlogin.png',
         nick_name: '没事干研究院',
-
         level_display: '',
         is_authorized: true
       },
@@ -209,7 +210,7 @@ global.webpackJsonp([2],{
       var _this = this;
 
       return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
-        var that, sesssion_res, data;
+        var that, sesssion_res, data, userinfo;
         return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
@@ -224,12 +225,12 @@ global.webpackJsonp([2],{
                 console.log(sesssion_res.errMsg);
 
                 if (!(sesssion_res.errMsg === 'checkSession:ok')) {
-                  _context.next = 16;
+                  _context.next = 19;
                   break;
                 }
 
                 if (!e.mp.detail.rawData) {
-                  _context.next = 13;
+                  _context.next = 16;
                   break;
                 }
 
@@ -240,27 +241,33 @@ global.webpackJsonp([2],{
 
               case 10:
                 that.login_show = false;
-                _context.next = 14;
-                break;
 
-              case 13:
-                // 用户按了拒绝按钮
-                console.log('用户按了拒绝按钮');
+                userinfo = wx.getStorageSync('userinfo');
 
-              case 14:
-                _context.next = 21;
+                that.userinfo = userinfo;
+                console.log(userinfo);
+
+                _context.next = 17;
                 break;
 
               case 16:
-                console.log('session 过期');
-                _context.next = 19;
-                return that.$store.dispatch('signup');
+                // 用户按了拒绝按钮
+                console.log('用户按了拒绝按钮');
+
+              case 17:
+                _context.next = 24;
+                break;
 
               case 19:
+                console.log('session 过期');
+                _context.next = 22;
+                return that.$store.dispatch('signup');
+
+              case 22:
                 that.login_show = false;
                 console.log('重新登录成功');
 
-              case 21:
+              case 24:
               case 'end':
                 return _context.stop();
             }
@@ -273,7 +280,7 @@ global.webpackJsonp([2],{
     var _this2 = this;
 
     return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee2() {
-      var that, userinfo, user_profile;
+      var that, userinfo, user_profile, userinfoInit;
       return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
         while (1) {
           switch (_context2.prev = _context2.next) {
@@ -284,7 +291,6 @@ global.webpackJsonp([2],{
               if (userinfo) {
                 that.userinfo = userinfo;
                 that.login_show = false;
-                console.log(userinfo);
               } else {
                 that.login_show = true;
               }
@@ -293,10 +299,17 @@ global.webpackJsonp([2],{
 
             case 5:
               user_profile = _context2.sent;
+              userinfoInit = {
+                avatar_url: userinfo.avatar_url,
+                nick_name: userinfo.nick_name,
+                level_display: '',
+                is_authorized: true
+              };
 
-              that.userinfo.level_display = user_profile.user.level_display;
+              userinfoInit.level_display = user_profile.user.level_display;
+              that.userinfo = userinfoInit;
 
-            case 7:
+            case 9:
             case 'end':
               return _context2.stop();
           }
@@ -441,15 +454,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   return _c('div', {
     staticClass: "container"
   }, [_c('div', {
-    staticClass: "navbartitle",
-    style: ({
-      'height': _vm.top + 'px'
-    })
-  }, [_c('span', [_vm._v("我的研究院")])]), _vm._v(" "), _c('div', {
-    staticClass: "userinfo",
-    style: ({
-      'margin-top': _vm.top + 'px'
-    })
+    staticClass: "userinfo"
   }, [_c('img', {
     attrs: {
       "src": _vm.userinfo.avatar_url
@@ -464,29 +469,6 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     attrs: {
       "report-submit": true,
       "eventid": '0'
-    },
-    on: {
-      "submit": _vm.sign_in
-    }
-  }, [_c('button', {
-    attrs: {
-      "formType": "submit"
-    }
-  }, [_c('div', {
-    staticClass: "mylist"
-  }, [_c('img', {
-    attrs: {
-      "src": "http://pbmrxkahq.bkt.clouddn.com/%E7%AD%BE%E5%88%B0icon.png",
-      "alt": ""
-    }
-  }), _vm._v(" "), _c('span', {
-    staticClass: "list_title"
-  }, [_vm._v("签到")]), _vm._v(" "), _c('span', {
-    staticClass: "list_btn"
-  }, [_vm._v("签到赢取8折券")])])])], 1), _vm._v(" "), _c('form', {
-    attrs: {
-      "report-submit": true,
-      "eventid": '1'
     },
     on: {
       "submit": _vm.goMygroup
@@ -507,7 +489,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   }, [_vm._v("我的拼团订单")])])])], 1), _vm._v(" "), _c('form', {
     attrs: {
       "report-submit": true,
-      "eventid": '2'
+      "eventid": '1'
     },
     on: {
       "submit": _vm.myBoon
@@ -525,71 +507,10 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }), _vm._v(" "), _c('span', {
     staticClass: "list_title"
-  }, [_vm._v("我的抽奖")])])])], 1), _vm._v(" "), _c('form', {
-    attrs: {
-      "report-submit": true,
-      "eventid": '3'
-    },
-    on: {
-      "submit": _vm.myStore
-    }
-  }, [_c('button', {
-    attrs: {
-      "formType": "submit"
-    }
-  }, [_c('div', {
-    staticClass: "mylist"
-  }, [_c('img', {
-    attrs: {
-      "src": "http://pbmrxkahq.bkt.clouddn.com/%E9%9B%B6%E9%A3%9F%E5%BA%93icon.png",
-      "alt": ""
-    }
-  }), _vm._v(" "), _c('span', {
-    staticClass: "list_title"
-  }, [_vm._v("我的零食库")]), _vm._v(" "), _c('span', {
-    staticClass: "list_btn"
-  }, [_vm._v("分享有礼")])])])], 1), _vm._v(" "), _c('form', {
-    attrs: {
-      "report-submit": true,
-      "eventid": '4'
-    },
-    on: {
-      "submit": _vm.myPublic
-    }
-  }, [_c('button', {
-    attrs: {
-      "formType": "submit"
-    }
-  }, [_c('div', {
-    staticClass: "mylist"
-  }, [_c('img', {
-    attrs: {
-      "src": "http://pbmrxkahq.bkt.clouddn.com/%E6%88%91%E7%9A%84%E5%8F%91%E5%B8%83icon.png",
-      "alt": ""
-    }
-  }), _vm._v(" "), _c('span', {
-    staticClass: "list_title"
-  }, [_vm._v("我的发布")])])])], 1), _vm._v(" "), _c('form', {
-    attrs: {
-      "report-submit": true,
-      "eventid": '5'
-    },
-    on: {
-      "submit": _vm.my_trove
-    }
-  }, [_c('button', [_c('div', {
-    staticClass: "mylist"
-  }, [_c('img', {
-    attrs: {
-      "src": "http://pbmrxkahq.bkt.clouddn.com/%E6%94%B6%E8%97%8Ficon.png",
-      "alt": ""
-    }
-  }), _vm._v(" "), _c('span', {
-    staticClass: "list_title"
-  }, [_vm._v("我的收藏")])])])], 1), _vm._v(" "), (_vm.login_show) ? _c('button', {
+  }, [_vm._v("我的抽奖")])])])], 1), _vm._v(" "), (_vm.login_show) ? _c('button', {
     attrs: {
       "open-type": "getUserInfo",
-      "eventid": '6'
+      "eventid": '2'
     },
     on: {
       "getuserinfo": _vm.bindGetUserInfo,

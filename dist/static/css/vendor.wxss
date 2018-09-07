@@ -189,6 +189,9 @@
 }
 .title.data-v-ad332f3a {
   text-align: center;
+  font-family: PingFangSC-Medium;
+  font-size: 34rpx;
+  letter-spacing: -0.8rpx;
   width: 300rpx;
   display: inline-block;
   margin-right: 225rpx;

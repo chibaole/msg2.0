@@ -798,8 +798,9 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   }), _vm._v(" "), _c('div', {
     staticClass: "pjDetail"
   }, [_vm._v("\n      商品详情\n      "), _c('rich-text', {
+    staticClass: "pjdetail",
     attrs: {
-      "nodes": _vm.order_info.detail,
+      "nodes": _vm.order_info.group_activity.detail,
       "mpcomid": '1'
     }
   })], 1)], 1), _vm._v(" "), _c('form', {

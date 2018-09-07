@@ -15,7 +15,7 @@
         <view class="_h2 data-v-05960fcb pj-name">
           <label class="_span data-v-05960fcb mark">{{group_activity.group_type}}</label>{{group_activity.title}}</view>
         <view class="_p data-v-05960fcb pj-text">{{group_activity.description}}</view>
-        <view class="_p data-v-05960fcb pj-price">¥{{group_activity.current_price}}
+        <view class="_p data-v-05960fcb pj-price">¥ {{group_activity.current_price}}
           <label class="_span data-v-05960fcb">拼团价</label>
           <label class="_span data-v-05960fcb">{{group_activity.original_price}}</label>
         </view>
@@ -28,11 +28,10 @@
       <view class="_div data-v-05960fcb line"></view>
     </view>
     <view class="_div data-v-05960fcb pjDetail">
-      <view class="_h2 data-v-05960fcb pjdetail">商品详情</view>
       <rich-text nodes="{{myDetail}}" class="_rich-text data-v-05960fcb"></rich-text>
     </view>
     <view class="_div data-v-05960fcb pay">
-      <label class="_span data-v-05960fcb price">¥{{group_activity.current_price}}
+      <label class="_span data-v-05960fcb price">¥ {{group_activity.current_price}}
         <label class="_span data-v-05960fcb">还剩{{group_activity.stock}}份</label>
       </label>
       <form bindsubmit="handleProxy" report-submit="{{true}}" data-eventid="{{'0'}}" data-comkey="{{$k}}" class="_form data-v-05960fcb">

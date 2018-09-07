@@ -836,7 +836,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       staticClass: "group-text "
     }, [_vm._v(_vm._s(group_activitie.title))]), _vm._v(" "), _c('div', {
       staticClass: "group-prj-price "
-    }, [_vm._v("$" + _vm._s(group_activitie.current_price) + " "), _c('span', {
+    }, [_vm._v("¥" + _vm._s(group_activitie.current_price) + " "), _c('span', {
       staticClass: "price "
     }, [_vm._v("¥" + _vm._s(group_activitie.original_price))])])]), _vm._v(" "), _c('form', {
       attrs: {

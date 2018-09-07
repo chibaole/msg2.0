@@ -123,13 +123,12 @@
 }
 .pjDetail.data-v-b3a874ec {
   margin: 0 auto;
-  padding-left: 50rpx;
-  font-family: PingFangSC-Medium;
+  padding: 0 50rpx;
+  font-family: PingFangSC-Regular;
   color: #333;
   font-size: 32rpx;
-}
-.pjDetail.data-v-b3a874ec {
   text-align: left;
+  margin-bottom: 120rpx;
 }
 .share.data-v-b3a874ec {
   width: 360rpx;

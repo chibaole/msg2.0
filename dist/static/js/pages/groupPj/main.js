@@ -321,7 +321,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "pj-text"
   }, [_vm._v(_vm._s(_vm.group_activity.description))]), _vm._v(" "), _c('p', {
     staticClass: "pj-price"
-  }, [_vm._v("¥" + _vm._s(_vm.group_activity.current_price)), _c('span', [_vm._v("拼团价")]), _c('span', [_vm._v(_vm._s(_vm.group_activity.original_price))])])], 1)]), _vm._v(" "), _c('div', {
+  }, [_vm._v("¥ " + _vm._s(_vm.group_activity.current_price)), _c('span', [_vm._v("拼团价")]), _c('span', [_vm._v(_vm._s(_vm.group_activity.original_price))])])], 1)]), _vm._v(" "), _c('div', {
     staticClass: "group"
   }, [_c('h2', {
     staticClass: "group-game"
@@ -333,9 +333,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "line"
   })], 1), _vm._v(" "), _c('div', {
     staticClass: "pjDetail"
-  }, [_c('h2', {
-    staticClass: "pjdetail"
-  }, [_vm._v("商品详情")]), _vm._v(" "), _c('rich-text', {
+  }, [_c('rich-text', {
     attrs: {
       "nodes": _vm.myDetail,
       "mpcomid": '1'
@@ -344,7 +342,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "pay"
   }, [_c('span', {
     staticClass: "price"
-  }, [_vm._v("¥" + _vm._s(_vm.group_activity.current_price)), _c('span', [_vm._v("还剩" + _vm._s(_vm.group_activity.stock) + "份")])]), _vm._v(" "), _c('form', {
+  }, [_vm._v("¥ " + _vm._s(_vm.group_activity.current_price)), _c('span', [_vm._v("还剩" + _vm._s(_vm.group_activity.stock) + "份")])]), _vm._v(" "), _c('form', {
     attrs: {
       "report-submit": true,
       "eventid": '0'

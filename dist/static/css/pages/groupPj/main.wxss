@@ -79,13 +79,12 @@
   margin-top: 20rpx;
 }
 .pj-price.data-v-05960fcb {
-  width: 186rpx;
+  min-width: 186rpx;
   height: 40rpx;
   color: #f83713;
   font-size: 36rpx;
   line-height: 40rpx;
   font-family: PingFangSC-Medium;
-  letter-spacing: 8rpx;
   margin-top: 30rpx;
 }
 .pj-price ._span.data-v-05960fcb:nth-child(1) {
@@ -94,7 +93,7 @@
   line-height: 40rpx;
   color: #f83713;
   letter-spacing: 0;
-  margin-left: -8rpx;
+  margin-left: -2rpx;
 }
 .pj-price ._span.data-v-05960fcb:nth-child(2) {
   font-size: 20rpx;
@@ -102,8 +101,8 @@
   font-family: PingFangSC-Regular;
   line-height: 52rpx;
   color: #999;
-  float: right;
   letter-spacing: 0;
+  margin-left: 10rpx;
 }
 .group.data-v-05960fcb {
   background: #fff;
@@ -113,8 +112,13 @@
 }
 .pjDetail.data-v-05960fcb {
   background: #fff;
-  height: 200rpx;
+  min-height: 200rpx;
   border-top: 2rpx solid #fff;
+  font-family: PingFangSC-Regular;
+  font-size: 24rpx;
+  text-align: left;
+  padding: 0 50rpx;
+  margin-bottom: 120rpx;
 }
 .pjdetail.data-v-05960fcb {
   font-family: PingFangSC-Medium;
@@ -147,9 +151,6 @@
   font-family: PingFangSC-Regular;
   color: #4a4a4a;
   margin-left: 50rpx;
-}
-.pjDetail.data-v-05960fcb {
-  text-align: center;
 }
 .pay.data-v-05960fcb {
   width: 100%;

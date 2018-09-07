@@ -1,9 +1,11 @@
 <template>
   <div class="container" >
   <!--<Navbar></Navbar>-->
-    <div class="navbartitle" :style="{'height':top+'px'}"><span>我的研究院</span></div>
-    <div class="userinfo" :style="{'margin-top':top+'px'}" >
-      <img :src='userinfo.avatar_url' >
+    <!--<div class="navbartitle" :style="{'height':top+'px'}"><span>我的研究院</span></div>-->
+    <!--<div class="userinfo" :style="{'margin-top':top+'px'}" >-->
+    <div class="userinfo"  >
+
+    <img :src='userinfo.avatar_url' >
       <p class="username">
         <span class="foodname">{{userinfo.nick_name}}</span>
         <span class="foodLabel">{{userinfo.level_display}}</span>
@@ -15,15 +17,15 @@
         <img src="" alt="">
       </div>
     </div>
-    <form  :report-submit="true" @submit="sign_in">
-      <button formType="submit">
-        <div class="mylist">
-        <img src="http://pbmrxkahq.bkt.clouddn.com/%E7%AD%BE%E5%88%B0icon.png" alt="">
-        <span class="list_title">签到</span>
-        <span class="list_btn">签到赢取8折券</span>
-        </div>
-      </button>
-    </form>
+    <!--<form  :report-submit="true" @submit="sign_in">-->
+      <!--<button formType="submit">-->
+        <!--<div class="mylist">-->
+        <!--<img src="http://pbmrxkahq.bkt.clouddn.com/%E7%AD%BE%E5%88%B0icon.png" alt="">-->
+        <!--<span class="list_title">签到</span>-->
+        <!--<span class="list_btn">签到赢取8折券</span>-->
+        <!--</div>-->
+      <!--</button>-->
+    <!--</form>-->
     <form  :report-submit="true"  @submit="goMygroup">
       <button  formType="submit" >
     <div class="mylist" >
@@ -42,32 +44,32 @@
       </button>
     </form>
 
-    <form  :report-submit="true"  @submit="myStore">
-      <button formType="submit" >
-    <div class="mylist">
-      <img src="http://pbmrxkahq.bkt.clouddn.com/%E9%9B%B6%E9%A3%9F%E5%BA%93icon.png" alt="">
-      <span class="list_title">我的零食库</span>
-      <span class="list_btn">分享有礼</span>
-    </div>
-      </button>
-    </form>
+    <!--<form  :report-submit="true"  @submit="myStore">-->
+      <!--<button formType="submit" >-->
+    <!--<div class="mylist">-->
+      <!--<img src="http://pbmrxkahq.bkt.clouddn.com/%E9%9B%B6%E9%A3%9F%E5%BA%93icon.png" alt="">-->
+      <!--<span class="list_title">我的零食库</span>-->
+      <!--<span class="list_btn">分享有礼</span>-->
+    <!--</div>-->
+      <!--</button>-->
+    <!--</form>-->
 
-    <form  :report-submit="true" @submit="myPublic">
-      <button  formType="submit">
-    <div class="mylist">
-      <img src="http://pbmrxkahq.bkt.clouddn.com/%E6%88%91%E7%9A%84%E5%8F%91%E5%B8%83icon.png" alt="">
-      <span class="list_title">我的发布</span>
-    </div>
-      </button>
-    </form>
-    <form  :report-submit="true" @submit="my_trove">
-      <button >
-    <div class="mylist">
-      <img src="http://pbmrxkahq.bkt.clouddn.com/%E6%94%B6%E8%97%8Ficon.png" alt="">
-      <span class="list_title">我的收藏</span>
-    </div>
-      </button>
-    </form>
+    <!--<form  :report-submit="true" @submit="myPublic">-->
+      <!--<button  formType="submit">-->
+    <!--<div class="mylist">-->
+      <!--<img src="http://pbmrxkahq.bkt.clouddn.com/%E6%88%91%E7%9A%84%E5%8F%91%E5%B8%83icon.png" alt="">-->
+      <!--<span class="list_title">我的发布</span>-->
+    <!--</div>-->
+      <!--</button>-->
+    <!--</form>-->
+    <!--<form  :report-submit="true" @submit="my_trove">-->
+      <!--<button >-->
+    <!--<div class="mylist">-->
+      <!--<img src="http://pbmrxkahq.bkt.clouddn.com/%E6%94%B6%E8%97%8Ficon.png" alt="">-->
+      <!--<span class="list_title">我的收藏</span>-->
+    <!--</div>-->
+      <!--</button>-->
+    <!--</form>-->
     <button open-type="getUserInfo" @getuserinfo="bindGetUserInfo" @click="getUserInfo1" v-if="login_show">获取权限</button>
   </div>
 </template>
@@ -88,7 +90,6 @@ export default {
       userinfo: {
         avatar_url: 'http://image.shengxinjing.cn/rate/unlogin.png',
         nick_name: '没事干研究院',
-
         level_display: '',
         is_authorized: true
       },
@@ -139,6 +140,11 @@ export default {
           let data = [e.mp.detail.encryptedData, e.mp.detail.iv, e.mp.detail.signature, e.mp.detail.rawData]
           await that.$store.dispatch('saveInfo', {...data})
           that.login_show = false
+
+          let userinfo = wx.getStorageSync('userinfo')
+          that.userinfo = userinfo
+          console.log(userinfo)
+
         } else {
          // 用户按了拒绝按钮
           console.log('用户按了拒绝按钮')
@@ -157,12 +163,19 @@ export default {
     if (userinfo) {
       that.userinfo = userinfo
       that.login_show = false
-      console.log(userinfo)
     } else {
       that.login_show = true
     }
     let user_profile = await that.$store.dispatch('user_info')
-    that.userinfo.level_display = user_profile.user.level_display
+    let userinfoInit =  {
+      avatar_url: userinfo.avatar_url,
+      nick_name: userinfo.nick_name,
+      level_display: '',
+      is_authorized: true
+    }
+    userinfoInit.level_display = user_profile.user.level_display
+    that.userinfo = userinfoInit
+
   },
   onLoad () {
     const vm = this
@@ -318,7 +331,7 @@ export default {
 
 }
 .mylist{
-  border-bottom: 2px solid #ededed;
+  border-bottom: 1px solid #eee;
   height: 70px;
   width: 325px;
   margin: 0px auto ;

@@ -2,16 +2,35 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="445b3448-464f-4425-9da6-82c9cd343d54" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/static/js/pages/groupPj/main.js.map" afterPath="$PROJECT_DIR$/dist/static/js/pages/groupPj/main.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/static/js/pages/groupPj/order/main.js.map" afterPath="$PROJECT_DIR$/dist/static/js/pages/groupPj/order/main.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/static/js/pages/project/main.js.map" afterPath="$PROJECT_DIR$/dist/static/js/pages/project/main.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/static/js/pages/user/main.js.map" afterPath="$PROJECT_DIR$/dist/static/js/pages/user/main.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/diago$66d9fee3.wxml" afterPath="$PROJECT_DIR$/dist/components/diago$66d9fee3.wxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/project$67981f42.wxml" afterPath="$PROJECT_DIR$/dist/components/project$67981f42.wxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/static/js/app.js" afterPath="$PROJECT_DIR$/dist/static/js/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/static/js/app.js.map" afterPath="$PROJECT_DIR$/dist/static/js/app.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/group$71c9e504.wxml" afterPath="$PROJECT_DIR$/dist/components/group$71c9e504.wxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/groupPj$6f1d46c8.wxml" afterPath="$PROJECT_DIR$/dist/components/groupPj$6f1d46c8.wxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/groupPj$85ce50ee.wxml" afterPath="$PROJECT_DIR$/dist/components/groupPj$85ce50ee.wxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/user$0ba85da9.wxml" afterPath="$PROJECT_DIR$/dist/components/user$0ba85da9.wxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/static/css/pages/groupPj/main.wxss" afterPath="$PROJECT_DIR$/dist/static/css/pages/groupPj/main.wxss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/static/css/pages/groupPj/order/main.wxss" afterPath="$PROJECT_DIR$/dist/static/css/pages/groupPj/order/main.wxss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/static/css/pages/home/main.wxss" afterPath="$PROJECT_DIR$/dist/static/css/pages/home/main.wxss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/static/css/pages/user/main.wxss" afterPath="$PROJECT_DIR$/dist/static/css/pages/user/main.wxss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/static/css/pages/user/myboonList/main.wxss" afterPath="$PROJECT_DIR$/dist/static/css/pages/user/myboonList/main.wxss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/static/css/vendor.wxss" afterPath="$PROJECT_DIR$/dist/static/css/vendor.wxss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/static/js/pages/groupPj/main.js" afterPath="$PROJECT_DIR$/dist/static/js/pages/groupPj/main.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/static/js/pages/groupPj/order/main.js" afterPath="$PROJECT_DIR$/dist/static/js/pages/groupPj/order/main.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/static/js/pages/home/main.js" afterPath="$PROJECT_DIR$/dist/static/js/pages/home/main.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/static/js/pages/home/main.js.map" afterPath="$PROJECT_DIR$/dist/static/js/pages/home/main.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/static/js/pages/project/main.js" afterPath="$PROJECT_DIR$/dist/static/js/pages/project/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/diago.vue" afterPath="$PROJECT_DIR$/src/components/diago.vue" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/static/js/pages/user/main.js" afterPath="$PROJECT_DIR$/dist/static/js/pages/user/main.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/static/js/vendor.js.map" afterPath="$PROJECT_DIR$/dist/static/js/vendor.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/group.vue" afterPath="$PROJECT_DIR$/src/components/group.vue" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/navbar.vue" afterPath="$PROJECT_DIR$/src/components/navbar.vue" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/groupPj/index.vue" afterPath="$PROJECT_DIR$/src/pages/groupPj/index.vue" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/groupPj/order/index.vue" afterPath="$PROJECT_DIR$/src/pages/groupPj/order/index.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/project/prj.vue" afterPath="$PROJECT_DIR$/src/pages/project/prj.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/store.js" afterPath="$PROJECT_DIR$/src/store.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/user/Me.vue" afterPath="$PROJECT_DIR$/src/pages/user/Me.vue" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/user/myboonList/Me.vue" afterPath="$PROJECT_DIR$/src/pages/user/myboonList/Me.vue" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -25,11 +44,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.vue" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.vue" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/pages/groupPj/index.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="34" lean-forward="false" selection-start-line="6" selection-start-column="34" selection-end-line="6" selection-end-column="34" />
+            <state relative-caret-position="369">
+              <caret line="207" column="3" lean-forward="true" selection-start-line="207" selection-start-column="3" selection-end-line="207" selection-end-column="3" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="navbar.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/navbar.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="393">
+              <caret line="131" column="0" lean-forward="false" selection-start-line="131" selection-start-column="0" selection-end-line="131" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -38,21 +67,9 @@
       <file leaf-file-name="scroll.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/scroll.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-222">
-              <caret line="48" column="16" lean-forward="false" selection-start-line="48" selection-start-column="16" selection-end-line="48" selection-end-column="16" />
+            <state relative-caret-position="340">
+              <caret line="20" column="36" lean-forward="false" selection-start-line="20" selection-start-column="36" selection-end-line="20" selection-end-column="36" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pages/groupPj/groupDetail/main.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#21#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -60,30 +77,41 @@
       <file leaf-file-name="index.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pages/groupPj/groupDetail/index.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+            <state relative-caret-position="-1688">
+              <caret line="80" column="87" lean-forward="false" selection-start-line="80" selection-start-column="87" selection-end-line="80" selection-end-column="87" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Card.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pages/cards/Card.vue">
+      <file leaf-file-name="index.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pages/groupPj/order/index.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="11" column="14" lean-forward="false" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
-              <folding />
+            <state relative-caret-position="331">
+              <caret line="672" column="0" lean-forward="false" selection-start-line="672" selection-start-column="0" selection-end-line="672" selection-end-column="0" />
+              <folding>
+                <element signature="n#div#3;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+                <element signature="n#div#2;n#div#0;n#template#0;n#!!top" expanded="false" />
+                <element signature="e#3585#3626#0" expanded="true" />
+                <element signature="e#4867#5291#0" expanded="false" />
+                <element signature="e#5319#5953#0" expanded="false" />
+                <element signature="e#5974#6800#0" expanded="false" />
+                <element signature="e#6911#7764#0" expanded="false" />
+                <element signature="e#8188#11583#0" expanded="false" />
+                <element signature="e#11611#12672#0" expanded="false" />
+                <element signature="e#16017#16252#0" expanded="false" />
+                <marker date="1536233973370" expanded="true" signature="3844:3847" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="prj.vue" pinned="false" current-in-tab="true">
+      <file leaf-file-name="prj.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pages/project/prj.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="246">
-              <caret line="221" column="8" lean-forward="false" selection-start-line="221" selection-start-column="8" selection-end-line="221" selection-end-column="8" />
+            <state relative-caret-position="187">
+              <caret line="11" column="165" lean-forward="false" selection-start-line="11" selection-start-column="165" selection-end-line="11" selection-end-column="165" />
               <folding>
-                <element signature="n#div#2;n#div#0;n#template#0;n#!!top" expanded="false" />
                 <element signature="n#div#3;n#div#0;n#template#0;n#!!top" expanded="false" />
                 <element signature="n#div#0;n#div#0;n#div#4;n#div#0;n#template#0;n#!!top" expanded="false" />
                 <element signature="n#div#3;n#div#0;n#div#4;n#div#0;n#template#0;n#!!top" expanded="false" />
@@ -91,48 +119,63 @@
                 <element signature="n#div#0;n#div#4;n#div#0;n#div#4;n#div#0;n#template#0;n#!!top" expanded="false" />
                 <element signature="n#div#1;n#div#4;n#div#0;n#div#4;n#div#0;n#template#0;n#!!top" expanded="false" />
                 <element signature="e#4516#4558#0" expanded="true" />
-                <marker date="1536226866374" expanded="false" signature="12845:12943" ph="{...}" />
-                <marker date="1536226866374" expanded="false" signature="13456:13637" ph="{...}" />
-                <marker date="1536226866374" expanded="false" signature="13650:13847" ph="{...}" />
-                <marker date="1536226866374" expanded="false" signature="13853:13994" ph="{...}" />
-                <marker date="1536226866374" expanded="false" signature="14007:14231" ph="{...}" />
-                <marker date="1536226866374" expanded="false" signature="14249:14365" ph="{...}" />
-                <marker date="1536226866374" expanded="false" signature="14393:14583" ph="{...}" />
-                <marker date="1536226866374" expanded="false" signature="14628:14779" ph="{...}" />
-                <marker date="1536226866374" expanded="false" signature="14819:15000" ph="{...}" />
-                <marker date="1536226866374" expanded="false" signature="15019:15144" ph="{...}" />
-                <marker date="1536226866374" expanded="false" signature="15164:15329" ph="{...}" />
-                <marker date="1536226866374" expanded="false" signature="15339:15410" ph="{...}" />
-                <marker date="1536226866374" expanded="false" signature="15441:15516" ph="{...}" />
-                <marker date="1536226866374" expanded="false" signature="15525:15567" ph="{...}" />
-                <marker date="1536226866374" expanded="false" signature="17083:17209" ph="{...}" />
-                <marker date="1536226866374" expanded="false" signature="17374:17607" ph="{...}" />
-                <marker date="1536226866374" expanded="false" signature="17618:17761" ph="{...}" />
-                <marker date="1536226866374" expanded="false" signature="17780:17938" ph="{...}" />
-                <marker date="1536226866374" expanded="false" signature="17970:18125" ph="{...}" />
-                <marker date="1536226866374" expanded="false" signature="18139:18201" ph="{...}" />
-                <marker date="1536226866374" expanded="false" signature="18218:18240" ph="{...}" />
-                <marker date="1536226866374" expanded="false" signature="18257:18349" ph="{...}" />
-                <marker date="1536226866374" expanded="false" signature="18360:18389" ph="{...}" />
-                <marker date="1536226866374" expanded="false" signature="18406:18500" ph="{...}" />
-                <marker date="1536226866374" expanded="false" signature="18519:18638" ph="{...}" />
-                <marker date="1536226866374" expanded="false" signature="18660:18721" ph="{...}" />
-                <marker date="1536226866374" expanded="false" signature="18735:18900" ph="{...}" />
-                <marker date="1536226866374" expanded="false" signature="18918:19017" ph="{...}" />
-                <marker date="1536226866374" expanded="false" signature="19023:19151" ph="{...}" />
-                <marker date="1536226866374" expanded="false" signature="21021:21130" ph="{...}" />
-                <marker date="1536226866374" expanded="false" signature="21149:21413" ph="{...}" />
+                <marker date="1536230992331" expanded="false" signature="12862:12960" ph="{...}" />
+                <marker date="1536230992331" expanded="false" signature="13473:13654" ph="{...}" />
+                <marker date="1536230992331" expanded="false" signature="13667:13864" ph="{...}" />
+                <marker date="1536230992331" expanded="false" signature="14024:14248" ph="{...}" />
+                <marker date="1536230992331" expanded="false" signature="14266:14382" ph="{...}" />
+                <marker date="1536230992331" expanded="false" signature="14410:14600" ph="{...}" />
+                <marker date="1536230992331" expanded="false" signature="14645:14796" ph="{...}" />
+                <marker date="1536230992331" expanded="false" signature="14836:15017" ph="{...}" />
+                <marker date="1536230992331" expanded="false" signature="15036:15161" ph="{...}" />
+                <marker date="1536230992331" expanded="false" signature="15181:15346" ph="{...}" />
+                <marker date="1536230992331" expanded="false" signature="15356:15427" ph="{...}" />
+                <marker date="1536230992331" expanded="false" signature="15458:15533" ph="{...}" />
+                <marker date="1536230992331" expanded="false" signature="15542:15584" ph="{...}" />
+                <marker date="1536230992331" expanded="false" signature="17100:17226" ph="{...}" />
+                <marker date="1536230992331" expanded="false" signature="17391:17624" ph="{...}" />
+                <marker date="1536230992331" expanded="false" signature="17635:17778" ph="{...}" />
+                <marker date="1536230992331" expanded="false" signature="17797:17955" ph="{...}" />
+                <marker date="1536230992331" expanded="false" signature="17987:18142" ph="{...}" />
+                <marker date="1536230992331" expanded="false" signature="18156:18218" ph="{...}" />
+                <marker date="1536230992331" expanded="false" signature="18235:18257" ph="{...}" />
+                <marker date="1536230992331" expanded="false" signature="18274:18366" ph="{...}" />
+                <marker date="1536230992331" expanded="false" signature="18377:18406" ph="{...}" />
+                <marker date="1536230992331" expanded="false" signature="18423:18517" ph="{...}" />
+                <marker date="1536230992331" expanded="false" signature="18536:18655" ph="{...}" />
+                <marker date="1536230992331" expanded="false" signature="18677:18738" ph="{...}" />
+                <marker date="1536230992331" expanded="false" signature="18752:18917" ph="{...}" />
+                <marker date="1536230992331" expanded="false" signature="18935:19034" ph="{...}" />
+                <marker date="1536230992331" expanded="false" signature="19040:19168" ph="{...}" />
+                <marker date="1536230992331" expanded="false" signature="21038:21147" ph="{...}" />
+                <marker date="1536230992331" expanded="false" signature="21166:21430" ph="{...}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="store.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/store.js">
+      <file leaf-file-name="Me.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pages/user/Me.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="8" column="31" lean-forward="false" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
-              <folding />
+            <state relative-caret-position="144">
+              <caret line="328" column="21" lean-forward="false" selection-start-line="328" selection-start-column="21" selection-end-line="328" selection-end-column="21" />
+              <folding>
+                <element signature="n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="false" />
+                <element signature="e#3227#6501#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Me.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pages/user/myboonList/Me.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="8" column="45" lean-forward="false" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="45" />
+              <folding>
+                <element signature="n#div#2;n#div#0;n#template#0;n#!!top" expanded="false" />
+                <element signature="e#1240#1291#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -147,20 +190,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="wechatF.png" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/img/wechatF.png">
-          <provider selected="true" editor-type-id="images">
-            <state />
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="group.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/group.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="37" lean-forward="false" selection-start-line="6" selection-start-column="37" selection-end-line="6" selection-end-column="37" />
+            <state relative-caret-position="612">
+              <caret line="36" column="6" lean-forward="false" selection-start-line="36" selection-start-column="6" selection-end-line="36" selection-end-column="6" />
               <folding>
-                <element signature="n#div#0;n#div#1;n#div#0;n#div#0;n#template#0;n#!!top" expanded="false" />
                 <element signature="e#1002#1051#0" expanded="true" />
               </folding>
             </state>
@@ -171,18 +206,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>nologin</find>
-      <find>mylist</find>
-      <find>pay</find>
-      <find>foodname</find>
-      <find>group_activities</find>
-      <find>attendGroup</find>
-      <find>group_activity_initial</find>
-      <find>group_activities_uuid</find>
-      <find>goGroup</find>
-      <find>group_activity_order_uuid</find>
-      <find>price</find>
-      <find>join-group</find>
       <find>group_activity_order_uuid</find>
       <find>group_activity_initial_uuid</find>
       <find>foodLabel</find>
@@ -191,16 +214,28 @@
       <find>groupActivitiesInit</find>
       <find>post</find>
       <find>groupActivities_order</find>
-      <find>host</find>
       <find>description</find>
       <find>win</find>
       <find>chooseAddress</find>
       <find>auth_code</find>
-      <find>formId</find>
       <find>...uuid_auth_code</find>
       <find>rewarded</find>
       <find>Diago</find>
       <find>getImg</find>
+      <find>1.15</find>
+      <find>prize</find>
+      <find>attendBoon</find>
+      <find>mylist</find>
+      <find>pjdetail</find>
+      <find>host</find>
+      <find>pjDetail</find>
+      <find>formId</find>
+      <find>商品详情</find>
+      <find>group-tiem</find>
+      <find>pj-price</find>
+      <find>ededed</find>
+      <find>2px</find>
+      <find>united_state_display</find>
     </findStrings>
     <replaceStrings>
       <replace>gray</replace>
@@ -252,28 +287,28 @@
         <option value="$PROJECT_DIR$/src/pages/home/Home.vue" />
         <option value="$PROJECT_DIR$/src/utils/wx.js" />
         <option value="$PROJECT_DIR$/server/controllers/groupInitDetail.js" />
-        <option value="$PROJECT_DIR$/src/components/navbar.vue" />
         <option value="$PROJECT_DIR$/server/controllers/groupDetail.js" />
-        <option value="$PROJECT_DIR$/src/pages/groupPj/groupDetail/index.vue" />
-        <option value="$PROJECT_DIR$/src/pages/groupPj/order/index.vue" />
         <option value="$PROJECT_DIR$/src/main.js" />
         <option value="$PROJECT_DIR$/server/package.json" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/src/config.js" />
-        <option value="$PROJECT_DIR$/src/pages/user/Me.vue" />
         <option value="$PROJECT_DIR$/src/pages/user/myGroup/Me.vue" />
-        <option value="$PROJECT_DIR$/src/pages/user/myboonList/Me.vue" />
         <option value="$PROJECT_DIR$/src/pages/test/Me.vue" />
         <option value="$PROJECT_DIR$/src/App.vue" />
         <option value="$PROJECT_DIR$/build/webpack.base.conf.js" />
-        <option value="$PROJECT_DIR$/src/components/group.vue" />
         <option value="$PROJECT_DIR$/src/pages/user/myGroup/myGroupDetail/Me.vue" />
         <option value="$PROJECT_DIR$/src/pages/user/myboonList/myBoon/Me.vue" />
-        <option value="$PROJECT_DIR$/src/pages/groupPj/index.vue" />
         <option value="$PROJECT_DIR$/src/components/scroll.vue" />
         <option value="$PROJECT_DIR$/src/store.js" />
         <option value="$PROJECT_DIR$/src/components/diago.vue" />
         <option value="$PROJECT_DIR$/src/pages/project/prj.vue" />
+        <option value="$PROJECT_DIR$/src/pages/groupPj/groupDetail/index.vue" />
+        <option value="$PROJECT_DIR$/src/pages/groupPj/order/index.vue" />
+        <option value="$PROJECT_DIR$/src/components/group.vue" />
+        <option value="$PROJECT_DIR$/src/components/navbar.vue" />
+        <option value="$PROJECT_DIR$/src/pages/user/Me.vue" />
+        <option value="$PROJECT_DIR$/src/pages/user/myboonList/Me.vue" />
+        <option value="$PROJECT_DIR$/src/pages/groupPj/index.vue" />
       </list>
     </option>
   </component>
@@ -290,8 +325,8 @@
     <handled-path value="$PROJECT_DIR$/server/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="394" />
-    <option name="y" value="-1070" />
+    <option name="x" value="54" />
+    <option name="y" value="-1006" />
     <option name="width" value="1827" />
     <option name="height" value="1070" />
   </component>
@@ -385,14 +420,7 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
               <item name="groupPj" type="462c0819:PsiDirectoryNode" />
-              <item name="groupDetail" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="newest" type="b2602c69:ProjectViewProjectNode" />
-              <item name="newest" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="home" type="462c0819:PsiDirectoryNode" />
+              <item name="order" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="newest" type="b2602c69:ProjectViewProjectNode" />
@@ -406,13 +434,6 @@
               <item name="newest" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="newest" type="b2602c69:ProjectViewProjectNode" />
-              <item name="newest" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
               <item name="user" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -422,15 +443,6 @@
               <item name="pages" type="462c0819:PsiDirectoryNode" />
               <item name="user" type="462c0819:PsiDirectoryNode" />
               <item name="myboonList" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="newest" type="b2602c69:ProjectViewProjectNode" />
-              <item name="newest" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
-              <item name="myboonList" type="462c0819:PsiDirectoryNode" />
-              <item name="myBoon" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="newest" type="b2602c69:ProjectViewProjectNode" />
@@ -519,15 +531,15 @@
       <workItem from="1534320959304" duration="42699000" />
       <workItem from="1534743312774" duration="159005000" />
       <workItem from="1535367210788" duration="2063000" />
-      <workItem from="1535424454711" duration="164567000" />
+      <workItem from="1535424454711" duration="174069000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="693587000" />
+    <option name="totallyTimeSpent" value="703089000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="394" y="-1070" width="1827" height="1070" extended-state="0" />
+    <frame x="54" y="-1006" width="1827" height="1070" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12679955" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -642,7 +654,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/pages/project/prj.vue</url>
-          <line>207</line>
+          <line>208</line>
           <option name="timeStamp" value="18" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
@@ -658,7 +670,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/pages/user/Me.vue</url>
-          <line>131</line>
+          <line>132</line>
           <properties />
           <option name="timeStamp" value="21" />
         </line-breakpoint>
@@ -799,14 +811,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/navbar.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="129" column="18" lean-forward="false" selection-start-line="129" selection-start-column="18" selection-end-line="129" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/skeleton/skeleton.wxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -852,83 +856,6 @@
         <state relative-caret-position="585">
           <caret line="60" column="0" lean-forward="false" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/groupPj/order/index.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="68" column="32" lean-forward="false" selection-start-line="68" selection-start-column="32" selection-end-line="68" selection-end-column="32" />
-          <folding>
-            <element signature="n#div#3;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
-            <element signature="n#div#5;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
-            <element signature="n#div#2;n#div#0;n#template#0;n#!!top" expanded="false" />
-            <element signature="e#3553#3594#0" expanded="true" />
-            <marker date="1536204997740" expanded="true" signature="3812:3815" ph="{...}" />
-            <marker date="1536204997740" expanded="true" signature="14447:23605" ph="..." />
-            <marker date="1536204997740" expanded="true" signature="14462:14572" ph="{...}" />
-            <marker date="1536204997740" expanded="true" signature="14612:14689" ph="{...}" />
-            <marker date="1536204997740" expanded="true" signature="14710:14925" ph="{...}" />
-            <marker date="1536204997740" expanded="true" signature="14893:14921" ph="{...}" />
-            <marker date="1536204997740" expanded="true" signature="14961:15141" ph="{...}" />
-            <marker date="1536204997740" expanded="true" signature="15182:15207" ph="{...}" />
-            <marker date="1536204997740" expanded="true" signature="15217:15303" ph="{...}" />
-            <marker date="1536204997740" expanded="true" signature="15318:15602" ph="{...}" />
-            <marker date="1536204997740" expanded="true" signature="15630:15682" ph="{...}" />
-            <marker date="1536204997740" expanded="true" signature="15709:15761" ph="{...}" />
-            <marker date="1536204997740" expanded="true" signature="15772:15895" ph="{...}" />
-            <marker date="1536204997740" expanded="true" signature="15907:15971" ph="{...}" />
-            <marker date="1536204997740" expanded="false" signature="15985:16220" ph="{...}" />
-            <marker date="1536204997740" expanded="true" signature="16235:16459" ph="{...}" />
-            <marker date="1536204997740" expanded="true" signature="16474:16554" ph="{...}" />
-            <marker date="1536204997740" expanded="true" signature="16564:16684" ph="{...}" />
-            <marker date="1536204997740" expanded="true" signature="16695:16741" ph="{...}" />
-            <marker date="1536204997740" expanded="true" signature="16755:16893" ph="{...}" />
-            <marker date="1536204997740" expanded="true" signature="16906:17060" ph="{...}" />
-            <marker date="1536204997740" expanded="true" signature="17074:17221" ph="{...}" />
-            <marker date="1536204997740" expanded="true" signature="17235:17262" ph="{...}" />
-            <marker date="1536204997740" expanded="true" signature="17273:17429" ph="{...}" />
-            <marker date="1536204997740" expanded="true" signature="17444:17537" ph="{...}" />
-            <marker date="1536204997740" expanded="true" signature="17595:17779" ph="{...}" />
-            <marker date="1536204997740" expanded="true" signature="17800:17934" ph="{...}" />
-            <marker date="1536204997740" expanded="true" signature="17950:18247" ph="{...}" />
-            <marker date="1536204997740" expanded="true" signature="18272:18339" ph="{...}" />
-            <marker date="1536204997740" expanded="true" signature="18357:18399" ph="{...}" />
-            <marker date="1536204997740" expanded="true" signature="18416:18460" ph="{...}" />
-            <marker date="1536204997740" expanded="true" signature="18469:18724" ph="{...}" />
-            <marker date="1536204997740" expanded="true" signature="18738:19024" ph="{...}" />
-            <marker date="1536204997740" expanded="true" signature="19047:19279" ph="{...}" />
-            <marker date="1536204997740" expanded="true" signature="19292:19435" ph="{...}" />
-            <marker date="1536204997740" expanded="true" signature="19455:19614" ph="{...}" />
-            <marker date="1536204997740" expanded="true" signature="19647:19799" ph="{...}" />
-            <marker date="1536204997740" expanded="true" signature="19814:19876" ph="{...}" />
-            <marker date="1536204997740" expanded="true" signature="19894:19917" ph="{...}" />
-            <marker date="1536204997740" expanded="true" signature="19936:20028" ph="{...}" />
-            <marker date="1536204997740" expanded="true" signature="20040:20069" ph="{...}" />
-            <marker date="1536204997740" expanded="true" signature="20085:20181" ph="{...}" />
-            <marker date="1536204997740" expanded="true" signature="20202:20322" ph="{...}" />
-            <marker date="1536204997740" expanded="true" signature="20346:20408" ph="{...}" />
-            <marker date="1536204997740" expanded="true" signature="20426:20610" ph="{...}" />
-            <marker date="1536204997740" expanded="true" signature="20629:20729" ph="{...}" />
-            <marker date="1536204997740" expanded="true" signature="20736:20865" ph="{...}" />
-            <marker date="1536204997740" expanded="true" signature="20891:21093" ph="{...}" />
-            <marker date="1536204997740" expanded="true" signature="21105:21359" ph="{...}" />
-            <marker date="1536204997740" expanded="true" signature="21373:21416" ph="{...}" />
-            <marker date="1536204997740" expanded="true" signature="21431:21787" ph="{...}" />
-            <marker date="1536204997740" expanded="true" signature="21816:21893" ph="{...}" />
-            <marker date="1536204997740" expanded="true" signature="21904:22009" ph="{...}" />
-            <marker date="1536204997740" expanded="true" signature="22026:22136" ph="{...}" />
-            <marker date="1536204997740" expanded="true" signature="22149:22234" ph="{...}" />
-            <marker date="1536204997740" expanded="true" signature="22256:22380" ph="{...}" />
-            <marker date="1536204997740" expanded="true" signature="22398:22737" ph="{...}" />
-            <marker date="1536204997740" expanded="true" signature="22750:22884" ph="{...}" />
-            <marker date="1536204997740" expanded="true" signature="22972:23026" ph="{...}" />
-            <marker date="1536204997740" expanded="true" signature="23057:23125" ph="{...}" />
-            <marker date="1536204997740" expanded="true" signature="23264:23367" ph="{...}" />
-            <marker date="1536204997740" expanded="true" signature="23377:23596" ph="{...}" />
-            <marker date="1536204997740" expanded="true" signature="23427:23523" ph="{...}" />
-            <marker date="1536204997740" expanded="true" signature="23542:23592" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1072,16 +999,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/user/Me.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="140" column="24" lean-forward="false" selection-start-line="140" selection-start-column="24" selection-end-line="140" selection-end-column="24" />
-          <folding>
-            <element signature="n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/user/myGroup/Me.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="279">
@@ -1095,17 +1012,6 @@
         <state relative-caret-position="102">
           <caret line="6" column="21" lean-forward="false" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/user/myboonList/Me.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="37" column="17" lean-forward="false" selection-start-line="37" selection-start-column="17" selection-end-line="37" selection-end-column="17" />
-          <folding>
-            <element signature="n#div#2;n#div#0;n#template#0;n#!!top" expanded="false" />
-            <element signature="e#1240#1291#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1136,29 +1042,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/groupPj/index.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="34" lean-forward="false" selection-start-line="6" selection-start-column="34" selection-end-line="6" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/groupPj/groupDetail/main.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#21#0" expanded="true" />
+            <element signature="e#0#21#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/groupPj/groupDetail/index.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1173,25 +1063,6 @@
     <entry file="file://$PROJECT_DIR$/static/img/wechatF.png">
       <provider selected="true" editor-type-id="images">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/group.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="37" lean-forward="false" selection-start-line="6" selection-start-column="37" selection-end-line="6" selection-end-column="37" />
-          <folding>
-            <element signature="n#div#0;n#div#1;n#div#0;n#div#0;n#template#0;n#!!top" expanded="false" />
-            <element signature="e#1002#1051#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/scroll.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-222">
-          <caret line="48" column="16" lean-forward="false" selection-start-line="48" selection-start-column="16" selection-end-line="48" selection-end-column="16" />
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/store.js">
@@ -1210,12 +1081,47 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/groupPj/groupDetail/index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1688">
+          <caret line="80" column="87" lean-forward="false" selection-start-line="80" selection-start-column="87" selection-end-line="80" selection-end-column="87" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/groupPj/order/index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="331">
+          <caret line="672" column="0" lean-forward="false" selection-start-line="672" selection-start-column="0" selection-end-line="672" selection-end-column="0" />
+          <folding>
+            <element signature="n#div#3;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#div#2;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="e#3585#3626#0" expanded="true" />
+            <element signature="e#4867#5291#0" expanded="false" />
+            <element signature="e#5319#5953#0" expanded="false" />
+            <element signature="e#5974#6800#0" expanded="false" />
+            <element signature="e#6911#7764#0" expanded="false" />
+            <element signature="e#8188#11583#0" expanded="false" />
+            <element signature="e#11611#12672#0" expanded="false" />
+            <element signature="e#16017#16252#0" expanded="false" />
+            <marker date="1536233973370" expanded="true" signature="3844:3847" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/scroll.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="36" lean-forward="false" selection-start-line="20" selection-start-column="36" selection-end-line="20" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/project/prj.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="221" column="8" lean-forward="false" selection-start-line="221" selection-start-column="8" selection-end-line="221" selection-end-column="8" />
+        <state relative-caret-position="187">
+          <caret line="11" column="165" lean-forward="false" selection-start-line="11" selection-start-column="165" selection-end-line="11" selection-end-column="165" />
           <folding>
-            <element signature="n#div#2;n#div#0;n#template#0;n#!!top" expanded="false" />
             <element signature="n#div#3;n#div#0;n#template#0;n#!!top" expanded="false" />
             <element signature="n#div#0;n#div#0;n#div#4;n#div#0;n#template#0;n#!!top" expanded="false" />
             <element signature="n#div#3;n#div#0;n#div#4;n#div#0;n#template#0;n#!!top" expanded="false" />
@@ -1223,38 +1129,85 @@
             <element signature="n#div#0;n#div#4;n#div#0;n#div#4;n#div#0;n#template#0;n#!!top" expanded="false" />
             <element signature="n#div#1;n#div#4;n#div#0;n#div#4;n#div#0;n#template#0;n#!!top" expanded="false" />
             <element signature="e#4516#4558#0" expanded="true" />
-            <marker date="1536226866374" expanded="false" signature="12845:12943" ph="{...}" />
-            <marker date="1536226866374" expanded="false" signature="13456:13637" ph="{...}" />
-            <marker date="1536226866374" expanded="false" signature="13650:13847" ph="{...}" />
-            <marker date="1536226866374" expanded="false" signature="13853:13994" ph="{...}" />
-            <marker date="1536226866374" expanded="false" signature="14007:14231" ph="{...}" />
-            <marker date="1536226866374" expanded="false" signature="14249:14365" ph="{...}" />
-            <marker date="1536226866374" expanded="false" signature="14393:14583" ph="{...}" />
-            <marker date="1536226866374" expanded="false" signature="14628:14779" ph="{...}" />
-            <marker date="1536226866374" expanded="false" signature="14819:15000" ph="{...}" />
-            <marker date="1536226866374" expanded="false" signature="15019:15144" ph="{...}" />
-            <marker date="1536226866374" expanded="false" signature="15164:15329" ph="{...}" />
-            <marker date="1536226866374" expanded="false" signature="15339:15410" ph="{...}" />
-            <marker date="1536226866374" expanded="false" signature="15441:15516" ph="{...}" />
-            <marker date="1536226866374" expanded="false" signature="15525:15567" ph="{...}" />
-            <marker date="1536226866374" expanded="false" signature="17083:17209" ph="{...}" />
-            <marker date="1536226866374" expanded="false" signature="17374:17607" ph="{...}" />
-            <marker date="1536226866374" expanded="false" signature="17618:17761" ph="{...}" />
-            <marker date="1536226866374" expanded="false" signature="17780:17938" ph="{...}" />
-            <marker date="1536226866374" expanded="false" signature="17970:18125" ph="{...}" />
-            <marker date="1536226866374" expanded="false" signature="18139:18201" ph="{...}" />
-            <marker date="1536226866374" expanded="false" signature="18218:18240" ph="{...}" />
-            <marker date="1536226866374" expanded="false" signature="18257:18349" ph="{...}" />
-            <marker date="1536226866374" expanded="false" signature="18360:18389" ph="{...}" />
-            <marker date="1536226866374" expanded="false" signature="18406:18500" ph="{...}" />
-            <marker date="1536226866374" expanded="false" signature="18519:18638" ph="{...}" />
-            <marker date="1536226866374" expanded="false" signature="18660:18721" ph="{...}" />
-            <marker date="1536226866374" expanded="false" signature="18735:18900" ph="{...}" />
-            <marker date="1536226866374" expanded="false" signature="18918:19017" ph="{...}" />
-            <marker date="1536226866374" expanded="false" signature="19023:19151" ph="{...}" />
-            <marker date="1536226866374" expanded="false" signature="21021:21130" ph="{...}" />
-            <marker date="1536226866374" expanded="false" signature="21149:21413" ph="{...}" />
+            <marker date="1536230992331" expanded="false" signature="12862:12960" ph="{...}" />
+            <marker date="1536230992331" expanded="false" signature="13473:13654" ph="{...}" />
+            <marker date="1536230992331" expanded="false" signature="13667:13864" ph="{...}" />
+            <marker date="1536230992331" expanded="false" signature="14024:14248" ph="{...}" />
+            <marker date="1536230992331" expanded="false" signature="14266:14382" ph="{...}" />
+            <marker date="1536230992331" expanded="false" signature="14410:14600" ph="{...}" />
+            <marker date="1536230992331" expanded="false" signature="14645:14796" ph="{...}" />
+            <marker date="1536230992331" expanded="false" signature="14836:15017" ph="{...}" />
+            <marker date="1536230992331" expanded="false" signature="15036:15161" ph="{...}" />
+            <marker date="1536230992331" expanded="false" signature="15181:15346" ph="{...}" />
+            <marker date="1536230992331" expanded="false" signature="15356:15427" ph="{...}" />
+            <marker date="1536230992331" expanded="false" signature="15458:15533" ph="{...}" />
+            <marker date="1536230992331" expanded="false" signature="15542:15584" ph="{...}" />
+            <marker date="1536230992331" expanded="false" signature="17100:17226" ph="{...}" />
+            <marker date="1536230992331" expanded="false" signature="17391:17624" ph="{...}" />
+            <marker date="1536230992331" expanded="false" signature="17635:17778" ph="{...}" />
+            <marker date="1536230992331" expanded="false" signature="17797:17955" ph="{...}" />
+            <marker date="1536230992331" expanded="false" signature="17987:18142" ph="{...}" />
+            <marker date="1536230992331" expanded="false" signature="18156:18218" ph="{...}" />
+            <marker date="1536230992331" expanded="false" signature="18235:18257" ph="{...}" />
+            <marker date="1536230992331" expanded="false" signature="18274:18366" ph="{...}" />
+            <marker date="1536230992331" expanded="false" signature="18377:18406" ph="{...}" />
+            <marker date="1536230992331" expanded="false" signature="18423:18517" ph="{...}" />
+            <marker date="1536230992331" expanded="false" signature="18536:18655" ph="{...}" />
+            <marker date="1536230992331" expanded="false" signature="18677:18738" ph="{...}" />
+            <marker date="1536230992331" expanded="false" signature="18752:18917" ph="{...}" />
+            <marker date="1536230992331" expanded="false" signature="18935:19034" ph="{...}" />
+            <marker date="1536230992331" expanded="false" signature="19040:19168" ph="{...}" />
+            <marker date="1536230992331" expanded="false" signature="21038:21147" ph="{...}" />
+            <marker date="1536230992331" expanded="false" signature="21166:21430" ph="{...}" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/group.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="36" column="6" lean-forward="false" selection-start-line="36" selection-start-column="6" selection-end-line="36" selection-end-column="6" />
+          <folding>
+            <element signature="e#1002#1051#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/navbar.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="393">
+          <caret line="131" column="0" lean-forward="false" selection-start-line="131" selection-start-column="0" selection-end-line="131" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/user/Me.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="328" column="21" lean-forward="false" selection-start-line="328" selection-start-column="21" selection-end-line="328" selection-end-column="21" />
+          <folding>
+            <element signature="n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="e#3227#6501#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/user/myboonList/Me.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="45" lean-forward="false" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="45" />
+          <folding>
+            <element signature="n#div#2;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="e#1240#1291#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/groupPj/index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="369">
+          <caret line="207" column="3" lean-forward="true" selection-start-line="207" selection-start-column="3" selection-end-line="207" selection-end-column="3" />
+          <folding />
         </state>
       </provider>
     </entry>

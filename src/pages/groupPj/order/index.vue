@@ -57,7 +57,7 @@
 
       <div class="pjDetail">
         商品详情
-        <rich-text :nodes="order_info.detail" ></rich-text>
+        <rich-text :nodes="order_info.group_activity.detail" class="pjdetail" ></rich-text>
 
       </div>
     </div>
@@ -668,16 +668,15 @@
     /*width: 348px;*/
 
     margin: 0 auto;
-    padding-left: 25px;
-    font-family: PingFangSC-Medium;
+    padding:0 25px;
+    font-family: PingFangSC-Regular;
     color: #333;
     font-size: 16px;
-
-  }
-
-  .pjDetail {
     text-align: left;
+    margin-bottom: 60px;
   }
+
+
 
   .share {
     width: 180px;

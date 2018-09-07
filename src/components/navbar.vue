@@ -132,7 +132,9 @@
 
   .title{
     text-align: center;
-
+    font-family: PingFangSC-Medium;
+    font-size: 17px;
+    letter-spacing: -0.4px;
     width: 150px;
     display: inline-block;
     /*margin: 0 auto;*/

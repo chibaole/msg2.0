@@ -135,7 +135,7 @@
     line-height: 40px;
     margin: 0 auto;
     position: relative;
-    border-bottom: 2px solid #ededed ;
+    border-bottom: 1px solid #eee ;
 
   }
   .orderNum .left{
@@ -160,7 +160,7 @@
 
   }
   .orderInfo{
-    border-bottom: 2px solid #ededed;
+    border-bottom: 1px solid #eee;
     padding-bottom: 10px;
     position: relative;
     width: 325px;

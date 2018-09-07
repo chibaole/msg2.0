@@ -8,7 +8,7 @@
       <div class="info-box ">
         <div class="group-info ">
             <div class="group-text ">{{group_activitie.title}}</div>
-            <div class="group-prj-price ">${{group_activitie.current_price}} <span class="price ">¥{{group_activitie.original_price}}</span></div>
+            <div class="group-prj-price ">¥{{group_activitie.current_price}} <span class="price ">¥{{group_activitie.original_price}}</span></div>
 
         </div>
         <!--<div class="join-group " @click="goGroup" :data-groupname="groupname" :data-uuid="group_activitie.uuid">{{group_activitie.button.text}}</div>-->
@@ -101,7 +101,8 @@
   .group-tiem{
     width: 325px;
     height: 231px;
-    margin:0 auto;
+    margin:0 auto 60px;
+
     /*margin-bottom: 7px;*/
   }
 

@@ -47,7 +47,7 @@
   line-height: 80rpx;
   margin: 0 auto;
   position: relative;
-  border-bottom: 4rpx solid #ededed;
+  border-bottom: 2rpx solid #eee;
 }
 .orderNum .left.data-v-7ec0cb2e {
   width: 450rpx;
@@ -70,7 +70,7 @@
   right: 0;
 }
 .orderInfo.data-v-7ec0cb2e {
-  border-bottom: 4rpx solid #ededed;
+  border-bottom: 2rpx solid #eee;
   padding-bottom: 20rpx;
   position: relative;
   width: 650rpx;

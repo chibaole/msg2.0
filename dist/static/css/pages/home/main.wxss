@@ -201,7 +201,7 @@
 .group-tiem.data-v-318ee708 {
   width: 650rpx;
   height: 462rpx;
-  margin: 0 auto;
+  margin: 0 auto 120rpx;
 }
 .group-tiem .pic.data-v-318ee708 {
   width: 100%;

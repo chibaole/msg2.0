@@ -181,6 +181,7 @@
       // 参加福利 即抽奖操作
       async attendBoon () {
         var that = this
+        console.log('抽奖')
 
         let currentuser_code = wx.getStorageSync('auth_code')
 
@@ -192,7 +193,7 @@
         let auth_code = currentuser_code
         let uuid_authCode= [boonID, auth_code]
 
-        let res = await that.$store.dispatch('attendBoon', {...uuid_auth_code})
+        let res = await that.$store.dispatch('attendBoon', {...uuid_authCode})
         console.log(res)
         that.prize = '待开奖'
         that.prizeStyle = 'waiting'

@@ -113,7 +113,7 @@
   position: absolute;
 }
 .mylist.data-v-3105212a {
-  border-bottom: 4rpx solid #ededed;
+  border-bottom: 2rpx solid #eee;
   height: 140rpx;
   width: 650rpx;
   margin: 0 auto;

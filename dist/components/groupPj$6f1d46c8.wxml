@@ -48,7 +48,7 @@
       </view>
       <view class="_div data-v-b3a874ec line"></view>
       <view class="_div data-v-b3a874ec pjDetail"> 商品详情
-        <rich-text nodes="{{order_info.detail}}" class="_rich-text data-v-b3a874ec"></rich-text>
+        <rich-text nodes="{{order_info.group_activity.detail}}" class="_rich-text data-v-b3a874ec pjdetail"></rich-text>
       </view>
     </view>
     <form report-submit="{{true}}" bindsubmit="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}" class="_form data-v-b3a874ec">

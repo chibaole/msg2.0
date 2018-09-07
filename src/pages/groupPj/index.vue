@@ -15,7 +15,7 @@
           <div class="pj-info">
             <h2 class="pj-name"><span class="mark">{{group_activity.group_type}}</span>{{group_activity.title}}</h2>
             <p class="pj-text">{{group_activity.description}}</p>
-            <p class="pj-price">¥{{group_activity.current_price}}<span>拼团价</span><span>{{group_activity.original_price}}</span></p>
+            <p class="pj-price">¥&nbsp;{{group_activity.current_price}}<span>拼团价</span><span>{{group_activity.original_price}}</span></p>
           </div>
     </div>
     <!--<div class="line"></div>    &lt;!&ndash;分割线&ndash;&gt;-->
@@ -28,7 +28,7 @@
     </div>
 
     <div class="pjDetail">
-      <h2 class="pjdetail">商品详情</h2>
+      <!--<h2 class="pjdetail">商品详情</h2>-->
       <rich-text :nodes="myDetail" ></rich-text>
 
 
@@ -40,7 +40,7 @@
       <!--<div class="price">¥{{group_activity.current_price}}<span>还剩{{group_activity.stock}}份</span></div>-->
 
       <!--<div class="join-group" @click="initGroup" :data-prjname="pjname" >{{group_activity.button.text}}</div>-->
-      <span class="price">¥{{group_activity.current_price}}<span>还剩{{group_activity.stock}}份</span></span>
+      <span class="price">¥&nbsp;{{group_activity.current_price}}<span>还剩{{group_activity.stock}}份</span></span>
 
       <form  @submit = 'initGroup'  :report-submit=true  >
         <button formType="submit">{{group_activity.button.text}}</button>
@@ -204,6 +204,7 @@
     overflow: hidden;
     border-radius: 5px 5px 5px 5px;
     box-shadow: 0 4px 10px #7fcccccc;
+    /*border:1px solid #000;*/
   }
   .pic img{
     width: 100%;
@@ -280,7 +281,7 @@
   }
 
   .pj-price{
-    width: 93px;
+    min-width: 93px;
     height: 20px;
     color: #f83713;
 
@@ -289,7 +290,7 @@
     font-family: PingFangSC-Medium;
 
     /*border: 1px solid #F00000;*/
-    letter-spacing: 4px;
+    /*letter-spacing: 4px;*/
     margin-top: 15px;
 
   }
@@ -302,7 +303,7 @@
     line-height: 20px;
     color: #f83713;
     letter-spacing: 0px;
-    margin-left: -4px;
+    margin-left: -1px;
 
 
 
@@ -314,8 +315,9 @@
   font-family: PingFangSC-Regular;
   line-height:26px;
   color: #999;
-  float: right;
+  /*float: right;*/
   letter-spacing: 0px;
+  margin-left: 5px;
 
 
 
@@ -330,9 +332,17 @@
 
 .pjDetail{
   background: #fff;
-  height: 100px;
+  min-height: 100px;
   border-top: 1px solid #fff;
   /*border: 1px solid #000;*/
+  font-family: PingFangSC-Regular;
+  font-size: 12px;
+
+
+  text-align: left;
+  padding: 0 25px ;
+  margin-bottom: 60px;
+
 
 
 }
@@ -374,9 +384,7 @@
   margin-left: 25px;
 }
 
-.pjDetail{
-  text-align: center;
-}
+
 
 
 .pay{

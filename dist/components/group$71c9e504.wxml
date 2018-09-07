@@ -9,7 +9,7 @@
       <view class="_div data-v-318ee708 info-box ">
         <view class="_div data-v-318ee708 group-info ">
           <view class="_div data-v-318ee708 group-text ">{{group_activitie.title}}</view>
-          <view class="_div data-v-318ee708 group-prj-price ">${{group_activitie.current_price}}
+          <view class="_div data-v-318ee708 group-prj-price ">¥{{group_activitie.current_price}}
             <label class="_span data-v-318ee708 price ">¥{{group_activitie.original_price}}</label>
           </view>
         </view>

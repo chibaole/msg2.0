@@ -251,6 +251,9 @@ global.webpackJsonp([3],{
             switch (_context.prev = _context.next) {
               case 0:
                 that = _this;
+
+                console.log('抽奖');
+
                 currentuser_code = wx.getStorageSync('auth_code');
 
                 //        let attendBoon_data = await post(`/v1/boons/${that.uuid}/attend?auth_code=${currentuser_code}`)
@@ -260,17 +263,17 @@ global.webpackJsonp([3],{
                 boonID = that.boon.uuid;
                 auth_code = currentuser_code;
                 uuid_authCode = [boonID, auth_code];
-                _context.next = 7;
-                return that.$store.dispatch('attendBoon', __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends___default()({}, uuid_auth_code));
+                _context.next = 8;
+                return that.$store.dispatch('attendBoon', __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends___default()({}, uuid_authCode));
 
-              case 7:
+              case 8:
                 res = _context.sent;
 
                 console.log(res);
                 that.prize = '待开奖';
                 that.prizeStyle = 'waiting';
 
-              case 11:
+              case 12:
               case 'end':
                 return _context.stop();
             }
