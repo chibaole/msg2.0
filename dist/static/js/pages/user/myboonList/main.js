@@ -1,6 +1,6 @@
 global.webpackJsonp([6],{
 
-/***/ 121:
+/***/ 120:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -62,7 +62,8 @@ global.webpackJsonp([6],{
   data: function data() {
     return {
       navbar_title: '我的抽奖',
-      boonList: []
+      boonList: [],
+      userinfo: {}
 
     };
   },
@@ -84,13 +85,27 @@ global.webpackJsonp([6],{
           url: '/pages/user/myboonList/myBoon/main?uuid=' + uuid
         });
       }
+    },
+    addList: function addList() {
+      var that = this;
+      console.log(that.all_list);
+      that.size += 10;
+      console.log(that.size);
+
+      if (that.size >= that.all_list.length) {
+        that.size = that.all_list.length;
+        that.myGroup_list = that.all_list;
+        console.log();
+      } else {
+        that.myGroup_list = that.all_list.slice(0, that.size);
+      }
     }
   },
   onLoad: function onLoad() {
     var _this = this;
 
     return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
-      var that, auth_code, data, boonList;
+      var that, auth_code, data, boonList, userinfo;
       return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
@@ -107,8 +122,11 @@ global.webpackJsonp([6],{
               console.log(boonList);
               that.boonList = boonList.boon_orders;
               console.log(that.boonList);
+              userinfo = wx.getStorageSync('userinfo');
 
-            case 9:
+              that.userinfo = userinfo;
+
+            case 11:
             case 'end':
               return _context.stop();
           }
@@ -127,7 +145,7 @@ global.webpackJsonp([6],{
 
 /***/ }),
 
-/***/ 223:
+/***/ 225:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -160,7 +178,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       staticClass: "right"
     }, [_c('span', [_vm._v(_vm._s(item.united_state_display))]), _vm._v(" "), _c('img', {
       attrs: {
-        "src": "http://pbmrxkahq.bkt.clouddn.com/%E6%9B%B4%E5%A4%9A.png",
+        "src": "http://pbmrxkahq.bkt.clouddn.com/more_right.png",
         "alt": ""
       }
     })])]), _vm._v(" "), _c('div', {
@@ -183,7 +201,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }, [_vm._v(_vm._s(item.boon.description))])], 1)]), _vm._v(" "), _c('div', {
       staticClass: "explain"
     }, [_c('span', [_vm._v(_vm._s(item.boon.lottery_detail))])])])])
-  }), _vm._v(" "), (true) ? _c('div', {
+  }), _vm._v(" "), (_vm.loadMore) ? _c('div', {
     staticClass: "getMore"
   }, [_vm._v("加载更多")]) : _vm._e(), _vm._v(" "), _c('div', {
     staticClass: "service"
@@ -212,12 +230,12 @@ if (false) {
 
 /***/ }),
 
-/***/ 77:
+/***/ 76:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_Me_vue__ = __webpack_require__(121);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_7ec0cb2e_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_Me_vue__ = __webpack_require__(223);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_Me_vue__ = __webpack_require__(120);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_7ec0cb2e_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_Me_vue__ = __webpack_require__(225);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
@@ -266,14 +284,14 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 92:
+/***/ 91:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Me__ = __webpack_require__(77);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Me__ = __webpack_require__(76);
 
 
 
@@ -282,5 +300,5 @@ app.$mount();
 
 /***/ })
 
-},[92]);
+},[91]);
 //# sourceMappingURL=main.js.map

@@ -10,7 +10,7 @@
           </view>
           <view class="_div data-v-7ec0cb2e right">
             <label class="_span data-v-7ec0cb2e">{{item.united_state_display}}</label>
-            <image src="http://pbmrxkahq.bkt.clouddn.com/%E6%9B%B4%E5%A4%9A.png" alt class="_img data-v-7ec0cb2e"></image>
+            <image src="http://pbmrxkahq.bkt.clouddn.com/more_right.png" alt class="_img data-v-7ec0cb2e"></image>
           </view>
         </view>
         <view class="_div data-v-7ec0cb2e orderInfo">
@@ -28,7 +28,7 @@
         </view>
       </view>
     </view>
-    <view class="_div data-v-7ec0cb2e getMore" wx:if="{{true}}">加载更多</view>
+    <view class="_div data-v-7ec0cb2e getMore" wx:if="{{loadMore}}">加载更多</view>
     <view class="_div data-v-7ec0cb2e service">
       <contact-button size="22" class="_contact-button data-v-7ec0cb2e pos"></contact-button>
       <image class="_img data-v-7ec0cb2e icon_kf" src="http://pbmrxkahq.bkt.clouddn.com/msgservice.png"></image>

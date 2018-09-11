@@ -7,6 +7,8 @@ Vue.use(Vuex)
 // const apiDomain = 'http://47.98.170.205/api/v1'
 const apiDomain = 'https://msg.chibaole.cc/api/v1'
 export default new Vuex.Store({
+
+
   actions: {
 
     // 仅注册用户 传递code  换取openid 建设账户体系
@@ -148,6 +150,11 @@ export default new Vuex.Store({
         method: 'post',
         url: `${apiDomain}/group_activity_initials/${uuid_authCode[0]}/attend?auth_code=${uuid_authCode[1]}`
       })
+      console.log(attendData)
+      if(attendData == undefined){
+        showModal('参与失败', '你已经在当前的拼团')
+
+      }
       return attendData
     },
 

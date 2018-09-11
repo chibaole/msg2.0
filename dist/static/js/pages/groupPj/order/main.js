@@ -1,6 +1,6 @@
 global.webpackJsonp([4],{
 
-/***/ 113:
+/***/ 112:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -11,7 +11,7 @@ global.webpackJsonp([4],{
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_groupCard__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vue2_countdown__ = __webpack_require__(236);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vue2_countdown__ = __webpack_require__(238);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vue2_countdown___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_vue2_countdown__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_navbar__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__utils_util__ = __webpack_require__(12);
@@ -20,6 +20,8 @@ global.webpackJsonp([4],{
 
 
 
+//
+//
 //
 //
 //
@@ -147,19 +149,6 @@ global.webpackJsonp([4],{
       showModal: false,
       groupNum: 1,
       groupuer: [],
-      team: [{
-        nickname: '张三',
-        pic: '../../../../static/img/unlogin.png',
-        captain: true
-      }, {
-        nickname: '赵四',
-        pic: '../../../../static/img/unlogin.png',
-        captain: false
-      }, {
-        nickname: '王五',
-        pic: '../../../../static/img/unlogin.png',
-        captain: false
-      }],
       order_info: {},
       showBox: false,
       painting: {},
@@ -169,7 +158,8 @@ global.webpackJsonp([4],{
       scanCode: true,
       group_activity_initial_uuid: '',
       group_activity_initials_finish: false,
-      host: __WEBPACK_IMPORTED_MODULE_8__config__["a" /* default */].host
+      host: __WEBPACK_IMPORTED_MODULE_8__config__["a" /* default */].host,
+      onekeyAttend: false
     };
   },
 
@@ -235,20 +225,40 @@ global.webpackJsonp([4],{
               case 6:
                 group_activity_orders = _context2.sent;
 
-                console.log(group_activity_orders);
+                //      console.log(group_activity_orders)// group_activity_orders = underfind ? '参与失败'：参与成功
+
+
                 group_activity_order_uuid = group_activity_orders.group_activity_order.uuid;
 
                 console.log(group_activity_order_uuid);
 
                 // 支付参与拼团的订单
 
-                _context2.next = 12;
+
+                _context2.next = 11;
                 return that.$store.dispatch('group_pay', group_activity_order_uuid);
 
-              case 12:
+              case 11:
                 join_res = _context2.sent;
 
                 console.log(join_res);
+
+                wx.requestPayment({
+                  'timeStamp': String(join_res.time_stamp),
+                  'nonceStr': String(join_res.nonce_str),
+                  'package': String(join_res.package),
+                  'signType': String(join_res.sign_type),
+                  'paySign': String(join_res.pay_sign),
+                  'success': function success(res) {
+                    console.log(res);
+                    that.onekeyAttend = false;
+                  },
+                  'fail': function fail(res) {
+                    console.log(res);
+                    console.log('支付错误');
+                    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_6__utils_util__["b" /* showModal */])('支付失败', '请尝试重新支付');
+                  }
+                });
 
               case 14:
               case 'end':
@@ -587,22 +597,17 @@ global.webpackJsonp([4],{
         while (1) {
           switch (_context6.prev = _context6.next) {
             case 0:
-              console.log('支付后的订单详情');
-              console.log('参数' + options);
-              console.log(options);
               that = _this6;
-              //                                              group_activity_initial_uuid
-
               group_activity_initial_uuid = options.group_activity_initial_uuid; // 发起拼团活动返回订单uuid
 
               that.group_activity_initial_uuid = group_activity_initial_uuid;
 
               currentuser_code = wx.getStorageSync('auth_code');
               uuid_authCode = [group_activity_initial_uuid, currentuser_code];
-              _context6.next = 10;
+              _context6.next = 7;
               return that.$store.dispatch('groupActivitiesInit', __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default()({}, uuid_authCode));
 
-            case 10:
+            case 7:
               orderData = _context6.sent;
               order_user = orderData.group_activity_initial.users; // []
 
@@ -620,10 +625,16 @@ global.webpackJsonp([4],{
               }
 
               that.order_info = orderData.group_activity_initial;
+              if (that.order_info.is_initiator === false) {
+                that.onekeyAttend = true;
+              } else {
+                that.onekeyAttend = false;
+              }
+              console.log(that.order_info.is_initiator);
 
               that.getlastTime();
 
-            case 18:
+            case 17:
             case 'end':
               return _context6.stop();
           }
@@ -670,13 +681,13 @@ global.webpackJsonp([4],{
 
 /***/ }),
 
-/***/ 196:
+/***/ 198:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_mpvue_loader_lib_selector_type_script_index_0_vue2_countdown_vue__ = __webpack_require__(94);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mpvue_loader_lib_template_compiler_index_id_data_v_eeaf0e42_hasScoped_false_transformToRequire_video_src_source_src_img_src_image_xlink_href_mpvue_loader_lib_selector_type_template_index_0_vue2_countdown_vue__ = __webpack_require__(230);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_mpvue_loader_lib_selector_type_script_index_0_vue2_countdown_vue__ = __webpack_require__(93);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mpvue_loader_lib_template_compiler_index_id_data_v_eeaf0e42_hasScoped_false_transformToRequire_video_src_source_src_img_src_image_xlink_href_mpvue_loader_lib_selector_type_template_index_0_vue2_countdown_vue__ = __webpack_require__(232);
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
@@ -721,7 +732,7 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 228:
+/***/ 230:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -850,7 +861,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   }, [_c('img', {
     staticClass: "x",
     attrs: {
-      "src": __webpack_require__(57),
+      "src": "http://pbmrxkahq.bkt.clouddn.com/close.png",
       "alt": "",
       "eventid": '5'
     },
@@ -866,7 +877,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }, [_c('img', {
     attrs: {
-      "src": __webpack_require__(58),
+      "src": "http://pbmrxkahq.bkt.clouddn.com/wechatF.png",
       "alt": ""
     }
   })]), _vm._v(" "), _c('div', {
@@ -879,7 +890,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }, [_c('img', {
     attrs: {
-      "src": __webpack_require__(59),
+      "src": "http://pbmrxkahq.bkt.clouddn.com/wechatimg.png",
       "alt": ""
     }
   })]), _vm._v(" "), _c('div', {
@@ -895,11 +906,11 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     on: {
       "click": _vm.getImg
     }
-  }, [_vm._v("生成分享图片")])], 1) : _vm._e()]) : _vm._e(), _vm._v(" "), (_vm.order_info.is_initiator == false) ? _c('div', {
+  }, [_vm._v("生成分享图片")])], 1) : _vm._e()]) : _vm._e(), _vm._v(" "), (_vm.onekeyAttend) ? _c('div', {
     staticClass: "pay"
   }, [_c('div', {
     staticClass: "price"
-  }, [_vm._v("¥" + _vm._s(_vm.order_info.current_price)), _c('span', [_vm._v("还剩{{}}")])]), _vm._v(" "), _c('div', {
+  }, [_vm._v("¥" + _vm._s(_vm.order_info.group_activity.current_price)), _c('span', [_vm._v("还剩" + _vm._s(_vm.order_info.group_activity.product.num))])]), _vm._v(" "), _c('div', {
     staticClass: "join-group",
     attrs: {
       "data-uuid": _vm.order_info.uuid,
@@ -932,7 +943,7 @@ if (false) {
 
 /***/ }),
 
-/***/ 230:
+/***/ 232:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -952,33 +963,12 @@ if (false) {
 
 /***/ }),
 
-/***/ 57:
-/***/ (function(module, exports) {
-
-module.exports = "data:image/png;base64,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ZWF0ZQAyMDE4LTA2LTI4VDIxOjU2OjExKzA4OjAwFhGfvAAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxNC0wNS0wMVQyMDo0OTo0MyswODowMBrTyDUAAABDdEVYdHNvZnR3YXJlAC91c3IvbG9jYWwvaW1hZ2VtYWdpY2svc2hhcmUvZG9jL0ltYWdlTWFnaWNrLTcvL2luZGV4Lmh0bWy9tXkKAAAAJXRFWHRzdmc6Y29tbWVudAAgR2VuZXJhdGVkIGJ5IEljb01vb24uaW8gMMvLSAAAABh0RVh0VGh1bWI6OkRvY3VtZW50OjpQYWdlcwAxp/+7LwAAABh0RVh0VGh1bWI6OkltYWdlOjpIZWlnaHQANzExFQDWVQAAABd0RVh0VGh1bWI6OkltYWdlOjpXaWR0aAA3MTGG8YYIAAAAGXRFWHRUaHVtYjo6TWltZXR5cGUAaW1hZ2UvcG5nP7JWTgAAABd0RVh0VGh1bWI6Ok1UaW1lADEzOTg5NDg1ODMkGKneAAAAEXRFWHRUaHVtYjo6U2l6ZQA5MTAwQhYI4GQAAABidEVYdFRodW1iOjpVUkkAZmlsZTovLy9ob21lL3d3d3Jvb3QvbmV3c2l0ZS93d3cuZWFzeWljb24ubmV0L2Nkbi1pbWcuZWFzeWljb24uY24vc3JjLzExNTc2LzExNTc2ODMucG5ndsRAiQAAAABJRU5ErkJggg=="
-
-/***/ }),
-
-/***/ 58:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "static/img/wechatF.png";
-
-/***/ }),
-
-/***/ 59:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "static/img/wechatimg.png";
-
-/***/ }),
-
-/***/ 69:
+/***/ 68:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_index_vue__ = __webpack_require__(113);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_b3a874ec_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_index_vue__ = __webpack_require__(228);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_index_vue__ = __webpack_require__(112);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_b3a874ec_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_index_vue__ = __webpack_require__(230);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
@@ -1027,14 +1017,14 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 84:
+/***/ 83:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__index__ = __webpack_require__(69);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__index__ = __webpack_require__(68);
 
 
 
@@ -1049,7 +1039,7 @@ app.$mount();
 
 /***/ }),
 
-/***/ 94:
+/***/ 93:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1254,5 +1244,5 @@ app.$mount();
 
 /***/ })
 
-},[84]);
+},[83]);
 //# sourceMappingURL=main.js.map

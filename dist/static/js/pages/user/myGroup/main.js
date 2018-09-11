@@ -1,6 +1,6 @@
 global.webpackJsonp([8],{
 
-/***/ 119:
+/***/ 118:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -17,6 +17,9 @@ global.webpackJsonp([8],{
 
 
 
+//
+//
+//
 //
 //
 //
@@ -66,8 +69,13 @@ global.webpackJsonp([8],{
       all_list: [],
       page: 1,
       size: 10,
-      showGetMore: true
-    };
+      showGetMore: false,
+      userinfo: {
+        avatar_url: 'http://image.shengxinjing.cn/rate/unlogin.png',
+        nick_name: '没事干研究院',
+        level_display: '',
+        is_authorized: true
+      } };
   },
 
 
@@ -97,7 +105,7 @@ global.webpackJsonp([8],{
     var _this = this;
 
     return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
-      var that, auth_code, data, groupList, init_size;
+      var that, auth_code, data, groupList, init_size, userinfo;
       return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
@@ -114,8 +122,11 @@ global.webpackJsonp([8],{
 
               that.all_list = groupList.group_activity_orders;
               that.myGroup_list = that.all_list.slice(0, init_size);
+              userinfo = wx.getStorageSync('userinfo');
 
-            case 9:
+              that.userinfo = userinfo;
+
+            case 11:
             case 'end':
               return _context.stop();
           }
@@ -134,7 +145,7 @@ global.webpackJsonp([8],{
 
 /***/ }),
 
-/***/ 216:
+/***/ 218:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -189,10 +200,13 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }, [_vm._v("¥" + _vm._s(item.current_price))])])])])
   }), _vm._v(" "), _c('div', {
     staticClass: "service"
-  }, [_c('contact-button', {
+  }, [_c('button', {
     staticClass: "pos",
     attrs: {
-      "size": "22"
+      "type": "default",
+      "size": "22",
+      "session-from": "{ 'nickName':'刘攀','avatarUrl':'http://image.shengxinjing.cn/rate/unlogin.png' }",
+      "open-type": "contact"
     }
   }), _vm._v(" "), _c('img', {
     staticClass: "icon_kf",
@@ -226,12 +240,12 @@ if (false) {
 
 /***/ }),
 
-/***/ 75:
+/***/ 74:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_Me_vue__ = __webpack_require__(119);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_4656d1c7_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_Me_vue__ = __webpack_require__(216);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_Me_vue__ = __webpack_require__(118);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_4656d1c7_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_Me_vue__ = __webpack_require__(218);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
@@ -280,14 +294,14 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 90:
+/***/ 89:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Me__ = __webpack_require__(75);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Me__ = __webpack_require__(74);
 
 
 
@@ -296,5 +310,5 @@ app.$mount();
 
 /***/ })
 
-},[90]);
+},[89]);
 //# sourceMappingURL=main.js.map

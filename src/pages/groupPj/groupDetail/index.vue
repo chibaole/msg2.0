@@ -91,13 +91,13 @@
           console.log('支付错误')
           showModal('支付失败', '请尝试重新支付')
 
-          let group_activity_initial_uuid = that.order_info.group_activity_initial.uuid
-
-          wx.setStorageSync('group_activity_initial_uuid', group_activity_initial_uuid)
-          wx.navigateTo({
-            url: '/pages/groupPj/order/main?group_activity_initial_uuid=' + group_activity_initial_uuid
-          })
-          console.log('/pages/groupPj/order/main?group_activity_initial_uuid=' + group_activity_initial_uuid)
+//          let group_activity_initial_uuid = that.order_info.group_activity_initial.uuid
+//
+//          wx.setStorageSync('group_activity_initial_uuid', group_activity_initial_uuid)
+//          wx.navigateTo({
+//            url: '/pages/groupPj/order/main?group_activity_initial_uuid=' + group_activity_initial_uuid
+//          })
+//          console.log('/pages/groupPj/order/main?group_activity_initial_uuid=' + group_activity_initial_uuid)
         }
       })
     }

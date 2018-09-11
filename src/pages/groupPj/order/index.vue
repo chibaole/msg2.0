@@ -69,25 +69,25 @@
       <div class="btn open_btn"  data-status="1" ><span>邀请好友一起享用</span></div>
       </button>
     </form>
-        <form :report-submit="true" @submit="createGroup">
+    <form :report-submit="true" @submit="createGroup">
           <button class="form_button" formType="submit">
-      <div class="btn open_btn" @click="createGroup" data-status="1" v-if="group_activity_initials_finish"><span>重新开团</span></div>
-      </button>
+              <div class="btn open_btn" @click="createGroup" data-status="1" v-if="group_activity_initials_finish"><span>重新开团</span></div>
+          </button>
     </form>
 
     <div class="mask" v-if="showBox">  <!-- 遮罩-->
 
       <div class="meunBox" v-if="showBox">
-        <img class="x" src="../../../../static/img/close2.png" alt="" @click="shareMenu">
+        <img class="x" src="http://pbmrxkahq.bkt.clouddn.com/close.png" alt="" @click="shareMenu">
 
         <div class="title">分享加速抽奖</div>
 
         <button class="friend" open-type="share">
-          <img src="../../../../static/img/wechatF.png" alt="">
+          <img src="http://pbmrxkahq.bkt.clouddn.com/wechatF.png" alt="">
         </button>
 
         <div class="createImg" @click="getImg">
-          <img src="../../../../static/img/wechatimg.png" alt="">
+          <img src="http://pbmrxkahq.bkt.clouddn.com/wechatimg.png" alt="">
         </div>
         <div class="wechatFriend" open-type="share">微信好友</div>
         <div class="shengchengImg" @click="getImg">生成分享图片</div>
@@ -97,9 +97,11 @@
 
     </div>
     <!--参团底部button-->
-    <div class="pay" v-if="order_info.is_initiator == false" >
+    <!--<div class="pay" v-if="order_info.is_initiator == false" >-->
+    <div class="pay" v-if="onekeyAttend" >
+
     <!--<div class="pay"  >-->
-    <div class="price">¥{{order_info.current_price}}<span>还剩{{}}</span></div>
+    <div class="price">¥{{order_info.group_activity.current_price}}<span>还剩{{order_info.group_activity.product.num}}</span></div>
       <div class="join-group" @click="attendGroup" :data-uuid="order_info.uuid" >一键参与</div>
     </div>
 
@@ -126,23 +128,6 @@
         showModal: false,
         groupNum: 1,
         groupuer: [],
-        team: [
-          {
-            nickname: '张三',
-            pic: '../../../../static/img/unlogin.png',
-            captain: true
-          },
-          {
-            nickname: '赵四',
-            pic: '../../../../static/img/unlogin.png',
-            captain: false
-          },
-          {
-            nickname: '王五',
-            pic: '../../../../static/img/unlogin.png',
-            captain: false
-          }
-        ],
         order_info: {},
         showBox: false,
         painting: {},
@@ -152,7 +137,8 @@
         scanCode: true,
         group_activity_initial_uuid: '',
         group_activity_initials_finish: false,
-        host: config.host
+        host: config.host,
+        onekeyAttend:false
       }
     },
     components: {
@@ -190,14 +176,43 @@
       let uuid_authCode = [uuid, auth_code]
 //         参与拼团
       let group_activity_orders = await that.$store.dispatch('attendGroupActivities', {...uuid_authCode})
-      console.log(group_activity_orders)
+//      console.log(group_activity_orders)// group_activity_orders = underfind ? '参与失败'：参与成功
+
+
+
+
+
       let group_activity_order_uuid = group_activity_orders.group_activity_order.uuid
       console.log(group_activity_order_uuid)
 
         // 支付参与拼团的订单
 
+
       let join_res = await that.$store.dispatch('group_pay', group_activity_order_uuid)
       console.log(join_res)
+
+      wx.requestPayment({
+        'timeStamp': String(join_res.time_stamp),
+        'nonceStr': String(join_res.nonce_str),
+        'package': String(join_res.package),
+        'signType': String(join_res.sign_type),
+        'paySign': String(join_res.pay_sign),
+        'success': function (res) {
+          console.log(res)
+          that.onekeyAttend = false
+
+
+        },
+        'fail': function (res) {
+          console.log(res)
+          console.log('支付错误')
+          showModal('支付失败', '请尝试重新支付')
+
+
+        }
+      })
+
+
     },
     getlastTime () {
       let that = this
@@ -454,11 +469,8 @@
 
   },
     async onLoad (options) {
-      console.log('支付后的订单详情')
-      console.log('参数' + options)
-      console.log(options)
+
       var that = this
-//                                              group_activity_initial_uuid
       let group_activity_initial_uuid = options.group_activity_initial_uuid // 发起拼团活动返回订单uuid
 
       that.group_activity_initial_uuid = group_activity_initial_uuid
@@ -484,6 +496,13 @@
       }
 
       that.order_info = orderData.group_activity_initial
+      if(that.order_info.is_initiator === false){
+        that.onekeyAttend = true
+      }else{
+        that.onekeyAttend = false
+
+      }
+      console.log(that.order_info.is_initiator )
 
       that.getlastTime()
   },

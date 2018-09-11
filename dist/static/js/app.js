@@ -7,15 +7,15 @@ global.webpackJsonp([15],{
 
 /***/ }),
 
-/***/ 63:
+/***/ 62:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_defineProperty__ = __webpack_require__(126);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_defineProperty__ = __webpack_require__(38);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_defineProperty___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_defineProperty__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_json_stringify__ = __webpack_require__(123);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_json_stringify__ = __webpack_require__(122);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_json_stringify___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_json_stringify__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_objectWithoutProperties__ = __webpack_require__(127);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_objectWithoutProperties__ = __webpack_require__(125);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_objectWithoutProperties___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_objectWithoutProperties__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator__);
@@ -23,7 +23,7 @@ global.webpackJsonp([15],{
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_asyncToGenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_asyncToGenerator__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_vue__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_vuex__ = __webpack_require__(237);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_vuex__ = __webpack_require__(239);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__utils_util__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__utils_wx__ = __webpack_require__(10);
 
@@ -43,6 +43,7 @@ __WEBPACK_IMPORTED_MODULE_5_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_6_vuex
 // const apiDomain = 'http://47.98.170.205/api/v1'
 var apiDomain = 'https://msg.chibaole.cc/api/v1';
 /* harmony default export */ __webpack_exports__["a"] = (new __WEBPACK_IMPORTED_MODULE_6_vuex__["a" /* default */].Store({
+
   actions: (_actions = {
 
     // 仅注册用户 传递code  换取openid 建设账户体系
@@ -445,9 +446,14 @@ var apiDomain = 'https://msg.chibaole.cc/api/v1';
 
               case 3:
                 attendData = _context11.sent;
+
+                console.log(attendData);
+                if (attendData == undefined) {
+                  __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__utils_util__["b" /* showModal */])('参与失败', '你已经在当前的拼团');
+                }
                 return _context11.abrupt('return', attendData);
 
-              case 5:
+              case 7:
               case 'end':
                 return _context11.stop();
             }
@@ -778,11 +784,11 @@ var apiDomain = 'https://msg.chibaole.cc/api/v1';
 
 /***/ }),
 
-/***/ 64:
+/***/ 63:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_App_vue__ = __webpack_require__(95);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_App_vue__ = __webpack_require__(94);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
@@ -830,15 +836,15 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 79:
+/***/ 78:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__App__ = __webpack_require__(64);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__store__ = __webpack_require__(63);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__App__ = __webpack_require__(63);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__store__ = __webpack_require__(62);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__utils_wx__ = __webpack_require__(10);
 
 
@@ -851,7 +857,9 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.prototype.$store = __WEBPACK_IMPORTE
 
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.prototype.$http = __WEBPACK_IMPORTED_MODULE_3__utils_wx__["d" /* request */];
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.prototype.$alert = __WEBPACK_IMPORTED_MODULE_3__utils_wx__["e" /* alert */];
+
 var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a(__WEBPACK_IMPORTED_MODULE_1__App__["a" /* default */]);
+
 app.$mount();
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -873,12 +881,12 @@ app.$mount();
       selectedColor: '#EA5149',
       list: [{
         pagePath: 'pages/home/main',
-        iconPath: 'static/img/home_gray.png',
-        selectedIconPath: 'static/img/home_orange.png'
+        iconPath: 'static/img/home.png',
+        selectedIconPath: 'static/img/homed.png'
       }, {
         pagePath: 'pages/user/main',
-        iconPath: 'static/img/me_gray.png',
-        selectedIconPath: 'static/img/me_orange.png'
+        iconPath: 'static/img/me.png',
+        selectedIconPath: 'static/img/me_.png'
       }]
     }
     // {
@@ -891,7 +899,7 @@ app.$mount();
 
 /***/ }),
 
-/***/ 95:
+/***/ 94:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -910,7 +918,7 @@ app.$mount();
     var _this = this;
 
     return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
-      var auth_code;
+      var auth_code, vm;
       return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
@@ -930,6 +938,37 @@ app.$mount();
               return _this.$store.dispatch('signup');
 
             case 6:
+
+              console.log('获取设备信息');
+              vm = _this;
+
+              wx.getSystemInfo({
+                success: function success(res) {
+                  console.log(res);
+                  var totalTopHeight = 68;
+
+                  if (res.model.indexOf('iPhone X') !== -1) {
+                    totalTopHeight = 88;
+                  } else if (res.model.indexOf('iPhone') !== -1) {
+                    totalTopHeight = 64;
+                  }
+                  console.log('totalTopHeight' + totalTopHeight);
+
+                  var statusBarHeight = res.statusBarHeight;
+                  var titleBarHeight = totalTopHeight - res.statusBarHeight;
+
+                  vm.statusBarHeight = statusBarHeight;
+
+                  vm.titleBarHeight = titleBarHeight;
+                  vm.top = statusBarHeight + titleBarHeight;
+                },
+                failure: function failure() {
+                  vm.globalData.statusBarHeight = 0;
+                  vm.globalData.titleBarHeight = 0;
+                }
+              });
+
+            case 9:
             case 'end':
               return _context.stop();
           }
@@ -941,5 +980,5 @@ app.$mount();
 
 /***/ })
 
-},[79]);
+},[78]);
 //# sourceMappingURL=app.js.map

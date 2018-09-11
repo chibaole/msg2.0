@@ -27,7 +27,7 @@
       </view>
     </view>
     <view class="_div data-v-4656d1c7 service">
-      <contact-button size="22" class="_contact-button data-v-4656d1c7 pos"></contact-button>
+      <button type="default" size="22" class="_button data-v-4656d1c7 pos" session-from="{ 'nickName':'刘攀','avatarUrl':'http://image.shengxinjing.cn/rate/unlogin.png' }" open-type="contact"></button>
       <image class="_img data-v-4656d1c7 icon_kf" src="http://pbmrxkahq.bkt.clouddn.com/msgservice.png"></image>
     </view>
     <view class="_div data-v-4656d1c7 getMore" wx:if="{{showGetMore}}" bindtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}">加载更多</view>

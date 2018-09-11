@@ -7,7 +7,7 @@
           <div class="left">订单号：<span>{{item.uuid}}</span></div>
           <div class="right">
             <span>{{item.united_state_display}}</span>
-            <img src="http://pbmrxkahq.bkt.clouddn.com/%E6%9B%B4%E5%A4%9A.png" alt="">
+            <img src="http://pbmrxkahq.bkt.clouddn.com/more_right.png" alt="">
           </div>
         </div>
         <div class="orderInfo">
@@ -21,9 +21,9 @@
         <div class="explain"><span>{{item.boon.lottery_detail}}</span></div>
       </div>
     </div>
-    <div class="getMore" v-if="true">加载更多</div>
+    <div class="getMore" v-if='loadMore'>加载更多</div>
     <div class="service">
-      <contact-button size="22" class='pos'></contact-button>
+      <contact-button size="22" class='pos' ></contact-button>
       <img class="icon_kf" src="http://pbmrxkahq.bkt.clouddn.com/msgservice.png">
     </div>
   </div>
@@ -43,7 +43,8 @@
     data () {
       return {
         navbar_title: '我的抽奖',
-        boonList: []
+        boonList: [],
+        userinfo:{}
 
       }
     },
@@ -64,7 +65,22 @@
             url: '/pages/user/myboonList/myBoon/main?uuid=' + uuid
           })
         }
-      }
+      },
+      addList () {
+        let that = this
+        console.log(that.all_list)
+        that.size += 10
+        console.log(that.size)
+
+        if (that.size >= that.all_list.length) {
+          that.size = that.all_list.length
+          that.myGroup_list = that.all_list
+          console.log()
+        } else {
+          that.myGroup_list = that.all_list.slice(0, that.size)
+        }
+      },
+
 
     },
     async onLoad () {
@@ -75,6 +91,9 @@
       console.log(boonList)
       that.boonList = boonList.boon_orders
       console.log(that.boonList)
+      let userinfo = wx.getStorageSync('userinfo')
+      that.userinfo = userinfo
+
     }
 
   }
@@ -143,18 +162,22 @@
     height: 14px;
   }
   .orderNum .right{
-    width: 60px;
+    min-width: 60px;
+    /*border:1px solid #000;*/
     span{
+      font-size: 14px;
+
       color: #ff7f4f;
       display:inline-block;
-      vertical-align:middle;
+      /*vertical-align:middle;*/
+      margin-right: 10px;
     };
     img{
       width: 8px;
       height: 13px;
       display: inline-block;
       position: absolute;
-      top:15px;
+      top:13.5px;
       right: 0px;
     }
 

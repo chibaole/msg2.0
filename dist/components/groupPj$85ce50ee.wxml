@@ -8,9 +8,9 @@
       </view>
       <view class="_div data-v-05960fcb timeLine">
         <view class="_p data-v-05960fcb">距离结束仅剩</view>
-        <label class="_span data-v-05960fcb">{{time.day}}</label>天
-        <label class="_span data-v-05960fcb">{{time.hours}}</label>时
-        <label class="_span data-v-05960fcb">{{time.minutes}}</label>分 </view>
+        <label class="_span data-v-05960fcb">{{time.day}} </label>天
+        <label class="_span data-v-05960fcb">{{time.hours}} </label>时
+        <label class="_span data-v-05960fcb">{{time.minutes}} </label>分 </view>
       <view class="_div data-v-05960fcb pj-info">
         <view class="_h2 data-v-05960fcb pj-name">
           <label class="_span data-v-05960fcb mark">{{group_activity.group_type}}</label>{{group_activity.title}}</view>
@@ -28,6 +28,7 @@
       <view class="_div data-v-05960fcb line"></view>
     </view>
     <view class="_div data-v-05960fcb pjDetail">
+      <view class="_h2 data-v-05960fcb pjdetail">商品详情</view>
       <rich-text nodes="{{myDetail}}" class="_rich-text data-v-05960fcb"></rich-text>
     </view>
     <view class="_div data-v-05960fcb pay">

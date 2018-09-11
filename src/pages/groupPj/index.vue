@@ -8,9 +8,9 @@
 
           <div class="timeLine">
             <p>距离结束仅剩</p>
-            <span>{{time.day}}</span>天
-            <span>{{time.hours}}</span>时
-            <span>{{time.minutes}}</span>分
+            <span>{{time.day}}&nbsp;</span>天
+            <span>{{time.hours}}&nbsp;</span>时
+            <span>{{time.minutes}}&nbsp;</span>分
           </div>
           <div class="pj-info">
             <h2 class="pj-name"><span class="mark">{{group_activity.group_type}}</span>{{group_activity.title}}</h2>
@@ -28,7 +28,7 @@
     </div>
 
     <div class="pjDetail">
-      <!--<h2 class="pjdetail">商品详情</h2>-->
+      <h2 class="pjdetail">商品详情</h2>
       <rich-text :nodes="myDetail" ></rich-text>
 
 
@@ -203,7 +203,7 @@
     margin: 20px auto 15px;
     overflow: hidden;
     border-radius: 5px 5px 5px 5px;
-    box-shadow: 0 4px 10px #7fcccccc;
+    box-shadow: 0 4px 10px rgba(#cccccc,0.5) ;
     /*border:1px solid #000;*/
   }
   .pic img{
@@ -235,14 +235,16 @@
 
   .pj-info {
     width: 325px;
-    height: 155px;
+    /*height: 155px;*/
     margin: 0 auto;
     /*border:1px solid #000;*/
+    padding-bottom: 15px;
   }
   .pj-info .pj-name{
     font-size: 20px;
     font-family: PingFangSC-Medium;
 
+    /*border:1px solid #000;*/
 
     color: #333;
     height: 20px;
@@ -276,8 +278,6 @@
     color: #4a4a4a;
     margin-top: 10px;
 
-
-
   }
 
   .pj-price{
@@ -289,7 +289,7 @@
     line-height: 20px;
     font-family: PingFangSC-Medium;
 
-    /*border: 1px solid #F00000;*/
+    border: 1px solid #fff;
     /*letter-spacing: 4px;*/
     margin-top: 15px;
 
@@ -350,10 +350,11 @@
   font-family: PingFangSC-Medium;
   font-size: 16px;
   text-align: left;
-  padding-left: 25px;
+  /*padding-left: 25px;*/
   height: 16px;
   line-height: 16px;
   margin-top: 10px;
+  color:#333;
   /*border: 1px solid #000;*/
 }
 

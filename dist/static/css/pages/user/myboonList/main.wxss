@@ -54,19 +54,20 @@
   height: 28rpx;
 }
 .orderNum .right.data-v-7ec0cb2e {
-  width: 120rpx;
+  min-width: 120rpx;
 }
 .orderNum .right ._span.data-v-7ec0cb2e {
+  font-size: 28rpx;
   color: #ff7f4f;
   display: inline-block;
-  vertical-align: middle;
+  margin-right: 20rpx;
 }
 .orderNum .right ._img.data-v-7ec0cb2e {
   width: 16rpx;
   height: 26rpx;
   display: inline-block;
   position: absolute;
-  top: 30rpx;
+  top: 27rpx;
   right: 0;
 }
 .orderInfo.data-v-7ec0cb2e {

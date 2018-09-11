@@ -1,6 +1,9 @@
 <template name="user$0ba85da9">
   <view class="_div data-v-3105212a container">
-    <view class="_div data-v-3105212a userinfo">
+    <view class="_div data-v-3105212a navbartitle" style=" {{('height:' + top + 'px' + ';')}}">
+      <label class="_span data-v-3105212a">我的研究院</label>
+    </view>
+    <view class="_div data-v-3105212a userinfo" style=" {{('margin-top:' + top + 'px' + ';')}}">
       <image src="{{userinfo.avatar_url}}" class="_img data-v-3105212a"></image>
       <view class="_p data-v-3105212a username">
         <label class="_span data-v-3105212a foodname">{{userinfo.nick_name}}</label>
@@ -15,22 +18,32 @@
         <image src alt class="_img data-v-3105212a"></image>
       </view>
     </view>
-    <form report-submit="{{true}}" bindsubmit="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}" class="_form data-v-3105212a">
+    <form report-submit="{{true}}" bindsubmit="handleProxy" id="phoneForm" data-eventid="{{'0'}}" data-comkey="{{$k}}" class="_form data-v-3105212a">
       <button formType="submit" class="_button data-v-3105212a">
-        <view class="_div data-v-3105212a mylist">
-          <image src="http://pbmrxkahq.bkt.clouddn.com/%E6%88%91%E7%9A%84%E6%8B%BC%E5%9B%A2%E8%AE%A2%E5%8D%95icon.png" alt class="_img data-v-3105212a"></image>
-          <label class="_span data-v-3105212a list_title">我的拼团订单</label>
+        <view class="_div data-v-3105212a getPhone">
+          <label class="_span data-v-3105212a list_title">登录手机号，同步全渠道优惠</label>
+          <label class="_span data-v-3105212a getPhoneBtn">填写</label>
         </view>
       </button>
     </form>
-    <form report-submit="{{true}}" bindsubmit="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}" class="_form data-v-3105212a">
-      <button formType="submit" class="_button data-v-3105212a">
-        <view class="_div data-v-3105212a mylist">
-          <image src="http://pbmrxkahq.bkt.clouddn.com/%E6%88%91%E7%9A%84%E6%8A%BD%E5%A5%96icon.png" alt class="_img data-v-3105212a"></image>
-          <label class="_span data-v-3105212a list_title">我的抽奖</label>
-        </view>
-      </button>
-    </form>
-    <button open-type="getUserInfo" bindgetuserinfo="handleProxy" bindtap="handleProxy" wx:if="{{login_show}}" data-eventid="{{'2'}}" data-comkey="{{$k}}" class="_button data-v-3105212a">获取权限</button>
+    <view class="_div data-v-3105212a formBox">
+      <form report-submit="{{true}}" bindsubmit="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}" class="_form data-v-3105212a">
+        <button formType="submit" class="_button data-v-3105212a">
+          <view class="_div data-v-3105212a mylist">
+            <image src="http://pbmrxkahq.bkt.clouddn.com/%E6%88%91%E7%9A%84%E6%8B%BC%E5%9B%A2%E8%AE%A2%E5%8D%95icon.png" alt class="_img data-v-3105212a"></image>
+            <label class="_span data-v-3105212a list_title">我的拼团订单</label>
+          </view>
+        </button>
+      </form>
+      <form report-submit="{{true}}" bindsubmit="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}" class="_form data-v-3105212a">
+        <button formType="submit" class="_button data-v-3105212a">
+          <view class="_div data-v-3105212a mylist">
+            <image src="http://pbmrxkahq.bkt.clouddn.com/%E6%88%91%E7%9A%84%E6%8A%BD%E5%A5%96icon.png" alt class="_img data-v-3105212a"></image>
+            <label class="_span data-v-3105212a list_title">我的抽奖</label>
+          </view>
+        </button>
+      </form>
+    </view>
+    <button open-type="getUserInfo" bindgetuserinfo="handleProxy" bindtap="handleProxy" wx:if="{{login_show}}" data-eventid="{{'3'}}" data-comkey="{{$k}}" class="_button data-v-3105212a">获取权限</button>
   </view>
 </template>

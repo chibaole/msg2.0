@@ -1,11 +1,11 @@
 <template>
   <div class="container" >
   <!--<Navbar></Navbar>-->
-    <!--<div class="navbartitle" :style="{'height':top+'px'}"><span>我的研究院</span></div>-->
-    <!--<div class="userinfo" :style="{'margin-top':top+'px'}" >-->
-    <div class="userinfo"  >
+    <div class="navbartitle" :style="{'height':top+'px'}"><span>我的研究院</span></div>
+    <div class="userinfo" :style="{'margin-top':top+'px'}" >
+    <!--<div class="userinfo"  >-->
 
-    <img :src='userinfo.avatar_url' >
+      <img :src='userinfo.avatar_url' >
       <p class="username">
         <span class="foodname">{{userinfo.nick_name}}</span>
         <span class="foodLabel">{{userinfo.level_display}}</span>
@@ -17,6 +17,24 @@
         <img src="" alt="">
       </div>
     </div>
+    <form  :report-submit="true"  @submit="getPhone" id="phoneForm">
+      <button  formType="submit" >
+        <div class="getPhone" >
+          <span class="list_title" >登录手机号，同步全渠道优惠</span>
+          <span class="getPhoneBtn">填写</span>
+        </div>
+      </button>
+    </form>
+
+    <div class="formBox">
+    <!--<form  :report-submit="true"  @submit="getPhone">-->
+      <!--<button  formType="submit" >-->
+        <!--<div class="getPhone" >-->
+          <!--<span class="list_title" >登录手机号，同步全渠道优惠</span>-->
+          <!--<span class="getPhoneBtn">填写</span>-->
+        <!--</div>-->
+      <!--</button>-->
+    <!--</form>-->
     <!--<form  :report-submit="true" @submit="sign_in">-->
       <!--<button formType="submit">-->
         <!--<div class="mylist">-->
@@ -70,7 +88,10 @@
     <!--</div>-->
       <!--</button>-->
     <!--</form>-->
+    </div>
     <button open-type="getUserInfo" @getuserinfo="bindGetUserInfo" @click="getUserInfo1" v-if="login_show">获取权限</button>
+
+
   </div>
 </template>
 <script>
@@ -195,6 +216,8 @@ export default {
         vm.statusBarHeight = statusBarHeight
         vm.titleBarHeight = titleBarHeight
         vm.top = statusBarHeight + titleBarHeight
+//        vm.top =  titleBarHeight
+
       },
       failure () {
         console.log('fail')
@@ -211,6 +234,7 @@ export default {
   /*padding:0 30rpx;*/
   font-family: "PingFang SC";
   font-weight: Regular;
+  background: #f9f9f9;
 }
 .navbartitle{
   background: #fff;
@@ -330,63 +354,137 @@ export default {
   position: absolute;
 
 }
-.mylist{
-  border-bottom: 1px solid #eee;
-  height: 70px;
-  width: 325px;
-  margin: 0px auto ;
-  font-family:PingFangSC-Medium ;
-  font-size: 18px;
-  color: #fff;
-  position: relative;
-  img{
-    width: 20px;height: 20px;
-    /*border: 1px solid #000;*/
-    display: inline-block;
-    position: absolute;
-    top:25px;
-    left:0
-  };
-  .list_title{
-    display: inline-block;
-    height: 20px;
-    line-height: 20px;
-    font-family: PingFangSC-Medium;
-    color:#454553;
-    position: absolute;
-    top:25px;
-    left: 35px;
-  };
-  .list_btn{
-    display: inline-block;
-    height:24px;
-    border-radius: 23px;
-    background: #ff7f47;
-    box-shadow: 0px 1px 1px 0px #ffffff;
-    font-family: PingFangSC-Regular;
-    font-size: 10px;
-    text-align: center;
-    line-height: 24px;
-    padding: 0 12px;
-    position:absolute;
-    bottom:25px;
-    right: 0;
-  }
+form::after{
+  border: none;
 }
-form{
-  border:none;
- display: block;
-  button {
+#phoneForm{
+  background: #fff!important;
+  display: block;
+  padding: 0;
+  width: 375px;
+  height: 44px;
+  margin-bottom: 10px;
+  font-family: PingFangSC-Regular;
+  /*border: 1px solid #000;*/
+  button{
     display: block;
-    background: none;
-    margin: 0 auto;
-    border:none;
-  };
-  button::after{
-    border-radius:0;
-    border:none;
+    background: #fff;
+    border:1px solid #fff;
+    border-radius: 0;
+    /*border: 1px solid blue ;*/
+    .getPhone{
+      width: 325px;
+      font-family: PingFangSC-Regular;
+      font-size: 14px;
+      /*border:1px solid red;*/
+      margin: 0 auto;
+      position: relative;
+      border-radius: 0;
+
+
+      .list_title{
+        display: inline-block;
+        /*border: 1px solid blue;*/
+        line-height: 44px;
+        color:#333;
+        text-align: left;
+        position: absolute;
+        left: 0;
+
+      };
+      .getPhoneBtn{
+        display: inline-block;
+        /*margin-left: 130px;*/
+        /*text-align: center;*/
+        height: 30px;
+        line-height: 30px;
+        color:#ff7f47;
+        width: 60px;
+        border: 1px solid #ff7f47;
+        margin-top: 7px;
+       margin-left: 265px;
+
+      };
+
+    };
+
+    button::after{
+      border: none;
+      border-radius: 0;
+    }
 
   }
+
+
+}
+
+
+
+.formBox{
+  /*border:1px solid red;*/
+  background: #fff;
+  .mylist{
+    border-bottom: 1px solid #eee;
+    height: 70px;
+    width: 325px;
+    margin: 0px auto ;
+    font-family:PingFangSC-Medium ;
+    font-size: 18px;
+    color: #fff;
+    position: relative;
+    img{
+      width: 20px;height: 20px;
+      /*border: 1px solid #000;*/
+      display: inline-block;
+      position: absolute;
+      top:25px;
+      left:0
+    };
+    .list_title{
+      display: inline-block;
+      height: 20px;
+      line-height: 20px;
+      font-family: PingFangSC-Medium;
+      color:#454553;
+      position: absolute;
+      top:25px;
+      left: 35px;
+    };
+    .list_btn{
+      display: inline-block;
+      height:24px;
+      border-radius: 23px;
+      background: #ff7f47;
+      box-shadow: 0px 1px 1px 0px #ffffff;
+      font-family: PingFangSC-Regular;
+      font-size: 10px;
+      text-align: center;
+      line-height: 24px;
+      padding: 0 12px;
+      position:absolute;
+      bottom:25px;
+      right: 0;
+    }
+  }
+  form{
+    border:none;
+    display: block;
+    button {
+      display: block;
+      background: none;
+      margin: 0 auto;
+      border:none;
+    };
+    button::after{
+      border-radius:0;
+      border:none;
+
+    }
+  }
+}
+
+button::after{
+  border: none;
 }
 
 </style>

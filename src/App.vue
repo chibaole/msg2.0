@@ -8,7 +8,37 @@
       } else {
         await this.$store.dispatch('signup')
       }
-    }
+
+      console.log('获取设备信息')
+      const vm = this
+      wx.getSystemInfo({
+        success: function (res) {
+          console.log(res)
+          let totalTopHeight = 68
+
+          if (res.model.indexOf('iPhone X') !== -1) {
+            totalTopHeight = 88
+
+          } else if (res.model.indexOf('iPhone') !== -1) {
+            totalTopHeight = 64
+          }
+          console.log('totalTopHeight'+totalTopHeight)
+
+          let statusBarHeight = res.statusBarHeight
+          let titleBarHeight = totalTopHeight - res.statusBarHeight
+
+          vm.statusBarHeight = statusBarHeight
+
+          vm.titleBarHeight = titleBarHeight
+          vm.top = statusBarHeight + titleBarHeight
+        },
+        failure () {
+          vm.globalData.statusBarHeight = 0
+          vm.globalData.titleBarHeight = 0
+        }
+      })
+    },
+
 
   }
 </script>
@@ -59,4 +89,5 @@
   .btn:active {
     background: #FA5A49;
   }
+
 </style>

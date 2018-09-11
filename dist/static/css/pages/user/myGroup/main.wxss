@@ -38,7 +38,7 @@
   line-height: 80rpx;
   margin: 0 auto;
   position: relative;
-  border-bottom: 4rpx solid #ededed;
+  border-bottom: 2rpx solid #eee;
 }
 .orderNum .left.data-v-4656d1c7 {
   width: 450rpx;

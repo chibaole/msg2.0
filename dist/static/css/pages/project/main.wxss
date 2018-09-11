@@ -117,9 +117,6 @@
   font-size: 24rpx;
   font-family: PingFangSC-Regular;
 }
-.btn-box.data-v-a0735dbe {
-  background: #fff;
-}
 .btn1.data-v-a0735dbe {
   padding-top: 180rpx;
   padding-bottom: 82rpx;
@@ -423,25 +420,35 @@
   z-index: 100;
 }
 .prize-info.data-v-f211043e {
-  width: 660rpx;
-  height: 554rpx;
+  width: 650rpx;
+  height: 800rpx;
+  border-radius: 10rpx;
   position: fixed;
-  top: 410rpx;
-  left: 45rpx;
+  top: 308rpx;
+  left: 50rpx;
   z-index: 102;
   background: #fff;
-  padding-top: 60rpx;
+}
+.text.data-v-f211043e:nth-child(1) {
+  margin-top: 140rpx;
 }
 .text.data-v-f211043e {
-  width: 564rpx;
-  margin: 20rpx auto;
+  width: 490rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 32rpx;
   text-align: left;
+  color: #4a4a4a;
+  margin: 0 auto 40rpx;
 }
 ._button.data-v-f211043e {
-  width: 420rpx;
-  height: 68rpx;
-  margin: 20rpx auto;
-  font-size: 28rpx;
-  font-family: "PingFang SC";
-  font-weight: Regular;
+  width: 480rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  margin: 100rpx auto 72rpx;
+  font-size: 32rpx;
+  font-family: PingFangSC-Medium;
+  color: #fff;
+  background: rgb(255,127,79);
+  box-shadow: 0 0 16rpx 0 rgba(255,127,79,0.4);
+  border-radius: 10rpx;
 }

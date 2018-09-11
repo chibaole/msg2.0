@@ -9,7 +9,10 @@ Vue.prototype.$store = Store  // 注册Store
 import { request, alert } from './utils/wx'
 Vue.prototype.$http = request
 Vue.prototype.$alert = alert
+
 const app = new Vue(App)
+
+
 app.$mount()
 
 export default{
@@ -36,14 +39,14 @@ export default{
       list: [
         {
           pagePath: 'pages/home/main',
-          iconPath: 'static/img/home_gray.png',
-          selectedIconPath: 'static/img/home_orange.png'
+          iconPath: 'static/img/home.png',
+          selectedIconPath: 'static/img/homed.png'
         },
 
         {
           pagePath: 'pages/user/main',
-          iconPath: 'static/img/me_gray.png',
-          selectedIconPath: 'static/img/me_orange.png'
+          iconPath: 'static/img/me.png',
+          selectedIconPath: 'static/img/me_.png'
         }
 
       ]

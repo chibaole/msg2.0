@@ -1,6 +1,6 @@
 global.webpackJsonp([12],{
 
-/***/ 111:
+/***/ 110:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -122,13 +122,13 @@ global.webpackJsonp([12],{
                     console.log('支付错误');
                     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4__utils_util__["b" /* showModal */])('支付失败', '请尝试重新支付');
 
-                    var group_activity_initial_uuid = that.order_info.group_activity_initial.uuid;
-
-                    wx.setStorageSync('group_activity_initial_uuid', group_activity_initial_uuid);
-                    wx.navigateTo({
-                      url: '/pages/groupPj/order/main?group_activity_initial_uuid=' + group_activity_initial_uuid
-                    });
-                    console.log('/pages/groupPj/order/main?group_activity_initial_uuid=' + group_activity_initial_uuid);
+                    //          let group_activity_initial_uuid = that.order_info.group_activity_initial.uuid
+                    //
+                    //          wx.setStorageSync('group_activity_initial_uuid', group_activity_initial_uuid)
+                    //          wx.navigateTo({
+                    //            url: '/pages/groupPj/order/main?group_activity_initial_uuid=' + group_activity_initial_uuid
+                    //          })
+                    //          console.log('/pages/groupPj/order/main?group_activity_initial_uuid=' + group_activity_initial_uuid)
                   }
                 });
 
@@ -206,7 +206,7 @@ global.webpackJsonp([12],{
 
 /***/ }),
 
-/***/ 225:
+/***/ 227:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -271,12 +271,12 @@ if (false) {
 
 /***/ }),
 
-/***/ 67:
+/***/ 66:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_index_vue__ = __webpack_require__(111);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_97fa62a8_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_index_vue__ = __webpack_require__(225);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_index_vue__ = __webpack_require__(110);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_97fa62a8_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_index_vue__ = __webpack_require__(227);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
@@ -325,14 +325,14 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 82:
+/***/ 81:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__index__ = __webpack_require__(67);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__index__ = __webpack_require__(66);
 
 
 
@@ -347,5 +347,5 @@ app.$mount();
 
 /***/ })
 
-},[82]);
+},[81]);
 //# sourceMappingURL=main.js.map

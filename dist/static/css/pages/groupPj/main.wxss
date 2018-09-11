@@ -18,7 +18,7 @@
   margin: 40rpx auto 30rpx;
   overflow: hidden;
   border-radius: 10rpx 10rpx 10rpx 10rpx;
-  box-shadow: 0 8rpx 20rpx #7fcccccc;
+  box-shadow: 0 8rpx 20rpx rgba(204, 204, 204, 0.5);
 }
 .pic ._img.data-v-05960fcb {
   width: 100%;
@@ -46,8 +46,8 @@
 }
 .pj-info.data-v-05960fcb {
   width: 650rpx;
-  height: 310rpx;
   margin: 0 auto;
+  padding-bottom: 30rpx;
 }
 .pj-info .pj-name.data-v-05960fcb {
   font-size: 40rpx;
@@ -85,6 +85,7 @@
   font-size: 36rpx;
   line-height: 40rpx;
   font-family: PingFangSC-Medium;
+  border: 2rpx solid #fff;
   margin-top: 30rpx;
 }
 .pj-price ._span.data-v-05960fcb:nth-child(1) {
@@ -124,10 +125,10 @@
   font-family: PingFangSC-Medium;
   font-size: 32rpx;
   text-align: left;
-  padding-left: 50rpx;
   height: 32rpx;
   line-height: 32rpx;
   margin-top: 20rpx;
+  color: #333;
 }
 .line.data-v-05960fcb {
   width: 650rpx;

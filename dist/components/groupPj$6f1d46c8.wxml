@@ -67,21 +67,21 @@
     </form>
     <view class="_div data-v-b3a874ec mask" wx:if="{{showBox}}">
       <view class="_div data-v-b3a874ec meunBox" wx:if="{{showBox}}">
-        <image class="_img data-v-b3a874ec x" src="../../../../static/img/close2.png" alt bindtap="handleProxy" data-eventid="{{'5'}}" data-comkey="{{$k}}"></image>
+        <image class="_img data-v-b3a874ec x" src="http://pbmrxkahq.bkt.clouddn.com/close.png" alt bindtap="handleProxy" data-eventid="{{'5'}}" data-comkey="{{$k}}"></image>
         <view class="_div data-v-b3a874ec title">分享加速抽奖</view>
         <button class="_button data-v-b3a874ec friend" open-type="share">
-          <image src="../../../../static/img/wechatF.png" alt class="_img data-v-b3a874ec"></image>
+          <image src="http://pbmrxkahq.bkt.clouddn.com/wechatF.png" alt class="_img data-v-b3a874ec"></image>
         </button>
         <view class="_div data-v-b3a874ec createImg" bindtap="handleProxy" data-eventid="{{'6'}}" data-comkey="{{$k}}">
-          <image src="../../../../static/img/wechatimg.png" alt class="_img data-v-b3a874ec"></image>
+          <image src="http://pbmrxkahq.bkt.clouddn.com/wechatimg.png" alt class="_img data-v-b3a874ec"></image>
         </view>
         <view class="_div data-v-b3a874ec wechatFriend" open-type="share">微信好友</view>
         <view class="_div data-v-b3a874ec shengchengImg" bindtap="handleProxy" data-eventid="{{'7'}}" data-comkey="{{$k}}">生成分享图片</view>
       </view>
     </view>
-    <view class="_div data-v-b3a874ec pay" wx:if="{{order_info.is_initiator == false}}">
-      <view class="_div data-v-b3a874ec price">¥{{order_info.current_price}}
-        <label class="_span data-v-b3a874ec">还剩{{}}</label>
+    <view class="_div data-v-b3a874ec pay" wx:if="{{onekeyAttend}}">
+      <view class="_div data-v-b3a874ec price">¥{{order_info.group_activity.current_price}}
+        <label class="_span data-v-b3a874ec">还剩{{order_info.group_activity.product.num}}</label>
       </view>
       <view class="_div data-v-b3a874ec join-group" bindtap="handleProxy" data-uuid="{{order_info.uuid}}" data-eventid="{{'8'}}" data-comkey="{{$k}}">一键参与</view>
     </view>

@@ -1,6 +1,6 @@
 global.webpackJsonp([11],{
 
-/***/ 112:
+/***/ 111:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -288,7 +288,7 @@ global.webpackJsonp([11],{
 
 /***/ }),
 
-/***/ 206:
+/***/ 208:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -311,7 +311,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   })]), _vm._v(" "), _c('div', {
     staticClass: "timeLine"
-  }, [_c('p', [_vm._v("距离结束仅剩")]), _vm._v(" "), _c('span', [_vm._v(_vm._s(_vm.time.day))]), _vm._v("天\n          "), _c('span', [_vm._v(_vm._s(_vm.time.hours))]), _vm._v("时\n          "), _c('span', [_vm._v(_vm._s(_vm.time.minutes))]), _vm._v("分\n        ")], 1), _vm._v(" "), _c('div', {
+  }, [_c('p', [_vm._v("距离结束仅剩")]), _vm._v(" "), _c('span', [_vm._v(_vm._s(_vm.time.day) + " ")]), _vm._v("天\n          "), _c('span', [_vm._v(_vm._s(_vm.time.hours) + " ")]), _vm._v("时\n          "), _c('span', [_vm._v(_vm._s(_vm.time.minutes) + " ")]), _vm._v("分\n        ")], 1), _vm._v(" "), _c('div', {
     staticClass: "pj-info"
   }, [_c('h2', {
     staticClass: "pj-name"
@@ -333,7 +333,9 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "line"
   })], 1), _vm._v(" "), _c('div', {
     staticClass: "pjDetail"
-  }, [_c('rich-text', {
+  }, [_c('h2', {
+    staticClass: "pjdetail"
+  }, [_vm._v("商品详情")]), _vm._v(" "), _c('rich-text', {
     attrs: {
       "nodes": _vm.myDetail,
       "mpcomid": '1'
@@ -369,12 +371,12 @@ if (false) {
 
 /***/ }),
 
-/***/ 68:
+/***/ 67:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_index_vue__ = __webpack_require__(112);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_05960fcb_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_index_vue__ = __webpack_require__(206);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_index_vue__ = __webpack_require__(111);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_05960fcb_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_index_vue__ = __webpack_require__(208);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
@@ -423,14 +425,14 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 83:
+/***/ 82:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__index__ = __webpack_require__(68);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__index__ = __webpack_require__(67);
 
 
 
@@ -445,5 +447,5 @@ app.$mount();
 
 /***/ })
 
-},[83]);
+},[82]);
 //# sourceMappingURL=main.js.map

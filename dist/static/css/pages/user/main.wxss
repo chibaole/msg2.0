@@ -3,6 +3,7 @@
 .container.data-v-3105212a {
   font-family: "PingFang SC";
   font-weight: Regular;
+  background: #f9f9f9;
 }
 .navbartitle.data-v-3105212a {
   background: #fff;
@@ -112,7 +113,58 @@
   text-align: center;
   position: absolute;
 }
-.mylist.data-v-3105212a {
+._form.data-v-3105212a::after {
+  border: none;
+}
+#phoneForm.data-v-3105212a {
+  background: #fff !important;
+  display: block;
+  padding: 0;
+  width: 750rpx;
+  height: 88rpx;
+  margin-bottom: 20rpx;
+  font-family: PingFangSC-Regular;
+}
+#phoneForm ._button.data-v-3105212a {
+  display: block;
+  background: #fff;
+  border: 2rpx solid #fff;
+  border-radius: 0;
+}
+#phoneForm ._button .getPhone.data-v-3105212a {
+  width: 650rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 28rpx;
+  margin: 0 auto;
+  position: relative;
+  border-radius: 0;
+}
+#phoneForm ._button .getPhone .list_title.data-v-3105212a {
+  display: inline-block;
+  line-height: 88rpx;
+  color: #333;
+  text-align: left;
+  position: absolute;
+  left: 0;
+}
+#phoneForm ._button .getPhone .getPhoneBtn.data-v-3105212a {
+  display: inline-block;
+  height: 60rpx;
+  line-height: 60rpx;
+  color: #ff7f47;
+  width: 120rpx;
+  border: 2rpx solid #ff7f47;
+  margin-top: 14rpx;
+  margin-left: 530rpx;
+}
+#phoneForm ._button ._button.data-v-3105212a::after {
+  border: none;
+  border-radius: 0;
+}
+.formBox.data-v-3105212a {
+  background: #fff;
+}
+.formBox .mylist.data-v-3105212a {
   border-bottom: 2rpx solid #eee;
   height: 140rpx;
   width: 650rpx;
@@ -122,7 +174,7 @@
   color: #fff;
   position: relative;
 }
-.mylist ._img.data-v-3105212a {
+.formBox .mylist ._img.data-v-3105212a {
   width: 40rpx;
   height: 40rpx;
   display: inline-block;
@@ -130,7 +182,7 @@
   top: 50rpx;
   left: 0;
 }
-.mylist .list_title.data-v-3105212a {
+.formBox .mylist .list_title.data-v-3105212a {
   display: inline-block;
   height: 40rpx;
   line-height: 40rpx;
@@ -140,7 +192,7 @@
   top: 50rpx;
   left: 70rpx;
 }
-.mylist .list_btn.data-v-3105212a {
+.formBox .mylist .list_btn.data-v-3105212a {
   display: inline-block;
   height: 48rpx;
   border-radius: 46rpx;
@@ -155,18 +207,21 @@
   bottom: 50rpx;
   right: 0;
 }
-._form.data-v-3105212a {
+.formBox ._form.data-v-3105212a {
   border: none;
   display: block;
 }
-._form ._button.data-v-3105212a {
+.formBox ._form ._button.data-v-3105212a {
   display: block;
   background: none;
   margin: 0 auto;
   border: none;
 }
-._form ._button.data-v-3105212a::after {
+.formBox ._form ._button.data-v-3105212a::after {
   border-radius: 0;
+  border: none;
+}
+._button.data-v-3105212a::after {
   border: none;
 }
 .progressbar.data-v-3052ecbd {

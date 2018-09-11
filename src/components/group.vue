@@ -13,8 +13,8 @@
         </div>
         <!--<div class="join-group " @click="goGroup" :data-groupname="groupname" :data-uuid="group_activitie.uuid">{{group_activitie.button.text}}</div>-->
 
-        <form @submit = 'goGroup'  :report-submit=true :data-groupname="groupname" :data-uuid="group_activitie.uuid" >
-          <button formType="submit">{{group_activitie.button.text}}</button>
+        <form @submit = 'goGroup'  :report-submit=true :data-uuid="group_activitie.uuid"  :data-activitie = "group_activitie"  >
+          <button formType="submit" >{{group_activitie.button.text}}</button>
         </form>
       </div>
 
@@ -37,13 +37,31 @@
     },
     methods: {
       goGroup (e) {
+        console.log(e)
         let group_activities_uuid = e.currentTarget.dataset.uuid
+        let Intial = e.currentTarget.dataset.activitie
         let formId = e.mp.detail.formId
         console.log(formId)
+        console.log(Intial )
 
-        wx.navigateTo({
-          url: '/pages/groupPj/main?group_activities_uuid=' + group_activities_uuid
+
+
+
+
+        if(Intial.group_activity_intial != null){
+          console.log('已参与')
+          console.log(Intial.group_activity_initial.uuid)
+          wx.navigateTo({
+            url: `/pages/groupPj/order/main?group_activity_initial_uuid=${Intial.group_activity_initial.uuid}` // 参与拼团的页面
+
         })
+
+        }else{
+          console.log('未参与')
+          wx.navigateTo({
+            url: '/pages/groupPj/main?group_activities_uuid=' + group_activities_uuid
+          })
+        }
       },
 
       async getGroup () {

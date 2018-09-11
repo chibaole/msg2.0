@@ -13,7 +13,7 @@
             <label class="_span data-v-318ee708 price ">¥{{group_activitie.original_price}}</label>
           </view>
         </view>
-        <form bindsubmit="handleProxy" report-submit="{{true}}" data-groupname="{{groupname}}" data-uuid="{{group_activitie.uuid}}" data-eventid="{{'0-'+index}}" data-comkey="{{$k}}" class="_form data-v-318ee708">
+        <form bindsubmit="handleProxy" report-submit="{{true}}" data-uuid="{{group_activitie.uuid}}" data-activitie="{{group_activitie}}" data-eventid="{{'0-'+index}}" data-comkey="{{$k}}" class="_form data-v-318ee708">
           <button formType="submit" class="_button data-v-318ee708">{{group_activitie.button.text}}</button>
         </form>
       </view>

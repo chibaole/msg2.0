@@ -22,9 +22,12 @@
       </div>
     </div>
     <div class="service">
-      <contact-button size="22" class='pos'></contact-button>
+      <!--<contact-button size="22" class='pos' session-from="{'nickName':userinfo.nick_name,'avatarUrl':userinfo.avatar_url}"  open-type="contact" ></contact-button>-->
+      <button type='default'  size="22" class='pos' session-from="{ 'nickName':'刘攀','avatarUrl':'http://image.shengxinjing.cn/rate/unlogin.png' }" open-type="contact" ></button>
+      <!--:style="{'padding-top':top + 'px'}"-->
       <img class="icon_kf" src="http://pbmrxkahq.bkt.clouddn.com/msgservice.png">
     </div>
+    <!--<button type='default' session-from='{"nickName":"{{userInfo.nickName}}","avatarUrl":"{{userInfo.avatarUrl}}"}' open-type="contact" >带头像客服（微信头像）</button>-->
       <div class="getMore" v-if="showGetMore" @click="addList">加载更多</div>
   </div>
 </template>
@@ -47,8 +50,13 @@ export default {
       all_list: [],
       page: 1,
       size: 10,
-      showGetMore: true
-    }
+      showGetMore: false,
+      userinfo: {
+        avatar_url: 'http://image.shengxinjing.cn/rate/unlogin.png',
+        nick_name: '没事干研究院',
+        level_display: '',
+        is_authorized: true
+      },    }
   },
 
   methods: {
@@ -82,6 +90,8 @@ export default {
     const init_size = that.size
     that.all_list = groupList.group_activity_orders
     that.myGroup_list = that.all_list.slice(0, init_size)
+    let userinfo = wx.getStorageSync('userinfo')
+    that.userinfo = userinfo
   }
 
 }
@@ -132,7 +142,7 @@ export default {
     line-height: 40px;
     margin: 0 auto;
     position: relative;
-    border-bottom: 2px solid #ededed ;
+    border-bottom: 1px solid #eee ;
 
   }
   .orderNum .left{

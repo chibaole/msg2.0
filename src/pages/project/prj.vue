@@ -139,6 +139,8 @@
 
     </div>
 
+    <!--<div class="isIphoneX-class"></div>-->
+
 
   </div>
 </template>
@@ -412,6 +414,11 @@
         that.init_rewarded_users = init_rewarded_users
       }
 
+
+
+      let isIphoneX = that.$store.state.globalData.isIphoneX
+      that.isIphoneX = isIphoneX
+
 //     that.init_rewarded_users = boonData.boon.rewarded_users
 
 //     await this.$store.dispatch('createBill', { ...this.userInfo, ...this.billInfo })
@@ -583,16 +590,6 @@
         /*margin-bottom:30px ;*/
       }
 
-      .btn-box {
-        /*border-top:1px solid #000;*/
-
-
-        /*padding-top: 92px;*/
-        /*margin-top: 92px;*/
-
-
-        background: #fff;
-      }
   .btn1{
     padding-top: 90px;
     padding-bottom: 41px;
