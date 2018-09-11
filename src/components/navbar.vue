@@ -121,6 +121,7 @@
   }
 .back-btn{
   /*border: 1px solid #000;*/
+  width: 100px;
 
 }
   .back-btn img{

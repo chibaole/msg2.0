@@ -5,7 +5,7 @@
 
     <scroll-view  class="scroll-view_H" scroll-x="true" scroll-left>
 
-      <div  class="scroll-view-item_H  " v-for="boon in boons" :key="boon.uuid"  :data-uuid = "boon.uuid">
+      <div  class="scroll-view-item_H  " v-for="boon in boons" :key="boon.uuid"   @click="formSubmit" :data-title="boon.title" :data-uuid = "boon.uuid">
         <div class="recomend-box ">
           <div class="recomend-pic  ">
             <img :src="boon.title_image_url" alt="">

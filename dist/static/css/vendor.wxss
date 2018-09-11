@@ -181,6 +181,9 @@
   justify-content: space-between;
   align-items: center;
 }
+.back-btn.data-v-ad332f3a {
+  width: 200rpx;
+}
 .back-btn ._img.data-v-ad332f3a {
   display: inline-block;
   width: 36rpx;

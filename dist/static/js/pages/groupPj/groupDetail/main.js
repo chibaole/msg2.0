@@ -118,8 +118,7 @@ global.webpackJsonp([12],{
                     console.log('/pages/groupPj/order/main?group_activity_initial_uuid=' + group_activity_initial_uuid);
                   },
                   'fail': function fail(res) {
-                    console.log(res);
-                    console.log('支付错误');
+
                     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4__utils_util__["b" /* showModal */])('支付失败', '请尝试重新支付');
 
                     //          let group_activity_initial_uuid = that.order_info.group_activity_initial.uuid
@@ -341,7 +340,7 @@ app.$mount();
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   config: {
-    enablePullDownRefresh: true
+    enablePullDownRefresh: false
   }
 });
 

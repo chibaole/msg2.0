@@ -441,7 +441,7 @@ app.$mount();
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   config: {
-    enablePullDownRefresh: true
+    enablePullDownRefresh: false
   }
 });
 

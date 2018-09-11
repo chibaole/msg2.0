@@ -37,6 +37,13 @@ global.webpackJsonp([1],{
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -57,7 +64,7 @@ global.webpackJsonp([1],{
       console.log(formId);
       console.log(Intial);
 
-      if (Intial.group_activity_intial != null) {
+      if (Intial.group_activity_intial !== null) {
         console.log('已参与');
         console.log(Intial.group_activity_initial.uuid);
         wx.navigateTo({
@@ -833,7 +840,15 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   }, [_c('span'), _vm._v("拼团")]), _vm._v(" "), _vm._l((_vm.group_activities), function(group_activitie, index) {
     return _c('div', {
       key: group_activitie.uuid,
-      staticClass: "group-tiem "
+      staticClass: "group-tiem ",
+      attrs: {
+        "data-uuid": group_activitie.uuid,
+        "data-activitie": group_activitie,
+        "eventid": '1-' + index
+      },
+      on: {
+        "click": _vm.goGroup
+      }
     }, [_c('div', {
       staticClass: "pic "
     }, [_c('img', {
@@ -852,6 +867,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }, [_vm._v("¥" + _vm._s(group_activitie.current_price) + " "), _c('span', {
       staticClass: "price "
     }, [_vm._v("¥" + _vm._s(group_activitie.original_price))])])]), _vm._v(" "), _c('form', {
+      staticClass: "creatGroup",
       attrs: {
         "report-submit": true,
         "data-uuid": group_activitie.uuid,
@@ -997,7 +1013,12 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       key: boon.uuid,
       staticClass: "scroll-view-item_H  ",
       attrs: {
-        "data-uuid": boon.uuid
+        "data-title": boon.title,
+        "data-uuid": boon.uuid,
+        "eventid": '1-' + index
+      },
+      on: {
+        "click": _vm.formSubmit
       }
     }, [_c('div', {
       staticClass: "recomend-box "
@@ -1127,7 +1148,8 @@ app.$mount();
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   config: {
-    enablePullDownRefresh: true
+    enablePullDownRefresh: false
+
   }
 });
 

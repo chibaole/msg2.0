@@ -87,8 +87,7 @@
           console.log('/pages/groupPj/order/main?group_activity_initial_uuid=' + group_activity_initial_uuid)
         },
         'fail': function (res) {
-          console.log(res)
-          console.log('支付错误')
+
           showModal('支付失败', '请尝试重新支付')
 
 //          let group_activity_initial_uuid = that.order_info.group_activity_initial.uuid
@@ -132,6 +131,7 @@
   font-weight: Regular;
   text-align: left;
   background: #f7f7f7;
+  border:1px solid #000;
 
 }
 .wrap{

@@ -3,7 +3,10 @@
   <div class="container ">
 
     <p class="componten_name "><span></span>拼团</p>
-    <div class="group-tiem " v-for="group_activitie in group_activities" :key="group_activitie.uuid">
+
+
+    <div class="group-tiem " v-for="group_activitie in group_activities" :key="group_activitie.uuid" @click="goGroup" :data-uuid="group_activitie.uuid"  :data-activitie = "group_activitie">
+
       <div class="pic " ><img  :src="group_activitie.title_image_url" alt=""></div>
       <div class="info-box ">
         <div class="group-info ">
@@ -13,12 +16,16 @@
         </div>
         <!--<div class="join-group " @click="goGroup" :data-groupname="groupname" :data-uuid="group_activitie.uuid">{{group_activitie.button.text}}</div>-->
 
-        <form @submit = 'goGroup'  :report-submit=true :data-uuid="group_activitie.uuid"  :data-activitie = "group_activitie"  >
+        <form class="creatGroup" @submit = 'goGroup'  :report-submit=true :data-uuid="group_activitie.uuid"  :data-activitie = "group_activitie"  >
           <button formType="submit" >{{group_activitie.button.text}}</button>
         </form>
       </div>
 
     </div>
+
+
+
+
 
   </div>
 </template>
@@ -48,7 +55,7 @@
 
 
 
-        if(Intial.group_activity_intial != null){
+        if(Intial.group_activity_intial !== null){
           console.log('已参与')
           console.log(Intial.group_activity_initial.uuid)
           wx.navigateTo({
@@ -120,8 +127,8 @@
     width: 325px;
     height: 231px;
     margin:0 auto 60px;
+    /*border: 1px solid #000;*/
 
-    /*margin-bottom: 7px;*/
   }
 
   .group-tiem .pic {
@@ -178,19 +185,28 @@
       display: inline-block;
       font-size: 12px;
       width: 62px;
-      height: 28px;
+      height: 30px;
       border-radius: 14px;
 
-      background:#ff7f4f ;
+      background:rgb(255,127,79) ;
 
-      line-height: 28px;
+      line-height: 30px;
       color: #fff;
+      box-shadow: 0 0 8px 0 rgba(255,127,79,0.4);
     }
     button::after{
       border: none;
     }
 
   }
+
+
+
+
+  button::after{
+    border: none;
+  }
+
   .group-text{
     height: 20px;
     line-height: 20px;

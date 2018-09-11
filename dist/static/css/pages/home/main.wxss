@@ -246,13 +246,17 @@
   display: inline-block;
   font-size: 24rpx;
   width: 124rpx;
-  height: 56rpx;
+  height: 60rpx;
   border-radius: 28rpx;
   background: #ff7f4f;
-  line-height: 56rpx;
+  line-height: 60rpx;
   color: #fff;
+  box-shadow: 0 0 16rpx 0 rgba(255, 127, 79, 0.4);
 }
 ._form ._button.data-v-318ee708::after {
+  border: none;
+}
+._button.data-v-318ee708::after {
   border: none;
 }
 .group-text.data-v-318ee708 {

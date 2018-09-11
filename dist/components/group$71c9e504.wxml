@@ -2,7 +2,8 @@
   <view class="_div data-v-318ee708 container ">
     <view class="_p data-v-318ee708 componten_name ">
       <label class="_span data-v-318ee708"></label>拼团</view>
-    <view class="_div data-v-318ee708 group-tiem " wx:key="group_activitie.uuid" key="{{group_activitie.uuid}}" wx:for="{{group_activities}}" wx:for-index="index" wx:for-item="group_activitie">
+    <view class="_div data-v-318ee708 group-tiem " wx:key="group_activitie.uuid" key="{{group_activitie.uuid}}" bindtap="handleProxy" data-uuid="{{group_activitie.uuid}}" data-activitie="{{group_activitie}}" data-eventid="{{'1-'+index}}"
+      data-comkey="{{$k}}" wx:for="{{group_activities}}" wx:for-index="index" wx:for-item="group_activitie">
       <view class="_div data-v-318ee708 pic ">
         <image src="{{group_activitie.title_image_url}}" alt class="_img data-v-318ee708"></image>
       </view>
@@ -13,7 +14,7 @@
             <label class="_span data-v-318ee708 price ">¥{{group_activitie.original_price}}</label>
           </view>
         </view>
-        <form bindsubmit="handleProxy" report-submit="{{true}}" data-uuid="{{group_activitie.uuid}}" data-activitie="{{group_activitie}}" data-eventid="{{'0-'+index}}" data-comkey="{{$k}}" class="_form data-v-318ee708">
+        <form class="_form data-v-318ee708 creatGroup" bindsubmit="handleProxy" report-submit="{{true}}" data-uuid="{{group_activitie.uuid}}" data-activitie="{{group_activitie}}" data-eventid="{{'0-'+index}}" data-comkey="{{$k}}">
           <button formType="submit" class="_button data-v-318ee708">{{group_activitie.button.text}}</button>
         </form>
       </view>

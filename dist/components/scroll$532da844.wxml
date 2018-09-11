@@ -3,7 +3,8 @@
     <view class="_div data-v-8c08e6c0 praise-title">
       <label class="_span data-v-8c08e6c0"></label>今日福利</view>
     <scroll-view class="_scroll-view data-v-8c08e6c0 scroll-view_H" scroll-x="true" scroll-left>
-      <view class="_div data-v-8c08e6c0 scroll-view-item_H  " wx:key="boon.uuid" key="{{boon.uuid}}" data-uuid="{{boon.uuid}}" wx:for="{{boons}}" wx:for-index="index" wx:for-item="boon">
+      <view class="_div data-v-8c08e6c0 scroll-view-item_H  " wx:key="boon.uuid" key="{{boon.uuid}}" bindtap="handleProxy" data-title="{{boon.title}}" data-uuid="{{boon.uuid}}" data-eventid="{{'1-'+index}}" data-comkey="{{$k}}" wx:for="{{boons}}" wx:for-index="index"
+        wx:for-item="boon">
         <view class="_div data-v-8c08e6c0 recomend-box ">
           <view class="_div data-v-8c08e6c0 recomend-pic  ">
             <image src="{{boon.title_image_url}}" alt class="_img data-v-8c08e6c0"></image>

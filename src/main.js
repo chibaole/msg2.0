@@ -17,7 +17,8 @@ app.$mount()
 
 export default{
   config: {
-
+    "enablePullDownRefresh": false,
+    "disableScroll": true,
     usingComponents: {
       'skeleton': '../static/skeleton/skeleton'
     },

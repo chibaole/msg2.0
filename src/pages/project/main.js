@@ -6,7 +6,7 @@ app.$mount()
 
 export default{
   config: {
-    enablePullDownRefresh: true,
+    enablePullDownRefresh: false,
     'window': {
       'backgroundTextStyle': 'light',
       'navigationBarBackgroundColor': '#EA5149',
