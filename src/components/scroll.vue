@@ -5,13 +5,13 @@
 
     <scroll-view class="scroll-view_H" scroll-x="true" scroll-left>
 
-      <div class="scroll-view-item_H " v-for="boon in boons" :key="boon.uuid" @click="formSubmit"
-           :data-title="boon.title" :data-uuid="boon.uuid">
-        <form :report-submit="true" @submit="myBoon">
+      <div class="scroll-view-item_H " v-for="boon in boons" :key="boon.uuid" :data-title="boon.title" :data-uuid="boon.uuid">
+        <form :report-submit="true" @submit="formSubmit" :data-title="boon.title" :data-uuid="boon.uuid">
           <button formType="submit">
             <div class="recomend-box ">
-              <div class="recomend-pic">
-                <img :src="boon.title_image_url" alt="">
+              <div class="recomend-pic" :style="{width:'100%', height:'100%', backgroundImage:'url('+boon.title_image_url+')',backgroundSize:'cover', background_position:'50%'}">
+                <!--{backgroundImage:'url(' + item.videopic + ')'}-->
+                <!--<img :src="boon.title_image_url" alt="">-->
               </div>
               <div class="recomend-box-inner ">
                 <div class="recomend-intitle ">{{boon.title}}</div>
@@ -69,16 +69,13 @@
       formSubmit(e) {
         console.log(e)
         var that = this
-        if (e.mp.detail.formId != 'the formId is a mock one') {
 
-
-          that.formId = e.mp.detail.formId + that.formId
-        }
         console.log(that.formId)
         let uuid = e.currentTarget.dataset.uuid
         let title = e.currentTarget.dataset.title
-        console.log(uuid, title)
-        wx.navigateTo('/pages/project/main?boons_uuid=' + uuid + '&title=' + title)
+        let form_id = e.mp.detail.formId
+        console.log(uuid, title,form_id)
+        wx.navigateTo('/pages/project/main?boons_uuid=' + uuid + '&title=' + title + '&form_id='+form_id)
 //        wx.redirectTo('/pages/project/main?boons_uuid=' + uuid + '&title=' + title)
       },
       async attendBoon(e) {
@@ -154,9 +151,6 @@
 
   }
 
-  .scroll-view-item_H image {
-    height: 180px;
-  }
 
   .recomend-box {
     width: 150px;
@@ -165,16 +159,22 @@
     border-radius: 5px;
     margin-bottom: 20px;
     position: relative;
+    overflow: hidden;
     /*border: 1px solid #000;*/
   }
 
   .recomend-pic {
     height: 180px;
+    width: 150px;
+    /*border: 2px solid red;*/
+    overflow: hidden;
   }
 
-  .recomend-pic image {
+  .recomend-pic img {
+    /*width: 150px;*/
     width: 100%;
-    height: 100%;
+    transform: translateY(50%) scale(1);
+
     border-radius: 5px;
 
   }
@@ -239,36 +239,13 @@
     color: #ff7f4f;
     font-size: 12px;
     border: 1px solid #ff7f4f;
+    float: left;
 
   }
 
-  form{
-    /*border: 1px solid red;*/
-    /*button{border:1px solid #000};*/
-  }
 
-  /*-----*/
 
-  /*form{*/
-  /*display: inline-block;*/
-  /*!*border:1px solid #000;*!*/
-  /*background: #fff;*/
-  /*button{*/
-  /*background: #fff;*/
 
-  /*display: inline-block;*/
-  /*width: 70px;*/
-  /*height: 30px;*/
-  /*line-height: 30px;*/
-  /*text-align: center;*/
-  /*border-radius: 15px;*/
-  /*color: #ff7f4f;*/
-  /*font-size: 12px;*/
-  /*border:1px solid #ff7f4f;*/
-  /*}*/
-  /*}*/
-
-  /*-------*/
   .btn {
     width: 20 rpx;
     height: 20 rpx;

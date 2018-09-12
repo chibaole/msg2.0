@@ -169,7 +169,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "title"
   }, [_vm._v(_vm._s(_vm.boon_order.boon.title))]), _vm._v(" "), _c('div', {
     staticClass: "sponsor"
-  }, [_vm._v(_vm._s(_vm.boon_order.boon.sponsor.description))])], 1)]), _vm._v(" "), _c('div', {
+  }, [_vm._v(_vm._s(_vm.boon_order.boon.sponsor.description))])], 1)]), _vm._v(" "), (_vm.boon_order.address) ? _c('div', {
     staticClass: "receive"
   }, [_c('div', {
     staticClass: "title"
@@ -181,7 +181,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "address"
   }, [_c('span', [_vm._v("收货地址：")]), _c('span', {
     staticClass: "addressDetail"
-  }, [_vm._v(_vm._s(_vm.boon_order.address.detail))])])])]), _vm._v(" "), _c('div', {
+  }, [_vm._v(_vm._s(_vm.boon_order.address.detail))])])])]) : _vm._e(), _vm._v(" "), _c('div', {
     staticClass: "orderinfo"
   }, [_c('div', {
     staticClass: "title"
@@ -191,7 +191,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "orderTime"
   }, [_c('span', [_vm._v("订单时间：")]), _c('span', [_vm._v(_vm._s(_vm.boon_order.boon.lottery_info.lottery_time))])]), _vm._v(" "), _c('div', {
     staticClass: "orderState"
-  }, [_c('span', [_vm._v("订单状态：")]), _c('span', [_vm._v(_vm._s(_vm.boon_order.order_status_display))])])]), _vm._v(" "), _c('div', {
+  }, [_c('span', [_vm._v("订单状态：")]), _c('span', [_vm._v(_vm._s(_vm.boon_order.order_status_display))])])]), _vm._v(" "), (_vm.boon_order.delivery) ? _c('div', {
     staticClass: "express"
   }, [_c('div', {
     staticClass: "title"
@@ -204,7 +204,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "src": __webpack_require__(36),
       "alt": ""
     }
-  })]), _vm._v(" "), _c('div', {
+  })]) : _vm._e(), _vm._v(" "), _c('div', {
     staticClass: "lottery"
   }, [_c('div', {
     staticClass: "title"

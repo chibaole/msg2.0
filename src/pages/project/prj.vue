@@ -13,8 +13,6 @@
     </div>
     </div>
     <!-- 福利简要信息    -->
-
-
     <div class="sponsors">
       <p class="sponsors-info" >{{boon.sponsor.description}}</p>
       <navigator class="switchGoAnchor" target="miniProgram" open-type="navigate" :app-id="boon.sponsor.app_id" :path="boon.sponsor.app_path" extra-data="" version="release">
@@ -22,7 +20,6 @@
       </navigator>
 
     </div>
-
     <!--赞助上小程序   -->
 
 
@@ -395,8 +392,9 @@
       let that = this
       that.uuid = options.boons_uuid // 获取上一页传递的唯一标准uuid
       that.navbar_title = that.$root.$mp.query.title // 获取上一页传递的福利名称 做navbar的标题
+      let form_id = options.form_id
       let currentuser_code = wx.getStorageSync('auth_code')
-      let uuid_authCode= [that.uuid, currentuser_code]
+      let uuid_authCode= [that.uuid, currentuser_code,form_id]
       // 根据获得uuid 查询数据出来
 
 //      that.getBoons()
@@ -891,7 +889,8 @@
       position: relative;
         /*border:1px solid #000;*/
       display: flex;
-      justify-content: space-between;
+      /*justify-content: space-between;*/
+      justify-content: center;
       flex-wrap: wrap;
       align-content: flex-start;
 

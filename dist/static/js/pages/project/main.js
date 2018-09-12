@@ -202,9 +202,6 @@ global.webpackJsonp([3],{
 //
 //
 //
-//
-//
-//
 
 
 
@@ -541,7 +538,7 @@ global.webpackJsonp([3],{
     var _this5 = this;
 
     return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee5() {
-      var that, currentuser_code, uuid_authCode, boonData, init_rewarded_users, _init_rewarded_users, isIphoneX;
+      var that, form_id, currentuser_code, uuid_authCode, boonData, init_rewarded_users, _init_rewarded_users, isIphoneX;
 
       return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee5$(_context5) {
         while (1) {
@@ -551,16 +548,17 @@ global.webpackJsonp([3],{
 
               that.uuid = options.boons_uuid; // 获取上一页传递的唯一标准uuid
               that.navbar_title = that.$root.$mp.query.title; // 获取上一页传递的福利名称 做navbar的标题
+              form_id = options.form_id;
               currentuser_code = wx.getStorageSync('auth_code');
-              uuid_authCode = [that.uuid, currentuser_code];
+              uuid_authCode = [that.uuid, currentuser_code, form_id];
               // 根据获得uuid 查询数据出来
 
               //      that.getBoons()
 
-              _context5.next = 7;
+              _context5.next = 8;
               return that.$store.dispatch('getBoons', __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends___default()({}, uuid_authCode));
 
-            case 7:
+            case 8:
               boonData = _context5.sent;
 
               that.boon = boonData.boon;
@@ -586,7 +584,7 @@ global.webpackJsonp([3],{
 
               //     await this.$store.dispatch('createBill', { ...this.userInfo, ...this.billInfo })
 
-            case 13:
+            case 14:
             case 'end':
               return _context5.stop();
           }

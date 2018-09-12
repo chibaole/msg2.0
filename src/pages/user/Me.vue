@@ -181,6 +181,7 @@ export default {
   async onShow () {
     let that = this
     let userinfo = wx.getStorageSync('userinfo')
+    console.log(userinfo)
     if (userinfo) {
       that.userinfo = userinfo
       that.login_show = false

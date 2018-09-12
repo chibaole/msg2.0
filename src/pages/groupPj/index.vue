@@ -4,7 +4,11 @@
     <Navbar :navbar_title="navbar_title"></Navbar>
 
     <div class="top">
-      <div class="pic"><img :src="group_activity.title_image_url" alt=""></div>
+      <div class="pic">
+        <!--<img :src="group_activity.title_image_url" alt="">-->
+        <div class="bg" :style="{width:'100%', height:'100%', backgroundImage:'url('+group_activity.title_image_url+')',backgroundSize:'cover', backgroundPosition:'50%'}"></div>
+
+      </div>
 
           <div class="timeLine">
             <p>距离结束仅剩</p>

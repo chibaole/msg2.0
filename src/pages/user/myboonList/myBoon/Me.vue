@@ -10,7 +10,7 @@
 
     </div>
 
-    <div class="receive">
+    <div class="receive" v-if="boon_order.address">
       <div class="title">收货人信息</div>
       <div class="phone_address">
         <div class="phone"><span>收货信息：</span><span>{{ boon_order.address.people || "暂无收货人信息"  }}</span></div>
@@ -25,7 +25,7 @@
       <div class="orderState"><span>订单状态：</span><span>{{boon_order.order_status_display}}</span></div>
     </div>
 
-    <div class="express">
+    <div class="express" v-if="boon_order.delivery">
       <div class="title">物流信息</div>
       <div class="groupOrder"><span>物流配送：</span><span>{{boon_order.delivery.company}}</span></div>
       <div class="orderTime"><span>运单编号：</span><span>{{boon_order.delivery.delivery_no}}</span></div>

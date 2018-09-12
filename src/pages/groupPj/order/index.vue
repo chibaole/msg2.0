@@ -6,7 +6,7 @@
     <div class="wrap">
       <div class="pj-info">
         <div class="left">
-          <img src="http://oxl5leo53.bkt.clouddn.com/u=660634825,1514502894&fm=11&gp=0.jpg" alt="">
+          <img :src="order_info.group_activity.title_image_url" alt="">
         </div>
         <div class="right">
           <h2><div class="mark">{{order_info.group_activity.group_type}}</div>{{order_info.group_activity.title}}</h2>

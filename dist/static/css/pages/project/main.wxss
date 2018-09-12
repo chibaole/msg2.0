@@ -353,7 +353,7 @@
   margin: 20rpx auto 40rpx;
   position: relative;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   flex-wrap: wrap;
   align-content: flex-start;
 }

@@ -174,27 +174,28 @@ var apiDomain = 'https://msg.chibaole.cc/api/v1';
       var uuid_authCode = __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_objectWithoutProperties___default()(_ref5, []);
 
       return __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.mark(function _callee4() {
-        var uuid, auth_code, prjInfo;
+        var uuid, auth_code, form_id, prjInfo;
         return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.wrap(function _callee4$(_context4) {
           while (1) {
             switch (_context4.prev = _context4.next) {
               case 0:
                 uuid = uuid_authCode[0];
                 auth_code = uuid_authCode[1];
-                _context4.next = 4;
+                form_id = uuid_authCode[2];
+                _context4.next = 5;
                 return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
                   method: 'get',
-                  url: apiDomain + '/boons/' + uuid + '?auth_code=' + auth_code,
+                  url: apiDomain + '/boons/' + uuid + '?auth_code=' + auth_code + '&form_id=' + form_id,
                   data: {}
                 });
 
-              case 4:
+              case 5:
                 prjInfo = _context4.sent;
 
                 console.log('\u83B7\u53D6\u798F\u5229\u8BE6\u60C5----' + apiDomain + '/boons/' + uuid + '?auth_code=' + auth_code);
                 return _context4.abrupt('return', prjInfo);
 
-              case 7:
+              case 8:
               case 'end':
                 return _context4.stop();
             }
@@ -296,7 +297,7 @@ var apiDomain = 'https://msg.chibaole.cc/api/v1';
                 _context7.next = 6;
                 return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
                   method: 'get',
-                  url: apiDomain + '/group_activities/' + uuid + '?auth_code=' + auth_code
+                  url: apiDomain + '/group_activities/' + uuid + '?auth_code=' + auth_code + '&form_id=' + form_id
                 });
 
               case 6:

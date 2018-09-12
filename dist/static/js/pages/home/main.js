@@ -47,6 +47,10 @@ global.webpackJsonp([1],{
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -299,15 +303,13 @@ global.webpackJsonp([1],{
     formSubmit: function formSubmit(e) {
       console.log(e);
       var that = this;
-      if (e.mp.detail.formId != 'the formId is a mock one') {
 
-        that.formId = e.mp.detail.formId + that.formId;
-      }
       console.log(that.formId);
       var uuid = e.currentTarget.dataset.uuid;
       var title = e.currentTarget.dataset.title;
-      console.log(uuid, title);
-      __WEBPACK_IMPORTED_MODULE_3__utils_wx__["c" /* default */].navigateTo('/pages/project/main?boons_uuid=' + uuid + '&title=' + title);
+      var form_id = e.mp.detail.formId;
+      console.log(uuid, title, form_id);
+      __WEBPACK_IMPORTED_MODULE_3__utils_wx__["c" /* default */].navigateTo('/pages/project/main?boons_uuid=' + uuid + '&title=' + title + '&form_id=' + form_id);
       //        wx.redirectTo('/pages/project/main?boons_uuid=' + uuid + '&title=' + title)
     },
     attendBoon: function attendBoon(e) {
@@ -838,11 +840,15 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       }
     }, [_c('div', {
       staticClass: "pic "
-    }, [_c('img', {
-      attrs: {
-        "src": group_activitie.title_image_url,
-        "alt": ""
-      }
+    }, [_c('div', {
+      staticClass: "bg",
+      style: ({
+        width: '100%',
+        height: '100%',
+        backgroundImage: 'url(' + group_activitie.title_image_url + ')',
+        backgroundSize: 'cover',
+        backgroundPosition: '50%'
+      })
     })]), _vm._v(" "), _c('div', {
       staticClass: "info-box "
     }, [_c('div', {
@@ -996,19 +1002,17 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       staticClass: "scroll-view-item_H ",
       attrs: {
         "data-title": boon.title,
-        "data-uuid": boon.uuid,
-        "eventid": '1-' + index
-      },
-      on: {
-        "click": _vm.formSubmit
+        "data-uuid": boon.uuid
       }
     }, [_c('form', {
       attrs: {
         "report-submit": true,
+        "data-title": boon.title,
+        "data-uuid": boon.uuid,
         "eventid": '0-' + index
       },
       on: {
-        "submit": _vm.myBoon
+        "submit": _vm.formSubmit
       }
     }, [_c('button', {
       attrs: {
@@ -1017,13 +1021,15 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }, [_c('div', {
       staticClass: "recomend-box "
     }, [_c('div', {
-      staticClass: "recomend-pic"
-    }, [_c('img', {
-      attrs: {
-        "src": boon.title_image_url,
-        "alt": ""
-      }
-    })]), _vm._v(" "), _c('div', {
+      staticClass: "recomend-pic",
+      style: ({
+        width: '100%',
+        height: '100%',
+        backgroundImage: 'url(' + boon.title_image_url + ')',
+        backgroundSize: 'cover',
+        background_position: '50%'
+      })
+    }), _vm._v(" "), _c('div', {
       staticClass: "recomend-box-inner "
     }, [_c('div', {
       staticClass: "recomend-intitle "

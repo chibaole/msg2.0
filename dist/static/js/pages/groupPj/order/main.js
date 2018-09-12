@@ -732,7 +732,14 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "wrap"
   }, [_c('div', {
     staticClass: "pj-info"
-  }, [_vm._m(0), _vm._v(" "), _c('div', {
+  }, [_c('div', {
+    staticClass: "left"
+  }, [_c('img', {
+    attrs: {
+      "src": _vm.order_info.group_activity.title_image_url,
+      "alt": ""
+    }
+  })]), _vm._v(" "), _c('div', {
     staticClass: "right"
   }, [_c('h2', [_c('div', {
     staticClass: "mark"
@@ -944,16 +951,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }, [_vm._v("一键参与")])]) : _vm._e()], 1)
 }
-var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "left"
-  }, [_c('img', {
-    attrs: {
-      "src": "http://oxl5leo53.bkt.clouddn.com/u=660634825,1514502894&fm=11&gp=0.jpg",
-      "alt": ""
-    }
-  })])
-}]
+var staticRenderFns = []
 render._withStripped = true
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);

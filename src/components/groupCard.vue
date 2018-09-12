@@ -3,7 +3,8 @@
     <div class="wrap">
        <div class="pj-info">
       <div class="left">
-        <img :src="order_info.group_activity.title_image_url" alt="">
+        <!--<img :src="order_info.group_activity.title_image_url" alt="">-->
+        <div class="bg" :style="{width:'100%', height:'100%', backgroundImage:'url('+order_info.group_activity.title_image_url+')',backgroundSize:'cover', backgroundPosition:'50%'}"></div>
       </div>
       <div class="right">
 

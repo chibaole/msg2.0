@@ -80,9 +80,6 @@
   display: inline-block;
   height: auto;
 }
-.scroll-view-item_H image.data-v-8c08e6c0 {
-  height: 360rpx;
-}
 .recomend-box.data-v-8c08e6c0 {
   width: 300rpx;
   height: 360rpx;
@@ -90,13 +87,16 @@
   border-radius: 10rpx;
   margin-bottom: 40rpx;
   position: relative;
+  overflow: hidden;
 }
 .recomend-pic.data-v-8c08e6c0 {
   height: 360rpx;
+  width: 300rpx;
+  overflow: hidden;
 }
-.recomend-pic image.data-v-8c08e6c0 {
+.recomend-pic ._img.data-v-8c08e6c0 {
   width: 100%;
-  height: 100%;
+  transform: translateY(50%) scale(1);
   border-radius: 10rpx;
 }
 .recomend-box-inner.data-v-8c08e6c0 {
@@ -141,6 +141,7 @@
   color: #ff7f4f;
   font-size: 24rpx;
   border: 2rpx solid #ff7f4f;
+  float: left;
 }
 .btn.data-v-8c08e6c0 {
   width: 20 rpx;
@@ -195,12 +196,14 @@
 .group-tiem .pic.data-v-318ee708 {
   width: 650rpx;
   height: 300rpx;
-  overflow: hidden;
-  border-radius: 0;
+  border-radius: 10rpx;
+}
+.group-tiem .pic .bg.data-v-318ee708 {
+  border-radius: 10rpx;
 }
 .pic ._img.data-v-318ee708 {
   width: 100%;
-  border-radius: 0;
+  border-radius: 10rpx;
 }
 .info-box.data-v-318ee708 {
   width: 100%;
@@ -221,6 +224,7 @@
   line-height: 60rpx;
   color: #fff;
   float: right;
+  margin-right: 4rpx;
   margin-top: 106rpx;
   background: #ff7f4f;
   box-shadow: 0 0 16rpx 0 rgba(255, 127, 79, 0.4);

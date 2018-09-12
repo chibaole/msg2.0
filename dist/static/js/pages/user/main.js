@@ -255,16 +255,17 @@ global.webpackJsonp([2],{
               that = _this2;
               userinfo = wx.getStorageSync('userinfo');
 
+              console.log(userinfo);
               if (userinfo) {
                 that.userinfo = userinfo;
                 that.login_show = false;
               } else {
                 that.login_show = true;
               }
-              _context2.next = 5;
+              _context2.next = 6;
               return that.$store.dispatch('user_info');
 
-            case 5:
+            case 6:
               user_profile = _context2.sent;
               userinfoInit = {
                 avatar_url: userinfo.avatar_url,
@@ -276,7 +277,7 @@ global.webpackJsonp([2],{
               userinfoInit.level_display = user_profile.user.level_display;
               that.userinfo = userinfoInit;
 
-            case 9:
+            case 10:
             case 'end':
               return _context2.stop();
           }

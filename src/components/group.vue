@@ -8,7 +8,11 @@
     <div class="group-tiem " v-for="group_activitie in group_activities"  :key="group_activitie.uuid"  >
       <form  :report-submit="true" @submit="goGroup" :data-uuid="group_activitie.uuid"  :data-activitie = "group_activitie">
         <button formType="submit" >
-      <div class="pic " ><img  :src="group_activitie.title_image_url" alt=""></div>
+      <div class="pic " >
+
+        <!--<img  :src="group_activitie.title_image_url" alt="">-->
+        <div class="bg" :style="{width:'100%', height:'100%', backgroundImage:'url('+group_activitie.title_image_url+')',backgroundSize:'cover', backgroundPosition:'50%'}"></div>
+      </div>
       <div class="info-box ">
         <div class="group-info ">
             <div class="group-text ">{{group_activitie.title}}</div>
@@ -133,16 +137,21 @@
   .group-tiem .pic {
     width: 325px;
     height: 150px;
-    overflow: hidden;
+    /*overflow: hidden;*/
     /*border: 1px solid blue;*/
-    border-radius:0;
+    border-radius:5px;
+    /*background-image: url("https://msgcdn.chibaole.cc/uploads/boon/title_image/ALrtcPdiXkEfd3y5gqhTyS5Y/141536228676_.pic.jpg");*/
+    .bg{
+      border-radius:5px;
 
+    }
 
 
   }
   .pic img{
     width: 100%;
-    border-radius:0;
+    border-radius:5px;
+    /*border: 1px solid #000;*/
 
     /*height: 150px;*/
 
@@ -171,9 +180,11 @@
     line-height: 30px;
     color: #fff;
     float: right;
+    margin-right: 2px;
     margin-top: 53px;
     background:rgb(255,127,79) ;
-    box-shadow: 0 0 8px 0 rgba(255,127,79,0.4);
+    box-shadow: 0 0   8px 0   rgba(#ff7f4f, 0.4)  ;
+    /*border:1px solid #000;*/
 
   }
 

@@ -62,9 +62,10 @@ export default new Vuex.Store({
     async getBoons ({commit}, {...uuid_authCode}) {
       let uuid = uuid_authCode[0]
       let auth_code = uuid_authCode[1]
+      let form_id = uuid_authCode[2]
       let prjInfo = await request({
         method: 'get',
-        url: `${apiDomain}/boons/${uuid}?auth_code=${auth_code}`,
+        url: `${apiDomain}/boons/${uuid}?auth_code=${auth_code}&form_id=${form_id}`,
         data: {}
       })
       console.log(`获取福利详情----${apiDomain}/boons/${uuid}?auth_code=${auth_code}`)
@@ -103,7 +104,7 @@ export default new Vuex.Store({
       console.log(`拼团活动详情----${apiDomain}/group_activities/${uuid}?auth_code=${auth_code}&form_id=${form_id}`)
       const groupDetail = await request({
         method: 'get',
-        url: `${apiDomain}/group_activities/${uuid}?auth_code=${auth_code}`
+        url: `${apiDomain}/group_activities/${uuid}?auth_code=${auth_code}&form_id=${form_id}`
       })
       return groupDetail
     },
