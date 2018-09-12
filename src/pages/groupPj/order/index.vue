@@ -9,8 +9,6 @@
           <img src="http://oxl5leo53.bkt.clouddn.com/u=660634825,1514502894&fm=11&gp=0.jpg" alt="">
         </div>
         <div class="right">
-
-
           <h2><div class="mark">{{order_info.group_activity.group_type}}</div>{{order_info.group_activity.title}}</h2>
           <p><span>¥{{order_info.group_activity.current_price}}</span><span>¥{{order_info.group_activity.original_price}}</span></p>
         </div>
@@ -20,26 +18,46 @@
 
     <!--订单详情-->
     <div class="detail-order">
-      <h2><span>{{order_info.status_display}}</span><span class="refund" >已退款</span></h2>
-      <div class="order-info">
-        <div class="text">还差<span>{{order_info.users_left}}</span>人参团,
-          <span>{{time.day}}</span>天
-          <span>{{time.hours}}</span>时
-          <span>{{time.minutes}}</span>分后结束
+
+      <div class="grouping" v-if="order_info.status == 'grouping'"> <!--拼团中-->
+        <h2><span>{{order_info.status_display}}</span></h2>
+          <div class="order-info">
+            <div class="text">还差<span>{{order_info.users_left}}</span>人参团,
+              <span>{{time.day}}</span>天
+              <span>{{time.hours}}</span>时
+              <span>{{time.minutes}}</span>分后结束
+            </div>
+          </div>
+
+          <div class="user">
+            <div class="pic" v-for="item in order_info.users" :key="item.uuid"><img :src="item.avatar_url" alt=""><span class="mark" v-if="item.is_initiator">团长</span></div>
+          </div>
+      </div>
+
+
+
+      <div class="groupFailed"  v-if="order_info.status == 'failed'"> <!--拼团失败-->
+      <!--<div class="groupFailed"  > &lt;!&ndash;拼团失败&ndash;&gt;-->
+
+          <h2><span>{{'来晚一步了，拼团已结束'}}</span></h2>
+
+        <div class="user">
+          <div class="pic" v-for="item in order_info.users" :key="item.uuid"><img :src="item.avatar_url" alt=""><span class="mark" v-if="item.is_initiator">团长</span></div>
         </div>
-
-      </div>
-
-      <div class="user">
-        <div class="pic" v-for="item in order_info.users"><img :src="item.avatar_url" alt=""><span class="mark" v-if="item.is_initiator">团长</span></div>
       </div>
 
 
+      <div class="groupSuccess"  v-if="order_info.status == 'success'"> <!--拼团成功-->
+        <h2><span>{{order_info.status_display}}</span></h2>
+        <div class="user">
+          <div class="pic" v-for="item in order_info.users" :key="item.uuid"><img :src="item.avatar_url" alt=""><span class="mark" v-if="item.is_initiator">团长</span></div>
+        </div>
+      </div>
       <!--<div class="group_res" v-if="order_info.status == 'success'" @click="fillAddress">去填地址</div>-->
-
       <form :report-submit="true" @submit="fillAddress">
         <button class="form_button" formType="submit">
-          <div class="group_res" v-if="order_info.status == 'success'" @click="fillAddress">去填地址</div>
+          <div class="group_res" v-if="order_info.status == 'success'" @click="fillAddress">去提货</div>
+          <!--<div class="group_res"  @click="fillAddress">去提货</div>-->
         </button>
       </form>
 
@@ -138,7 +156,8 @@
         group_activity_initial_uuid: '',
         group_activity_initials_finish: false,
         host: config.host,
-        onekeyAttend:false
+        onekeyAttend:false,
+        group_activity_order_uuid:''
       }
     },
     components: {
@@ -170,7 +189,6 @@
     async attendGroup () {
 //    一键参与 扫码或者点击分享进入
       const that = this
-
       let uuid = that.group_activity_initial_uuid
       let auth_code = wx.getStorageSync('auth_code')
       let uuid_authCode = [uuid, auth_code]
@@ -178,18 +196,10 @@
       let group_activity_orders = await that.$store.dispatch('attendGroupActivities', {...uuid_authCode})
 //      console.log(group_activity_orders)// group_activity_orders = underfind ? '参与失败'：参与成功
 
-
-
-
-
       let group_activity_order_uuid = group_activity_orders.group_activity_order.uuid
-      console.log(group_activity_order_uuid)
-
+      that. group_activity_order_uuid =  group_activity_order_uuid
         // 支付参与拼团的订单
-
-
       let join_res = await that.$store.dispatch('group_pay', group_activity_order_uuid)
-      console.log(join_res)
 
       wx.requestPayment({
         'timeStamp': String(join_res.time_stamp),
@@ -211,7 +221,6 @@
 
         }
       })
-
 
     },
     getlastTime () {
@@ -284,18 +293,7 @@
       that.animationData = animation
     }, 200)
   },
-  sharfri () {
-    // 分享给朋友
-  },
-  async
-  getGroup_orders () {
-    let that = this
-    let order_info = await
-    get(`/v1/group_activity_orders/${that.order_uuid}`) // 获取拼团订单
-    let order = order_info.group_activity_order
-    console.log(order)
-    that.order_info = order
-  },
+
   shareMenu (e) {
     console.log(this.showBox)
     console.log(e.mp.detail.formId)
@@ -430,7 +428,7 @@
       console.log('领奖')
       let that = this
       let data = [ ]
-      let uuid = that.orderId
+      let uuid = that.order_info.group_activity_order.uuid //拼团订单
       let order_status = that.order_info.status // success grouping init failed
       let form_id = e.mp.detail.formId
       console.log(form_id)
@@ -452,6 +450,7 @@
 
         data = [uuid, auth_code, address]
         let address_res = await that.$store.dispatch('groupAddress', {...data})
+
 
         wx.navigateTo({
           url: `/pages/user/myGroup/myGroupDetail/main?uuid=${uuid}`
@@ -543,111 +542,125 @@
     background: #fff;
     margin-top: 9px;
 
-  }
+    h2 {
+      min-width: 176px;
+      height: 16px;
+      line-height: 16px;
+      font-family: PingFangSC-Medium;
+      font-size: 16px;
+      color: #454553;
+      margin: 21px 174px auto 25px;
+      .refund{
+        display: none;
+      }
+    };
+    .order-info .text {
+      /*width: 215px;*/
+      height: 14px;
+      line-height: 14px;
+      font-family: PingFangSC-Regular;
+      font-size: 14px;
+      color: #454553;
+      margin: 15px 100px auto 25px;
+      span {
+        color: #e8724b;
+      }
+    };
+    .user {
+      /*border:1px solid #000;*/
+      /*height: 50px;*/
+      margin-top: 25px;
+      margin-left: 25px;
+      .pic {
+        width: 34px;
+        height: 34px;
+        display: inline-block;
+        position: relative;
+        background-image: url("http://p15hnzxrp.bkt.clouddn.com/oval.png");
+        background-size: cover;
+        border-radius: 50%;
+        img {
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+        };
+        span {
+          width: 32px;
+          height: 16px;
 
-  .detail-order h2 {
-    width: 176px;
-    height: 16px;
-    line-height: 16px;
-    font-family: PingFangSC-Medium;
-    font-size: 16px;
-    color: #454553;
-    margin: 21px 174px auto 25px;
-    .refund{
-      display: none;
+          background: #ff7f4f;
+          border-radius: 23px;
+          text-align: center;
+          color: #fff;
+          position: absolute;
+          top: 26px;
+          left: 1px;
+          font-size: 10px;
+          letter-spacing: 0.1px;
+
+        }
+      };
+      .pic:nth-child(2) {
+        margin-left: 15px;
+        margin-right: 15px;
+      };
+      .pic:nth-child(4) {
+        margin-left: 15px;
+        margin-right: 15px;
+      };
+
     }
+
+
+    .groupFailed{
+      h2{
+        /*border:1px solid #000;*/
+        margin: 21px auto 25px ;
+        text-align: center;
+        color:#333;
+      };
+      .user {
+        /*border:1px solid #000;*/
+        /*height: 50px;*/
+
+        margin-left: 0;
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        align-content: center;
+
+
+        .pic:first-child{
+          margin-left: 17px;
+
+        }
+
+      }
+
+    };
+
+
   }
 
-  .detail-order .order-info .text {
-    /*width: 215px;*/
-    height: 14px;
-    line-height: 14px;
-    font-family: PingFangSC-Regular;
-    font-size: 14px;
-    color: #454553;
-    margin: 15px 100px auto 25px;
-  }
 
-  .detail-order .order-info .text span {
-    color: #e8724b;
-  }
 
-  .user {
-    width: 100%;
-    height: 50px;
-    margin-top: 25px;
-    margin-left: 25px;
 
-  }
+  /*.user .pic*/
 
-  .user .pic {
-    width: 34px;
-    height: 34px;
-    display: inline-block;
-    position: relative;
-    /*border: 1px solid #000;*/
-    background-image: url("http://p15hnzxrp.bkt.clouddn.com/oval.png");
-    background-size: cover;
-    border-radius: 50%;
-    /*background-attachment:fixed;*/
-  }
 
-  .user .pic:nth-child(2) {
-    margin-left: 15px;
-    margin-right: 15px;
-  }
-  .user .pic:nth-child(4) {
-    margin-left: 15px;
-    margin-right: 15px;
-  }
 .group_res{
   width:180px;
-  height: 45px;
-  line-height:45px;
+  height: 40px;
+  line-height:40px;
   text-align: center;
-  border: 1px solid #ff7f47;
+  background: rgb(252,87,75);
+  box-shadow: 0 0 8px 0 rgba(255,127,79,0.4);
   margin: 0 auto;
+  font-family: PingFangSC-Medium;
+  font-size: 16px;
+  color:#fff
 }
-  .pic img {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-  }
-
-  .pic span {
-    width: 32px;
-    height: 16px;
-
-    background: #ff7f4f;
-    border-radius: 23px;
-    text-align: center;
-    color: #fff;
-    position: absolute;
-    top: 26px;
-    left: 1px;
-    font-size: 10px;
-    letter-spacing: 0.1px;
-
-  }
-
-
-  .left_user{
-    width: 34px;
-    height: 34px;
-    display: inline-block;
-    /*border: 1px solid #000;*/
-    background-image: url("http://p15hnzxrp.bkt.clouddn.com/oval.png");
-    background-size: cover;
-    border-radius: 50%;
-
-  }
-
-
-  .nor_user {
-    border: 1px dashed #ccc;
-    border-radius: 50%;
-    /*background: ;*/
-  }
 
   .line {
     width: 325px;
@@ -660,27 +673,24 @@
   .group {
     width: 100%;
     margin-top: -10px;
+    h2 {
+      width: 64px;
+      height: 22px;
+      line-height: 22px;
+      font-family: PingFangSC-Medium;
+      font-size: 16px;
+      color: #333;
+    };
+    p {
+      width: 315px;
+      font-family: PingFangSC-Regular;
 
-  }
+      font-size: 12px;
+      color: #4a4a4a;
+      margin: 0 auto;
+      /*border: 1px solid #000;*/
+    }
 
-  .group h2 {
-    width: 64px;
-    height: 22px;
-    line-height: 22px;
-    font-family: PingFangSC-Medium;
-    font-size: 16px;
-    color: #333;
-
-  }
-
-  .group p {
-    width: 315px;
-    font-family: PingFangSC-Regular;
-
-    font-size: 12px;
-    color: #4a4a4a;
-    margin: 0 auto;
-    /*border: 1px solid #000;*/
   }
 
   .pjDetail {
@@ -804,7 +814,6 @@
     color: #fff;
   }
 
-  /*引入css*/
 
   .mask {
     position: fixed;
@@ -825,39 +834,51 @@
     background: #fff;
     position: relative;
     z-index: 1000;
+    .title {
+      width: 102px;
+      height: 24px;
+      font-size: 17px;
+      line-height: 24px;
+      color: #333;
+      position: absolute;
+      top: 56px;
+      left: 137px;
+
+    };
+    .friend, .createImg {
+      display: inline-block;
+
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      border: 2px solid #ededed;
+      box-sizing: border-box;
+
+    };
+    p {
+      height: 20px;
+      font-size: 14px;
+      color: #666;
+
+    };
+    .friend {
+      display: inline-block;
+      position: absolute;
+      top: 128px;
+      left: 80px;
+      /*border: 1px solid #000;*/
+    };
+    .createImg {
+      position: absolute;
+      top: 128px;
+      right: 80px;
+    }
+
     /*border: 1px solid #ff7f4f;*/
 
   }
 
-  .meunBox .title {
-    width: 102px;
-    height: 24px;
-    font-size: 17px;
-    line-height: 24px;
-    color: #333;
-    position: absolute;
-    top: 56px;
-    left: 137px;
 
-  }
-
-  .meunBox .friend, .createImg {
-    display: inline-block;
-
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    border: 2px solid #ededed;
-    box-sizing: border-box;
-
-  }
-
-  .meunBox p {
-    height: 20px;
-    font-size: 14px;
-    color: #666;
-
-  }
 
   button::after {
     border: none;
@@ -885,19 +906,7 @@
 
   }
 
-  .meunBox .friend {
-    display: inline-block;
-    position: absolute;
-    top: 128px;
-    left: 80px;
-    /*border: 1px solid #000;*/
-  }
 
-  .meunBox .createImg {
-    position: absolute;
-    top: 128px;
-    right: 80px;
-  }
 
   .wechatFriend {
     /*background: none;*/

@@ -44,6 +44,9 @@ global.webpackJsonp([1],{
 //
 //
 //
+//
+//
+//
 
 
 
@@ -61,23 +64,15 @@ global.webpackJsonp([1],{
       var group_activities_uuid = e.currentTarget.dataset.uuid;
       var Intial = e.currentTarget.dataset.activitie;
       var formId = e.mp.detail.formId;
-      console.log(formId);
-      console.log(Intial);
-
-      console.log(Intial.group_activity_initial);
-
       if (Intial.group_activity_initial === null) {
         console.log('未参与');
         wx.navigateTo({
-          url: '/pages/groupPj/main?group_activities_uuid=' + group_activities_uuid
+          url: '/pages/groupPj/main?group_activities_uuid=' + group_activities_uuid + '&form_id=' + formId
         });
       } else if (Intial.group_activity_initial !== null) {
-
         console.log('已参与');
-        //          console.log(Intial.group_activity_initial.uuid)
         wx.navigateTo({
-          url: '/pages/groupPj/order/main?group_activity_initial_uuid=' + Intial.group_activity_initial.uuid // 参与拼团的页面
-
+          url: '/pages/groupPj/order/main?group_activity_initial_uuid=' + Intial.group_activity_initial.uuid + '&from_id=' + formId // 参与拼团的页面
         });
       }
     },
@@ -270,6 +265,15 @@ global.webpackJsonp([1],{
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 
 
@@ -304,6 +308,7 @@ global.webpackJsonp([1],{
       var title = e.currentTarget.dataset.title;
       console.log(uuid, title);
       __WEBPACK_IMPORTED_MODULE_3__utils_wx__["c" /* default */].navigateTo('/pages/project/main?boons_uuid=' + uuid + '&title=' + title);
+      //        wx.redirectTo('/pages/project/main?boons_uuid=' + uuid + '&title=' + title)
     },
     attendBoon: function attendBoon(e) {
       var _this = this;
@@ -356,33 +361,6 @@ global.webpackJsonp([1],{
           }
         }
       }, _callee2, _this2);
-    }))();
-  },
-  onShow: function onShow() {
-    var _this3 = this;
-
-    return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee3() {
-      var boonsData;
-      return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee3$(_context3) {
-        while (1) {
-          switch (_context3.prev = _context3.next) {
-            case 0:
-              console.log('scroll加载今日福利数据');
-              _context3.next = 3;
-              return _this3.$store.dispatch('getBoonsToday');
-
-            case 3:
-              boonsData = _context3.sent;
-
-              _this3.boons = boonsData.boons;
-              console.log(_this3.boons);
-
-            case 6:
-            case 'end':
-              return _context3.stop();
-          }
-        }
-      }, _callee3, _this3);
     }))();
   }
 });
@@ -843,14 +821,20 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   }, [_c('span'), _vm._v("拼团")]), _vm._v(" "), _vm._l((_vm.group_activities), function(group_activitie, index) {
     return _c('div', {
       key: group_activitie.uuid,
-      staticClass: "group-tiem ",
+      staticClass: "group-tiem "
+    }, [_c('form', {
       attrs: {
+        "report-submit": true,
         "data-uuid": group_activitie.uuid,
         "data-activitie": group_activitie,
         "eventid": '1-' + index
       },
       on: {
-        "click": _vm.goGroup
+        "submit": _vm.goGroup
+      }
+    }, [_c('button', {
+      attrs: {
+        "formType": "submit"
       }
     }, [_c('div', {
       staticClass: "pic "
@@ -869,22 +853,17 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       staticClass: "group-prj-price "
     }, [_vm._v("¥" + _vm._s(group_activitie.current_price) + " "), _c('span', {
       staticClass: "price "
-    }, [_vm._v("¥" + _vm._s(group_activitie.original_price))])])]), _vm._v(" "), _c('form', {
-      staticClass: "creatGroup",
+    }, [_vm._v("¥" + _vm._s(group_activitie.original_price))])])]), _vm._v(" "), _c('div', {
+      staticClass: "join-group ",
       attrs: {
-        "report-submit": true,
+        "data-groupname": _vm.groupname,
         "data-uuid": group_activitie.uuid,
-        "data-activitie": group_activitie,
         "eventid": '0-' + index
       },
       on: {
-        "submit": _vm.goGroup
+        "click": _vm.goGroup
       }
-    }, [_c('button', {
-      attrs: {
-        "formType": "submit"
-      }
-    }, [_vm._v(_vm._s(group_activitie.button.text))])], 1)], 1)])
+    }, [_vm._v(_vm._s(group_activitie.button.text))])])])], 1)], 1)
   })], 2)
 }
 var staticRenderFns = []
@@ -1014,7 +993,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   }, _vm._l((_vm.boons), function(boon, index) {
     return _c('div', {
       key: boon.uuid,
-      staticClass: "scroll-view-item_H  ",
+      staticClass: "scroll-view-item_H ",
       attrs: {
         "data-title": boon.title,
         "data-uuid": boon.uuid,
@@ -1023,10 +1002,22 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       on: {
         "click": _vm.formSubmit
       }
+    }, [_c('form', {
+      attrs: {
+        "report-submit": true,
+        "eventid": '0-' + index
+      },
+      on: {
+        "submit": _vm.myBoon
+      }
+    }, [_c('button', {
+      attrs: {
+        "formType": "submit"
+      }
     }, [_c('div', {
       staticClass: "recomend-box "
     }, [_c('div', {
-      staticClass: "recomend-pic  "
+      staticClass: "recomend-pic"
     }, [_c('img', {
       attrs: {
         "src": boon.title_image_url,
@@ -1038,23 +1029,9 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       staticClass: "recomend-intitle "
     }, [_vm._v(_vm._s(boon.title))]), _vm._v(" "), _c('div', {
       staticClass: "recomend-intitle little_title "
-    }, [_vm._v(_vm._s(boon.description))])])]), _vm._v(" "), _c('form', {
-      attrs: {
-        "report-submit": true,
-        "data-title": boon.title,
-        "data-uuid": boon.uuid,
-        "eventid": '0-' + index
-      },
-      on: {
-        "submit": _vm.formSubmit
-      }
-    }, [_c('button', {
-      attrs: {
-        "formType": "submit"
-      }
-    }, [_c('div', {
-      staticClass: "test"
-    }, [_vm._v("\n            " + _vm._s(boon.button.text) + "\n          ")])])], 1)], 1)
+    }, [_vm._v(_vm._s(boon.description))])])]), _vm._v(" "), _c('div', {
+      staticClass: "recomend-method "
+    }, [_vm._v(_vm._s(boon.button.text))])])], 1)], 1)
   }))], 1)
 }
 var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;

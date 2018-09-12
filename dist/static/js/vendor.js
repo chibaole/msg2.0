@@ -7895,7 +7895,7 @@ exports.extend = function extend(target) {
   methods: {
     goBack: function goBack() {
       wx.navigateBack({
-        url: ''
+        delta: 1
       });
     }
   },
@@ -11507,22 +11507,20 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "wrap"
   }, [_c('div', {
     staticClass: "pj-info"
-  }, [_vm._m(0), _vm._v(" "), _c('div', {
-    staticClass: "right"
-  }, [_c('h2', [_c('div', {
-    staticClass: "mark"
-  }, [_vm._v(_vm._s(_vm.order_info.group_activity.group_type))]), _vm._v(_vm._s(_vm.order_info.group_activity.title))]), _vm._v(" "), _c('p', [_c('span', [_vm._v("¥" + _vm._s(_vm.order_info.group_activity.current_price))]), _c('span', [_vm._v("¥" + _vm._s(_vm.order_info.group_activity.original_price))])])], 1)])])])
-}
-var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
+  }, [_c('div', {
     staticClass: "left"
   }, [_c('img', {
     attrs: {
-      "src": "http://oxl5leo53.bkt.clouddn.com/u=660634825,1514502894&fm=11&gp=0.jpg",
+      "src": _vm.order_info.group_activity.title_image_url,
       "alt": ""
     }
-  })])
-}]
+  })]), _vm._v(" "), _c('div', {
+    staticClass: "right"
+  }, [_c('h2', [_c('div', {
+    staticClass: "mark"
+  }, [_vm._v(_vm._s(_vm.order_info.group_activity.group_type))]), _vm._v(_vm._s(_vm.order_info.group_activity.title))]), _vm._v(" "), _c('p', [_c('span', [_vm._v("¥ " + _vm._s(_vm.order_info.group_activity.current_price))]), _c('span', [_vm._v("¥" + _vm._s(_vm.order_info.group_activity.original_price))])])], 1)])])])
+}
+var staticRenderFns = []
 render._withStripped = true
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);

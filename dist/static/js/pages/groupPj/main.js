@@ -188,7 +188,6 @@ global.webpackJsonp([11],{
                 initGroupData = _context3.sent;
                 form_id = e.mp.detail.formId;
 
-                console.log(form_id);
                 console.log(initGroupData);
                 if (initGroupData) {
                   group_activity_order_uuid = initGroupData.group_activity_order.uuid; // 发起拼团返回的订单id
@@ -201,7 +200,7 @@ global.webpackJsonp([11],{
                   __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__utils_util__["b" /* showModal */])('发起失败', '你已经在这个拼团');
                 }
 
-              case 11:
+              case 10:
               case 'end':
                 return _context3.stop();
             }
@@ -240,11 +239,11 @@ global.webpackJsonp([11],{
       }
     }
   },
-  onLoad: function onLoad() {
+  onLoad: function onLoad(options) {
     var _this4 = this;
 
     return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.mark(function _callee4() {
-      var that, uuid, currentuser_code, uuid_authCode, group_activity;
+      var that, form_id, uuid, currentuser_code, uuid_authCode, group_activity;
       return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.wrap(function _callee4$(_context4) {
         while (1) {
           switch (_context4.prev = _context4.next) {
@@ -254,21 +253,23 @@ global.webpackJsonp([11],{
               that.getlastTime();
 
               that.group_activities_uuid = that.$root.$mp.query.group_activities_uuid; // 获取活动列表的group_activities_uuid
+              form_id = options.form_id;
 
+              console.log('这是form' + form_id);
               uuid = that.group_activities_uuid;
               currentuser_code = wx.getStorageSync('auth_code');
-              uuid_authCode = [uuid, currentuser_code];
-              _context4.next = 8;
+              uuid_authCode = [uuid, currentuser_code, form_id];
+              _context4.next = 10;
               return that.$store.dispatch('getGrouDetail', __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default()({}, uuid_authCode));
 
-            case 8:
+            case 10:
               group_activity = _context4.sent;
               // 获取当前拼团活动详情
               that.group_activity = group_activity.group_activity;
               // 通过富文本展示商品详情
               that.myDetail = that.group_activity.detail;
 
-            case 11:
+            case 13:
             case 'end':
               return _context4.stop();
           }

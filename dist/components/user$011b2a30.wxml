@@ -2,7 +2,7 @@
 <template name="user$011b2a30">
   <view class="_div data-v-7ec0cb2e container">
     <template data="{{...$root[$kk+'0'], $root}}" is="navbar$7457f0be"></template>
-    <view class="_div data-v-7ec0cb2e groupList" wx:for="{{boonList}}" wx:for-index="index" wx:for-item="item">
+    <view class="_div data-v-7ec0cb2e groupList" wx:key="item.uuid" key="{{item.uuid}}" wx:for="{{boonList}}" wx:for-index="index" wx:for-item="item">
       <view class="_div data-v-7ec0cb2e groupItem" data-uuid="{{item.uuid}}" data-status="{{item.status}}" bindtap="handleProxy" data-eventid="{{'0-'+index}}" data-comkey="{{$k}}">
         <view class="_div data-v-7ec0cb2e orderNum">
           <view class="_div data-v-7ec0cb2e left">订单号：

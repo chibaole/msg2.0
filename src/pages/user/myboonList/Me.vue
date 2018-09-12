@@ -1,7 +1,7 @@
 <template>
   <div class="container" >
     <Navbar :navbar_title="navbar_title"></Navbar>
-    <div class="groupList"  v-for="item in boonList">
+    <div class="groupList"  v-for="item in boonList" :key="item.uuid">
       <div class="groupItem"    :data-uuid="item.uuid" :data-status="item.status" @click="goBoonDetail">
         <div class="orderNum">
           <div class="left">订单号：<span>{{item.uuid}}</span></div>

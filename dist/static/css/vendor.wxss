@@ -262,13 +262,13 @@
   margin-left: 10rpx;
 }
 .right  ._p ._span.data-v-7065d1ac:nth-child(1) {
-  font-size: 40rpx;
-  color: #D0021B;
-  font-weight: Medium;
+  font-size: 36rpx;
+  color: #f83713;
+  font-family: PingFangSC-Medium;
 }
 .right ._p ._span.data-v-7065d1ac:nth-child(2) {
-  font-size: 24rpx;
-  color: #D0021b;
-  font-weight: Regular;
+  font-family: PingFangSC-Regular;
+  font-size: 20rpx;
+  color: #999;
   text-decoration: line-through;
 }

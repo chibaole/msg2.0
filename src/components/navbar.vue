@@ -33,7 +33,7 @@
     methods: {
       goBack () {
         wx.navigateBack({
-          url: ''
+          delta:1
         })
       }
     },

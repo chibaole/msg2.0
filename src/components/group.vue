@@ -5,8 +5,9 @@
     <p class="componten_name "><span></span>拼团</p>
 
 
-    <div class="group-tiem " v-for="group_activitie in group_activities" :key="group_activitie.uuid" @click="goGroup" :data-uuid="group_activitie.uuid"  :data-activitie = "group_activitie">
-
+    <div class="group-tiem " v-for="group_activitie in group_activities"  :key="group_activitie.uuid"  >
+      <form  :report-submit="true" @submit="goGroup" :data-uuid="group_activitie.uuid"  :data-activitie = "group_activitie">
+        <button formType="submit" >
       <div class="pic " ><img  :src="group_activitie.title_image_url" alt=""></div>
       <div class="info-box ">
         <div class="group-info ">
@@ -14,12 +15,14 @@
             <div class="group-prj-price ">¥{{group_activitie.current_price}} <span class="price ">¥{{group_activitie.original_price}}</span></div>
 
         </div>
-        <!--<div class="join-group " @click="goGroup" :data-groupname="groupname" :data-uuid="group_activitie.uuid">{{group_activitie.button.text}}</div>-->
+        <div class="join-group " @click="goGroup" :data-groupname="groupname" :data-uuid="group_activitie.uuid">{{group_activitie.button.text}}</div>
 
-        <form class="creatGroup" @submit = 'goGroup'  :report-submit=true :data-uuid="group_activitie.uuid"  :data-activitie = "group_activitie"  >
-          <button formType="submit" >{{group_activitie.button.text}}</button>
-        </form>
+        <!--<form class="creatGroup" @submit = 'goGroup'  :report-submit=true :data-uuid="group_activitie.uuid"  :data-activitie = "group_activitie"  >-->
+          <!--<button formType="submit" >{{group_activitie.button.text}}</button>-->
+        <!--</form>-->
       </div>
+        </button>
+      </form>
 
     </div>
 
@@ -48,26 +51,15 @@
         let group_activities_uuid = e.currentTarget.dataset.uuid
         let Intial = e.currentTarget.dataset.activitie
         let formId = e.mp.detail.formId
-        console.log(formId)
-        console.log(Intial )
-
-        console.log(Intial.group_activity_initial)
-
-
-
         if(Intial.group_activity_initial === null){
           console.log('未参与')
           wx.navigateTo({
-            url: '/pages/groupPj/main?group_activities_uuid=' + group_activities_uuid
+            url: '/pages/groupPj/main?group_activities_uuid=' + group_activities_uuid + '&form_id='+formId
           })
-
         }else if(Intial.group_activity_initial !== null){
-
           console.log('已参与')
-//          console.log(Intial.group_activity_initial.uuid)
           wx.navigateTo({
-            url: `/pages/groupPj/order/main?group_activity_initial_uuid=${Intial.group_activity_initial.uuid}` // 参与拼团的页面
-
+            url: `/pages/groupPj/order/main?group_activity_initial_uuid=${Intial.group_activity_initial.uuid}&from_id=${formId}` // 参与拼团的页面
           })
         }
       },
@@ -129,6 +121,9 @@
     height: 231px;
     margin:0 auto 60px;
     /*border: 1px solid #000;*/
+    padding: 0;
+    border-radius:0;
+
 
   }
   .group-tiem:last-child{
@@ -136,13 +131,19 @@
   }
 
   .group-tiem .pic {
-    width: 100%;
+    width: 325px;
     height: 150px;
     overflow: hidden;
+    /*border: 1px solid blue;*/
+    border-radius:0;
+
+
 
   }
   .pic img{
     width: 100%;
+    border-radius:0;
+
     /*height: 150px;*/
 
 
@@ -154,7 +155,7 @@
 }
   .group-info{
     width: 70%;
-
+    text-align: left;
     display: inline-block;
     /*border: 1px solid yellow;*/
     float: left;
@@ -162,54 +163,22 @@
   .join-group{
     /*width: 18%;*/
     text-align: center;
-    background:#ff7f4f ;
     /*background: linear-gradient(to top, #ff7f4f  , #e93b56);*/
     border-radius: 14px;
     font-size: 12px;
     width: 62px;
-    height: 28px;
-    line-height: 28px;
+    height: 30px;
+    line-height: 30px;
     color: #fff;
     float: right;
     margin-top: 53px;
-  }
-
-  form{
-    display: inline-block;
-    /*border:1px solid #000;*/
-    text-align: center;
-    border-radius: 14px;
-    width: 62px;
-    height: 28px;
-    background:#ff7f4f ;
-
-    float: right;
-    margin-top: 53px;
-    button{
-      display: inline-block;
-      font-size: 12px;
-      width: 62px;
-      height: 30px;
-      border-radius: 14px;
-
-      background:rgb(255,127,79) ;
-
-      line-height: 30px;
-      color: #fff;
-      box-shadow: 0 0 8px 0 rgba(255,127,79,0.4);
-    }
-    button::after{
-      border: none;
-    }
+    background:rgb(255,127,79) ;
+    box-shadow: 0 0 8px 0 rgba(255,127,79,0.4);
 
   }
 
 
 
-
-  button::after{
-    border: none;
-  }
 
   .group-text{
     height: 20px;
@@ -237,6 +206,38 @@
     margin-top: 25px;
     /*border: 1px solid #000;*/
 
+  }
+
+
+  form{
+    border:none;
+    display: block;
+    padding: 0;
+    margin: 0;
+    border-radius:0;
+
+    button {
+      display: block;
+      background: none;
+      /*margin: 0 auto;*/
+      border:none;
+      padding: 0;
+      margin: 0;
+    };
+    button::after{
+      border-radius:0;
+      border:none;
+
+    }
+  }
+
+
+  button::after{
+    border-radius:0;
+
+    border: none;
+    padding: 0;
+    margin: 0;
   }
 
 </style>

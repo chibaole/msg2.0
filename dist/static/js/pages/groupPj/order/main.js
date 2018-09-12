@@ -130,6 +130,24 @@ global.webpackJsonp([4],{
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -159,7 +177,8 @@ global.webpackJsonp([4],{
       group_activity_initial_uuid: '',
       group_activity_initials_finish: false,
       host: __WEBPACK_IMPORTED_MODULE_8__config__["a" /* default */].host,
-      onekeyAttend: false
+      onekeyAttend: false,
+      group_activity_order_uuid: ''
     };
   },
 
@@ -227,21 +246,16 @@ global.webpackJsonp([4],{
 
                 //      console.log(group_activity_orders)// group_activity_orders = underfind ? '参与失败'：参与成功
 
-
                 group_activity_order_uuid = group_activity_orders.group_activity_order.uuid;
 
-                console.log(group_activity_order_uuid);
-
+                that.group_activity_order_uuid = group_activity_order_uuid;
                 // 支付参与拼团的订单
-
-
                 _context2.next = 11;
                 return that.$store.dispatch('group_pay', group_activity_order_uuid);
 
               case 11:
                 join_res = _context2.sent;
 
-                console.log(join_res);
 
                 wx.requestPayment({
                   'timeStamp': String(join_res.time_stamp),
@@ -260,7 +274,7 @@ global.webpackJsonp([4],{
                   }
                 });
 
-              case 14:
+              case 13:
               case 'end':
                 return _context2.stop();
             }
@@ -339,64 +353,33 @@ global.webpackJsonp([4],{
         that.animationData = animation;
       }, 200);
     },
-    sharfri: function sharfri() {
-      // 分享给朋友
-    },
-    getGroup_orders: function getGroup_orders() {
-      var _this3 = this;
 
-      return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.mark(function _callee3() {
-        var that, order_info, order;
-        return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.wrap(function _callee3$(_context3) {
-          while (1) {
-            switch (_context3.prev = _context3.next) {
-              case 0:
-                that = _this3;
-                _context3.next = 3;
-                return get('/v1/group_activity_orders/' + that.order_uuid);
-
-              case 3:
-                order_info = _context3.sent;
-                // 获取拼团订单
-                order = order_info.group_activity_order;
-
-                console.log(order);
-                that.order_info = order;
-
-              case 7:
-              case 'end':
-                return _context3.stop();
-            }
-          }
-        }, _callee3, _this3);
-      }))();
-    },
     shareMenu: function shareMenu(e) {
       console.log(this.showBox);
       console.log(e.mp.detail.formId);
       this.showBox = !this.showBox;
     },
     getImg: function getImg() {
-      var _this4 = this;
+      var _this3 = this;
 
-      return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.mark(function _callee4() {
+      return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.mark(function _callee3() {
         var that, uuid, page, data, res, wxCodeImg;
-        return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.wrap(function _callee4$(_context4) {
+        return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.wrap(function _callee3$(_context3) {
           while (1) {
-            switch (_context4.prev = _context4.next) {
+            switch (_context3.prev = _context3.next) {
               case 0:
-                that = _this4;
+                that = _this3;
                 uuid = that.group_activity_initial_uuid;
                 page = 'pages/isme/index';
                 data = [uuid, page];
-                _context4.next = 6;
-                return _this4.$store.dispatch('wxCode', __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default()({}, data));
+                _context3.next = 6;
+                return _this3.$store.dispatch('wxCode', __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default()({}, data));
 
               case 6:
-                res = _context4.sent;
+                res = _context3.sent;
                 wxCodeImg = that.host + res.wxa_qrcode_url;
 
-                _this4.painting = {
+                _this3.painting = {
                   width: 375,
                   height: 557,
                   clear: true,
@@ -427,7 +410,7 @@ global.webpackJsonp([4],{
                   // 文本表达
                   {
                     type: 'text',
-                    content: _this4.order_info.title, // 变量的名称
+                    content: _this3.order_info.title, // 变量的名称
                     fontSize: 27.6,
                     lineHeight: 27.6,
                     color: '#454553',
@@ -498,32 +481,33 @@ global.webpackJsonp([4],{
                     width: 156 * 1.15
                   }]
                 };
-                wx.setStorageSync('painting', _this4.painting);
+                wx.setStorageSync('painting', _this3.painting);
                 wx.navigateTo({
                   url: '/pages/test/main'
                 });
 
               case 11:
               case 'end':
-                return _context4.stop();
+                return _context3.stop();
             }
           }
-        }, _callee4, _this4);
+        }, _callee3, _this3);
       }))();
     },
     fillAddress: function fillAddress(e) {
-      var _this5 = this;
+      var _this4 = this;
 
-      return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.mark(function _callee5() {
+      return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.mark(function _callee4() {
         var that, data, uuid, order_status, form_id, res, auth_code, address, address_res;
-        return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.wrap(function _callee5$(_context5) {
+        return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.wrap(function _callee4$(_context4) {
           while (1) {
-            switch (_context5.prev = _context5.next) {
+            switch (_context4.prev = _context4.next) {
               case 0:
                 console.log('领奖');
-                that = _this5;
+                that = _this4;
                 data = [];
-                uuid = that.orderId;
+                uuid = that.order_info.group_activity_order.uuid; //拼团订单
+
                 order_status = that.order_info.status; // success grouping init failed
 
                 form_id = e.mp.detail.formId;
@@ -532,15 +516,15 @@ global.webpackJsonp([4],{
                 console.log(order_status);
 
                 if (!(order_status === 'success')) {
-                  _context5.next = 22;
+                  _context4.next = 22;
                   break;
                 }
 
-                _context5.next = 11;
+                _context4.next = 11;
                 return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__utils_wx__["b" /* chooseAddress */])();
 
               case 11:
-                res = _context5.sent;
+                res = _context4.sent;
 
                 console.log(res);
                 auth_code = wx.getStorageSync('auth_code');
@@ -557,17 +541,17 @@ global.webpackJsonp([4],{
 
 
                 data = [uuid, auth_code, address];
-                _context5.next = 18;
+                _context4.next = 18;
                 return that.$store.dispatch('groupAddress', __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default()({}, data));
 
               case 18:
-                address_res = _context5.sent;
+                address_res = _context4.sent;
 
 
                 wx.navigateTo({
                   url: '/pages/user/myGroup/myGroupDetail/main?uuid=' + uuid
                 });
-                _context5.next = 23;
+                _context4.next = 23;
                 break;
 
               case 22:
@@ -575,10 +559,10 @@ global.webpackJsonp([4],{
 
               case 23:
               case 'end':
-                return _context5.stop();
+                return _context4.stop();
             }
           }
-        }, _callee5, _this5);
+        }, _callee4, _this4);
       }))();
     },
     createGroup: function createGroup() {
@@ -589,26 +573,26 @@ global.webpackJsonp([4],{
     }
   },
   onLoad: function onLoad(options) {
-    var _this6 = this;
+    var _this5 = this;
 
-    return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.mark(function _callee6() {
+    return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.mark(function _callee5() {
       var that, group_activity_initial_uuid, currentuser_code, uuid_authCode, orderData, order_user, left_user, i;
-      return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.wrap(function _callee6$(_context6) {
+      return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.wrap(function _callee5$(_context5) {
         while (1) {
-          switch (_context6.prev = _context6.next) {
+          switch (_context5.prev = _context5.next) {
             case 0:
-              that = _this6;
+              that = _this5;
               group_activity_initial_uuid = options.group_activity_initial_uuid; // 发起拼团活动返回订单uuid
 
               that.group_activity_initial_uuid = group_activity_initial_uuid;
 
               currentuser_code = wx.getStorageSync('auth_code');
               uuid_authCode = [group_activity_initial_uuid, currentuser_code];
-              _context6.next = 7;
+              _context5.next = 7;
               return that.$store.dispatch('groupActivitiesInit', __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default()({}, uuid_authCode));
 
             case 7:
-              orderData = _context6.sent;
+              orderData = _context5.sent;
               order_user = orderData.group_activity_initial.users; // []
 
               left_user = orderData.group_activity_initial.users_left; // number
@@ -636,25 +620,25 @@ global.webpackJsonp([4],{
 
             case 17:
             case 'end':
+              return _context5.stop();
+          }
+        }
+      }, _callee5, _this5);
+    }))();
+  },
+  mounted: function mounted() {
+    var _this6 = this;
+
+    return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.mark(function _callee6() {
+      return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.wrap(function _callee6$(_context6) {
+        while (1) {
+          switch (_context6.prev = _context6.next) {
+            case 0:
+            case 'end':
               return _context6.stop();
           }
         }
       }, _callee6, _this6);
-    }))();
-  },
-  mounted: function mounted() {
-    var _this7 = this;
-
-    return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.mark(function _callee7() {
-      return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.wrap(function _callee7$(_context7) {
-        while (1) {
-          switch (_context7.prev = _context7.next) {
-            case 0:
-            case 'end':
-              return _context7.stop();
-          }
-        }
-      }, _callee7, _this7);
     }))();
   },
   onShareAppMessage: function onShareAppMessage(res) {
@@ -754,16 +738,17 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "mark"
   }, [_vm._v(_vm._s(_vm.order_info.group_activity.group_type))]), _vm._v(_vm._s(_vm.order_info.group_activity.title))]), _vm._v(" "), _c('p', [_c('span', [_vm._v("¥" + _vm._s(_vm.order_info.group_activity.current_price))]), _c('span', [_vm._v("¥" + _vm._s(_vm.order_info.group_activity.original_price))])])], 1)])]), _vm._v(" "), _c('div', {
     staticClass: "detail-order"
-  }, [_c('h2', [_c('span', [_vm._v(_vm._s(_vm.order_info.status_display))]), _c('span', {
-    staticClass: "refund"
-  }, [_vm._v("已退款")])]), _vm._v(" "), _c('div', {
+  }, [(_vm.order_info.status == 'grouping') ? _c('div', {
+    staticClass: "grouping"
+  }, [_c('h2', [_c('span', [_vm._v(_vm._s(_vm.order_info.status_display))])]), _vm._v(" "), _c('div', {
     staticClass: "order-info"
   }, [_c('div', {
     staticClass: "text"
-  }, [_vm._v("还差"), _c('span', [_vm._v(_vm._s(_vm.order_info.users_left))]), _vm._v("人参团,\n        "), _c('span', [_vm._v(_vm._s(_vm.time.day))]), _vm._v("天\n        "), _c('span', [_vm._v(_vm._s(_vm.time.hours))]), _vm._v("时\n        "), _c('span', [_vm._v(_vm._s(_vm.time.minutes))]), _vm._v("分后结束\n      ")])]), _vm._v(" "), _c('div', {
+  }, [_vm._v("还差"), _c('span', [_vm._v(_vm._s(_vm.order_info.users_left))]), _vm._v("人参团,\n            "), _c('span', [_vm._v(_vm._s(_vm.time.day))]), _vm._v("天\n            "), _c('span', [_vm._v(_vm._s(_vm.time.hours))]), _vm._v("时\n            "), _c('span', [_vm._v(_vm._s(_vm.time.minutes))]), _vm._v("分后结束\n          ")])]), _vm._v(" "), _c('div', {
     staticClass: "user"
   }, _vm._l((_vm.order_info.users), function(item, index) {
     return _c('div', {
+      key: item.uuid,
       staticClass: "pic"
     }, [_c('img', {
       attrs: {
@@ -773,7 +758,39 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }), (item.is_initiator) ? _c('span', {
       staticClass: "mark"
     }, [_vm._v("团长")]) : _vm._e()])
-  })), _vm._v(" "), _c('form', {
+  }))], 1) : _vm._e(), _vm._v(" "), (_vm.order_info.status == 'failed') ? _c('div', {
+    staticClass: "groupFailed"
+  }, [_c('h2', [_c('span', [_vm._v(_vm._s('来晚一步了，拼团已结束'))])]), _vm._v(" "), _c('div', {
+    staticClass: "user"
+  }, _vm._l((_vm.order_info.users), function(item, index) {
+    return _c('div', {
+      key: item.uuid,
+      staticClass: "pic"
+    }, [_c('img', {
+      attrs: {
+        "src": item.avatar_url,
+        "alt": ""
+      }
+    }), (item.is_initiator) ? _c('span', {
+      staticClass: "mark"
+    }, [_vm._v("团长")]) : _vm._e()])
+  }))], 1) : _vm._e(), _vm._v(" "), (_vm.order_info.status == 'success') ? _c('div', {
+    staticClass: "groupSuccess"
+  }, [_c('h2', [_c('span', [_vm._v(_vm._s(_vm.order_info.status_display))])]), _vm._v(" "), _c('div', {
+    staticClass: "user"
+  }, _vm._l((_vm.order_info.users), function(item, index) {
+    return _c('div', {
+      key: item.uuid,
+      staticClass: "pic"
+    }, [_c('img', {
+      attrs: {
+        "src": item.avatar_url,
+        "alt": ""
+      }
+    }), (item.is_initiator) ? _c('span', {
+      staticClass: "mark"
+    }, [_vm._v("团长")]) : _vm._e()])
+  }))], 1) : _vm._e(), _vm._v(" "), _c('form', {
     attrs: {
       "report-submit": true,
       "eventid": '1'
@@ -794,7 +811,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     on: {
       "click": _vm.fillAddress
     }
-  }, [_vm._v("去填地址")]) : _vm._e()])], 1), _vm._v(" "), _c('div', {
+  }, [_vm._v("去提货")]) : _vm._e()])], 1), _vm._v(" "), _c('div', {
     staticClass: "line"
   }), _vm._v(" "), _c('div', {
     staticClass: "group"

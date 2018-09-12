@@ -13,7 +13,7 @@
   margin-top: 18rpx;
 }
 .detail-order ._h2.data-v-b3a874ec {
-  width: 352rpx;
+  min-width: 352rpx;
   height: 32rpx;
   line-height: 32rpx;
   font-family: PingFangSC-Medium;
@@ -35,13 +35,11 @@
 .detail-order .order-info .text ._span.data-v-b3a874ec {
   color: #e8724b;
 }
-.user.data-v-b3a874ec {
-  width: 100%;
-  height: 100rpx;
+.detail-order .user.data-v-b3a874ec {
   margin-top: 50rpx;
   margin-left: 50rpx;
 }
-.user .pic.data-v-b3a874ec {
+.detail-order .user .pic.data-v-b3a874ec {
   width: 68rpx;
   height: 68rpx;
   display: inline-block;
@@ -50,28 +48,12 @@
   background-size: cover;
   border-radius: 50%;
 }
-.user .pic.data-v-b3a874ec:nth-child(2) {
-  margin-left: 30rpx;
-  margin-right: 30rpx;
-}
-.user .pic.data-v-b3a874ec:nth-child(4) {
-  margin-left: 30rpx;
-  margin-right: 30rpx;
-}
-.group_res.data-v-b3a874ec {
-  width: 360rpx;
-  height: 90rpx;
-  line-height: 90rpx;
-  text-align: center;
-  border: 2rpx solid #ff7f47;
-  margin: 0 auto;
-}
-.pic ._img.data-v-b3a874ec {
+.detail-order .user .pic ._img.data-v-b3a874ec {
   width: 100%;
   height: 100%;
   border-radius: 50%;
 }
-.pic ._span.data-v-b3a874ec {
+.detail-order .user .pic ._span.data-v-b3a874ec {
   width: 64rpx;
   height: 32rpx;
   background: #ff7f4f;
@@ -84,17 +66,41 @@
   font-size: 20rpx;
   letter-spacing: 0.2rpx;
 }
-.left_user.data-v-b3a874ec {
-  width: 68rpx;
-  height: 68rpx;
-  display: inline-block;
-  background-image: url("http://p15hnzxrp.bkt.clouddn.com/oval.png");
-  background-size: cover;
-  border-radius: 50%;
+.detail-order .user .pic.data-v-b3a874ec:nth-child(2) {
+  margin-left: 30rpx;
+  margin-right: 30rpx;
 }
-.nor_user.data-v-b3a874ec {
-  border: 2rpx dashed #ccc;
-  border-radius: 50%;
+.detail-order .user .pic.data-v-b3a874ec:nth-child(4) {
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+}
+.detail-order .groupFailed ._h2.data-v-b3a874ec {
+  margin: 42rpx auto 50rpx;
+  text-align: center;
+  color: #333;
+}
+.detail-order .groupFailed .user.data-v-b3a874ec {
+  margin-left: 0;
+  margin-bottom: 40rpx;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-content: center;
+}
+.detail-order .groupFailed .user .pic.data-v-b3a874ec:first-child {
+  margin-left: 34rpx;
+}
+.group_res.data-v-b3a874ec {
+  width: 360rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  background: #fc574b;
+  box-shadow: 0 0 16rpx 0 rgba(255, 127, 79, 0.4);
+  margin: 0 auto;
+  font-family: PingFangSC-Medium;
+  font-size: 32rpx;
+  color: #fff;
 }
 .line.data-v-b3a874ec {
   width: 650rpx;
@@ -252,7 +258,7 @@
   left: 274rpx;
 }
 .meunBox .friend.data-v-b3a874ec,
-.createImg.data-v-b3a874ec {
+.meunBox .createImg.data-v-b3a874ec {
   display: inline-block;
   width: 120rpx;
   height: 120rpx;
@@ -264,6 +270,17 @@
   height: 40rpx;
   font-size: 28rpx;
   color: #666;
+}
+.meunBox .friend.data-v-b3a874ec {
+  display: inline-block;
+  position: absolute;
+  top: 256rpx;
+  left: 160rpx;
+}
+.meunBox .createImg.data-v-b3a874ec {
+  position: absolute;
+  top: 256rpx;
+  right: 160rpx;
 }
 ._button.data-v-b3a874ec::after {
   border: none;
@@ -282,17 +299,6 @@
   position: absolute;
   top: 34rpx;
   left: 34rpx;
-}
-.meunBox .friend.data-v-b3a874ec {
-  display: inline-block;
-  position: absolute;
-  top: 256rpx;
-  left: 160rpx;
-}
-.meunBox .createImg.data-v-b3a874ec {
-  position: absolute;
-  top: 256rpx;
-  right: 160rpx;
 }
 .wechatFriend.data-v-b3a874ec {
   display: inline-block;

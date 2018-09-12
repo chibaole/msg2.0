@@ -31,13 +31,19 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
+			"current": 1,
 			"list": [
 				{
 					"id": 0,
 					"name": "分享",
 					"pathName": "pages/groupPj/order/main",
 					"query": "group_activity_initial_uuid=PkQN78WJEdBYLmq8efBA5ddA"
+				},
+				{
+					"id": 1,
+					"name": "拼团单详情",
+					"pathName": "pages/groupPj/order/main",
+					"query": "group_activity_initial_uuid=5ViMPz2vPjuD7Hq9sxAj8ZW3"
 				}
 			]
 		}

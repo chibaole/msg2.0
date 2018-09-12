@@ -18,26 +18,49 @@
       </view>
     </view>
     <view class="_div data-v-b3a874ec detail-order">
-      <view class="_h2 data-v-b3a874ec">
-        <label class="_span data-v-b3a874ec">{{order_info.status_display}}</label>
-        <label class="_span data-v-b3a874ec refund">已退款</label>
+      <view class="_div data-v-b3a874ec grouping" wx:if="{{order_info.status == 'grouping'}}">
+        <view class="_h2 data-v-b3a874ec">
+          <label class="_span data-v-b3a874ec">{{order_info.status_display}}</label>
+        </view>
+        <view class="_div data-v-b3a874ec order-info">
+          <view class="_div data-v-b3a874ec text">还差
+            <label class="_span data-v-b3a874ec">{{order_info.users_left}}</label>人参团,
+            <label class="_span data-v-b3a874ec">{{time.day}}</label>天
+            <label class="_span data-v-b3a874ec">{{time.hours}}</label>时
+            <label class="_span data-v-b3a874ec">{{time.minutes}}</label>分后结束 </view>
+        </view>
+        <view class="_div data-v-b3a874ec user">
+          <view class="_div data-v-b3a874ec pic" wx:key="item.uuid" key="{{item.uuid}}" wx:for="{{order_info.users}}" wx:for-index="index" wx:for-item="item">
+            <image src="{{item.avatar_url}}" alt class="_img data-v-b3a874ec"></image>
+            <label class="_span data-v-b3a874ec mark" wx:if="{{item.is_initiator}}">团长</label>
+          </view>
+        </view>
       </view>
-      <view class="_div data-v-b3a874ec order-info">
-        <view class="_div data-v-b3a874ec text">还差
-          <label class="_span data-v-b3a874ec">{{order_info.users_left}}</label>人参团,
-          <label class="_span data-v-b3a874ec">{{time.day}}</label>天
-          <label class="_span data-v-b3a874ec">{{time.hours}}</label>时
-          <label class="_span data-v-b3a874ec">{{time.minutes}}</label>分后结束 </view>
+      <view class="_div data-v-b3a874ec groupFailed" wx:if="{{order_info.status == 'failed'}}">
+        <view class="_h2 data-v-b3a874ec">
+          <label class="_span data-v-b3a874ec">{{'来晚一步了，拼团已结束'}}</label>
+        </view>
+        <view class="_div data-v-b3a874ec user">
+          <view class="_div data-v-b3a874ec pic" wx:key="item.uuid" key="{{item.uuid}}" wx:for="{{order_info.users}}" wx:for-index="index" wx:for-item="item">
+            <image src="{{item.avatar_url}}" alt class="_img data-v-b3a874ec"></image>
+            <label class="_span data-v-b3a874ec mark" wx:if="{{item.is_initiator}}">团长</label>
+          </view>
+        </view>
       </view>
-      <view class="_div data-v-b3a874ec user">
-        <view class="_div data-v-b3a874ec pic" wx:for="{{order_info.users}}" wx:for-index="index" wx:for-item="item">
-          <image src="{{item.avatar_url}}" alt class="_img data-v-b3a874ec"></image>
-          <label class="_span data-v-b3a874ec mark" wx:if="{{item.is_initiator}}">团长</label>
+      <view class="_div data-v-b3a874ec groupSuccess" wx:if="{{order_info.status == 'success'}}">
+        <view class="_h2 data-v-b3a874ec">
+          <label class="_span data-v-b3a874ec">{{order_info.status_display}}</label>
+        </view>
+        <view class="_div data-v-b3a874ec user">
+          <view class="_div data-v-b3a874ec pic" wx:key="item.uuid" key="{{item.uuid}}" wx:for="{{order_info.users}}" wx:for-index="index" wx:for-item="item">
+            <image src="{{item.avatar_url}}" alt class="_img data-v-b3a874ec"></image>
+            <label class="_span data-v-b3a874ec mark" wx:if="{{item.is_initiator}}">团长</label>
+          </view>
         </view>
       </view>
       <form report-submit="{{true}}" bindsubmit="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}" class="_form data-v-b3a874ec">
         <button class="_button data-v-b3a874ec form_button" formType="submit">
-          <view class="_div data-v-b3a874ec group_res" wx:if="{{order_info.status == 'success'}}" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}">去填地址</view>
+          <view class="_div data-v-b3a874ec group_res" wx:if="{{order_info.status == 'success'}}" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}">去提货</view>
         </button>
       </form>
       <view class="_div data-v-b3a874ec line"></view>

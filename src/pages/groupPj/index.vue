@@ -116,7 +116,6 @@
 
         let initGroupData = await that.$store.dispatch('initGroup', {...uuid_authCode})
         let form_id = e.mp.detail.formId
-        console.log(form_id)
         console.log(initGroupData)
         if (initGroupData) {
           let group_activity_order_uuid = initGroupData.group_activity_order.uuid  // 发起拼团返回的订单id
@@ -159,17 +158,18 @@
       }
 
     },
-    async onLoad () {
+    async onLoad (options) {
       let that = this
       that.getlastTime()
 
       that.group_activities_uuid = that.$root.$mp.query.group_activities_uuid // 获取活动列表的group_activities_uuid
-
+      let form_id = options.form_id
+      console.log('这是form'+form_id)
       let uuid = that.group_activities_uuid
 
       let currentuser_code = wx.getStorageSync('auth_code')
 
-      let uuid_authCode = [uuid, currentuser_code]
+      let uuid_authCode = [uuid, currentuser_code,form_id]
       let group_activity = await that.$store.dispatch('getGrouDetail', {...uuid_authCode})  // 获取当前拼团活动详情
       that.group_activity = group_activity.group_activity
      // 通过富文本展示商品详情

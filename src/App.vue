@@ -90,4 +90,35 @@
     background: #FA5A49;
   }
 
+
+  form{
+    border:none;
+    display: block;
+    padding: 0;
+    margin: 0;
+    border-radius:0;
+
+    button {
+      display: block;
+      background: none;
+      /*margin: 0 auto;*/
+      border:none;
+      padding: 0;
+      margin: 0;
+    };
+    button::after{
+      border-radius:0;
+      border:none;
+
+    }
+  }
+
+
+  button::after{
+    border-radius:0;
+
+    border: none;
+    padding: 0;
+    margin: 0;
+  }
 </style>

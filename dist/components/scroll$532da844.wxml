@@ -3,20 +3,20 @@
     <view class="_div data-v-8c08e6c0 praise-title">
       <label class="_span data-v-8c08e6c0"></label>今日福利</view>
     <scroll-view class="_scroll-view data-v-8c08e6c0 scroll-view_H" scroll-x="true" scroll-left>
-      <view class="_div data-v-8c08e6c0 scroll-view-item_H  " wx:key="boon.uuid" key="{{boon.uuid}}" bindtap="handleProxy" data-title="{{boon.title}}" data-uuid="{{boon.uuid}}" data-eventid="{{'1-'+index}}" data-comkey="{{$k}}" wx:for="{{boons}}" wx:for-index="index"
+      <view class="_div data-v-8c08e6c0 scroll-view-item_H " wx:key="boon.uuid" key="{{boon.uuid}}" bindtap="handleProxy" data-title="{{boon.title}}" data-uuid="{{boon.uuid}}" data-eventid="{{'1-'+index}}" data-comkey="{{$k}}" wx:for="{{boons}}" wx:for-index="index"
         wx:for-item="boon">
-        <view class="_div data-v-8c08e6c0 recomend-box ">
-          <view class="_div data-v-8c08e6c0 recomend-pic  ">
-            <image src="{{boon.title_image_url}}" alt class="_img data-v-8c08e6c0"></image>
-          </view>
-          <view class="_div data-v-8c08e6c0 recomend-box-inner ">
-            <view class="_div data-v-8c08e6c0 recomend-intitle ">{{boon.title}}</view>
-            <view class="_div data-v-8c08e6c0 recomend-intitle little_title ">{{boon.description}}</view>
-          </view>
-        </view>
-        <form bindsubmit="handleProxy" report-submit="{{true}}" data-title="{{boon.title}}" data-uuid="{{boon.uuid}}" data-eventid="{{'0-'+index}}" data-comkey="{{$k}}" class="_form data-v-8c08e6c0">
+        <form report-submit="{{true}}" bindsubmit="handleProxy" data-eventid="{{'0-'+index}}" data-comkey="{{$k}}" class="_form data-v-8c08e6c0">
           <button formType="submit" class="_button data-v-8c08e6c0">
-            <view class="_div data-v-8c08e6c0 test"> {{boon.button.text}} </view>
+            <view class="_div data-v-8c08e6c0 recomend-box ">
+              <view class="_div data-v-8c08e6c0 recomend-pic">
+                <image src="{{boon.title_image_url}}" alt class="_img data-v-8c08e6c0"></image>
+              </view>
+              <view class="_div data-v-8c08e6c0 recomend-box-inner ">
+                <view class="_div data-v-8c08e6c0 recomend-intitle ">{{boon.title}}</view>
+                <view class="_div data-v-8c08e6c0 recomend-intitle little_title ">{{boon.description}}</view>
+              </view>
+            </view>
+            <view class="_div data-v-8c08e6c0 recomend-method ">{{boon.button.text}}</view>
           </button>
         </form>
       </view>

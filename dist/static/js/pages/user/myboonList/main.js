@@ -159,6 +159,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }), _vm._v(" "), _vm._l((_vm.boonList), function(item, index) {
     return _c('div', {
+      key: item.uuid,
       staticClass: "groupList"
     }, [_c('div', {
       staticClass: "groupItem",

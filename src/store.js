@@ -99,7 +99,8 @@ export default new Vuex.Store({
     async getGrouDetail ({commit}, {...uuid_authCode}) {
       let uuid = uuid_authCode[0]
       let auth_code = uuid_authCode[1]
-      console.log(`拼团活动详情----${apiDomain}/group_activities/${uuid}?auth_code=${auth_code}`)
+      let form_id = uuid_authCode[2]
+      console.log(`拼团活动详情----${apiDomain}/group_activities/${uuid}?auth_code=${auth_code}&form_id=${form_id}`)
       const groupDetail = await request({
         method: 'get',
         url: `${apiDomain}/group_activities/${uuid}?auth_code=${auth_code}`
@@ -243,6 +244,7 @@ export default new Vuex.Store({
 
     // 拼团地址选择
     async groupAddress ({commit}, {...data}) {
+      console.log(data)
       let uuid = data[0]
       let auth_code = data[1]
       let attributes = data[2]
@@ -257,6 +259,7 @@ export default new Vuex.Store({
         url: `${apiDomain}/group_activity_orders/${uuid}`,
         data: order_address
       })
+      console.log(res)
       return res
     },
 

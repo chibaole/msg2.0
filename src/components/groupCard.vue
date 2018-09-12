@@ -3,13 +3,13 @@
     <div class="wrap">
        <div class="pj-info">
       <div class="left">
-        <img src="http://oxl5leo53.bkt.clouddn.com/u=660634825,1514502894&fm=11&gp=0.jpg" alt="">
+        <img :src="order_info.group_activity.title_image_url" alt="">
       </div>
       <div class="right">
 
 
         <h2><div class="mark">{{order_info.group_activity.group_type}}</div>{{order_info.group_activity.title}}</h2>
-        <p><span>¥{{order_info.group_activity.current_price}}</span><span>¥{{order_info.group_activity.original_price}}</span></p>
+        <p><span>¥&nbsp;{{order_info.group_activity.current_price}}</span><span>¥{{order_info.group_activity.original_price}}</span></p>
       </div>
     </div>
     </div>
@@ -118,9 +118,8 @@
   }
 
   .right  p span:nth-child(1){
-    font-size: 20px; color: #D0021B;
-    font-weight: Medium;
-
+    font-size: 18px; color: #f83713;
+    font-family: PingFangSC-Medium;
   }
   /*.right p span:nth-child(2){*/
     /*font-size: 12px; color: #D0021B;*/
@@ -128,8 +127,8 @@
 
   /*}*/
   .right p span:nth-child(2){
-    font-size: 12px; color: #D0021b;
-    font-weight: Regular;
+    font-family: PingFangSC-Regular;
+    font-size: 10px; color: #999;
     text-decoration: line-through;
   }
 
