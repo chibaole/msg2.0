@@ -198,8 +198,10 @@
   color: #fff;
   font-family: PingFangSC-Medium;
   height: 88rpx;
+  width: 100%;
   line-height: 88rpx;
   font-size: 32rpx;
+  border-radius: 44rpx 44rpx 44rpx 44rpx;
 }
 ._form ._button.data-v-05960fcb::after {
   border: none;

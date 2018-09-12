@@ -49,9 +49,10 @@ export default new Vuex.Store({
 //  获取今日福利信息
     async getBoonsToday ({commit}) {
       console.log(`获取今日福利-----${apiDomain}/boons/today`)
+      let auth_code = wx.getStorageSync('auth_code')
       let boons = await request({
         method: 'get',
-        url: `${apiDomain}/boons/today`,
+        url: `${apiDomain}/boons/today?auth_code=${auth_code}`,
         data: {}
       })
       return boons

@@ -64,17 +64,20 @@ global.webpackJsonp([1],{
       console.log(formId);
       console.log(Intial);
 
-      if (Intial.group_activity_intial !== null) {
-        console.log('已参与');
-        console.log(Intial.group_activity_initial.uuid);
-        wx.navigateTo({
-          url: '/pages/groupPj/order/main?group_activity_initial_uuid=' + Intial.group_activity_initial.uuid // 参与拼团的页面
+      console.log(Intial.group_activity_initial);
 
-        });
-      } else {
+      if (Intial.group_activity_initial === null) {
         console.log('未参与');
         wx.navigateTo({
           url: '/pages/groupPj/main?group_activities_uuid=' + group_activities_uuid
+        });
+      } else if (Intial.group_activity_initial !== null) {
+
+        console.log('已参与');
+        //          console.log(Intial.group_activity_initial.uuid)
+        wx.navigateTo({
+          url: '/pages/groupPj/order/main?group_activity_initial_uuid=' + Intial.group_activity_initial.uuid // 参与拼团的页面
+
         });
       }
     },

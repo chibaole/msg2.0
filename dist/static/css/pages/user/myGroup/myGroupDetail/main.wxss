@@ -21,7 +21,7 @@
   width: 650rpx;
   height: 80rpx;
   line-height: 80rpx;
-  border-bottom: 4rpx solid #ededed;
+  border-bottom: 2rpx solid #eee;
   margin: 0 auto;
 }
 .receive .phone_address.data-v-4958b0dc {
@@ -53,7 +53,7 @@
   width: 650rpx;
   height: 80rpx;
   line-height: 80rpx;
-  border-bottom: 4rpx solid #ededed;
+  border-bottom: 2rpx solid #eee;
   margin: 0 auto;
 }
 .orderinfo .groupOrder.data-v-4958b0dc,
@@ -83,7 +83,7 @@
   width: 650rpx;
   height: 80rpx;
   line-height: 80rpx;
-  border-bottom: 4rpx solid #ededed;
+  border-bottom: 2rpx solid #eee;
   margin: 0 auto;
 }
 .express .groupOrder.data-v-4958b0dc,

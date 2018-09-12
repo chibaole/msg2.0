@@ -106,7 +106,7 @@
 
         <div class="btn3" @click="openDiago"  >成为研究员概率翻倍</div>
       </div>
-      <div class="mask" v-if="showBox">  <!-- 遮罩-->
+      <div class="mask" v-if="showBox" @click="shareMenu">  <!-- 遮罩-->
 
           <div  class="meunBox"  v-if="showBox">
             <img class="x" src="http://pbmrxkahq.bkt.clouddn.com/close.png" alt="" @click="shareMenu">

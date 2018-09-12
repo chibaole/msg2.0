@@ -4,20 +4,20 @@
     <div class="groupList"  v-for="item in  myGroup_list">
       <div class="groupItem" @click="goDetail" :data-uuid='item.uuid'>
           <div class="orderNum">
-            <div class="left">订单号：<span>{{}}534475800412</span></div>
+            <div class="left">订单号：<span>{{item.uuid}}</span></div>
             <div class="right"  >
-              <span>{{item.status}}</span>
-              <img src="http://pbmrxkahq.bkt.clouddn.com/%E6%9B%B4%E5%A4%9A.png" alt="">
+              <span>{{item.united_status_display}}</span>
+              <img src="http://pbmrxkahq.bkt.clouddn.com/more_right.png" alt="">
             </div>
           </div>
           <div class="orderInfo">
-            <div class="pic"><img :src="item.title_image_url" alt=""></div>
+            <div class="pic"><img :src="item.group_activity.title_image_url" alt=""></div>
             <div class="txt">
-              <div class="name">{{item.title}}</div>
-              <p class="group_type">{{}}三人团</p>
-              <p class="detail">1</p>
+              <div class="name">{{item.group_activity.title}}</div>
+              <p class="group_type">{{item.group_activity.group_type}}</p>
+              <p class="detail">{{item.group_activity.description}}</p>
             </div>
-            <span class="price">¥{{item.current_price}}</span>
+            <span class="price">¥{{item.group_activity.current_price}}</span>
           </div>
       </div>
     </div>
@@ -88,9 +88,22 @@ export default {
     const data = [that.page, that.size, auth_code]
     const groupList = await that.$store.dispatch('myGroupList', {...data})
     const init_size = that.size
+
     that.all_list = groupList.group_activity_orders
+    console.log(that.all_list)
+
+    let maxSize = that.all_list.length
+
     that.myGroup_list = that.all_list.slice(0, init_size)
+
+    that.myGroup_list = that.all_list
+
+    console.log(that.all_list)
+
+    console.log( that.myGroup_list)
+
     let userinfo = wx.getStorageSync('userinfo')
+
     that.userinfo = userinfo
   }
 
@@ -150,11 +163,16 @@ export default {
     height: 14px;
   }
   .orderNum .right{
-    width: 60px;
+    /*border: 1px solid #000;*/
+
+    min-width: 60px;
     span{
       color: #ff7f4f;
       display:inline-block;
       vertical-align:middle;
+      margin-right: 22px;
+      /*border: 1px solid #000;*/
+
     };
     img{
       width: 8px;

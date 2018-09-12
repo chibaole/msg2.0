@@ -105,7 +105,7 @@ global.webpackJsonp([8],{
     var _this = this;
 
     return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
-      var that, auth_code, data, groupList, init_size, userinfo;
+      var that, auth_code, data, groupList, init_size, maxSize, userinfo;
       return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
@@ -120,13 +120,27 @@ global.webpackJsonp([8],{
               groupList = _context.sent;
               init_size = that.size;
 
+
               that.all_list = groupList.group_activity_orders;
+              console.log(that.all_list);
+
+              maxSize = that.all_list.length;
+
+
               that.myGroup_list = that.all_list.slice(0, init_size);
+
+              that.myGroup_list = that.all_list;
+
+              console.log(that.all_list);
+
+              console.log(that.myGroup_list);
+
               userinfo = wx.getStorageSync('userinfo');
+
 
               that.userinfo = userinfo;
 
-            case 11:
+            case 16:
             case 'end':
               return _context.stop();
           }
@@ -171,11 +185,13 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       }
     }, [_c('div', {
       staticClass: "orderNum"
-    }, [_vm._m(0, true), _vm._v(" "), _c('div', {
+    }, [_c('div', {
+      staticClass: "left"
+    }, [_vm._v("订单号："), _c('span', [_vm._v(_vm._s(item.uuid))])]), _vm._v(" "), _c('div', {
       staticClass: "right"
-    }, [_c('span', [_vm._v(_vm._s(item.status))]), _vm._v(" "), _c('img', {
+    }, [_c('span', [_vm._v(_vm._s(item.united_status_display))]), _vm._v(" "), _c('img', {
       attrs: {
-        "src": "http://pbmrxkahq.bkt.clouddn.com/%E6%9B%B4%E5%A4%9A.png",
+        "src": "http://pbmrxkahq.bkt.clouddn.com/more_right.png",
         "alt": ""
       }
     })])]), _vm._v(" "), _c('div', {
@@ -184,20 +200,20 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       staticClass: "pic"
     }, [_c('img', {
       attrs: {
-        "src": item.title_image_url,
+        "src": item.group_activity.title_image_url,
         "alt": ""
       }
     })]), _vm._v(" "), _c('div', {
       staticClass: "txt"
     }, [_c('div', {
       staticClass: "name"
-    }, [_vm._v(_vm._s(item.title))]), _vm._v(" "), _c('p', {
+    }, [_vm._v(_vm._s(item.group_activity.title))]), _vm._v(" "), _c('p', {
       staticClass: "group_type"
-    }, [_vm._v("{{}}三人团")]), _vm._v(" "), _c('p', {
+    }, [_vm._v(_vm._s(item.group_activity.group_type))]), _vm._v(" "), _c('p', {
       staticClass: "detail"
-    }, [_vm._v("1")])], 1), _vm._v(" "), _c('span', {
+    }, [_vm._v(_vm._s(item.group_activity.description))])], 1), _vm._v(" "), _c('span', {
       staticClass: "price"
-    }, [_vm._v("¥" + _vm._s(item.current_price))])])])])
+    }, [_vm._v("¥" + _vm._s(item.group_activity.current_price))])])])])
   }), _vm._v(" "), _c('div', {
     staticClass: "service"
   }, [_c('button', {
@@ -223,11 +239,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }, [_vm._v("加载更多")]) : _vm._e()], 2)
 }
-var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "left"
-  }, [_vm._v("订单号："), _c('span', [_vm._v("{{}}534475800412")])])
-}]
+var staticRenderFns = []
 render._withStripped = true
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);

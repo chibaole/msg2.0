@@ -855,7 +855,13 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "click": _vm.createGroup
     }
   }, [_c('span', [_vm._v("重新开团")])]) : _vm._e()])], 1), _vm._v(" "), (_vm.showBox) ? _c('div', {
-    staticClass: "mask"
+    staticClass: "mask",
+    attrs: {
+      "eventid": '8'
+    },
+    on: {
+      "click": _vm.shareMenu
+    }
   }, [(_vm.showBox) ? _c('div', {
     staticClass: "meunBox"
   }, [_c('img', {
@@ -914,7 +920,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "join-group",
     attrs: {
       "data-uuid": _vm.order_info.uuid,
-      "eventid": '8'
+      "eventid": '9'
     },
     on: {
       "click": _vm.attendGroup

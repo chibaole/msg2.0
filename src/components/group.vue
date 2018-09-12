@@ -51,22 +51,23 @@
         console.log(formId)
         console.log(Intial )
 
+        console.log(Intial.group_activity_initial)
 
 
 
-
-        if(Intial.group_activity_intial !== null){
-          console.log('已参与')
-          console.log(Intial.group_activity_initial.uuid)
-          wx.navigateTo({
-            url: `/pages/groupPj/order/main?group_activity_initial_uuid=${Intial.group_activity_initial.uuid}` // 参与拼团的页面
-
-        })
-
-        }else{
+        if(Intial.group_activity_initial === null){
           console.log('未参与')
           wx.navigateTo({
             url: '/pages/groupPj/main?group_activities_uuid=' + group_activities_uuid
+          })
+
+        }else if(Intial.group_activity_initial !== null){
+
+          console.log('已参与')
+//          console.log(Intial.group_activity_initial.uuid)
+          wx.navigateTo({
+            url: `/pages/groupPj/order/main?group_activity_initial_uuid=${Intial.group_activity_initial.uuid}` // 参与拼团的页面
+
           })
         }
       },
@@ -96,7 +97,7 @@
 <style lang="scss" scoped>
   .container{
     font-family: PingFangSC-Medium;
-    /*rrder: 1px solid #000;*/
+    /*border: 1px solid #000;*/
     margin-top: 80px;
     padding:  0 25px;
   }
@@ -129,6 +130,9 @@
     margin:0 auto 60px;
     /*border: 1px solid #000;*/
 
+  }
+  .group-tiem:last-child{
+    margin-bottom: 30px;
   }
 
   .group-tiem .pic {
@@ -231,6 +235,8 @@
     color: #999;
     text-decoration: line-through;
     margin-top: 25px;
+    /*border: 1px solid #000;*/
+
   }
 
 </style>

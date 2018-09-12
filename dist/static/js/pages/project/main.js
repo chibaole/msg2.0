@@ -854,7 +854,13 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "click": _vm.openDiago
     }
   }, [_vm._v("成为研究员概率翻倍")])]), _vm._v(" "), (_vm.showBox) ? _c('div', {
-    staticClass: "mask"
+    staticClass: "mask",
+    attrs: {
+      "eventid": '10'
+    },
+    on: {
+      "click": _vm.shareMenu
+    }
   }, [(_vm.showBox) ? _c('div', {
     staticClass: "meunBox"
   }, [_c('img', {
@@ -912,7 +918,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   }, [_c('div', {
     staticClass: "btn4",
     attrs: {
-      "eventid": '10'
+      "eventid": '11'
     },
     on: {
       "click": _vm.againPrice

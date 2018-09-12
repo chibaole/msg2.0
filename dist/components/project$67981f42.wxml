@@ -72,7 +72,7 @@
         <view class="_div data-v-a0735dbe btn2" bindtap="handleProxy" data-eventid="{{'5'}}" data-comkey="{{$k}}">加速开奖</view>
         <view class="_div data-v-a0735dbe btn3" bindtap="handleProxy" data-eventid="{{'6'}}" data-comkey="{{$k}}">成为研究员概率翻倍</view>
       </view>
-      <view class="_div data-v-a0735dbe mask" wx:if="{{showBox}}">
+      <view class="_div data-v-a0735dbe mask" wx:if="{{showBox}}" bindtap="handleProxy" data-eventid="{{'10'}}" data-comkey="{{$k}}">
         <view class="_div data-v-a0735dbe meunBox" wx:if="{{showBox}}">
           <image class="_img data-v-a0735dbe x" src="http://pbmrxkahq.bkt.clouddn.com/close.png" alt bindtap="handleProxy" data-eventid="{{'7'}}" data-comkey="{{$k}}"></image>
           <view class="_div data-v-a0735dbe title">分享加速抽奖</view>
@@ -89,7 +89,7 @@
     </view>
     <view class="_div data-v-a0735dbe btn-box" wx:if="{{boon.status== 'rewarded'}}">
       <view class="_div data-v-a0735dbe add-prize">
-        <view class="_div data-v-a0735dbe btn4" bindtap="handleProxy" data-eventid="{{'10'}}" data-comkey="{{$k}}">再去抽一个</view>
+        <view class="_div data-v-a0735dbe btn4" bindtap="handleProxy" data-eventid="{{'11'}}" data-comkey="{{$k}}">再去抽一个</view>
       </view>
     </view>
   </view>

@@ -203,6 +203,9 @@
   height: 462rpx;
   margin: 0 auto 120rpx;
 }
+.group-tiem.data-v-318ee708:last-child {
+  margin-bottom: 60rpx;
+}
 .group-tiem .pic.data-v-318ee708 {
   width: 100%;
   height: 300rpx;

@@ -468,10 +468,13 @@
       color: #fff;
       font-family: PingFangSC-Medium;
       height: 44px;
+      width: 100%;
       line-height: 44px;
 
 
       font-size: 16px;
+      border-radius: 22px 22px 22px 22px;
+
       /*border:1px solid blue*/
     }
     button::after{

@@ -131,80 +131,82 @@
   font-weight: Regular;
   text-align: left;
   background: #f7f7f7;
-  border:1px solid #000;
-
+  border:1px solid #fff;
 }
+
+
+
 .wrap{
-  position: relative;
+  /*position: relative;*/
 
 }
     .pj-info{
-      width: 350px;height: 118px;
-      border: 1px solid #000;
-      box-shadow: 0 2px 4px #3e3232;
-      margin: 0 auto;
+      /*width: 350px;height: 118px;*/
+      /*border: 1px solid red;*/
+      /*box-shadow: 0 2px 4px #3e3232;*/
+      /*margin: 0 auto;*/
     }
   .pj-info .left{
-    display: inline-block;
-    width: 80px;height: 80px;
-    background: #ccc;
-    margin-top: 21.5px;
-    margin-left: 20px;
+    /*display: inline-block;*/
+    /*width: 80px;height: 80px;*/
+    /*background: #ccc;*/
+    /*margin-top: 21.5px;*/
+    /*margin-left: 20px;*/
 
   }
 
   .left img{
-    width:75px;
-    height: 75px;
-    margin: 2.5px;
+    /*width:75px;*/
+    /*height: 75px;*/
+    /*margin: 2.5px;*/
 
   }
   .left .mark{
-    width: 105px;height: 25px;
-    text-align: center;
-    background: #ccc;
-    transform:rotate(-42deg);
+    /*width: 105px;height: 25px;*/
+    /*text-align: center;*/
+    /*background: #ccc;*/
+    /*<!--transform:rotate(-42deg);-->*/
 
-    position: absolute;
-    top:10px;
-    left: -20px;
+    /*position: absolute;*/
+    /*top:10px;*/
+    /*<!--left: -20px;-->*/
   }
 
 
 
     .pj-info .right{
-      display: inline-block;
-      width: 230px;height: 80px;
-      background: #ccc;
-      margin-top: 21.5px;
-      margin-right: 10px;
+      /*display: inline-block;*/
+      /*width: 230px;height: 80px;*/
+      /*background: #ccc;*/
+      /*margin-top: 21.5px;*/
+      /*margin-right: 10px;*/
 
     }
 
   .right h2{
-    font-size: 20px;
-    font-weight: Medium;
+    /*font-size: 20px;*/
+    /*font-weight: Medium;*/
   }
 
 .right  p span{
-  display: inline-block;
-  margin-left: 5px;
+  /*display: inline-block;*/
+  /*margin-left: 5px;*/
 }
 
 .right  p span:nth-child(1){
-  font-size: 20px; color: #D0021B;
-  font-weight: Medium;
+  /*font-size: 20px; color: #D0021B;*/
+  /*font-weight: Medium;*/
 
 }
 .right p span:nth-child(2){
-  font-size: 12px; color: #D0021B;
-  font-weight: Regular;
+  /*font-size: 12px; color: #D0021B;*/
+  /*font-weight: Regular;*/
 
 }
 .right p span:nth-child(3){
-  font-size: 12px; color: #D0021b;
-  font-weight: Regular;
-  text-decoration: line-through;
+  /*font-size: 12px; color: #D0021b;*/
+  /*font-weight: Regular;*/
+  /*text-decoration: line-through;*/
 }
 
 
@@ -212,12 +214,11 @@
 
 
 .line{
-  width: 331px;
-  height: 1px;
-  background: #979797;
-  /*box-shadow: 0px 2px 4px #000 ;*/
+  /*width: 331px;*/
+  /*height: 1px;*/
+  /*background: #979797;*/
 
-  margin: 0 auto;
+  /*margin: 0 auto;*/
 
 }
 

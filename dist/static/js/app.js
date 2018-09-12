@@ -138,24 +138,25 @@ var apiDomain = 'https://msg.chibaole.cc/api/v1';
 
       var commit = _ref4.commit;
       return __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.mark(function _callee3() {
-        var boons;
+        var auth_code, boons;
         return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.wrap(function _callee3$(_context3) {
           while (1) {
             switch (_context3.prev = _context3.next) {
               case 0:
                 console.log('\u83B7\u53D6\u4ECA\u65E5\u798F\u5229-----' + apiDomain + '/boons/today');
-                _context3.next = 3;
+                auth_code = wx.getStorageSync('auth_code');
+                _context3.next = 4;
                 return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
                   method: 'get',
-                  url: apiDomain + '/boons/today',
+                  url: apiDomain + '/boons/today?auth_code=' + auth_code,
                   data: {}
                 });
 
-              case 3:
+              case 4:
                 boons = _context3.sent;
                 return _context3.abrupt('return', boons);
 
-              case 5:
+              case 6:
               case 'end':
                 return _context3.stop();
             }

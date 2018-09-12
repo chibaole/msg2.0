@@ -6,23 +6,23 @@
       <view class="_div data-v-4656d1c7 groupItem" bindtap="handleProxy" data-uuid="{{item.uuid}}" data-eventid="{{'0-'+index}}" data-comkey="{{$k}}">
         <view class="_div data-v-4656d1c7 orderNum">
           <view class="_div data-v-4656d1c7 left">订单号：
-            <label class="_span data-v-4656d1c7">{{}}534475800412</label>
+            <label class="_span data-v-4656d1c7">{{item.uuid}}</label>
           </view>
           <view class="_div data-v-4656d1c7 right">
-            <label class="_span data-v-4656d1c7">{{item.status}}</label>
-            <image src="http://pbmrxkahq.bkt.clouddn.com/%E6%9B%B4%E5%A4%9A.png" alt class="_img data-v-4656d1c7"></image>
+            <label class="_span data-v-4656d1c7">{{item.united_status_display}}</label>
+            <image src="http://pbmrxkahq.bkt.clouddn.com/more_right.png" alt class="_img data-v-4656d1c7"></image>
           </view>
         </view>
         <view class="_div data-v-4656d1c7 orderInfo">
           <view class="_div data-v-4656d1c7 pic">
-            <image src="{{item.title_image_url}}" alt class="_img data-v-4656d1c7"></image>
+            <image src="{{item.group_activity.title_image_url}}" alt class="_img data-v-4656d1c7"></image>
           </view>
           <view class="_div data-v-4656d1c7 txt">
-            <view class="_div data-v-4656d1c7 name">{{item.title}}</view>
-            <view class="_p data-v-4656d1c7 group_type">{{}}三人团</view>
-            <view class="_p data-v-4656d1c7 detail">1</view>
+            <view class="_div data-v-4656d1c7 name">{{item.group_activity.title}}</view>
+            <view class="_p data-v-4656d1c7 group_type">{{item.group_activity.group_type}}</view>
+            <view class="_p data-v-4656d1c7 detail">{{item.group_activity.description}}</view>
           </view>
-          <label class="_span data-v-4656d1c7 price">¥{{item.current_price}}</label>
+          <label class="_span data-v-4656d1c7 price">¥{{item.group_activity.current_price}}</label>
         </view>
       </view>
     </view>

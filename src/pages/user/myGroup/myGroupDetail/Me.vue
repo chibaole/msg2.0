@@ -112,7 +112,7 @@
       width:325px;
       height: 40px;
       line-height: 40px;
-      border-bottom: 2px solid #ededed;
+      border-bottom: 1px solid #eee;
       margin: 0 auto;
     };
     .phone_address{
@@ -164,7 +164,7 @@
       width:325px;
       height: 40px;
       line-height: 40px;
-      border-bottom: 2px solid #ededed;
+      border-bottom: 1px solid #eee;
       margin: 0 auto;
     };
     .groupOrder,.orderTime,.orderState{
@@ -199,7 +199,7 @@
       width:325px;
       height: 40px;
       line-height: 40px;
-      border-bottom: 2px solid #ededed;
+      border-bottom: 1px solid #eee;
       margin: 0 auto;
     };
     .groupOrder,.orderTime,.orderState{

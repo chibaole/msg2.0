@@ -75,9 +75,9 @@
           </button>
     </form>
 
-    <div class="mask" v-if="showBox">  <!-- 遮罩-->
+    <div class="mask" v-if="showBox"  @click="shareMenu">  <!-- 遮罩-->
 
-      <div class="meunBox" v-if="showBox">
+      <div class="meunBox" v-if="showBox" >
         <img class="x" src="http://pbmrxkahq.bkt.clouddn.com/close.png" alt="" @click="shareMenu">
 
         <div class="title">分享加速抽奖</div>

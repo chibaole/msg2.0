@@ -65,7 +65,7 @@
         </view>
       </button>
     </form>
-    <view class="_div data-v-b3a874ec mask" wx:if="{{showBox}}">
+    <view class="_div data-v-b3a874ec mask" wx:if="{{showBox}}" bindtap="handleProxy" data-eventid="{{'8'}}" data-comkey="{{$k}}">
       <view class="_div data-v-b3a874ec meunBox" wx:if="{{showBox}}">
         <image class="_img data-v-b3a874ec x" src="http://pbmrxkahq.bkt.clouddn.com/close.png" alt bindtap="handleProxy" data-eventid="{{'5'}}" data-comkey="{{$k}}"></image>
         <view class="_div data-v-b3a874ec title">分享加速抽奖</view>
@@ -83,7 +83,7 @@
       <view class="_div data-v-b3a874ec price">¥{{order_info.group_activity.current_price}}
         <label class="_span data-v-b3a874ec">还剩{{order_info.group_activity.product.num}}</label>
       </view>
-      <view class="_div data-v-b3a874ec join-group" bindtap="handleProxy" data-uuid="{{order_info.uuid}}" data-eventid="{{'8'}}" data-comkey="{{$k}}">一键参与</view>
+      <view class="_div data-v-b3a874ec join-group" bindtap="handleProxy" data-uuid="{{order_info.uuid}}" data-eventid="{{'9'}}" data-comkey="{{$k}}">一键参与</view>
     </view>
   </view>
 </template>
