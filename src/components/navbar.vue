@@ -16,7 +16,7 @@
 <script>
   export default {
 
-    props: ['navbar_title'],
+    props: ['navbar_title','delta'],
     data () {
       return {
         globalData: {
@@ -32,8 +32,21 @@
     },
     methods: {
       goBack () {
+        let that =this
+        let deltaNum= that.delta
+        let title =that.navbar_title
+
+        if(title === '团购'){
+          deltaNum
+        }else {
+          deltaNum = 1
+        }
+        console.log('团购 返回 页面 栈')
+        console.log(deltaNum)
         wx.navigateBack({
-          delta:1
+
+          delta:deltaNum
+
         })
       }
     },
@@ -94,7 +107,6 @@
     box-sizing: border-box;
     height: auto;
     background: #fff;
-    border-bottom: 1px solid #f7f7f7;
 
   }
 
@@ -103,9 +115,11 @@
     top: 0;
     left: 0;
     width: 100%;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255,1);
     z-index: 100;
     /*border: 1px solid #000;*/
+    border-bottom: 1px solid #f7f7f7;
+
 
   }
 
@@ -143,9 +157,7 @@
     /*border: 1px solid #000;*/
 
   }
-  /*.title-bar .back-btn, .title-bar .tablet {*/
-    /*width: 116px; !* 保持一致使标题居中 *!*/
-  /*}*/
+
 
 
 

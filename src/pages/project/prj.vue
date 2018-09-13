@@ -5,92 +5,91 @@
 
 
     <div class="pic-info">
-    <div class="pic"><img :src="boon.title_image_url" alt=""></div>
+      <div class="pic"><img :src="boon.title_image_url" alt=""></div>
 
-    <div class="prj-info">
-      <p class="prj-name">{{boon.description}}</p>
-      <p class="prj-little-info">{{boon.lottery_conditions}} <span class="hasJoined">已有<span style="color: #ff7f4f">{{boon.num_of_participants}}</span>人参与</span></p>
-    </div>
+      <div class="prj-info">
+        <p class="prj-name">{{boon.description}}</p>
+        <p class="prj-little-info">{{boon.lottery_conditions}} <span class="hasJoined">已有<span
+          style="color: #ff7f4f">{{boon.num_of_participants}}</span>人参与</span></p>
+      </div>
     </div>
     <!-- 福利简要信息    -->
-    <div class="sponsors">
-      <p class="sponsors-info" >{{boon.sponsor.description}}</p>
-      <navigator class="switchGoAnchor" target="miniProgram" open-type="navigate" :app-id="boon.sponsor.app_id" :path="boon.sponsor.app_path" extra-data="" version="release">
-        <img class="logo" :src="boon.sponsor.avatar_url" alt="">{{boon.sponsor.name}}<img class="right_ico" src="../../../static/img/right.png" alt="">
-      </navigator>
+    <div class="sponsorsBox" v-if="boon.sponsor">
+      <div class="sponsors">
+        <p class="sponsors-info">{{boon.sponsor.description}}</p>
+        <navigator class="switchGoAnchor" target="miniProgram" open-type="navigate" :app-id="boon.sponsor.app_id"
+                   :path="boon.sponsor.app_path" extra-data="" version="release">
+          <img class="logo" :src="boon.sponsor.avatar_url" alt="">{{boon.sponsor.name}}<img class="right_ico"
+                                                                                            src="../../../static/img/right.png"
+                                                                                            alt="">
+        </navigator>
 
+      </div>
     </div>
     <!--赞助上小程序   -->
-
 
 
     <div class="process-prize" v-if=" boon.status === 'published'">
       <h2>抽奖流程</h2>
       <div class="steps">
-      <p class="step1">1.点击抽奖，等待开奖</p>
-      <p class="step2">2.领取成功后，请扫码加群等待发货哦</p>
+        <p class="step1">1.点击抽奖，等待开奖</p>
+        <p class="step2">2.领取成功后，请扫码加群等待发货哦</p>
       </div>
       <div class="line"></div>
-      <h2>赞助商介绍</h2>
-      <div class="steps">
-      <p class="step1">1.点击抽奖，等待开奖</p>
-      <p class="step2">2.领取成功后，请扫码加群等待发货哦</p>
+      <h2>商品详情</h2>
+      <div class="boonDetail">
+        <rich-text :nodes="boon.detial"></rich-text>
       </div>
     </div>
 
     <!--抽奖流程-->
 
 
-    <div class="btn1" v-if="boon.status== 'published'" >
+    <div class="btn1" v-if="boon.status== 'published'">
 
-      <button  v-if="boon.participate_status == true" class="waiting">待开奖</button>
+      <button v-if="boon.participate_status == true" class="waiting">待开奖</button>
 
       <button @click="attendBoon" v-if="boon.participate_status == false" :class="prizeStyle">{{prize}}</button>
 
     </div>
 
-
     <!--抽奖未开奖显示的 '抽奖/待开奖按钮'-->
-    <div v-if="boon.participate_status===true">    <!--参加过-->
-      <div class="openPrize" v-if="boon.status== 'rewarded'  ">
-    <!--<div class="openPrize" v-if="true">-->
+    <!--<div v-if="boon.participate_status===true">    &lt;!&ndash;参加过&ndash;&gt;-->
+    <div class="openPrize" v-if="boon.status== 'rewarded'  "> <!--开奖了-->
+      <div v-if="boon.participate_status===true">
+          <div class="pic" >
+            <img src="http://pbmrxkahq.bkt.clouddn.com/winning.png" alt="" v-if="boon.boon_order.status != 'lose'">
+            <img src="http://pbmrxkahq.bkt.clouddn.com/%E6%9C%AA%E4%B8%AD%E5%A5%96.png" alt=""
+                 v-if="boon.boon_order.status === 'lose'">
 
+            <p class="boon_order_text" v-if="boon.boon_order.status != 'lose' ">恭喜，您中奖了</p>
+            <p class="boon_order_text" v-if="boon.boon_order.status === 'lose'">好气哦，没有中奖～</p>
 
-    <div class="pic"  >
-        <img src="http://pbmrxkahq.bkt.clouddn.com/winning.png" alt="" v-if="boon.boon_order.status != 'lose'">
-        <img src="http://pbmrxkahq.bkt.clouddn.com/%E6%9C%AA%E4%B8%AD%E5%A5%96.png" alt="" v-if="boon.boon_order.status === 'lose'">
+          </div>
 
-        <p class="boon_order_text" v-if="boon.boon_order.status != 'lose' ">恭喜，您中奖了</p>
-        <p class="boon_order_text"v-if="boon.boon_order.status === 'lose'">好气哦，没有中奖～</p>
-
-    </div>
-
-      <div class="prizeWindow" v-if="boon.boon_order.status === 'win'" @click="chooseAddress">去领奖</div>
-      <div class="prizeWindow" v-if="boon.boon_order.status === 'received'" @click="chooseAddress">已领奖</div>
-
-      <!--<div class="prizeWindow">去领奖了</div>-->
-
+          <div class="prizeWindow" v-if="boon.boon_order.status === 'win'" @click="chooseAddress">去领奖</div>
+          <div class="prizeWindow" v-if="boon.boon_order.status === 'received'" @click="chooseAddress">已领奖</div>
+      </div>
       <div class="nameList">
         <div class="line1"></div>
         <div class="line2"></div>
         <div class="title">中奖者名单</div>
       </div>
-      <div class="userBox" >
+      <div class="userBox">
         <div class="user" v-for="uesr in boon.rewarded_users">
           <img :src="uesr.avatar_url" alt="">
           <div class="nickname">{{uesr.nick_name}}</div>
         </div>
 
-          <div class="getall" @click="getMoreUser" v-if="showGetMoreBtn">
-           <span>加载全部</span>
-            <img src="http://pbmrxkahq.bkt.clouddn.com/%E5%8A%A0%E8%BD%BD%E6%9B%B4%E5%A4%9Aicon.png" alt="">
-          </div>
+        <div class="getall" @click="getMoreUser" v-if="showGetMoreBtn">
+          <span>加载全部</span>
+          <img src="http://pbmrxkahq.bkt.clouddn.com/%E5%8A%A0%E8%BD%BD%E6%9B%B4%E5%A4%9Aicon.png" alt="">
+        </div>
       </div>
 
 
     </div>
-    </div>
-    <!--已开奖现实的获奖信息-->
+    <!--</div>-->
 
 
     <div class="btn-box" v-if="boon.status== 'published'">
@@ -101,29 +100,29 @@
         <div class="btn2" @click="shareMenu">加速开奖</div>
 
 
-        <div class="btn3" @click="openDiago"  >成为研究员概率翻倍</div>
+        <div class="btn3" @click="openDiago">成为研究员概率翻倍</div>
       </div>
       <div class="mask" v-if="showBox" @click="shareMenu">  <!-- 遮罩-->
 
-          <div  class="meunBox"  v-if="showBox">
-            <img class="x" src="http://pbmrxkahq.bkt.clouddn.com/close.png" alt="" @click="shareMenu">
+        <div class="meunBox" v-if="showBox">
+          <img class="x" src="http://pbmrxkahq.bkt.clouddn.com/close.png" alt="" @click="shareMenu">
 
-            <div class="title">分享加速抽奖</div>
+          <div class="title">分享加速抽奖</div>
 
-            <button class="friend" open-type="share">
-              <img src="http://pbmrxkahq.bkt.clouddn.com/wechatF.png" alt="">
-            </button>
+          <button class="friend" open-type="share">
+            <img src="http://pbmrxkahq.bkt.clouddn.com/wechatF.png" alt="">
+          </button>
 
-            <div class="createImg" @click="getImg">
-              <img src="http://pbmrxkahq.bkt.clouddn.com/wechatimg.png" alt="">
-            </div>
+          <div class="createImg" @click="getImg">
+            <img src="http://pbmrxkahq.bkt.clouddn.com/wechatimg.png" alt="">
+          </div>
 
-            <div class="wechatFriend" open-type="share">微信好友</div>
+          <div class="wechatFriend" open-type="share">微信好友</div>
 
-            <div class="shengchengImg" @click="getImg">生成分享图片</div>
+          <div class="shengchengImg" @click="getImg">生成分享图片</div>
 
 
-          </div>  <!--框 弹出的选择-->
+        </div>  <!--框 弹出的选择-->
 
 
       </div>
@@ -131,15 +130,13 @@
     </div>
     <div class="btn-box" v-if="boon.status== 'rewarded'">
       <div class="add-prize">
-        <div class="btn4"  @click="againPrice">再去抽一个</div>
+        <div class="btn4" @click="againPrice">再去抽一个</div>
 
 
       </div>
 
 
     </div>
-
-    <!--<div class="isIphoneX-class"></div>-->
 
 
   </div>
@@ -153,7 +150,7 @@
   import {chooseAddress} from '@/utils/wx'
 
   export default {
-    data () {
+    data() {
       return {
         prize: '抽奖',
         open: false,
@@ -181,7 +178,7 @@
 
     methods: {
       // 参加福利 即抽奖操作
-      async attendBoon () {
+      async attendBoon() {
         var that = this
         console.log('抽奖')
 
@@ -193,35 +190,35 @@
 
         let boonID = that.boon.uuid
         let auth_code = currentuser_code
-        let uuid_authCode= [boonID, auth_code]
+        let uuid_authCode = [boonID, auth_code]
 
         let res = await that.$store.dispatch('attendBoon', {...uuid_authCode})
         console.log(res)
         that.prize = '待开奖'
         that.prizeStyle = 'waiting'
       },
-      openDiago () {
+      openDiago() {
         var that = this
         that.open = true
       },
-      childByValue (childValue) {
+      childByValue(childValue) {
         this.open = childValue
         console.log(this.open)
       },
 // url: /api/v1/boons/:uuid/attend
 
-      async getBoons () {
+      async getBoons() {
         var auth_code = wx.getStorageSync('auth_code')
         let prjInfo = await get(`/v1/boons/${this.uuid}?auth_code=${auth_code}`)
         console.log(prjInfo)
 
         this.boon = prjInfo // 福利详情
       },
-      shareMenu () {
+      shareMenu() {
         console.log(this.showBox)
         this.showBox = !this.showBox
       },
-      async getImg () {
+      async getImg() {
         console.log('绘制图片')
         let that = this
         let uuid = that.uuid
@@ -233,7 +230,7 @@
         let res = await this.$store.dispatch('wxCodeBoon', {...data})
         console.log(res)
         let wxCodeImg = res.wxa_qrcode_url
-        console.log(uuid,page,data,wxCodeImg)
+        console.log(uuid, page, data, wxCodeImg)
 
         var painting = {
           width: 375,
@@ -251,7 +248,7 @@
               height: 557
             },
 
-              //            绘制的头图
+            //            绘制的头图
             {
               type: 'image',
               url: 'http://oxl5leo53.bkt.clouddn.com/u=1204211051,3834529407&fm=11&gp=0.jpg',                  // 变化图片
@@ -260,7 +257,7 @@
               width: 375,
               height: 173
             },
-              // 文本表达
+            // 文本表达
             {
               type: 'text',
               content: that.boon.description,                                                             // 变量的名称
@@ -345,15 +342,15 @@
         wx.setStorageSync('painting', painting)
         wx.navigateTo({url: '/pages/test/main'})
       },
-      againPrice () {
+      againPrice() {
         wx.switchTab({
           url: '/pages/home/main'
         })
       },
-      async chooseAddress () {
+      async chooseAddress() {
         console.log('领奖')
         let that = this
-        let data = [ ]
+        let data = []
         let uuid = that.boon.boon_order.uuid // 抽奖订单号
         let boon_status = that.boon.boon_order.status
         console.log(boon_status)
@@ -385,7 +382,7 @@
         }
       },
 
-      getMoreUser () {
+      getMoreUser() {
         let that = this
         console.log('加载更多中奖用户')
         that.init_rewarded_users = that.boon.rewarded_users
@@ -393,13 +390,13 @@
       }
 
     },
-    async onLoad (options) {
+    async onLoad(options) {
       let that = this
       that.uuid = options.boons_uuid // 获取上一页传递的唯一标准uuid
       that.navbar_title = that.$root.$mp.query.title // 获取上一页传递的福利名称 做navbar的标题
       let form_id = options.form_id
       let currentuser_code = wx.getStorageSync('auth_code')
-      let uuid_authCode= [that.uuid, currentuser_code,form_id]
+      let uuid_authCode = [that.uuid, currentuser_code, form_id]
       // 根据获得uuid 查询数据出来
 //      that.getBoons()
       let boonData = await that.$store.dispatch('getBoons', {...uuid_authCode})
@@ -417,15 +414,14 @@
       }
 
 
-
       let isIphoneX = that.$store.state.globalData.isIphoneX
       that.isIphoneX = isIphoneX
     },
-    mounted () {
+    mounted() {
 
     },
 
-    onShareAppMessage (res) {
+    onShareAppMessage(res) {
       let that = this
       if (res.from === 'button') {
         // 来自页面内转发按钮
@@ -433,8 +429,8 @@
       }
       return {
         title: '邀你抽奖',
-        path: '/pages/project/main?boons_uuid='+ that.uuid,
-        imageUrl:'http://pbmrxkahq.bkt.clouddn.com/cover.png'
+        path: '/pages/project/main?boons_uuid=' + that.uuid,
+        imageUrl: 'http://pbmrxkahq.bkt.clouddn.com/cover.png'
       }
     }
 
@@ -442,36 +438,39 @@
 </script>
 
 <style lang="scss" scoped>
-  .container{
+  .container {
     /*border: 1px solid #000;*/
     font-family: PingFangSC-Medium;
     background: #f7f7f7;
   }
 
-  .pic-info{
+  .pic-info {
     background: #fff;
-    padding: 0 0 15px 0;
-    border: .1px solid #fff;
+    padding: 20px 0 15px 0;
+    /*border: .1px solid #fff;*/
+    /*border:1px solid #000;*/
 
   }
-      .pic{
-        width: 325px;
-        height: 150px;
-        margin: 20px auto 15px;
-        overflow: hidden;
-      }
-  .pic img{
+
+  .pic {
+    width: 325px;
+    height: 150px;
+    margin: 0 auto 15px;
+    overflow: hidden;
+  }
+
+  .pic img {
     width: 100%;
   }
 
-
-  .prj-info{
+  .prj-info {
     text-align: left;
     width: 325px;
-    /*border: 1px solid #ccc;*/
     margin: 0 auto;
+    /*border:1px solid #000;*/
   }
-  .prj-info .prj-name{
+
+  .prj-info .prj-name {
     font-size: 20px;
     color: #333;
     margin-bottom: 10px;
@@ -479,7 +478,8 @@
     line-height: 20px;
 
   }
-  .prj-little-info{
+
+  .prj-little-info {
     height: 17px;
     line-height: 17px;
     font-size: 12px;
@@ -488,7 +488,8 @@
     color: #4a4a4a;
     /*margin-bottom: 15px;*/
   }
-  .hasJoined{
+
+  .hasJoined {
     display: inline-block;
     float: right;
     height: 17px;
@@ -498,18 +499,25 @@
     letter-spacing: -0.3px;
     color: #4a4a4a;
   }
-.line{
-  width: 325px;
-  height: 2px;
-  background: #ededed;
-  /*box-shadow: 0px 2px 4px #000 ;*/
 
-  /*margin: 0 25px;*/
-  margin-bottom: 13px;
+  .line {
+    width: 325px;
+    height: 1px;
+    background: #eee;
+    /*box-shadow: 0px 2px 4px #000 ;*/
 
-}
+    /*margin: 0 25px;*/
+    margin-bottom: 13px;
 
-  .sponsors{
+  }
+
+  .sponsorsBox {
+    background: #fff;
+    /*border:1px solid #ccc;*/
+
+  }
+
+  .sponsors {
     width: 375px;
     height: 94px;
     color: #4a4a4a;
@@ -517,28 +525,32 @@
     font-family: PingFangSC-Regular;
     /*border:1px solid #ccc;*/
     margin-top: 10px;
-    /*padding: 0 25px;*/
 
-    /*background: #fff;*/
   }
 
-  .sponsors-info{
+  .sponsors-info {
     height: 42px;
     line-height: 42px;
     background: #fff;
-    padding-left: 25px;
-    margin-bottom: 2px;
+    /*padding-left: 25px;*/
+    width: 325px;
+    margin: 0 auto 2px;
+    /*margin-bottom: 2px;*/
+    /*border:1px solid #000;*/
   }
-  .sponsors .switchGoAnchor{
-    width: 375px;height: 50px;
+
+  .sponsors .switchGoAnchor {
+    width: 325px;
+    height: 50px;
     line-height: 50px;
     background: #fff;
-    padding-left: 25px;
+    margin: 0 auto;
     /*border: 1px solid #ccc;*/
     /*margin: 10px auto 0;*/
     position: relative;
   }
-  .sponsors .switchGoAnchor img:nth-child(1){
+
+  .sponsors .switchGoAnchor img:nth-child(1) {
     display: inline-block;
     width: 30px;
     height: 30px;
@@ -548,14 +560,14 @@
 
   }
 
-  .sponsors .switchGoAnchor .right_ico{
+  .sponsors .switchGoAnchor .right_ico {
     /*border: 1px solid #000;*/
     width: 15px;
     height: 15px;
     position: absolute;
-    right:28px ;
-    top:17.5px;
-    margin-right: 28px;
+    right: 0;
+    top: 17.5px;
+    /*margin-right: 28px;*/
     vertical-align: middle;
   }
 
@@ -563,46 +575,65 @@
     width: 375px;
     margin: 16px auto 0;
     background: #fff;
-    padding: 15px 25px;
+    /*padding: 15px 25px;*/
     /*border:1px solid #000;*/
-  }
-  .process-prize h2{
-    font-size: 16px;
-    /*width: 64px;*/
-    height: 22px;
-    line-height: 22px;
-    color: #454553;
-    /*border: 1px solid #000;*/
-    margin-bottom: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    h2 {
+      display: inline-block;
+      font-size: 16px;
+      width: 325px;
+      height: 22px;
+      line-height: 22px;
+      color: #454553;
+      /*border: 1px solid #000;*/
+      margin-bottom: 10px;
+      /*margin: 15px auto 10px;*/
+      margin-left: 25px;
+    }
+  ;
+
   }
 
-  .steps{
+  .steps {
     height: 34px;
+    width: 325px;
     line-height: 15px;
-    margin-bottom: 20px;
-  }
-  .process-prize .step1,.step2{
-        font-size: 12px;
-        font-family: PingFangSC-Regular;
-      }
-  .step2{
-        /*margin-bottom:30px ;*/
-      }
+    /*margin-bottom: 20px;*/
+    margin: 0 auto 20px;
+    /*border: 1px solid #000;*/
 
-  .btn1{
+  }
+
+  .process-prize .step1, .step2 {
+    font-size: 12px;
+    font-family: PingFangSC-Regular;
+  }
+
+  .step2 {
+    /*margin-bottom:30px ;*/
+  }
+
+  .boonDetail {
+    width: 325px;
+    margin: 0 auto;
+  }
+
+  .btn1 {
     padding-top: 90px;
     padding-bottom: 41px;
     margin-bottom: 61px;
     background: #fff;
   }
 
-  .btn1 .waiting{
-    width: 100px;height: 100px;
+  .btn1 .waiting {
+    width: 100px;
+    height: 100px;
     line-height: 100px;
 
     /*background: #ff7f4f;*/
     /*opacity: 0.7;*/
-    background: rgba(#ff7f4f,0.4);
+    background: rgba(#ff7f4f, 0.4);
 
     margin: 0 auto;
     font-size: 16px;
@@ -610,11 +641,13 @@
 
     border-radius: 50%;
   }
-   .btn1 .prize{
-    width: 100px;height: 100px;
+
+  .btn1 .prize {
+    width: 100px;
+    height: 100px;
     line-height: 100px;
 
-    background: rgba(#ff7f4f,0.7);
+    background: rgba(#ff7f4f, 0.7);
     margin: 0 auto;
     font-size: 16px;
     color: #fff;
@@ -622,25 +655,26 @@
     border-radius: 50%;
   }
 
-   .btn-box{
-     /*border: 1px solid red;*/
-     position: fixed;
-     bottom: 0;
-     background: #fff;
-     width: 375px;
-     height: 60px;
+  .btn-box {
+    /*border: 1px solid red;*/
+    position: fixed;
+    bottom: 0;
+    background: #fff;
+    width: 375px;
+    height: 60px;
 
-   }
-  .add-prize{
+  }
+
+  .add-prize {
     width: 375px;
     height: 60px;
     font-size: 16px;
-    box-shadow: 0 -2px 8px  0 rgba(#ededed,0.5);
+    box-shadow: 0 -2px 8px 0 rgba(#ededed, 0.5);
     display: -moz-box;
     display: -webkit-box;
     text-align: center;
 
-    .btn4{
+    .btn4 {
       font-family: PingFangSC-Medium;
 
       background: #ff7f4f;
@@ -655,7 +689,7 @@
     /*padding: 8px 10px;*/
   }
 
-  .add-prize .btn2 ,.btn3{
+  .add-prize .btn2, .btn3 {
     display: inline-block;
     height: 44px;
     line-height: 44px;
@@ -665,10 +699,9 @@
     box-sizing: border-box;
     margin-top: 8px;
 
-
-
   }
-  .btn2{
+
+  .btn2 {
     /*margin-right: 2px;*/
     width: 141px;
 
@@ -676,18 +709,18 @@
     color: #ff7f4f;
     margin-left: 8px;
 
-
   }
-      .btn3{
-        border: 1px solid #ff7f4f;
 
-        background: #ff7f4f;
-        width: 214px;
-        color: #fff;
-        margin-right: 8px;
-      }
+  .btn3 {
+    border: 1px solid #ff7f4f;
 
-  .mask{
+    background: #ff7f4f;
+    width: 214px;
+    color: #fff;
+    margin-right: 8px;
+  }
+
+  .mask {
     position: fixed;
     z-index: 100;
     width: 100%;
@@ -696,10 +729,11 @@
     background: rgba(0, 0, 0, 0.4);
     display: flex;
     justify-content: flex-end;
-    align-items:  flex-end;
+    align-items: flex-end;
     flex-direction: column;
   }
-  .meunBox{
+
+  .meunBox {
     width: 375px;
     height: 280px;
     background: #fff;
@@ -709,44 +743,41 @@
 
   }
 
-  .meunBox .title{
+  .meunBox .title {
     width: 102px;
     height: 24px;
     font-size: 17px;
     line-height: 24px;
     color: #333;
     position: absolute;
-    top:56px;
+    top: 56px;
     left: 137px;
 
   }
 
-  .meunBox .friend ,.createImg{
+  .meunBox .friend, .createImg {
     display: inline-block;
 
-
-
-    width:60px;
+    width: 60px;
     height: 60px;
     border-radius: 50%;
     border: 2px solid #ededed;
     box-sizing: border-box;
 
-
-
   }
 
-  .meunBox p{
+  .meunBox p {
     height: 20px;
     font-size: 14px;
     color: #666;
 
   }
 
-  button::after{
-    border:none;
+  button::after {
+    border: none;
   }
-  .createImg img{
+
+  .createImg img {
 
     width: 24px;
     height: 24px;
@@ -755,60 +786,64 @@
 
   }
 
-  .friend{
+  .friend {
     position: relative;
   }
 
-  .friend  img {
+  .friend img {
     width: 24px;
     height: 24px;
-   position: absolute;
-    top:17px;
+    position: absolute;
+    top: 17px;
     left: 17px;
 
   }
-  .meunBox .friend{
+
+  .meunBox .friend {
     display: inline-block;
     position: absolute;
-    top:128px;
+    top: 128px;
     left: 80px;
     /*border: 1px solid #000;*/
   }
-  .meunBox .createImg{
+
+  .meunBox .createImg {
     position: absolute;
-    top:128px;
+    top: 128px;
     right: 80px;
   }
-.wechatFriend{
-  /*background: none;*/
-  /*border: 1px solid #000;*/
-  display: inline-block;
-  position: absolute;
-  top:206px;
-  left: 82px;
-  font-size: 14px;
-  color: #666;
-}
 
-  .shengchengImg{
+  .wechatFriend {
+    /*background: none;*/
+    /*border: 1px solid #000;*/
+    display: inline-block;
     position: absolute;
-    top:206px;
+    top: 206px;
+    left: 82px;
+    font-size: 14px;
+    color: #666;
+  }
+
+  .shengchengImg {
+    position: absolute;
+    top: 206px;
     right: 68px;
     font-size: 14px;
     color: #666;
   }
 
-  .x{
+  .x {
     /*border: 1px solid #000;*/
     width: 15px;
     height: 15px;
     position: absolute;
-    top:15px;
+    top: 15px;
     right: 15px;
 
   }
-/*开奖区域*/
-  .openPrize{
+
+  /*开奖区域*/
+  .openPrize {
     min-height: 457px;
     width: 375px;
     background: #fff;
@@ -817,101 +852,113 @@
     .pic {
       /*width: 80px ;*/
       /*height: 80px;*/
-      margin: 0 auto;
+      margin: 0 auto 20px;
       /*border: 1px solid #000;*/
       height: 118px;
 
-      img{
+      img {
         width: 80px;
         height: 80px;
         margin-left: 123px;
-      };
-      p{
+      }
+    ;
+      p {
 
         height: 16px;
         line-height: 16px;
         font-family: PingFangSC-Medium;
         font-size: 16px;
-        color:#666;
+        color: #666;
         text-align: center;
         margin-top: 14px;
         /*border: 1px solid #000;*/
       }
 
-    };
-  .prizeWindow{
-    width: 180px;
-    height: 40px;
-    background: #fc574b;
-    box-shadow: 0 0 8px 0 rgba(#ff7f4f,0.4);
-    line-height: 40px;
-    text-align:center;
-    color: #fff;
-    font-size: 16px;
-    font-family: PingFangSC-Medium;
-    margin: 20px auto 0;
-  };
-    .nameList{
+    }
+  ;
+    .prizeWindow {
+
+      width: 180px;
+      height: 40px;
+      background: #fc574b;
+      box-shadow: 0 0 8px 0 rgba(#ff7f4f, 0.4);
+      line-height: 40px;
+      text-align: center;
+      color: #fff;
+      font-size: 16px;
+      font-family: PingFangSC-Medium;
+      margin: 0px auto 45px;
+    }
+  ;
+    .nameList {
       position: relative;
-      /*border: 1px solid red;*/
-      .title{
-        width: 70px;height: 14px;
-        margin: 45px  auto 0;
+      border: 1px solid red;
+      .title {
+        width: 70px;
+        height: 14px;
+        margin: 0px auto 0;
         line-height: 14px;
         text-align: center;
         font-family: PingFangSC-Regular;
         font-size: 14px;
-        color:#666;
+        color: #666;
 
-      };
-      .line1 , .line2{
+      }
+    ;
+      .line1, .line2 {
         width: 60px;
         height: 2px;
         position: absolute;
-        top:6px;
+        top: 6px;
         background: #ededed;
 
-      };
-      .line1{
+      }
+    ;
+      .line1 {
         position: absolute;
 
         left: 83px;
-      };
+      }
+    ;
 
-      .line2{
+      .line2 {
         position: absolute;
 
         right: 83px;
       }
-    };
-    .userBox{
-        width: 280px;
+    }
+  ;
+    .userBox {
+      width: 280px;
       margin: 10px auto 20px;
       position: relative;
-        /*border:1px solid #000;*/
+      /*border:1px solid #000;*/
       display: flex;
       /*justify-content: space-between;*/
       justify-content: center;
       flex-wrap: wrap;
       align-content: flex-start;
 
-      .user{
+      .user {
         display: inline-block;
         /*border:1px solid red;*/
-        width:16.6666%;height:50px;
-        margin-bottom:15px ;
+        width: 16.6666%;
+        height: 50px;
+        margin-bottom: 15px;
 
-        img{
-          width: 34px;height: 34px;
+        img {
+          width: 34px;
+          height: 34px;
           margin-left: 6.25px;
           border-radius: 50%;
 
-        };
-        .nickname{
+        }
+      ;
+        .nickname {
           width: 30px;
           height: 10px;
           margin: 0 auto;
-          font-family:PingFangSC-Regular ;
+          font-family: PingFangSC-Regular;
           font-size: 10px;
           color: #999;
           line-height: 10px;
@@ -919,29 +966,28 @@
           overflow: hidden;
         }
 
-
-      };
-      .getall{
+      }
+    ;
+      .getall {
         width: 65px;
         height: 14px;
         line-height: 14px;
         margin: 20px auto 0px;
         position: absolute;
         bottom: 0;
-        left:113px ;
+        left: 113px;
         font-family: PingFangSC-Regular;
         font-size: 11px;
         color: #999;
 
         vertical-align: middle;
-        span{
+        span {
 
           vertical-align: middle;
           /*border: 1px solid #000;*/
 
-
         }
-        img{
+        img {
           vertical-align: middle;
           margin-left: 2px;
           margin-bottom: 1.5px;
@@ -950,32 +996,28 @@
           display: inline-block;
           /*border: 1px solid #000;*/
 
-
         }
       }
-
-
 
     }
   }
 
-
   /*.mainDiv {*/
-    /*float: left;*/
-    /*margin-left: 10%;*/
-    /*width: 80%;*/
-    /*margin-top: 2%;*/
-    /*height: 200px;*/
-    /*background-color: #FFEBCD;*/
+  /*float: left;*/
+  /*margin-left: 10%;*/
+  /*width: 80%;*/
+  /*margin-top: 2%;*/
+  /*height: 200px;*/
+  /*background-color: #FFEBCD;*/
 
   /*}*/
 
   /*.viceDiv_1,.viceDiv_2,.viceDiv_3 {*/
-    /*float: left;*/
-    /*background-color: #7FFFD4;*/
-    /*margin-top: 2% ;*/
-    /*margin-left: 2.5%;*/
-    /*width: 30%;*/
-    /*height: 150px;*/
+  /*float: left;*/
+  /*background-color: #7FFFD4;*/
+  /*margin-top: 2% ;*/
+  /*margin-left: 2.5%;*/
+  /*width: 30%;*/
+  /*height: 150px;*/
   /*}*/
 </style>

@@ -15,12 +15,14 @@
         </view>
       </view>
     </view>
-    <view class="_div data-v-a0735dbe sponsors">
-      <view class="_p data-v-a0735dbe sponsors-info">{{boon.sponsor.description}}</view>
-      <navigator class="_navigator data-v-a0735dbe switchGoAnchor" target="miniProgram" open-type="navigate" app-id="{{boon.sponsor.app_id}}" path="{{boon.sponsor.app_path}}" extra-data version="release">
-        <image class="_img data-v-a0735dbe logo" src="{{boon.sponsor.avatar_url}}" alt></image>{{boon.sponsor.name}}
-        <image class="_img data-v-a0735dbe right_ico" src="../../../static/img/right.png" alt></image>
-      </navigator>
+    <view class="_div data-v-a0735dbe sponsorsBox" wx:if="{{boon.sponsor}}">
+      <view class="_div data-v-a0735dbe sponsors">
+        <view class="_p data-v-a0735dbe sponsors-info">{{boon.sponsor.description}}</view>
+        <navigator class="_navigator data-v-a0735dbe switchGoAnchor" target="miniProgram" open-type="navigate" app-id="{{boon.sponsor.app_id}}" path="{{boon.sponsor.app_path}}" extra-data version="release">
+          <image class="_img data-v-a0735dbe logo" src="{{boon.sponsor.avatar_url}}" alt></image>{{boon.sponsor.name}}
+          <image class="_img data-v-a0735dbe right_ico" src="../../../static/img/right.png" alt></image>
+        </navigator>
+      </view>
     </view>
     <view class="_div data-v-a0735dbe process-prize" wx:if="{{ boon.status === 'published'}}">
       <view class="_h2 data-v-a0735dbe">抽奖流程</view>
@@ -29,18 +31,17 @@
         <view class="_p data-v-a0735dbe step2">2.领取成功后，请扫码加群等待发货哦</view>
       </view>
       <view class="_div data-v-a0735dbe line"></view>
-      <view class="_h2 data-v-a0735dbe">赞助商介绍</view>
-      <view class="_div data-v-a0735dbe steps">
-        <view class="_p data-v-a0735dbe step1">1.点击抽奖，等待开奖</view>
-        <view class="_p data-v-a0735dbe step2">2.领取成功后，请扫码加群等待发货哦</view>
+      <view class="_h2 data-v-a0735dbe">商品详情</view>
+      <view class="_div data-v-a0735dbe boonDetail">
+        <rich-text nodes="{{boon.detial}}" class="_rich-text data-v-a0735dbe"></rich-text>
       </view>
     </view>
     <view class="_div data-v-a0735dbe btn1" wx:if="{{boon.status== 'published'}}">
       <button wx:if="{{boon.participate_status == true}}" class="_button data-v-a0735dbe waiting">待开奖</button>
       <button bindtap="handleProxy" wx:if="{{boon.participate_status == false}}" data-eventid="{{'0'}}" data-comkey="{{$k}}" class="_button data-v-a0735dbe {{prizeStyle}}">{{prize}}</button>
     </view>
-    <view wx:if="{{boon.participate_status===true}}" class="_div data-v-a0735dbe">
-      <view class="_div data-v-a0735dbe openPrize" wx:if="{{boon.status== 'rewarded'  }}">
+    <view class="_div data-v-a0735dbe openPrize" wx:if="{{boon.status== 'rewarded'  }}">
+      <view wx:if="{{boon.participate_status===true}}" class="_div data-v-a0735dbe">
         <view class="_div data-v-a0735dbe pic">
           <image src="http://pbmrxkahq.bkt.clouddn.com/winning.png" alt wx:if="{{boon.boon_order.status != 'lose'}}" class="_img data-v-a0735dbe"></image>
           <image src="http://pbmrxkahq.bkt.clouddn.com/%E6%9C%AA%E4%B8%AD%E5%A5%96.png" alt wx:if="{{boon.boon_order.status === 'lose'}}" class="_img data-v-a0735dbe"></image>
@@ -49,25 +50,25 @@
         </view>
         <view class="_div data-v-a0735dbe prizeWindow" wx:if="{{boon.boon_order.status === 'win'}}" bindtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}">去领奖</view>
         <view class="_div data-v-a0735dbe prizeWindow" wx:if="{{boon.boon_order.status === 'received'}}" bindtap="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}">已领奖</view>
-        <view class="_div data-v-a0735dbe nameList">
-          <view class="_div data-v-a0735dbe line1"></view>
-          <view class="_div data-v-a0735dbe line2"></view>
-          <view class="_div data-v-a0735dbe title">中奖者名单</view>
+      </view>
+      <view class="_div data-v-a0735dbe nameList">
+        <view class="_div data-v-a0735dbe line1"></view>
+        <view class="_div data-v-a0735dbe line2"></view>
+        <view class="_div data-v-a0735dbe title">中奖者名单</view>
+      </view>
+      <view class="_div data-v-a0735dbe userBox">
+        <view class="_div data-v-a0735dbe user" wx:for="{{boon.rewarded_users}}" wx:for-index="index" wx:for-item="uesr">
+          <image src="{{uesr.avatar_url}}" alt class="_img data-v-a0735dbe"></image>
+          <view class="_div data-v-a0735dbe nickname">{{uesr.nick_name}}</view>
         </view>
-        <view class="_div data-v-a0735dbe userBox">
-          <view class="_div data-v-a0735dbe user" wx:for="{{boon.rewarded_users}}" wx:for-index="index" wx:for-item="uesr">
-            <image src="{{uesr.avatar_url}}" alt class="_img data-v-a0735dbe"></image>
-            <view class="_div data-v-a0735dbe nickname">{{uesr.nick_name}}</view>
-          </view>
-          <view class="_div data-v-a0735dbe getall" bindtap="handleProxy" wx:if="{{showGetMoreBtn}}" data-eventid="{{'3'}}" data-comkey="{{$k}}">
-            <label class="_span data-v-a0735dbe">加载全部</label>
-            <image src="http://pbmrxkahq.bkt.clouddn.com/%E5%8A%A0%E8%BD%BD%E6%9B%B4%E5%A4%9Aicon.png" alt class="_img data-v-a0735dbe"></image>
-          </view>
+        <view class="_div data-v-a0735dbe getall" bindtap="handleProxy" wx:if="{{showGetMoreBtn}}" data-eventid="{{'3'}}" data-comkey="{{$k}}">
+          <label class="_span data-v-a0735dbe">加载全部</label>
+          <image src="http://pbmrxkahq.bkt.clouddn.com/%E5%8A%A0%E8%BD%BD%E6%9B%B4%E5%A4%9Aicon.png" alt class="_img data-v-a0735dbe"></image>
         </view>
       </view>
     </view>
     <view class="_div data-v-a0735dbe btn-box" wx:if="{{boon.status== 'published'}}">
-      <template wx:if="{{open}}" bindchildByValue="handleProxy" data-eventid="{{'4'}}" data-comkey="{{$k}}" data="{{...$root[$kk+'1'], $root}}" is="diago$66d9fee3"></template>
+      <template wx:if="{{open}}" bindchildByValue="handleProxy" data-eventid="{{'4'}}" data-comkey="{{$k}}" data="{{...$root[$kk+'2'], $root}}" is="diago$66d9fee3"></template>
       <view class="_div data-v-a0735dbe add-prize">
         <view class="_div data-v-a0735dbe btn2" bindtap="handleProxy" data-eventid="{{'5'}}" data-comkey="{{$k}}">加速开奖</view>
         <view class="_div data-v-a0735dbe btn3" bindtap="handleProxy" data-eventid="{{'6'}}" data-comkey="{{$k}}">成为研究员概率翻倍</view>

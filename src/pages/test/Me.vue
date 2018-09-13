@@ -65,6 +65,7 @@
     width: 325px;
     height: 483px;
     margin: 31px 25px 0;
+    border-radius: 5px;
     box-shadow: 0 0 16px rgba(153,153,153,0.4);
   }
   .btn {

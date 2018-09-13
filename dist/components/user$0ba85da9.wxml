@@ -1,22 +1,20 @@
 <template name="user$0ba85da9">
   <view class="_div data-v-3105212a container">
-    <view class="_div data-v-3105212a navbartitle" style=" {{('height:' + top + 'px' + ';')}}">
-      <label class="_span data-v-3105212a">我的研究院</label>
+    <view class="_div data-v-3105212a navbar" style=" {{('padding-top:' + top + 'px' + ';')}}">
+      <view class="_div data-v-3105212a header">
+        <view class="_div data-v-3105212a status-bar" style=" {{('height:' + statusBarHeight + 'px' + ';')}}"></view>
+        <view class="_div data-v-3105212a title-bar" style=" {{('height:' + titleBarHeight + 'px' + ';')}}">
+          <view class="_div data-v-3105212a title">我的研究院</view>
+        </view>
+      </view>
     </view>
-    <view class="_div data-v-3105212a userinfo" style=" {{('margin-top:' + top + 'px' + ';')}}">
-      <image src="{{userinfo.avatar_url}}" class="_img data-v-3105212a"></image>
+    <view class="_div data-v-3105212a userinfo">
+      <image class="_img data-v-3105212a avatar" src="{{userinfo.avatar_url}}"></image>
       <view class="_p data-v-3105212a username">
         <label class="_span data-v-3105212a foodname">{{userinfo.nick_name}}</label>
         <label class="_span data-v-3105212a foodLabel">{{userinfo.level_display}}</label>
       </view>
-      <label class="_span data-v-3105212a score">2.3K
-        <label class="_span data-v-3105212a score_text">个小麻花</label>
-      </label>
-      <view class="_div data-v-3105212a desc">
-        <label class="_span data-v-3105212a small_score">小麻花积分</label>
-        <label class="_span data-v-3105212a small_score_text">你还有3000{{}}个小麻花可以使用，快去使用</label>
-        <image src alt class="_img data-v-3105212a"></image>
-      </view>
+      <image src="http://pbmrxkahq.bkt.clouddn.com/setIcon.png" alt class="_img data-v-3105212a setIcon"></image>
     </view>
     <form report-submit="{{true}}" bindsubmit="handleProxy" id="phoneForm" data-eventid="{{'0'}}" data-comkey="{{$k}}" class="_form data-v-3105212a">
       <button formType="submit" class="_button data-v-3105212a">

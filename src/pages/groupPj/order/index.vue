@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <Navbar :navbar_title="navbar_title"></Navbar>
+    <Navbar :navbar_title="navbar_title" :delta = "delta"></Navbar>
     <!--<Card ></Card>-->
     <!--<Card :order_info="order_info"></Card>-->
     <div class="wrap">
@@ -18,8 +18,6 @@
         </div>
       </div>
     </div>
-
-
     <!--订单详情-->
     <div class="detail-order">
 
@@ -164,7 +162,8 @@
         group_activity_initials_finish: false,
         host: config.host,
         onekeyAttend: false,
-        group_activity_order_uuid: ''
+        group_activity_order_uuid: '',
+        delta:3
       }
     },
     components: {
@@ -313,7 +312,7 @@
         let page = 'pages/isme/index'
         let data = [uuid, page]
         let res = await this.$store.dispatch('wxCode', {...data})
-        let wxCodeImg =  res.wxa_qrcode_url
+        let wxCodeImg = res.wxa_qrcode_url
         this.painting = {
           width: 375,
           height: 557,
@@ -493,7 +492,11 @@
 
       let left_user = orderData.group_activity_initial.users_left // number
 
-      for (var i = 0; i < left_user; i++) {
+      let group_user_require = orderData.group_activity_initial.group_user_require
+      let left_num = group_user_require - order_user.length //还需的「
+      console.log(group_user_require,)
+      console.log(left_num)
+      for (var i = 0; i < left_num ; i++) {
         order_user.push({})
       }
 
@@ -675,9 +678,9 @@
 
   .line {
     width: 325px;
-    height: 2px;
+    height: 1px;
     /*border: 1px solid #000;*/
-    background: #f5f5f5;
+    background: #f7f7f7;
     margin: 20px auto;
   }
 
@@ -861,7 +864,7 @@
       width: 60px;
       height: 60px;
       border-radius: 50%;
-      border: 2px solid #ededed;
+      border: 1px solid #eee;
       box-sizing: border-box;
 
     }

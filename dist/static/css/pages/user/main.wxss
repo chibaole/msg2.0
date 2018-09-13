@@ -31,7 +31,7 @@
   background: linear-gradient(152deg, #ffd8c5, #ffb194, #ffb093);
   position: relative;
 }
-.userinfo ._img.data-v-3105212a,
+.userinfo .avatar.data-v-3105212a,
 .userinfo open-data.data-v-3105212a {
   display: inline-block;
   width: 140rpx;
@@ -40,6 +40,13 @@
   position: absolute;
   top: 80rpx;
   left: 50rpx;
+}
+.userinfo .setIcon.data-v-3105212a {
+  width: 40rpx;
+  height: 40rpx;
+  position: absolute;
+  top: 40rpx;
+  right: 50rpx;
 }
 .userinfo .score.data-v-3105212a {
   display: inline-block;
@@ -58,6 +65,7 @@
   color: #fff;
   min-width: 200rpx;
   height: 40rpx;
+  line-height: 40rpx;
   font-family: PingFangSC-Medium;
   font-size: 40rpx;
   position: absolute;
@@ -223,6 +231,37 @@
 }
 ._button.data-v-3105212a::after {
   border: none;
+}
+.navbar.data-v-3105212a {
+  box-sizing: border-box;
+  height: auto;
+  background: #fff;
+  border-bottom: 2rpx solid #f7f7f7;
+}
+.header.data-v-3105212a {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  z-index: 100;
+}
+.status-bar.data-v-3105212a {
+  background: rgba(255, 255, 255, 0.1);
+}
+.title-bar.data-v-3105212a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+.title.data-v-3105212a {
+  text-align: center;
+  font-family: PingFangSC-Medium;
+  font-size: 34rpx;
+  letter-spacing: -0.8rpx;
+  width: 300rpx;
+  display: inline-block;
 }
 .progressbar.data-v-3052ecbd {
   text-align: center;

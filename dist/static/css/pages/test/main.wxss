@@ -4,6 +4,7 @@
   width: 650rpx;
   height: 966rpx;
   margin: 62rpx 50rpx 0;
+  border-radius: 10rpx;
   box-shadow: 0 0 32rpx rgba(153,153,153,0.4);
 }
 .btn.data-v-3bd60e78 {

@@ -116,6 +116,20 @@ global.webpackJsonp([2],{
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 
 
@@ -137,8 +151,16 @@ global.webpackJsonp([2],{
         is_authorized: true
       },
       nologin: true,
-      top: 68,
-      login_show: true
+      login_show: true,
+      globalData: {
+        statusBarHeight: 0,
+        titleBarHeight: 0
+
+      },
+      statusBarHeight: 0,
+      titleBarHeight: 0,
+      top: 0
+
     };
   },
 
@@ -290,23 +312,22 @@ global.webpackJsonp([2],{
     wx.getSystemInfo({
       success: function success(res) {
         var totalTopHeight = 68;
+
         if (res.model.indexOf('iPhone X') !== -1) {
           totalTopHeight = 88;
-          console.log('iphonex');
         } else if (res.model.indexOf('iPhone') !== -1) {
           totalTopHeight = 64;
-          console.log('iphone');
         }
+
         var statusBarHeight = res.statusBarHeight;
         var titleBarHeight = totalTopHeight - res.statusBarHeight; // 44
-        console.log(statusBarHeight, titleBarHeight);
+
         vm.statusBarHeight = statusBarHeight;
+
         vm.titleBarHeight = titleBarHeight;
         vm.top = statusBarHeight + titleBarHeight;
-        //        vm.top =  titleBarHeight
       },
       failure: function failure() {
-        console.log('fail');
         vm.globalData.statusBarHeight = 0;
         vm.globalData.titleBarHeight = 0;
       }
@@ -423,16 +444,28 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   return _c('div', {
     staticClass: "container"
   }, [_c('div', {
-    staticClass: "navbartitle",
+    staticClass: "navbar",
     style: ({
-      'height': _vm.top + 'px'
+      'padding-top': _vm.top + 'px'
     })
-  }, [_c('span', [_vm._v("我的研究院")])]), _vm._v(" "), _c('div', {
-    staticClass: "userinfo",
+  }, [_c('div', {
+    staticClass: "header"
+  }, [_c('div', {
+    staticClass: "status-bar",
     style: ({
-      'margin-top': _vm.top + 'px'
+      height: _vm.statusBarHeight + 'px'
     })
+  }), _vm._v(" "), _c('div', {
+    staticClass: "title-bar",
+    style: ({
+      height: _vm.titleBarHeight + 'px'
+    })
+  }, [_c('div', {
+    staticClass: "title"
+  }, [_vm._v("我的研究院")])])])]), _vm._v(" "), _c('div', {
+    staticClass: "userinfo"
   }, [_c('img', {
+    staticClass: "avatar",
     attrs: {
       "src": _vm.userinfo.avatar_url
     }
@@ -442,7 +475,13 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "foodname"
   }, [_vm._v(_vm._s(_vm.userinfo.nick_name))]), _vm._v(" "), _c('span', {
     staticClass: "foodLabel"
-  }, [_vm._v(_vm._s(_vm.userinfo.level_display))])]), _vm._v(" "), _vm._m(0), _vm._v(" "), _vm._m(1)], 1), _vm._v(" "), _c('form', {
+  }, [_vm._v(_vm._s(_vm.userinfo.level_display))])]), _vm._v(" "), _c('img', {
+    staticClass: "setIcon",
+    attrs: {
+      "src": "http://pbmrxkahq.bkt.clouddn.com/setIcon.png",
+      "alt": ""
+    }
+  })], 1), _vm._v(" "), _c('form', {
     attrs: {
       "report-submit": true,
       "id": "phoneForm",
@@ -516,26 +555,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }, [_vm._v("获取权限")]) : _vm._e()], 1)
 }
-var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('span', {
-    staticClass: "score"
-  }, [_vm._v("2.3K"), _c('span', {
-    staticClass: "score_text"
-  }, [_vm._v("个小麻花")])])
-},function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "desc"
-  }, [_c('span', {
-    staticClass: "small_score"
-  }, [_vm._v("小麻花积分")]), _vm._v(" "), _c('span', {
-    staticClass: "small_score_text"
-  }, [_vm._v("你还有3000{{}}个小麻花可以使用，快去使用")]), _vm._v(" "), _c('img', {
-    attrs: {
-      "src": "",
-      "alt": ""
-    }
-  })])
-}]
+var staticRenderFns = []
 render._withStripped = true
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);

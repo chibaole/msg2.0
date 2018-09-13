@@ -152,8 +152,6 @@ global.webpackJsonp([4],{
 //
 //
 //
-//
-//
 
 
 
@@ -185,7 +183,8 @@ global.webpackJsonp([4],{
       group_activity_initials_finish: false,
       host: __WEBPACK_IMPORTED_MODULE_8__config__["a" /* default */].host,
       onekeyAttend: false,
-      group_activity_order_uuid: ''
+      group_activity_order_uuid: '',
+      delta: 3
     };
   },
 
@@ -587,7 +586,7 @@ global.webpackJsonp([4],{
     var _this5 = this;
 
     return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.mark(function _callee5() {
-      var that, group_activity_initial_uuid, currentuser_code, uuid_authCode, orderData, order_user, left_user, i;
+      var that, group_activity_initial_uuid, currentuser_code, uuid_authCode, orderData, order_user, left_user, group_user_require, left_num, i;
       return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.wrap(function _callee5$(_context5) {
         while (1) {
           switch (_context5.prev = _context5.next) {
@@ -608,7 +607,12 @@ global.webpackJsonp([4],{
 
               left_user = orderData.group_activity_initial.users_left; // number
 
-              for (i = 0; i < left_user; i++) {
+              group_user_require = orderData.group_activity_initial.group_user_require;
+              left_num = group_user_require - order_user.length; //还需的「
+
+              console.log(group_user_require);
+              console.log(left_num);
+              for (i = 0; i < left_num; i++) {
                 order_user.push({});
               }
 
@@ -629,7 +633,7 @@ global.webpackJsonp([4],{
 
               that.getlastTime();
 
-            case 17:
+            case 21:
             case 'end':
               return _context5.stop();
           }
@@ -739,6 +743,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   }, [_c('Navbar', {
     attrs: {
       "navbar_title": _vm.navbar_title,
+      "delta": _vm.delta,
       "mpcomid": '0'
     }
   }), _vm._v(" "), _c('div', {

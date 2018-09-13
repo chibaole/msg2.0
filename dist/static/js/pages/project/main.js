@@ -202,9 +202,6 @@ global.webpackJsonp([3],{
 //
 //
 //
-//
-//
-//
 
 
 
@@ -714,7 +711,9 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticStyle: {
       "color": "#ff7f4f"
     }
-  }, [_vm._v(_vm._s(_vm.boon.num_of_participants))]), _vm._v("人参与")])])], 1)]), _vm._v(" "), _c('div', {
+  }, [_vm._v(_vm._s(_vm.boon.num_of_participants))]), _vm._v("人参与")])])], 1)]), _vm._v(" "), (_vm.boon.sponsor) ? _c('div', {
+    staticClass: "sponsorsBox"
+  }, [_c('div', {
     staticClass: "sponsors"
   }, [_c('p', {
     staticClass: "sponsors-info"
@@ -740,7 +739,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "src": __webpack_require__(36),
       "alt": ""
     }
-  })])], 1), _vm._v(" "), (_vm.boon.status === 'published') ? _c('div', {
+  })])], 1)]) : _vm._e(), _vm._v(" "), (_vm.boon.status === 'published') ? _c('div', {
     staticClass: "process-prize"
   }, [_c('h2', [_vm._v("抽奖流程")]), _vm._v(" "), _c('div', {
     staticClass: "steps"
@@ -750,13 +749,14 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "step2"
   }, [_vm._v("2.领取成功后，请扫码加群等待发货哦")])], 1), _vm._v(" "), _c('div', {
     staticClass: "line"
-  }), _vm._v(" "), _c('h2', [_vm._v("赞助商介绍")]), _vm._v(" "), _c('div', {
-    staticClass: "steps"
-  }, [_c('p', {
-    staticClass: "step1"
-  }, [_vm._v("1.点击抽奖，等待开奖")]), _vm._v(" "), _c('p', {
-    staticClass: "step2"
-  }, [_vm._v("2.领取成功后，请扫码加群等待发货哦")])], 1)], 1) : _vm._e(), _vm._v(" "), (_vm.boon.status == 'published') ? _c('div', {
+  }), _vm._v(" "), _c('h2', [_vm._v("商品详情")]), _vm._v(" "), _c('div', {
+    staticClass: "boonDetail"
+  }, [_c('rich-text', {
+    attrs: {
+      "nodes": _vm.boon.detial,
+      "mpcomid": '1'
+    }
+  })], 1)], 1) : _vm._e(), _vm._v(" "), (_vm.boon.status == 'published') ? _c('div', {
     staticClass: "btn1"
   }, [(_vm.boon.participate_status == true) ? _c('button', {
     staticClass: "waiting"
@@ -768,9 +768,9 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     on: {
       "click": _vm.attendBoon
     }
-  }, [_vm._v(_vm._s(_vm.prize))]) : _vm._e()], 1) : _vm._e(), _vm._v(" "), (_vm.boon.participate_status === true) ? _c('div', [(_vm.boon.status == 'rewarded') ? _c('div', {
+  }, [_vm._v(_vm._s(_vm.prize))]) : _vm._e()], 1) : _vm._e(), _vm._v(" "), (_vm.boon.status == 'rewarded') ? _c('div', {
     staticClass: "openPrize"
-  }, [_c('div', {
+  }, [(_vm.boon.participate_status === true) ? _c('div', [_c('div', {
     staticClass: "pic"
   }, [(_vm.boon.boon_order.status != 'lose') ? _c('img', {
     attrs: {
@@ -802,7 +802,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     on: {
       "click": _vm.chooseAddress
     }
-  }, [_vm._v("已领奖")]) : _vm._e(), _vm._v(" "), _vm._m(0), _vm._v(" "), _c('div', {
+  }, [_vm._v("已领奖")]) : _vm._e()]) : _vm._e(), _vm._v(" "), _vm._m(0), _vm._v(" "), _c('div', {
     staticClass: "userBox"
   }, [_vm._l((_vm.boon.rewarded_users), function(uesr, index) {
     return _c('div', {
@@ -828,12 +828,12 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "src": "http://pbmrxkahq.bkt.clouddn.com/%E5%8A%A0%E8%BD%BD%E6%9B%B4%E5%A4%9Aicon.png",
       "alt": ""
     }
-  })]) : _vm._e()], 2)]) : _vm._e()]) : _vm._e(), _vm._v(" "), (_vm.boon.status == 'published') ? _c('div', {
+  })]) : _vm._e()], 2)]) : _vm._e(), _vm._v(" "), (_vm.boon.status == 'published') ? _c('div', {
     staticClass: "btn-box"
   }, [(_vm.open) ? _c('Diago', {
     attrs: {
       "eventid": '4',
-      "mpcomid": '1'
+      "mpcomid": '2'
     },
     on: {
       "childByValue": _vm.childByValue

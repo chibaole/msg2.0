@@ -7878,7 +7878,7 @@ exports.extend = function extend(target) {
 
 /* harmony default export */ __webpack_exports__["a"] = ({
 
-  props: ['navbar_title'],
+  props: ['navbar_title', 'delta'],
   data: function data() {
     return {
       globalData: {
@@ -7895,8 +7895,21 @@ exports.extend = function extend(target) {
 
   methods: {
     goBack: function goBack() {
+      var that = this;
+      var deltaNum = that.delta;
+      var title = that.navbar_title;
+
+      if (title === '团购') {
+        deltaNum;
+      } else {
+        deltaNum = 1;
+      }
+      console.log('团购 返回 页面 栈');
+      console.log(deltaNum);
       wx.navigateBack({
-        delta: 1
+
+        delta: deltaNum
+
       });
     }
   },

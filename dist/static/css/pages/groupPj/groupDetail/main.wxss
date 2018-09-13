@@ -9,10 +9,10 @@
 }
 .detail-order.data-v-97fa62a8 {
   height: 164rpx;
-  width: 100%;
+  width: 745rpx;
   background: #fff;
-  border: 2rpx solid #fff;
   margin-top: 20rpx;
+  border: 2rpx solid #fff;
 }
 .detail-order ._h2.data-v-97fa62a8 {
   width: 128rpx;
@@ -23,6 +23,7 @@
   font-size: 32rpx;
 }
 .detail-order ._p.data-v-97fa62a8 {
+  display: inline-block;
   font-family: PingFangSC-Regular;
   font-size: 24rpx;
   color: #4a4a4a;
@@ -36,7 +37,7 @@
   margin-left: 456rpx;
 }
 .address.data-v-97fa62a8 {
-  width: 100%;
+  width: 746rpx;
   height: 114rpx;
   line-height: 114rpx;
   background: #fff;
@@ -46,46 +47,11 @@
   margin: 20rpx auto;
 }
 .address ._p.data-v-97fa62a8 {
-  margin-left: 50rpx;
+  width: 650rpx;
+  margin: 0 auto;
 }
 .address ._span.data-v-97fa62a8 {
   color: #999;
-}
-.pay.data-v-97fa62a8 {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 120rpx;
-  background: #fff;
-  box-shadow: 0 -4rpx 16rpx #ededed;
-}
-.pay ._button.data-v-97fa62a8 {
-  width: 650rpx;
-  height: 88rpx;
-  margin: 16rpx auto;
-  background: #1aac18;
-  font-family: PingFangSC-Medium;
-  font-size: 32rpx;
-  color: #fff;
-  border-radius: 10rpx;
-  display: block;
-  line-height: 88rpx;
-  position: relative;
-}
-.pay ._button ._img.data-v-97fa62a8 {
-  width: 36rpx;
-  height: 36rpx;
-  margin-top: 26rpx;
-  display: inline-block;
-  position: absolute;
-  left: 212rpx;
-}
-.pay ._button .paytxt.data-v-97fa62a8 {
-  display: inline-block;
-  position: absolute;
-  top: 0;
-  left: 264rpx;
 }
 ._form.data-v-97fa62a8 {
   display: inline-block;
@@ -104,4 +70,40 @@
 ._form ._button.data-v-97fa62a8::after {
   border-radius: 0;
   border: none;
+}
+._form .pay.data-v-97fa62a8 {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 120rpx;
+  background: #fff;
+  box-shadow: 0 -4rpx 16rpx #ededed;
+}
+._form .pay ._button.data-v-97fa62a8 {
+  width: 650rpx;
+  height: 88rpx;
+  margin: 16rpx auto;
+  background: #1aac18;
+  font-family: PingFangSC-Medium;
+  font-size: 32rpx;
+  color: #fff;
+  border-radius: 10rpx;
+  display: block;
+  line-height: 88rpx;
+  position: relative;
+}
+._form .pay ._button ._img.data-v-97fa62a8 {
+  width: 36rpx;
+  height: 36rpx;
+  margin-top: 26rpx;
+  display: inline-block;
+  position: absolute;
+  left: 212rpx;
+}
+._form .pay ._button .paytxt.data-v-97fa62a8 {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 264rpx;
 }

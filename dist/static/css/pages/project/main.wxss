@@ -7,13 +7,12 @@
 }
 .pic-info.data-v-a0735dbe {
   background: #fff;
-  padding: 0 0 30rpx 0;
-  border: .2rpx solid #fff;
+  padding: 40rpx 0 30rpx 0;
 }
 .pic.data-v-a0735dbe {
   width: 650rpx;
   height: 300rpx;
-  margin: 40rpx auto 30rpx;
+  margin: 0 auto 30rpx;
   overflow: hidden;
 }
 .pic ._img.data-v-a0735dbe {
@@ -51,9 +50,12 @@
 }
 .line.data-v-a0735dbe {
   width: 650rpx;
-  height: 4rpx;
-  background: #ededed;
+  height: 2rpx;
+  background: #eee;
   margin-bottom: 26rpx;
+}
+.sponsorsBox.data-v-a0735dbe {
+  background: #fff;
 }
 .sponsors.data-v-a0735dbe {
   width: 750rpx;
@@ -67,15 +69,15 @@
   height: 84rpx;
   line-height: 84rpx;
   background: #fff;
-  padding-left: 50rpx;
-  margin-bottom: 4rpx;
+  width: 650rpx;
+  margin: 0 auto 4rpx;
 }
 .sponsors .switchGoAnchor.data-v-a0735dbe {
-  width: 750rpx;
+  width: 650rpx;
   height: 100rpx;
   line-height: 100rpx;
   background: #fff;
-  padding-left: 50rpx;
+  margin: 0 auto;
   position: relative;
 }
 .sponsors .switchGoAnchor ._img.data-v-a0735dbe:nth-child(1) {
@@ -89,33 +91,41 @@
   width: 30rpx;
   height: 30rpx;
   position: absolute;
-  right: 56rpx;
+  right: 0;
   top: 35rpx;
-  margin-right: 56rpx;
   vertical-align: middle;
 }
 .process-prize.data-v-a0735dbe {
   width: 750rpx;
   margin: 32rpx auto 0;
   background: #fff;
-  padding: 30rpx 50rpx;
+  padding-top: 30rpx;
+  padding-bottom: 30rpx;
 }
 .process-prize ._h2.data-v-a0735dbe {
+  display: inline-block;
   font-size: 32rpx;
+  width: 650rpx;
   height: 44rpx;
   line-height: 44rpx;
   color: #454553;
   margin-bottom: 20rpx;
+  margin-left: 50rpx;
 }
 .steps.data-v-a0735dbe {
   height: 68rpx;
+  width: 650rpx;
   line-height: 30rpx;
-  margin-bottom: 40rpx;
+  margin: 0 auto 40rpx;
 }
 .process-prize .step1.data-v-a0735dbe,
 .step2.data-v-a0735dbe {
   font-size: 24rpx;
   font-family: PingFangSC-Regular;
+}
+.boonDetail.data-v-a0735dbe {
+  width: 650rpx;
+  margin: 0 auto;
 }
 .btn1.data-v-a0735dbe {
   padding-top: 180rpx;
@@ -290,7 +300,7 @@
   background: #fff;
 }
 .openPrize .pic.data-v-a0735dbe {
-  margin: 0 auto;
+  margin: 0 auto 40rpx;
   height: 236rpx;
 }
 .openPrize .pic ._img.data-v-a0735dbe {
@@ -317,15 +327,16 @@
   color: #fff;
   font-size: 32rpx;
   font-family: PingFangSC-Medium;
-  margin: 40rpx auto 0;
+  margin: 0 auto 90rpx;
 }
 .openPrize .nameList.data-v-a0735dbe {
   position: relative;
+  border: 2rpx solid red;
 }
 .openPrize .nameList .title.data-v-a0735dbe {
   width: 140rpx;
   height: 28rpx;
-  margin: 90rpx  auto 0;
+  margin: 0 auto 0;
   line-height: 28rpx;
   text-align: center;
   font-family: PingFangSC-Regular;
