@@ -146,6 +146,8 @@
         let hours = Math.floor(leftTime / 1000 / 60 / 60 % 24)
 
         let minutes = Math.floor(leftTime / 1000 / 60 % 60)
+        let second = Math.floor(leftTime / 1000 / 60 % 60)
+
 
         that.time.day = day
         that.time.hours = hours

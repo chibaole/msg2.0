@@ -29,14 +29,14 @@
       <img src="http://pbmrxkahq.bkt.clouddn.com/setIcon.png" alt="" class="setIcon">
     </div>
 
-    <form :report-submit="true" @submit="getPhone" id="phoneForm">
-      <button formType="submit">
-        <div class="getPhone">
-          <span class="list_title">登录手机号，同步全渠道优惠</span>
-          <span class="getPhoneBtn">填写</span>
-        </div>
-      </button>
-    </form>
+    <!--<form :report-submit="true" @submit="getPhone" id="phoneForm">-->
+      <!--<button formType="submit">-->
+        <!--<div class="getPhone">-->
+          <!--<span class="list_title">登录手机号，同步全渠道优惠</span>-->
+          <!--<span class="getPhoneBtn">填写</span>-->
+        <!--</div>-->
+      <!--</button>-->
+    <!--</form>-->
 
     <div class="formBox">
       <!--<form  :report-submit="true"  @submit="getPhone">-->
@@ -205,20 +205,21 @@
       let userinfo = wx.getStorageSync('userinfo')
       console.log(userinfo)
       if (userinfo) {
-        that.userinfo = userinfo
+        let user_profile = await that.$store.dispatch('user_info')
+        let userinfoInit = {
+          avatar_url: userinfo.avatar_url,
+          nick_name: userinfo.nick_name,
+          level_display: '',
+          is_authorized: true
+        }
+        userinfoInit.level_display = user_profile.user.level_display
+        that.userinfo = userinfoInit
         that.login_show = false
       } else {
         that.login_show = true
       }
-      let user_profile = await that.$store.dispatch('user_info')
-      let userinfoInit = {
-        avatar_url: userinfo.avatar_url,
-        nick_name: userinfo.nick_name,
-        level_display: '',
-        is_authorized: true
-      }
-      userinfoInit.level_display = user_profile.user.level_display
-      that.userinfo = userinfoInit
+
+
 
     },
     onLoad() {

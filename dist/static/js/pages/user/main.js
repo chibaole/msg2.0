@@ -278,12 +278,12 @@ global.webpackJsonp([2],{
               userinfo = wx.getStorageSync('userinfo');
 
               console.log(userinfo);
-              if (userinfo) {
-                that.userinfo = userinfo;
-                that.login_show = false;
-              } else {
-                that.login_show = true;
+
+              if (!userinfo) {
+                _context2.next = 13;
+                break;
               }
+
               _context2.next = 6;
               return that.$store.dispatch('user_info');
 
@@ -298,8 +298,14 @@ global.webpackJsonp([2],{
 
               userinfoInit.level_display = user_profile.user.level_display;
               that.userinfo = userinfoInit;
+              that.login_show = false;
+              _context2.next = 14;
+              break;
 
-            case 10:
+            case 13:
+              that.login_show = true;
+
+            case 14:
             case 'end':
               return _context2.stop();
           }
@@ -481,31 +487,12 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "src": "http://pbmrxkahq.bkt.clouddn.com/setIcon.png",
       "alt": ""
     }
-  })], 1), _vm._v(" "), _c('form', {
-    attrs: {
-      "report-submit": true,
-      "id": "phoneForm",
-      "eventid": '0'
-    },
-    on: {
-      "submit": _vm.getPhone
-    }
-  }, [_c('button', {
-    attrs: {
-      "formType": "submit"
-    }
-  }, [_c('div', {
-    staticClass: "getPhone"
-  }, [_c('span', {
-    staticClass: "list_title"
-  }, [_vm._v("登录手机号，同步全渠道优惠")]), _vm._v(" "), _c('span', {
-    staticClass: "getPhoneBtn"
-  }, [_vm._v("填写")])])])], 1), _vm._v(" "), _c('div', {
+  })], 1), _vm._v(" "), _c('div', {
     staticClass: "formBox"
   }, [_c('form', {
     attrs: {
       "report-submit": true,
-      "eventid": '1'
+      "eventid": '0'
     },
     on: {
       "submit": _vm.goMygroup
@@ -526,7 +513,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   }, [_vm._v("我的拼团订单")])])])], 1), _vm._v(" "), _c('form', {
     attrs: {
       "report-submit": true,
-      "eventid": '2'
+      "eventid": '1'
     },
     on: {
       "submit": _vm.myBoon
@@ -547,7 +534,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   }, [_vm._v("我的抽奖")])])])], 1)], 1), _vm._v(" "), (_vm.login_show) ? _c('button', {
     attrs: {
       "open-type": "getUserInfo",
-      "eventid": '3'
+      "eventid": '2'
     },
     on: {
       "getuserinfo": _vm.bindGetUserInfo,

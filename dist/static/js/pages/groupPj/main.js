@@ -228,6 +228,7 @@ global.webpackJsonp([11],{
       var hours = Math.floor(leftTime / 1000 / 60 / 60 % 24);
 
       var minutes = Math.floor(leftTime / 1000 / 60 % 60);
+      var second = Math.floor(leftTime / 1000 / 60 % 60);
 
       that.time.day = day;
       that.time.hours = hours;
