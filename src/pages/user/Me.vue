@@ -19,7 +19,7 @@
         <span class="foodname">{{userinfo.nick_name}}</span>
         <span class="foodLabel">{{userinfo.level_display}}</span>
       </p>
-      <!--<span class="score">2.3K<span class="score_text">个小麻花</span></span>-->
+      <span class="score">{{userinfo.point.total_acquired}}<span class="score_text">个小麻花</span></span>
       <!--<div class="desc">-->
       <!--<span class="small_score">小麻花积分</span>-->
       <!--<span class="small_score_text">你还有3000{{}}个小麻花可以使用，快去使用</span>-->
@@ -210,9 +210,13 @@
           avatar_url: userinfo.avatar_url,
           nick_name: userinfo.nick_name,
           level_display: '',
-          is_authorized: true
+          is_authorized: true,
+          point:{
+            total_acquired: 0,
+            available_count: 0 }
         }
         userinfoInit.level_display = user_profile.user.level_display
+        userinfoInit.point = user_profile.user.point
         that.userinfo = userinfoInit
         that.login_show = false
       } else {
@@ -308,15 +312,18 @@
     .score {
       display: inline-block;
       /*border: 1px solid #000;*/
+      height: 12px;
+      line-height: 12px;
       font-family: PingFangSC-Medium;
       font-size: 16px;
       color: #fff;
       position: absolute;
-      top: 86px;
+      top: 87px;
       left: 110px;
       .score_text {
         font-family: PingFangSC-Regular;
         font-size: 12px;
+        line-height: 12px;
       }
     ;
     }

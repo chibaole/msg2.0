@@ -50,16 +50,19 @@
 }
 .userinfo .score.data-v-3105212a {
   display: inline-block;
+  height: 24rpx;
+  line-height: 24rpx;
   font-family: PingFangSC-Medium;
   font-size: 32rpx;
   color: #fff;
   position: absolute;
-  top: 172rpx;
+  top: 174rpx;
   left: 220rpx;
 }
 .userinfo .score .score_text.data-v-3105212a {
   font-family: PingFangSC-Regular;
   font-size: 24rpx;
+  line-height: 24rpx;
 }
 .userinfo .username.data-v-3105212a {
   color: #fff;

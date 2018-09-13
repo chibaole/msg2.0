@@ -280,7 +280,7 @@ global.webpackJsonp([2],{
               console.log(userinfo);
 
               if (!userinfo) {
-                _context2.next = 13;
+                _context2.next = 14;
                 break;
               }
 
@@ -293,19 +293,23 @@ global.webpackJsonp([2],{
                 avatar_url: userinfo.avatar_url,
                 nick_name: userinfo.nick_name,
                 level_display: '',
-                is_authorized: true
+                is_authorized: true,
+                point: {
+                  total_acquired: 0,
+                  available_count: 0 }
               };
 
               userinfoInit.level_display = user_profile.user.level_display;
+              userinfoInit.point = user_profile.user.point;
               that.userinfo = userinfoInit;
               that.login_show = false;
-              _context2.next = 14;
+              _context2.next = 15;
               break;
 
-            case 13:
+            case 14:
               that.login_show = true;
 
-            case 14:
+            case 15:
             case 'end':
               return _context2.stop();
           }
@@ -481,7 +485,11 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "foodname"
   }, [_vm._v(_vm._s(_vm.userinfo.nick_name))]), _vm._v(" "), _c('span', {
     staticClass: "foodLabel"
-  }, [_vm._v(_vm._s(_vm.userinfo.level_display))])]), _vm._v(" "), _c('img', {
+  }, [_vm._v(_vm._s(_vm.userinfo.level_display))])]), _vm._v(" "), _c('span', {
+    staticClass: "score"
+  }, [_vm._v(_vm._s(_vm.userinfo.point.total_acquired)), _c('span', {
+    staticClass: "score_text"
+  }, [_vm._v("个小麻花")])]), _vm._v(" "), _c('img', {
     staticClass: "setIcon",
     attrs: {
       "src": "http://pbmrxkahq.bkt.clouddn.com/setIcon.png",

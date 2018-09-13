@@ -14,6 +14,9 @@
         <label class="_span data-v-3105212a foodname">{{userinfo.nick_name}}</label>
         <label class="_span data-v-3105212a foodLabel">{{userinfo.level_display}}</label>
       </view>
+      <label class="_span data-v-3105212a score">{{userinfo.point.total_acquired}}
+        <label class="_span data-v-3105212a score_text">个小麻花</label>
+      </label>
       <image src="http://pbmrxkahq.bkt.clouddn.com/setIcon.png" alt class="_img data-v-3105212a setIcon"></image>
     </view>
     <view class="_div data-v-3105212a formBox">
