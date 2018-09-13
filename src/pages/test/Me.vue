@@ -64,11 +64,24 @@
   .share-image {
     width: 325px;
     height: 483px;
-    margin: 31px 25px 25px;
-    border: 1px solid #CCCCCC;
-    box-shadow: 0 0 16px #999999;
+    margin: 31px 25px 0;
+    box-shadow: 0 0 16px rgba(153,153,153,0.4);
   }
   .btn {
-    width: 100%;
+    width: 200px;
+    height: 44px;
+    line-height: 44px;
+
+    background: #ff7f4f;
+    box-shadow: 0 0 8px 0 rgba(255,127,79,0.4);
+    border-radius: 22px;
+
+    font-family: PingFangSC-Medium;
+    color:#fff;
+    font-size: 16px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+
+
   }
 </style>

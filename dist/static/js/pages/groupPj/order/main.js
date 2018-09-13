@@ -148,6 +148,13 @@ global.webpackJsonp([4],{
 //
 //
 //
+//
+//
+//
+//
+//
+//
+
 
 
 
@@ -377,7 +384,7 @@ global.webpackJsonp([4],{
 
               case 6:
                 res = _context3.sent;
-                wxCodeImg = that.host + res.wxa_qrcode_url;
+                wxCodeImg = res.wxa_qrcode_url;
 
                 _this3.painting = {
                   width: 375,
@@ -410,7 +417,7 @@ global.webpackJsonp([4],{
                   // 文本表达
                   {
                     type: 'text',
-                    content: _this3.order_info.title, // 变量的名称
+                    content: that.order_info.group_activity.title, // 变量的名称
                     fontSize: 27.6,
                     lineHeight: 27.6,
                     color: '#454553',
@@ -749,7 +756,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "right"
   }, [_c('h2', [_c('div', {
     staticClass: "mark"
-  }, [_vm._v(_vm._s(_vm.order_info.group_activity.group_type))]), _vm._v(_vm._s(_vm.order_info.group_activity.title))]), _vm._v(" "), _c('p', [_c('span', [_vm._v("¥" + _vm._s(_vm.order_info.group_activity.current_price))]), _c('span', [_vm._v("¥" + _vm._s(_vm.order_info.group_activity.original_price))])])], 1)])]), _vm._v(" "), _c('div', {
+  }, [_vm._v(_vm._s(_vm.order_info.group_activity.group_type))]), _vm._v("\n          " + _vm._s(_vm.order_info.group_activity.title) + "\n        ")]), _vm._v(" "), _c('p', [_c('span', [_vm._v("¥" + _vm._s(_vm.order_info.group_activity.current_price))]), _c('span', [_vm._v("¥" + _vm._s(_vm.order_info.group_activity.original_price))])])], 1)])]), _vm._v(" "), _c('div', {
     staticClass: "detail-order"
   }, [(_vm.order_info.status == 'grouping') ? _c('div', {
     staticClass: "grouping"
@@ -757,7 +764,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "order-info"
   }, [_c('div', {
     staticClass: "text"
-  }, [_vm._v("还差"), _c('span', [_vm._v(_vm._s(_vm.order_info.users_left))]), _vm._v("人参团,\n            "), _c('span', [_vm._v(_vm._s(_vm.time.day))]), _vm._v("天\n            "), _c('span', [_vm._v(_vm._s(_vm.time.hours))]), _vm._v("时\n            "), _c('span', [_vm._v(_vm._s(_vm.time.minutes))]), _vm._v("分后结束\n          ")])]), _vm._v(" "), _c('div', {
+  }, [_vm._v("还差"), _c('span', [_vm._v(_vm._s(_vm.order_info.users_left))]), _vm._v("人参团,\n          "), _c('span', [_vm._v(_vm._s(_vm.time.day))]), _vm._v("天\n          "), _c('span', [_vm._v(_vm._s(_vm.time.hours))]), _vm._v("时\n          "), _c('span', [_vm._v(_vm._s(_vm.time.minutes))]), _vm._v("分后结束\n        ")])]), _vm._v(" "), _c('div', {
     staticClass: "user"
   }, _vm._l((_vm.order_info.users), function(item, index) {
     return _c('div', {
@@ -946,7 +953,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "pay"
   }, [_c('div', {
     staticClass: "price"
-  }, [_vm._v("¥" + _vm._s(_vm.order_info.group_activity.current_price)), _c('span', [_vm._v("还剩" + _vm._s(_vm.order_info.group_activity.product.num))])]), _vm._v(" "), _c('div', {
+  }, [_vm._v("\n      ¥" + _vm._s(_vm.order_info.group_activity.current_price)), _c('span', [_vm._v("还剩" + _vm._s(_vm.order_info.group_activity.product.num))])]), _vm._v(" "), _c('div', {
     staticClass: "join-group",
     attrs: {
       "data-uuid": _vm.order_info.uuid,

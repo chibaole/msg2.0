@@ -117,8 +117,11 @@
             <div class="createImg" @click="getImg">
               <img src="http://pbmrxkahq.bkt.clouddn.com/wechatimg.png" alt="">
             </div>
+
             <div class="wechatFriend" open-type="share">微信好友</div>
+
             <div class="shengchengImg" @click="getImg">生成分享图片</div>
+
 
           </div>  <!--框 弹出的选择-->
 
@@ -219,13 +222,18 @@
         this.showBox = !this.showBox
       },
       async getImg () {
-
+        console.log('绘制图片')
         let that = this
         let uuid = that.uuid
-        let page = 'pages/project/main'
+        let page = 'pages/isme/index'
         let data = [uuid, page]
-        let res = await this.$store.dispatch('wxCode', {...data})
+        console.log('绘制图片')
+
+
+        let res = await this.$store.dispatch('wxCodeBoon', {...data})
+        console.log(res)
         let wxCodeImg = res.wxa_qrcode_url
+        console.log(uuid,page,data,wxCodeImg)
 
         var painting = {
           width: 375,
@@ -259,7 +267,7 @@
               fontSize: 27.6,
               lineHeight: 27.6,
               color: '#454553',
-              textAlign: 'left',
+              textAlign: 'center',
               top: 217.35,
               left: 64.4,
               width: 244.95,

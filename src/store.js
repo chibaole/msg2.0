@@ -84,6 +84,20 @@ export default new Vuex.Store({
       return res
     },
 
+    // 福利抽奖活动 邀请好友二维码
+    async wxCodeBoon ({commit}, {...data}) {
+      console.log('福利二维码')
+      let uuid = data[0] // 订单uuid
+      let auth_code = wx.getStorageSync('auth_code')
+      let page = data[1]
+      let res = await request({
+        method: 'get',
+        url: `${apiDomain}/boons/${uuid}/wxaqrcode?auth_code=${auth_code}&page=${page}`
+      })
+      return res
+    },
+
+
     // 获取当前拼团活动数据列表
     async getGroup ({commit}) {
       const auth_code = wx.getStorageSync('auth_code')
@@ -161,7 +175,7 @@ export default new Vuex.Store({
       return attendData
     },
 
-    // 邀请好友二维码
+    // 拼团活动 邀请好友二维码
     async wxCode ({commit}, {...data}) {
       let uuid = data[0] // 订单uuid
       let auth_code = wx.getStorageSync('auth_code')

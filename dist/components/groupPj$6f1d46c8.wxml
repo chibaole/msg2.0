@@ -9,7 +9,7 @@
         </view>
         <view class="_div data-v-b3a874ec right">
           <view class="_h2 data-v-b3a874ec">
-            <view class="_div data-v-b3a874ec mark">{{order_info.group_activity.group_type}}</view>{{order_info.group_activity.title}}</view>
+            <view class="_div data-v-b3a874ec mark">{{order_info.group_activity.group_type}}</view> {{order_info.group_activity.title}} </view>
           <view class="_p data-v-b3a874ec">
             <label class="_span data-v-b3a874ec">¥{{order_info.group_activity.current_price}}</label>
             <label class="_span data-v-b3a874ec">¥{{order_info.group_activity.original_price}}</label>
@@ -103,7 +103,7 @@
       </view>
     </view>
     <view class="_div data-v-b3a874ec pay" wx:if="{{onekeyAttend}}">
-      <view class="_div data-v-b3a874ec price">¥{{order_info.group_activity.current_price}}
+      <view class="_div data-v-b3a874ec price"> ¥{{order_info.group_activity.current_price}}
         <label class="_span data-v-b3a874ec">还剩{{order_info.group_activity.product.num}}</label>
       </view>
       <view class="_div data-v-b3a874ec join-group" bindtap="handleProxy" data-uuid="{{order_info.uuid}}" data-eventid="{{'9'}}" data-comkey="{{$k}}">一键参与</view>

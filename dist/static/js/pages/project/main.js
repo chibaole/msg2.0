@@ -202,6 +202,9 @@ global.webpackJsonp([3],{
 //
 //
 //
+//
+//
+//
 
 
 
@@ -332,16 +335,25 @@ global.webpackJsonp([3],{
           while (1) {
             switch (_context3.prev = _context3.next) {
               case 0:
+                console.log('绘制图片');
                 that = _this3;
                 uuid = that.uuid;
-                page = 'pages/project/main';
+                page = 'pages/isme/index';
                 data = [uuid, page];
-                _context3.next = 6;
-                return _this3.$store.dispatch('wxCode', __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends___default()({}, data));
 
-              case 6:
+                console.log('绘制图片');
+
+                _context3.next = 8;
+                return _this3.$store.dispatch('wxCodeBoon', __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends___default()({}, data));
+
+              case 8:
                 res = _context3.sent;
+
+                console.log(res);
                 wxCodeImg = res.wxa_qrcode_url;
+
+                console.log(uuid, page, data, wxCodeImg);
+
                 painting = {
                   width: 375,
                   height: 557,
@@ -374,7 +386,7 @@ global.webpackJsonp([3],{
                     fontSize: 27.6,
                     lineHeight: 27.6,
                     color: '#454553',
-                    textAlign: 'left',
+                    textAlign: 'center',
                     top: 217.35,
                     left: 64.4,
                     width: 244.95,
@@ -443,7 +455,7 @@ global.webpackJsonp([3],{
                 wx.setStorageSync('painting', painting);
                 wx.navigateTo({ url: '/pages/test/main' });
 
-              case 11:
+              case 15:
               case 'end':
                 return _context3.stop();
             }

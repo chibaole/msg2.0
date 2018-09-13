@@ -326,7 +326,7 @@
   width: 100%;
   height: 120rpx;
   background: #fff;
-  box-shadow: 0 -4rpx 16rpx  #ededed;
+  box-shadow: 0 -4rpx 16rpx #ededed;
   position: fixed;
   bottom: 0;
   left: 0;
@@ -372,7 +372,7 @@
 .pj-info.data-v-b3a874ec {
   width: 650rpx;
   height: 168rpx;
-  margin: 42rpx auto  40rpx;
+  margin: 42rpx auto 40rpx;
 }
 .pj-info .left.data-v-b3a874ec {
   display: inline-block;
