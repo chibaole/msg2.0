@@ -429,6 +429,8 @@
       let that = this
       let data = [ ]
       let uuid = that.order_info.group_activity_order.uuid //拼团订单
+      console.log(that.order_info)
+      console.log("拼团订单"+ uuid)
       let order_status = that.order_info.status // success grouping init failed
       let form_id = e.mp.detail.formId
       console.log(form_id)
@@ -451,6 +453,7 @@
         data = [uuid, auth_code, address]
         let address_res = await that.$store.dispatch('groupAddress', {...data})
 
+//        URL:https://msg.chibaole.cc/api/v1/group_activity_orders/undefined?auth_code=K18IP0aMcdUOaqKh4W68Lw
 
         wx.navigateTo({
           url: `/pages/user/myGroup/myGroupDetail/main?uuid=${uuid}`
@@ -517,13 +520,13 @@
       console.log(res.target)
     }
     return {
-      title: that.order_info.title,
-      path: `/pages/groupPj/order/main?group_activity_initial_uuid=${uuid}` // 参与拼团的页面
+      title: that.order_info.group_activity.title,
+      path: `/pages/groupPj/order/main?group_activity_initial_uuid=${uuid}`,
+      imageUrl:that.order_info.group_activity.title_image_url
+      // 参与拼团的页面
     }
   }
-
   }
-
 </script>
 <style lang="scss" scoped>
   .container {

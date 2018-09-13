@@ -508,6 +508,8 @@ global.webpackJsonp([4],{
                 data = [];
                 uuid = that.order_info.group_activity_order.uuid; //拼团订单
 
+                console.log(that.order_info);
+                console.log("拼团订单" + uuid);
                 order_status = that.order_info.status; // success grouping init failed
 
                 form_id = e.mp.detail.formId;
@@ -516,14 +518,14 @@ global.webpackJsonp([4],{
                 console.log(order_status);
 
                 if (!(order_status === 'success')) {
-                  _context4.next = 22;
+                  _context4.next = 24;
                   break;
                 }
 
-                _context4.next = 11;
+                _context4.next = 13;
                 return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__utils_wx__["b" /* chooseAddress */])();
 
-              case 11:
+              case 13:
                 res = _context4.sent;
 
                 console.log(res);
@@ -541,23 +543,25 @@ global.webpackJsonp([4],{
 
 
                 data = [uuid, auth_code, address];
-                _context4.next = 18;
+                _context4.next = 20;
                 return that.$store.dispatch('groupAddress', __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default()({}, data));
 
-              case 18:
+              case 20:
                 address_res = _context4.sent;
 
+
+                //        URL:https://msg.chibaole.cc/api/v1/group_activity_orders/undefined?auth_code=K18IP0aMcdUOaqKh4W68Lw
 
                 wx.navigateTo({
                   url: '/pages/user/myGroup/myGroupDetail/main?uuid=' + uuid
                 });
-                _context4.next = 23;
+                _context4.next = 25;
                 break;
 
-              case 22:
+              case 24:
                 console.log('order_status 不是success');
 
-              case 23:
+              case 25:
               case 'end':
                 return _context4.stop();
             }
@@ -650,8 +654,10 @@ global.webpackJsonp([4],{
       console.log(res.target);
     }
     return {
-      title: that.order_info.title,
-      path: '/pages/groupPj/order/main?group_activity_initial_uuid=' + uuid // 参与拼团的页面
+      title: that.order_info.group_activity.title,
+      path: '/pages/groupPj/order/main?group_activity_initial_uuid=' + uuid,
+      imageUrl: that.order_info.group_activity.title_image_url
+      // 参与拼团的页面
     };
   }
 });

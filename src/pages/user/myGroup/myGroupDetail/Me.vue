@@ -77,7 +77,7 @@
     },
     async onLoad () {
       let that = this
-      let this_uuid = that.$root.$mp.query.next_uuid // 订单uuid
+      let this_uuid = that.$root.$mp.query.uuid // 订单uuid
       let auth_code = wx.getStorageSync('auth_code')
       let uuid_authCode = [this_uuid, auth_code]
       let res = await that.$store.dispatch('groupActivities_order', {...uuid_authCode})

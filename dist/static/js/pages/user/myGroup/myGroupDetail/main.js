@@ -104,7 +104,7 @@ global.webpackJsonp([7],{
           switch (_context.prev = _context.next) {
             case 0:
               that = _this;
-              this_uuid = that.$root.$mp.query.next_uuid; // 订单uuid
+              this_uuid = that.$root.$mp.query.uuid; // 订单uuid
 
               auth_code = wx.getStorageSync('auth_code');
               uuid_authCode = [this_uuid, auth_code];

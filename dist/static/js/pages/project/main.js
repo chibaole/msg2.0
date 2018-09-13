@@ -367,9 +367,6 @@ global.webpackJsonp([3],{
                     width: 375,
                     height: 173
                   },
-                  //            绘制的背景图
-
-                  // http://p15hnzxrp.bkt.clouddn.com/wechatapp2.5.jpg
                   // 文本表达
                   {
                     type: 'text',
@@ -552,7 +549,6 @@ global.webpackJsonp([3],{
               currentuser_code = wx.getStorageSync('auth_code');
               uuid_authCode = [that.uuid, currentuser_code, form_id];
               // 根据获得uuid 查询数据出来
-
               //      that.getBoons()
 
               _context5.next = 8;
@@ -580,10 +576,6 @@ global.webpackJsonp([3],{
 
               that.isIphoneX = isIphoneX;
 
-              //     that.init_rewarded_users = boonData.boon.rewarded_users
-
-              //     await this.$store.dispatch('createBill', { ...this.userInfo, ...this.billInfo })
-
             case 14:
             case 'end':
               return _context5.stop();
@@ -601,7 +593,8 @@ global.webpackJsonp([3],{
     }
     return {
       title: '邀你抽奖',
-      path: '/pages/project/main?boons_uuid=' + that.uuid
+      path: '/pages/project/main?boons_uuid=' + that.uuid,
+      imageUrl: 'http://pbmrxkahq.bkt.clouddn.com/cover.png'
     };
   }
 });

@@ -252,9 +252,6 @@
               width: 375,
               height: 173
             },
-              //            绘制的背景图
-
-// http://p15hnzxrp.bkt.clouddn.com/wechatapp2.5.jpg
               // 文本表达
             {
               type: 'text',
@@ -396,7 +393,6 @@
       let currentuser_code = wx.getStorageSync('auth_code')
       let uuid_authCode= [that.uuid, currentuser_code,form_id]
       // 根据获得uuid 查询数据出来
-
 //      that.getBoons()
       let boonData = await that.$store.dispatch('getBoons', {...uuid_authCode})
       that.boon = boonData.boon
@@ -416,10 +412,6 @@
 
       let isIphoneX = that.$store.state.globalData.isIphoneX
       that.isIphoneX = isIphoneX
-
-//     that.init_rewarded_users = boonData.boon.rewarded_users
-
-//     await this.$store.dispatch('createBill', { ...this.userInfo, ...this.billInfo })
     },
     mounted () {
 
@@ -433,7 +425,8 @@
       }
       return {
         title: '邀你抽奖',
-        path: '/pages/project/main?boons_uuid='+ that.uuid
+        path: '/pages/project/main?boons_uuid='+ that.uuid,
+        imageUrl:'http://pbmrxkahq.bkt.clouddn.com/cover.png'
       }
     }
 

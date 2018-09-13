@@ -888,12 +888,12 @@ app.$mount();
       selectedColor: '#EA5149',
       list: [{
         pagePath: 'pages/home/main',
-        iconPath: 'static/img/home.png',
-        selectedIconPath: 'static/img/homed.png'
+        iconPath: 'static/img/home1.png',
+        selectedIconPath: 'static/img/homed1.png'
       }, {
         pagePath: 'pages/user/main',
-        iconPath: 'static/img/me.png',
-        selectedIconPath: 'static/img/me_.png'
+        iconPath: 'static/img/me1.png',
+        selectedIconPath: 'static/img/me_1.png'
       }]
     }
     // {
