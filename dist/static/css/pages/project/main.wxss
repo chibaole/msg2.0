@@ -331,7 +331,6 @@
 }
 .openPrize .nameList.data-v-a0735dbe {
   position: relative;
-  border: 2rpx solid red;
 }
 .openPrize .nameList .title.data-v-a0735dbe {
   width: 140rpx;

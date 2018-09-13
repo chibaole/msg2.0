@@ -892,7 +892,7 @@
   ;
     .nameList {
       position: relative;
-      border: 1px solid red;
+      /*border: 1px solid red;*/
       .title {
         width: 70px;
         height: 14px;
