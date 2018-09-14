@@ -27,6 +27,7 @@
   border-radius: 10rpx;
 }
 .pjCard .priceName.data-v-6d087ae9 {
+  border-right: 0.2rpx solid #fff;
   display: inline-block;
   height: 160rpx;
   position: absolute;

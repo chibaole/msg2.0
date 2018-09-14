@@ -791,7 +791,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "boon_order_text"
   }, [_vm._v("恭喜，您中奖了")]) : _vm._e(), _vm._v(" "), (_vm.boon.boon_order.status === 'lose') ? _c('p', {
     staticClass: "boon_order_text"
-  }, [_vm._v("好气哦，没有中奖～")]) : _vm._e()], 1), _vm._v(" "), (_vm.boon.boon_order.status === 'win') ? _c('div', {
+  }, [_vm._v("很遗憾，你本次没有中奖～")]) : _vm._e()], 1), _vm._v(" "), (_vm.boon.boon_order.status === 'win') ? _c('div', {
     staticClass: "prizeWindow",
     attrs: {
       "eventid": '1'

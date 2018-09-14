@@ -64,7 +64,7 @@
                  v-if="boon.boon_order.status === 'lose'">
 
             <p class="boon_order_text" v-if="boon.boon_order.status != 'lose' ">恭喜，您中奖了</p>
-            <p class="boon_order_text" v-if="boon.boon_order.status === 'lose'">好气哦，没有中奖～</p>
+            <p class="boon_order_text" v-if="boon.boon_order.status === 'lose'">很遗憾，你本次没有中奖～</p>
 
           </div>
 

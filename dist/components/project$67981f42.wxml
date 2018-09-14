@@ -46,7 +46,7 @@
           <image src="http://pbmrxkahq.bkt.clouddn.com/winning.png" alt wx:if="{{boon.boon_order.status != 'lose'}}" class="_img data-v-a0735dbe"></image>
           <image src="http://pbmrxkahq.bkt.clouddn.com/%E6%9C%AA%E4%B8%AD%E5%A5%96.png" alt wx:if="{{boon.boon_order.status === 'lose'}}" class="_img data-v-a0735dbe"></image>
           <view class="_p data-v-a0735dbe boon_order_text" wx:if="{{boon.boon_order.status != 'lose' }}">恭喜，您中奖了</view>
-          <view class="_p data-v-a0735dbe boon_order_text" wx:if="{{boon.boon_order.status === 'lose'}}">好气哦，没有中奖～</view>
+          <view class="_p data-v-a0735dbe boon_order_text" wx:if="{{boon.boon_order.status === 'lose'}}">很遗憾，你本次没有中奖～</view>
         </view>
         <view class="_div data-v-a0735dbe prizeWindow" wx:if="{{boon.boon_order.status === 'win'}}" bindtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}">去领奖</view>
         <view class="_div data-v-a0735dbe prizeWindow" wx:if="{{boon.boon_order.status === 'received'}}" bindtap="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}">已领奖</view>

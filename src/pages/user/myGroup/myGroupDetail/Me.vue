@@ -9,7 +9,7 @@
 
         </div>
         <div class="right">
-          <h2><div class="mark">{{order_info.group_activity.group_type}}</div>{{order_info.group_activity.title}}</h2>
+          <h2><div class="mark">{{order_info.group_activity.group_type}}</div><span>{{order_info.group_activity.title}}</span></h2>
           <p><span>¥{{order_info.group_activity.current_price}}</span><span>¥{{order_info.group_activity.original_price}}</span></p>
         </div>
       </div>
@@ -276,8 +276,6 @@
       margin-top: 4px;
       border-radius: 5px;
 
-
-
     }
 
     .left img{
@@ -288,67 +286,70 @@
 
     }
 
-
-
-
     .pj-info .right{
       position: relative;
       display: inline-block;
       height: 84px;
       width: 225px;
       /*border:1px solid #000;*/
+      h2{
+        display: inline-block;
+        font-size: 20px;
+        font-family:  PingFangSC-Medium;
+        color:#333;
+        /*border:1px solid #000;*/
+        height: 48px;
+        line-height: 24px;
+
+        padding: 0;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        /*margin-left: 60px;*/
+        .mark{
+          width: 50px;height: 20px;
+          line-height: 24px;
+          text-align: center;
+          font-family:PingFangSC-Regular ;
+          font-size: 11px;
+          color:#ff7f4f;
+          border:1px solid #ff7f4f;
+          display: inline-block;
+          position: absolute;
+          top:0;
+          left: 0;
+          /*margin-right: 10px;*/
+
+
+        };
+        span{
+          margin-left: 61px;
+
+        }
+      };
+      p{
+        /*border: 1px solid #000;*/
+        margin-top: 13px;
+        span{
+          display: inline-block;
+          margin-left: 5px;
+        };
+        span:nth-child(1){
+          font-size: 20px; color: #D0021B;
+          font-weight: Medium;
+
+        };
+        span:nth-child(2){
+          font-size: 12px; color: #D0021b;
+          font-weight: Regular;
+          text-decoration: line-through;
+        }
+      }
 
     }
-    .right h2 .mark{
-      width: 50px;height: 20px;
-      line-height: 20px;
-      text-align: center;
-      font-family:PingFangSC-Regular ;
-      font-size: 11px;
-      color:#ff7f4f;
-      border:1px solid #ff7f4f;
-      display: inline-block;
-      margin-right: 10px;
-      /*transform:rotate(-42deg);*/
 
-      /*position: absolute;*/
-      /*top:0px;*/
-      /*left: 0px;*/
-    }
-
-    .right h2{
-      display: inline-block;
-      font-size: 20px;
-      font-family:  PingFangSC-Medium;
-      color:#333;
-      /*margin-left: 60px;*/
-
-    }
-    .right p{
-      /*border: 1px solid #000;*/
-      margin-top: 13px;
-    }
-
-    .right  p span{
-      display: inline-block;
-      margin-left: 5px;
-    }
-
-    .right  p span:nth-child(1){
-      font-size: 20px; color: #D0021B;
-      font-weight: Medium;
-
-    }
-    /*.right p span:nth-child(2){*/
-    /*font-size: 12px; color: #D0021B;*/
-    /*font-weight: Regular;*/
-
-    /*}*/
-    .right p span:nth-child(2){
-      font-size: 12px; color: #D0021b;
-      font-weight: Regular;
-      text-decoration: line-through;
-    }
 
 
   }

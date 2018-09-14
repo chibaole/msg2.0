@@ -9,7 +9,9 @@
         </view>
         <view class="_div data-v-4958b0dc right">
           <view class="_h2 data-v-4958b0dc">
-            <view class="_div data-v-4958b0dc mark">{{order_info.group_activity.group_type}}</view>{{order_info.group_activity.title}}</view>
+            <view class="_div data-v-4958b0dc mark">{{order_info.group_activity.group_type}}</view>
+            <label class="_span data-v-4958b0dc">{{order_info.group_activity.title}}</label>
+          </view>
           <view class="_p data-v-4958b0dc">
             <label class="_span data-v-4958b0dc">¥{{order_info.group_activity.current_price}}</label>
             <label class="_span data-v-4958b0dc">¥{{order_info.group_activity.original_price}}</label>

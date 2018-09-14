@@ -128,7 +128,7 @@
     }
   };
   .priceName{
-    /*border: 1px solid red;*/
+    border-right: 0.1px solid #fff;
     display: inline-block;
     height: 80px;
     position: absolute;
