@@ -151,9 +151,7 @@
     methods: {
       goMygroup(e) {
         let that = this
-        console.log(e)
         let form_id = e.mp.detail.formId
-        console.log(form_id)
         wx.navigateTo({
           url: '/pages/user/myGroup/main'
         })
@@ -182,7 +180,6 @@
       async bindGetUserInfo(e) {
         let that = this
         let sesssion_res = await checkSession()
-        console.log(sesssion_res.errMsg)
         if (sesssion_res.errMsg === 'checkSession:ok') {
           // session_key 未过期，并且在本生命周期一直有效
           if (e.mp.detail.rawData) {
@@ -193,7 +190,6 @@
 
             let userinfo = wx.getStorageSync('userinfo')
             that.userinfo = userinfo
-            console.log(userinfo)
 
           } else {
             // 用户按了拒绝按钮
@@ -208,7 +204,6 @@
       },
       async setAddress(e){
         let res = await chooseAddress()
-        console.log(res)
         let address = {
           name: res.name,            // 名字
           postal_code: res.postalCode, // 邮编
@@ -222,14 +217,12 @@
 
         data = [uuid, auth_code, address]
         let address_res = await that.$store.dispatch('groupAddress', {...data})
-        console.log(address_res)
 
       }
     },
     async onShow() {
       let that = this
       let userinfo = wx.getStorageSync('userinfo')
-      console.log(userinfo)
       if (userinfo) {
         let user_profile = await that.$store.dispatch('user_info')
         let userinfoInit = {

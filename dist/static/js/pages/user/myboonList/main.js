@@ -67,7 +67,10 @@ global.webpackJsonp([6],{
     return {
       navbar_title: '我的抽奖',
       boonList: [],
-      userinfo: {}
+      userinfo: {},
+      moreTips: '加载更多',
+      page: 1,
+      size: 4
 
     };
   },
@@ -91,51 +94,82 @@ global.webpackJsonp([6],{
       }
     },
     addList: function addList() {
-      var that = this;
-      console.log(that.all_list);
-      that.size += 10;
-      console.log(that.size);
+      var _this = this;
 
-      if (that.size >= that.all_list.length) {
-        that.size = that.all_list.length;
-        that.myGroup_list = that.all_list;
-        console.log();
-      } else {
-        that.myGroup_list = that.all_list.slice(0, that.size);
-      }
+      return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
+        var that, init_size, auth_code, data, addData, lastSize;
+        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                that = _this;
+
+                that.page = that.page + 1;
+                init_size = that.size;
+                auth_code = wx.getStorageSync('auth_code');
+                data = [that.page, init_size, auth_code];
+                _context.next = 7;
+                return that.$store.dispatch('myBoonList', __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends___default()({}, data));
+
+              case 7:
+                addData = _context.sent;
+
+                console.log(addData.boon_orders.length);
+                lastSize = addData.boon_orders.length;
+
+                if (lastSize < init_size) {
+                  console.log(lastSize, init_size);
+                  that.moreTips = '已无更多订单';
+                }
+
+                that.boonList = that.boonList.concat(addData.boon_orders);
+
+              case 12:
+              case 'end':
+                return _context.stop();
+            }
+          }
+        }, _callee, _this);
+      }))();
     }
   },
   onLoad: function onLoad() {
-    var _this = this;
+    var _this2 = this;
 
-    return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
-      var that, auth_code, data, boonList, userinfo;
-      return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+    return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee2() {
+      var that, auth_code, init_size, data, boonList, lastSize, userinfo;
+      return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
         while (1) {
-          switch (_context.prev = _context.next) {
+          switch (_context2.prev = _context2.next) {
             case 0:
-              that = _this;
+              that = _this2;
               auth_code = wx.getStorageSync('auth_code');
-              data = [that.page, that.size, auth_code];
-              _context.next = 5;
+              init_size = that.size;
+              data = [that.page, init_size, auth_code];
+              _context2.next = 6;
               return that.$store.dispatch('myBoonList', __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends___default()({}, data));
 
-            case 5:
-              boonList = _context.sent;
+            case 6:
+              boonList = _context2.sent;
 
-              console.log(boonList);
               that.boonList = boonList.boon_orders;
-              console.log(that.boonList);
+
+              lastSize = boonList.boon_orders.length;
+
+              if (lastSize < init_size) {
+                console.log(lastSize, init_size);
+                that.moreTips = '已无更多订单';
+              }
               userinfo = wx.getStorageSync('userinfo');
 
               that.userinfo = userinfo;
 
-            case 11:
+            case 12:
             case 'end':
-              return _context.stop();
+              return _context2.stop();
           }
         }
-      }, _callee, _this);
+      }, _callee2, _this2);
     }))();
   }
 });
@@ -210,9 +244,15 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }, [_vm._v(_vm._s(item.boon.description))])], 1)]), _vm._v(" "), _c('div', {
       staticClass: "explain"
     }, [_c('span', [_vm._v(_vm._s(item.boon.lottery_detail))])])])])
-  }), _vm._v(" "), (_vm.loadMore) ? _c('div', {
-    staticClass: "getMore"
-  }, [_vm._v("加载更多")]) : _vm._e(), _vm._v(" "), _c('div', {
+  }), _vm._v(" "), _c('div', {
+    staticClass: "getMore",
+    attrs: {
+      "eventid": '1'
+    },
+    on: {
+      "click": _vm.addList
+    }
+  }, [_vm._v(_vm._s(_vm.moreTips))]), _vm._v(" "), _c('div', {
     staticClass: "service"
   }, [_c('contact-button', {
     staticClass: "pos",

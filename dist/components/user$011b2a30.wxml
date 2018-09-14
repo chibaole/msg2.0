@@ -28,7 +28,7 @@
         </view>
       </view>
     </view>
-    <view class="_div data-v-7ec0cb2e getMore" wx:if="{{loadMore}}">加载更多</view>
+    <view class="_div data-v-7ec0cb2e getMore" bindtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}">{{moreTips}}</view>
     <view class="_div data-v-7ec0cb2e service">
       <contact-button size="22" class="_contact-button data-v-7ec0cb2e pos"></contact-button>
       <image class="_img data-v-7ec0cb2e icon_kf" src="http://pbmrxkahq.bkt.clouddn.com/msgservice.png"></image>

@@ -25,7 +25,7 @@
         <div class="explain"><span>{{item.boon.lottery_detail}}</span></div>
       </div>
     </div>
-    <div class="getMore" v-if='loadMore'>加载更多</div>
+    <div class="getMore"  @click="addList">{{moreTips}}</div>
     <div class="service">
       <contact-button size="22" class='pos' ></contact-button>
       <img class="icon_kf" src="http://pbmrxkahq.bkt.clouddn.com/msgservice.png">
@@ -48,7 +48,10 @@
       return {
         navbar_title: '我的抽奖',
         boonList: [],
-        userinfo:{}
+        userinfo:{},
+        moreTips:'加载更多',
+        page:1,
+        size:4
 
       }
     },
@@ -70,19 +73,23 @@
           })
         }
       },
-      addList () {
+      async addList () {
         let that = this
-        console.log(that.all_list)
-        that.size += 10
-        console.log(that.size)
+        that.page  = that.page + 1
+        const init_size = that.size
 
-        if (that.size >= that.all_list.length) {
-          that.size = that.all_list.length
-          that.myGroup_list = that.all_list
-          console.log()
-        } else {
-          that.myGroup_list = that.all_list.slice(0, that.size)
+        const auth_code = wx.getStorageSync('auth_code')
+        const data = [that.page, init_size, auth_code]
+        let  addData =    await that.$store.dispatch('myBoonList', {...data})
+        console.log(addData.boon_orders.length)
+        let lastSize = addData.boon_orders.length
+        if(lastSize < init_size){
+          console.log(lastSize,init_size)
+          that.moreTips = '已无更多订单'
         }
+
+        that.boonList = that.boonList.concat(addData.boon_orders)
+
       },
 
 
@@ -90,11 +97,16 @@
     async onLoad () {
       const that = this
       const auth_code = wx.getStorageSync('auth_code')
-      let data = [that.page, that.size, auth_code]
+      let init_size = that.size
+      let data = [that.page, init_size, auth_code]
       const boonList = await that.$store.dispatch('myBoonList', {...data})
-      console.log(boonList)
       that.boonList = boonList.boon_orders
-      console.log(that.boonList)
+
+      let lastSize = boonList.boon_orders.length
+      if(lastSize < init_size){
+        console.log(lastSize,init_size)
+        that.moreTips = '已无更多订单'
+      }
       let userinfo = wx.getStorageSync('userinfo')
       that.userinfo = userinfo
 
@@ -111,8 +123,9 @@
     color:#333;
     background:#f7f7f7 ;
     min-height: 667px;
+    padding-bottom: 170px;
     .getMore{
-      width: 80px;
+      width: 108px;
       height: 32px;
       line-height: 32px;
       text-align: center;

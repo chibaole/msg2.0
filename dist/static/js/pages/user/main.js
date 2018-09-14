@@ -173,9 +173,7 @@ global.webpackJsonp([2],{
   methods: {
     goMygroup: function goMygroup(e) {
       var that = this;
-      console.log(e);
       var form_id = e.mp.detail.formId;
-      console.log(form_id);
       wx.navigateTo({
         url: '/pages/user/myGroup/main'
       });
@@ -218,52 +216,49 @@ global.webpackJsonp([2],{
               case 3:
                 sesssion_res = _context.sent;
 
-                console.log(sesssion_res.errMsg);
-
                 if (!(sesssion_res.errMsg === 'checkSession:ok')) {
-                  _context.next = 19;
+                  _context.next = 17;
                   break;
                 }
 
                 if (!e.mp.detail.rawData) {
-                  _context.next = 16;
+                  _context.next = 14;
                   break;
                 }
 
                 // 用户按了允许授权按钮
                 _data = [e.mp.detail.encryptedData, e.mp.detail.iv, e.mp.detail.signature, e.mp.detail.rawData];
-                _context.next = 10;
+                _context.next = 9;
                 return that.$store.dispatch('saveInfo', __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends___default()({}, _data));
 
-              case 10:
+              case 9:
                 that.login_show = false;
 
                 userinfo = wx.getStorageSync('userinfo');
 
                 that.userinfo = userinfo;
-                console.log(userinfo);
 
-                _context.next = 17;
+                _context.next = 15;
                 break;
 
-              case 16:
+              case 14:
                 // 用户按了拒绝按钮
                 console.log('用户按了拒绝按钮');
 
-              case 17:
-                _context.next = 24;
+              case 15:
+                _context.next = 22;
                 break;
 
-              case 19:
+              case 17:
                 console.log('session 过期');
-                _context.next = 22;
+                _context.next = 20;
                 return that.$store.dispatch('signup');
 
-              case 22:
+              case 20:
                 that.login_show = false;
                 console.log('重新登录成功');
 
-              case 24:
+              case 22:
               case 'end':
                 return _context.stop();
             }
@@ -285,8 +280,6 @@ global.webpackJsonp([2],{
 
               case 2:
                 res = _context2.sent;
-
-                console.log(res);
                 address = {
                   name: res.name, // 名字
                   postal_code: res.postalCode, // 邮编
@@ -300,15 +293,13 @@ global.webpackJsonp([2],{
 
 
                 data = [uuid, auth_code, address];
-                _context2.next = 8;
+                _context2.next = 7;
                 return that.$store.dispatch('groupAddress', __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends___default()({}, data));
 
-              case 8:
+              case 7:
                 address_res = _context2.sent;
 
-                console.log(address_res);
-
-              case 10:
+              case 8:
               case 'end':
                 return _context2.stop();
             }
@@ -329,17 +320,15 @@ global.webpackJsonp([2],{
               that = _this3;
               userinfo = wx.getStorageSync('userinfo');
 
-              console.log(userinfo);
-
               if (!userinfo) {
-                _context3.next = 14;
+                _context3.next = 13;
                 break;
               }
 
-              _context3.next = 6;
+              _context3.next = 5;
               return that.$store.dispatch('user_info');
 
-            case 6:
+            case 5:
               user_profile = _context3.sent;
               userinfoInit = {
                 avatar_url: userinfo.avatar_url,
@@ -356,13 +345,13 @@ global.webpackJsonp([2],{
               userinfoInit.point = user_profile.user.point;
               that.userinfo = userinfoInit;
               that.login_show = false;
-              _context3.next = 15;
+              _context3.next = 14;
               break;
 
-            case 14:
+            case 13:
               that.login_show = true;
 
-            case 15:
+            case 14:
             case 'end':
               return _context3.stop();
           }

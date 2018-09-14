@@ -6,7 +6,7 @@
   font-weight: Regular;
   color: #333;
   background: #f7f7f7;
-  min-height: 1334rpx;
+  padding-bottom: 340rpx;
 }
 .container .getMore.data-v-4656d1c7 {
   max-width: 216rpx;

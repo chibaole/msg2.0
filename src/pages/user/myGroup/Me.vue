@@ -124,7 +124,8 @@ export default {
   font-weight: Regular;
   color:#333;
   background:#f7f7f7 ;
-  min-height: 667px;
+  padding-bottom: 170px;
+  /*min-height: 667px;*/
   .getMore{
     max-width: 108px;
     /*display: inline-block;*/
