@@ -6,9 +6,10 @@
     <div class="pic-info">
       <div class="pic">
         <!--<img :src="boon.title_image_url" alt="">-->
-        <div class="bg" :style="{width:'100%', height:'100%', backgroundImage:'url('+boon.title_image_url+')',backgroundSize:'cover', backgroundPosition:'50%'}"></div>
+        <div class="bg"
+             :style="{width:'100%', height:'100%', backgroundImage:'url('+boon.title_image_url+')',backgroundSize:'cover', backgroundPosition:'50%'}"></div>
 
-        </div>
+      </div>
 
       <div class="prj-info">
         <p class="prj-name">{{boon.title}}</p>
@@ -57,22 +58,22 @@
     <!--抽奖未开奖显示的 '抽奖/待开奖按钮'-->
     <!--<div v-if="boon.participate_status===true">    &lt;!&ndash;参加过&ndash;&gt;-->
     <div class="openPrize" v-if="boon.status== 'rewarded'  "> <!--开奖了-->
-          <div class="pic" >
+      <div class="pic">
 
-            <!--<img src="http://pbmrxkahq.bkt.clouddn.com/winning.png" alt="" v-if="boon.boon_order.status != 'lose'">-->
-            <!--<img src="http://pbmrxkahq.bkt.clouddn.com/%E6%9C%AA%E4%B8%AD%E5%A5%96.png" alt=""-->
-                 <!--v-if="boon.boon_order.status === 'lose'">-->
-            <img :src='boon_resImg' alt="">
+        <!--<img src="http://pbmrxkahq.bkt.clouddn.com/winning.png" alt="" v-if="boon.boon_order.status != 'lose'">-->
+        <!--<img src="http://pbmrxkahq.bkt.clouddn.com/%E6%9C%AA%E4%B8%AD%E5%A5%96.png" alt=""-->
+        <!--v-if="boon.boon_order.status === 'lose'">-->
+        <img :src='boon_resImg' alt="">
 
-            <!--<p class="boon_order_text" v-if="boon.boon_order.status != 'lose' ">恭喜，您中奖了</p>-->
-            <!--<p class="boon_order_text" v-if="boon.boon_order.status === 'lose'">很遗憾，你本次没有中奖～</p>-->
-            <p class="boon_order_text" >{{boon_resText}}</p>
+        <!--<p class="boon_order_text" v-if="boon.boon_order.status != 'lose' ">恭喜，您中奖了</p>-->
+        <!--<p class="boon_order_text" v-if="boon.boon_order.status === 'lose'">很遗憾，你本次没有中奖～</p>-->
+        <p class="boon_order_text">{{boon_resText}}</p>
 
-          </div>
+      </div>
 
       <div v-if="boon.participate_status===true">
-          <div class="prizeWindow" v-if="boon.boon_order.status === 'win'" @click="chooseAddress">去领奖</div>
-          <div class="prizeWindow" v-if="boon.boon_order.status === 'received'" @click="chooseAddress">已领奖</div>
+        <div class="prizeWindow" v-if="boon.boon_order.status === 'win'" @click="chooseAddress">去领奖</div>
+        <div class="prizeWindow" v-if="boon.boon_order.status === 'received'" @click="chooseAddress">已领奖</div>
       </div>
       <div class="nameList">
         <div class="line1"></div>
@@ -172,8 +173,8 @@
         prizeStyle: 'prize',
         init_rewarded_users: [],
         showGetMoreBtn: false,
-        boon_resText:'',
-        boon_resImg:''
+        boon_resText: '',
+        boon_resImg: ''
 
       }
     },
@@ -230,13 +231,52 @@
         let uuid = that.uuid
         let page = 'pages/isme/index'
         let data = [uuid, page]
-        console.log('绘制图片')
-
-
         let res = await this.$store.dispatch('wxCodeBoon', {...data})
-        console.log(res)
         let wxCodeImg = res.wxa_qrcode_url
-        console.log(uuid, page, data, wxCodeImg)
+
+        let titleContent = that.boon.title
+        let text_left = 64.4
+        if (titleContent.length > 9) {
+          console.log(titleContent.length)
+
+          titleContent = titleContent.substring(0, 8)
+          console.log(titleContent)
+        } else if (titleContent.length === 8) {
+          titleContent = titleContent
+          text_left = 78.2
+
+        } else if (titleContent.length === 7) {
+          titleContent = titleContent
+          text_left = 92
+
+        } else if (titleContent.length === 6) {
+          titleContent = titleContent
+          text_left = 105.8
+
+        } else if (titleContent.length === 5) {
+          titleContent = titleContent
+          text_left = 119.6
+
+        } else if (titleContent.length === 4) {
+          titleContent = titleContent
+          text_left = 133.4
+
+        } else if (titleContent.length === 3) {
+          titleContent = titleContent
+          text_left = 147.2
+
+        }
+        let num_of_participants =String(that.boon.num_of_participants)
+        let num_left = 161
+        if (num_of_participants.length >= 3) {
+          num_left = 161
+        } else if (num_of_participants.length === 2) {
+          num_left = 170.2
+
+        } else if (num_of_participants.length === 1) {
+          num_left = 179.4
+
+        }
 
         var painting = {
           width: 375,
@@ -257,7 +297,7 @@
             //            绘制的头图
             {
               type: 'image',
-              url: 'http://oxl5leo53.bkt.clouddn.com/u=1204211051,3834529407&fm=11&gp=0.jpg',                  // 变化图片
+              url: that.boon.title_image_url,                  // 变化图片
               top: 0,
               left: 0,
               width: 375,
@@ -266,13 +306,13 @@
             // 文本表达
             {
               type: 'text',
-              content: that.boon.description,                                                             // 变量的名称
+              content: titleContent,                                                             // 变量的名称
               fontSize: 27.6,
               lineHeight: 27.6,
               color: '#454553',
-              textAlign: 'center',
+              textAlign: 'left',
               top: 217.35,
-              left: 64.4,
+              left: text_left,
               width: 244.95,
               MaxLineNumber: 2,                                                                         // 最大两行 超出...
               breakWord: true,  // 换行
@@ -281,7 +321,7 @@
 
             {
               type: 'text',
-              content: '500人自动开奖',                                                                                // 变量的价格
+              content: that.boon.lottery_conditions,                                                                                // 变量的价格
               fontSize: 18.4,
               color: '#4a4a4a',
               textAlign: 'left',
@@ -301,12 +341,12 @@
             },
             {
               type: 'text',
-              content: '443',                                                                       // 根据参与实际人数 变化
+              content: that.boon.num_of_participants,                                                                       // 根据参与实际人数 变化
               fontSize: 18.4,
               color: '#ff7f4f',
               textAlign: 'left',
               top: 361.1,
-              left: 161                                                                      //
+              left: num_left                                                                      //
             },
 
             {
@@ -419,17 +459,17 @@
         that.init_rewarded_users = init_rewarded_users
       }
 
-      if (that.boon.participate_status===false&& that.boon.status=== 'rewarded' ){
+      if (that.boon.participate_status === false && that.boon.status === 'rewarded') {
         //未参加 已开奖
         that.boon_resText = '你来晚了'
         that.boon_resImg = 'http://pbmrxkahq.bkt.clouddn.com/%E6%9C%AA%E4%B8%AD%E5%A5%96.png' //未参加 未中奖
 
-      }else if(that.boon.participate_status===true && that.boon.boon_order.status === 'lose' && that.boon.status=== 'rewarded'){
+      } else if (that.boon.participate_status === true && that.boon.boon_order.status === 'lose' && that.boon.status === 'rewarded') {
         that.boon_resText = '很遗憾，你本次没有中奖～'
         that.boon_resImg = 'http://pbmrxkahq.bkt.clouddn.com/%E6%9C%AA%E4%B8%AD%E5%A5%96.png' //未参加 未中奖
 
 
-      }else if(that.boon.participate_status===true && that.boon.boon_order.status !== 'lose' && that.boon.status=== 'rewarded'){
+      } else if (that.boon.participate_status === true && that.boon.boon_order.status !== 'lose' && that.boon.status === 'rewarded') {
         that.boon_resText = '恭喜，您中奖了'
         that.boon_resImg = 'http://pbmrxkahq.bkt.clouddn.com/winning.png' //开奖 中奖
 
@@ -496,11 +536,12 @@
       line-height: 20px;
 
       overflow: hidden;
-      text-overflow:ellipsis;
+      text-overflow: ellipsis;
       white-space: nowrap;
       /*border:1px solid #000;*/
 
-    };
+    }
+  ;
     .prj-little-info {
       height: 17px;
       line-height: 17px;
@@ -524,10 +565,6 @@
     }
 
   }
-
-
-
-
 
   .line {
     width: 325px;

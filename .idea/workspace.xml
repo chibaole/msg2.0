@@ -7,7 +7,6 @@
     <list default="true" id="445b3448-464f-4425-9da6-82c9cd343d54" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/static/js/pages/project/main.js.map" afterPath="$PROJECT_DIR$/dist/static/js/pages/project/main.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/project$67981f42.wxml" afterPath="$PROJECT_DIR$/dist/components/project$67981f42.wxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/static/js/pages/project/main.js" afterPath="$PROJECT_DIR$/dist/static/js/pages/project/main.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/project/prj.vue" afterPath="$PROJECT_DIR$/src/pages/project/prj.vue" />
     </list>
@@ -165,8 +164,8 @@
       <file leaf-file-name="prj.vue" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/pages/project/prj.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="429" column="0" lean-forward="true" selection-start-line="429" selection-start-column="0" selection-end-line="429" selection-end-column="0" />
+            <state relative-caret-position="261">
+              <caret line="269" column="0" lean-forward="false" selection-start-line="269" selection-start-column="0" selection-end-line="269" selection-end-column="0" />
               <folding>
                 <element signature="n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
                 <element signature="n#div#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="false" />
@@ -175,27 +174,26 @@
                 <element signature="n#div#1;n#div#3;n#div#4;n#div#0;n#template#0;n#!!top" expanded="false" />
                 <element signature="n#div#5;n#div#0;n#template#0;n#!!top" expanded="false" />
                 <element signature="n#div#6;n#div#0;n#template#0;n#!!top" expanded="false" />
-                <element signature="e#5121#5163#0" expanded="true" />
-                <element signature="e#7494#10642#0" expanded="false" />
-                <element signature="e#12786#12958#0" expanded="false" />
+                <element signature="e#5085#5127#0" expanded="true" />
+                <element signature="e#13929#14101#0" expanded="false" />
                 <element signature="n#style#0;n#!!top" expanded="false" />
-                <element signature="e#15331#15564#0" expanded="false" />
-                <element signature="e#16494#16645#0" expanded="false" />
-                <element signature="e#19139#19264#0" expanded="false" />
-                <element signature="e#19404#19636#0" expanded="false" />
-                <element signature="e#20004#20156#0" expanded="false" />
-                <element signature="e#20171#20233#0" expanded="false" />
-                <element signature="e#20251#20274#0" expanded="false" />
-                <element signature="e#20293#20385#0" expanded="false" />
-                <element signature="e#20397#20426#0" expanded="false" />
-                <element signature="e#20442#20538#0" expanded="false" />
-                <element signature="e#20559#20679#0" expanded="false" />
-                <element signature="e#20703#20765#0" expanded="false" />
-                <element signature="e#20783#20967#0" expanded="false" />
-                <element signature="e#20986#21086#0" expanded="false" />
-                <element signature="e#21093#21222#0" expanded="false" />
-                <element signature="e#23221#23341#0" expanded="false" />
-                <element signature="e#23368#23632#0" expanded="false" />
+                <element signature="e#16494#16727#0" expanded="false" />
+                <element signature="e#17653#17804#0" expanded="false" />
+                <element signature="e#20298#20423#0" expanded="false" />
+                <element signature="e#20563#20795#0" expanded="false" />
+                <element signature="e#21163#21315#0" expanded="false" />
+                <element signature="e#21330#21392#0" expanded="false" />
+                <element signature="e#21410#21433#0" expanded="false" />
+                <element signature="e#21452#21544#0" expanded="false" />
+                <element signature="e#21556#21585#0" expanded="false" />
+                <element signature="e#21601#21697#0" expanded="false" />
+                <element signature="e#21718#21838#0" expanded="false" />
+                <element signature="e#21862#21924#0" expanded="false" />
+                <element signature="e#21942#22126#0" expanded="false" />
+                <element signature="e#22145#22245#0" expanded="false" />
+                <element signature="e#22252#22381#0" expanded="false" />
+                <element signature="e#24380#24500#0" expanded="false" />
+                <element signature="e#24527#24791#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -338,8 +336,8 @@
     <handled-path value="$PROJECT_DIR$/server/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-76" />
-    <option name="y" value="23" />
+    <option name="x" value="15" />
+    <option name="y" value="31" />
     <option name="width" value="2015" />
     <option name="height" value="900" />
   </component>
@@ -447,48 +445,7 @@
               <item name="newest" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="newest" type="b2602c69:ProjectViewProjectNode" />
-              <item name="newest" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
               <item name="user" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="newest" type="b2602c69:ProjectViewProjectNode" />
-              <item name="newest" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
-              <item name="myboonList" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="newest" type="b2602c69:ProjectViewProjectNode" />
-              <item name="newest" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
-              <item name="myboonList" type="462c0819:PsiDirectoryNode" />
-              <item name="myBoon" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="newest" type="b2602c69:ProjectViewProjectNode" />
-              <item name="newest" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
-              <item name="myGroup" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="newest" type="b2602c69:ProjectViewProjectNode" />
-              <item name="newest" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
-              <item name="myGroup" type="462c0819:PsiDirectoryNode" />
-              <item name="myGroupDetail" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="newest" type="b2602c69:ProjectViewProjectNode" />
@@ -572,18 +529,18 @@
       <workItem from="1534320959304" duration="42699000" />
       <workItem from="1534743312774" duration="159005000" />
       <workItem from="1535367210788" duration="2063000" />
-      <workItem from="1535424454711" duration="303324000" />
+      <workItem from="1535424454711" duration="306279000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="832344000" />
+    <option name="totallyTimeSpent" value="835299000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-76" y="23" width="2015" height="900" extended-state="0" />
+    <frame x="15" y="31" width="2015" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15095286" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.121364094" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32912844" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -685,7 +642,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/pages/project/prj.vue</url>
-          <line>213</line>
+          <line>214</line>
           <option name="timeStamp" value="18" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
@@ -707,7 +664,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/pages/project/prj.vue</url>
-          <line>81</line>
+          <line>82</line>
           <properties />
           <option name="timeStamp" value="23" />
         </line-breakpoint>
@@ -785,13 +742,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/pages/project/prj.vue</url>
-          <line>20</line>
+          <line>21</line>
           <properties />
           <option name="timeStamp" value="37" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/pages/project/prj.vue</url>
-          <line>34</line>
+          <line>35</line>
           <properties />
           <option name="timeStamp" value="38" />
         </line-breakpoint>
@@ -803,7 +760,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/pages/project/prj.vue</url>
-          <line>459</line>
+          <line>499</line>
           <properties />
           <option name="timeStamp" value="40" />
         </line-breakpoint>
@@ -1289,8 +1246,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/project/prj.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="429" column="0" lean-forward="true" selection-start-line="429" selection-start-column="0" selection-end-line="429" selection-end-column="0" />
+        <state relative-caret-position="261">
+          <caret line="269" column="0" lean-forward="false" selection-start-line="269" selection-start-column="0" selection-end-line="269" selection-end-column="0" />
           <folding>
             <element signature="n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
             <element signature="n#div#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="false" />
@@ -1299,27 +1256,26 @@
             <element signature="n#div#1;n#div#3;n#div#4;n#div#0;n#template#0;n#!!top" expanded="false" />
             <element signature="n#div#5;n#div#0;n#template#0;n#!!top" expanded="false" />
             <element signature="n#div#6;n#div#0;n#template#0;n#!!top" expanded="false" />
-            <element signature="e#5121#5163#0" expanded="true" />
-            <element signature="e#7494#10642#0" expanded="false" />
-            <element signature="e#12786#12958#0" expanded="false" />
+            <element signature="e#5085#5127#0" expanded="true" />
+            <element signature="e#13929#14101#0" expanded="false" />
             <element signature="n#style#0;n#!!top" expanded="false" />
-            <element signature="e#15331#15564#0" expanded="false" />
-            <element signature="e#16494#16645#0" expanded="false" />
-            <element signature="e#19139#19264#0" expanded="false" />
-            <element signature="e#19404#19636#0" expanded="false" />
-            <element signature="e#20004#20156#0" expanded="false" />
-            <element signature="e#20171#20233#0" expanded="false" />
-            <element signature="e#20251#20274#0" expanded="false" />
-            <element signature="e#20293#20385#0" expanded="false" />
-            <element signature="e#20397#20426#0" expanded="false" />
-            <element signature="e#20442#20538#0" expanded="false" />
-            <element signature="e#20559#20679#0" expanded="false" />
-            <element signature="e#20703#20765#0" expanded="false" />
-            <element signature="e#20783#20967#0" expanded="false" />
-            <element signature="e#20986#21086#0" expanded="false" />
-            <element signature="e#21093#21222#0" expanded="false" />
-            <element signature="e#23221#23341#0" expanded="false" />
-            <element signature="e#23368#23632#0" expanded="false" />
+            <element signature="e#16494#16727#0" expanded="false" />
+            <element signature="e#17653#17804#0" expanded="false" />
+            <element signature="e#20298#20423#0" expanded="false" />
+            <element signature="e#20563#20795#0" expanded="false" />
+            <element signature="e#21163#21315#0" expanded="false" />
+            <element signature="e#21330#21392#0" expanded="false" />
+            <element signature="e#21410#21433#0" expanded="false" />
+            <element signature="e#21452#21544#0" expanded="false" />
+            <element signature="e#21556#21585#0" expanded="false" />
+            <element signature="e#21601#21697#0" expanded="false" />
+            <element signature="e#21718#21838#0" expanded="false" />
+            <element signature="e#21862#21924#0" expanded="false" />
+            <element signature="e#21942#22126#0" expanded="false" />
+            <element signature="e#22145#22245#0" expanded="false" />
+            <element signature="e#22252#22381#0" expanded="false" />
+            <element signature="e#24380#24500#0" expanded="false" />
+            <element signature="e#24527#24791#0" expanded="false" />
           </folding>
         </state>
       </provider>

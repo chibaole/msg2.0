@@ -206,6 +206,7 @@ global.webpackJsonp([3],{
 //
 //
 //
+//
 
 
 
@@ -333,7 +334,7 @@ global.webpackJsonp([3],{
       var _this3 = this;
 
       return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee3() {
-        var that, uuid, page, data, res, wxCodeImg, painting;
+        var that, uuid, page, data, res, wxCodeImg, titleContent, text_left, num_of_participants, num_left, painting;
         return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee3$(_context3) {
           while (1) {
             switch (_context3.prev = _context3.next) {
@@ -343,19 +344,49 @@ global.webpackJsonp([3],{
                 uuid = that.uuid;
                 page = 'pages/isme/index';
                 data = [uuid, page];
-
-                console.log('绘制图片');
-
-                _context3.next = 8;
+                _context3.next = 7;
                 return _this3.$store.dispatch('wxCodeBoon', __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends___default()({}, data));
 
-              case 8:
+              case 7:
                 res = _context3.sent;
-
-                console.log(res);
                 wxCodeImg = res.wxa_qrcode_url;
+                titleContent = that.boon.title;
+                text_left = 64.4;
 
-                console.log(uuid, page, data, wxCodeImg);
+                if (titleContent.length > 9) {
+                  console.log(titleContent.length);
+
+                  titleContent = titleContent.substring(0, 8);
+                  console.log(titleContent);
+                } else if (titleContent.length === 8) {
+                  titleContent = titleContent;
+                  text_left = 78.2;
+                } else if (titleContent.length === 7) {
+                  titleContent = titleContent;
+                  text_left = 92;
+                } else if (titleContent.length === 6) {
+                  titleContent = titleContent;
+                  text_left = 105.8;
+                } else if (titleContent.length === 5) {
+                  titleContent = titleContent;
+                  text_left = 119.6;
+                } else if (titleContent.length === 4) {
+                  titleContent = titleContent;
+                  text_left = 133.4;
+                } else if (titleContent.length === 3) {
+                  titleContent = titleContent;
+                  text_left = 147.2;
+                }
+                num_of_participants = String(that.boon.num_of_participants);
+                num_left = 161;
+
+                if (num_of_participants.length >= 3) {
+                  num_left = 161;
+                } else if (num_of_participants.length === 2) {
+                  num_left = 170.2;
+                } else if (num_of_participants.length === 1) {
+                  num_left = 179.4;
+                }
 
                 painting = {
                   width: 375,
@@ -376,7 +407,7 @@ global.webpackJsonp([3],{
                   //            绘制的头图
                   {
                     type: 'image',
-                    url: 'http://oxl5leo53.bkt.clouddn.com/u=1204211051,3834529407&fm=11&gp=0.jpg', // 变化图片
+                    url: that.boon.title_image_url, // 变化图片
                     top: 0,
                     left: 0,
                     width: 375,
@@ -385,20 +416,20 @@ global.webpackJsonp([3],{
                   // 文本表达
                   {
                     type: 'text',
-                    content: that.boon.description, // 变量的名称
+                    content: titleContent, // 变量的名称
                     fontSize: 27.6,
                     lineHeight: 27.6,
                     color: '#454553',
-                    textAlign: 'center',
+                    textAlign: 'left',
                     top: 217.35,
-                    left: 64.4,
+                    left: text_left,
                     width: 244.95,
                     MaxLineNumber: 2, // 最大两行 超出...
                     breakWord: true, // 换行
                     bolder: true // 加粗
                   }, {
                     type: 'text',
-                    content: '500人自动开奖', // 变量的价格
+                    content: that.boon.lottery_conditions, // 变量的价格
                     fontSize: 18.4,
                     color: '#4a4a4a',
                     textAlign: 'left',
@@ -416,12 +447,12 @@ global.webpackJsonp([3],{
 
                   }, {
                     type: 'text',
-                    content: '443', // 根据参与实际人数 变化
+                    content: that.boon.num_of_participants, // 根据参与实际人数 变化
                     fontSize: 18.4,
                     color: '#ff7f4f',
                     textAlign: 'left',
                     top: 361.1,
-                    left: 161 //
+                    left: num_left //
                   }, {
                     type: 'text',
                     content: '人参与',
@@ -458,7 +489,7 @@ global.webpackJsonp([3],{
                 wx.setStorageSync('painting', painting);
                 wx.navigateTo({ url: '/pages/test/main' });
 
-              case 15:
+              case 18:
               case 'end':
                 return _context3.stop();
             }
