@@ -385,7 +385,7 @@ global.webpackJsonp([4],{
       var _this3 = this;
 
       return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.mark(function _callee3() {
-        var that, uuid, page, data, res, wxCodeImg;
+        var that, uuid, page, data, res, wxCodeImg, titleContent, text_left;
         return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.wrap(function _callee3$(_context3) {
           while (1) {
             switch (_context3.prev = _context3.next) {
@@ -400,6 +400,45 @@ global.webpackJsonp([4],{
               case 6:
                 res = _context3.sent;
                 wxCodeImg = res.wxa_qrcode_url;
+                titleContent = that.order_info.group_activity.title;
+                text_left = 64.4;
+
+                if (titleContent.length > 9) {
+                  console.log(titleContent.length);
+
+                  titleContent = titleContent.substring(0, 8);
+                  console.log(titleContent);
+                } else if (titleContent.length === 8) {
+                  titleContent = titleContent;
+                  text_left = 78.2;
+                } else if (titleContent.length === 7) {
+                  titleContent = titleContent;
+                  text_left = 92;
+                } else if (titleContent.length === 6) {
+                  titleContent = titleContent;
+                  text_left = 105.8;
+                } else if (titleContent.length === 5) {
+                  titleContent = titleContent;
+                  text_left = 119.6;
+                } else if (titleContent.length === 4) {
+                  titleContent = titleContent;
+                  text_left = 133.4;
+                } else if (titleContent.length === 3) {
+                  titleContent = titleContent;
+                  text_left = 147.2;
+                }
+                //        let num_of_participants =String(that.boon.num_of_participants)
+                //        let num_left = 161
+                //        if (num_of_participants.length >= 3) {
+                //          num_left = 161
+                //        } else if (num_of_participants.length === 2) {
+                //          num_left = 170.2
+                //
+                //        } else if (num_of_participants.length === 1) {
+                //          num_left = 179.4
+                //
+                //        }
+
 
                 _this3.painting = {
                   width: 375,
@@ -420,7 +459,7 @@ global.webpackJsonp([4],{
                   //            绘制的头图
                   {
                     type: 'image',
-                    url: 'http://oxl5leo53.bkt.clouddn.com/u=1204211051,3834529407&fm=11&gp=0.jpg', // 变化图片
+                    url: that.order_info.group_activity.title_image_url, // 变化图片
                     top: 0,
                     left: 0,
                     width: 375,
@@ -438,14 +477,14 @@ global.webpackJsonp([4],{
                     color: '#454553',
                     textAlign: 'left',
                     top: 217.35,
-                    left: 23,
+                    left: text_left,
                     width: 328.9,
                     MaxLineNumber: 2, // 最大两行 超出...
                     breakWord: true, // 换行
                     bolder: true // 加粗
                   }, {
                     type: 'text',
-                    content: '￥5', // 变量的价格
+                    content: that.order_info.group_activity.current_price, // 变量的价格
                     fontSize: 20.7,
                     color: '#f83713',
                     textAlign: 'left',
@@ -463,7 +502,7 @@ global.webpackJsonp([4],{
 
                   }, {
                     type: 'text',
-                    content: '95', // 根据价格字符个数 变化
+                    content: that.order_info.group_activity.original_price, // 根据价格字符个数 变化
                     fontSize: 13 * 1.15,
                     color: '#999',
                     textAlign: 'left',
@@ -508,7 +547,7 @@ global.webpackJsonp([4],{
                   url: '/pages/test/main'
                 });
 
-              case 11:
+              case 14:
               case 'end':
                 return _context3.stop();
             }
