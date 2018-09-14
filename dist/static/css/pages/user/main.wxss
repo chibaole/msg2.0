@@ -107,6 +107,15 @@
   font-size: 24rpx;
   line-height: 24rpx;
 }
+.userinfo .setAddress.data-v-3105212a {
+  display: inline-block;
+  font-family: PingFangSC-Regular;
+  font-size: 24rpx;
+  color: #fff;
+  position: absolute;
+  top: 174rpx;
+  right: 50rpx;
+}
 #open-data.data-v-3105212a {
   overflow: hidden;
   display: block;

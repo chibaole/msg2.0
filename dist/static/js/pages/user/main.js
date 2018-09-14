@@ -128,6 +128,9 @@ global.webpackJsonp([2],{
 //
 //
 //
+//
+//
+
 
 
 
@@ -147,7 +150,11 @@ global.webpackJsonp([2],{
         avatar_url: 'http://image.shengxinjing.cn/rate/unlogin.png',
         nick_name: '没事干研究院',
         level_display: '',
-        is_authorized: true
+        is_authorized: true,
+        point: {
+          total_acquired: 0,
+          available_count: 0
+        }
       },
       nologin: true,
       login_show: true,
@@ -198,7 +205,8 @@ global.webpackJsonp([2],{
       var _this = this;
 
       return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
-        var that, sesssion_res, data, userinfo;
+        var that, sesssion_res, _data, userinfo;
+
         return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
@@ -223,9 +231,9 @@ global.webpackJsonp([2],{
                 }
 
                 // 用户按了允许授权按钮
-                data = [e.mp.detail.encryptedData, e.mp.detail.iv, e.mp.detail.signature, e.mp.detail.rawData];
+                _data = [e.mp.detail.encryptedData, e.mp.detail.iv, e.mp.detail.signature, e.mp.detail.rawData];
                 _context.next = 10;
-                return that.$store.dispatch('saveInfo', __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends___default()({}, data));
+                return that.$store.dispatch('saveInfo', __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends___default()({}, _data));
 
               case 10:
                 that.login_show = false;
@@ -262,32 +270,77 @@ global.webpackJsonp([2],{
           }
         }, _callee, _this);
       }))();
+    },
+    setAddress: function setAddress(e) {
+      var _this2 = this;
+
+      return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee2() {
+        var res, address, address_res;
+        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.next = 2;
+                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_6__utils_wx__["b" /* chooseAddress */])();
+
+              case 2:
+                res = _context2.sent;
+
+                console.log(res);
+                address = {
+                  name: res.name, // 名字
+                  postal_code: res.postalCode, // 邮编
+                  tel_phone: res.telNumber, // 电话
+                  province: res.provinceName, // 省
+                  city: res.cityName, // 市
+                  district: res.countyName, // 区
+                  detail: res.detailInfo // 详细
+
+                };
+
+
+                data = [uuid, auth_code, address];
+                _context2.next = 8;
+                return that.$store.dispatch('groupAddress', __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends___default()({}, data));
+
+              case 8:
+                address_res = _context2.sent;
+
+                console.log(address_res);
+
+              case 10:
+              case 'end':
+                return _context2.stop();
+            }
+          }
+        }, _callee2, _this2);
+      }))();
     }
   },
   onShow: function onShow() {
-    var _this2 = this;
+    var _this3 = this;
 
-    return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee2() {
+    return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee3() {
       var that, userinfo, user_profile, userinfoInit;
-      return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
+      return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee3$(_context3) {
         while (1) {
-          switch (_context2.prev = _context2.next) {
+          switch (_context3.prev = _context3.next) {
             case 0:
-              that = _this2;
+              that = _this3;
               userinfo = wx.getStorageSync('userinfo');
 
               console.log(userinfo);
 
               if (!userinfo) {
-                _context2.next = 14;
+                _context3.next = 14;
                 break;
               }
 
-              _context2.next = 6;
+              _context3.next = 6;
               return that.$store.dispatch('user_info');
 
             case 6:
-              user_profile = _context2.sent;
+              user_profile = _context3.sent;
               userinfoInit = {
                 avatar_url: userinfo.avatar_url,
                 nick_name: userinfo.nick_name,
@@ -303,7 +356,7 @@ global.webpackJsonp([2],{
               userinfoInit.point = user_profile.user.point;
               that.userinfo = userinfoInit;
               that.login_show = false;
-              _context2.next = 15;
+              _context3.next = 15;
               break;
 
             case 14:
@@ -311,10 +364,10 @@ global.webpackJsonp([2],{
 
             case 15:
             case 'end':
-              return _context2.stop();
+              return _context3.stop();
           }
         }
-      }, _callee2, _this2);
+      }, _callee3, _this3);
     }))();
   },
   onLoad: function onLoad() {
@@ -489,18 +542,20 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "score"
   }, [_vm._v(_vm._s(_vm.userinfo.point.total_acquired)), _c('span', {
     staticClass: "score_text"
-  }, [_vm._v("个小麻花")])]), _vm._v(" "), _c('img', {
-    staticClass: "setIcon",
+  }, [_vm._v("个小麻花")])]), _vm._v(" "), _c('div', {
+    staticClass: "setAddress",
     attrs: {
-      "src": "http://pbmrxkahq.bkt.clouddn.com/setIcon.png",
-      "alt": ""
+      "eventid": '0'
+    },
+    on: {
+      "click": _vm.setAddress
     }
-  })], 1), _vm._v(" "), _c('div', {
+  }, [_c('span', [_vm._v("收货地址 >")])])], 1), _vm._v(" "), _c('div', {
     staticClass: "formBox"
   }, [_c('form', {
     attrs: {
       "report-submit": true,
-      "eventid": '0'
+      "eventid": '1'
     },
     on: {
       "submit": _vm.goMygroup
@@ -521,7 +576,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   }, [_vm._v("我的拼团订单")])])])], 1), _vm._v(" "), _c('form', {
     attrs: {
       "report-submit": true,
-      "eventid": '1'
+      "eventid": '2'
     },
     on: {
       "submit": _vm.myBoon
@@ -542,7 +597,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   }, [_vm._v("我的抽奖")])])])], 1)], 1), _vm._v(" "), (_vm.login_show) ? _c('button', {
     attrs: {
       "open-type": "getUserInfo",
-      "eventid": '2'
+      "eventid": '3'
     },
     on: {
       "getuserinfo": _vm.bindGetUserInfo,

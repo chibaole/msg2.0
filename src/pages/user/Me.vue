@@ -25,7 +25,9 @@
       <!--<img src="" alt="">-->
       <!--</div>-->
 
-      <img src="http://pbmrxkahq.bkt.clouddn.com/setIcon.png" alt="" class="setIcon">
+      <!--<img src="http://pbmrxkahq.bkt.clouddn.com/setIcon.png" alt="" class="setIcon">-->
+
+      <div class="setAddress" @click="setAddress"><span>收货地址&nbsp;&gt;</span></div>
     </div>
 
     <!--<form :report-submit="true" @submit="getPhone" id="phoneForm">-->
@@ -113,6 +115,8 @@
   import {checkSession} from '@/utils/wx'
   import config from '@/config'
   import Navbar from '@/components/navbar'
+  import {chooseAddress} from '@/utils/wx'
+
 
   export default {
     components: {
@@ -125,8 +129,12 @@
           avatar_url: 'http://image.shengxinjing.cn/rate/unlogin.png',
           nick_name: '没事干研究院',
           level_display: '',
-          is_authorized: true
-        },
+          is_authorized: true,
+          point: {
+            total_acquired: 0,
+            available_count: 0
+          }
+          },
         nologin: true,
         login_show: true,
         globalData: {
@@ -197,6 +205,25 @@
           that.login_show = false
           console.log('重新登录成功')
         }
+      },
+      async setAddress(e){
+        let res = await chooseAddress()
+        console.log(res)
+        let address = {
+          name: res.name,            // 名字
+          postal_code: res.postalCode, // 邮编
+          tel_phone: res.telNumber, // 电话
+          province: res.provinceName, // 省
+          city: res.cityName, // 市
+          district: res.countyName, // 区
+          detail: res.detailInfo// 详细
+
+        }
+
+        data = [uuid, auth_code, address]
+        let address_res = await that.$store.dispatch('groupAddress', {...data})
+        console.log(address_res)
+
       }
     },
     async onShow() {
@@ -376,6 +403,20 @@
         font-size: 12px;
         line-height: 12px;
       }
+
+    };
+    .setAddress{
+      /*border:1px solid blue;*/
+
+      display: inline-block;
+      font-family: PingFangSC-Regular;
+      font-size: 12px;
+      color:#fff;
+      position: absolute;
+      top:87px;
+      right: 25px;
+
+
 
     }
   }

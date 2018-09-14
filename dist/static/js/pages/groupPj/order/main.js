@@ -326,7 +326,6 @@ global.webpackJsonp([4],{
       that.time.seconds = seconds;
 
       var param = setTimeout(that.getlastTime, 1000);
-
       if (leftTime <= 0) {
         //          showModal('拼团结束', '活动结束了')
         leftTime = 0;
@@ -531,27 +530,20 @@ global.webpackJsonp([4],{
                 data = [];
                 uuid = that.order_info.group_activity_order.uuid; //拼团订单
 
-                console.log(that.order_info);
-                console.log("拼团订单" + uuid);
                 order_status = that.order_info.status; // success grouping init failed
 
                 form_id = e.mp.detail.formId;
 
-                console.log(form_id);
-                console.log(order_status);
-
                 if (!(order_status === 'success')) {
-                  _context4.next = 24;
+                  _context4.next = 19;
                   break;
                 }
 
-                _context4.next = 13;
+                _context4.next = 9;
                 return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__utils_wx__["b" /* chooseAddress */])();
 
-              case 13:
+              case 9:
                 res = _context4.sent;
-
-                console.log(res);
                 auth_code = wx.getStorageSync('auth_code');
                 address = {
                   name: res.name, // 名字
@@ -566,25 +558,22 @@ global.webpackJsonp([4],{
 
 
                 data = [uuid, auth_code, address];
-                _context4.next = 20;
+                _context4.next = 15;
                 return that.$store.dispatch('groupAddress', __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default()({}, data));
 
-              case 20:
+              case 15:
                 address_res = _context4.sent;
-
-
-                //        URL:https://msg.chibaole.cc/api/v1/group_activity_orders/undefined?auth_code=K18IP0aMcdUOaqKh4W68Lw
 
                 wx.navigateTo({
                   url: '/pages/user/myGroup/myGroupDetail/main?uuid=' + uuid
                 });
-                _context4.next = 25;
+                _context4.next = 20;
                 break;
 
-              case 24:
+              case 19:
                 console.log('order_status 不是success');
 
-              case 25:
+              case 20:
               case 'end':
                 return _context4.stop();
             }

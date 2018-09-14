@@ -17,10 +17,12 @@
       <label class="_span data-v-3105212a score">{{userinfo.point.total_acquired}}
         <label class="_span data-v-3105212a score_text">个小麻花</label>
       </label>
-      <image src="http://pbmrxkahq.bkt.clouddn.com/setIcon.png" alt class="_img data-v-3105212a setIcon"></image>
+      <view class="_div data-v-3105212a setAddress" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}">
+        <label class="_span data-v-3105212a">收货地址 ></label>
+      </view>
     </view>
     <view class="_div data-v-3105212a formBox">
-      <form report-submit="{{true}}" bindsubmit="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}" class="_form data-v-3105212a">
+      <form report-submit="{{true}}" bindsubmit="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}" class="_form data-v-3105212a">
         <button formType="submit" class="_button data-v-3105212a">
           <view class="_div data-v-3105212a mylist">
             <image src="http://pbmrxkahq.bkt.clouddn.com/%E6%88%91%E7%9A%84%E6%8B%BC%E5%9B%A2%E8%AE%A2%E5%8D%95icon.png" alt class="_img data-v-3105212a"></image>
@@ -28,7 +30,7 @@
           </view>
         </button>
       </form>
-      <form report-submit="{{true}}" bindsubmit="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}" class="_form data-v-3105212a">
+      <form report-submit="{{true}}" bindsubmit="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}" class="_form data-v-3105212a">
         <button formType="submit" class="_button data-v-3105212a">
           <view class="_div data-v-3105212a mylist">
             <image src="http://pbmrxkahq.bkt.clouddn.com/%E6%88%91%E7%9A%84%E6%8A%BD%E5%A5%96icon.png" alt class="_img data-v-3105212a"></image>
@@ -37,6 +39,6 @@
         </button>
       </form>
     </view>
-    <button open-type="getUserInfo" bindgetuserinfo="handleProxy" bindtap="handleProxy" wx:if="{{login_show}}" data-eventid="{{'2'}}" data-comkey="{{$k}}" class="_button data-v-3105212a">获取权限</button>
+    <button open-type="getUserInfo" bindgetuserinfo="handleProxy" bindtap="handleProxy" wx:if="{{login_show}}" data-eventid="{{'3'}}" data-comkey="{{$k}}" class="_button data-v-3105212a">获取权限</button>
   </view>
 </template>

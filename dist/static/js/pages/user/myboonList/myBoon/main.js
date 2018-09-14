@@ -81,7 +81,7 @@ global.webpackJsonp([5],{
     return {
       navbar_title: '抽奖详情',
       order_info: {
-        title: '酸奶补给大礼包x10'
+        title: ''
 
       },
       boon_order: {}

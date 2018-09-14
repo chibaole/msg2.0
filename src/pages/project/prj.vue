@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <!--<p>项目详情页</p>-->
-    <Navbar :navbar_title="boon.short_title||'抽奖福利'"></Navbar>
+    <Navbar :navbar_title="'抽奖详情'"></Navbar>
 
     <div class="pic-info">
       <div class="pic">

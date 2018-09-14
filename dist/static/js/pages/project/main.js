@@ -688,7 +688,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "container"
   }, [_c('Navbar', {
     attrs: {
-      "navbar_title": _vm.boon.short_title || '抽奖福利',
+      "navbar_title": '抽奖详情',
       "mpcomid": '0'
     }
   }), _vm._v(" "), _c('div', {
