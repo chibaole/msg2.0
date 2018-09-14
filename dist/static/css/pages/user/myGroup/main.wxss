@@ -9,7 +9,7 @@
   min-height: 1334rpx;
 }
 .container .getMore.data-v-4656d1c7 {
-  width: 160rpx;
+  max-width: 216rpx;
   height: 64rpx;
   line-height: 64rpx;
   text-align: center;

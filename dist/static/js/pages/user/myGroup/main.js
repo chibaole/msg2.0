@@ -72,31 +72,58 @@ global.webpackJsonp([8],{
       myGroup_list: [],
       all_list: [],
       page: 1,
-      size: 10,
-      showGetMore: false,
+      size: 4,
+      showGetMore: true,
       userinfo: {
         avatar_url: 'http://image.shengxinjing.cn/rate/unlogin.png',
         nick_name: '没事干研究院',
         level_display: '',
         is_authorized: true
-      } };
+      },
+      moreTips: '加载更多'
+    };
   },
 
 
   methods: {
     addList: function addList() {
-      var that = this;
-      console.log(that.all_list);
-      that.size += 10;
-      console.log(that.size);
+      var _this = this;
 
-      if (that.size >= that.all_list.length) {
-        that.size = that.all_list.length;
-        that.myGroup_list = that.all_list;
-        console.log();
-      } else {
-        that.myGroup_list = that.all_list.slice(0, that.size);
-      }
+      return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
+        var that, init_size, auth_code, data, addData, lastSize;
+        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                that = _this;
+
+                that.page = that.page + 1;
+                init_size = that.size;
+                auth_code = wx.getStorageSync('auth_code');
+                data = [that.page, init_size, auth_code];
+                _context.next = 7;
+                return that.$store.dispatch('myGroupList', __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends___default()({}, data));
+
+              case 7:
+                addData = _context.sent;
+
+                console.log(addData.group_activity_orders.length);
+                lastSize = addData.group_activity_orders.length;
+
+                if (lastSize < init_size) {
+                  console.log(lastSize, init_size);
+                  that.moreTips = '已无更多订单';
+                }
+
+                that.myGroup_list = that.myGroup_list.concat(addData.group_activity_orders);
+
+              case 12:
+              case 'end':
+                return _context.stop();
+            }
+          }
+        }, _callee, _this);
+      }))();
     },
     goDetail: function goDetail(e) {
       var this_uuid = e.currentTarget.dataset.uuid;
@@ -106,33 +133,34 @@ global.webpackJsonp([8],{
     }
   },
   onLoad: function onLoad() {
-    var _this = this;
+    var _this2 = this;
 
-    return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
-      var that, auth_code, data, groupList, init_size, maxSize, userinfo;
-      return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+    return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee2() {
+      var that, init_size, auth_code, data, groupList, lastSize, userinfo;
+      return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
         while (1) {
-          switch (_context.prev = _context.next) {
+          switch (_context2.prev = _context2.next) {
             case 0:
-              that = _this;
+              that = _this2;
+              init_size = that.size;
               auth_code = wx.getStorageSync('auth_code');
-              data = [that.page, that.size, auth_code];
-              _context.next = 5;
+              data = [that.page, init_size, auth_code];
+              _context2.next = 6;
               return that.$store.dispatch('myGroupList', __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends___default()({}, data));
 
-            case 5:
-              groupList = _context.sent;
-              init_size = that.size;
+            case 6:
+              groupList = _context2.sent;
 
-
-              that.all_list = groupList.group_activity_orders;
-
-              maxSize = that.all_list.length;
-
-
-              that.myGroup_list = that.all_list.slice(0, init_size);
+              that.all_list = groupList.group_activity_orders; //初始数据列表
 
               that.myGroup_list = that.all_list;
+
+              lastSize = groupList.group_activity_orders.length;
+
+              if (lastSize < init_size) {
+                console.log(lastSize, init_size);
+                that.moreTips = '已无更多订单';
+              }
 
               userinfo = wx.getStorageSync('userinfo');
 
@@ -141,10 +169,10 @@ global.webpackJsonp([8],{
 
             case 13:
             case 'end':
-              return _context.stop();
+              return _context2.stop();
           }
         }
-      }, _callee, _this);
+      }, _callee2, _this2);
     }))();
   }
 });
@@ -213,9 +241,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       staticClass: "name"
     }, [_vm._v(_vm._s(item.group_activity.title))]), _vm._v(" "), _c('p', {
       staticClass: "group_type"
-    }, [_vm._v(_vm._s(item.group_activity.group_type))]), _vm._v(" "), _c('p', {
-      staticClass: "detail"
-    }, [_vm._v(_vm._s(item.group_activity.description))])], 1), _vm._v(" "), _c('span', {
+    }, [_vm._v(_vm._s(item.group_activity.group_type))])], 1), _vm._v(" "), _c('span', {
       staticClass: "price"
     }, [_vm._v("¥" + _vm._s(item.group_activity.current_price))])])])])
   }), _vm._v(" "), _c('div', {
@@ -241,7 +267,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     on: {
       "click": _vm.addList
     }
-  }, [_vm._v("加载更多")]) : _vm._e()], 2)
+  }, [_vm._v(_vm._s(_vm.moreTips))]) : _vm._e()], 2)
 }
 var staticRenderFns = []
 render._withStripped = true

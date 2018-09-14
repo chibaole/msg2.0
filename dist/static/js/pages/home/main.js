@@ -65,7 +65,6 @@ global.webpackJsonp([1],{
 
   methods: {
     goGroup: function goGroup(e) {
-      console.log(e);
       var group_activities_uuid = e.currentTarget.dataset.uuid;
       var Intial = e.currentTarget.dataset.activitie;
       var formId = e.mp.detail.formId;
@@ -95,19 +94,15 @@ global.webpackJsonp([1],{
                   page: 0,
                   size: 0
                 };
-
-
-                console.log('/v1/group_activities');
-                _context.next = 5;
+                _context.next = 4;
                 return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__utils_util__["a" /* get */])('/v1/group_activities', urlData);
 
-              case 5:
+              case 4:
                 group = _context.sent;
 
                 that.groups = group.group_activities;
-                console.log(group);
 
-              case 8:
+              case 6:
               case 'end':
                 return _context.stop();
             }
@@ -132,10 +127,9 @@ global.webpackJsonp([1],{
             case 2:
               group_activities = _context2.sent;
 
-              console.log(group_activities);
               _this2.group_activities = group_activities.group_activities;
 
-            case 5:
+            case 4:
             case 'end':
               return _context2.stop();
           }
@@ -158,10 +152,9 @@ global.webpackJsonp([1],{
             case 2:
               group_activities = _context3.sent;
 
-              console.log(group_activities);
               _this3.group_activities = group_activities.group_activities;
 
-            case 5:
+            case 4:
             case 'end':
               return _context3.stop();
           }
@@ -307,21 +300,14 @@ global.webpackJsonp([1],{
   },
 
   methods: {
-    scrolltolower: function scrolltolower() {
-      console.log(7);
-    },
-    scroll: function scroll(e) {
-      console.log(e);
-    },
+    scrolltolower: function scrolltolower() {},
+    scroll: function scroll(e) {},
     formSubmit: function formSubmit(e) {
-      console.log(e);
       var that = this;
 
-      console.log(that.formId);
       var uuid = e.currentTarget.dataset.uuid;
       var title = e.currentTarget.dataset.title;
       var form_id = e.mp.detail.formId;
-      console.log(uuid, title, form_id);
       __WEBPACK_IMPORTED_MODULE_3__utils_wx__["c" /* default */].navigateTo('/pages/project/main?boons_uuid=' + uuid + '&title=' + title + '&form_id=' + form_id);
       //        wx.redirectTo('/pages/project/main?boons_uuid=' + uuid + '&title=' + title)
     },
@@ -360,17 +346,15 @@ global.webpackJsonp([1],{
         while (1) {
           switch (_context2.prev = _context2.next) {
             case 0:
-              console.log('scroll加载今日福利数据');
-              _context2.next = 3;
+              _context2.next = 2;
               return _this2.$store.dispatch('getBoonsToday');
 
-            case 3:
+            case 2:
               boonsData = _context2.sent;
 
               _this2.boons = boonsData.boons;
-              console.log(_this2.boons);
 
-            case 6:
+            case 4:
             case 'end':
               return _context2.stop();
           }
@@ -387,17 +371,15 @@ global.webpackJsonp([1],{
         while (1) {
           switch (_context3.prev = _context3.next) {
             case 0:
-              console.log('scroll加载今日福利数据');
-              _context3.next = 3;
+              _context3.next = 2;
               return _this3.$store.dispatch('getBoonsToday');
 
-            case 3:
+            case 2:
               boonsData = _context3.sent;
 
               _this3.boons = boonsData.boons;
-              console.log(_this3.boons);
 
-            case 6:
+            case 4:
             case 'end':
               return _context3.stop();
           }

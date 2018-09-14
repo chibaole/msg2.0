@@ -50,7 +50,6 @@
     },
     methods: {
       goGroup(e) {
-        console.log(e)
         let group_activities_uuid = e.currentTarget.dataset.uuid
         let Intial = e.currentTarget.dataset.activitie
         let formId = e.mp.detail.formId
@@ -74,21 +73,17 @@
           size: 0
         }
 
-        console.log('/v1/group_activities')
         let group = await get('/v1/group_activities', urlData)
         that.groups = group.group_activities
-        console.log(group)
       }
     },
 
     async onLoad() {
       let group_activities = await this.$store.dispatch('getGroup')
-      console.log(group_activities)
       this.group_activities = group_activities.group_activities
     },
     async onShow() {
       let group_activities = await this.$store.dispatch('getGroup')
-      console.log(group_activities)
       this.group_activities = group_activities.group_activities
     }
   }

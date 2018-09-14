@@ -20,7 +20,6 @@
           <view class="_div data-v-4656d1c7 txt">
             <view class="_div data-v-4656d1c7 name">{{item.group_activity.title}}</view>
             <view class="_p data-v-4656d1c7 group_type">{{item.group_activity.group_type}}</view>
-            <view class="_p data-v-4656d1c7 detail">{{item.group_activity.description}}</view>
           </view>
           <label class="_span data-v-4656d1c7 price">¥{{item.group_activity.current_price}}</label>
         </view>
@@ -30,6 +29,6 @@
       <button type="default" size="22" class="_button data-v-4656d1c7 pos" session-from="{ 'nickName':'刘攀','avatarUrl':'http://image.shengxinjing.cn/rate/unlogin.png' }" open-type="contact"></button>
       <image class="_img data-v-4656d1c7 icon_kf" src="http://pbmrxkahq.bkt.clouddn.com/msgservice.png"></image>
     </view>
-    <view class="_div data-v-4656d1c7 getMore" wx:if="{{showGetMore}}" bindtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}">加载更多</view>
+    <view class="_div data-v-4656d1c7 getMore" wx:if="{{showGetMore}}" bindtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}">{{moreTips}}</view>
   </view>
 </template>

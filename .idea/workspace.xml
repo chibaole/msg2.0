@@ -5,18 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="445b3448-464f-4425-9da6-82c9cd343d54" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/static/js/pages/project/main.js.map" afterPath="$PROJECT_DIR$/dist/static/js/pages/project/main.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/static/js/pages/user/myGroup/main.js.map" afterPath="$PROJECT_DIR$/dist/static/js/pages/user/myGroup/main.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/project$67981f42.wxml" afterPath="$PROJECT_DIR$/dist/components/project$67981f42.wxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/user$387b3350.wxml" afterPath="$PROJECT_DIR$/dist/components/user$387b3350.wxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/static/css/pages/user/myGroup/myGroupDetail/main.wxss" afterPath="$PROJECT_DIR$/dist/static/css/pages/user/myGroup/myGroupDetail/main.wxss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/static/css/pages/user/myboonList/myBoon/main.wxss" afterPath="$PROJECT_DIR$/dist/static/css/pages/user/myboonList/myBoon/main.wxss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/static/js/pages/project/main.js" afterPath="$PROJECT_DIR$/dist/static/js/pages/project/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/static/js/pages/user/myGroup/myGroupDetail/main.js" afterPath="$PROJECT_DIR$/dist/static/js/pages/user/myGroup/myGroupDetail/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/static/js/pages/user/myGroup/myGroupDetail/main.js.map" afterPath="$PROJECT_DIR$/dist/static/js/pages/user/myGroup/myGroupDetail/main.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/project/prj.vue" afterPath="$PROJECT_DIR$/src/pages/project/prj.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/user/myGroup/myGroupDetail/Me.vue" afterPath="$PROJECT_DIR$/src/pages/user/myGroup/myGroupDetail/Me.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/user/myboonList/myBoon/Me.vue" afterPath="$PROJECT_DIR$/src/pages/user/myboonList/myBoon/Me.vue" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/user$2846a205.wxml" afterPath="$PROJECT_DIR$/dist/components/user$2846a205.wxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/static/css/pages/user/myGroup/main.wxss" afterPath="$PROJECT_DIR$/dist/static/css/pages/user/myGroup/main.wxss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/static/js/app.js" afterPath="$PROJECT_DIR$/dist/static/js/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/static/js/app.js.map" afterPath="$PROJECT_DIR$/dist/static/js/app.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/static/js/pages/user/myGroup/main.js" afterPath="$PROJECT_DIR$/dist/static/js/pages/user/myGroup/main.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/static/js/vendor.js" afterPath="$PROJECT_DIR$/dist/static/js/vendor.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/static/js/vendor.js.map" afterPath="$PROJECT_DIR$/dist/static/js/vendor.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/group.vue" afterPath="$PROJECT_DIR$/src/components/group.vue" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/scroll.vue" afterPath="$PROJECT_DIR$/src/components/scroll.vue" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/user/myGroup/Me.vue" afterPath="$PROJECT_DIR$/src/pages/user/myGroup/Me.vue" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/store.js" afterPath="$PROJECT_DIR$/src/store.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -49,8 +50,8 @@
       <file leaf-file-name="scroll.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/scroll.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-390">
-              <caret line="185" column="19" lean-forward="false" selection-start-line="185" selection-start-column="3" selection-end-line="185" selection-end-column="19" />
+            <state relative-caret-position="334">
+              <caret line="79" column="0" lean-forward="false" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
               <folding>
                 <element signature="e#1157#1206#0" expanded="true" />
               </folding>
@@ -58,12 +59,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Me.vue" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Me.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pages/user/myGroup/Me.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1365">
-              <caret line="266" column="0" lean-forward="true" selection-start-line="266" selection-start-column="0" selection-end-line="266" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="439">
+              <caret line="114" column="3" lean-forward="false" selection-start-line="114" selection-start-column="3" selection-end-line="114" selection-end-column="3" />
+              <folding>
+                <element signature="e#2476#2638#0" expanded="false" />
+                <element signature="e#3312#3475#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -144,6 +148,16 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="store.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/store.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="369">
+              <caret line="287" column="3" lean-forward="false" selection-start-line="287" selection-start-column="3" selection-end-line="287" selection-end-column="3" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="Me.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pages/user/myboonList/myBoon/Me.vue">
           <provider selected="true" editor-type-id="text-editor">
@@ -155,19 +169,6 @@
                 <element signature="n#div#4;n#div#0;n#template#0;n#!!top" expanded="false" />
                 <element signature="e#2444#2495#0" expanded="true" />
                 <element signature="e#2650#2682#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Home.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pages/home/Home.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1360">
-              <caret line="90" column="22" lean-forward="false" selection-start-line="90" selection-start-column="22" selection-end-line="90" selection-end-column="22" />
-              <folding>
-                <element signature="n#div#0;n#div#0;n#template#0;n#!!top" expanded="false" />
-                <element signature="n#div#2;n#div#0;n#template#0;n#!!top" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -210,11 +211,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="group.vue" pinned="false" current-in-tab="false">
+      <file leaf-file-name="group.vue" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/group.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="194">
-              <caret line="186" column="8" lean-forward="false" selection-start-line="186" selection-start-column="8" selection-end-line="189" selection-end-column="35" />
+            <state relative-caret-position="-39">
+              <caret line="86" column="0" lean-forward="false" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
               <folding>
                 <element signature="n#span#0;n#div#1;n#div#0;n#div#1;n#button#0;n#form#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="false" />
                 <element signature="n#div#2;n#div#0;n#div#1;n#button#0;n#form#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="false" />
@@ -228,9 +229,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>prizeWindow</find>
-      <find>people</find>
-      <find>description</find>
       <find>.pic</find>
       <find>img</find>
       <find>还剩</find>
@@ -258,6 +256,9 @@
       <find>group-text</find>
       <find>right</find>
       <find>1px</find>
+      <find>userinfo</find>
+      <find>getM</find>
+      <find>console.log</find>
     </findStrings>
     <replaceStrings>
       <replace>gray</replace>
@@ -315,22 +316,22 @@
         <option value="$PROJECT_DIR$/src/pages/groupPj/groupDetail/main.js" />
         <option value="$PROJECT_DIR$/src/components/groupCard.vue" />
         <option value="$PROJECT_DIR$/src/main.js" />
-        <option value="$PROJECT_DIR$/src/store.js" />
         <option value="$PROJECT_DIR$/src/pages/test/Me.vue" />
         <option value="$PROJECT_DIR$/src/pages/groupPj/groupDetail/index.vue" />
         <option value="$PROJECT_DIR$/src/components/navbar.vue" />
         <option value="$PROJECT_DIR$/src/App.vue" />
         <option value="$PROJECT_DIR$/src/pages/user/myboonList/Me.vue" />
         <option value="$PROJECT_DIR$/src/pages/home/Home.vue" />
-        <option value="$PROJECT_DIR$/src/pages/user/myGroup/Me.vue" />
-        <option value="$PROJECT_DIR$/src/components/group.vue" />
         <option value="$PROJECT_DIR$/src/pages/groupPj/index.vue" />
-        <option value="$PROJECT_DIR$/src/components/scroll.vue" />
         <option value="$PROJECT_DIR$/src/pages/groupPj/order/index.vue" />
         <option value="$PROJECT_DIR$/src/pages/user/Me.vue" />
         <option value="$PROJECT_DIR$/src/pages/project/prj.vue" />
         <option value="$PROJECT_DIR$/src/pages/user/myboonList/myBoon/Me.vue" />
         <option value="$PROJECT_DIR$/src/pages/user/myGroup/myGroupDetail/Me.vue" />
+        <option value="$PROJECT_DIR$/src/pages/user/myGroup/Me.vue" />
+        <option value="$PROJECT_DIR$/src/store.js" />
+        <option value="$PROJECT_DIR$/src/components/scroll.vue" />
+        <option value="$PROJECT_DIR$/src/components/group.vue" />
       </list>
     </option>
   </component>
@@ -347,8 +348,8 @@
     <handled-path value="$PROJECT_DIR$/server/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-172" />
-    <option name="y" value="8" />
+    <option name="x" value="95" />
+    <option name="y" value="15" />
     <option name="width" value="2015" />
     <option name="height" value="900" />
   </component>
@@ -581,15 +582,15 @@
       <workItem from="1534320959304" duration="42699000" />
       <workItem from="1534743312774" duration="159005000" />
       <workItem from="1535367210788" duration="2063000" />
-      <workItem from="1535424454711" duration="296591000" />
+      <workItem from="1535424454711" duration="299968000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="825611000" />
+    <option name="totallyTimeSpent" value="828988000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-172" y="8" width="2015" height="900" extended-state="0" />
+    <frame x="95" y="15" width="2015" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15095286" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -689,7 +690,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/store.js</url>
-          <line>101</line>
+          <line>98</line>
           <option name="timeStamp" value="17" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
@@ -704,7 +705,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/pages/user/myGroup/Me.vue</url>
-          <line>112</line>
+          <line>119</line>
           <properties />
           <option name="timeStamp" value="20" />
         </line-breakpoint>
@@ -734,7 +735,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/components/scroll.vue</url>
-          <line>139</line>
+          <line>130</line>
           <properties />
           <option name="timeStamp" value="26" />
         </line-breakpoint>
@@ -1086,14 +1087,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/store.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="82" column="68" lean-forward="false" selection-start-line="82" selection-start-column="68" selection-end-line="82" selection-end-column="68" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/test/Me.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="158">
@@ -1170,16 +1163,6 @@
             <element signature="e#7702#7920#0" expanded="false" />
             <element signature="e#9882#10243#0" expanded="false" />
             <element signature="e#10254#10966#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/scroll.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-390">
-          <caret line="185" column="19" lean-forward="false" selection-start-line="185" selection-start-column="3" selection-end-line="185" selection-end-column="19" />
-          <folding>
-            <element signature="e#1157#1206#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1295,18 +1278,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/group.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="186" column="8" lean-forward="false" selection-start-line="186" selection-start-column="8" selection-end-line="189" selection-end-column="35" />
-          <folding>
-            <element signature="n#span#0;n#div#1;n#div#0;n#div#1;n#button#0;n#form#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="false" />
-            <element signature="n#div#2;n#div#0;n#div#1;n#button#0;n#form#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="false" />
-            <element signature="e#1556#1605#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/user/myGroup/myGroupDetail/Me.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -1317,9 +1288,42 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/user/myGroup/Me.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1365">
-          <caret line="266" column="0" lean-forward="true" selection-start-line="266" selection-start-column="0" selection-end-line="266" selection-end-column="0" />
+        <state relative-caret-position="439">
+          <caret line="114" column="3" lean-forward="false" selection-start-line="114" selection-start-column="3" selection-end-line="114" selection-end-column="3" />
+          <folding>
+            <element signature="e#2476#2638#0" expanded="false" />
+            <element signature="e#3312#3475#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/store.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="369">
+          <caret line="287" column="3" lean-forward="false" selection-start-line="287" selection-start-column="3" selection-end-line="287" selection-end-column="3" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/scroll.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="334">
+          <caret line="79" column="0" lean-forward="false" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
+          <folding>
+            <element signature="e#1157#1206#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/group.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-39">
+          <caret line="86" column="0" lean-forward="false" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
+          <folding>
+            <element signature="n#span#0;n#div#1;n#div#0;n#div#1;n#button#0;n#form#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#div#2;n#div#0;n#div#1;n#button#0;n#form#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="e#1556#1605#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

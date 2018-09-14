@@ -38,6 +38,7 @@ var _actions;
 
 
 
+
 __WEBPACK_IMPORTED_MODULE_5_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_6_vuex__["a" /* default */]);
 // const apiDomain = 'http://localhost:5757/v1'
 // const apiDomain = 'http://47.98.170.205/api/v1'
@@ -143,20 +144,19 @@ var apiDomain = 'https://msg.chibaole.cc/api/v1';
           while (1) {
             switch (_context3.prev = _context3.next) {
               case 0:
-                console.log('\u83B7\u53D6\u4ECA\u65E5\u798F\u5229-----' + apiDomain + '/boons/today');
                 auth_code = wx.getStorageSync('auth_code');
-                _context3.next = 4;
+                _context3.next = 3;
                 return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
                   method: 'get',
                   url: apiDomain + '/boons/today?auth_code=' + auth_code,
                   data: {}
                 });
 
-              case 4:
+              case 3:
                 boons = _context3.sent;
                 return _context3.abrupt('return', boons);
 
-              case 6:
+              case 5:
               case 'end':
                 return _context3.stop();
             }
@@ -191,11 +191,9 @@ var apiDomain = 'https://msg.chibaole.cc/api/v1';
 
               case 5:
                 prjInfo = _context4.sent;
-
-                console.log('\u83B7\u53D6\u798F\u5229\u8BE6\u60C5----' + apiDomain + '/boons/' + uuid + '?auth_code=' + auth_code);
                 return _context4.abrupt('return', prjInfo);
 
-              case 8:
+              case 7:
               case 'end':
                 return _context4.stop();
             }
@@ -228,11 +226,9 @@ var apiDomain = 'https://msg.chibaole.cc/api/v1';
 
               case 4:
                 res = _context5.sent;
-
-                console.log('\u53C2\u52A0\u798F\u5229------' + apiDomain + '/boons/' + boonId + '/attend?auth_code=' + auth_code);
                 return _context5.abrupt('return', res);
 
-              case 7:
+              case 6:
               case 'end':
                 return _context5.stop();
             }
@@ -255,22 +251,21 @@ var apiDomain = 'https://msg.chibaole.cc/api/v1';
           while (1) {
             switch (_context6.prev = _context6.next) {
               case 0:
-                console.log('福利二维码');
                 uuid = data[0]; // 订单uuid
 
                 auth_code = wx.getStorageSync('auth_code');
                 page = data[1];
-                _context6.next = 6;
+                _context6.next = 5;
                 return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
                   method: 'get',
                   url: apiDomain + '/boons/' + uuid + '/wxaqrcode?auth_code=' + auth_code + '&page=' + page
                 });
 
-              case 6:
+              case 5:
                 res = _context6.sent;
                 return _context6.abrupt('return', res);
 
-              case 8:
+              case 7:
               case 'end':
                 return _context6.stop();
             }
@@ -300,11 +295,9 @@ var apiDomain = 'https://msg.chibaole.cc/api/v1';
 
               case 3:
                 group = _context7.sent;
-
-                console.log('\u62FC\u56E2\u6D3B\u52A8\u5217\u8868' + apiDomain + '/group_activities?auth_code=' + auth_code);
                 return _context7.abrupt('return', group);
 
-              case 6:
+              case 5:
               case 'end':
                 return _context7.stop();
             }
@@ -330,19 +323,17 @@ var apiDomain = 'https://msg.chibaole.cc/api/v1';
                 uuid = uuid_authCode[0];
                 auth_code = uuid_authCode[1];
                 form_id = uuid_authCode[2];
-
-                console.log('\u62FC\u56E2\u6D3B\u52A8\u8BE6\u60C5----' + apiDomain + '/group_activities/' + uuid + '?auth_code=' + auth_code + '&form_id=' + form_id);
-                _context8.next = 6;
+                _context8.next = 5;
                 return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
                   method: 'get',
                   url: apiDomain + '/group_activities/' + uuid + '?auth_code=' + auth_code + '&form_id=' + form_id
                 });
 
-              case 6:
+              case 5:
                 groupDetail = _context8.sent;
                 return _context8.abrupt('return', groupDetail);
 
-              case 8:
+              case 7:
               case 'end':
                 return _context8.stop();
             }
@@ -367,19 +358,17 @@ var apiDomain = 'https://msg.chibaole.cc/api/v1';
               case 0:
                 uuid = uuid_authCode[0];
                 auth_code = uuid_authCode[1];
-
-                console.log('\u53D1\u8D77\u62FC\u56E2\u7684\u8BA2\u5355----' + apiDomain + '/group_activities/' + uuid + '/initial?auth_code=' + auth_code);
-                _context9.next = 5;
+                _context9.next = 4;
                 return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
                   method: 'post',
                   url: apiDomain + '/group_activities/' + uuid + '/initial?auth_code=' + auth_code
                 });
 
-              case 5:
+              case 4:
                 initGroup = _context9.sent;
                 return _context9.abrupt('return', initGroup);
 
-              case 7:
+              case 6:
               case 'end':
                 return _context9.stop();
             }
@@ -404,19 +393,17 @@ var apiDomain = 'https://msg.chibaole.cc/api/v1';
               case 0:
                 uuid = uuid_authCode[0];
                 auth_code = uuid_authCode[1];
-
-                console.log('\u62FC\u56E2\u8BA2\u5355\u8BE6\u60C5-------' + apiDomain + '/group_activity_orders/' + uuid + '?auth_code=' + auth_code);
-                _context10.next = 5;
+                _context10.next = 4;
                 return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
                   method: 'get',
                   url: apiDomain + '/group_activity_orders/' + uuid + '?auth_code=' + auth_code
                 });
 
-              case 5:
+              case 4:
                 orderData = _context10.sent;
                 return _context10.abrupt('return', orderData);
 
-              case 7:
+              case 6:
               case 'end':
                 return _context10.stop();
             }
@@ -443,19 +430,17 @@ var apiDomain = 'https://msg.chibaole.cc/api/v1';
 
                 uuid === '' ? uuid = '1223' : uuid = uuid_authCode[0];
                 auth_code = uuid_authCode[1];
-
-                console.log('\u62FC\u56E2\u5355\u8BE6\u60C5---' + apiDomain + '/group_activity_initials/' + uuid + '?auth_code=' + auth_code);
-                _context11.next = 6;
+                _context11.next = 5;
                 return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
                   method: 'get',
                   url: apiDomain + '/group_activity_initials/' + uuid + '?auth_code=' + auth_code
                 });
 
-              case 6:
+              case 5:
                 initOrder = _context11.sent;
                 return _context11.abrupt('return', initOrder);
 
-              case 8:
+              case 7:
               case 'end':
                 return _context11.stop();
             }
@@ -478,23 +463,21 @@ var apiDomain = 'https://msg.chibaole.cc/api/v1';
           while (1) {
             switch (_context12.prev = _context12.next) {
               case 0:
-                console.log('\u53C2\u4E0E\u62FC\u56E2------------' + apiDomain + '/group_activity_initials/' + uuid_authCode[0] + '/attend?auth_code=' + uuid_authCode[1]);
-                _context12.next = 3;
+                _context12.next = 2;
                 return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
                   method: 'post',
                   url: apiDomain + '/group_activity_initials/' + uuid_authCode[0] + '/attend?auth_code=' + uuid_authCode[1]
                 });
 
-              case 3:
+              case 2:
                 attendData = _context12.sent;
 
-                console.log(attendData);
                 if (attendData == undefined) {
                   __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__utils_util__["b" /* showModal */])('参与失败', '你已经在当前的拼团');
                 }
                 return _context12.abrupt('return', attendData);
 
-              case 7:
+              case 5:
               case 'end':
                 return _context12.stop();
             }
@@ -659,20 +642,19 @@ var apiDomain = 'https://msg.chibaole.cc/api/v1';
         while (1) {
           switch (_context17.prev = _context17.next) {
             case 0:
-              console.log('我的抽奖订单详情');
               uuid = data[0];
               auth_code = data[1];
-              _context17.next = 5;
+              _context17.next = 4;
               return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
                 method: 'get',
                 url: apiDomain + '/boon_orders/' + uuid + '?auth_code=' + auth_code
               });
 
-            case 5:
+            case 4:
               res = _context17.sent;
               return _context17.abrupt('return', res);
 
-            case 7:
+            case 6:
             case 'end':
               return _context17.stop();
           }
@@ -736,7 +718,6 @@ var apiDomain = 'https://msg.chibaole.cc/api/v1';
         while (1) {
           switch (_context19.prev = _context19.next) {
             case 0:
-              console.log(data);
               uuid = data[0];
               auth_code = data[1];
               attributes = data[2];
@@ -746,20 +727,18 @@ var apiDomain = 'https://msg.chibaole.cc/api/v1';
                   address_attributes: attributes
                 }
               };
-              _context19.next = 7;
+              _context19.next = 6;
               return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
                 method: 'put',
                 url: apiDomain + '/group_activity_orders/' + uuid,
                 data: order_address
               });
 
-            case 7:
+            case 6:
               res = _context19.sent;
-
-              console.log(res);
               return _context19.abrupt('return', res);
 
-            case 10:
+            case 8:
             case 'end':
               return _context19.stop();
           }
@@ -779,15 +758,13 @@ var apiDomain = 'https://msg.chibaole.cc/api/v1';
             case 0:
               _uuid = uuid;
               auth_code = wx.getStorageSync('auth_code');
-
-              console.log(apiDomain + '/group_activity_orders/' + _uuid + '/pay?auth_code=' + auth_code);
               payres = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
                 method: 'get',
                 url: apiDomain + '/group_activity_orders/' + _uuid + '/pay?auth_code=' + auth_code
               });
               return _context20.abrupt('return', payres);
 
-            case 5:
+            case 4:
             case 'end':
               return _context20.stop();
           }

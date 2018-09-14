@@ -46,21 +46,16 @@
     },
     methods: {
       scrolltolower() {
-        console.log(7)
       },
       scroll(e) {
-        console.log(e)
       },
 
       formSubmit(e) {
-        console.log(e)
         var that = this
 
-        console.log(that.formId)
         let uuid = e.currentTarget.dataset.uuid
         let title = e.currentTarget.dataset.title
         let form_id = e.mp.detail.formId
-        console.log(uuid, title, form_id)
         wx.navigateTo('/pages/project/main?boons_uuid=' + uuid + '&title=' + title + '&form_id=' + form_id)
 //        wx.redirectTo('/pages/project/main?boons_uuid=' + uuid + '&title=' + title)
       },
@@ -75,17 +70,13 @@
 
     },
     async onLoad() {
-      console.log('scroll加载今日福利数据')
       let boonsData = await this.$store.dispatch('getBoonsToday')
       this.boons = boonsData.boons
-      console.log(this.boons)
     },
 
     async onShow() {
-      console.log('scroll加载今日福利数据')
       let boonsData = await this.$store.dispatch('getBoonsToday')
       this.boons = boonsData.boons
-      console.log(this.boons)
     }
 
   }

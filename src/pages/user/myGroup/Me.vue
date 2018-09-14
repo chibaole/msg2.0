@@ -19,7 +19,7 @@
             <div class="txt">
               <div class="name">{{item.group_activity.title}}</div>
               <p class="group_type">{{item.group_activity.group_type}}</p>
-              <p class="detail">{{item.group_activity.description}}</p>
+              <!--<p class="detail">{{item.group_activity.description}}</p>-->
             </div>
             <span class="price">¥{{item.group_activity.current_price}}</span>
           </div>
@@ -32,7 +32,7 @@
       <img class="icon_kf" src="http://pbmrxkahq.bkt.clouddn.com/msgservice.png">
     </div>
     <!--<button type='default' session-from='{"nickName":"{{userInfo.nickName}}","avatarUrl":"{{userInfo.avatarUrl}}"}' open-type="contact" >带头像客服（微信头像）</button>-->
-      <div class="getMore" v-if="showGetMore" @click="addList">加载更多</div>
+      <div class="getMore" v-if="showGetMore" @click="addList">{{moreTips}}</div>
   </div>
 </template>
 <script>
@@ -53,30 +53,36 @@ export default {
       myGroup_list: [],
       all_list: [],
       page: 1,
-      size: 10,
-      showGetMore: false,
+      size: 4,
+      showGetMore: true,
       userinfo: {
         avatar_url: 'http://image.shengxinjing.cn/rate/unlogin.png',
         nick_name: '没事干研究院',
         level_display: '',
         is_authorized: true
-      },    }
+      },
+      moreTips:'加载更多'
+    }
   },
 
   methods: {
-    addList () {
+   async addList () {
       let that = this
-      console.log(that.all_list)
-      that.size += 10
-      console.log(that.size)
+      that.page  = that.page + 1
+     const init_size = that.size
 
-      if (that.size >= that.all_list.length) {
-        that.size = that.all_list.length
-        that.myGroup_list = that.all_list
-        console.log()
-      } else {
-        that.myGroup_list = that.all_list.slice(0, that.size)
-      }
+     const auth_code = wx.getStorageSync('auth_code')
+     const data = [that.page, init_size, auth_code]
+      let  addData =   await that.$store.dispatch('myGroupList', {...data})
+     console.log(addData.group_activity_orders.length)
+     let lastSize = addData.group_activity_orders.length
+     if(lastSize < init_size){
+        console.log(lastSize,init_size)
+          that.moreTips = '已无更多订单'
+     }
+
+     that.myGroup_list = that.myGroup_list.concat(addData.group_activity_orders)
+
     },
     goDetail (e) {
       const this_uuid = e.currentTarget.dataset.uuid
@@ -88,19 +94,20 @@ export default {
   },
   async onLoad () {
     const that = this
-    const auth_code = wx.getStorageSync('auth_code')
-    const data = [that.page, that.size, auth_code]
-    const groupList = await that.$store.dispatch('myGroupList', {...data})
     const init_size = that.size
 
-    that.all_list = groupList.group_activity_orders
-
-    let maxSize = that.all_list.length
-
-    that.myGroup_list = that.all_list.slice(0, init_size)
+    const auth_code = wx.getStorageSync('auth_code')
+    const data = [that.page, init_size, auth_code]
+    const groupList = await that.$store.dispatch('myGroupList', {...data})
+    that.all_list = groupList.group_activity_orders //初始数据列表
 
     that.myGroup_list = that.all_list
 
+    let lastSize = groupList.group_activity_orders.length
+    if(lastSize < init_size){
+      console.log(lastSize,init_size)
+      that.moreTips = '已无更多订单'
+    }
 
     let userinfo = wx.getStorageSync('userinfo')
 
@@ -119,7 +126,8 @@ export default {
   background:#f7f7f7 ;
   min-height: 667px;
   .getMore{
-    width: 80px;
+    max-width: 108px;
+    /*display: inline-block;*/
     height: 32px;
     line-height: 32px;
     text-align: center;
@@ -163,8 +171,6 @@ export default {
     height: 14px;
   }
   .orderNum .right{
-    /*border: 1px solid #000;*/
-
     min-width: 60px;
     span{
       color: #ff7f4f;
@@ -172,7 +178,6 @@ export default {
       vertical-align:middle;
       margin-right: 22px;
       /*border: 1px solid #000;*/
-
     };
     img{
       width: 8px;
@@ -205,8 +210,6 @@ export default {
       width: 60px;
       height: 60px;
       box-shadow: 0 4px 10px 0 rgba(#cccccc,0.5);
-
-
       img{
         display: inline-block;
         width: 60px;
@@ -214,8 +217,6 @@ export default {
         border-radius: 5px;
         box-shadow: 0 4px 10px 0 rgba(#cccccc,0.5);
       }
-
-
     };
     .txt{
       display: inline-block;
@@ -223,8 +224,6 @@ export default {
       margin-left: 15px;
       vertical-align: top;
       font-family: PingFangSC-Regular;
-
-      /*height: 60px;*/
 
       .name{
         font-size: 14px;
