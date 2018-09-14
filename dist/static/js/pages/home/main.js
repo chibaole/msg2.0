@@ -51,6 +51,7 @@ global.webpackJsonp([1],{
 //
 //
 //
+//
 
 
 
@@ -140,6 +141,32 @@ global.webpackJsonp([1],{
           }
         }
       }, _callee2, _this2);
+    }))();
+  },
+  onShow: function onShow() {
+    var _this3 = this;
+
+    return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee3() {
+      var group_activities;
+      return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee3$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              _context3.next = 2;
+              return _this3.$store.dispatch('getGroup');
+
+            case 2:
+              group_activities = _context3.sent;
+
+              console.log(group_activities);
+              _this3.group_activities = group_activities.group_activities;
+
+            case 5:
+            case 'end':
+              return _context3.stop();
+          }
+        }
+      }, _callee3, _this3);
     }))();
   }
 });
@@ -263,20 +290,6 @@ global.webpackJsonp([1],{
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -363,6 +376,33 @@ global.webpackJsonp([1],{
           }
         }
       }, _callee2, _this2);
+    }))();
+  },
+  onShow: function onShow() {
+    var _this3 = this;
+
+    return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee3() {
+      var boonsData;
+      return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee3$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              console.log('scroll加载今日福利数据');
+              _context3.next = 3;
+              return _this3.$store.dispatch('getBoonsToday');
+
+            case 3:
+              boonsData = _context3.sent;
+
+              _this3.boons = boonsData.boons;
+              console.log(_this3.boons);
+
+            case 6:
+            case 'end':
+              return _context3.stop();
+          }
+        }
+      }, _callee3, _this3);
     }))();
   }
 });
@@ -859,7 +899,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       staticClass: "group-prj-price "
     }, [_vm._v("¥" + _vm._s(group_activitie.current_price) + " "), _c('span', {
       staticClass: "price "
-    }, [_vm._v("¥" + _vm._s(group_activitie.original_price))])])]), _vm._v(" "), _c('div', {
+    }, [_vm._v("¥" + _vm._s(group_activitie.original_price))])]), _vm._v(" "), _c('div', {
       staticClass: "join-group ",
       attrs: {
         "data-groupname": _vm.groupname,
@@ -869,7 +909,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       on: {
         "click": _vm.goGroup
       }
-    }, [_vm._v(_vm._s(group_activitie.button.text))])])])], 1)], 1)
+    }, [_vm._v("\n              " + _vm._s(group_activitie.button.text) + "\n            ")])])])])], 1)], 1)
   })], 2)
 }
 var staticRenderFns = []
@@ -952,7 +992,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "clear"
   }), _vm._v(" "), _c('div', {
     staticClass: "appname "
-  }, [_vm._v("没事干研究院很酷"), _c('div', {
+  }, [_vm._v("没事干研究院很酷"), (false) ? _c('div', {
     staticClass: "explain",
     attrs: {
       "eventid": '0'
@@ -960,7 +1000,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     on: {
       "click": _vm.openBox
     }
-  }, [_vm._v("?")])]), _vm._v(" "), _c('Scroll', {
+  }, [_vm._v("?")]) : _vm._e()]), _vm._v(" "), _c('Scroll', {
     attrs: {
       "mpcomid": '0'
     }
@@ -1032,8 +1072,8 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }), _vm._v(" "), _c('div', {
       staticClass: "recomend-box-inner "
     }, [_c('div', {
-      staticClass: "recomend-intitle "
-    }, [_vm._v(_vm._s(boon.title))]), _vm._v(" "), _c('div', {
+      staticClass: "recomend-intitle  short_title "
+    }, [_vm._v(_vm._s(boon.short_title || '暂未添加'))]), _vm._v(" "), _c('div', {
       staticClass: "recomend-intitle little_title "
     }, [_vm._v(_vm._s(boon.description))])])]), _vm._v(" "), _c('div', {
       staticClass: "recomend-method "

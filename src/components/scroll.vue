@@ -5,16 +5,17 @@
 
     <scroll-view class="scroll-view_H" scroll-x="true" scroll-left>
 
-      <div class="scroll-view-item_H " v-for="boon in boons" :key="boon.uuid" :data-title="boon.title" :data-uuid="boon.uuid">
+      <div class="scroll-view-item_H " v-for="boon in boons" :key="boon.uuid" :data-title="boon.title"
+           :data-uuid="boon.uuid">
         <form :report-submit="true" @submit="formSubmit" :data-title="boon.title" :data-uuid="boon.uuid">
           <button formType="submit">
             <div class="recomend-box ">
-              <div class="recomend-pic" :style="{width:'100%', height:'100%', backgroundImage:'url('+boon.title_image_url+')',backgroundSize:'cover', background_position:'50%'}">
-                <!--{backgroundImage:'url(' + item.videopic + ')'}-->
-                <!--<img :src="boon.title_image_url" alt="">-->
+              <div class="recomend-pic"
+                   :style="{width:'100%', height:'100%', backgroundImage:'url('+boon.title_image_url+')',backgroundSize:'cover', background_position:'50%'}">
+
               </div>
               <div class="recomend-box-inner ">
-                <div class="recomend-intitle ">{{boon.title}}</div>
+                <div class="recomend-intitle  short_title ">{{boon.short_title || '暂未添加'}}</div>
                 <div class="recomend-intitle little_title ">{{boon.description}}</div>
               </div>
             </div>
@@ -22,21 +23,6 @@
           </button>
 
         </form>
-        <!--<form @submit = 'formSubmit' :report-submit=true :data-title="boon.title" :data-uuid = "boon.uuid" >-->
-        <!--<button formType="submit">-->
-        <!--<div class="test">-->
-        <!--{{boon.button.text}}-->
-        <!--</div>-->
-
-
-        <!--<form  :report-submit="true" @submit="myBoon">-->
-        <!--<button formType="submit" >-->
-        <!--<div class="mylist" >-->
-        <!--<img src="http://pbmrxkahq.bkt.clouddn.com/%E6%88%91%E7%9A%84%E6%8A%BD%E5%A5%96icon.png" alt="">-->
-        <!--<span class="list_title" >我的抽奖</span>-->
-        <!--</div>-->
-        <!--</button>-->
-        <!--</form>-->
 
 
       </div>
@@ -74,8 +60,8 @@
         let uuid = e.currentTarget.dataset.uuid
         let title = e.currentTarget.dataset.title
         let form_id = e.mp.detail.formId
-        console.log(uuid, title,form_id)
-        wx.navigateTo('/pages/project/main?boons_uuid=' + uuid + '&title=' + title + '&form_id='+form_id)
+        console.log(uuid, title, form_id)
+        wx.navigateTo('/pages/project/main?boons_uuid=' + uuid + '&title=' + title + '&form_id=' + form_id)
 //        wx.redirectTo('/pages/project/main?boons_uuid=' + uuid + '&title=' + title)
       },
       async attendBoon(e) {
@@ -95,12 +81,12 @@
       console.log(this.boons)
     },
 
-//    async onShow () {
-//      console.log('scroll加载今日福利数据')
-//      let boonsData = await this.$store.dispatch('getBoonsToday')
-//      this.boons = boonsData.boons
-//      console.log(this.boons)
-//    }
+    async onShow() {
+      console.log('scroll加载今日福利数据')
+      let boonsData = await this.$store.dispatch('getBoonsToday')
+      this.boons = boonsData.boons
+      console.log(this.boons)
+    }
 
   }
 </script>
@@ -151,7 +137,6 @@
 
   }
 
-
   .recomend-box {
     width: 150px;
     height: 180px;
@@ -195,7 +180,6 @@
 
     border-radius: 0 0 5px 5px;
     /*border: 1px solid #000;*/
-
 
   }
 
@@ -244,27 +228,10 @@
   }
 
 
-
-
-  .btn {
-    width: 20 rpx;
-    height: 20 rpx;
-    margin: 0;
-    padding: 0;
-    border-radius: 0;
-    position: fixed;
-    top: 0;
-  }
-
   button::after {
     border: none;
   }
 
-  .aa {
-    width: 200 rpx;
-    height: 200 rpx;
-    position: fixed;
-    top: 0;
-  }
+
 
 </style>

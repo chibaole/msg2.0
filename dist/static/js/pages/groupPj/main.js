@@ -71,6 +71,8 @@ global.webpackJsonp([11],{
 //
 //
 //
+//
+
 
 
 
@@ -88,7 +90,7 @@ global.webpackJsonp([11],{
       navbar_title: '拼团',
       group_activity_order_uuid: '',
       group_activities_uuid: '',
-      time: { day: '', hours: '', minutes: '' },
+      time: { day: '', hours: '', minutes: '', seconds: '' },
       myDetail: ''
     };
   },
@@ -228,15 +230,17 @@ global.webpackJsonp([11],{
       var hours = Math.floor(leftTime / 1000 / 60 / 60 % 24);
 
       var minutes = Math.floor(leftTime / 1000 / 60 % 60);
-      var second = Math.floor(leftTime / 1000 / 60 % 60);
+      var second = Math.floor(leftTime / 1000 % 60);
 
-      that.time.day = day;
+      //        that.time.day = day
       that.time.hours = hours;
       that.time.minutes = minutes;
+      that.time.seconds = second;
 
-      //                    console.log(day,hours,minutes)
+      console.log(hours, minutes, second);
 
       var param = setTimeout(that.getlastTime, 1000);
+
       if (leftTime <= 0) {
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__utils_util__["b" /* showModal */])('拼团结束', '活动结束了');
         leftTime = 0;
@@ -321,7 +325,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     })
   })]), _vm._v(" "), _c('div', {
     staticClass: "timeLine"
-  }, [_c('p', [_vm._v("距离结束仅剩")]), _vm._v(" "), _c('span', [_vm._v(_vm._s(_vm.time.day) + " ")]), _vm._v("天\n          "), _c('span', [_vm._v(_vm._s(_vm.time.hours) + " ")]), _vm._v("时\n          "), _c('span', [_vm._v(_vm._s(_vm.time.minutes) + " ")]), _vm._v("分\n        ")], 1), _vm._v(" "), _c('div', {
+  }, [_c('p', [_vm._v("距离结束仅剩")]), _vm._v(" "), _c('span', [_vm._v(_vm._s(_vm.time.hours) + " ")]), _vm._v("时\n      "), _c('span', [_vm._v(_vm._s(_vm.time.minutes) + " ")]), _vm._v("分\n      "), _c('span', [_vm._v(_vm._s(_vm.time.seconds) + " ")]), _vm._v("秒\n    ")], 1), _vm._v(" "), _c('div', {
     staticClass: "pj-info"
   }, [_c('h2', {
     staticClass: "pj-name"

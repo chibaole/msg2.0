@@ -128,7 +128,6 @@ global.webpackJsonp([2],{
 //
 //
 //
-//
 
 
 
@@ -296,7 +295,8 @@ global.webpackJsonp([2],{
                 is_authorized: true,
                 point: {
                   total_acquired: 0,
-                  available_count: 0 }
+                  available_count: 0
+                }
               };
 
               userinfoInit.level_display = user_profile.user.level_display;

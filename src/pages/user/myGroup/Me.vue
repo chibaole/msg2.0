@@ -11,7 +11,11 @@
             </div>
           </div>
           <div class="orderInfo">
-            <div class="pic"><img :src="item.group_activity.title_image_url" alt=""></div>
+            <div class="pic">
+              <!--<img :src="item.group_activity.title_image_url" alt="">-->
+              <div class="bg" :style="{width:'100%', height:'100%', backgroundImage:'url('+ item.group_activity.title_image_url +')',backgroundSize:'cover', backgroundPosition:'50%'}"></div>
+
+            </div>
             <div class="txt">
               <div class="name">{{item.group_activity.title}}</div>
               <p class="group_type">{{item.group_activity.group_type}}</p>
@@ -77,7 +81,7 @@ export default {
     goDetail (e) {
       const this_uuid = e.currentTarget.dataset.uuid
       wx.navigateTo({
-        url: `/pages/user/myGroup/myGroupDetail/main?next_uuid=${this_uuid}`
+        url: `/pages/user/myGroup/myGroupDetail/main?uuid=${this_uuid}`
       })
     }
 
@@ -90,7 +94,6 @@ export default {
     const init_size = that.size
 
     that.all_list = groupList.group_activity_orders
-    console.log(that.all_list)
 
     let maxSize = that.all_list.length
 
@@ -98,9 +101,6 @@ export default {
 
     that.myGroup_list = that.all_list
 
-    console.log(that.all_list)
-
-    console.log( that.myGroup_list)
 
     let userinfo = wx.getStorageSync('userinfo')
 
@@ -202,6 +202,9 @@ export default {
     .pic{
       display: inline-block;
       /*border: 1px solid #000;*/
+      width: 60px;
+      height: 60px;
+      box-shadow: 0 4px 10px 0 rgba(#cccccc,0.5);
 
 
       img{

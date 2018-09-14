@@ -14,8 +14,8 @@
               <view class="_div data-v-318ee708 group-prj-price ">¥{{group_activitie.current_price}}
                 <label class="_span data-v-318ee708 price ">¥{{group_activitie.original_price}}</label>
               </view>
+              <view class="_div data-v-318ee708 join-group " bindtap="handleProxy" data-groupname="{{groupname}}" data-uuid="{{group_activitie.uuid}}" data-eventid="{{'0-'+index}}" data-comkey="{{$k}}"> {{group_activitie.button.text}} </view>
             </view>
-            <view class="_div data-v-318ee708 join-group " bindtap="handleProxy" data-groupname="{{groupname}}" data-uuid="{{group_activitie.uuid}}" data-eventid="{{'0-'+index}}" data-comkey="{{$k}}">{{group_activitie.button.text}}</view>
           </view>
         </button>
       </form>

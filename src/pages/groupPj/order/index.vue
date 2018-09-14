@@ -25,9 +25,9 @@
         <h2><span>{{order_info.status_display}}</span></h2>
         <div class="order-info">
           <div class="text">还差<span>{{order_info.users_left}}</span>人参团,
-            <span>{{time.day}}</span>天
             <span>{{time.hours}}</span>时
-            <span>{{time.minutes}}</span>分后结束
+            <span>{{time.minutes}}</span>分
+            <span>{{time.seconds}}</span>秒后结束
           </div>
         </div>
 
@@ -123,7 +123,7 @@
 
       <!--<div class="pay"  >-->
       <div class="price">
-        ¥{{order_info.group_activity.current_price}}<span>还剩{{order_info.group_activity.product.num}}</span></div>
+        ¥{{order_info.group_activity.current_price}}<span>还剩{{order_info.group_activity.product.num}}份</span></div>
       <div class="join-group" @click="attendGroup" :data-uuid="order_info.uuid">一键参与</div>
     </div>
 
@@ -145,7 +145,8 @@
         time: {
           day: '',
           hours: '',
-          minutes: ''
+          minutes: '',
+          seconds:''
         },
         showshare: true,
         showModal: false,
@@ -233,7 +234,10 @@
         let that = this
 //        console.log('倒计时')
         let startTime = that.order_info.initial_time_timestamp
+
         let currentTime = (new Date()).getTime()
+        let endTime = that.order_info.end_time_timestamp
+        console.log('当前时间'+currentTime)
 
         let allTime = 86400000 // 倒计时24小时
 //        let leftTime = allTime - ( currentTime - startTime)
@@ -246,7 +250,8 @@
 //        }else {
 //          leftTime = allTime - ( currentTime - startTime)
 //        }
-        let leftTime = 86400 // 总时间
+//        let leftTime = 86400 // 总时间
+        let leftTime = endTime - currentTime //<864000
 
         let day = Math.floor(leftTime / 1000 / 60 / 60 / 24) // 剩余天数
 
@@ -254,10 +259,25 @@
 
         let minutes = Math.floor(leftTime / 1000 / 60 % 60)
 
+        let seconds = Math.floor(leftTime / 1000 % 60)
+
         that.time.day = day
         that.time.hours = hours
         that.time.minutes = minutes
-        setTimeout(that.getlastTime, 1000)
+        that.time.seconds = seconds
+
+
+        var param =  setTimeout(that.getlastTime, 1000)
+
+
+        if (leftTime <= 0) {
+//          showModal('拼团结束', '活动结束了')
+          leftTime = 0
+          clearTimeout(param)
+        }
+
+
+        console.log(seconds)
       },
       share() {
         let that = this

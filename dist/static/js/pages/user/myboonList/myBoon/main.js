@@ -63,6 +63,9 @@ global.webpackJsonp([5],{
 //
 //
 //
+//
+//
+//
 
 
 
@@ -158,18 +161,22 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "pjCard"
   }, [_c('div', {
     staticClass: "pic"
-  }, [_c('img', {
-    attrs: {
-      "src": _vm.boon_order.boon.title_image_url,
-      "alt": ""
-    }
+  }, [_c('div', {
+    staticClass: "bg",
+    style: ({
+      width: '100%',
+      height: '100%',
+      backgroundImage: 'url(' + _vm.boon_order.boon.title_image_url + ')',
+      backgroundSize: 'cover',
+      backgroundPosition: '50%'
+    })
   })]), _vm._v(" "), _c('div', {
     staticClass: "priceName"
   }, [_c('h2', {
     staticClass: "title"
-  }, [_vm._v(_vm._s(_vm.boon_order.boon.title))]), _vm._v(" "), _c('div', {
+  }, [_vm._v(_vm._s(_vm.boon_order.boon.title))]), _vm._v(" "), (_vm.boon_order.boon.sponsor) ? _c('div', {
     staticClass: "sponsor"
-  }, [_vm._v(_vm._s(_vm.boon_order.boon.sponsor.description))])], 1)]), _vm._v(" "), (_vm.boon_order.address) ? _c('div', {
+  }, [_vm._v(_vm._s(_vm.boon_order.boon.sponsor.description))]) : _vm._e()], 1)]), _vm._v(" "), (_vm.boon_order.address) ? _c('div', {
     staticClass: "receive"
   }, [_c('div', {
     staticClass: "title"

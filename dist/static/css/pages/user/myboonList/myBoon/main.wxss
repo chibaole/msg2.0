@@ -19,6 +19,7 @@
   width: 160rpx;
   height: 160rpx;
   margin: 50rpx auto 40rpx 50rpx;
+  border-radius: 10rpx;
 }
 .pjCard .pic ._img.data-v-6d087ae9 {
   width: 160rpx;
@@ -188,4 +189,7 @@
   position: fixed;
   bottom: 100rpx;
   right: 50rpx;
+}
+.bg.data-v-6d087ae9 {
+  border-radius: 10rpx;
 }

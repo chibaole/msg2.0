@@ -10,16 +10,15 @@
         </div>
       </div>
     </div>
-
     <div class="userinfo">
       <!--<div class="userinfo"  >-->
-
       <img class="avatar" :src='userinfo.avatar_url'>
       <p class="username">
         <span class="foodname">{{userinfo.nick_name}}</span>
         <span class="foodLabel">{{userinfo.level_display}}</span>
       </p>
       <span class="score">{{userinfo.point.total_acquired}}<span class="score_text">个小麻花</span></span>
+
       <!--<div class="desc">-->
       <!--<span class="small_score">小麻花积分</span>-->
       <!--<span class="small_score_text">你还有3000{{}}个小麻花可以使用，快去使用</span>-->
@@ -30,12 +29,12 @@
     </div>
 
     <!--<form :report-submit="true" @submit="getPhone" id="phoneForm">-->
-      <!--<button formType="submit">-->
-        <!--<div class="getPhone">-->
-          <!--<span class="list_title">登录手机号，同步全渠道优惠</span>-->
-          <!--<span class="getPhoneBtn">填写</span>-->
-        <!--</div>-->
-      <!--</button>-->
+    <!--<button formType="submit">-->
+    <!--<div class="getPhone">-->
+    <!--<span class="list_title">登录手机号，同步全渠道优惠</span>-->
+    <!--<span class="getPhoneBtn">填写</span>-->
+    <!--</div>-->
+    <!--</button>-->
     <!--</form>-->
 
     <div class="formBox">
@@ -211,9 +210,10 @@
           nick_name: userinfo.nick_name,
           level_display: '',
           is_authorized: true,
-          point:{
+          point: {
             total_acquired: 0,
-            available_count: 0 }
+            available_count: 0
+          }
         }
         userinfoInit.level_display = user_profile.user.level_display
         userinfoInit.point = user_profile.user.point
@@ -222,7 +222,6 @@
       } else {
         that.login_show = true
       }
-
 
 
     },
@@ -306,7 +305,7 @@
       width: 20px;
       height: 20px;
       position: absolute;
-      top:20px;
+      top: 20px;
       right: 25px;
     }
     .score {
@@ -578,7 +577,6 @@
     letter-spacing: -0.4px;
     width: 150px;
     display: inline-block;
-
 
   }
 

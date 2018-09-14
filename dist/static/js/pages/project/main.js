@@ -202,6 +202,7 @@ global.webpackJsonp([3],{
 //
 //
 //
+//
 
 
 
@@ -687,23 +688,27 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "container"
   }, [_c('Navbar', {
     attrs: {
-      "navbar_title": _vm.navbar_title,
+      "navbar_title": _vm.boon.short_title || '抽奖福利',
       "mpcomid": '0'
     }
   }), _vm._v(" "), _c('div', {
     staticClass: "pic-info"
   }, [_c('div', {
     staticClass: "pic"
-  }, [_c('img', {
-    attrs: {
-      "src": _vm.boon.title_image_url,
-      "alt": ""
-    }
+  }, [_c('div', {
+    staticClass: "bg",
+    style: ({
+      width: '100%',
+      height: '100%',
+      backgroundImage: 'url(' + _vm.boon.title_image_url + ')',
+      backgroundSize: 'cover',
+      backgroundPosition: '50%'
+    })
   })]), _vm._v(" "), _c('div', {
     staticClass: "prj-info"
   }, [_c('p', {
     staticClass: "prj-name"
-  }, [_vm._v(_vm._s(_vm.boon.description))]), _vm._v(" "), _c('p', {
+  }, [_vm._v(_vm._s(_vm.boon.title))]), _vm._v(" "), _c('p', {
     staticClass: "prj-little-info"
   }, [_vm._v(_vm._s(_vm.boon.lottery_conditions) + " "), _c('span', {
     staticClass: "hasJoined"

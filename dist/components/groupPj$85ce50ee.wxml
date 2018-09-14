@@ -8,9 +8,9 @@
       </view>
       <view class="_div data-v-05960fcb timeLine">
         <view class="_p data-v-05960fcb">距离结束仅剩</view>
-        <label class="_span data-v-05960fcb">{{time.day}} </label>天
         <label class="_span data-v-05960fcb">{{time.hours}} </label>时
-        <label class="_span data-v-05960fcb">{{time.minutes}} </label>分 </view>
+        <label class="_span data-v-05960fcb">{{time.minutes}} </label>分
+        <label class="_span data-v-05960fcb">{{time.seconds}} </label>秒 </view>
       <view class="_div data-v-05960fcb pj-info">
         <view class="_h2 data-v-05960fcb pj-name">
           <label class="_span data-v-05960fcb mark">{{group_activity.group_type}}</label>{{group_activity.title}}</view>

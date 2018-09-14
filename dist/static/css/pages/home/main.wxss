@@ -1,5 +1,8 @@
 @import "/static/css/vendor.wxss";
 
+.skeleton.data-v-75e665de {
+  margin-bottom: 40rpx;
+}
 .appname.data-v-75e665de {
   width: 436rpx;
   height: 48rpx;
@@ -143,24 +146,10 @@
   border: 2rpx solid #ff7f4f;
   float: left;
 }
-.btn.data-v-8c08e6c0 {
-  width: 20 rpx;
-  height: 20 rpx;
-  margin: 0;
-  padding: 0;
-  border-radius: 0;
-  position: fixed;
-  top: 0;
-}
 ._button.data-v-8c08e6c0::after {
   border: none;
 }
-.aa.data-v-8c08e6c0 {
-  width: 200 rpx;
-  height: 200 rpx;
-  position: fixed;
-  top: 0;
-}
+@charset "UTF-8";
 .container.data-v-318ee708 {
   font-family: PingFangSC-Medium;
   margin-top: 160rpx;
@@ -185,7 +174,6 @@
 }
 .group-tiem.data-v-318ee708 {
   width: 650rpx;
-  height: 462rpx;
   margin: 0 auto 120rpx;
   padding: 0;
   border-radius: 0;
@@ -207,50 +195,53 @@
 }
 .info-box.data-v-318ee708 {
   width: 100%;
-  height: 160rpx;
 }
-.group-info.data-v-318ee708 {
-  width: 70%;
+.info-box .group-info.data-v-318ee708 {
+  width: 100%;
   text-align: left;
   display: inline-block;
-  float: left;
 }
-.join-group.data-v-318ee708 {
-  text-align: center;
-  border-radius: 28rpx;
-  font-size: 24rpx;
-  width: 124rpx;
-  height: 60rpx;
-  line-height: 60rpx;
-  color: #fff;
-  float: right;
-  margin-right: 4rpx;
-  margin-top: 106rpx;
-  background: #ff7f4f;
-  box-shadow: 0 0 16rpx 0 rgba(255, 127, 79, 0.4);
-}
-.group-text.data-v-318ee708 {
+.info-box .group-info .group-text.data-v-318ee708 {
   height: 40rpx;
   line-height: 40rpx;
   font-size: 40rpx;
   color: #333;
   margin-top: 40rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
-.group-prj-price.data-v-318ee708 {
+.info-box .group-info .group-prj-price.data-v-318ee708 {
   color: #f83713;
   height: 36rpx;
+  display: inline-block;
   line-height: 36rpx;
   font-size: 36rpx;
   font-weight: 300;
   margin-top: 38rpx;
 }
-.price.data-v-318ee708 {
+.info-box .group-info .group-prj-price .price.data-v-318ee708 {
   height: 20rpx;
   line-height: 20rpx;
   font-size: 20rpx;
   color: #999;
   text-decoration: line-through;
   margin-top: 50rpx;
+}
+.info-box .group-info .join-group.data-v-318ee708 {
+  display: inline-block;
+  text-align: center;
+  border-radius: 28rpx;
+  font-size: 24rpx;
+  width: 124rpx;
+  height: 60rpx;
+  margin-top: 20rpx;
+  margin-right: 4rpx;
+  line-height: 60rpx;
+  color: #fff;
+  float: right;
+  background: #ff7f4f;
+  box-shadow: 0 0 16rpx 0 rgba(255, 127, 79, 0.4);
 }
 ._form.data-v-318ee708 {
   border: none;

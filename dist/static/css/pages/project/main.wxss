@@ -29,8 +29,11 @@
   margin-bottom: 20rpx;
   height: 40rpx;
   line-height: 40rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
-.prj-little-info.data-v-a0735dbe {
+.prj-info .prj-little-info.data-v-a0735dbe {
   height: 34rpx;
   line-height: 34rpx;
   font-size: 24rpx;
@@ -38,7 +41,7 @@
   letter-spacing: -0.6rpx;
   color: #4a4a4a;
 }
-.hasJoined.data-v-a0735dbe {
+.prj-info .prj-little-info .hasJoined.data-v-a0735dbe {
   display: inline-block;
   float: right;
   height: 34rpx;
@@ -52,7 +55,7 @@
   width: 650rpx;
   height: 2rpx;
   background: #eee;
-  margin-bottom: 26rpx;
+  margin: 0 50rpx 26rpx;
 }
 .sponsorsBox.data-v-a0735dbe {
   background: #fff;
@@ -126,6 +129,8 @@
 .boonDetail.data-v-a0735dbe {
   width: 650rpx;
   margin: 0 auto;
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular;
 }
 .btn1.data-v-a0735dbe {
   padding-top: 180rpx;

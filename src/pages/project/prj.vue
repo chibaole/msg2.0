@@ -1,14 +1,17 @@
 <template>
   <div class="container">
     <!--<p>项目详情页</p>-->
-    <Navbar :navbar_title="navbar_title"></Navbar>
-
+    <Navbar :navbar_title="boon.short_title||'抽奖福利'"></Navbar>
 
     <div class="pic-info">
-      <div class="pic"><img :src="boon.title_image_url" alt=""></div>
+      <div class="pic">
+        <!--<img :src="boon.title_image_url" alt="">-->
+        <div class="bg" :style="{width:'100%', height:'100%', backgroundImage:'url('+boon.title_image_url+')',backgroundSize:'cover', backgroundPosition:'50%'}"></div>
+
+        </div>
 
       <div class="prj-info">
-        <p class="prj-name">{{boon.description}}</p>
+        <p class="prj-name">{{boon.title}}</p>
         <p class="prj-little-info">{{boon.lottery_conditions}} <span class="hasJoined">已有<span
           style="color: #ff7f4f">{{boon.num_of_participants}}</span>人参与</span></p>
       </div>
@@ -27,8 +30,6 @@
       </div>
     </div>
     <!--赞助上小程序   -->
-
-
     <div class="process-prize" v-if=" boon.status === 'published'">
       <h2>抽奖流程</h2>
       <div class="steps">
@@ -433,7 +434,6 @@
         imageUrl: 'http://pbmrxkahq.bkt.clouddn.com/cover.png'
       }
     }
-
   }
 </script>
 
@@ -468,37 +468,46 @@
     width: 325px;
     margin: 0 auto;
     /*border:1px solid #000;*/
+    .prj-name {
+      font-size: 20px;
+      color: #333;
+      margin-bottom: 10px;
+      height: 20px;
+      line-height: 20px;
+
+      overflow: hidden;
+      text-overflow:ellipsis;
+      white-space: nowrap;
+      /*border:1px solid #000;*/
+
+    };
+    .prj-little-info {
+      height: 17px;
+      line-height: 17px;
+      font-size: 12px;
+      font-family: PingFangSC-Regular;
+      letter-spacing: -0.3px;
+      color: #4a4a4a;
+      /*margin-bottom: 15px;*/
+
+      .hasJoined {
+        display: inline-block;
+        float: right;
+        height: 17px;
+        line-height: 17px;
+        font-size: 12px;
+        font-family: PingFangSC-Regular;
+        letter-spacing: -0.3px;
+        color: #4a4a4a;
+      }
+
+    }
+
   }
 
-  .prj-info .prj-name {
-    font-size: 20px;
-    color: #333;
-    margin-bottom: 10px;
-    height: 20px;
-    line-height: 20px;
 
-  }
 
-  .prj-little-info {
-    height: 17px;
-    line-height: 17px;
-    font-size: 12px;
-    font-family: PingFangSC-Regular;
-    letter-spacing: -0.3px;
-    color: #4a4a4a;
-    /*margin-bottom: 15px;*/
-  }
 
-  .hasJoined {
-    display: inline-block;
-    float: right;
-    height: 17px;
-    line-height: 17px;
-    font-size: 12px;
-    font-family: PingFangSC-Regular;
-    letter-spacing: -0.3px;
-    color: #4a4a4a;
-  }
 
   .line {
     width: 325px;
@@ -506,8 +515,8 @@
     background: #eee;
     /*box-shadow: 0px 2px 4px #000 ;*/
 
-    /*margin: 0 25px;*/
-    margin-bottom: 13px;
+    margin: 0 25px 13px;
+    /*margin-bottom: 13px;*/
 
   }
 
@@ -617,6 +626,8 @@
   .boonDetail {
     width: 325px;
     margin: 0 auto;
+    font-size: 12px;
+    font-family: PingFangSC-Regular;
   }
 
   .btn1 {

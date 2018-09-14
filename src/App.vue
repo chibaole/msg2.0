@@ -121,4 +121,8 @@
     padding: 0;
     margin: 0;
   }
+  .bg{
+    border-radius:5px;
+
+  }
 </style>

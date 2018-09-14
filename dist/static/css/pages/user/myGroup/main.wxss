@@ -76,6 +76,9 @@
 }
 .orderInfo .pic.data-v-4656d1c7 {
   display: inline-block;
+  width: 120rpx;
+  height: 120rpx;
+  box-shadow: 0 8rpx 20rpx 0 rgba(204, 204, 204, 0.5);
 }
 .orderInfo .pic ._img.data-v-4656d1c7 {
   display: inline-block;

@@ -7,7 +7,7 @@
     </view>
     <view class="_div data-v-75e665de clear"></view>
     <view class="_div data-v-75e665de appname ">没事干研究院很酷
-      <view class="_div data-v-75e665de explain" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}">?</view>
+      <view class="_div data-v-75e665de explain" bindtap="handleProxy" wx:if="{{false}}" data-eventid="{{'0'}}" data-comkey="{{$k}}">?</view>
     </view>
     <template data="{{...$root[$kk+'0'], $root}}" is="scroll$532da844"></template>
     <template data="{{...$root[$kk+'1'], $root}}" is="group$71c9e504"></template>

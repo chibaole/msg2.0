@@ -87,6 +87,10 @@
 }
 .orderInfo .pic.data-v-7ec0cb2e {
   display: inline-block;
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 10rpx;
+  box-shadow: 0 8rpx 20rpx 0 rgba(204, 204, 204, 0.5);
 }
 .orderInfo .pic ._img.data-v-7ec0cb2e {
   display: inline-block;

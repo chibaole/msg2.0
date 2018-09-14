@@ -50,6 +50,10 @@ global.webpackJsonp([8],{
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -97,7 +101,7 @@ global.webpackJsonp([8],{
     goDetail: function goDetail(e) {
       var this_uuid = e.currentTarget.dataset.uuid;
       wx.navigateTo({
-        url: '/pages/user/myGroup/myGroupDetail/main?next_uuid=' + this_uuid
+        url: '/pages/user/myGroup/myGroupDetail/main?uuid=' + this_uuid
       });
     }
   },
@@ -122,7 +126,6 @@ global.webpackJsonp([8],{
 
 
               that.all_list = groupList.group_activity_orders;
-              console.log(that.all_list);
 
               maxSize = that.all_list.length;
 
@@ -131,16 +134,12 @@ global.webpackJsonp([8],{
 
               that.myGroup_list = that.all_list;
 
-              console.log(that.all_list);
-
-              console.log(that.myGroup_list);
-
               userinfo = wx.getStorageSync('userinfo');
 
 
               that.userinfo = userinfo;
 
-            case 16:
+            case 13:
             case 'end':
               return _context.stop();
           }
@@ -199,11 +198,15 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       staticClass: "orderInfo"
     }, [_c('div', {
       staticClass: "pic"
-    }, [_c('img', {
-      attrs: {
-        "src": item.group_activity.title_image_url,
-        "alt": ""
-      }
+    }, [_c('div', {
+      staticClass: "bg",
+      style: ({
+        width: '100%',
+        height: '100%',
+        backgroundImage: 'url(' + item.group_activity.title_image_url + ')',
+        backgroundSize: 'cover',
+        backgroundPosition: '50%'
+      })
     })]), _vm._v(" "), _c('div', {
       staticClass: "txt"
     }, [_c('div', {

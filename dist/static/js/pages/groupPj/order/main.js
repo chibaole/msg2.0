@@ -166,7 +166,8 @@ global.webpackJsonp([4],{
       time: {
         day: '',
         hours: '',
-        minutes: ''
+        minutes: '',
+        seconds: ''
       },
       showshare: true,
       showModal: false,
@@ -292,7 +293,10 @@ global.webpackJsonp([4],{
       var that = this;
       //        console.log('倒计时')
       var startTime = that.order_info.initial_time_timestamp;
+
       var currentTime = new Date().getTime();
+      var endTime = that.order_info.end_time_timestamp;
+      console.log('当前时间' + currentTime);
 
       var allTime = 86400000; // 倒计时24小时
       //        let leftTime = allTime - ( currentTime - startTime)
@@ -305,7 +309,8 @@ global.webpackJsonp([4],{
       //        }else {
       //          leftTime = allTime - ( currentTime - startTime)
       //        }
-      var leftTime = 86400; // 总时间
+      //        let leftTime = 86400 // 总时间
+      var leftTime = endTime - currentTime; //<864000
 
       var day = Math.floor(leftTime / 1000 / 60 / 60 / 24); // 剩余天数
 
@@ -313,10 +318,22 @@ global.webpackJsonp([4],{
 
       var minutes = Math.floor(leftTime / 1000 / 60 % 60);
 
+      var seconds = Math.floor(leftTime / 1000 % 60);
+
       that.time.day = day;
       that.time.hours = hours;
       that.time.minutes = minutes;
-      setTimeout(that.getlastTime, 1000);
+      that.time.seconds = seconds;
+
+      var param = setTimeout(that.getlastTime, 1000);
+
+      if (leftTime <= 0) {
+        //          showModal('拼团结束', '活动结束了')
+        leftTime = 0;
+        clearTimeout(param);
+      }
+
+      console.log(seconds);
     },
     share: function share() {
       var that = this;
@@ -769,7 +786,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "order-info"
   }, [_c('div', {
     staticClass: "text"
-  }, [_vm._v("还差"), _c('span', [_vm._v(_vm._s(_vm.order_info.users_left))]), _vm._v("人参团,\n          "), _c('span', [_vm._v(_vm._s(_vm.time.day))]), _vm._v("天\n          "), _c('span', [_vm._v(_vm._s(_vm.time.hours))]), _vm._v("时\n          "), _c('span', [_vm._v(_vm._s(_vm.time.minutes))]), _vm._v("分后结束\n        ")])]), _vm._v(" "), _c('div', {
+  }, [_vm._v("还差"), _c('span', [_vm._v(_vm._s(_vm.order_info.users_left))]), _vm._v("人参团,\n          "), _c('span', [_vm._v(_vm._s(_vm.time.hours))]), _vm._v("时\n          "), _c('span', [_vm._v(_vm._s(_vm.time.minutes))]), _vm._v("分\n          "), _c('span', [_vm._v(_vm._s(_vm.time.seconds))]), _vm._v("秒后结束\n        ")])]), _vm._v(" "), _c('div', {
     staticClass: "user"
   }, _vm._l((_vm.order_info.users), function(item, index) {
     return _c('div', {
@@ -958,7 +975,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "pay"
   }, [_c('div', {
     staticClass: "price"
-  }, [_vm._v("\n      ¥" + _vm._s(_vm.order_info.group_activity.current_price)), _c('span', [_vm._v("还剩" + _vm._s(_vm.order_info.group_activity.product.num))])]), _vm._v(" "), _c('div', {
+  }, [_vm._v("\n      ¥" + _vm._s(_vm.order_info.group_activity.current_price)), _c('span', [_vm._v("还剩" + _vm._s(_vm.order_info.group_activity.product.num) + "份")])]), _vm._v(" "), _c('div', {
     staticClass: "join-group",
     attrs: {
       "data-uuid": _vm.order_info.uuid,

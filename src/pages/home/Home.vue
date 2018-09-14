@@ -6,7 +6,7 @@
     </div>
     <div class="clear"></div>
 
-    <div class="appname ">没事干研究院很酷<div class="explain" @click="openBox">?</div>
+    <div class="appname ">没事干研究院很酷<div class="explain" @click="openBox" v-if="false">?</div>
     </div>
 
     <Scroll></Scroll>
@@ -86,7 +86,10 @@
   }
 </script>
 <style  scoped>
-
+.skeleton{
+  /*border: 1px solid #000;*/
+  margin-bottom: 20px;
+}
   .appname{
     width: 218px;
     height: 24px;

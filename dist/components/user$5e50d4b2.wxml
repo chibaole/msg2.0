@@ -4,11 +4,11 @@
     <template data="{{...$root[$kk+'0'], $root}}" is="navbar$7457f0be"></template>
     <view class="_div data-v-6d087ae9 pjCard">
       <view class="_div data-v-6d087ae9 pic">
-        <image src="{{boon_order.boon.title_image_url}}" alt class="_img data-v-6d087ae9"></image>
+        <view class="_div data-v-6d087ae9 bg" style=" {{(  'width:' +  '100%' +  ';' +  'height:' +  '100%' +  ';' +  'background-image:' +  'url(' +  boon_order.boon.title_image_url +  ')' +  ';' +  'background-size:' +  'cover' +  ';' +  'background-position:' +  '50%' +  ';')}}"></view>
       </view>
       <view class="_div data-v-6d087ae9 priceName">
         <view class="_h2 data-v-6d087ae9 title">{{boon_order.boon.title }}</view>
-        <view class="_div data-v-6d087ae9 sponsor">{{boon_order.boon.sponsor.description}}</view>
+        <view class="_div data-v-6d087ae9 sponsor" wx:if="{{boon_order.boon.sponsor}}">{{boon_order.boon.sponsor.description}}</view>
       </view>
     </view>
     <view class="_div data-v-6d087ae9 receive" wx:if="{{boon_order.address}}">

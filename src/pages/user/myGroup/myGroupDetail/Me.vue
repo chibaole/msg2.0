@@ -4,7 +4,9 @@
     <div class="wrap">
       <div class="pj-info">
         <div class="left">
-          <img :src="order_info.group_activity.title_image_url" alt="">
+          <!--<img :src="order_info.group_activity.title_image_url" alt="">-->
+          <div class="bg" :style="{width:'100%', height:'100%', backgroundImage:'url('+order_info.group_activity.title_image_url+')',backgroundSize:'cover', backgroundPosition:'50%'}"></div>
+
         </div>
         <div class="right">
           <h2><div class="mark">{{order_info.group_activity.group_type}}</div>{{order_info.group_activity.title}}</h2>
@@ -13,7 +15,7 @@
       </div>
     </div>
 
-    <div class="receive">
+    <div class="receive" v-if="order_info.address">
       <div class="title">收货人信息</div>
       <div class="phone_address">
         <div class="phone"><span>收货信息：</span>{{order_info.address.people}}</div>
@@ -28,7 +30,7 @@
       <div class="orderState"><span>订单状态：</span><span>{{order_info.status_display}}</span></div>
     </div>
 
-    <div class="express">
+    <div class="express" v-if="order_info.delivery">
       <div class="title">物流信息</div>
       <div class="groupOrder"><span>物流配送：</span><span>{{order_info.delivery.company}}</span></div>
       <div class="orderTime"><span>运单编号：</span><span @click="clip_no">{{order_info.delivery.delivery_no}}</span></div>

@@ -25,9 +25,9 @@
         <view class="_div data-v-b3a874ec order-info">
           <view class="_div data-v-b3a874ec text">还差
             <label class="_span data-v-b3a874ec">{{order_info.users_left}}</label>人参团,
-            <label class="_span data-v-b3a874ec">{{time.day}}</label>天
             <label class="_span data-v-b3a874ec">{{time.hours}}</label>时
-            <label class="_span data-v-b3a874ec">{{time.minutes}}</label>分后结束 </view>
+            <label class="_span data-v-b3a874ec">{{time.minutes}}</label>分
+            <label class="_span data-v-b3a874ec">{{time.seconds}}</label>秒后结束 </view>
         </view>
         <view class="_div data-v-b3a874ec user">
           <view class="_div data-v-b3a874ec pic" wx:key="item.uuid" key="{{item.uuid}}" wx:for="{{order_info.users}}" wx:for-index="index" wx:for-item="item">
@@ -104,7 +104,7 @@
     </view>
     <view class="_div data-v-b3a874ec pay" wx:if="{{onekeyAttend}}">
       <view class="_div data-v-b3a874ec price"> ¥{{order_info.group_activity.current_price}}
-        <label class="_span data-v-b3a874ec">还剩{{order_info.group_activity.product.num}}</label>
+        <label class="_span data-v-b3a874ec">还剩{{order_info.group_activity.product.num}}份</label>
       </view>
       <view class="_div data-v-b3a874ec join-group" bindtap="handleProxy" data-uuid="{{order_info.uuid}}" data-eventid="{{'9'}}" data-comkey="{{$k}}">一键参与</view>
     </view>

@@ -5,10 +5,10 @@
     <template data="{{...$root[$kk+'0'], $root}}" is="navbar$7457f0be"></template>
     <view class="_div data-v-a0735dbe pic-info">
       <view class="_div data-v-a0735dbe pic">
-        <image src="{{boon.title_image_url}}" alt class="_img data-v-a0735dbe"></image>
+        <view class="_div data-v-a0735dbe bg" style=" {{(  'width:' +  '100%' +  ';' +  'height:' +  '100%' +  ';' +  'background-image:' +  'url(' +  boon.title_image_url +  ')' +  ';' +  'background-size:' +  'cover' +  ';' +  'background-position:' +  '50%' +  ';')}}"></view>
       </view>
       <view class="_div data-v-a0735dbe prj-info">
-        <view class="_p data-v-a0735dbe prj-name">{{boon.description}}</view>
+        <view class="_p data-v-a0735dbe prj-name">{{boon.title}}</view>
         <view class="_p data-v-a0735dbe prj-little-info">{{boon.lottery_conditions}}
           <label class="_span data-v-a0735dbe hasJoined">已有
             <label style="color: #ff7f4f" class="_span data-v-a0735dbe">{{boon.num_of_participants}}</label>人参与</label>

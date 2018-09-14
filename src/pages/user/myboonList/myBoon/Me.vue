@@ -2,42 +2,45 @@
   <div class="container" >
     <Navbar :navbar_title="navbar_title"></Navbar>
     <div class="pjCard">
-      <div class="pic"><img :src="boon_order.boon.title_image_url" alt=""></div>
+      <div class="pic">
+        <!--<img :src="boon_order.boon.title_image_url" alt="">-->
+        <div class="bg" :style="{width:'100%', height:'100%', backgroundImage:'url('+boon_order.boon.title_image_url+')',backgroundSize:'cover', backgroundPosition:'50%'}"></div>
+
+      </div>
       <div class="priceName">
         <h2 class="title">{{boon_order.boon.title }}</h2>
-        <div class="sponsor">{{boon_order.boon.sponsor.description}}</div>
+        <div class="sponsor" v-if="boon_order.boon.sponsor">{{boon_order.boon.sponsor.description}}</div>
       </div>
 
     </div>
+        <div class="receive" v-if="boon_order.address">
+          <div class="title">收货人信息</div>
+          <div class="phone_address">
+            <div class="phone"><span>收货信息：</span><span>{{ boon_order.address.people || "暂无收货人信息"  }}</span></div>
+            <div class="address"><span>收货地址：</span><span class="addressDetail">{{boon_order.address.detail}}</span></div>
+          </div>
 
-    <div class="receive" v-if="boon_order.address">
-      <div class="title">收货人信息</div>
-      <div class="phone_address">
-        <div class="phone"><span>收货信息：</span><span>{{ boon_order.address.people || "暂无收货人信息"  }}</span></div>
-        <div class="address"><span>收货地址：</span><span class="addressDetail">{{boon_order.address.detail}}</span></div>
-      </div>
+        </div>
+        <div class="orderinfo">
+          <div class="title">订单信息</div>
+          <div class="groupOrder"><span>拼团订单：</span><span>{{boon_order.uuid}}</span></div>
+          <div class="orderTime"><span>订单时间：</span><span>{{boon_order.boon.lottery_info.lottery_time}}</span></div>
+          <div class="orderState"><span>订单状态：</span><span>{{boon_order.order_status_display}}</span></div>
+        </div>
 
-    </div>
-    <div class="orderinfo">
-      <div class="title">订单信息</div>
-      <div class="groupOrder"><span>拼团订单：</span><span>{{boon_order.uuid}}</span></div>
-      <div class="orderTime"><span>订单时间：</span><span>{{boon_order.boon.lottery_info.lottery_time}}</span></div>
-      <div class="orderState"><span>订单状态：</span><span>{{boon_order.order_status_display}}</span></div>
-    </div>
+        <div class="express" v-if="boon_order.delivery">
+          <div class="title">物流信息</div>
+          <div class="groupOrder"><span>物流配送：</span><span>{{boon_order.delivery.company}}</span></div>
+          <div class="orderTime"><span>运单编号：</span><span>{{boon_order.delivery.delivery_no}}</span></div>
+          <img src="../../../../../static/img/right.png" alt="">
+        </div>
 
-    <div class="express" v-if="boon_order.delivery">
-      <div class="title">物流信息</div>
-      <div class="groupOrder"><span>物流配送：</span><span>{{boon_order.delivery.company}}</span></div>
-      <div class="orderTime"><span>运单编号：</span><span>{{boon_order.delivery.delivery_no}}</span></div>
-      <img src="../../../../../static/img/right.png" alt="">
-    </div>
-
-    <div class="lottery">
-      <div class="title">开奖信息</div>
-      <div class="groupOrder"><span>抽奖玩法：</span><span>{{boon_order.boon.lottery_info.lottery_method}}</span></div>
-      <div class="orderTime"><span>开奖时间：</span><span>{{boon_order.boon.lottery_info.lottery_time}}</span></div>
-      <div class="orderState"><span>抽奖状态：</span><span>{{boon_order.status_display}}</span></div>
-    </div>
+        <div class="lottery">
+          <div class="title">开奖信息</div>
+          <div class="groupOrder"><span>抽奖玩法：</span><span>{{boon_order.boon.lottery_info.lottery_method}}</span></div>
+          <div class="orderTime"><span>开奖时间：</span><span>{{boon_order.boon.lottery_info.lottery_time}}</span></div>
+          <div class="orderState"><span>抽奖状态：</span><span>{{boon_order.status_display}}</span></div>
+        </div>
     <div class="service">
       <contact-button size="22" class='pos'></contact-button>
       <img class="icon_kf" src="http://pbmrxkahq.bkt.clouddn.com/msgservice.png">
@@ -116,6 +119,8 @@
     display: inline-block;
     width: 80px;height: 80px;
     margin: 25px auto 20px 25px;
+    border-radius: 5px;
+
     img{
       width: 80px;height: 80px;
 
@@ -312,7 +317,9 @@
 
   }
 
-
+.bg{
+  border-radius: 5px;
+}
 
 </style>
 

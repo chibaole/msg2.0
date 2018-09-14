@@ -47,6 +47,10 @@ global.webpackJsonp([6],{
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -186,11 +190,15 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       staticClass: "orderInfo"
     }, [_c('div', {
       staticClass: "pic"
-    }, [_c('img', {
-      attrs: {
-        "src": item.boon.title_image_url,
-        "alt": ""
-      }
+    }, [_c('div', {
+      staticClass: "bg",
+      style: ({
+        width: '100%',
+        height: '100%',
+        backgroundImage: 'url(' + item.boon.title_image_url + ')',
+        backgroundSize: 'cover',
+        backgroundPosition: '50%'
+      })
     })]), _vm._v(" "), _c('div', {
       staticClass: "txt"
     }, [_c('div', {

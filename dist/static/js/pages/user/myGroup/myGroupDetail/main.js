@@ -60,6 +60,8 @@ global.webpackJsonp([7],{
 //
 //
 //
+//
+//
 
 
 
@@ -153,16 +155,20 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "pj-info"
   }, [_c('div', {
     staticClass: "left"
-  }, [_c('img', {
-    attrs: {
-      "src": _vm.order_info.group_activity.title_image_url,
-      "alt": ""
-    }
+  }, [_c('div', {
+    staticClass: "bg",
+    style: ({
+      width: '100%',
+      height: '100%',
+      backgroundImage: 'url(' + _vm.order_info.group_activity.title_image_url + ')',
+      backgroundSize: 'cover',
+      backgroundPosition: '50%'
+    })
   })]), _vm._v(" "), _c('div', {
     staticClass: "right"
   }, [_c('h2', [_c('div', {
     staticClass: "mark"
-  }, [_vm._v(_vm._s(_vm.order_info.group_activity.group_type))]), _vm._v(_vm._s(_vm.order_info.group_activity.title))]), _vm._v(" "), _c('p', [_c('span', [_vm._v("¥" + _vm._s(_vm.order_info.group_activity.current_price))]), _c('span', [_vm._v("¥" + _vm._s(_vm.order_info.group_activity.original_price))])])], 1)])]), _vm._v(" "), _c('div', {
+  }, [_vm._v(_vm._s(_vm.order_info.group_activity.group_type))]), _vm._v(_vm._s(_vm.order_info.group_activity.title))]), _vm._v(" "), _c('p', [_c('span', [_vm._v("¥" + _vm._s(_vm.order_info.group_activity.current_price))]), _c('span', [_vm._v("¥" + _vm._s(_vm.order_info.group_activity.original_price))])])], 1)])]), _vm._v(" "), (_vm.order_info.address) ? _c('div', {
     staticClass: "receive"
   }, [_c('div', {
     staticClass: "title"
@@ -174,7 +180,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "address"
   }, [_c('span', [_vm._v("收货地址：")]), _c('span', {
     staticClass: "addressDetail"
-  }, [_vm._v(_vm._s(_vm.order_info.address.detail))])])])]), _vm._v(" "), _c('div', {
+  }, [_vm._v(_vm._s(_vm.order_info.address.detail))])])])]) : _vm._e(), _vm._v(" "), _c('div', {
     staticClass: "orderinfo"
   }, [_c('div', {
     staticClass: "title"
@@ -184,7 +190,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "orderTime"
   }, [_c('span', [_vm._v("订单时间：")]), _c('span', [_vm._v(_vm._s(_vm.order_info.created_at))])]), _vm._v(" "), _c('div', {
     staticClass: "orderState"
-  }, [_c('span', [_vm._v("订单状态：")]), _c('span', [_vm._v(_vm._s(_vm.order_info.status_display))])])]), _vm._v(" "), _c('div', {
+  }, [_c('span', [_vm._v("订单状态：")]), _c('span', [_vm._v(_vm._s(_vm.order_info.status_display))])])]), _vm._v(" "), (_vm.order_info.delivery) ? _c('div', {
     staticClass: "express"
   }, [_c('div', {
     staticClass: "title"
@@ -204,7 +210,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "src": __webpack_require__(36),
       "alt": ""
     }
-  })]), _vm._v(" "), _c('div', {
+  })]) : _vm._e(), _vm._v(" "), _c('div', {
     staticClass: "service"
   }, [_c('contact-button', {
     staticClass: "pos",

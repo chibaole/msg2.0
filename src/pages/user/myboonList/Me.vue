@@ -11,7 +11,11 @@
           </div>
         </div>
         <div class="orderInfo">
-          <div class="pic"><img :src="item.boon.title_image_url" alt=""></div>
+          <div class="pic">
+            <!--<img :src="item.boon.title_image_url" alt="">-->
+            <div class="bg" :style="{width:'100%', height:'100%', backgroundImage:'url('+item.boon.title_image_url+')',backgroundSize:'cover', backgroundPosition:'50%'}"></div>
+
+          </div>
           <div class="txt">
             <div class="name">{{item.boon.title}}</div>
             <p class="group_type">{{}}</p>
@@ -201,7 +205,10 @@
     .pic{
       display: inline-block;
       /*border: 1px solid #000;*/
-
+      width: 60px;
+      height: 60px;
+      border-radius: 5px;
+      box-shadow: 0 4px 10px 0 rgba(#cccccc,0.5);
 
       img{
         display: inline-block;
