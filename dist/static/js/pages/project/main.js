@@ -203,6 +203,9 @@ global.webpackJsonp([3],{
 //
 //
 //
+//
+//
+//
 
 
 
@@ -229,7 +232,9 @@ global.webpackJsonp([3],{
       haveOpen: '未开奖',
       prizeStyle: 'prize',
       init_rewarded_users: [],
-      showGetMoreBtn: false
+      showGetMoreBtn: false,
+      boon_resText: '',
+      boon_resImg: ''
 
     };
   },
@@ -582,11 +587,24 @@ global.webpackJsonp([3],{
                 that.init_rewarded_users = _init_rewarded_users;
               }
 
+              if (that.boon.participate_status === false && that.boon.status === 'rewarded') {
+                //未参加 已开奖
+                that.boon_resText = '你来晚了';
+                that.boon_resImg = 'http://pbmrxkahq.bkt.clouddn.com/%E6%9C%AA%E4%B8%AD%E5%A5%96.png'; //未参加 未中奖
+              } else if (that.boon.participate_status === true && that.boon.boon_order.status === 'lose' && that.boon.status === 'rewarded') {
+                that.boon_resText = '很遗憾，你本次没有中奖～';
+                that.boon_resImg = 'http://pbmrxkahq.bkt.clouddn.com/%E6%9C%AA%E4%B8%AD%E5%A5%96.png'; //未参加 未中奖
+
+              } else if (that.boon.participate_status === true && that.boon.boon_order.status !== 'lose' && that.boon.status === 'rewarded') {
+                that.boon_resText = '恭喜，您中奖了';
+                that.boon_resImg = 'http://pbmrxkahq.bkt.clouddn.com/winning.png'; //开奖 中奖
+              }
+
               isIphoneX = that.$store.state.globalData.isIphoneX;
 
               that.isIphoneX = isIphoneX;
 
-            case 14:
+            case 15:
             case 'end':
               return _context5.stop();
           }
@@ -775,23 +793,16 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }, [_vm._v(_vm._s(_vm.prize))]) : _vm._e()], 1) : _vm._e(), _vm._v(" "), (_vm.boon.status == 'rewarded') ? _c('div', {
     staticClass: "openPrize"
-  }, [(_vm.boon.participate_status === true) ? _c('div', [_c('div', {
+  }, [_c('div', {
     staticClass: "pic"
-  }, [(_vm.boon.boon_order.status != 'lose') ? _c('img', {
+  }, [_c('img', {
     attrs: {
-      "src": "http://pbmrxkahq.bkt.clouddn.com/winning.png",
+      "src": _vm.boon_resImg,
       "alt": ""
     }
-  }) : _vm._e(), _vm._v(" "), (_vm.boon.boon_order.status === 'lose') ? _c('img', {
-    attrs: {
-      "src": "http://pbmrxkahq.bkt.clouddn.com/%E6%9C%AA%E4%B8%AD%E5%A5%96.png",
-      "alt": ""
-    }
-  }) : _vm._e(), _vm._v(" "), (_vm.boon.boon_order.status != 'lose') ? _c('p', {
+  }), _vm._v(" "), _c('p', {
     staticClass: "boon_order_text"
-  }, [_vm._v("恭喜，您中奖了")]) : _vm._e(), _vm._v(" "), (_vm.boon.boon_order.status === 'lose') ? _c('p', {
-    staticClass: "boon_order_text"
-  }, [_vm._v("很遗憾，你本次没有中奖～")]) : _vm._e()], 1), _vm._v(" "), (_vm.boon.boon_order.status === 'win') ? _c('div', {
+  }, [_vm._v(_vm._s(_vm.boon_resText))])], 1), _vm._v(" "), (_vm.boon.participate_status === true) ? _c('div', [(_vm.boon.boon_order.status === 'win') ? _c('div', {
     staticClass: "prizeWindow",
     attrs: {
       "eventid": '1'

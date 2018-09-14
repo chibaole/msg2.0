@@ -57,17 +57,20 @@
     <!--抽奖未开奖显示的 '抽奖/待开奖按钮'-->
     <!--<div v-if="boon.participate_status===true">    &lt;!&ndash;参加过&ndash;&gt;-->
     <div class="openPrize" v-if="boon.status== 'rewarded'  "> <!--开奖了-->
-      <div v-if="boon.participate_status===true">
           <div class="pic" >
-            <img src="http://pbmrxkahq.bkt.clouddn.com/winning.png" alt="" v-if="boon.boon_order.status != 'lose'">
-            <img src="http://pbmrxkahq.bkt.clouddn.com/%E6%9C%AA%E4%B8%AD%E5%A5%96.png" alt=""
-                 v-if="boon.boon_order.status === 'lose'">
 
-            <p class="boon_order_text" v-if="boon.boon_order.status != 'lose' ">恭喜，您中奖了</p>
-            <p class="boon_order_text" v-if="boon.boon_order.status === 'lose'">很遗憾，你本次没有中奖～</p>
+            <!--<img src="http://pbmrxkahq.bkt.clouddn.com/winning.png" alt="" v-if="boon.boon_order.status != 'lose'">-->
+            <!--<img src="http://pbmrxkahq.bkt.clouddn.com/%E6%9C%AA%E4%B8%AD%E5%A5%96.png" alt=""-->
+                 <!--v-if="boon.boon_order.status === 'lose'">-->
+            <img :src='boon_resImg' alt="">
+
+            <!--<p class="boon_order_text" v-if="boon.boon_order.status != 'lose' ">恭喜，您中奖了</p>-->
+            <!--<p class="boon_order_text" v-if="boon.boon_order.status === 'lose'">很遗憾，你本次没有中奖～</p>-->
+            <p class="boon_order_text" >{{boon_resText}}</p>
 
           </div>
 
+      <div v-if="boon.participate_status===true">
           <div class="prizeWindow" v-if="boon.boon_order.status === 'win'" @click="chooseAddress">去领奖</div>
           <div class="prizeWindow" v-if="boon.boon_order.status === 'received'" @click="chooseAddress">已领奖</div>
       </div>
@@ -168,7 +171,9 @@
         haveOpen: '未开奖',
         prizeStyle: 'prize',
         init_rewarded_users: [],
-        showGetMoreBtn: false
+        showGetMoreBtn: false,
+        boon_resText:'',
+        boon_resImg:''
 
       }
     },
@@ -414,6 +419,21 @@
         that.init_rewarded_users = init_rewarded_users
       }
 
+      if (that.boon.participate_status===false&& that.boon.status=== 'rewarded' ){
+        //未参加 已开奖
+        that.boon_resText = '你来晚了'
+        that.boon_resImg = 'http://pbmrxkahq.bkt.clouddn.com/%E6%9C%AA%E4%B8%AD%E5%A5%96.png' //未参加 未中奖
+
+      }else if(that.boon.participate_status===true && that.boon.boon_order.status === 'lose' && that.boon.status=== 'rewarded'){
+        that.boon_resText = '很遗憾，你本次没有中奖～'
+        that.boon_resImg = 'http://pbmrxkahq.bkt.clouddn.com/%E6%9C%AA%E4%B8%AD%E5%A5%96.png' //未参加 未中奖
+
+
+      }else if(that.boon.participate_status===true && that.boon.boon_order.status !== 'lose' && that.boon.status=== 'rewarded'){
+        that.boon_resText = '恭喜，您中奖了'
+        that.boon_resImg = 'http://pbmrxkahq.bkt.clouddn.com/winning.png' //开奖 中奖
+
+      }
 
       let isIphoneX = that.$store.state.globalData.isIphoneX
       that.isIphoneX = isIphoneX
