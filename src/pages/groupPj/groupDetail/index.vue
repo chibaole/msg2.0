@@ -163,8 +163,13 @@
       color: #4a4a4a;
       height: 12px;
       /*width: 70%;*/
+      width:75% ;
       line-height: 12px;
       margin: 10px auto 20px 25px;
+
+      overflow: hidden;
+      text-overflow:ellipsis;
+      white-space: nowrap;
       /*border:1px solid #000;*/
     };
     span {

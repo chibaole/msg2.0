@@ -29,8 +29,12 @@
   font-size: 24rpx;
   color: #4a4a4a;
   height: 24rpx;
+  width: 75%;
   line-height: 24rpx;
   margin: 20rpx auto 40rpx 50rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .detail-order ._span.data-v-97fa62a8 {
   display: inline-block;
