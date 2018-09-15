@@ -11,7 +11,7 @@
         <view class="_p data-v-a0735dbe prj-name">{{boon.title}}</view>
         <view class="_p data-v-a0735dbe prj-little-info">{{boon.lottery_conditions}}
           <label class="_span data-v-a0735dbe hasJoined">已有
-            <label style="color: #ff7f4f" class="_span data-v-a0735dbe">{{boon.num_of_participants}}</label>人参与</label>
+            <label style="color: #ff7f4f" class="_span data-v-a0735dbe"> {{boon.num_of_participants}} </label>人参与</label>
         </view>
       </view>
     </view>
@@ -47,7 +47,7 @@
       </view>
       <view wx:if="{{boon.participate_status===true}}" class="_div data-v-a0735dbe">
         <view class="_div data-v-a0735dbe prizeWindow" wx:if="{{boon.boon_order.status === 'win'}}" bindtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}">去领奖</view>
-        <view class="_div data-v-a0735dbe prizeWindow" wx:if="{{boon.boon_order.status === 'received'}}" bindtap="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}">已领奖</view>
+        <view class="_div data-v-a0735dbe prizeWindowe" wx:if="{{boon.boon_order.status === 'received'}}" bindtap="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}">已领奖</view>
       </view>
       <view class="_div data-v-a0735dbe nameList">
         <view class="_div data-v-a0735dbe line1"></view>

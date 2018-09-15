@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <Navbar :navbar_title="navbar_title" :delta = "delta"></Navbar>
+    <Navbar :navbar_title="navbar_title" :delta="delta"></Navbar>
     <!--<Card ></Card>-->
     <!--<Card :order_info="order_info"></Card>-->
     <div class="wrap">
@@ -10,10 +10,10 @@
         </div>
         <div class="right">
           <h2>
-            <div class="mark">{{order_info.group_activity.group_type}}</div>
+            <div class="group_mark">{{order_info.group_activity.group_type}}</div>
             {{order_info.group_activity.title}}
           </h2>
-          <p><span>¥{{order_info.group_activity.current_price}}</span><span>¥{{order_info.group_activity.original_price}}</span>
+          <p><span>¥&nbsp;{{order_info.group_activity.current_price}}</span><span v-if="order_info.group_activity.original_price">¥{{order_info.group_activity.original_price}}</span>
           </p>
         </div>
       </div>
@@ -65,20 +65,16 @@
         </button>
       </form>
 
-
       <div class="line"></div>
-
       <div class="group">
         <h2 class="group-game">拼团玩法</h2>
         <p class="step1">1.免费领取 但要完成小作业，写食用反馈。</p>
         <p class="step2">2.领取成功后，请扫码加群等待发货哦。</p>
       </div>
       <div class="line"></div>
-
       <div class="pjDetail">
         商品详情
-        <rich-text :nodes="order_info.group_activity.detail" class="pjdetail"></rich-text>
-
+        <rich-text :nodes="order_info.group_activity.product.detail" class="pjdetail"></rich-text>
       </div>
     </div>
 
@@ -89,12 +85,20 @@
         <div class="btn open_btn" data-status="1"><span>邀请好友一起享用</span></div>
       </button>
     </form>
+
+    <!---->
+
     <form :report-submit="true" @submit="createGroup">
       <button class="form_button" formType="submit">
-        <div class="btn open_btn" @click="createGroup" data-status="1" v-if="group_activity_initials_finish">
+        <div class="btn open_btn" @click="createGroup" data-status="1" v-if="group_activity_initial_finish">
           <span>重新开团</span></div>
       </button>
     </form>
+    <div class="pay" v-if="onekeyAttend">
+      <div class="price">
+        ¥{{order_info.group_activity.current_price}}<span>还剩{{order_info.group_activity.product.num}}份</span></div>
+      <div class="join-group" @click="attendGroup" :data-uuid="order_info.uuid">一键参与</div>
+    </div>
 
     <div class="mask" v-if="showBox" @click="shareMenu">  <!-- 遮罩-->
 
@@ -118,14 +122,6 @@
 
     </div>
     <!--参团底部button-->
-    <!--<div class="pay" v-if="order_info.is_initiator == false" >-->
-    <div class="pay" v-if="onekeyAttend">
-
-      <!--<div class="pay"  >-->
-      <div class="price">
-        ¥{{order_info.group_activity.current_price}}<span>还剩{{order_info.group_activity.product.num}}份</span></div>
-      <div class="join-group" @click="attendGroup" :data-uuid="order_info.uuid">一键参与</div>
-    </div>
 
   </div>
 </template>
@@ -146,7 +142,7 @@
           day: '',
           hours: '',
           minutes: '',
-          seconds:''
+          seconds: ''
         },
         showshare: true,
         showModal: false,
@@ -160,11 +156,11 @@
         myDetail: '',
         scanCode: true,
         group_activity_initial_uuid: '',
-        group_activity_initials_finish: false,
-        host: config.host,
+        group_activity_initial_finish: false,
         onekeyAttend: false,
+        host: config.host,
         group_activity_order_uuid: '',
-        delta:3
+        delta: 3
       }
     },
     components: {
@@ -237,20 +233,9 @@
 
         let currentTime = (new Date()).getTime()
         let endTime = that.order_info.end_time_timestamp
-        console.log('当前时间'+currentTime)
 
         let allTime = 86400000 // 倒计时24小时
-//        let leftTime = allTime - ( currentTime - startTime)
 
-//
-//        if(leftTime<=0){
-//          leftTime = 0
-//          showModal('拼团失败','来晚一步')
-//          return
-//        }else {
-//          leftTime = allTime - ( currentTime - startTime)
-//        }
-//        let leftTime = 86400 // 总时间
         let leftTime = endTime - currentTime //<864000
 
         let day = Math.floor(leftTime / 1000 / 60 / 60 / 24) // 剩余天数
@@ -266,7 +251,7 @@
         that.time.minutes = minutes
         that.time.seconds = seconds
 
-        var param =  setTimeout(that.getlastTime, 1000)
+        var param = setTimeout(that.getlastTime, 1000)
         if (leftTime <= 0) {
 //          showModal('拼团结束', '活动结束了')
           leftTime = 0
@@ -274,7 +259,6 @@
         }
 
 
-        console.log(seconds)
       },
       share() {
         let that = this
@@ -318,8 +302,8 @@
       },
 
       shareMenu(e) {
-        console.log(this.showBox)
-        console.log(e.mp.detail.formId)
+//        console.log(this.showBox)
+//        console.log(e.mp.detail.formId)
         this.showBox = !this.showBox
       },
 
@@ -333,50 +317,12 @@
 
 
         let titleContent = that.order_info.group_activity.title
-        let text_left = 64.4
-        if (titleContent.length > 9) {
-          console.log(titleContent.length)
-
-          titleContent = titleContent.substring(0, 8)
-          console.log(titleContent)
-        } else if (titleContent.length === 8) {
+        let title_left = 25
+        if(titleContent.length>12){
+          titleContent = titleContent.substring(0,11)
+        }else{
           titleContent = titleContent
-          text_left = 78.2
-
-        } else if (titleContent.length === 7) {
-          titleContent = titleContent
-          text_left = 92
-
-        } else if (titleContent.length === 6) {
-          titleContent = titleContent
-          text_left = 105.8
-
-        } else if (titleContent.length === 5) {
-          titleContent = titleContent
-          text_left = 119.6
-
-        } else if (titleContent.length === 4) {
-          titleContent = titleContent
-          text_left = 133.4
-
-        } else if (titleContent.length === 3) {
-          titleContent = titleContent
-          text_left = 147.2
-
         }
-//        let num_of_participants =String(that.boon.num_of_participants)
-//        let num_left = 161
-//        if (num_of_participants.length >= 3) {
-//          num_left = 161
-//        } else if (num_of_participants.length === 2) {
-//          num_left = 170.2
-//
-//        } else if (num_of_participants.length === 1) {
-//          num_left = 179.4
-//
-//        }
-
-
         this.painting = {
           width: 375,
           height: 557,
@@ -408,62 +354,91 @@
             // 文本表达
             {
               type: 'text',
-              content: that.order_info.group_activity.title,                                                             // 变量的名称
+              content: titleContent,                                                             // 变量的名称
               fontSize: 27.6,
               lineHeight: 27.6,
               color: '#454553',
               textAlign: 'left',
               top: 217.35,
-              left: text_left,
+              left: title_left,
               width: 328.9,
               MaxLineNumber: 2,                                                                         // 最大两行 超出...
               breakWord: true,  // 换行
               bolder: true  // 加粗
             },
-
+//            {
+//              type:'image',
+//              url:'http://pbmrxkahq.bkt.clouddn.com/addPrice.png',
+//
+//              top:255,
+//              left:22.5,
+//              width:60
+//            },
             {
               type: 'text',
-              content: that.order_info.group_activity.current_price,                                                                                // 变量的价格
-              fontSize: 20.7,
+              content: that.order_info.group_activity.group_type,                                                                                // 变量的价格
+              fontSize: 18.4,
               color: '#f83713',
               textAlign: 'left',
-              top: 296.7,
-              left: 133.4,
-              bolder: true
+              top: 255,
+              left: 25,
+              bolder: false
             },
             {
               type: 'text',
-              content: '拼团价',
-              fontSize: 13.8,
+              content: '¥',
+              fontSize: 18.4,
               color: '#f83713',
               textAlign: 'left',
-              top: 304.75,
-              left: 150 * 1.15                                                                      // 根据价格字符个数 变化
+              top: 260,
+              left: 90                                                                      // 根据价格字符个数 变化
 
             },
             {
               type: 'text',
-              content: that.order_info.group_activity.original_price,                                                                       // 根据价格字符个数 变化
-              fontSize: 13 * 1.15,
-              color: '#999',
+              content: that.order_info.group_activity.current_price,                                                                       // 根据价格字符个数 变化
+              fontSize: 18.4,
+              color: '#f83713',
               textAlign: 'left',
-              top: 265 * 1.15,
-              left: 190 * 1.15,                                                                      // 根据价格字符个数 变化
+              top: 260,
+              left: 105                                                                     // 根据价格字符个数 变化
+//              textDecoration: 'line-through'
+            },
+
+            {
+              type: 'text',
+              content: '拼团价',                                                                       // 根据价格字符个数 变化
+              fontSize: 15,
+              color: '#f83713',
+              textAlign: 'left',
+              top: 268,
+              left: 130                                                                     // 根据价格字符个数 变化
+//              textDecoration: 'line-through'
+            },
+
+            {
+              type: 'text',
+              content: '¥'+that.order_info.group_activity.original_price,                                                                       // 根据价格字符个数 变化
+              fontSize: 15,
+              color: '#f83713',
+              textAlign: 'left',
+              top: 268,
+              left: 175 ,                                                                    // 根据价格字符个数 变化
               textDecoration: 'line-through'
             },
 
             {
               type: 'text',
               content: '参团仅限新用户哦~',
-              fontSize: 16 * 1.15,
+              fontSize: 18.4,
               color: '#4a4a4a',
               textAlign: 'left',
-              top: 314 * 1.15,
-              left: 95 * 1.15,
-              lineHeight: 16 * 1.15,
+              top: 300,
+              left: 25,
+              lineHeight: 18.4,
               MaxLineNumber: 2,
               breakWord: true,
-              width: 136 * 1.15
+              width: 157
             },
             {
               type: 'image',
@@ -535,6 +510,7 @@
     async onLoad(options) {
 
       var that = this
+      let attend = options.attend
       let group_activity_initial_uuid = options.group_activity_initial_uuid // 发起拼团活动返回订单uuid
 
       that.group_activity_initial_uuid = group_activity_initial_uuid
@@ -552,26 +528,30 @@
       let left_num = group_user_require - order_user.length //还需的「
       console.log(group_user_require,)
       console.log(left_num)
-      for (var i = 0; i < left_num ; i++) {
+      for (var i = 0; i < left_num; i++) {
         order_user.push({})
       }
 
       orderData.group_activity_initial.users = order_user
 
-      if (orderData.group_activity_initial.status === 'failed' || orderData.group_activity_initial.status === 'success' || orderData.group_activity_initial.status === 'init') {
-        console.log(orderData.group_activity_initial.status + '本次拼团结束')
-        that.group_activity_initial_finish = true
-      }
+      if (attend === '已参团' && orderData.group_activity_initial.status === 'grouping' ) {
+        console.log(orderData.group_activity_initial.status + '本次拼团可以邀请')
+        that.group_activity_initial_finish_attend = false
+      }else if(attend === '已参团' && orderData.group_activity_initial.status === 'success' ){
+        that.group_activity_initial_finish_attend = true
+        console.log(orderData.group_activity_initial.status + '本次拼团可已结束  重新开团')
 
+
+      }
       that.order_info = orderData.group_activity_initial
-      if (that.order_info.is_initiator === false) {
+
+      if (that.order_info.is_initiator === false && that.group_activity_initial_finish === false) {
         that.onekeyAttend = true
-      } else {
+      } else if(that.order_info.is_initiator === true && that.group_activity_initial_finish === true) {
         that.onekeyAttend = false
-
       }
-      console.log(that.order_info.is_initiator)
-
+      console.log(that.onekeyAttend)
+      console.log(that.group_activity_initial_finish )
       that.getlastTime()
     },
     async mounted() {
@@ -588,7 +568,7 @@
       return {
         title: that.order_info.group_activity.title,
         path: `/pages/groupPj/order/main?group_activity_initial_uuid=${uuid}`,
-        imageUrl: that.order_info.group_activity.title_image_url
+//        imageUrl: that.order_info.group_activity.title_image_url
         // 参与拼团的页面
       }
     }
@@ -770,10 +750,11 @@
     margin: 0 auto;
     padding: 0 25px;
     font-family: PingFangSC-Regular;
-    color: #333;
-    font-size: 16px;
+
+    font-size: 12px;
+    color: #4a4a4a;
     text-align: left;
-    margin-bottom: 60px;
+    margin-bottom: 68px;
   }
 
   .share {
@@ -1100,11 +1081,12 @@
     display: inline-block;
     height: 84px;
     width: 225px;
+
     /*border:1px solid #000;*/
 
   }
 
-  .right h2 .mark {
+  .right h2 .group_mark {
     width: 50px;
     height: 20px;
     line-height: 20px;
@@ -1127,6 +1109,8 @@
     font-size: 20px;
     font-family: PingFangSC-Medium;
     color: #333;
+
+    /*border:1px solid #000;*/
     /*margin-left: 60px;*/
 
   }
@@ -1143,8 +1127,9 @@
 
   .right p span:nth-child(1) {
     font-size: 20px;
-    color: #D0021B;
-    font-weight: Medium;
+    color: #f83713;
+    /*font-weight: Medium;*/
+    font-family: PingFangSC-Medium;
 
   }
 
@@ -1154,9 +1139,9 @@
 
   /*}*/
   .right p span:nth-child(2) {
-    font-size: 12px;
-    color: #D0021b;
-    font-weight: Regular;
+    font-size: 10px;
+    color: #999;
+    font-family: PingFangSC-Regular;
     text-decoration: line-through;
   }
 

@@ -9,10 +9,10 @@
         </view>
         <view class="_div data-v-b3a874ec right">
           <view class="_h2 data-v-b3a874ec">
-            <view class="_div data-v-b3a874ec mark">{{order_info.group_activity.group_type}}</view> {{order_info.group_activity.title}} </view>
+            <view class="_div data-v-b3a874ec group_mark">{{order_info.group_activity.group_type}}</view> {{order_info.group_activity.title}} </view>
           <view class="_p data-v-b3a874ec">
-            <label class="_span data-v-b3a874ec">¥{{order_info.group_activity.current_price}}</label>
-            <label class="_span data-v-b3a874ec">¥{{order_info.group_activity.original_price}}</label>
+            <label class="_span data-v-b3a874ec">¥ {{order_info.group_activity.current_price}}</label>
+            <label wx:if="{{order_info.group_activity.original_price}}" class="_span data-v-b3a874ec">¥{{order_info.group_activity.original_price}}</label>
           </view>
         </view>
       </view>
@@ -71,7 +71,7 @@
       </view>
       <view class="_div data-v-b3a874ec line"></view>
       <view class="_div data-v-b3a874ec pjDetail"> 商品详情
-        <rich-text nodes="{{order_info.group_activity.detail}}" class="_rich-text data-v-b3a874ec pjdetail"></rich-text>
+        <rich-text nodes="{{order_info.group_activity.product.detail}}" class="_rich-text data-v-b3a874ec pjdetail"></rich-text>
       </view>
     </view>
     <form report-submit="{{true}}" bindsubmit="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}" class="_form data-v-b3a874ec">
@@ -83,30 +83,30 @@
     </form>
     <form report-submit="{{true}}" bindsubmit="handleProxy" data-eventid="{{'4'}}" data-comkey="{{$k}}" class="_form data-v-b3a874ec">
       <button class="_button data-v-b3a874ec form_button" formType="submit">
-        <view class="_div data-v-b3a874ec btn open_btn" bindtap="handleProxy" data-status="1" wx:if="{{group_activity_initials_finish}}" data-eventid="{{'3'}}" data-comkey="{{$k}}">
+        <view class="_div data-v-b3a874ec btn open_btn" bindtap="handleProxy" data-status="1" wx:if="{{group_activity_initial_finish}}" data-eventid="{{'3'}}" data-comkey="{{$k}}">
           <label class="_span data-v-b3a874ec">重新开团</label>
         </view>
       </button>
     </form>
-    <view class="_div data-v-b3a874ec mask" wx:if="{{showBox}}" bindtap="handleProxy" data-eventid="{{'8'}}" data-comkey="{{$k}}">
-      <view class="_div data-v-b3a874ec meunBox" wx:if="{{showBox}}">
-        <image class="_img data-v-b3a874ec x" src="http://pbmrxkahq.bkt.clouddn.com/close.png" alt bindtap="handleProxy" data-eventid="{{'5'}}" data-comkey="{{$k}}"></image>
-        <view class="_div data-v-b3a874ec title">分享加速抽奖</view>
-        <button class="_button data-v-b3a874ec friend" open-type="share">
-          <image src="http://pbmrxkahq.bkt.clouddn.com/wechatF.png" alt class="_img data-v-b3a874ec"></image>
-        </button>
-        <view class="_div data-v-b3a874ec createImg" bindtap="handleProxy" data-eventid="{{'6'}}" data-comkey="{{$k}}">
-          <image src="http://pbmrxkahq.bkt.clouddn.com/wechatimg.png" alt class="_img data-v-b3a874ec"></image>
-        </view>
-        <view class="_div data-v-b3a874ec wechatFriend" open-type="share">微信好友</view>
-        <view class="_div data-v-b3a874ec shengchengImg" bindtap="handleProxy" data-eventid="{{'7'}}" data-comkey="{{$k}}">生成分享图片</view>
-      </view>
-    </view>
     <view class="_div data-v-b3a874ec pay" wx:if="{{onekeyAttend}}">
       <view class="_div data-v-b3a874ec price"> ¥{{order_info.group_activity.current_price}}
         <label class="_span data-v-b3a874ec">还剩{{order_info.group_activity.product.num}}份</label>
       </view>
-      <view class="_div data-v-b3a874ec join-group" bindtap="handleProxy" data-uuid="{{order_info.uuid}}" data-eventid="{{'9'}}" data-comkey="{{$k}}">一键参与</view>
+      <view class="_div data-v-b3a874ec join-group" bindtap="handleProxy" data-uuid="{{order_info.uuid}}" data-eventid="{{'5'}}" data-comkey="{{$k}}">一键参与</view>
+    </view>
+    <view class="_div data-v-b3a874ec mask" wx:if="{{showBox}}" bindtap="handleProxy" data-eventid="{{'9'}}" data-comkey="{{$k}}">
+      <view class="_div data-v-b3a874ec meunBox" wx:if="{{showBox}}">
+        <image class="_img data-v-b3a874ec x" src="http://pbmrxkahq.bkt.clouddn.com/close.png" alt bindtap="handleProxy" data-eventid="{{'6'}}" data-comkey="{{$k}}"></image>
+        <view class="_div data-v-b3a874ec title">分享加速抽奖</view>
+        <button class="_button data-v-b3a874ec friend" open-type="share">
+          <image src="http://pbmrxkahq.bkt.clouddn.com/wechatF.png" alt class="_img data-v-b3a874ec"></image>
+        </button>
+        <view class="_div data-v-b3a874ec createImg" bindtap="handleProxy" data-eventid="{{'7'}}" data-comkey="{{$k}}">
+          <image src="http://pbmrxkahq.bkt.clouddn.com/wechatimg.png" alt class="_img data-v-b3a874ec"></image>
+        </view>
+        <view class="_div data-v-b3a874ec wechatFriend" open-type="share">微信好友</view>
+        <view class="_div data-v-b3a874ec shengchengImg" bindtap="handleProxy" data-eventid="{{'8'}}" data-comkey="{{$k}}">生成分享图片</view>
+      </view>
     </view>
   </view>
 </template>

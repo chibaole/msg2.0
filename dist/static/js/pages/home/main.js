@@ -68,6 +68,8 @@ global.webpackJsonp([1],{
       var group_activities_uuid = e.currentTarget.dataset.uuid;
       var Intial = e.currentTarget.dataset.activitie;
       var formId = e.mp.detail.formId;
+      var attend = e.currentTarget.dataset.attend;
+      console.log('attend' + attend);
       if (Intial.group_activity_initial === null) {
         console.log('未参与');
         wx.navigateTo({
@@ -76,7 +78,7 @@ global.webpackJsonp([1],{
       } else if (Intial.group_activity_initial !== null) {
         console.log('已参与');
         wx.navigateTo({
-          url: '/pages/groupPj/order/main?group_activity_initial_uuid=' + Intial.group_activity_initial.uuid + '&from_id=' + formId // 参与拼团的页面
+          url: '/pages/groupPj/order/main?group_activity_initial_uuid=' + Intial.group_activity_initial.uuid + '&from_id=' + formId + '&attend=' + attend // 参与拼团的页面
         });
       }
     },
@@ -851,6 +853,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         "report-submit": true,
         "data-uuid": group_activitie.uuid,
         "data-activitie": group_activitie,
+        "data-attend": group_activitie.button.text,
         "eventid": '1-' + index
       },
       on: {
@@ -879,9 +882,9 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       staticClass: "group-text "
     }, [_vm._v(_vm._s(group_activitie.title))]), _vm._v(" "), _c('div', {
       staticClass: "group-prj-price "
-    }, [_vm._v("¥" + _vm._s(group_activitie.current_price) + " "), _c('span', {
+    }, [_vm._v("¥" + _vm._s(group_activitie.current_price) + " "), (group_activitie.original_price) ? _c('span', {
       staticClass: "price "
-    }, [_vm._v("¥" + _vm._s(group_activitie.original_price))])]), _vm._v(" "), _c('div', {
+    }, [_vm._v("¥" + _vm._s(group_activitie.original_price))]) : _vm._e()]), _vm._v(" "), _c('div', {
       staticClass: "join-group ",
       attrs: {
         "data-groupname": _vm.groupname,

@@ -148,10 +148,6 @@ global.webpackJsonp([4],{
 //
 //
 //
-//
-//
-//
-//
 
 
 
@@ -181,9 +177,9 @@ global.webpackJsonp([4],{
       myDetail: '',
       scanCode: true,
       group_activity_initial_uuid: '',
-      group_activity_initials_finish: false,
-      host: __WEBPACK_IMPORTED_MODULE_8__config__["a" /* default */].host,
+      group_activity_initial_finish: false,
       onekeyAttend: false,
+      host: __WEBPACK_IMPORTED_MODULE_8__config__["a" /* default */].host,
       group_activity_order_uuid: '',
       delta: 3
     };
@@ -296,20 +292,9 @@ global.webpackJsonp([4],{
 
       var currentTime = new Date().getTime();
       var endTime = that.order_info.end_time_timestamp;
-      console.log('当前时间' + currentTime);
 
       var allTime = 86400000; // 倒计时24小时
-      //        let leftTime = allTime - ( currentTime - startTime)
 
-      //
-      //        if(leftTime<=0){
-      //          leftTime = 0
-      //          showModal('拼团失败','来晚一步')
-      //          return
-      //        }else {
-      //          leftTime = allTime - ( currentTime - startTime)
-      //        }
-      //        let leftTime = 86400 // 总时间
       var leftTime = endTime - currentTime; //<864000
 
       var day = Math.floor(leftTime / 1000 / 60 / 60 / 24); // 剩余天数
@@ -331,8 +316,6 @@ global.webpackJsonp([4],{
         leftTime = 0;
         clearTimeout(param);
       }
-
-      console.log(seconds);
     },
     share: function share() {
       var that = this;
@@ -377,15 +360,15 @@ global.webpackJsonp([4],{
     },
 
     shareMenu: function shareMenu(e) {
-      console.log(this.showBox);
-      console.log(e.mp.detail.formId);
+      //        console.log(this.showBox)
+      //        console.log(e.mp.detail.formId)
       this.showBox = !this.showBox;
     },
     getImg: function getImg() {
       var _this3 = this;
 
       return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.mark(function _callee3() {
-        var that, uuid, page, data, res, wxCodeImg, titleContent, text_left;
+        var that, uuid, page, data, res, wxCodeImg, titleContent, title_left;
         return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.wrap(function _callee3$(_context3) {
           while (1) {
             switch (_context3.prev = _context3.next) {
@@ -401,45 +384,13 @@ global.webpackJsonp([4],{
                 res = _context3.sent;
                 wxCodeImg = res.wxa_qrcode_url;
                 titleContent = that.order_info.group_activity.title;
-                text_left = 64.4;
+                title_left = 25;
 
-                if (titleContent.length > 9) {
-                  console.log(titleContent.length);
-
-                  titleContent = titleContent.substring(0, 8);
-                  console.log(titleContent);
-                } else if (titleContent.length === 8) {
+                if (titleContent.length > 12) {
+                  titleContent = titleContent.substring(0, 11);
+                } else {
                   titleContent = titleContent;
-                  text_left = 78.2;
-                } else if (titleContent.length === 7) {
-                  titleContent = titleContent;
-                  text_left = 92;
-                } else if (titleContent.length === 6) {
-                  titleContent = titleContent;
-                  text_left = 105.8;
-                } else if (titleContent.length === 5) {
-                  titleContent = titleContent;
-                  text_left = 119.6;
-                } else if (titleContent.length === 4) {
-                  titleContent = titleContent;
-                  text_left = 133.4;
-                } else if (titleContent.length === 3) {
-                  titleContent = titleContent;
-                  text_left = 147.2;
                 }
-                //        let num_of_participants =String(that.boon.num_of_participants)
-                //        let num_left = 161
-                //        if (num_of_participants.length >= 3) {
-                //          num_left = 161
-                //        } else if (num_of_participants.length === 2) {
-                //          num_left = 170.2
-                //
-                //        } else if (num_of_participants.length === 1) {
-                //          num_left = 179.4
-                //
-                //        }
-
-
                 _this3.painting = {
                   width: 375,
                   height: 557,
@@ -471,56 +422,83 @@ global.webpackJsonp([4],{
                   // 文本表达
                   {
                     type: 'text',
-                    content: that.order_info.group_activity.title, // 变量的名称
+                    content: titleContent, // 变量的名称
                     fontSize: 27.6,
                     lineHeight: 27.6,
                     color: '#454553',
                     textAlign: 'left',
                     top: 217.35,
-                    left: text_left,
+                    left: title_left,
                     width: 328.9,
                     MaxLineNumber: 2, // 最大两行 超出...
                     breakWord: true, // 换行
                     bolder: true // 加粗
-                  }, {
+                  },
+                  //            {
+                  //              type:'image',
+                  //              url:'http://pbmrxkahq.bkt.clouddn.com/addPrice.png',
+                  //
+                  //              top:255,
+                  //              left:22.5,
+                  //              width:60
+                  //            },
+                  {
                     type: 'text',
-                    content: that.order_info.group_activity.current_price, // 变量的价格
-                    fontSize: 20.7,
+                    content: that.order_info.group_activity.group_type, // 变量的价格
+                    fontSize: 18.4,
                     color: '#f83713',
                     textAlign: 'left',
-                    top: 296.7,
-                    left: 133.4,
-                    bolder: true
+                    top: 255,
+                    left: 25,
+                    bolder: false
                   }, {
                     type: 'text',
-                    content: '拼团价',
-                    fontSize: 13.8,
+                    content: '¥',
+                    fontSize: 18.4,
                     color: '#f83713',
                     textAlign: 'left',
-                    top: 304.75,
-                    left: 150 * 1.15 // 根据价格字符个数 变化
+                    top: 260,
+                    left: 90 // 根据价格字符个数 变化
 
                   }, {
                     type: 'text',
-                    content: that.order_info.group_activity.original_price, // 根据价格字符个数 变化
-                    fontSize: 13 * 1.15,
-                    color: '#999',
+                    content: that.order_info.group_activity.current_price, // 根据价格字符个数 变化
+                    fontSize: 18.4,
+                    color: '#f83713',
                     textAlign: 'left',
-                    top: 265 * 1.15,
-                    left: 190 * 1.15, // 根据价格字符个数 变化
+                    top: 260,
+                    left: 105 // 根据价格字符个数 变化
+                    //              textDecoration: 'line-through'
+                  }, {
+                    type: 'text',
+                    content: '拼团价', // 根据价格字符个数 变化
+                    fontSize: 15,
+                    color: '#f83713',
+                    textAlign: 'left',
+                    top: 268,
+                    left: 130 // 根据价格字符个数 变化
+                    //              textDecoration: 'line-through'
+                  }, {
+                    type: 'text',
+                    content: '¥' + that.order_info.group_activity.original_price, // 根据价格字符个数 变化
+                    fontSize: 15,
+                    color: '#f83713',
+                    textAlign: 'left',
+                    top: 268,
+                    left: 175, // 根据价格字符个数 变化
                     textDecoration: 'line-through'
                   }, {
                     type: 'text',
                     content: '参团仅限新用户哦~',
-                    fontSize: 16 * 1.15,
+                    fontSize: 18.4,
                     color: '#4a4a4a',
                     textAlign: 'left',
-                    top: 314 * 1.15,
-                    left: 95 * 1.15,
-                    lineHeight: 16 * 1.15,
+                    top: 300,
+                    left: 25,
+                    lineHeight: 18.4,
                     MaxLineNumber: 2,
                     breakWord: true,
-                    width: 136 * 1.15
+                    width: 157
                   }, {
                     type: 'image',
                     url: wxCodeImg,
@@ -631,22 +609,23 @@ global.webpackJsonp([4],{
     var _this5 = this;
 
     return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.mark(function _callee5() {
-      var that, group_activity_initial_uuid, currentuser_code, uuid_authCode, orderData, order_user, left_user, group_user_require, left_num, i;
+      var that, attend, group_activity_initial_uuid, currentuser_code, uuid_authCode, orderData, order_user, left_user, group_user_require, left_num, i;
       return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.wrap(function _callee5$(_context5) {
         while (1) {
           switch (_context5.prev = _context5.next) {
             case 0:
               that = _this5;
+              attend = options.attend;
               group_activity_initial_uuid = options.group_activity_initial_uuid; // 发起拼团活动返回订单uuid
 
               that.group_activity_initial_uuid = group_activity_initial_uuid;
 
               currentuser_code = wx.getStorageSync('auth_code');
               uuid_authCode = [group_activity_initial_uuid, currentuser_code];
-              _context5.next = 7;
+              _context5.next = 8;
               return that.$store.dispatch('groupActivitiesInit', __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default()({}, uuid_authCode));
 
-            case 7:
+            case 8:
               orderData = _context5.sent;
               order_user = orderData.group_activity_initial.users; // []
 
@@ -663,22 +642,25 @@ global.webpackJsonp([4],{
 
               orderData.group_activity_initial.users = order_user;
 
-              if (orderData.group_activity_initial.status === 'failed' || orderData.group_activity_initial.status === 'success' || orderData.group_activity_initial.status === 'init') {
-                console.log(orderData.group_activity_initial.status + '本次拼团结束');
-                that.group_activity_initial_finish = true;
+              if (attend === '已参团' && orderData.group_activity_initial.status === 'grouping') {
+                console.log(orderData.group_activity_initial.status + '本次拼团可以邀请');
+                that.group_activity_initial_finish_attend = false;
+              } else if (attend === '已参团' && orderData.group_activity_initial.status === 'success') {
+                that.group_activity_initial_finish_attend = true;
+                console.log(orderData.group_activity_initial.status + '本次拼团可已结束  重新开团');
               }
-
               that.order_info = orderData.group_activity_initial;
-              if (that.order_info.is_initiator === false) {
+
+              if (that.order_info.is_initiator === false && that.group_activity_initial_finish === false) {
                 that.onekeyAttend = true;
-              } else {
+              } else if (that.order_info.is_initiator === true && that.group_activity_initial_finish === true) {
                 that.onekeyAttend = false;
               }
-              console.log(that.order_info.is_initiator);
-
+              console.log(that.onekeyAttend);
+              console.log(that.group_activity_initial_finish);
               that.getlastTime();
 
-            case 21:
+            case 23:
             case 'end':
               return _context5.stop();
           }
@@ -711,8 +693,8 @@ global.webpackJsonp([4],{
     }
     return {
       title: that.order_info.group_activity.title,
-      path: '/pages/groupPj/order/main?group_activity_initial_uuid=' + uuid,
-      imageUrl: that.order_info.group_activity.title_image_url
+      path: '/pages/groupPj/order/main?group_activity_initial_uuid=' + uuid
+      //        imageUrl: that.order_info.group_activity.title_image_url
       // 参与拼团的页面
     };
   }
@@ -805,8 +787,8 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   })]), _vm._v(" "), _c('div', {
     staticClass: "right"
   }, [_c('h2', [_c('div', {
-    staticClass: "mark"
-  }, [_vm._v(_vm._s(_vm.order_info.group_activity.group_type))]), _vm._v("\n          " + _vm._s(_vm.order_info.group_activity.title) + "\n        ")]), _vm._v(" "), _c('p', [_c('span', [_vm._v("¥" + _vm._s(_vm.order_info.group_activity.current_price))]), _c('span', [_vm._v("¥" + _vm._s(_vm.order_info.group_activity.original_price))])])], 1)])]), _vm._v(" "), _c('div', {
+    staticClass: "group_mark"
+  }, [_vm._v(_vm._s(_vm.order_info.group_activity.group_type))]), _vm._v("\n          " + _vm._s(_vm.order_info.group_activity.title) + "\n        ")]), _vm._v(" "), _c('p', [_c('span', [_vm._v("¥ " + _vm._s(_vm.order_info.group_activity.current_price))]), (_vm.order_info.group_activity.original_price) ? _c('span', [_vm._v("¥" + _vm._s(_vm.order_info.group_activity.original_price))]) : _vm._e()])], 1)])]), _vm._v(" "), _c('div', {
     staticClass: "detail-order"
   }, [(_vm.order_info.status == 'grouping') ? _c('div', {
     staticClass: "grouping"
@@ -898,7 +880,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   }, [_vm._v("\n      商品详情\n      "), _c('rich-text', {
     staticClass: "pjdetail",
     attrs: {
-      "nodes": _vm.order_info.group_activity.detail,
+      "nodes": _vm.order_info.group_activity.product.detail,
       "mpcomid": '1'
     }
   })], 1)], 1), _vm._v(" "), _c('form', {
@@ -932,7 +914,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     attrs: {
       "formType": "submit"
     }
-  }, [(_vm.group_activity_initials_finish) ? _c('div', {
+  }, [(_vm.group_activity_initial_finish) ? _c('div', {
     staticClass: "btn open_btn",
     attrs: {
       "data-status": "1",
@@ -941,10 +923,23 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     on: {
       "click": _vm.createGroup
     }
-  }, [_c('span', [_vm._v("重新开团")])]) : _vm._e()])], 1), _vm._v(" "), (_vm.showBox) ? _c('div', {
+  }, [_c('span', [_vm._v("重新开团")])]) : _vm._e()])], 1), _vm._v(" "), (_vm.onekeyAttend) ? _c('div', {
+    staticClass: "pay"
+  }, [_c('div', {
+    staticClass: "price"
+  }, [_vm._v("\n      ¥" + _vm._s(_vm.order_info.group_activity.current_price)), _c('span', [_vm._v("还剩" + _vm._s(_vm.order_info.group_activity.product.num) + "份")])]), _vm._v(" "), _c('div', {
+    staticClass: "join-group",
+    attrs: {
+      "data-uuid": _vm.order_info.uuid,
+      "eventid": '5'
+    },
+    on: {
+      "click": _vm.attendGroup
+    }
+  }, [_vm._v("一键参与")])]) : _vm._e(), _vm._v(" "), (_vm.showBox) ? _c('div', {
     staticClass: "mask",
     attrs: {
-      "eventid": '8'
+      "eventid": '9'
     },
     on: {
       "click": _vm.shareMenu
@@ -956,7 +951,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     attrs: {
       "src": "http://pbmrxkahq.bkt.clouddn.com/close.png",
       "alt": "",
-      "eventid": '5'
+      "eventid": '6'
     },
     on: {
       "click": _vm.shareMenu
@@ -976,7 +971,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   })]), _vm._v(" "), _c('div', {
     staticClass: "createImg",
     attrs: {
-      "eventid": '6'
+      "eventid": '7'
     },
     on: {
       "click": _vm.getImg
@@ -994,25 +989,12 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   }, [_vm._v("微信好友")]), _vm._v(" "), _c('div', {
     staticClass: "shengchengImg",
     attrs: {
-      "eventid": '7'
+      "eventid": '8'
     },
     on: {
       "click": _vm.getImg
     }
-  }, [_vm._v("生成分享图片")])], 1) : _vm._e()]) : _vm._e(), _vm._v(" "), (_vm.onekeyAttend) ? _c('div', {
-    staticClass: "pay"
-  }, [_c('div', {
-    staticClass: "price"
-  }, [_vm._v("\n      ¥" + _vm._s(_vm.order_info.group_activity.current_price)), _c('span', [_vm._v("还剩" + _vm._s(_vm.order_info.group_activity.product.num) + "份")])]), _vm._v(" "), _c('div', {
-    staticClass: "join-group",
-    attrs: {
-      "data-uuid": _vm.order_info.uuid,
-      "eventid": '9'
-    },
-    on: {
-      "click": _vm.attendGroup
-    }
-  }, [_vm._v("一键参与")])]) : _vm._e()], 1)
+  }, [_vm._v("生成分享图片")])], 1) : _vm._e()]) : _vm._e()], 1)
 }
 var staticRenderFns = []
 render._withStripped = true

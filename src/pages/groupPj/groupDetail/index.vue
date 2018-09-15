@@ -8,7 +8,8 @@
     <!--订单详情-->
     <div class="detail-order">
       <h2>订单详情</h2>
-      <p>{{order_info.group_activity.title}}<span>¥{{order_info.group_activity.current_price}}</span></p>
+      <p>{{order_info.group_activity.title}}</p>
+      <span>¥&nbsp;{{order_info.group_activity.current_price}}</span>
     </div>
     <div class="address">
       <p>地址：目前需填写收货地址<span>(拼团成功后 提货时填写)</span></p>
@@ -108,9 +109,6 @@
       that.group_activity_order_uuid = group_activity_orders_uuid
       let currentuser_code = wx.getStorageSync('auth_code')
       let uuid_authCode = [group_activity_orders_uuid, currentuser_code]
-
-//      that.getGroup_orders()
-      // 新api的形式
       const orderData = await that.$store.dispatch('groupActivities_order', {...uuid_authCode})
 
       console.log(orderData)
@@ -131,7 +129,11 @@
     font-weight: Regular;
     text-align: left;
     background: #f7f7f7;
+    /*min-height: 812px;*/
     border: 1px solid #fff;
+
+    /*border: 1px solid #000;*/
+
   }
 
   .detail-order {
@@ -140,7 +142,7 @@
     background: #fff;
     /*border-top: 1px solid #fff;*/
     /*border-bottom: 1px solid #fff;*/
-
+    position: relative;
     margin-top: 10px;
     border: 1px solid #fff;
     h2 {
@@ -150,6 +152,8 @@
       font-family: PingFangSC-Medium;
       color: #333;
       font-size: 16px;
+      /*border: 1px solid #000;*/
+
     }
   ;
     p {
@@ -157,17 +161,29 @@
       font-family: PingFangSC-Regular;
       font-size: 12px;
       color: #4a4a4a;
-
+      height: 12px;
+      /*width: 70%;*/
+      line-height: 12px;
       margin: 10px auto 20px 25px;
       /*border:1px solid #000;*/
-      span {
-        display: inline-block;
-        font-family: PingFangSC-Regular;
-        font-size: 12px;
-        color: #4a4a4a;
-        margin-left: 228px;
-      }
     };
+    span {
+      display: inline-block;
+      font-family: PingFangSC-Regular;
+      font-size: 12px;
+      height: 12px;
+      /*width: 20%;*/
+      color: #4a4a4a;
+      /*margin-left: 228px;*/
+      /*border: 1px solid #000;*/
+      float: right;
+      position: absolute;
+      top:50px;
+      right:30px;
+      /*margin-top: 50px;*/
+
+    }
+
     /*display: none;*/
 
   }
@@ -274,4 +290,3 @@
 </style>
 
 
-<!--https://msg.chibaole.cc/api/v1/group_activity_initials/5ViMPz2vPjuD7Hq9sxAj8ZW3?auth_code=K18IP0aMcdUOaqKh4W68Lw-->

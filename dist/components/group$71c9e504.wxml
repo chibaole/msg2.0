@@ -3,7 +3,7 @@
     <view class="_p data-v-318ee708 componten_name ">
       <label class="_span data-v-318ee708"></label>拼团</view>
     <view class="_div data-v-318ee708 group-tiem " wx:key="group_activitie.uuid" key="{{group_activitie.uuid}}" wx:for="{{group_activities}}" wx:for-index="index" wx:for-item="group_activitie">
-      <form report-submit="{{true}}" bindsubmit="handleProxy" data-uuid="{{group_activitie.uuid}}" data-activitie="{{group_activitie}}" data-eventid="{{'1-'+index}}" data-comkey="{{$k}}" class="_form data-v-318ee708">
+      <form report-submit="{{true}}" bindsubmit="handleProxy" data-uuid="{{group_activitie.uuid}}" data-activitie="{{group_activitie}}" data-attend="{{group_activitie.button.text}}" data-eventid="{{'1-'+index}}" data-comkey="{{$k}}" class="_form data-v-318ee708">
         <button formType="submit" class="_button data-v-318ee708">
           <view class="_div data-v-318ee708 pic ">
             <view class="_div data-v-318ee708 bg" style=" {{(  'width:' +  '100%' +  ';' +  'height:' +  '100%' +  ';' +  'background-image:' +  'url(' +  group_activitie.title_image_url +  ')' +  ';' +  'background-size:' +  'cover' +  ';' +  'background-position:' +  '50%' +  ';')}}"></view>
@@ -12,7 +12,7 @@
             <view class="_div data-v-318ee708 group-info ">
               <view class="_div data-v-318ee708 group-text ">{{group_activitie.title}}</view>
               <view class="_div data-v-318ee708 group-prj-price ">¥{{group_activitie.current_price}}
-                <label class="_span data-v-318ee708 price ">¥{{group_activitie.original_price}}</label>
+                <label class="_span data-v-318ee708 price " wx:if="{{group_activitie.original_price}}">¥{{group_activitie.original_price}}</label>
               </view>
               <view class="_div data-v-318ee708 join-group " bindtap="handleProxy" data-groupname="{{groupname}}" data-uuid="{{group_activitie.uuid}}" data-eventid="{{'0-'+index}}" data-comkey="{{$k}}"> {{group_activitie.button.text}} </view>
             </view>

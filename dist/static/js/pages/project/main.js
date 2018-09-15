@@ -190,23 +190,6 @@ global.webpackJsonp([3],{
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -334,7 +317,7 @@ global.webpackJsonp([3],{
       var _this3 = this;
 
       return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee3() {
-        var that, uuid, page, data, res, wxCodeImg, titleContent, text_left, num_of_participants, num_left, painting;
+        var that, uuid, page, data, res, wxCodeImg, titleContent, num_of_participants, num_left, painting;
         return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee3$(_context3) {
           while (1) {
             switch (_context3.prev = _context3.next) {
@@ -351,41 +334,15 @@ global.webpackJsonp([3],{
                 res = _context3.sent;
                 wxCodeImg = res.wxa_qrcode_url;
                 titleContent = that.boon.title;
-                text_left = 64.4;
-
-                if (titleContent.length > 9) {
-                  console.log(titleContent.length);
-
-                  titleContent = titleContent.substring(0, 8);
-                  console.log(titleContent);
-                } else if (titleContent.length === 8) {
-                  titleContent = titleContent;
-                  text_left = 78.2;
-                } else if (titleContent.length === 7) {
-                  titleContent = titleContent;
-                  text_left = 92;
-                } else if (titleContent.length === 6) {
-                  titleContent = titleContent;
-                  text_left = 105.8;
-                } else if (titleContent.length === 5) {
-                  titleContent = titleContent;
-                  text_left = 119.6;
-                } else if (titleContent.length === 4) {
-                  titleContent = titleContent;
-                  text_left = 133.4;
-                } else if (titleContent.length === 3) {
-                  titleContent = titleContent;
-                  text_left = 147.2;
-                }
                 num_of_participants = String(that.boon.num_of_participants);
-                num_left = 161;
+                num_left = 63;
 
                 if (num_of_participants.length >= 3) {
-                  num_left = 161;
+                  num_left = 63;
                 } else if (num_of_participants.length === 2) {
-                  num_left = 170.2;
+                  num_left = 72.2;
                 } else if (num_of_participants.length === 1) {
-                  num_left = 179.4;
+                  num_left = 71.4;
                 }
 
                 painting = {
@@ -422,7 +379,7 @@ global.webpackJsonp([3],{
                     color: '#454553',
                     textAlign: 'left',
                     top: 217.35,
-                    left: text_left,
+                    left: 25,
                     width: 244.95,
                     MaxLineNumber: 2, // 最大两行 超出...
                     breakWord: true, // 换行
@@ -433,8 +390,8 @@ global.webpackJsonp([3],{
                     fontSize: 18.4,
                     color: '#4a4a4a',
                     textAlign: 'left',
-                    top: 256.45,
-                    left: 124.2
+                    top: 266.45,
+                    left: 25
 
                   }, {
                     type: 'text',
@@ -442,8 +399,8 @@ global.webpackJsonp([3],{
                     fontSize: 18.4,
                     color: '#4a4a4a',
                     textAlign: 'left',
-                    top: 361.1,
-                    left: 124.2 // 根据价格字符个数 变化
+                    top: 303.2,
+                    left: 25 // 根据价格字符个数 变化
 
                   }, {
                     type: 'text',
@@ -451,7 +408,7 @@ global.webpackJsonp([3],{
                     fontSize: 18.4,
                     color: '#ff7f4f',
                     textAlign: 'left',
-                    top: 361.1,
+                    top: 303.2,
                     left: num_left //
                   }, {
                     type: 'text',
@@ -459,8 +416,8 @@ global.webpackJsonp([3],{
                     fontSize: 18.4,
                     color: '#4a4a4a',
                     textAlign: 'left',
-                    top: 361.1,
-                    left: 195.5,
+                    top: 303.2,
+                    left: 90,
                     lineHeight: 18.4,
                     MaxLineNumber: 2,
                     breakWord: true
@@ -489,7 +446,7 @@ global.webpackJsonp([3],{
                 wx.setStorageSync('painting', painting);
                 wx.navigateTo({ url: '/pages/test/main' });
 
-              case 18:
+              case 16:
               case 'end':
                 return _context3.stop();
             }
@@ -643,7 +600,13 @@ global.webpackJsonp([3],{
       }, _callee5, _this5);
     }))();
   },
-  mounted: function mounted() {},
+  mounted: function mounted() {
+    var phoneModel = wx.getStorageSync('phoneModel');
+    console.log(phoneModel);
+    if (phoneModel === 'iPhone X') {
+      console.log('iPhone X 底部拉高');
+    }
+  },
   onShareAppMessage: function onShareAppMessage(res) {
     var that = this;
     if (res.from === 'button') {
@@ -652,8 +615,8 @@ global.webpackJsonp([3],{
     }
     return {
       title: '邀你抽奖',
-      path: '/pages/project/main?boons_uuid=' + that.uuid,
-      imageUrl: 'http://pbmrxkahq.bkt.clouddn.com/cover.png'
+      path: '/pages/project/main?boons_uuid=' + that.uuid
+      //        imageUrl: 'http://pbmrxkahq.bkt.clouddn.com/cover.png'
     };
   }
 });
@@ -765,7 +728,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticStyle: {
       "color": "#ff7f4f"
     }
-  }, [_vm._v(_vm._s(_vm.boon.num_of_participants))]), _vm._v("人参与")])])], 1)]), _vm._v(" "), (_vm.boon.sponsor) ? _c('div', {
+  }, [_vm._v(" " + _vm._s(_vm.boon.num_of_participants) + " ")]), _vm._v("人参与")])])], 1)]), _vm._v(" "), (_vm.boon.sponsor) ? _c('div', {
     staticClass: "sponsorsBox"
   }, [_c('div', {
     staticClass: "sponsors"
@@ -842,7 +805,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "click": _vm.chooseAddress
     }
   }, [_vm._v("去领奖")]) : _vm._e(), _vm._v(" "), (_vm.boon.boon_order.status === 'received') ? _c('div', {
-    staticClass: "prizeWindow",
+    staticClass: "prizeWindowe",
     attrs: {
       "eventid": '2'
     },

@@ -10,7 +10,7 @@
 
 
         <h2><div class="mark">{{order_info.group_activity.group_type}}</div>{{order_info.group_activity.title}}</h2>
-        <p><span>¥&nbsp;{{order_info.group_activity.current_price}}</span><span>¥{{order_info.group_activity.original_price}}</span></p>
+        <p><span>¥&nbsp;{{order_info.group_activity.current_price}}</span><span v-if="order_info.group_activity.original_price">¥{{order_info.group_activity.original_price}}</span></p>
       </div>
     </div>
     </div>

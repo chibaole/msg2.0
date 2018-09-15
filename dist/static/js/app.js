@@ -903,12 +903,12 @@ app.$mount();
       selectedColor: '#EA5149',
       list: [{
         pagePath: 'pages/home/main',
-        iconPath: 'static/img/home.png',
-        selectedIconPath: 'static/img/homed.png'
+        iconPath: 'static/img/tabbar-home.png',
+        selectedIconPath: 'static/img/tabbar-home-selected.png'
       }, {
         pagePath: 'pages/user/main',
-        iconPath: 'static/img/me.png',
-        selectedIconPath: 'static/img/me_.png'
+        iconPath: 'static/img/tabbar-user.png',
+        selectedIconPath: 'static/img/tabbar-user-selected.png'
       }]
     }
     // {
@@ -967,6 +967,7 @@ app.$mount();
               wx.getSystemInfo({
                 success: function success(res) {
                   console.log(res);
+                  wx.setStorageSync('phoneModel', res.model);
                   var totalTopHeight = 68;
 
                   if (res.model.indexOf('iPhone X') !== -1) {

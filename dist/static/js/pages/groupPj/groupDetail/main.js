@@ -56,6 +56,7 @@ global.webpackJsonp([12],{
 //
 //
 //
+//
 
 
 
@@ -155,10 +156,6 @@ global.webpackJsonp([12],{
               that.group_activity_order_uuid = group_activity_orders_uuid;
               currentuser_code = wx.getStorageSync('auth_code');
               uuid_authCode = [group_activity_orders_uuid, currentuser_code];
-
-              //      that.getGroup_orders()
-              // 新api的形式
-
               _context2.next = 7;
               return that.$store.dispatch('groupActivities_order', __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default()({}, uuid_authCode));
 
@@ -224,7 +221,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }), _vm._v(" "), _c('div', {
     staticClass: "detail-order"
-  }, [_c('h2', [_vm._v("订单详情")]), _vm._v(" "), _c('p', [_vm._v(_vm._s(_vm.order_info.group_activity.title)), _c('span', [_vm._v("¥" + _vm._s(_vm.order_info.group_activity.current_price))])])], 1), _vm._v(" "), _c('div', {
+  }, [_c('h2', [_vm._v("订单详情")]), _vm._v(" "), _c('p', [_vm._v(_vm._s(_vm.order_info.group_activity.title))]), _vm._v(" "), _c('span', [_vm._v("¥ " + _vm._s(_vm.order_info.group_activity.current_price))])], 1), _vm._v(" "), _c('div', {
     staticClass: "address"
   }, [_c('p', [_vm._v("地址：目前需填写收货地址"), _c('span', [_vm._v("(拼团成功后 提货时填写)")])])], 1), _vm._v(" "), _c('form', {
     attrs: {

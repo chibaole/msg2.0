@@ -14,7 +14,7 @@
       <div class="prj-info">
         <p class="prj-name">{{boon.title}}</p>
         <p class="prj-little-info">{{boon.lottery_conditions}} <span class="hasJoined">已有<span
-          style="color: #ff7f4f">{{boon.num_of_participants}}</span>人参与</span></p>
+          style="color: #ff7f4f">&nbsp;{{boon.num_of_participants}}&nbsp;</span>人参与</span></p>
       </div>
     </div>
     <!-- 福利简要信息    -->
@@ -45,8 +45,6 @@
     </div>
 
     <!--抽奖流程-->
-
-
     <div class="btn1" v-if="boon.status== 'published'">
 
       <button v-if="boon.participate_status == true" class="waiting">待开奖</button>
@@ -54,26 +52,16 @@
       <button @click="attendBoon" v-if="boon.participate_status == false" :class="prizeStyle">{{prize}}</button>
 
     </div>
-
     <!--抽奖未开奖显示的 '抽奖/待开奖按钮'-->
-    <!--<div v-if="boon.participate_status===true">    &lt;!&ndash;参加过&ndash;&gt;-->
+
     <div class="openPrize" v-if="boon.status== 'rewarded'  "> <!--开奖了-->
       <div class="pic">
-
-        <!--<img src="http://pbmrxkahq.bkt.clouddn.com/winning.png" alt="" v-if="boon.boon_order.status != 'lose'">-->
-        <!--<img src="http://pbmrxkahq.bkt.clouddn.com/%E6%9C%AA%E4%B8%AD%E5%A5%96.png" alt=""-->
-        <!--v-if="boon.boon_order.status === 'lose'">-->
         <img :src='boon_resImg' alt="">
-
-        <!--<p class="boon_order_text" v-if="boon.boon_order.status != 'lose' ">恭喜，您中奖了</p>-->
-        <!--<p class="boon_order_text" v-if="boon.boon_order.status === 'lose'">很遗憾，你本次没有中奖～</p>-->
         <p class="boon_order_text">{{boon_resText}}</p>
-
       </div>
-
       <div v-if="boon.participate_status===true">
         <div class="prizeWindow" v-if="boon.boon_order.status === 'win'" @click="chooseAddress">去领奖</div>
-        <div class="prizeWindow" v-if="boon.boon_order.status === 'received'" @click="chooseAddress">已领奖</div>
+        <div class="prizeWindowe" v-if="boon.boon_order.status === 'received'" @click="chooseAddress">已领奖</div>
       </div>
       <div class="nameList">
         <div class="line1"></div>
@@ -91,12 +79,7 @@
           <img src="http://pbmrxkahq.bkt.clouddn.com/%E5%8A%A0%E8%BD%BD%E6%9B%B4%E5%A4%9Aicon.png" alt="">
         </div>
       </div>
-
-
     </div>
-    <!--</div>-->
-
-
     <div class="btn-box" v-if="boon.status== 'published'">
 
       <Diago v-if="open" v-on:childByValue="childByValue"></Diago>
@@ -235,46 +218,16 @@
         let wxCodeImg = res.wxa_qrcode_url
 
         let titleContent = that.boon.title
-        let text_left = 64.4
-        if (titleContent.length > 9) {
-          console.log(titleContent.length)
 
-          titleContent = titleContent.substring(0, 8)
-          console.log(titleContent)
-        } else if (titleContent.length === 8) {
-          titleContent = titleContent
-          text_left = 78.2
-
-        } else if (titleContent.length === 7) {
-          titleContent = titleContent
-          text_left = 92
-
-        } else if (titleContent.length === 6) {
-          titleContent = titleContent
-          text_left = 105.8
-
-        } else if (titleContent.length === 5) {
-          titleContent = titleContent
-          text_left = 119.6
-
-        } else if (titleContent.length === 4) {
-          titleContent = titleContent
-          text_left = 133.4
-
-        } else if (titleContent.length === 3) {
-          titleContent = titleContent
-          text_left = 147.2
-
-        }
         let num_of_participants =String(that.boon.num_of_participants)
-        let num_left = 161
+        let num_left = 63
         if (num_of_participants.length >= 3) {
-          num_left = 161
+          num_left = 63
         } else if (num_of_participants.length === 2) {
-          num_left = 170.2
+          num_left = 72.2
 
         } else if (num_of_participants.length === 1) {
-          num_left = 179.4
+          num_left = 71.4
 
         }
 
@@ -312,7 +265,7 @@
               color: '#454553',
               textAlign: 'left',
               top: 217.35,
-              left: text_left,
+              left: 25,
               width: 244.95,
               MaxLineNumber: 2,                                                                         // 最大两行 超出...
               breakWord: true,  // 换行
@@ -325,8 +278,8 @@
               fontSize: 18.4,
               color: '#4a4a4a',
               textAlign: 'left',
-              top: 256.45,
-              left: 124.2
+              top: 266.45,
+              left: 25
 
             },
             {
@@ -335,8 +288,8 @@
               fontSize: 18.4,
               color: '#4a4a4a',
               textAlign: 'left',
-              top: 361.1,
-              left: 124.2                                                                      // 根据价格字符个数 变化
+              top: 303.2,
+              left: 25                                                                      // 根据价格字符个数 变化
 
             },
             {
@@ -345,7 +298,7 @@
               fontSize: 18.4,
               color: '#ff7f4f',
               textAlign: 'left',
-              top: 361.1,
+              top: 303.2,
               left: num_left                                                                      //
             },
 
@@ -355,8 +308,8 @@
               fontSize: 18.4,
               color: '#4a4a4a',
               textAlign: 'left',
-              top: 361.1,
-              left: 195.5,
+              top: 303.2,
+              left: 90,
               lineHeight: 18.4,
               MaxLineNumber: 2,
               breakWord: true
@@ -479,6 +432,11 @@
       that.isIphoneX = isIphoneX
     },
     mounted() {
+      let phoneModel = wx.getStorageSync('phoneModel')
+      console.log(phoneModel)
+      if(phoneModel === 'iPhone X'){
+        console.log('iPhone X 底部拉高')
+      }
 
     },
 
@@ -491,7 +449,7 @@
       return {
         title: '邀你抽奖',
         path: '/pages/project/main?boons_uuid=' + that.uuid,
-        imageUrl: 'http://pbmrxkahq.bkt.clouddn.com/cover.png'
+//        imageUrl: 'http://pbmrxkahq.bkt.clouddn.com/cover.png'
       }
     }
   }
@@ -502,6 +460,7 @@
     /*border: 1px solid #000;*/
     font-family: PingFangSC-Medium;
     background: #f7f7f7;
+    /*border: 1px solid #000;*/
   }
 
   .pic-info {
@@ -689,40 +648,39 @@
 
   .btn1 {
     padding-top: 90px;
-    padding-bottom: 41px;
-    margin-bottom: 61px;
+    padding-bottom: 61px;
+    margin-bottom: 68px;
     background: #fff;
+    /*border: 1px solid #000;*/
+    .waiting {
+      width: 100px;
+      height: 100px;
+      line-height: 100px;
+
+      /*background: #ff7f4f;*/
+      /*opacity: 0.7;*/
+      background: rgba(#ff7f4f, 0.4);
+
+      margin: 0 auto;
+      font-size: 16px;
+      color: #fff;
+
+      border-radius: 50%;
+    };
+    .prize {
+      width: 100px;
+      height: 100px;
+      line-height: 100px;
+
+      background: rgba(#ff7f4f, 0.7);
+      margin: 0 auto;
+      font-size: 16px;
+      color: #fff;
+
+      border-radius: 50%;
+    }
+
   }
-
-  .btn1 .waiting {
-    width: 100px;
-    height: 100px;
-    line-height: 100px;
-
-    /*background: #ff7f4f;*/
-    /*opacity: 0.7;*/
-    background: rgba(#ff7f4f, 0.4);
-
-    margin: 0 auto;
-    font-size: 16px;
-    color: #fff;
-
-    border-radius: 50%;
-  }
-
-  .btn1 .prize {
-    width: 100px;
-    height: 100px;
-    line-height: 100px;
-
-    background: rgba(#ff7f4f, 0.7);
-    margin: 0 auto;
-    font-size: 16px;
-    color: #fff;
-
-    border-radius: 50%;
-  }
-
   .btn-box {
     /*border: 1px solid red;*/
     position: fixed;
@@ -808,20 +766,20 @@
     position: relative;
     z-index: 1000;
     /*border: 1px solid #ff7f4f;*/
+    .title {
+      width: 102px;
+      height: 24px;
+      font-size: 17px;
+      line-height: 24px;
+      color: #333;
+      position: absolute;
+      top: 56px;
+      left: 137px;
+
+    }
 
   }
 
-  .meunBox .title {
-    width: 102px;
-    height: 24px;
-    font-size: 17px;
-    line-height: 24px;
-    color: #333;
-    position: absolute;
-    top: 56px;
-    left: 137px;
-
-  }
 
   .meunBox .friend, .createImg {
     display: inline-block;
@@ -944,7 +902,7 @@
 
     }
   ;
-    .prizeWindow {
+    .prizeWindow , .prizeWindowe {
 
       width: 180px;
       height: 40px;
@@ -957,6 +915,7 @@
       font-family: PingFangSC-Medium;
       margin: 0px auto 45px;
     }
+
   ;
     .nameList {
       position: relative;
@@ -975,7 +934,7 @@
     ;
       .line1, .line2 {
         width: 60px;
-        height: 2px;
+        height: 1px;
         position: absolute;
         top: 6px;
         background: #ededed;

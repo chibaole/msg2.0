@@ -14,6 +14,7 @@
       wx.getSystemInfo({
         success: function (res) {
           console.log(res)
+          wx.setStorageSync('phoneModel',res.model)
           let totalTopHeight = 68
 
           if (res.model.indexOf('iPhone X') !== -1) {

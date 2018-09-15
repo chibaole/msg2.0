@@ -10,7 +10,7 @@
             <view class="_div data-v-7065d1ac mark">{{order_info.group_activity.group_type}}</view>{{order_info.group_activity.title}}</view>
           <view class="_p data-v-7065d1ac">
             <label class="_span data-v-7065d1ac">¥ {{order_info.group_activity.current_price}}</label>
-            <label class="_span data-v-7065d1ac">¥{{order_info.group_activity.original_price}}</label>
+            <label wx:if="{{order_info.group_activity.original_price}}" class="_span data-v-7065d1ac">¥{{order_info.group_activity.original_price}}</label>
           </view>
         </view>
       </view>

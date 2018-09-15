@@ -34,7 +34,7 @@
       },
       eventDraw () {
         wx.showLoading({
-          title: '绘制分享图片中',
+          title: '生成中，再等等',
           mask: true
         })
 //

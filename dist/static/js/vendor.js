@@ -11536,7 +11536,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "right"
   }, [_c('h2', [_c('div', {
     staticClass: "mark"
-  }, [_vm._v(_vm._s(_vm.order_info.group_activity.group_type))]), _vm._v(_vm._s(_vm.order_info.group_activity.title))]), _vm._v(" "), _c('p', [_c('span', [_vm._v("¥ " + _vm._s(_vm.order_info.group_activity.current_price))]), _c('span', [_vm._v("¥" + _vm._s(_vm.order_info.group_activity.original_price))])])], 1)])])])
+  }, [_vm._v(_vm._s(_vm.order_info.group_activity.group_type))]), _vm._v(_vm._s(_vm.order_info.group_activity.title))]), _vm._v(" "), _c('p', [_c('span', [_vm._v("¥ " + _vm._s(_vm.order_info.group_activity.current_price))]), (_vm.order_info.group_activity.original_price) ? _c('span', [_vm._v("¥" + _vm._s(_vm.order_info.group_activity.original_price))]) : _vm._e()])], 1)])])])
 }
 var staticRenderFns = []
 render._withStripped = true

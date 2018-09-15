@@ -127,8 +127,8 @@
       return {
         userinfo: {
           avatar_url: 'http://image.shengxinjing.cn/rate/unlogin.png',
-          nick_name: '没事干研究院',
-          level_display: '',
+          nick_name: '',
+          level_display: '游客',
           is_authorized: true,
           point: {
             total_acquired: 0,
@@ -188,8 +188,11 @@
             await that.$store.dispatch('saveInfo', {...data})
             that.login_show = false
 
-            let userinfo = wx.getStorageSync('userinfo')
-            that.userinfo = userinfo
+            let userinfo = wx.getStorageSync('userinfo') //{nick_name,avatar_url}
+
+
+            that.userinfo.nick_name = userinfo.nick_name
+            that.userinfo.avatar_url = userinfo.avatar_url
 
           } else {
             // 用户按了拒绝按钮
@@ -222,27 +225,24 @@
     },
     async onShow() {
       let that = this
-      let userinfo = wx.getStorageSync('userinfo')
-      if (userinfo) {
-        let user_profile = await that.$store.dispatch('user_info')
-        let userinfoInit = {
-          avatar_url: userinfo.avatar_url,
-          nick_name: userinfo.nick_name,
-          level_display: '',
-          is_authorized: true,
-          point: {
-            total_acquired: 0,
-            available_count: 0
-          }
-        }
-        userinfoInit.level_display = user_profile.user.level_display
-        userinfoInit.point = user_profile.user.point
-        that.userinfo = userinfoInit
-        that.login_show = false
-      } else {
-        that.login_show = true
-      }
+//      let userinfo = wx.getStorageSync('userinfo')
 
+        let user_profile = await that.$store.dispatch('user_info')
+        let user = user_profile.user
+        let userinfoInit = {
+          avatar_url:  user.avatar_url,
+          nick_name:  user.nick_name,
+          level_display:  user.level_display,
+          is_authorized: user.is_authorized,
+          point:user.point
+        }
+        wx.setStorageSync('allUserinfo',userinfoInit)
+        if(userinfoInit.is_authorized === true){
+          that.login_show = false
+          that.userinfo = userinfoInit
+        }else{
+          that.login_show = true
+        }
 
     },
     onLoad() {
@@ -358,21 +358,34 @@
       top: 53px;
       left: 110px;
       /*border:1px solid #000;*/
+      text-align: left;
+
+
+      .foodname{
+        /*border: 1px solid red;*/
+        float: left;
+        max-width: 195px;
+        overflow: hidden;
+        /*text-overflow:ellipsis;*/
+        text-overflow: clip;
+        white-space: nowrap;
+
+      }
+      .foodLabel {
+               display: inline-block;
+               color: #fff;
+
+               font-family: PingFangSC-Regular;
+               border-radius: 13px;
+               font-size: 10px;
+               margin-left: 5px;
+               background: rgba(#fc9e79, 0.4);
+               padding: 2px 5px;
+             }
+
     }
   ;
 
-    .foodLabel {
-      display: inline-block;
-      color: #fff;
-      /*height:18px;*/
-      /*line-height: 18px;*/
-      font-family: PingFangSC-Regular;
-      border-radius: 13px;
-      font-size: 10px;
-      margin-left: 5px;
-      background: rgba(#fc9e79, 0.4);
-      padding: 2px 5px;
-    }
   ;
     .desc {
       height: 16px;

@@ -6,9 +6,8 @@
     <template data="{{...$root[$kk+'1'], $root}}" is="groupCard$ad87fca4"></template>
     <view class="_div data-v-97fa62a8 detail-order">
       <view class="_h2 data-v-97fa62a8">订单详情</view>
-      <view class="_p data-v-97fa62a8">{{order_info.group_activity.title}}
-        <label class="_span data-v-97fa62a8">¥{{order_info.group_activity.current_price}}</label>
-      </view>
+      <view class="_p data-v-97fa62a8">{{order_info.group_activity.title}}</view>
+      <label class="_span data-v-97fa62a8">¥ {{order_info.group_activity.current_price}}</label>
     </view>
     <view class="_div data-v-97fa62a8 address">
       <view class="_p data-v-97fa62a8">地址：目前需填写收货地址

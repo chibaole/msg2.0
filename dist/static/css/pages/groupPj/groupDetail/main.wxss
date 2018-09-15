@@ -11,6 +11,7 @@
   height: 164rpx;
   width: 745rpx;
   background: #fff;
+  position: relative;
   margin-top: 20rpx;
   border: 2rpx solid #fff;
 }
@@ -27,14 +28,20 @@
   font-family: PingFangSC-Regular;
   font-size: 24rpx;
   color: #4a4a4a;
+  height: 24rpx;
+  line-height: 24rpx;
   margin: 20rpx auto 40rpx 50rpx;
 }
-.detail-order ._p ._span.data-v-97fa62a8 {
+.detail-order ._span.data-v-97fa62a8 {
   display: inline-block;
   font-family: PingFangSC-Regular;
   font-size: 24rpx;
+  height: 24rpx;
   color: #4a4a4a;
-  margin-left: 456rpx;
+  float: right;
+  position: absolute;
+  top: 100rpx;
+  right: 60rpx;
 }
 .address.data-v-97fa62a8 {
   width: 746rpx;

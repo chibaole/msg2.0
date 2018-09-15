@@ -148,8 +148,8 @@ global.webpackJsonp([2],{
     return {
       userinfo: {
         avatar_url: 'http://image.shengxinjing.cn/rate/unlogin.png',
-        nick_name: '没事干研究院',
-        level_display: '',
+        nick_name: '',
+        level_display: '游客',
         is_authorized: true,
         point: {
           total_acquired: 0,
@@ -217,12 +217,12 @@ global.webpackJsonp([2],{
                 sesssion_res = _context.sent;
 
                 if (!(sesssion_res.errMsg === 'checkSession:ok')) {
-                  _context.next = 17;
+                  _context.next = 18;
                   break;
                 }
 
                 if (!e.mp.detail.rawData) {
-                  _context.next = 14;
+                  _context.next = 15;
                   break;
                 }
 
@@ -234,31 +234,33 @@ global.webpackJsonp([2],{
               case 9:
                 that.login_show = false;
 
-                userinfo = wx.getStorageSync('userinfo');
+                userinfo = wx.getStorageSync('userinfo'); //{nick_name,avatar_url}
 
-                that.userinfo = userinfo;
 
-                _context.next = 15;
+                that.userinfo.nick_name = userinfo.nick_name;
+                that.userinfo.avatar_url = userinfo.avatar_url;
+
+                _context.next = 16;
                 break;
 
-              case 14:
+              case 15:
                 // 用户按了拒绝按钮
                 console.log('用户按了拒绝按钮');
 
-              case 15:
-                _context.next = 22;
+              case 16:
+                _context.next = 23;
                 break;
 
-              case 17:
+              case 18:
                 console.log('session 过期');
-                _context.next = 20;
+                _context.next = 21;
                 return that.$store.dispatch('signup');
 
-              case 20:
+              case 21:
                 that.login_show = false;
                 console.log('重新登录成功');
 
-              case 22:
+              case 23:
               case 'end':
                 return _context.stop();
             }
@@ -312,46 +314,37 @@ global.webpackJsonp([2],{
     var _this3 = this;
 
     return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee3() {
-      var that, userinfo, user_profile, userinfoInit;
+      var that, user_profile, user, userinfoInit;
       return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee3$(_context3) {
         while (1) {
           switch (_context3.prev = _context3.next) {
             case 0:
               that = _this3;
-              userinfo = wx.getStorageSync('userinfo');
+              //      let userinfo = wx.getStorageSync('userinfo')
 
-              if (!userinfo) {
-                _context3.next = 13;
-                break;
-              }
-
-              _context3.next = 5;
+              _context3.next = 3;
               return that.$store.dispatch('user_info');
 
-            case 5:
+            case 3:
               user_profile = _context3.sent;
+              user = user_profile.user;
               userinfoInit = {
-                avatar_url: userinfo.avatar_url,
-                nick_name: userinfo.nick_name,
-                level_display: '',
-                is_authorized: true,
-                point: {
-                  total_acquired: 0,
-                  available_count: 0
-                }
+                avatar_url: user.avatar_url,
+                nick_name: user.nick_name,
+                level_display: user.level_display,
+                is_authorized: user.is_authorized,
+                point: user.point
               };
 
-              userinfoInit.level_display = user_profile.user.level_display;
-              userinfoInit.point = user_profile.user.point;
-              that.userinfo = userinfoInit;
-              that.login_show = false;
-              _context3.next = 14;
-              break;
+              wx.setStorageSync('allUserinfo', userinfoInit);
+              if (userinfoInit.is_authorized === true) {
+                that.login_show = false;
+                that.userinfo = userinfoInit;
+              } else {
+                that.login_show = true;
+              }
 
-            case 13:
-              that.login_show = true;
-
-            case 14:
+            case 8:
             case 'end':
               return _context3.stop();
           }

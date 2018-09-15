@@ -6,7 +6,7 @@
 
 
     <div class="group-tiem " v-for="group_activitie in group_activities" :key="group_activitie.uuid">
-      <form :report-submit="true" @submit="goGroup" :data-uuid="group_activitie.uuid" :data-activitie="group_activitie">
+      <form :report-submit="true" @submit="goGroup" :data-uuid="group_activitie.uuid" :data-activitie="group_activitie" :data-attend='group_activitie.button.text'>
         <button formType="submit">
           <div class="pic ">
 
@@ -18,7 +18,7 @@
             <div class="group-info ">
               <div class="group-text ">{{group_activitie.title}}</div>
               <div class="group-prj-price ">¥{{group_activitie.current_price}} <span
-                class="price ">¥{{group_activitie.original_price}}</span></div>
+                class="price " v-if="group_activitie.original_price">¥{{group_activitie.original_price}}</span></div>
               <div class="join-group " @click="goGroup" :data-groupname="groupname" :data-uuid="group_activitie.uuid">
                 {{group_activitie.button.text}}
               </div>
@@ -53,6 +53,8 @@
         let group_activities_uuid = e.currentTarget.dataset.uuid
         let Intial = e.currentTarget.dataset.activitie
         let formId = e.mp.detail.formId
+        let attend = e.currentTarget.dataset.attend
+        console.log('attend'+attend)
         if (Intial.group_activity_initial === null) {
           console.log('未参与')
           wx.navigateTo({
@@ -61,7 +63,7 @@
         } else if (Intial.group_activity_initial !== null) {
           console.log('已参与')
           wx.navigateTo({
-            url: `/pages/groupPj/order/main?group_activity_initial_uuid=${Intial.group_activity_initial.uuid}&from_id=${formId}` // 参与拼团的页面
+            url: `/pages/groupPj/order/main?group_activity_initial_uuid=${Intial.group_activity_initial.uuid}&from_id=${formId}&attend=${attend}` // 参与拼团的页面
           })
         }
       },

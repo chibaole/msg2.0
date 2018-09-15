@@ -131,10 +131,10 @@
   margin: 0 auto;
   padding: 0 50rpx;
   font-family: PingFangSC-Regular;
-  color: #333;
-  font-size: 32rpx;
+  font-size: 24rpx;
+  color: #4a4a4a;
   text-align: left;
-  margin-bottom: 120rpx;
+  margin-bottom: 136rpx;
 }
 .share.data-v-b3a874ec {
   width: 360rpx;
@@ -393,7 +393,7 @@
   height: 168rpx;
   width: 450rpx;
 }
-.right ._h2 .mark.data-v-b3a874ec {
+.right ._h2 .group_mark.data-v-b3a874ec {
   width: 100rpx;
   height: 40rpx;
   line-height: 40rpx;
@@ -420,13 +420,13 @@
 }
 .right ._p ._span.data-v-b3a874ec:nth-child(1) {
   font-size: 40rpx;
-  color: #D0021B;
-  font-weight: Medium;
+  color: #f83713;
+  font-family: PingFangSC-Medium;
 }
 .right ._p ._span.data-v-b3a874ec:nth-child(2) {
-  font-size: 24rpx;
-  color: #D0021b;
-  font-weight: Regular;
+  font-size: 20rpx;
+  color: #999;
+  font-family: PingFangSC-Regular;
   text-decoration: line-through;
 }
 ._form.data-v-b3a874ec {

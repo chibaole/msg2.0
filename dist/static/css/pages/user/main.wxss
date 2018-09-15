@@ -74,8 +74,16 @@
   position: absolute;
   top: 106rpx;
   left: 220rpx;
+  text-align: left;
 }
-.userinfo .foodLabel.data-v-3105212a {
+.userinfo .username .foodname.data-v-3105212a {
+  float: left;
+  max-width: 390rpx;
+  overflow: hidden;
+  text-overflow: clip;
+  white-space: nowrap;
+}
+.userinfo .username .foodLabel.data-v-3105212a {
   display: inline-block;
   color: #fff;
   font-family: PingFangSC-Regular;

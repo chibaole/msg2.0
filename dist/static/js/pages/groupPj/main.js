@@ -87,7 +87,7 @@ global.webpackJsonp([11],{
       pjname: '为定义',
       uuid: '',
       group_activity: {},
-      navbar_title: '拼团',
+      navbar_title: '拼团详情',
       group_activity_order_uuid: '',
       group_activities_uuid: '',
       time: { day: '', hours: '', minutes: '', seconds: '' },
@@ -237,7 +237,7 @@ global.webpackJsonp([11],{
       that.time.minutes = minutes;
       that.time.seconds = second;
 
-      console.log(hours, minutes, second);
+      //        console.log(hours, minutes, second)
 
       var param = setTimeout(that.getlastTime, 1000);
 
@@ -276,9 +276,10 @@ global.webpackJsonp([11],{
               // 获取当前拼团活动详情
               that.group_activity = group_activity.group_activity;
               // 通过富文本展示商品详情
-              that.myDetail = that.group_activity.detail;
+              that.myDetail = that.group_activity.product.detail;
+              that.myDetail = that.myDetail.replace(/\<img/g, '<img class="img" mode="aspectFill"');
 
-            case 13:
+            case 14:
             case 'end':
               return _context4.stop();
           }
@@ -286,7 +287,45 @@ global.webpackJsonp([11],{
       }, _callee4, _this4);
     }))();
   },
-  mounted: function mounted() {}
+  mounted: function mounted() {
+    var _this5 = this;
+
+    return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.mark(function _callee5() {
+      var that, form_id, uuid, currentuser_code, uuid_authCode, group_activity;
+      return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.wrap(function _callee5$(_context5) {
+        while (1) {
+          switch (_context5.prev = _context5.next) {
+            case 0:
+              that = _this5;
+
+              that.getlastTime();
+
+              that.group_activities_uuid = that.$root.$mp.query.group_activities_uuid; // 获取活动列表的group_activities_uuid
+              form_id = options.form_id;
+
+              console.log('这是form' + form_id);
+              uuid = that.group_activities_uuid;
+              currentuser_code = wx.getStorageSync('auth_code');
+              uuid_authCode = [uuid, currentuser_code, form_id];
+              _context5.next = 10;
+              return that.$store.dispatch('getGrouDetail', __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default()({}, uuid_authCode));
+
+            case 10:
+              group_activity = _context5.sent;
+              // 获取当前拼团活动详情
+              that.group_activity = group_activity.group_activity;
+              // 通过富文本展示商品详情
+              that.myDetail = that.group_activity.product.detail;
+              that.myDetail = that.myDetail.replace(/\<img/g, '<img class="img" mode="aspectFill"');
+
+            case 14:
+            case 'end':
+              return _context5.stop();
+          }
+        }
+      }, _callee5, _this5);
+    }))();
+  }
 });
 
 /***/ }),
@@ -335,7 +374,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "pj-text"
   }, [_vm._v(_vm._s(_vm.group_activity.description))]), _vm._v(" "), _c('p', {
     staticClass: "pj-price"
-  }, [_vm._v("¥ " + _vm._s(_vm.group_activity.current_price)), _c('span', [_vm._v("拼团价")]), _c('span', [_vm._v(_vm._s(_vm.group_activity.original_price))])])], 1)]), _vm._v(" "), _c('div', {
+  }, [_vm._v("¥ " + _vm._s(_vm.group_activity.current_price)), _c('span', [_vm._v("拼团价")]), (_vm.group_activity.original_price) ? _c('span', [_vm._v("¥" + _vm._s(_vm.group_activity.original_price))]) : _vm._e()])], 1)]), _vm._v(" "), _c('div', {
     staticClass: "group"
   }, [_c('h2', {
     staticClass: "group-game"
@@ -358,7 +397,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "pay"
   }, [_c('span', {
     staticClass: "price"
-  }, [_vm._v("¥ " + _vm._s(_vm.group_activity.current_price)), _c('span', [_vm._v("还剩" + _vm._s(_vm.group_activity.stock) + "份")])]), _vm._v(" "), _c('form', {
+  }, [_vm._v("¥ " + _vm._s(_vm.group_activity.current_price)), (_vm.group_activity.stock) ? _c('span', [_vm._v("还剩" + _vm._s(_vm.group_activity.stock) + "份")]) : _vm._e()]), _vm._v(" "), _c('form', {
     attrs: {
       "report-submit": true,
       "eventid": '0'

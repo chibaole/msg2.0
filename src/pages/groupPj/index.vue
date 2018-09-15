@@ -20,7 +20,7 @@
       <div class="pj-info">
         <h2 class="pj-name"><span class="mark">{{group_activity.group_type}}</span>{{group_activity.title}}</h2>
         <p class="pj-text">{{group_activity.description}}</p>
-        <p class="pj-price">¥&nbsp;{{group_activity.current_price}}<span>拼团价</span><span>{{group_activity.original_price}}</span>
+        <p class="pj-price">¥&nbsp;{{group_activity.current_price}}<span>拼团价</span><span v-if="group_activity.original_price">¥{{group_activity.original_price}}</span>
         </p>
       </div>
     </div>
@@ -45,7 +45,7 @@
       <!--<div class="price">¥{{group_activity.current_price}}<span>还剩{{group_activity.stock}}份</span></div>-->
 
       <!--<div class="join-group" @click="initGroup" :data-prjname="pjname" >{{group_activity.button.text}}</div>-->
-      <span class="price">¥&nbsp;{{group_activity.current_price}}<span>还剩{{group_activity.stock}}份</span></span>
+      <span class="price">¥&nbsp;{{group_activity.current_price}}<span v-if="group_activity.stock">还剩{{group_activity.stock}}份</span></span>
 
       <form @submit='initGroup' :report-submit=true>
         <button formType="submit">{{group_activity.button.text}}</button>
@@ -69,7 +69,7 @@
         pjname: '为定义',
         uuid: '',
         group_activity: {},
-        navbar_title: '拼团',
+        navbar_title: '拼团详情',
         group_activity_order_uuid: '',
         group_activities_uuid: '',
         time: {day: '', hours: '', minutes: '', seconds: ''},
@@ -156,7 +156,7 @@
         that.time.minutes = minutes
         that.time.seconds = second
 
-        console.log(hours, minutes, second)
+//        console.log(hours, minutes, second)
 
         var param = setTimeout(that.getlastTime, 1000)
 
@@ -177,17 +177,31 @@
       let form_id = options.form_id
       console.log('这是form' + form_id)
       let uuid = that.group_activities_uuid
-
       let currentuser_code = wx.getStorageSync('auth_code')
-
       let uuid_authCode = [uuid, currentuser_code, form_id]
       let group_activity = await that.$store.dispatch('getGrouDetail', {...uuid_authCode})  // 获取当前拼团活动详情
       that.group_activity = group_activity.group_activity
       // 通过富文本展示商品详情
-      that.myDetail = that.group_activity.detail
+      that.myDetail = that.group_activity.product.detail
+      that.myDetail = that.myDetail.replace(/\<img/g, '<img class="img" mode="aspectFill"')
     },
 
-    mounted() {
+    async mounted() {
+      let that = this
+      that.getlastTime()
+
+      that.group_activities_uuid = that.$root.$mp.query.group_activities_uuid // 获取活动列表的group_activities_uuid
+      let form_id = options.form_id
+      console.log('这是form' + form_id)
+      let uuid = that.group_activities_uuid
+      let currentuser_code = wx.getStorageSync('auth_code')
+      let uuid_authCode = [uuid, currentuser_code, form_id]
+      let group_activity = await that.$store.dispatch('getGrouDetail', {...uuid_authCode})  // 获取当前拼团活动详情
+      that.group_activity = group_activity.group_activity
+      // 通过富文本展示商品详情
+      that.myDetail = that.group_activity.product.detail
+      that.myDetail = that.myDetail.replace(/\<img/g, '<img class="img" mode="aspectFill"')
+
     }
   }
 </script>
@@ -197,6 +211,9 @@
     font-weight: Regular;
     text-align: left;
     background: #f7f7f7;
+
+/*border: 1px solid #000;*/
+    /*padding-bottom: 68px;*/
 
   }
 
@@ -224,7 +241,7 @@
   }
 
   .timeLine {
-    border: 1px solid #000;
+    /*border: 1px solid #000;*/
     width: 122px;
     height: 42px;
     line-height: 15px;
@@ -233,14 +250,16 @@
 
     color: #fff;
     text-align: center;
-    background: #000000;
-    opacity: 0.3;
+    background: rgba(0,0,0,0.3);
     border-radius: 21px 0px 0px 21px;
     position: absolute;
     top: 88px;
     right: 25px;
     p {
       margin-top: 6px;
+    };
+    span{
+      font-family:PingFangSC-Medium ;
     }
   }
 
@@ -258,9 +277,11 @@
       /*border:1px solid #000;*/
 
       color: #333;
-      height: 20px;
+      height: 22px;
       line-height: 20px;
-
+      overflow: hidden;
+      text-overflow:ellipsis;
+      white-space: nowrap;
       span {
         font-size: 11px;
         display: inline-block;
@@ -337,15 +358,23 @@
   .pjDetail {
     background: #fff;
     min-height: 100px;
+    /*width: 375px;*/
     border-top: 1px solid #fff;
     /*border: 1px solid #000;*/
     font-family: PingFangSC-Regular;
     font-size: 12px;
     text-align: left;
     padding: 0 25px;
-    margin-bottom: 60px;
-  }
+    /*margin-bottom: 60px;*/
+    margin: 0 auto 68px;
 
+
+
+  }
+    .img {
+
+
+  }
   .pjdetail {
     font-family: PingFangSC-Medium;
     font-size: 16px;
@@ -353,7 +382,9 @@
     height: 16px;
     line-height: 16px;
     margin-top: 10px;
+    margin-bottom: 8px;
     color: #333;
+
   }
 
   .line {
