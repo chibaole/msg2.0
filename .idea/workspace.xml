@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="445b3448-464f-4425-9da6-82c9cd343d54" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/groupPj/order/index.vue" afterPath="$PROJECT_DIR$/src/pages/groupPj/order/index.vue" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -139,7 +139,7 @@
         <entry file="file://$PROJECT_DIR$/src/pages/groupPj/order/index.vue">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="331">
-              <caret line="455" column="32" lean-forward="true" selection-start-line="455" selection-start-column="32" selection-end-line="455" selection-end-column="32" />
+              <caret line="455" column="32" lean-forward="false" selection-start-line="455" selection-start-column="32" selection-end-line="455" selection-end-column="32" />
               <folding>
                 <element signature="n#div#3;n#div#0;n#template#0;n#!!top" expanded="false" />
                 <element signature="e#4764#4805#0" expanded="true" />
@@ -510,12 +510,12 @@
       <workItem from="1534320959304" duration="42699000" />
       <workItem from="1534743312774" duration="159005000" />
       <workItem from="1535367210788" duration="2063000" />
-      <workItem from="1535424454711" duration="335407000" />
+      <workItem from="1535424454711" duration="335547000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="864427000" />
+    <option name="totallyTimeSpent" value="864567000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="247" y="11" width="2015" height="900" extended-state="0" />
@@ -1233,7 +1233,7 @@
     <entry file="file://$PROJECT_DIR$/src/pages/groupPj/order/index.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="331">
-          <caret line="455" column="32" lean-forward="true" selection-start-line="455" selection-start-column="32" selection-end-line="455" selection-end-column="32" />
+          <caret line="455" column="32" lean-forward="false" selection-start-line="455" selection-start-column="32" selection-end-line="455" selection-end-column="32" />
           <folding>
             <element signature="n#div#3;n#div#0;n#template#0;n#!!top" expanded="false" />
             <element signature="e#4764#4805#0" expanded="true" />
