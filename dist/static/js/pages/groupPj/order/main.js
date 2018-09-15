@@ -509,7 +509,7 @@ global.webpackJsonp([4],{
                   }, {
                     type: 'text',
                     content: '长按识别，参与拼团',
-                    fontSize: 14 * 1.15,
+                    fontSize: 16.1,
                     color: '#4a4a4a',
                     textAlign: 'left',
                     top: 439 * 1.15,
