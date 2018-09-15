@@ -5,15 +5,45 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="445b3448-464f-4425-9da6-82c9cd343d54" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/static/js/pages/groupPj/main.js.map" afterPath="$PROJECT_DIR$/dist/static/js/pages/groupPj/main.js.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/static/img/tabbar-explore-selected.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/static/img/tabbar-explore.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/tabbar-explore-selected.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/tabbar-explore.png" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/static/img/home.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/static/img/home1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/static/img/home_gray.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/static/img/home_orange.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/static/img/homed.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/static/img/homed1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/static/img/me.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/static/img/me1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/static/img/me_.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/static/img/me_1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/static/img/me_gray.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/static/img/me_orange.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/img/home.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/img/home1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/img/home_gray.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/img/home_orange.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/img/homed.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/img/homed1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/img/me.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/img/me1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/img/me_.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/img/me_1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/img/me_gray.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/img/me_orange.png" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/static/img/tabbar-home-selected.png" afterPath="$PROJECT_DIR$/dist/static/img/tabbar-home-selected.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/static/img/tabbar-home.png" afterPath="$PROJECT_DIR$/dist/static/img/tabbar-home.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/static/img/tabbar-user-selected.png" afterPath="$PROJECT_DIR$/dist/static/img/tabbar-user-selected.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/static/img/tabbar-user.png" afterPath="$PROJECT_DIR$/dist/static/img/tabbar-user.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/img/tabbar-home-selected.png" afterPath="$PROJECT_DIR$/static/img/tabbar-home-selected.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/img/tabbar-home.png" afterPath="$PROJECT_DIR$/static/img/tabbar-home.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/img/tabbar-user-selected.png" afterPath="$PROJECT_DIR$/static/img/tabbar-user-selected.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/img/tabbar-user.png" afterPath="$PROJECT_DIR$/static/img/tabbar-user.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/groupPj$85ce50ee.wxml" afterPath="$PROJECT_DIR$/dist/components/groupPj$85ce50ee.wxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/static/css/pages/groupPj/groupDetail/main.wxss" afterPath="$PROJECT_DIR$/dist/static/css/pages/groupPj/groupDetail/main.wxss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/static/js/pages/groupPj/groupDetail/main.js.map" afterPath="$PROJECT_DIR$/dist/static/js/pages/groupPj/groupDetail/main.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/static/js/pages/groupPj/main.js" afterPath="$PROJECT_DIR$/dist/static/js/pages/groupPj/main.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/static/js/vendor.js" afterPath="$PROJECT_DIR$/dist/static/js/vendor.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/static/js/vendor.js.map" afterPath="$PROJECT_DIR$/dist/static/js/vendor.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/groupPj/groupDetail/index.vue" afterPath="$PROJECT_DIR$/src/pages/groupPj/groupDetail/index.vue" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -27,10 +57,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.vue" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pages/groupPj/index.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
+            <state relative-caret-position="-1179">
               <caret line="20" column="107" lean-forward="false" selection-start-line="20" selection-start-column="107" selection-end-line="20" selection-end-column="107" />
               <folding>
                 <element signature="n#script#0;n#!!top" expanded="false" />
@@ -62,10 +92,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.vue" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.vue" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/pages/groupPj/groupDetail/index.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
+            <state relative-caret-position="52">
               <caret line="10" column="44" lean-forward="false" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="44" />
               <folding>
                 <element signature="n#script#0;n#!!top" expanded="false" />
@@ -206,9 +236,9 @@
       <find>activitie</find>
       <find>pjDetail</find>
       <find>userinfo</find>
-      <find>pj-name</find>
       <find>d</find>
       <find>detail-order</find>
+      <find>pj-name</find>
     </findStrings>
     <replaceStrings>
       <replace>gray</replace>
@@ -298,8 +328,8 @@
     <handled-path value="$PROJECT_DIR$/server/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-460" />
-    <option name="y" value="52" />
+    <option name="x" value="90" />
+    <option name="y" value="17" />
     <option name="width" value="2015" />
     <option name="height" value="900" />
   </component>
@@ -515,15 +545,15 @@
       <workItem from="1534320959304" duration="42699000" />
       <workItem from="1534743312774" duration="159005000" />
       <workItem from="1535367210788" duration="2063000" />
-      <workItem from="1535424454711" duration="336908000" />
+      <workItem from="1535424454711" duration="337201000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="865928000" />
+    <option name="totallyTimeSpent" value="866221000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-460" y="52" width="2015" height="900" extended-state="0" />
+    <frame x="90" y="17" width="2015" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.121364094" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1238,21 +1268,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/groupPj/groupDetail/index.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="44" lean-forward="false" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="44" />
-          <folding>
-            <element signature="n#script#0;n#!!top" expanded="false" />
-            <element signature="e#1227#1268#0" expanded="true" />
-            <element signature="e#5339#5706#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/groupPj/index.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
+        <state relative-caret-position="-1179">
           <caret line="20" column="107" lean-forward="false" selection-start-line="20" selection-start-column="107" selection-end-line="20" selection-end-column="107" />
           <folding>
             <element signature="n#script#0;n#!!top" expanded="false" />
@@ -1262,6 +1280,18 @@
             <element signature="e#9769#9901#0" expanded="false" />
             <element signature="e#11070#11431#0" expanded="false" />
             <element signature="e#11442#12154#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/groupPj/groupDetail/index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="52">
+          <caret line="10" column="44" lean-forward="false" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="44" />
+          <folding>
+            <element signature="n#script#0;n#!!top" expanded="false" />
+            <element signature="e#1227#1268#0" expanded="true" />
+            <element signature="e#5339#5706#0" expanded="false" />
           </folding>
         </state>
       </provider>
