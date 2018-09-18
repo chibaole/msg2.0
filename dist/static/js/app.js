@@ -1,6 +1,6 @@
 global.webpackJsonp([15],{
 
-/***/ 174:
+/***/ 183:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
@@ -899,7 +899,7 @@ var apiDomain = 'https://msg.chibaole.cc/api/v1';
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(174)
+  __webpack_require__(183)
 }
 var normalizeComponent = __webpack_require__(1)
 /* script */
@@ -929,9 +929,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-56b80cbb", Component.options)
+    hotAPI.createRecord("data-v-7ff198b0", Component.options)
   } else {
-    hotAPI.reload("data-v-56b80cbb", Component.options)
+    hotAPI.reload("data-v-7ff198b0", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
