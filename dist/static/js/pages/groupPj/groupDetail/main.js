@@ -1,6 +1,6 @@
 global.webpackJsonp([12],{
 
-/***/ 108:
+/***/ 105:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -144,7 +144,6 @@ global.webpackJsonp([12],{
         while (1) {
           switch (_context2.prev = _context2.next) {
             case 0:
-              wx.showLoading();
               that = _this2;
               group_activity_orders_uuid = _this2.$root.$mp.query.group_activity_orders_uuid; // 获取发起拼团活动返回的订单ID
 
@@ -155,20 +154,19 @@ global.webpackJsonp([12],{
               console.log(that.group_activities_uuid);
               currentuser_code = wx.getStorageSync('auth_code');
               uuid_authCode = [group_activity_orders_uuid, currentuser_code];
-              _context2.next = 10;
+              _context2.next = 9;
               return that.$store.dispatch('groupActivities_order', __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default()({}, uuid_authCode));
 
-            case 10:
+            case 9:
               orderData = _context2.sent;
 
 
               console.log(orderData);
 
               that.order_info = orderData.group_activity_order;
-              wx.hideLoading();
               console.log(that.order_info);
 
-            case 15:
+            case 13:
             case 'end':
               return _context2.stop();
           }
@@ -195,14 +193,14 @@ global.webpackJsonp([12],{
 
 /***/ }),
 
-/***/ 185:
+/***/ 180:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 220:
+/***/ 212:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -267,16 +265,16 @@ if (false) {
 
 /***/ }),
 
-/***/ 64:
+/***/ 63:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_index_vue__ = __webpack_require__(108);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_97fa62a8_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_index_vue__ = __webpack_require__(220);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_index_vue__ = __webpack_require__(105);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_97fa62a8_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_index_vue__ = __webpack_require__(212);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(185)
+  __webpack_require__(180)
 }
 var normalizeComponent = __webpack_require__(1)
 /* script */
@@ -321,14 +319,14 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 79:
+/***/ 78:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__index__ = __webpack_require__(64);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__index__ = __webpack_require__(63);
 
 
 
@@ -343,5 +341,5 @@ app.$mount();
 
 /***/ })
 
-},[79]);
+},[78]);
 //# sourceMappingURL=main.js.map

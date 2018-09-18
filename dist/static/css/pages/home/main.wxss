@@ -5,15 +5,30 @@
 }
 .appname.data-v-75e665de {
   width: 436rpx;
-  height: 48rpx;
-  font-size: 48rpx;
-  line-height: 48rpx;
   color: #333;
   font-family: PingFangSC-Medium;
+  border: 2rpx solid #fff;
   margin-bottom: 120rpx;
   margin-top: 156rpx;
   margin-left: 50rpx;
   position: relative;
+}
+.appname ._p.data-v-75e665de {
+  height: 48rpx;
+  font-size: 48rpx;
+  line-height: 48rpx;
+  margin-left: 10rpx;
+  position: absolute;
+  bottom: 0;
+  z-index: 100;
+}
+.appname .title_line.data-v-75e665de {
+  width: 408rpx;
+  height: 28rpx;
+  background: #ff7f4f;
+  box-shadow: 0 4rpx 14rpx 0 rgba(255, 127, 79, 0.5);
+  position: absolute;
+  bottom: -10rpx;
 }
 .explain.data-v-75e665de {
   width: 30rpx;

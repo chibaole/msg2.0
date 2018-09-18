@@ -105,6 +105,14 @@
   top: 35rpx;
   vertical-align: middle;
 }
+.sponsors .switchGoAnchor .link_ico.data-v-a0735dbe {
+  width: 30rpx;
+  height: 30rpx;
+  position: absolute;
+  right: 36rpx;
+  top: 35rpx;
+  vertical-align: middle;
+}
 .process-prize.data-v-a0735dbe {
   width: 750rpx;
   margin: 20rpx auto 0;
@@ -171,6 +179,7 @@
   background: #fff;
   width: 750rpx;
   height: 120rpx;
+  margin-top: 40rpx;
 }
 .add-prize.data-v-a0735dbe {
   width: 750rpx;
@@ -376,7 +385,7 @@
 }
 .openPrize .userBox.data-v-a0735dbe {
   width: 560rpx;
-  margin: 20rpx auto 40rpx;
+  margin: 20rpx auto 196rpx;
   position: relative;
   display: flex;
   justify-content: center;
@@ -410,9 +419,8 @@
   width: 130rpx;
   height: 28rpx;
   line-height: 28rpx;
-  margin: 40rpx auto 0;
   position: absolute;
-  bottom: 0;
+  bottom: -20rpx;
   left: 226rpx;
   font-family: PingFangSC-Regular;
   font-size: 22rpx;

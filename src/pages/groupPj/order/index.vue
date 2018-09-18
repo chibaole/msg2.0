@@ -1,21 +1,24 @@
 <template>
   <div class="container">
     <Navbar :navbar_title="navbar_title" :delta="delta"></Navbar>
-    <OldUser v-if="oldUser"  v-on:oldUserValue="oldUserValue" :group_activities_uuid="group_activities_uuid"></OldUser>
+    <OldUser v-if="oldUser" v-on:oldUserValue="oldUserValue" :group_activities_uuid="group_activities_uuid"></OldUser>
 
     <!--<Card ></Card>-->
     <!--<Card :order_info="order_info"></Card>-->
     <div class="wrap">
       <div class="pj-info">
         <div class="left">
-          <img :src="order_info.group_activity.title_image_url" alt="">
+          <!--<img :src="order_info.group_activity.title_image_url" alt="">-->
+          <div class="bg"
+               :style="{width:'100%', height:'100%', backgroundImage:'url('+order_info.group_activity.title_image_url+')',backgroundSize:'cover', backgroundPosition:'50%'}"></div>
         </div>
         <div class="right">
           <h2>
             <div class="group_mark">{{order_info.group_activity.group_type}}</div>
             {{order_info.group_activity.title}}
           </h2>
-          <p><span>¥&nbsp;{{order_info.group_activity.current_price}}</span><span v-if="order_info.group_activity.original_price">¥{{order_info.group_activity.original_price}}</span>
+          <p><span>¥&nbsp;{{order_info.group_activity.current_price}}</span><span
+            v-if="order_info.group_activity.original_price">¥{{order_info.group_activity.original_price}}</span>
           </p>
         </div>
       </div>
@@ -55,10 +58,13 @@
       <div class="groupSuccess" v-if="order_info.status == 'success'"> <!--拼团成功-->
         <h2><span>{{order_info.status_display}}</span></h2>
         <div class="user">
-          <div class="pic" v-for="item in order_info.users" :key="item.uuid"><img :src="item.avatar_url" alt=""><span
-            class="mark" v-if="item.is_initiator">团长</span></div>
+          <div class="pic" v-for="item in order_info.users" :key="item.uuid">
+            <img :src="item.avatar_url" alt="">
+            <span class="mark" v-if="item.is_initiator">团长</span>
+          </div>
         </div>
       </div>
+
       <!--<div class="group_res" v-if="order_info.status == 'success'" @click="fillAddress">去填地址</div>-->
       <form :report-submit="true" @submit="fillAddress">
         <button class="form_button" formType="submit">
@@ -70,14 +76,14 @@
       <div class="line"></div>
       <div class="group">
         <h2 class="group-game">拼团玩法</h2>
-        <p class="step1">付款后邀请好友参团</p>
-        <p class="step2">达到拼团人数，顺利开团</p>
-        <p class="step2">若24小时内拼团不成功，全额退款</p>
+        <p class="step1">1.付款后邀请好友参团</p>
+        <p class="step2">2.达到拼团人数，顺利开团</p>
+        <p class="step2">3.若24小时内拼团不成功，全额退款</p>
       </div>
       <div class="line"></div>
 
       <div class="pjDetail">
-       <p class="detailTitle">商品详情</p>
+        <p class="detailTitle">商品详情</p>
         <rich-text :nodes="order_info.group_activity.product.detail" class="pjdetail"></rich-text>
       </div>
 
@@ -88,13 +94,13 @@
 
     <form :report-submit="true" @submit="shareMenu" v-if="order_info.status_display === '正在拼团'">
       <button class="form_button" formType="submit">
-        <div class="btn open_btn" data-status="1"  ><span>邀请好友一起享用</span></div>
+        <div class="btn open_btn" data-status="1"><span>邀请好友一起享用</span></div>
       </button>
     </form>
 
     <!---->
 
-    <form :report-submit="true" @submit="createGroup"  v-if="order_info.status_display === '拼团成功'">
+    <form :report-submit="true" @submit="createGroup" v-if="order_info.status_display === '拼团成功'">
       <button class="form_button" formType="submit">
         <div class="btn open_btn" @click="createGroup" data-status="1">
           <span>重新开团</span></div>
@@ -103,7 +109,8 @@
 
     <div class="pay" v-if="onekeyAttend">
       <div class="price">
-        ¥{{order_info.group_activity.current_price}}<span v-if="order_info.group_activity.product.num">还剩{{order_info.group_activity.product.num}}份</span></div>
+        ¥{{order_info.group_activity.current_price}}<span
+        v-if="order_info.group_activity.product.num">还剩{{order_info.group_activity.product.num}}份</span></div>
       <div class="join-group" @click="attendGroup" :data-uuid="order_info.uuid">一键参与</div>
     </div>
 
@@ -170,9 +177,9 @@
         host: config.host,
         group_activity_order_uuid: '',
         delta: 3,
-        oldUser:false,
-        group_activities_uuid:'',
-        invite:true
+        oldUser: false,
+        group_activities_uuid: '',
+        invite: true
 
       }
     },
@@ -211,8 +218,8 @@
         let uuid_authCode = [uuid, auth_code]
 //         参与拼团
         let group_activity_orders = await that.$store.dispatch('attendGroupActivities', {...uuid_authCode})
-              console.log(group_activity_orders)
-        if(group_activity_orders ){
+        console.log(group_activity_orders)
+        if (group_activity_orders) {
 
           let group_activity_order_uuid = group_activity_orders.group_activity_order.uuid
           that.group_activity_order_uuid = group_activity_order_uuid
@@ -231,16 +238,15 @@
 
               let currentUser = that.order_info.users
               let this_user = {
-                uuid:'',
-                nick_name:user.nick_name,
-                avatar_url:user.avatar_url,
-                is_initiator:false
+                uuid: '',
+                nick_name: user.nick_name,
+                avatar_url: user.avatar_url,
+                is_initiator: false
               }
               that.order_info.users.concat(this_user)
 
 
               that.onekeyAttend = false
-
 
 
             },
@@ -252,7 +258,7 @@
 
             }
           })
-        }else {
+        } else {
           that.oldUser = true
 
         }
@@ -260,7 +266,7 @@
 
 
       },
-      oldUserValue(oldUserValue){
+      oldUserValue(oldUserValue) {
         this.oldUser = oldUserValue
       },
       getlastTime() {
@@ -346,7 +352,7 @@
       async getImg() {
         let that = this
         let uuid = that.group_activity_initial_uuid
-        let page = 'pages/groupPj/order/main'
+        let page = 'pages/isme/index'
         let data = [uuid, page]
         let res = await this.$store.dispatch('wxCode', {...data})
 
@@ -355,9 +361,9 @@
 
         let titleContent = that.order_info.group_activity.title
         let title_left = 25
-        if(titleContent.length>12){
-          titleContent = titleContent.substring(0,11)
-        }else{
+        if (titleContent.length > 13) {
+          titleContent = titleContent.substring(0, 12)
+        } else {
           titleContent = titleContent
         }
         this.painting = {
@@ -403,14 +409,7 @@
               breakWord: true,  // 换行
               bolder: true  // 加粗
             },
-//            {
-//              type:'image',
-//              url:'http://pbmrxkahq.bkt.clouddn.com/addPrice.png',
-//
-//              top:255,
-//              left:22.5,
-//              width:60
-//            },
+
             {
               type: 'text',
               content: that.order_info.group_activity.group_type,                                                                                // 变量的价格
@@ -429,7 +428,6 @@
               textAlign: 'left',
               top: 257,
               left: 90                                                                      // 根据价格字符个数 变化
-
             },
             {
               type: 'text',
@@ -455,12 +453,12 @@
 
             {
               type: 'text',
-              content: '¥'+that.order_info.group_activity.original_price,                                                                       // 根据价格字符个数 变化
+              content: '¥' + that.order_info.group_activity.original_price,                                                                       // 根据价格字符个数 变化
               fontSize: 11.5,
               color: '#999999',
               textAlign: 'left',
               top: 265,
-              left: 195 ,                                                                    // 根据价格字符个数 变化
+              left: 195,                                                                    // 根据价格字符个数 变化
               textDecoration: 'line-through'
             },
 
@@ -542,13 +540,12 @@
           url: `/pages/home/main`
         })
       },
-      async getOrderData(){
+      async getOrderData() {
         //获取页面数据函数
       }
 
     },
     async onLoad(options) {
-      wx.showLoading()
       var that = this
       let attend = options.attend
       let group_activity_initial_uuid = options.group_activity_initial_uuid // 发起拼团活动返回订单uuid
@@ -563,7 +560,6 @@
       let uuid_authCode = [group_activity_initial_uuid, currentuser_code]
 
       let orderData = await that.$store.dispatch('groupActivitiesInit', {...uuid_authCode})
-      wx.hideLoading()
 
       let order_user = orderData.group_activity_initial.users // []
 
@@ -581,11 +577,10 @@
 
       if (orderData.group_activity_initial.is_initiator === false && orderData.group_activity_initial.status_display === '正在拼团') {
         that.onekeyAttend = true
-      }else if (orderData.group_activity_initial.is_initiator === true && orderData.group_activity_initial.status_display === '正在拼团') {
+      } else if (orderData.group_activity_initial.is_initiator === true && orderData.group_activity_initial.status_display === '正在拼团') {
         that.onekeyAttend = false
 
       }
-
 
       that.order_info = orderData.group_activity_initial
 
@@ -658,8 +653,13 @@
     .user {
       /*border:1px solid #000;*/
       /*height: 50px;*/
-      margin-top: 25px;
-      margin-left: 25px;
+      /*margin-top: 25px;*/
+      /*margin-left: 25px;*/
+      width:325px;
+      margin: 25px auto 0;
+
+
+
       .pic {
         width: 34px;
         height: 34px;
@@ -668,10 +668,12 @@
         background-image: url("http://p15hnzxrp.bkt.clouddn.com/oval.png");
         background-size: cover;
         border-radius: 50%;
+        margin-right: 15px;
         img {
-          width: 100%;
-          height: 100%;
+          width: 34px;
+          height: 34px;
           border-radius: 50%;
+          /*margin: ;*/
         }
       ;
         span {
@@ -691,16 +693,7 @@
         }
       }
     ;
-      .pic:nth-child(2) {
-        margin-left: 15px;
-        margin-right: 15px;
-      }
-    ;
-      .pic:nth-child(4) {
-        margin-left: 15px;
-        margin-right: 15px;
-      }
-    ;
+
 
     }
 
@@ -718,6 +711,7 @@
 
         margin-left: 0;
         margin-bottom: 20px;
+
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
@@ -791,7 +785,7 @@
     text-align: left;
     margin: 0 auto 68px;
     /*border:1px solid #000;*/
-    .detailTitle{
+    .detailTitle {
       width: 64px;
       height: 22px;
       line-height: 22px;
@@ -804,11 +798,6 @@
 
     }
   }
-
-
-
-
-
 
   .share {
     width: 180px;
@@ -1075,7 +1064,8 @@
         color: #999;
       }
 
-    };
+    }
+  ;
     .join-group {
       display: inline-block;
       width: 140px;
@@ -1096,11 +1086,6 @@
     }
 
   }
-
-
-
-
-
 
   /*-----------*/
   .wrap {

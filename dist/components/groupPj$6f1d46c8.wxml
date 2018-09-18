@@ -7,7 +7,7 @@
     <view class="_div data-v-b3a874ec wrap">
       <view class="_div data-v-b3a874ec pj-info">
         <view class="_div data-v-b3a874ec left">
-          <image src="{{order_info.group_activity.title_image_url}}" alt class="_img data-v-b3a874ec"></image>
+          <view class="_div data-v-b3a874ec bg" style=" {{(  'width:' +  '100%' +  ';' +  'height:' +  '100%' +  ';' +  'background-image:' +  'url(' +  order_info.group_activity.title_image_url +  ')' +  ';' +  'background-size:' +  'cover' +  ';' +  'background-position:' +  '50%' +  ';')}}"></view>
         </view>
         <view class="_div data-v-b3a874ec right">
           <view class="_h2 data-v-b3a874ec">
@@ -68,9 +68,9 @@
       <view class="_div data-v-b3a874ec line"></view>
       <view class="_div data-v-b3a874ec group">
         <view class="_h2 data-v-b3a874ec group-game">拼团玩法</view>
-        <view class="_p data-v-b3a874ec step1">付款后邀请好友参团</view>
-        <view class="_p data-v-b3a874ec step2">达到拼团人数，顺利开团</view>
-        <view class="_p data-v-b3a874ec step2">若24小时内拼团不成功，全额退款</view>
+        <view class="_p data-v-b3a874ec step1">1.付款后邀请好友参团</view>
+        <view class="_p data-v-b3a874ec step2">2.达到拼团人数，顺利开团</view>
+        <view class="_p data-v-b3a874ec step2">3.若24小时内拼团不成功，全额退款</view>
       </view>
       <view class="_div data-v-b3a874ec line"></view>
       <view class="_div data-v-b3a874ec pjDetail">

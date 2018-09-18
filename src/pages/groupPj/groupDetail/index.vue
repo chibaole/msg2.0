@@ -99,7 +99,6 @@
 
     },
     async onLoad(options) {
-      wx.showLoading()
       let that = this
       let group_activity_orders_uuid = this.$root.$mp.query.group_activity_orders_uuid // 获取发起拼团活动返回的订单ID
       that.group_activity_order_uuid = group_activity_orders_uuid
@@ -114,7 +113,6 @@
       console.log(orderData)
 
       that.order_info = orderData.group_activity_order
-      wx.hideLoading()
       console.log(that.order_info)
     },
 

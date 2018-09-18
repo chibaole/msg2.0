@@ -3,6 +3,7 @@ import App from './App'
 
 
 import Store from './store'
+import mta from 'mta-wechat-analysis'
 
 Vue.config.productionTip = false
 Vue.prototype.$store = Store  // 注册Store

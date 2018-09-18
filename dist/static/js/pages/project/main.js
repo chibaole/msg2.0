@@ -1,6 +1,6 @@
 global.webpackJsonp([3],{
 
-/***/ 113:
+/***/ 110:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -10,7 +10,7 @@ global.webpackJsonp([3],{
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_diago__ = __webpack_require__(197);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_diago__ = __webpack_require__(191);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_navbar__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__utils_util__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__config__ = __webpack_require__(4);
@@ -18,6 +18,7 @@ global.webpackJsonp([3],{
 
 
 
+//
 //
 //
 //
@@ -180,7 +181,8 @@ global.webpackJsonp([3],{
       init_rewarded_users: [],
       showGetMoreBtn: false,
       boon_resText: '',
-      boon_resImg: ''
+      boon_resImg: '',
+      boon_rewarded_users: []
 
     };
   },
@@ -305,8 +307,8 @@ global.webpackJsonp([3],{
                 titleContent = that.boon.title;
 
 
-                if (titleContent.length > 12) {
-                  titleContent = titleContent.substring(0, 11);
+                if (titleContent.length > 13) {
+                  titleContent = titleContent.substring(0, 12);
                 } else {
                   titleContent = titleContent;
                 }
@@ -507,9 +509,14 @@ global.webpackJsonp([3],{
     getMoreUser: function getMoreUser() {
       var that = this;
       console.log('加载更多中奖用户');
-      that.init_rewarded_users = that.boon.rewarded_users;
-      that.showGetmore = false;
+      console.log(that.boon_rewarded_users);
+      that.init_rewarded_users = that.init_rewarded_users.concat(that.boon_rewarded_users);
+      that.showGetMoreBtn = false;
     }
+  },
+
+  onShow: function onShow() {
+    this.open = false;
   },
   onLoad: function onLoad(options) {
     var _this5 = this;
@@ -521,9 +528,6 @@ global.webpackJsonp([3],{
         while (1) {
           switch (_context5.prev = _context5.next) {
             case 0:
-              wx.showLoading({
-                titile: '正在加载'
-              });
               that = _this5;
 
               that.uuid = options.boons_uuid; // 获取上一页传递的唯一标准uuid
@@ -537,27 +541,30 @@ global.webpackJsonp([3],{
               // 根据获得uuid 查询数据出来
               //      that.getBoons()
 
-              _context5.next = 11;
+              _context5.next = 10;
               return that.$store.dispatch('getBoons', __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends___default()({}, uuid_authCode));
 
-            case 11:
+            case 10:
               boonData = _context5.sent;
 
               that.boon = boonData.boon;
-              wx.hideLoading();
+              //      wx.hideLoading()
 
-              init_rewarded_users = boonData.boon.rewarded_users;
+              init_rewarded_users = [];
 
-
-              if (init_rewarded_users.length > 12) {
+              console.log(boonData.boon.rewarded_users);
+              that.boon_rewarded_users = boonData.boon.rewarded_users;
+              if (boonData.boon.rewarded_users.length > 12) {
                 that.showGetMoreBtn = true;
                 init_rewarded_users = boonData.boon.rewarded_users.splice(0, 12);
                 that.init_rewarded_users = init_rewarded_users;
               } else {
                 _init_rewarded_users = boonData.boon.rewarded_users;
 
+
                 that.init_rewarded_users = _init_rewarded_users;
               }
+              console.log(that.init_rewarded_users);
 
               if (that.boon.participate_status === false && that.boon.status === 'rewarded') {
                 //未参加 已开奖
@@ -576,7 +583,7 @@ global.webpackJsonp([3],{
 
               that.isIphoneX = isIphoneX;
 
-            case 19:
+            case 20:
             case 'end':
               return _context5.stop();
           }
@@ -609,30 +616,30 @@ global.webpackJsonp([3],{
 
 /***/ }),
 
-/***/ 186:
+/***/ 181:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 192:
+/***/ 187:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 197:
+/***/ 191:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_diago_vue__ = __webpack_require__(97);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_f211043e_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_diago_vue__ = __webpack_require__(228);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_diago_vue__ = __webpack_require__(94);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_f211043e_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_diago_vue__ = __webpack_require__(220);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(192)
+  __webpack_require__(187)
 }
 var normalizeComponent = __webpack_require__(1)
 /* script */
@@ -677,7 +684,7 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 221:
+/***/ 213:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -720,9 +727,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "sponsors"
   }, [_c('p', {
     staticClass: "sponsors-info"
-  }, [_vm._v("赞助商")]), _vm._v(" "), _c('div', {
-    staticClass: "lineSponsors"
-  }), _vm._v(" "), _c('navigator', {
+  }, [_vm._v("赞助商")]), _vm._v(" "), _c('navigator', {
     staticClass: "switchGoAnchor",
     attrs: {
       "target": "miniProgram",
@@ -738,21 +743,27 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "src": _vm.boon.sponsor.avatar_url,
       "alt": ""
     }
-  }), _vm._v(_vm._s(_vm.boon.sponsor.description)), _c('img', {
+  }), _vm._v("\n        " + _vm._s(_vm.boon.sponsor.description) + "\n        "), (_vm.boon.sponsor.app_id) ? _c('img', {
+    staticClass: "link_ico",
+    attrs: {
+      "src": "http://pbmrxkahq.bkt.clouddn.com/link.png",
+      "alt": ""
+    }
+  }) : _vm._e(), _vm._v(" "), (_vm.boon.sponsor.app_id) ? _c('img', {
     staticClass: "right_ico",
     attrs: {
       "src": "http://pbmrxkahq.bkt.clouddn.com/right.png",
       "alt": ""
     }
-  })])], 1)]) : _vm._e(), _vm._v(" "), (_vm.boon.status === 'published') ? _c('div', {
+  }) : _vm._e()])], 1)]) : _vm._e(), _vm._v(" "), (_vm.boon.status === 'published') ? _c('div', {
     staticClass: "process-prize"
   }, [_c('h2', [_vm._v("抽奖玩法")]), _vm._v(" "), _c('div', {
     staticClass: "steps"
   }, [_c('p', {
     staticClass: "step1"
-  }, [_vm._v("点击抽奖，等待开奖")]), _vm._v(" "), _c('p', {
+  }, [_vm._v("1.点击抽奖，等待开奖")]), _vm._v(" "), _c('p', {
     staticClass: "step2"
-  }, [_vm._v("研究员抽奖概率是普通用户的两倍，欢迎加入")])], 1), _vm._v(" "), _c('div', {
+  }, [_vm._v("2.研究员抽奖概率是普通用户的两倍，欢迎加入")])], 1), _vm._v(" "), _c('div', {
     staticClass: "line"
   }), _vm._v(" "), _c('h2', [_vm._v("商品详情")]), _vm._v(" "), _c('div', {
     staticClass: "boonDetail"
@@ -802,17 +813,17 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }, [_vm._v("已领奖")]) : _vm._e()]) : _vm._e(), _vm._v(" "), _vm._m(0), _vm._v(" "), _c('div', {
     staticClass: "userBox"
-  }, [_vm._l((_vm.boon.rewarded_users), function(uesr, index) {
+  }, [_vm._l((_vm.init_rewarded_users), function(userImg, index) {
     return _c('div', {
       staticClass: "user"
     }, [_c('img', {
       attrs: {
-        "src": uesr.avatar_url,
+        "src": userImg.avatar_url,
         "alt": ""
       }
     }), _vm._v(" "), _c('div', {
       staticClass: "nickname"
-    }, [_vm._v(_vm._s(uesr.nick_name))])])
+    }, [_vm._v(_vm._s(userImg.nick_name))])])
   }), _vm._v(" "), (_vm.showGetMoreBtn) ? _c('div', {
     staticClass: "getall",
     attrs: {
@@ -949,7 +960,7 @@ if (false) {
 
 /***/ }),
 
-/***/ 228:
+/***/ 220:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -995,16 +1006,16 @@ if (false) {
 
 /***/ }),
 
-/***/ 69:
+/***/ 68:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_prj_vue__ = __webpack_require__(113);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_a0735dbe_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_prj_vue__ = __webpack_require__(221);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_prj_vue__ = __webpack_require__(110);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_a0735dbe_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_prj_vue__ = __webpack_require__(213);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(186)
+  __webpack_require__(181)
 }
 var normalizeComponent = __webpack_require__(1)
 /* script */
@@ -1049,14 +1060,14 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 84:
+/***/ 83:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__prj__ = __webpack_require__(69);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__prj__ = __webpack_require__(68);
 
 
 
@@ -1079,7 +1090,7 @@ app.$mount();
 
 /***/ }),
 
-/***/ 97:
+/***/ 94:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1120,5 +1131,5 @@ app.$mount();
 
 /***/ })
 
-},[84]);
+},[83]);
 //# sourceMappingURL=main.js.map

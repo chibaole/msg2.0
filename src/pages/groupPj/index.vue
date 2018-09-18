@@ -27,9 +27,9 @@
     <!--<div class="line"></div>    &lt;!&ndash;分割线&ndash;&gt;-->
     <div class="group">
       <h2 class="group-game">拼团玩法</h2>
-      <p class="step1">付款后邀请好友参团</p>
-      <p class="step2">达到拼团人数，顺利开团</p>
-      <p class="step2">若24小时内拼团不成功，全额退款</p>
+      <p class="step1">1.付款后邀请好友参团</p>
+      <p class="step2">2.达到拼团人数，顺利开团</p>
+      <p class="step2">3.若24小时内拼团不成功，全额退款</p>
 
       <div class="line"></div>
 
@@ -167,9 +167,7 @@
 
     },
     async onLoad(options) {
-      wx.showLoading({
-        titile:'正在加载'
-      })
+
       let that = this
       that.getlastTime()
 
@@ -182,7 +180,6 @@
       let group_activity = await that.$store.dispatch('getGrouDetail', {...uuid_authCode})  // 获取当前拼团活动详情
       that.group_activity = group_activity.group_activity
 
-      wx.hideLoading()
 
       // 通过富文本展示商品详情
       that.myDetail = that.group_activity.product.detail

@@ -81,10 +81,8 @@
     },
 
     async onLoad() {
-      wx.showLoading()
       let group_activities = await this.$store.dispatch('getGroup')
       this.group_activities = group_activities.group_activities
-      wx.hideLoading()
 
     },
     async onShow() {

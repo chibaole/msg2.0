@@ -40,7 +40,6 @@
 </template>
 <script>
 import {get} from '@/util'
-import Card from '@/components/Card'
 import topBar from '@/components/top_bar'
 import topScroll from '@/components/topScroll'
 
@@ -155,7 +154,7 @@ export default {
     }
   },
   components: {
-    Card,
+
     topBar,
     topScroll
   },

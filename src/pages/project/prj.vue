@@ -22,12 +22,13 @@
     <div class="sponsorsBox" v-if="boon.sponsor">
       <div class="sponsors">
         <p class="sponsors-info">赞助商</p>
-        <div class="lineSponsors"></div>
+        <!--<div class="lineSponsors"></div>-->
         <navigator class="switchGoAnchor" target="miniProgram" open-type="navigate" :app-id="boon.sponsor.app_id"
                    :path="boon.sponsor.app_path" extra-data="" version="release">
-          <img class="logo" :src="boon.sponsor.avatar_url" alt="">{{boon.sponsor.description}}<img class="right_ico"
-                                                                                            src="http://pbmrxkahq.bkt.clouddn.com/right.png"
-                                                                                            alt="">
+          <img class="logo" :src="boon.sponsor.avatar_url" alt="">
+          {{boon.sponsor.description}}
+          <img v-if="boon.sponsor.app_id" class="link_ico" src="http://pbmrxkahq.bkt.clouddn.com/link.png" alt="">
+          <img v-if="boon.sponsor.app_id"  class="right_ico" src="http://pbmrxkahq.bkt.clouddn.com/right.png" alt="">
         </navigator>
 
       </div>
@@ -36,8 +37,8 @@
     <div class="process-prize" v-if=" boon.status === 'published'">
       <h2>抽奖玩法</h2>
       <div class="steps">
-        <p class="step1">点击抽奖，等待开奖</p>
-        <p class="step2">研究员抽奖概率是普通用户的两倍，欢迎加入</p>
+        <p class="step1">1.点击抽奖，等待开奖</p>
+        <p class="step2">2.研究员抽奖概率是普通用户的两倍，欢迎加入</p>
       </div>
       <div class="line"></div>
       <h2>商品详情</h2>
@@ -70,10 +71,10 @@
         <div class="line2"></div>
         <div class="title">中奖者名单</div>
       </div>
-      <div class="userBox">
-        <div class="user" v-for="uesr in boon.rewarded_users">
-          <img :src="uesr.avatar_url" alt="">
-          <div class="nickname">{{uesr.nick_name}}</div>
+      <div class="userBox"  >
+        <div class="user" v-for="userImg in init_rewarded_users ">
+          <img :src="userImg .avatar_url" alt="">
+          <div class="nickname">{{userImg .nick_name}}</div>
         </div>
 
         <div class="getall" @click="getMoreUser" v-if="showGetMoreBtn">
@@ -161,6 +162,7 @@
         showGetMoreBtn: false,
         boon_resText: '',
         boon_resImg: '',
+        boon_rewarded_users:[]
 
       }
     },
@@ -232,8 +234,8 @@
 
         let titleContent = that.boon.title
 
-        if(titleContent.length>12){
-          titleContent = titleContent.substring(0,11)
+        if(titleContent.length>13){
+          titleContent = titleContent.substring(0,12)
         }else{
           titleContent = titleContent
         }
@@ -403,15 +405,18 @@
       getMoreUser() {
         let that = this
         console.log('加载更多中奖用户')
-        that.init_rewarded_users = that.boon.rewarded_users
-        that.showGetmore = false
+        console.log(that.boon_rewarded_users )
+        that.init_rewarded_users =   that.init_rewarded_users.concat(that.boon_rewarded_users)
+        that.showGetMoreBtn = false
       }
 
     },
+
+    onShow(){
+      this.open = false
+    },
     async onLoad(options) {
-      wx.showLoading({
-        titile:'正在加载'
-      })
+
       let that = this
       that.uuid = options.boons_uuid // 获取上一页传递的唯一标准uuid
       that.navbar_title = that.$root.$mp.query.title // 获取上一页传递的福利名称 做navbar的标题
@@ -424,19 +429,22 @@
 //      that.getBoons()
       let boonData = await that.$store.dispatch('getBoons', {...uuid_authCode})
       that.boon = boonData.boon
-      wx.hideLoading()
+//      wx.hideLoading()
 
-
-      let init_rewarded_users = boonData.boon.rewarded_users
-
-      if (init_rewarded_users.length > 12) {
+      let init_rewarded_users = []
+      console.log(boonData.boon.rewarded_users)
+      that.boon_rewarded_users = boonData.boon.rewarded_users
+      if (boonData.boon.rewarded_users.length > 12) {
         that.showGetMoreBtn = true
         init_rewarded_users = boonData.boon.rewarded_users.splice(0, 12)
         that.init_rewarded_users = init_rewarded_users
       } else {
         let init_rewarded_users = boonData.boon.rewarded_users
+
         that.init_rewarded_users = init_rewarded_users
+
       }
+      console.log( that.init_rewarded_users)
 
       if (that.boon.participate_status === false && that.boon.status === 'rewarded') {
         //未参加 已开奖
@@ -633,6 +641,16 @@
     vertical-align: middle;
   }
 
+  .sponsors .switchGoAnchor .link_ico{
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    right: 18px;
+    top: 17.5px;
+    /*margin-right: 28px;*/
+    vertical-align: middle;
+  }
+
   .process-prize {
     width: 375px;
     margin: 10px auto 0;
@@ -725,6 +743,7 @@
     background: #fff;
     width: 375px;
     height: 60px;
+    margin-top: 20px;
 
   }
 
@@ -997,7 +1016,7 @@
   ;
     .userBox {
       width: 280px;
-      margin: 10px auto 20px;
+      margin: 10px auto 98px;
       position: relative;
       /*border:1px solid #000;*/
       display: flex;
@@ -1005,6 +1024,7 @@
       justify-content: center;
       flex-wrap: wrap;
       align-content: flex-start;
+      /*align-content: center;*/
 
       .user {
         display: inline-block;
@@ -1039,15 +1059,15 @@
         width: 65px;
         height: 14px;
         line-height: 14px;
-        margin: 20px auto 0px;
+        /*margin: 20px auto 0px;*/
         position: absolute;
-        bottom: 0;
+        bottom: -10px;
         left: 113px;
         font-family: PingFangSC-Regular;
         font-size: 11px;
         color: #999;
-
         vertical-align: middle;
+
         span {
 
           vertical-align: middle;
@@ -1065,7 +1085,6 @@
 
         }
       }
-
     }
   }
 

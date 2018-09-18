@@ -60,8 +60,6 @@
     margin-top: 4px;
     border-radius: 5px;
 
-
-
   }
 
   .left img{
@@ -71,8 +69,6 @@
     border-radius: 5px;
 
   }
-
-
 
 
   .pj-info .right{
@@ -105,6 +101,11 @@
     font-size: 20px;
    font-family:  PingFangSC-Medium;
     color:#333;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
     /*margin-left: 60px;*/
 
   }

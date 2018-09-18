@@ -36,8 +36,8 @@
   color: #e8724b;
 }
 .detail-order .user.data-v-b3a874ec {
-  margin-top: 50rpx;
-  margin-left: 50rpx;
+  width: 650rpx;
+  margin: 50rpx auto 0;
 }
 .detail-order .user .pic.data-v-b3a874ec {
   width: 68rpx;
@@ -47,10 +47,11 @@
   background-image: url("http://p15hnzxrp.bkt.clouddn.com/oval.png");
   background-size: cover;
   border-radius: 50%;
+  margin-right: 30rpx;
 }
 .detail-order .user .pic ._img.data-v-b3a874ec {
-  width: 100%;
-  height: 100%;
+  width: 68rpx;
+  height: 68rpx;
   border-radius: 50%;
 }
 .detail-order .user .pic ._span.data-v-b3a874ec {
@@ -65,14 +66,6 @@
   left: 2rpx;
   font-size: 20rpx;
   letter-spacing: 0.2rpx;
-}
-.detail-order .user .pic.data-v-b3a874ec:nth-child(2) {
-  margin-left: 30rpx;
-  margin-right: 30rpx;
-}
-.detail-order .user .pic.data-v-b3a874ec:nth-child(4) {
-  margin-left: 30rpx;
-  margin-right: 30rpx;
 }
 .detail-order .groupFailed ._h2.data-v-b3a874ec {
   margin: 42rpx auto 50rpx;

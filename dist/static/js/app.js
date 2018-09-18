@@ -1,21 +1,21 @@
 global.webpackJsonp([15],{
 
-/***/ 177:
+/***/ 173:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 60:
+/***/ 59:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_defineProperty__ = __webpack_require__(123);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_defineProperty__ = __webpack_require__(120);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_defineProperty___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_defineProperty__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_json_stringify__ = __webpack_require__(120);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_json_stringify__ = __webpack_require__(117);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_json_stringify___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_json_stringify__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_objectWithoutProperties__ = __webpack_require__(124);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_objectWithoutProperties__ = __webpack_require__(121);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_objectWithoutProperties___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_objectWithoutProperties__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator__);
@@ -23,7 +23,7 @@ global.webpackJsonp([15],{
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_asyncToGenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_asyncToGenerator__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_vue__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_vuex__ = __webpack_require__(234);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_vuex__ = __webpack_require__(226);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__utils_util__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__utils_wx__ = __webpack_require__(10);
 
@@ -80,7 +80,6 @@ var apiDomain = 'https://msg.chibaole.cc/api/v1';
                 console.log(res);
                 wx.setStorageSync('auth_code', auth_code);
                 wx.setStorageSync('allUserinfo', res.user);
-
                 return _context.abrupt('return', auth_code);
 
               case 14:
@@ -142,24 +141,42 @@ var apiDomain = 'https://msg.chibaole.cc/api/v1';
 
       var commit = _ref4.commit;
       return __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.mark(function _callee3() {
-        var auth_code, boons;
+        var userData, code, data, res, auth_code, boons;
         return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.wrap(function _callee3$(_context3) {
           while (1) {
             switch (_context3.prev = _context3.next) {
               case 0:
-                auth_code = wx.getStorageSync('auth_code');
-                _context3.next = 3;
+                _context3.next = 2;
+                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["f" /* login */])();
+
+              case 2:
+                userData = _context3.sent;
+                code = userData.code;
+                data = { code: code };
+                _context3.next = 7;
+                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
+                  method: 'post',
+                  url: apiDomain + '/wx/login',
+                  data: data
+                });
+
+              case 7:
+                res = _context3.sent;
+                auth_code = res.auth_code;
+                _context3.next = 11;
                 return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
                   method: 'get',
                   url: apiDomain + '/boons/today?auth_code=' + auth_code,
+                  // url: `${apiDomain}/boons/today`,
+
                   data: {}
                 });
 
-              case 3:
+              case 11:
                 boons = _context3.sent;
                 return _context3.abrupt('return', boons);
 
-              case 5:
+              case 13:
               case 'end':
                 return _context3.stop();
             }
@@ -285,24 +302,42 @@ var apiDomain = 'https://msg.chibaole.cc/api/v1';
 
       var commit = _ref11.commit;
       return __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.mark(function _callee7() {
-        var auth_code, group;
+        var userData, code, data, res, auth_code, group;
         return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.wrap(function _callee7$(_context7) {
           while (1) {
             switch (_context7.prev = _context7.next) {
               case 0:
-                auth_code = wx.getStorageSync('auth_code');
-                _context7.next = 3;
+                _context7.next = 2;
+                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["f" /* login */])();
+
+              case 2:
+                userData = _context7.sent;
+                code = userData.code;
+                data = { code: code };
+                _context7.next = 7;
+                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
+                  method: 'post',
+                  url: apiDomain + '/wx/login',
+                  data: data
+                });
+
+              case 7:
+                res = _context7.sent;
+                auth_code = res.auth_code;
+                _context7.next = 11;
                 return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
                   method: 'get',
                   url: apiDomain + '/group_activities?auth_code=' + auth_code,
+                  // url: `${apiDomain}/group_activities`,
+
                   data: {}
                 });
 
-              case 3:
+              case 11:
                 group = _context7.sent;
                 return _context7.abrupt('return', group);
 
-              case 5:
+              case 13:
               case 'end':
                 return _context7.stop();
             }
@@ -806,15 +841,15 @@ var apiDomain = 'https://msg.chibaole.cc/api/v1';
 
 /***/ }),
 
-/***/ 61:
+/***/ 60:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_App_vue__ = __webpack_require__(92);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_App_vue__ = __webpack_require__(91);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(177)
+  __webpack_require__(173)
 }
 var normalizeComponent = __webpack_require__(1)
 /* script */
@@ -858,16 +893,19 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 76:
+/***/ 75:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__App__ = __webpack_require__(61);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__store__ = __webpack_require__(60);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__utils_wx__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__App__ = __webpack_require__(60);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__store__ = __webpack_require__(59);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_mta_wechat_analysis__ = __webpack_require__(263);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_mta_wechat_analysis___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_mta_wechat_analysis__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__utils_wx__ = __webpack_require__(10);
+
 
 
 
@@ -876,8 +914,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.config.productionTip = false;
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.prototype.$store = __WEBPACK_IMPORTED_MODULE_2__store__["a" /* default */]; // 注册Store
 
-__WEBPACK_IMPORTED_MODULE_0_vue___default.a.prototype.$http = __WEBPACK_IMPORTED_MODULE_3__utils_wx__["d" /* request */];
-__WEBPACK_IMPORTED_MODULE_0_vue___default.a.prototype.$alert = __WEBPACK_IMPORTED_MODULE_3__utils_wx__["e" /* alert */];
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.prototype.$http = __WEBPACK_IMPORTED_MODULE_4__utils_wx__["d" /* request */];
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.prototype.$alert = __WEBPACK_IMPORTED_MODULE_4__utils_wx__["e" /* alert */];
 
 var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a(__WEBPACK_IMPORTED_MODULE_1__App__["a" /* default */]);
 
@@ -921,7 +959,7 @@ app.$mount();
 
 /***/ }),
 
-/***/ 92:
+/***/ 91:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -947,19 +985,54 @@ app.$mount();
             case 0:
               auth_code = wx.getStorageSync('auth_code');
 
+              console.log("auth code");
+              console.log(auth_code);
+
               if (!auth_code) {
-                _context.next = 4;
+                _context.next = 6;
                 break;
               }
 
-              _context.next = 6;
+              _context.next = 8;
               break;
 
-            case 4:
-              _context.next = 6;
+            case 6:
+              _context.next = 8;
               return _this.$store.dispatch('signup');
 
-            case 6:
+            case 8:
+
+              //      wx.login({
+              //        success(res) {
+              //          console.log('login 函数ok')
+              //
+              //          let code = res.code
+              //          let data = {code: code}
+              //          console.log(res)
+              //
+              //          wx.request({
+              //            url: `https://msg.chibaole.cc/api/v1/wx/login`,
+              //            data: data,
+              //            method: 'POST',
+              //            header: {
+              //              'content-type': 'application/json' // 默认值
+              //            },
+              //            success(res) {
+              //              console.log(res)
+              //
+              //              let auth_code = res.data.data.auth_code
+              //              wx.setStorageSync('auth_code', auth_code)
+              //
+              //            },
+              //            fail(e) {
+              //              console.log(e)
+              //            }
+              //          })
+              //
+              //
+              //        }
+              //      })
+
 
               console.log('获取设备信息');
               vm = _this;
@@ -991,7 +1064,7 @@ app.$mount();
                 }
               });
 
-            case 9:
+            case 11:
             case 'end':
               return _context.stop();
           }
@@ -1003,5 +1076,5 @@ app.$mount();
 
 /***/ })
 
-},[76]);
+},[75]);
 //# sourceMappingURL=app.js.map

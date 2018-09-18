@@ -27,8 +27,6 @@ export default new Vuex.Store({
       console.log(res)
       wx.setStorageSync('auth_code', auth_code)
       wx.setStorageSync('allUserinfo', res.user)
-
-
       return auth_code
     },
 
@@ -53,10 +51,22 @@ export default new Vuex.Store({
 
 //  获取今日福利信息
     async getBoonsToday({commit}) {
-      let auth_code = wx.getStorageSync('auth_code')
+
+      let userData = await login()
+      let code = userData.code
+      let data = {code: code}
+      let res = await request({
+        method: 'post',
+        url: `${apiDomain}/wx/login`,
+        data: data
+      })
+
+      let auth_code =  res.auth_code
       let boons = await request({
         method: 'get',
         url: `${apiDomain}/boons/today?auth_code=${auth_code}`,
+        // url: `${apiDomain}/boons/today`,
+
         data: {}
       })
       return boons
@@ -102,10 +112,23 @@ export default new Vuex.Store({
 
     // 获取当前拼团活动数据列表
     async getGroup({commit}) {
-      const auth_code = wx.getStorageSync('auth_code')
+      // const auth_code = wx.getStorageSync('auth_code')
+      let userData = await login()
+      let code = userData.code
+      let data = {code: code}
+      let res = await request({
+        method: 'post',
+        url: `${apiDomain}/wx/login`,
+        data: data
+      })
+
+      let auth_code =  res.auth_code
+
       const group = await request({
         method: 'get',
         url: `${apiDomain}/group_activities?auth_code=${auth_code}`,
+        // url: `${apiDomain}/group_activities`,
+
         data: {}
       })
       return group

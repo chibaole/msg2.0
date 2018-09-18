@@ -6,7 +6,12 @@
     </div>
     <div class="clear"></div>
 
-    <div class="appname ">没事干研究院很酷<div class="explain" @click="openBox" v-if="false">?</div>
+    <div class="appname " :style="{marginTop:totalTopHeight+'px'}">
+      <p>没事干研究院很酷</p>
+      <div class="title_line"></div>
+
+      <div class="explain" @click="openBox" v-if="false">?</div>
+
     </div>
 
     <Scroll></Scroll>
@@ -52,7 +57,8 @@
         userInfo: {
           openid: ''
         },
-        showSkeleton: true   // 骨架屏显示隐藏
+        showSkeleton: true ,  // 骨架屏显示隐藏
+        totalTopHeight: 78
 
       }
     },
@@ -78,6 +84,37 @@
       setTimeout(() => {
         that.showSkeleton = false
       }, 3000)
+
+      const vm = this
+      wx.getSystemInfo({
+        success: function (res) {
+          console.log(res)
+          wx.setStorageSync('phoneModel',res.model)
+          let totalTopHeight = 68
+
+          if (res.model.indexOf('iPhone X') !== -1) {
+            totalTopHeight = 88
+            that.totalTopHeight = 103
+
+          } else if (res.model.indexOf('iPhone') !== -1) {
+            totalTopHeight = 64
+
+          }
+          console.log('totalTopHeight'+totalTopHeight)
+
+          let statusBarHeight = res.statusBarHeight
+          let titleBarHeight = totalTopHeight - res.statusBarHeight
+
+          vm.statusBarHeight = statusBarHeight
+
+          vm.titleBarHeight = titleBarHeight
+          vm.top = statusBarHeight + titleBarHeight
+        },
+        failure () {
+          vm.globalData.statusBarHeight = 0
+          vm.globalData.titleBarHeight = 0
+        }
+      })
     },
     mounted () {
 
@@ -89,23 +126,44 @@
 
   }
 </script>
-<style  scoped>
+<style lang="scss" scoped>
 .skeleton{
   /*border: 1px solid #000;*/
   margin-bottom: 20px;
 }
   .appname{
     width: 218px;
-    height: 24px;
-    font-size: 24px;
-    line-height: 24px;
+
     color: #333;
     font-family: PingFangSC-Medium;
-    /*border: 1px solid #000;*/
+    border: 1px solid #fff;
     margin-bottom: 60px;
     margin-top: 78px;
     margin-left: 25px;
     position: relative;
+
+    p{
+      /*border: 1px solid #000;*/
+
+      height: 24px;
+      font-size: 24px;
+      line-height: 24px;
+      margin-left: 5px;
+      position: absolute;
+      bottom:0 ;
+      z-index: 100;
+    };
+
+    .title_line{
+      width: 204px;
+      height: 14px;
+      background:  rgba(255,127,79,1);
+
+      box-shadow: 0 2px 7px 0 rgba(255,127,79,0.5);
+      position: absolute;
+      bottom: -5px;
+
+    }
 
   }
   .explain{

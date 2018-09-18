@@ -4,10 +4,48 @@
   export default {
     async created () {
       let auth_code = wx.getStorageSync('auth_code')
+      console.log("auth code")
+      console.log(auth_code)
       if (auth_code) {
       } else {
         await this.$store.dispatch('signup')
       }
+
+//      wx.login({
+//        success(res) {
+//          console.log('login 函数ok')
+//
+//          let code = res.code
+//          let data = {code: code}
+//          console.log(res)
+//
+//          wx.request({
+//            url: `https://msg.chibaole.cc/api/v1/wx/login`,
+//            data: data,
+//            method: 'POST',
+//            header: {
+//              'content-type': 'application/json' // 默认值
+//            },
+//            success(res) {
+//              console.log(res)
+//
+//              let auth_code = res.data.data.auth_code
+//              wx.setStorageSync('auth_code', auth_code)
+//
+//            },
+//            fail(e) {
+//              console.log(e)
+//            }
+//          })
+//
+//
+//        }
+//      })
+
+
+
+
+
 
       console.log('获取设备信息')
       const vm = this
@@ -62,6 +100,8 @@
   .text-primary {
     color: #EA5149;
   }
+
+
 
   .page-title {
     padding-left: 20px;

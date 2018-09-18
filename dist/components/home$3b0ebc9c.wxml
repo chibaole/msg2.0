@@ -6,7 +6,9 @@
       <view class="_p data-v-75e665de">没事干研究院很凉快</view>
     </view>
     <view class="_div data-v-75e665de clear"></view>
-    <view class="_div data-v-75e665de appname ">没事干研究院很酷
+    <view class="_div data-v-75e665de appname " style=" {{('margin-top:' + totalTopHeight + 'px' + ';')}}">
+      <view class="_p data-v-75e665de">没事干研究院很酷</view>
+      <view class="_div data-v-75e665de title_line"></view>
       <view class="_div data-v-75e665de explain" bindtap="handleProxy" wx:if="{{false}}" data-eventid="{{'0'}}" data-comkey="{{$k}}">?</view>
     </view>
     <template data="{{...$root[$kk+'0'], $root}}" is="scroll$532da844"></template>

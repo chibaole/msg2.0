@@ -111,7 +111,7 @@
 <script>
   import qcloud from 'wafer2-client-sdk'
   import YearProgress from '@/components/YearProgress'
-  import {showSuccess, post, showModal} from '@/util'
+  import {showSuccess, post, showModal} from '@/utils/util'
   import {checkSession} from '@/utils/wx'
   import config from '@/config'
   import Navbar from '@/components/navbar'
@@ -604,13 +604,13 @@
     top: 0;
     left: 0;
     width: 100%;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 1);
     z-index: 100;
 
   }
 
   .status-bar {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 1);
   }
 
   .title-bar {

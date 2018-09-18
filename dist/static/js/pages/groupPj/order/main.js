@@ -1,6 +1,6 @@
 global.webpackJsonp([4],{
 
-/***/ 110:
+/***/ 107:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -11,8 +11,8 @@ global.webpackJsonp([4],{
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_groupCard__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_oldUser__ = __webpack_require__(53);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_vue2_countdown__ = __webpack_require__(233);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_oldUser__ = __webpack_require__(52);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_vue2_countdown__ = __webpack_require__(225);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_vue2_countdown___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_vue2_countdown__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_navbar__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__utils_util__ = __webpack_require__(12);
@@ -21,6 +21,13 @@ global.webpackJsonp([4],{
 
 
 
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -413,7 +420,7 @@ global.webpackJsonp([4],{
               case 0:
                 that = _this3;
                 uuid = that.group_activity_initial_uuid;
-                page = 'pages/groupPj/order/main';
+                page = 'pages/isme/index';
                 data = [uuid, page];
                 _context3.next = 6;
                 return _this3.$store.dispatch('wxCode', __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default()({}, data));
@@ -426,8 +433,8 @@ global.webpackJsonp([4],{
                 titleContent = that.order_info.group_activity.title;
                 title_left = 25;
 
-                if (titleContent.length > 12) {
-                  titleContent = titleContent.substring(0, 11);
+                if (titleContent.length > 13) {
+                  titleContent = titleContent.substring(0, 12);
                 } else {
                   titleContent = titleContent;
                 }
@@ -473,16 +480,7 @@ global.webpackJsonp([4],{
                     MaxLineNumber: 2, // 最大两行 超出...
                     breakWord: true, // 换行
                     bolder: true // 加粗
-                  },
-                  //            {
-                  //              type:'image',
-                  //              url:'http://pbmrxkahq.bkt.clouddn.com/addPrice.png',
-                  //
-                  //              top:255,
-                  //              left:22.5,
-                  //              width:60
-                  //            },
-                  {
+                  }, {
                     type: 'text',
                     content: that.order_info.group_activity.group_type, // 变量的价格
                     fontSize: 18.4,
@@ -499,7 +497,6 @@ global.webpackJsonp([4],{
                     textAlign: 'left',
                     top: 257,
                     left: 90 // 根据价格字符个数 变化
-
                   }, {
                     type: 'text',
                     content: that.order_info.group_activity.current_price, // 根据价格字符个数 变化
@@ -671,7 +668,6 @@ global.webpackJsonp([4],{
         while (1) {
           switch (_context6.prev = _context6.next) {
             case 0:
-              wx.showLoading();
               that = _this6;
               attend = options.attend;
               group_activity_initial_uuid = options.group_activity_initial_uuid; // 发起拼团活动返回订单uuid
@@ -686,14 +682,11 @@ global.webpackJsonp([4],{
 
               currentuser_code = wx.getStorageSync('auth_code');
               uuid_authCode = [group_activity_initial_uuid, currentuser_code];
-              _context6.next = 12;
+              _context6.next = 11;
               return that.$store.dispatch('groupActivitiesInit', __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default()({}, uuid_authCode));
 
-            case 12:
+            case 11:
               orderData = _context6.sent;
-
-              wx.hideLoading();
-
               order_user = orderData.group_activity_initial.users; // []
 
               left_user = orderData.group_activity_initial.users_left; // number
@@ -719,7 +712,7 @@ global.webpackJsonp([4],{
 
               that.getlastTime();
 
-            case 25:
+            case 23:
             case 'end':
               return _context6.stop();
           }
@@ -761,20 +754,20 @@ global.webpackJsonp([4],{
 
 /***/ }),
 
-/***/ 188:
+/***/ 183:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 193:
+/***/ 188:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_mpvue_loader_lib_selector_type_script_index_0_vue2_countdown_vue__ = __webpack_require__(91);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mpvue_loader_lib_template_compiler_index_id_data_v_eeaf0e42_hasScoped_false_transformToRequire_video_src_source_src_img_src_image_xlink_href_mpvue_loader_lib_selector_type_template_index_0_vue2_countdown_vue__ = __webpack_require__(227);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_mpvue_loader_lib_selector_type_script_index_0_vue2_countdown_vue__ = __webpack_require__(90);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mpvue_loader_lib_template_compiler_index_id_data_v_eeaf0e42_hasScoped_false_transformToRequire_video_src_source_src_img_src_image_xlink_href_mpvue_loader_lib_selector_type_template_index_0_vue2_countdown_vue__ = __webpack_require__(219);
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
@@ -819,7 +812,7 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 223:
+/***/ 215:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -847,11 +840,15 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "pj-info"
   }, [_c('div', {
     staticClass: "left"
-  }, [_c('img', {
-    attrs: {
-      "src": _vm.order_info.group_activity.title_image_url,
-      "alt": ""
-    }
+  }, [_c('div', {
+    staticClass: "bg",
+    style: ({
+      width: '100%',
+      height: '100%',
+      backgroundImage: 'url(' + _vm.order_info.group_activity.title_image_url + ')',
+      backgroundSize: 'cover',
+      backgroundPosition: '50%'
+    })
   })]), _vm._v(" "), _c('div', {
     staticClass: "right"
   }, [_c('h2', [_c('div', {
@@ -907,7 +904,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         "src": item.avatar_url,
         "alt": ""
       }
-    }), (item.is_initiator) ? _c('span', {
+    }), _vm._v(" "), (item.is_initiator) ? _c('span', {
       staticClass: "mark"
     }, [_vm._v("团长")]) : _vm._e()])
   }))], 1) : _vm._e(), _vm._v(" "), _c('form', {
@@ -939,11 +936,11 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "group-game"
   }, [_vm._v("拼团玩法")]), _vm._v(" "), _c('p', {
     staticClass: "step1"
-  }, [_vm._v("付款后邀请好友参团")]), _vm._v(" "), _c('p', {
+  }, [_vm._v("1.付款后邀请好友参团")]), _vm._v(" "), _c('p', {
     staticClass: "step2"
-  }, [_vm._v("达到拼团人数，顺利开团")]), _vm._v(" "), _c('p', {
+  }, [_vm._v("2.达到拼团人数，顺利开团")]), _vm._v(" "), _c('p', {
     staticClass: "step2"
-  }, [_vm._v("若24小时内拼团不成功，全额退款")])], 1), _vm._v(" "), _c('div', {
+  }, [_vm._v("3.若24小时内拼团不成功，全额退款")])], 1), _vm._v(" "), _c('div', {
     staticClass: "line"
   }), _vm._v(" "), _c('div', {
     staticClass: "pjDetail"
@@ -1079,7 +1076,7 @@ if (false) {
 
 /***/ }),
 
-/***/ 227:
+/***/ 219:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1099,16 +1096,16 @@ if (false) {
 
 /***/ }),
 
-/***/ 66:
+/***/ 65:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_index_vue__ = __webpack_require__(110);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_b3a874ec_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_index_vue__ = __webpack_require__(223);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_index_vue__ = __webpack_require__(107);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_b3a874ec_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_index_vue__ = __webpack_require__(215);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(188)
+  __webpack_require__(183)
 }
 var normalizeComponent = __webpack_require__(1)
 /* script */
@@ -1153,14 +1150,14 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 81:
+/***/ 80:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__index__ = __webpack_require__(66);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__index__ = __webpack_require__(65);
 
 
 
@@ -1175,7 +1172,7 @@ app.$mount();
 
 /***/ }),
 
-/***/ 91:
+/***/ 90:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1380,5 +1377,5 @@ app.$mount();
 
 /***/ })
 
-},[81]);
+},[80]);
 //# sourceMappingURL=main.js.map
