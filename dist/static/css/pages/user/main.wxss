@@ -1,11 +1,11 @@
 @import "/static/css/vendor.wxss";
 
-.container.data-v-3105212a {
+.container.data-v-044e9218 {
   font-family: "PingFang SC";
   font-weight: Regular;
   background: #f9f9f9;
 }
-.navbartitle.data-v-3105212a {
+.navbartitle.data-v-044e9218 {
   background: #fff;
   width: 750rpx;
   text-align: center;
@@ -17,13 +17,13 @@
   top: 0;
   z-index: 101;
 }
-.navbartitle ._span.data-v-3105212a {
+.navbartitle ._span.data-v-044e9218 {
   display: inline-block;
   width: 166rpx;
   height: 48rpx;
   margin-top: 64rpx;
 }
-.userinfo.data-v-3105212a {
+.userinfo.data-v-044e9218 {
   margin: 0 auto 20rpx;
   text-align: center;
   width: 750rpx;
@@ -31,8 +31,8 @@
   background: linear-gradient(152deg, #ffd8c5, #ffb194, #ffb093);
   position: relative;
 }
-.userinfo .avatar.data-v-3105212a,
-.userinfo open-data.data-v-3105212a {
+.userinfo .avatar.data-v-044e9218,
+.userinfo open-data.data-v-044e9218 {
   display: inline-block;
   width: 140rpx;
   height: 140rpx;
@@ -41,14 +41,14 @@
   top: 80rpx;
   left: 50rpx;
 }
-.userinfo .setIcon.data-v-3105212a {
+.userinfo .setIcon.data-v-044e9218 {
   width: 40rpx;
   height: 40rpx;
   position: absolute;
   top: 40rpx;
   right: 50rpx;
 }
-.userinfo .score.data-v-3105212a {
+.userinfo .score.data-v-044e9218 {
   display: inline-block;
   height: 24rpx;
   line-height: 24rpx;
@@ -59,12 +59,12 @@
   top: 174rpx;
   left: 220rpx;
 }
-.userinfo .score .score_text.data-v-3105212a {
+.userinfo .score .score_text.data-v-044e9218 {
   font-family: PingFangSC-Regular;
   font-size: 24rpx;
   line-height: 24rpx;
 }
-.userinfo .username.data-v-3105212a {
+.userinfo .username.data-v-044e9218 {
   color: #fff;
   min-width: 200rpx;
   height: 40rpx;
@@ -76,14 +76,14 @@
   left: 220rpx;
   text-align: left;
 }
-.userinfo .username .foodname.data-v-3105212a {
+.userinfo .username .foodname.data-v-044e9218 {
   float: left;
   max-width: 390rpx;
   overflow: hidden;
   text-overflow: clip;
   white-space: nowrap;
 }
-.userinfo .username .foodLabel.data-v-3105212a {
+.userinfo .username .foodLabel.data-v-044e9218 {
   display: inline-block;
   color: #fff;
   font-family: PingFangSC-Regular;
@@ -93,7 +93,7 @@
   background: rgba(252, 158, 121, 0.4);
   padding: 4rpx 10rpx;
 }
-.userinfo .desc.data-v-3105212a {
+.userinfo .desc.data-v-044e9218 {
   height: 32rpx;
   font-family: PingFangSC-Regular;
   font-size: 24rpx;
@@ -102,7 +102,7 @@
   bottom: 40rpx;
   left: 50rpx;
 }
-.userinfo .desc .small_score.data-v-3105212a {
+.userinfo .desc .small_score.data-v-044e9218 {
   display: inline-block;
   font-size: 20rpx;
   line-height: 32rpx;
@@ -111,11 +111,11 @@
   border-radius: 4rpx;
   box-sizing: border-box;
 }
-.userinfo .desc .small_score_text.data-v-3105212a {
+.userinfo .desc .small_score_text.data-v-044e9218 {
   font-size: 24rpx;
   line-height: 24rpx;
 }
-.userinfo .setAddress.data-v-3105212a {
+.userinfo .setAddress.data-v-044e9218 {
   display: inline-block;
   font-family: PingFangSC-Regular;
   font-size: 24rpx;
@@ -124,7 +124,7 @@
   top: 174rpx;
   right: 50rpx;
 }
-#open-data.data-v-3105212a {
+#open-data.data-v-044e9218 {
   overflow: hidden;
   display: block;
   border-radius: 50%;
@@ -136,15 +136,15 @@
   top: 40rpx;
   right: 40rpx;
 }
-.userinfo ._p.data-v-3105212a {
+.userinfo ._p.data-v-044e9218 {
   display: inline-block;
   text-align: center;
   position: absolute;
 }
-._form.data-v-3105212a::after {
+._form.data-v-044e9218::after {
   border: none;
 }
-#phoneForm.data-v-3105212a {
+#phoneForm.data-v-044e9218 {
   background: #fff !important;
   display: block;
   padding: 0;
@@ -153,13 +153,13 @@
   margin-bottom: 20rpx;
   font-family: PingFangSC-Regular;
 }
-#phoneForm ._button.data-v-3105212a {
+#phoneForm ._button.data-v-044e9218 {
   display: block;
   background: #fff;
   border: 2rpx solid #fff;
   border-radius: 0;
 }
-#phoneForm ._button .getPhone.data-v-3105212a {
+#phoneForm ._button .getPhone.data-v-044e9218 {
   width: 650rpx;
   font-family: PingFangSC-Regular;
   font-size: 28rpx;
@@ -167,7 +167,7 @@
   position: relative;
   border-radius: 0;
 }
-#phoneForm ._button .getPhone .list_title.data-v-3105212a {
+#phoneForm ._button .getPhone .list_title.data-v-044e9218 {
   display: inline-block;
   line-height: 88rpx;
   color: #333;
@@ -175,7 +175,7 @@
   position: absolute;
   left: 0;
 }
-#phoneForm ._button .getPhone .getPhoneBtn.data-v-3105212a {
+#phoneForm ._button .getPhone .getPhoneBtn.data-v-044e9218 {
   display: inline-block;
   height: 60rpx;
   line-height: 60rpx;
@@ -185,14 +185,14 @@
   margin-top: 14rpx;
   margin-left: 530rpx;
 }
-#phoneForm ._button ._button.data-v-3105212a::after {
+#phoneForm ._button ._button.data-v-044e9218::after {
   border: none;
   border-radius: 0;
 }
-.formBox.data-v-3105212a {
+.formBox.data-v-044e9218 {
   background: #fff;
 }
-.formBox .mylist.data-v-3105212a {
+.formBox .mylist.data-v-044e9218 {
   border-bottom: 2rpx solid #eee;
   height: 140rpx;
   width: 650rpx;
@@ -202,7 +202,7 @@
   color: #fff;
   position: relative;
 }
-.formBox .mylist ._img.data-v-3105212a {
+.formBox .mylist ._img.data-v-044e9218 {
   width: 40rpx;
   height: 40rpx;
   display: inline-block;
@@ -210,7 +210,7 @@
   top: 50rpx;
   left: 0;
 }
-.formBox .mylist .list_title.data-v-3105212a {
+.formBox .mylist .list_title.data-v-044e9218 {
   display: inline-block;
   height: 40rpx;
   line-height: 40rpx;
@@ -220,7 +220,7 @@
   top: 50rpx;
   left: 70rpx;
 }
-.formBox .mylist .list_btn.data-v-3105212a {
+.formBox .mylist .list_btn.data-v-044e9218 {
   display: inline-block;
   height: 48rpx;
   border-radius: 46rpx;
@@ -235,30 +235,30 @@
   bottom: 50rpx;
   right: 0;
 }
-.formBox ._form.data-v-3105212a {
+.formBox ._form.data-v-044e9218 {
   border: none;
   display: block;
 }
-.formBox ._form ._button.data-v-3105212a {
+.formBox ._form ._button.data-v-044e9218 {
   display: block;
   background: none;
   margin: 0 auto;
   border: none;
 }
-.formBox ._form ._button.data-v-3105212a::after {
+.formBox ._form ._button.data-v-044e9218::after {
   border-radius: 0;
   border: none;
 }
-._button.data-v-3105212a::after {
+._button.data-v-044e9218::after {
   border: none;
 }
-.navbar.data-v-3105212a {
+.navbar.data-v-044e9218 {
   box-sizing: border-box;
   height: auto;
   background: #fff;
   border-bottom: 2rpx solid #f7f7f7;
 }
-.header.data-v-3105212a {
+.header.data-v-044e9218 {
   position: fixed;
   top: 0;
   left: 0;
@@ -266,16 +266,16 @@
   background: white;
   z-index: 100;
 }
-.status-bar.data-v-3105212a {
+.status-bar.data-v-044e9218 {
   background: white;
 }
-.title-bar.data-v-3105212a {
+.title-bar.data-v-044e9218 {
   display: flex;
   justify-content: center;
   align-items: center;
   align-content: center;
 }
-.title.data-v-3105212a {
+.title.data-v-044e9218 {
   text-align: center;
   font-family: PingFangSC-Medium;
   font-size: 34rpx;
@@ -283,17 +283,17 @@
   width: 300rpx;
   display: inline-block;
 }
-.progressbar.data-v-3052ecbd {
+.progressbar.data-v-3a2e5b2a {
   text-align: center;
   margin-top: 20rpx;
   margin-bottom: 80rpx;
   width: 100%;
   position: relative;
 }
-.progressbar ._progress.data-v-3052ecbd {
+.progressbar ._progress.data-v-3a2e5b2a {
   margin-bottom: 20rpx;
 }
-.dot.data-v-3052ecbd {
+.dot.data-v-3a2e5b2a {
   display: inline-block;
   width: 30rpx;
   height: 30rpx;
@@ -303,7 +303,7 @@
   left: 33%;
   top: -8rpx;
 }
-._span.data-v-3052ecbd:nth-child(2) {
+._span.data-v-3a2e5b2a:nth-child(2) {
   position: absolute;
   left: 66%;
   top: -8rpx;

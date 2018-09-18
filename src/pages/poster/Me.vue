@@ -26,6 +26,7 @@
 
     methods: {
       eventGetImage (event) {
+        console.log("[Canvas] 绘制完成")
         console.log(event)
         wx.hideLoading()
         this.shareImage = event.target.tempFilePath
@@ -37,6 +38,7 @@
           mask: true
         })
 //
+      console.log("[Canvas] 绘制开始")
         this.painting = wx.getStorageSync('painting')
       },
       eventSave () {
