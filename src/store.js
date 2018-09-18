@@ -62,6 +62,8 @@ export default new Vuex.Store({
       })
 
       let auth_code =  res.auth_code
+      wx.setStorageSync('auth_code', auth_code)
+
       let boons = await request({
         method: 'get',
         url: `${apiDomain}/boons/today?auth_code=${auth_code}`,
@@ -74,8 +76,26 @@ export default new Vuex.Store({
 
     // 获取福利详情
     async getBoons({commit}, {...uuid_authCode}) {
+      let userData = await login()
+      let code = userData.code
+      let data = {code: code}
+      let res = await request({
+        method: 'post',
+        url: `${apiDomain}/wx/login`,
+        data: data
+      })
+
+      // let auth_code =  res.auth_code
+
+
       let uuid = uuid_authCode[0]
-      let auth_code = uuid_authCode[1]
+
+
+      let auth_code = res.auth_code
+
+      wx.setStorageSync('auth_code', auth_code)
+
+
       let form_id = uuid_authCode[2]
       let prjInfo = await request({
         method: 'get',
@@ -123,6 +143,8 @@ export default new Vuex.Store({
       })
 
       let auth_code =  res.auth_code
+      wx.setStorageSync('auth_code', auth_code)
+
 
       const group = await request({
         method: 'get',
@@ -170,9 +192,25 @@ export default new Vuex.Store({
 
     // 拼团发起详情
     async groupActivitiesInit({commit}, {...uuid_authCode}) {
+
+      let userData = await login()
+      let code = userData.code
+      let data = {code: code}
+      let res = await request({
+        method: 'post',
+        url: `${apiDomain}/wx/login`,
+        data: data
+      })
+
+      let auth_code =  res.auth_code
+      wx.setStorageSync('auth_code', auth_code)
+
+
       let uuid = uuid_authCode[0]
       uuid === '' ? uuid = '1223' : uuid = uuid_authCode[0]
-      let auth_code = uuid_authCode[1]
+
+
+      // let auth_code = uuid_authCode[1]
       let initOrder = await request({
         method: 'get',
         url: `${apiDomain}/group_activity_initials/${uuid}?auth_code=${auth_code}`

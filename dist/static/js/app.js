@@ -1,6 +1,6 @@
 global.webpackJsonp([15],{
 
-/***/ 173:
+/***/ 174:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
@@ -11,11 +11,11 @@ global.webpackJsonp([15],{
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_defineProperty__ = __webpack_require__(120);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_defineProperty__ = __webpack_require__(121);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_defineProperty___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_defineProperty__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_json_stringify__ = __webpack_require__(117);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_json_stringify__ = __webpack_require__(118);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_json_stringify___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_json_stringify__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_objectWithoutProperties__ = __webpack_require__(121);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_objectWithoutProperties__ = __webpack_require__(122);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_objectWithoutProperties___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_objectWithoutProperties__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator__);
@@ -23,8 +23,8 @@ global.webpackJsonp([15],{
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_asyncToGenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_asyncToGenerator__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_vue__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_vuex__ = __webpack_require__(226);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__utils_util__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_vuex__ = __webpack_require__(227);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__utils_util__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__utils_wx__ = __webpack_require__(10);
 
 
@@ -163,7 +163,10 @@ var apiDomain = 'https://msg.chibaole.cc/api/v1';
               case 7:
                 res = _context3.sent;
                 auth_code = res.auth_code;
-                _context3.next = 11;
+
+                wx.setStorageSync('auth_code', auth_code);
+
+                _context3.next = 12;
                 return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
                   method: 'get',
                   url: apiDomain + '/boons/today?auth_code=' + auth_code,
@@ -172,11 +175,11 @@ var apiDomain = 'https://msg.chibaole.cc/api/v1';
                   data: {}
                 });
 
-              case 11:
+              case 12:
                 boons = _context3.sent;
                 return _context3.abrupt('return', boons);
 
-              case 13:
+              case 14:
               case 'end':
                 return _context3.stop();
             }
@@ -194,26 +197,49 @@ var apiDomain = 'https://msg.chibaole.cc/api/v1';
       var uuid_authCode = __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_objectWithoutProperties___default()(_ref5, []);
 
       return __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.mark(function _callee4() {
-        var uuid, auth_code, form_id, prjInfo;
+        var userData, code, data, res, uuid, auth_code, form_id, prjInfo;
         return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.wrap(function _callee4$(_context4) {
           while (1) {
             switch (_context4.prev = _context4.next) {
               case 0:
+                _context4.next = 2;
+                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["f" /* login */])();
+
+              case 2:
+                userData = _context4.sent;
+                code = userData.code;
+                data = { code: code };
+                _context4.next = 7;
+                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
+                  method: 'post',
+                  url: apiDomain + '/wx/login',
+                  data: data
+                });
+
+              case 7:
+                res = _context4.sent;
+
+                // let auth_code =  res.auth_code
+
+
                 uuid = uuid_authCode[0];
-                auth_code = uuid_authCode[1];
+                auth_code = res.auth_code;
+
+                wx.setStorageSync('auth_code', auth_code);
+
                 form_id = uuid_authCode[2];
-                _context4.next = 5;
+                _context4.next = 14;
                 return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
                   method: 'get',
                   url: apiDomain + '/boons/' + uuid + '?auth_code=' + auth_code + '&form_id=' + form_id,
                   data: {}
                 });
 
-              case 5:
+              case 14:
                 prjInfo = _context4.sent;
                 return _context4.abrupt('return', prjInfo);
 
-              case 7:
+              case 16:
               case 'end':
                 return _context4.stop();
             }
@@ -324,7 +350,10 @@ var apiDomain = 'https://msg.chibaole.cc/api/v1';
               case 7:
                 res = _context7.sent;
                 auth_code = res.auth_code;
-                _context7.next = 11;
+
+                wx.setStorageSync('auth_code', auth_code);
+
+                _context7.next = 12;
                 return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
                   method: 'get',
                   url: apiDomain + '/group_activities?auth_code=' + auth_code,
@@ -333,11 +362,11 @@ var apiDomain = 'https://msg.chibaole.cc/api/v1';
                   data: {}
                 });
 
-              case 11:
+              case 12:
                 group = _context7.sent;
                 return _context7.abrupt('return', group);
 
-              case 13:
+              case 14:
               case 'end':
                 return _context7.stop();
             }
@@ -461,26 +490,47 @@ var apiDomain = 'https://msg.chibaole.cc/api/v1';
       var uuid_authCode = __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_objectWithoutProperties___default()(_ref18, []);
 
       return __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.mark(function _callee11() {
-        var uuid, auth_code, initOrder;
+        var userData, code, data, res, auth_code, uuid, initOrder;
         return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_regenerator___default.a.wrap(function _callee11$(_context11) {
           while (1) {
             switch (_context11.prev = _context11.next) {
               case 0:
+                _context11.next = 2;
+                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["f" /* login */])();
+
+              case 2:
+                userData = _context11.sent;
+                code = userData.code;
+                data = { code: code };
+                _context11.next = 7;
+                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
+                  method: 'post',
+                  url: apiDomain + '/wx/login',
+                  data: data
+                });
+
+              case 7:
+                res = _context11.sent;
+                auth_code = res.auth_code;
+
+                wx.setStorageSync('auth_code', auth_code);
+
                 uuid = uuid_authCode[0];
 
                 uuid === '' ? uuid = '1223' : uuid = uuid_authCode[0];
-                auth_code = uuid_authCode[1];
-                _context11.next = 5;
+
+                // let auth_code = uuid_authCode[1]
+                _context11.next = 14;
                 return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["d" /* request */])({
                   method: 'get',
                   url: apiDomain + '/group_activity_initials/' + uuid + '?auth_code=' + auth_code
                 });
 
-              case 5:
+              case 14:
                 initOrder = _context11.sent;
                 return _context11.abrupt('return', initOrder);
 
-              case 7:
+              case 16:
               case 'end':
                 return _context11.stop();
             }
@@ -845,11 +895,11 @@ var apiDomain = 'https://msg.chibaole.cc/api/v1';
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_App_vue__ = __webpack_require__(91);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_App_vue__ = __webpack_require__(92);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(173)
+  __webpack_require__(174)
 }
 var normalizeComponent = __webpack_require__(1)
 /* script */
@@ -893,7 +943,7 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 75:
+/***/ 76:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -902,7 +952,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__App__ = __webpack_require__(60);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__store__ = __webpack_require__(59);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_mta_wechat_analysis__ = __webpack_require__(263);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_mta_wechat_analysis__ = __webpack_require__(75);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_mta_wechat_analysis___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_mta_wechat_analysis__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__utils_wx__ = __webpack_require__(10);
 
@@ -959,7 +1009,7 @@ app.$mount();
 
 /***/ }),
 
-/***/ 91:
+/***/ 92:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -974,7 +1024,7 @@ app.$mount();
 
 
 /* harmony default export */ __webpack_exports__["a"] = ({
-  created: function created() {
+  onLoad: function onLoad() {
     var _this = this;
 
     return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
@@ -983,9 +1033,10 @@ app.$mount();
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
+              console.log('每次获取auth_code');
               auth_code = wx.getStorageSync('auth_code');
+              //      console.log("auth code")
 
-              console.log("auth code");
               console.log(auth_code);
 
               if (!auth_code) {
@@ -1076,5 +1127,5 @@ app.$mount();
 
 /***/ })
 
-},[75]);
+},[76]);
 //# sourceMappingURL=app.js.map

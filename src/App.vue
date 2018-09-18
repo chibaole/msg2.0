@@ -2,7 +2,8 @@
   import {login} from '@/utils/wx'
 
   export default {
-    async  onShow () {
+    async  onLoad () {
+      console.log('每次获取auth_code')
       let auth_code = wx.getStorageSync('auth_code')
 //      console.log("auth code")
       console.log(auth_code)
