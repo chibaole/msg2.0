@@ -104,7 +104,7 @@ var webpackConfig = merge(baseWebpackConfig, {
 //     new CompressionWebpackPlugin({
 //       asset: '[path].gz[query]',
 //       algorithm: 'gzip',
-//       test: new RegExp(
+//       poster: new RegExp(
 //         '\\.(' +
 //         config.build.productionGzipExtensions.join('|') +
 //         ')$'

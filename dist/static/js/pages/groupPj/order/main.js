@@ -1,6 +1,6 @@
 global.webpackJsonp([4],{
 
-/***/ 112:
+/***/ 110:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -11,12 +11,13 @@ global.webpackJsonp([4],{
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_groupCard__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vue2_countdown__ = __webpack_require__(238);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vue2_countdown___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_vue2_countdown__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_navbar__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__utils_util__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__utils_wx__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__config__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_oldUser__ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_vue2_countdown__ = __webpack_require__(233);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_vue2_countdown___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_vue2_countdown__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_navbar__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__utils_util__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__utils_wx__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__config__ = __webpack_require__(4);
 
 
 
@@ -148,6 +149,15 @@ global.webpackJsonp([4],{
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 
 
@@ -172,22 +182,27 @@ global.webpackJsonp([4],{
       order_info: {},
       showBox: false,
       painting: {},
-      navbar_title: '团购',
+      navbar_title: '拼团详情',
       orderIdId: '',
       myDetail: '',
       scanCode: true,
       group_activity_initial_uuid: '',
       group_activity_initial_finish: false,
       onekeyAttend: false,
-      host: __WEBPACK_IMPORTED_MODULE_8__config__["a" /* default */].host,
+      host: __WEBPACK_IMPORTED_MODULE_9__config__["a" /* default */].host,
       group_activity_order_uuid: '',
-      delta: 3
+      delta: 3,
+      oldUser: false,
+      group_activities_uuid: '',
+      invite: true
+
     };
   },
 
   components: {
     Card: __WEBPACK_IMPORTED_MODULE_3__components_groupCard__["a" /* default */],
-    Navbar: __WEBPACK_IMPORTED_MODULE_5__components_navbar__["a" /* default */]
+    Navbar: __WEBPACK_IMPORTED_MODULE_6__components_navbar__["a" /* default */],
+    OldUser: __WEBPACK_IMPORTED_MODULE_4__components_oldUser__["a" /* default */]
 
   },
 
@@ -247,16 +262,21 @@ global.webpackJsonp([4],{
               case 6:
                 group_activity_orders = _context2.sent;
 
-                //      console.log(group_activity_orders)// group_activity_orders = underfind ? '参与失败'：参与成功
+                console.log(group_activity_orders);
+
+                if (!group_activity_orders) {
+                  _context2.next = 17;
+                  break;
+                }
 
                 group_activity_order_uuid = group_activity_orders.group_activity_order.uuid;
 
                 that.group_activity_order_uuid = group_activity_order_uuid;
                 // 支付参与拼团的订单
-                _context2.next = 11;
+                _context2.next = 13;
                 return that.$store.dispatch('group_pay', group_activity_order_uuid);
 
-              case 11:
+              case 13:
                 join_res = _context2.sent;
 
 
@@ -268,22 +288,41 @@ global.webpackJsonp([4],{
                   'paySign': String(join_res.pay_sign),
                   'success': function success(res) {
                     console.log(res);
+                    var user = wx.getStorageSync('userinfo');
+
+                    var currentUser = that.order_info.users;
+                    var this_user = {
+                      uuid: '',
+                      nick_name: user.nick_name,
+                      avatar_url: user.avatar_url,
+                      is_initiator: false
+                    };
+                    that.order_info.users.concat(this_user);
+
                     that.onekeyAttend = false;
                   },
                   'fail': function fail(res) {
                     console.log(res);
                     console.log('支付错误');
-                    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_6__utils_util__["b" /* showModal */])('支付失败', '请尝试重新支付');
+                    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__utils_util__["b" /* showModal */])('支付失败', '请尝试重新支付');
                   }
                 });
+                _context2.next = 18;
+                break;
 
-              case 13:
+              case 17:
+                that.oldUser = true;
+
+              case 18:
               case 'end':
                 return _context2.stop();
             }
           }
         }, _callee2, _this2);
       }))();
+    },
+    oldUserValue: function oldUserValue(_oldUserValue) {
+      this.oldUser = _oldUserValue;
     },
     getlastTime: function getlastTime() {
       var that = this;
@@ -360,8 +399,7 @@ global.webpackJsonp([4],{
     },
 
     shareMenu: function shareMenu(e) {
-      //        console.log(this.showBox)
-      //        console.log(e.mp.detail.formId)
+
       this.showBox = !this.showBox;
     },
     getImg: function getImg() {
@@ -375,7 +413,7 @@ global.webpackJsonp([4],{
               case 0:
                 that = _this3;
                 uuid = that.group_activity_initial_uuid;
-                page = 'pages/isme/index';
+                page = 'pages/groupPj/order/main';
                 data = [uuid, page];
                 _context3.next = 6;
                 return _this3.$store.dispatch('wxCode', __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default()({}, data));
@@ -457,7 +495,7 @@ global.webpackJsonp([4],{
                     fontSize: 18.4,
                     color: '#f83713',
                     textAlign: 'left',
-                    top: 260,
+                    top: 257,
                     left: 90 // 根据价格字符个数 变化
 
                   }, {
@@ -466,26 +504,26 @@ global.webpackJsonp([4],{
                     fontSize: 18.4,
                     color: '#f83713',
                     textAlign: 'left',
-                    top: 260,
+                    top: 257,
                     left: 105 // 根据价格字符个数 变化
                     //              textDecoration: 'line-through'
                   }, {
                     type: 'text',
                     content: '拼团价', // 根据价格字符个数 变化
-                    fontSize: 15,
+                    fontSize: 14,
                     color: '#f83713',
                     textAlign: 'left',
-                    top: 268,
-                    left: 130 // 根据价格字符个数 变化
+                    top: 261,
+                    left: 150 // 根据价格字符个数 变化
                     //              textDecoration: 'line-through'
                   }, {
                     type: 'text',
                     content: '¥' + that.order_info.group_activity.original_price, // 根据价格字符个数 变化
-                    fontSize: 15,
-                    color: '#f83713',
+                    fontSize: 11.5,
+                    color: '#999999',
                     textAlign: 'left',
-                    top: 268,
-                    left: 175, // 根据价格字符个数 变化
+                    top: 265,
+                    left: 195, // 根据价格字符个数 变化
                     textDecoration: 'line-through'
                   }, {
                     type: 'text',
@@ -522,7 +560,7 @@ global.webpackJsonp([4],{
                 };
                 wx.setStorageSync('painting', _this3.painting);
                 wx.navigateTo({
-                  url: '/pages/test/main'
+                  url: '/pages/poster/main'
                 });
 
               case 14:
@@ -557,7 +595,7 @@ global.webpackJsonp([4],{
                 }
 
                 _context4.next = 9;
-                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__utils_wx__["b" /* chooseAddress */])();
+                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__utils_wx__["b" /* chooseAddress */])();
 
               case 9:
                 res = _context4.sent;
@@ -603,30 +641,54 @@ global.webpackJsonp([4],{
       wx.switchTab({
         url: '/pages/home/main'
       });
+    },
+    getOrderData: function getOrderData() {
+      //获取页面数据函数
+
+      var _this5 = this;
+
+      return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.mark(function _callee5() {
+        return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.wrap(function _callee5$(_context5) {
+          while (1) {
+            switch (_context5.prev = _context5.next) {
+              case 0:
+              case 'end':
+                return _context5.stop();
+            }
+          }
+        }, _callee5, _this5);
+      }))();
     }
   },
   onLoad: function onLoad(options) {
-    var _this5 = this;
+    var _this6 = this;
 
-    return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.mark(function _callee5() {
-      var that, attend, group_activity_initial_uuid, currentuser_code, uuid_authCode, orderData, order_user, left_user, group_user_require, left_num, i;
-      return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.wrap(function _callee5$(_context5) {
+    return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.mark(function _callee6() {
+      var that, attend, group_activity_initial_uuid, group_activities_uuid, currentuser_code, uuid_authCode, orderData, order_user, left_user, group_user_require, left_num, i;
+      return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.wrap(function _callee6$(_context6) {
         while (1) {
-          switch (_context5.prev = _context5.next) {
+          switch (_context6.prev = _context6.next) {
             case 0:
-              that = _this5;
+              wx.showLoading();
+              that = _this6;
               attend = options.attend;
               group_activity_initial_uuid = options.group_activity_initial_uuid; // 发起拼团活动返回订单uuid
+
+              group_activities_uuid = options.group_activities_uuid;
+
+
+              that.group_activities_uuid = group_activities_uuid;
+              console.log(that.group_activities_uuid);
 
               that.group_activity_initial_uuid = group_activity_initial_uuid;
 
               currentuser_code = wx.getStorageSync('auth_code');
               uuid_authCode = [group_activity_initial_uuid, currentuser_code];
-              _context5.next = 8;
+              _context6.next = 12;
               return that.$store.dispatch('groupActivitiesInit', __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default()({}, uuid_authCode));
 
-            case 8:
-              orderData = _context5.sent;
+            case 12:
+              orderData = _context6.sent;
               order_user = orderData.group_activity_initial.users; // []
 
               left_user = orderData.group_activity_initial.users_left; // number
@@ -642,45 +704,39 @@ global.webpackJsonp([4],{
 
               orderData.group_activity_initial.users = order_user;
 
-              if (attend === '已参团' && orderData.group_activity_initial.status === 'grouping') {
-                console.log(orderData.group_activity_initial.status + '本次拼团可以邀请');
-                that.group_activity_initial_finish_attend = false;
-              } else if (attend === '已参团' && orderData.group_activity_initial.status === 'success') {
-                that.group_activity_initial_finish_attend = true;
-                console.log(orderData.group_activity_initial.status + '本次拼团可已结束  重新开团');
+              if (orderData.group_activity_initial.is_initiator === false && orderData.group_activity_initial.status_display === '正在拼团') {
+                that.onekeyAttend = true;
+                //显示一键参与
+                //        that.invite = false
               }
+
               that.order_info = orderData.group_activity_initial;
 
-              if (that.order_info.is_initiator === false && that.group_activity_initial_finish === false) {
-                that.onekeyAttend = true;
-              } else if (that.order_info.is_initiator === true && that.group_activity_initial_finish === true) {
-                that.onekeyAttend = false;
-              }
-              console.log(that.onekeyAttend);
-              console.log(that.group_activity_initial_finish);
+              wx.hideLoading();
+
               that.getlastTime();
 
-            case 23:
-            case 'end':
-              return _context5.stop();
-          }
-        }
-      }, _callee5, _this5);
-    }))();
-  },
-  mounted: function mounted() {
-    var _this6 = this;
-
-    return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.mark(function _callee6() {
-      return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.wrap(function _callee6$(_context6) {
-        while (1) {
-          switch (_context6.prev = _context6.next) {
-            case 0:
+            case 25:
             case 'end':
               return _context6.stop();
           }
         }
       }, _callee6, _this6);
+    }))();
+  },
+  mounted: function mounted() {
+    var _this7 = this;
+
+    return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.mark(function _callee7() {
+      return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.wrap(function _callee7$(_context7) {
+        while (1) {
+          switch (_context7.prev = _context7.next) {
+            case 0:
+            case 'end':
+              return _context7.stop();
+          }
+        }
+      }, _callee7, _this7);
     }))();
   },
   onShareAppMessage: function onShareAppMessage(res) {
@@ -692,7 +748,7 @@ global.webpackJsonp([4],{
       console.log(res.target);
     }
     return {
-      title: that.order_info.group_activity.title,
+      title: '耽误你10秒，帮我看看这个东西好不好',
       path: '/pages/groupPj/order/main?group_activity_initial_uuid=' + uuid
       //        imageUrl: that.order_info.group_activity.title_image_url
       // 参与拼团的页面
@@ -702,20 +758,20 @@ global.webpackJsonp([4],{
 
 /***/ }),
 
-/***/ 193:
+/***/ 188:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 198:
+/***/ 193:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_mpvue_loader_lib_selector_type_script_index_0_vue2_countdown_vue__ = __webpack_require__(93);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mpvue_loader_lib_template_compiler_index_id_data_v_eeaf0e42_hasScoped_false_transformToRequire_video_src_source_src_img_src_image_xlink_href_mpvue_loader_lib_selector_type_template_index_0_vue2_countdown_vue__ = __webpack_require__(232);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_mpvue_loader_lib_selector_type_script_index_0_vue2_countdown_vue__ = __webpack_require__(91);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mpvue_loader_lib_template_compiler_index_id_data_v_eeaf0e42_hasScoped_false_transformToRequire_video_src_source_src_img_src_image_xlink_href_mpvue_loader_lib_selector_type_template_index_0_vue2_countdown_vue__ = __webpack_require__(227);
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
@@ -760,7 +816,7 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 230:
+/***/ 223:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -773,7 +829,16 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "delta": _vm.delta,
       "mpcomid": '0'
     }
-  }), _vm._v(" "), _c('div', {
+  }), _vm._v(" "), (_vm.oldUser) ? _c('OldUser', {
+    attrs: {
+      "group_activities_uuid": _vm.group_activities_uuid,
+      "eventid": '0',
+      "mpcomid": '1'
+    },
+    on: {
+      "oldUserValue": _vm.oldUserValue
+    }
+  }) : _vm._e(), _vm._v(" "), _c('div', {
     staticClass: "wrap"
   }, [_c('div', {
     staticClass: "pj-info"
@@ -845,7 +910,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   }))], 1) : _vm._e(), _vm._v(" "), _c('form', {
     attrs: {
       "report-submit": true,
-      "eventid": '1'
+      "eventid": '2'
     },
     on: {
       "submit": _vm.fillAddress
@@ -858,7 +923,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   }, [(_vm.order_info.status == 'success') ? _c('div', {
     staticClass: "group_res",
     attrs: {
-      "eventid": '0'
+      "eventid": '1'
     },
     on: {
       "click": _vm.fillAddress
@@ -871,22 +936,26 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "group-game"
   }, [_vm._v("拼团玩法")]), _vm._v(" "), _c('p', {
     staticClass: "step1"
-  }, [_vm._v("1.免费领取 但要完成小作业，写食用反馈。")]), _vm._v(" "), _c('p', {
+  }, [_vm._v("付款后邀请好友参团")]), _vm._v(" "), _c('p', {
     staticClass: "step2"
-  }, [_vm._v("2.领取成功后，请扫码加群等待发货哦。")])], 1), _vm._v(" "), _c('div', {
+  }, [_vm._v("达到拼团人数，顺利开团")]), _vm._v(" "), _c('p', {
+    staticClass: "step2"
+  }, [_vm._v("若24小时内拼团不成功，全额退款")])], 1), _vm._v(" "), _c('div', {
     staticClass: "line"
   }), _vm._v(" "), _c('div', {
     staticClass: "pjDetail"
-  }, [_vm._v("\n      商品详情\n      "), _c('rich-text', {
+  }, [_c('p', {
+    staticClass: "detailTitle"
+  }, [_vm._v("商品详情")]), _vm._v(" "), _c('rich-text', {
     staticClass: "pjdetail",
     attrs: {
       "nodes": _vm.order_info.group_activity.product.detail,
-      "mpcomid": '1'
+      "mpcomid": '2'
     }
-  })], 1)], 1), _vm._v(" "), _c('form', {
+  })], 1)], 1), _vm._v(" "), (_vm.order_info.status_display === '正在拼团') ? _c('form', {
     attrs: {
       "report-submit": true,
-      "eventid": '2'
+      "eventid": '3'
     },
     on: {
       "submit": _vm.shareMenu
@@ -901,10 +970,10 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     attrs: {
       "data-status": "1"
     }
-  }, [_c('span', [_vm._v("邀请好友一起享用")])])])], 1), _vm._v(" "), _c('form', {
+  }, [_c('span', [_vm._v("邀请好友一起享用")])])])], 1) : _vm._e(), _vm._v(" "), (_vm.order_info.status_display === '拼团成功') ? _c('form', {
     attrs: {
       "report-submit": true,
-      "eventid": '4'
+      "eventid": '5'
     },
     on: {
       "submit": _vm.createGroup
@@ -914,24 +983,24 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     attrs: {
       "formType": "submit"
     }
-  }, [(_vm.group_activity_initial_finish) ? _c('div', {
+  }, [_c('div', {
     staticClass: "btn open_btn",
     attrs: {
       "data-status": "1",
-      "eventid": '3'
+      "eventid": '4'
     },
     on: {
       "click": _vm.createGroup
     }
-  }, [_c('span', [_vm._v("重新开团")])]) : _vm._e()])], 1), _vm._v(" "), (_vm.onekeyAttend) ? _c('div', {
+  }, [_c('span', [_vm._v("重新开团")])])])], 1) : _vm._e(), _vm._v(" "), (_vm.onekeyAttend) ? _c('div', {
     staticClass: "pay"
   }, [_c('div', {
     staticClass: "price"
-  }, [_vm._v("\n      ¥" + _vm._s(_vm.order_info.group_activity.current_price)), _c('span', [_vm._v("还剩" + _vm._s(_vm.order_info.group_activity.product.num) + "份")])]), _vm._v(" "), _c('div', {
+  }, [_vm._v("\n      ¥" + _vm._s(_vm.order_info.group_activity.current_price)), (_vm.order_info.group_activity.product.num) ? _c('span', [_vm._v("还剩" + _vm._s(_vm.order_info.group_activity.product.num) + "份")]) : _vm._e()]), _vm._v(" "), _c('div', {
     staticClass: "join-group",
     attrs: {
       "data-uuid": _vm.order_info.uuid,
-      "eventid": '5'
+      "eventid": '6'
     },
     on: {
       "click": _vm.attendGroup
@@ -939,7 +1008,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   }, [_vm._v("一键参与")])]) : _vm._e(), _vm._v(" "), (_vm.showBox) ? _c('div', {
     staticClass: "mask",
     attrs: {
-      "eventid": '9'
+      "eventid": '10'
     },
     on: {
       "click": _vm.shareMenu
@@ -951,14 +1020,12 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     attrs: {
       "src": "http://pbmrxkahq.bkt.clouddn.com/close.png",
       "alt": "",
-      "eventid": '6'
+      "eventid": '7'
     },
     on: {
       "click": _vm.shareMenu
     }
-  }), _vm._v(" "), _c('div', {
-    staticClass: "title"
-  }, [_vm._v("分享加速抽奖")]), _vm._v(" "), _c('button', {
+  }), _vm._v(" "), _c('button', {
     staticClass: "friend",
     attrs: {
       "open-type": "share"
@@ -971,7 +1038,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   })]), _vm._v(" "), _c('div', {
     staticClass: "createImg",
     attrs: {
-      "eventid": '7'
+      "eventid": '8'
     },
     on: {
       "click": _vm.getImg
@@ -989,7 +1056,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   }, [_vm._v("微信好友")]), _vm._v(" "), _c('div', {
     staticClass: "shengchengImg",
     attrs: {
-      "eventid": '8'
+      "eventid": '9'
     },
     on: {
       "click": _vm.getImg
@@ -1009,7 +1076,7 @@ if (false) {
 
 /***/ }),
 
-/***/ 232:
+/***/ 227:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1029,16 +1096,16 @@ if (false) {
 
 /***/ }),
 
-/***/ 68:
+/***/ 66:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_index_vue__ = __webpack_require__(112);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_b3a874ec_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_index_vue__ = __webpack_require__(230);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_index_vue__ = __webpack_require__(110);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_b3a874ec_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_index_vue__ = __webpack_require__(223);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(193)
+  __webpack_require__(188)
 }
 var normalizeComponent = __webpack_require__(1)
 /* script */
@@ -1083,14 +1150,14 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 83:
+/***/ 81:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__index__ = __webpack_require__(68);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__index__ = __webpack_require__(66);
 
 
 
@@ -1105,7 +1172,7 @@ app.$mount();
 
 /***/ }),
 
-/***/ 93:
+/***/ 91:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1310,5 +1377,5 @@ app.$mount();
 
 /***/ })
 
-},[83]);
+},[81]);
 //# sourceMappingURL=main.js.map

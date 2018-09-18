@@ -121,20 +121,28 @@
   color: #333;
 }
 .group ._p.data-v-b3a874ec {
-  width: 630rpx;
+  width: 650rpx;
   font-family: PingFangSC-Regular;
   font-size: 24rpx;
   color: #4a4a4a;
   margin: 0 auto;
 }
 .pjDetail.data-v-b3a874ec {
-  margin: 0 auto;
-  padding: 0 50rpx;
+  width: 650rpx;
   font-family: PingFangSC-Regular;
   font-size: 24rpx;
   color: #4a4a4a;
   text-align: left;
-  margin-bottom: 136rpx;
+  margin: 0 auto 136rpx;
+}
+.pjDetail .detailTitle.data-v-b3a874ec {
+  width: 128rpx;
+  height: 44rpx;
+  line-height: 44rpx;
+  font-family: PingFangSC-Medium;
+  font-size: 32rpx;
+  color: #333;
+  margin-top: -10rpx;
 }
 .share.data-v-b3a874ec {
   width: 360rpx;
@@ -242,7 +250,7 @@
 }
 .meunBox.data-v-b3a874ec {
   width: 750rpx;
-  height: 560rpx;
+  height: 460rpx;
   background: #fff;
   position: relative;
   z-index: 1000;
@@ -274,12 +282,12 @@
 .meunBox .friend.data-v-b3a874ec {
   display: inline-block;
   position: absolute;
-  top: 256rpx;
+  top: 156rpx;
   left: 160rpx;
 }
 .meunBox .createImg.data-v-b3a874ec {
   position: absolute;
-  top: 256rpx;
+  top: 156rpx;
   right: 160rpx;
 }
 ._button.data-v-b3a874ec::after {
@@ -292,6 +300,7 @@
 }
 .friend.data-v-b3a874ec {
   position: relative;
+  background: #fff;
 }
 .friend ._img.data-v-b3a874ec {
   width: 48rpx;
@@ -303,14 +312,14 @@
 .wechatFriend.data-v-b3a874ec {
   display: inline-block;
   position: absolute;
-  top: 412rpx;
+  top: 312rpx;
   left: 164rpx;
   font-size: 28rpx;
   color: #666;
 }
 .shengchengImg.data-v-b3a874ec {
   position: absolute;
-  top: 412rpx;
+  top: 312rpx;
   right: 136rpx;
   font-size: 28rpx;
   color: #666;
@@ -332,9 +341,9 @@
   left: 0;
   z-index: 100;
 }
-.price.data-v-b3a874ec {
+.pay .price.data-v-b3a874ec {
   display: inline-block;
-  width: 180rpx;
+  min-width: 180rpx;
   height: 50rpx;
   line-height: 50rpx;
   color: #f7412d;
@@ -344,11 +353,11 @@
   margin-left: 50rpx;
   margin-top: 36rpx;
 }
-.price ._span.data-v-b3a874ec {
+.pay .price ._span.data-v-b3a874ec {
   font-size: 24rpx;
   color: #999;
 }
-.join-group.data-v-b3a874ec {
+.pay .join-group.data-v-b3a874ec {
   display: inline-block;
   width: 280rpx;
   height: 88rpx;

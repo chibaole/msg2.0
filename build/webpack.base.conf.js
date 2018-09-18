@@ -48,10 +48,10 @@ module.exports = {
   module: {
     rules: [
       {
-        // test: /\.(js|vue)$/,
+        // poster: /\.(js|vue)$/,
         // loader: 'eslint-loader',
         // enforce: 'pre',
-        // include: [resolve('src'), resolve('test')],
+        // include: [resolve('src'), resolve('poster')],
         // options: {
         //   formatter: require('eslint-friendly-formatter')
         // }

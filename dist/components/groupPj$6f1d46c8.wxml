@@ -1,7 +1,9 @@
 <import src="navbar$7457f0be" />
+<import src="oldUser$09cdcb5e" />
 <template name="groupPj$6f1d46c8">
   <view class="_div data-v-b3a874ec container">
     <template data="{{...$root[$kk+'0'], $root}}" is="navbar$7457f0be"></template>
+    <template wx:if="{{oldUser}}" bindoldUserValue="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}" data="{{...$root[$kk+'1'], $root}}" is="oldUser$09cdcb5e"></template>
     <view class="_div data-v-b3a874ec wrap">
       <view class="_div data-v-b3a874ec pj-info">
         <view class="_div data-v-b3a874ec left">
@@ -58,54 +60,55 @@
           </view>
         </view>
       </view>
-      <form report-submit="{{true}}" bindsubmit="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}" class="_form data-v-b3a874ec">
+      <form report-submit="{{true}}" bindsubmit="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}" class="_form data-v-b3a874ec">
         <button class="_button data-v-b3a874ec form_button" formType="submit">
-          <view class="_div data-v-b3a874ec group_res" wx:if="{{order_info.status == 'success'}}" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}">去提货</view>
+          <view class="_div data-v-b3a874ec group_res" wx:if="{{order_info.status == 'success'}}" bindtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}">去提货</view>
         </button>
       </form>
       <view class="_div data-v-b3a874ec line"></view>
       <view class="_div data-v-b3a874ec group">
         <view class="_h2 data-v-b3a874ec group-game">拼团玩法</view>
-        <view class="_p data-v-b3a874ec step1">1.免费领取 但要完成小作业，写食用反馈。</view>
-        <view class="_p data-v-b3a874ec step2">2.领取成功后，请扫码加群等待发货哦。</view>
+        <view class="_p data-v-b3a874ec step1">付款后邀请好友参团</view>
+        <view class="_p data-v-b3a874ec step2">达到拼团人数，顺利开团</view>
+        <view class="_p data-v-b3a874ec step2">若24小时内拼团不成功，全额退款</view>
       </view>
       <view class="_div data-v-b3a874ec line"></view>
-      <view class="_div data-v-b3a874ec pjDetail"> 商品详情
+      <view class="_div data-v-b3a874ec pjDetail">
+        <view class="_p data-v-b3a874ec detailTitle">商品详情</view>
         <rich-text nodes="{{order_info.group_activity.product.detail}}" class="_rich-text data-v-b3a874ec pjdetail"></rich-text>
       </view>
     </view>
-    <form report-submit="{{true}}" bindsubmit="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}" class="_form data-v-b3a874ec">
+    <form report-submit="{{true}}" bindsubmit="handleProxy" wx:if="{{order_info.status_display === '正在拼团'}}" data-eventid="{{'3'}}" data-comkey="{{$k}}" class="_form data-v-b3a874ec">
       <button class="_button data-v-b3a874ec form_button" formType="submit">
         <view class="_div data-v-b3a874ec btn open_btn" data-status="1">
           <label class="_span data-v-b3a874ec">邀请好友一起享用</label>
         </view>
       </button>
     </form>
-    <form report-submit="{{true}}" bindsubmit="handleProxy" data-eventid="{{'4'}}" data-comkey="{{$k}}" class="_form data-v-b3a874ec">
+    <form report-submit="{{true}}" bindsubmit="handleProxy" wx:if="{{order_info.status_display === '拼团成功'}}" data-eventid="{{'5'}}" data-comkey="{{$k}}" class="_form data-v-b3a874ec">
       <button class="_button data-v-b3a874ec form_button" formType="submit">
-        <view class="_div data-v-b3a874ec btn open_btn" bindtap="handleProxy" data-status="1" wx:if="{{group_activity_initial_finish}}" data-eventid="{{'3'}}" data-comkey="{{$k}}">
+        <view class="_div data-v-b3a874ec btn open_btn" bindtap="handleProxy" data-status="1" data-eventid="{{'4'}}" data-comkey="{{$k}}">
           <label class="_span data-v-b3a874ec">重新开团</label>
         </view>
       </button>
     </form>
     <view class="_div data-v-b3a874ec pay" wx:if="{{onekeyAttend}}">
       <view class="_div data-v-b3a874ec price"> ¥{{order_info.group_activity.current_price}}
-        <label class="_span data-v-b3a874ec">还剩{{order_info.group_activity.product.num}}份</label>
+        <label wx:if="{{order_info.group_activity.product.num}}" class="_span data-v-b3a874ec">还剩{{order_info.group_activity.product.num}}份</label>
       </view>
-      <view class="_div data-v-b3a874ec join-group" bindtap="handleProxy" data-uuid="{{order_info.uuid}}" data-eventid="{{'5'}}" data-comkey="{{$k}}">一键参与</view>
+      <view class="_div data-v-b3a874ec join-group" bindtap="handleProxy" data-uuid="{{order_info.uuid}}" data-eventid="{{'6'}}" data-comkey="{{$k}}">一键参与</view>
     </view>
-    <view class="_div data-v-b3a874ec mask" wx:if="{{showBox}}" bindtap="handleProxy" data-eventid="{{'9'}}" data-comkey="{{$k}}">
+    <view class="_div data-v-b3a874ec mask" wx:if="{{showBox}}" bindtap="handleProxy" data-eventid="{{'10'}}" data-comkey="{{$k}}">
       <view class="_div data-v-b3a874ec meunBox" wx:if="{{showBox}}">
-        <image class="_img data-v-b3a874ec x" src="http://pbmrxkahq.bkt.clouddn.com/close.png" alt bindtap="handleProxy" data-eventid="{{'6'}}" data-comkey="{{$k}}"></image>
-        <view class="_div data-v-b3a874ec title">分享加速抽奖</view>
+        <image class="_img data-v-b3a874ec x" src="http://pbmrxkahq.bkt.clouddn.com/close.png" alt bindtap="handleProxy" data-eventid="{{'7'}}" data-comkey="{{$k}}"></image>
         <button class="_button data-v-b3a874ec friend" open-type="share">
           <image src="http://pbmrxkahq.bkt.clouddn.com/wechatF.png" alt class="_img data-v-b3a874ec"></image>
         </button>
-        <view class="_div data-v-b3a874ec createImg" bindtap="handleProxy" data-eventid="{{'7'}}" data-comkey="{{$k}}">
+        <view class="_div data-v-b3a874ec createImg" bindtap="handleProxy" data-eventid="{{'8'}}" data-comkey="{{$k}}">
           <image src="http://pbmrxkahq.bkt.clouddn.com/wechatimg.png" alt class="_img data-v-b3a874ec"></image>
         </view>
         <view class="_div data-v-b3a874ec wechatFriend" open-type="share">微信好友</view>
-        <view class="_div data-v-b3a874ec shengchengImg" bindtap="handleProxy" data-eventid="{{'8'}}" data-comkey="{{$k}}">生成分享图片</view>
+        <view class="_div data-v-b3a874ec shengchengImg" bindtap="handleProxy" data-eventid="{{'9'}}" data-comkey="{{$k}}">生成分享图片</view>
       </view>
     </view>
   </view>

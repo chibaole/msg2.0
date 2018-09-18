@@ -1,11 +1,11 @@
 import Vue from 'vue'
 import App from './App'
 
+
 import Store from './store'
 
 Vue.config.productionTip = false
 Vue.prototype.$store = Store  // 注册Store
-
 import { request, alert } from './utils/wx'
 Vue.prototype.$http = request
 Vue.prototype.$alert = alert
@@ -25,14 +25,14 @@ export default{
     pages: ['^pages/home/main', 'pages/project/main', 'pages/groupPj/main',
       'pages/groupPj/groupDetail/main', 'pages/groupPj/order/main',
       'pages/cards/main', 'pages/user/main', 'pages/user/myGroup/main',
-      'pages/user/myGroup/myGroupDetail/main', 'pages/user/myboonList/main', 'pages/user/myboonList/myBoon/main', 'pages/test/main'
+      'pages/user/myGroup/myGroupDetail/main', 'pages/user/myboonList/main', 'pages/user/myboonList/myBoon/main', 'pages/poster/main'
     ],
 
     'window': {
-      'backgroundTextStyle': 'light',
+      'backgroundTextStyle': 'dark',
       'navigationBarBackgroundColor': '#EA5149',
       'navigationBarTitleText': '没事干研究院很酷',
-      'navigationBarTextStyle': 'light',
+      'navigationBarTextStyle': 'black',
       'navigationStyle': 'custom'
     },
     'tabBar': {

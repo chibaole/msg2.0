@@ -1,9 +1,0 @@
-<import src="navbar$7457f0be" />
-<template name="test$063fe702">
-  <view class="_div data-v-3bd60e78 container">
-    <template data="{{...$root[$kk+'0'], $root}}" is="navbar$7457f0be"></template>
-    <image src="{{shareImage}}" class="_img data-v-3bd60e78 share-image"></image>
-    <canvasdrawer painting="{{painting}}" class="_canvasdrawer data-v-3bd60e78 canvasdrawer" bindgetImage="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}"></canvasdrawer>
-    <button bindtap="handleProxy" class="_button data-v-3bd60e78 btn" data-eventid="{{'1'}}" data-comkey="{{$k}}">保存图片</button>
-  </view>
-</template>

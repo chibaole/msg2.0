@@ -96,17 +96,25 @@
     },
     async onLoad () {
       const that = this
-      const auth_code = wx.getStorageSync('auth_code')
-      let init_size = that.size
-      let data = [that.page, init_size, auth_code]
-      const boonList = await that.$store.dispatch('myBoonList', {...data})
-      that.boonList = boonList.boon_orders
 
-      let lastSize = boonList.boon_orders.length
-      if(lastSize < init_size){
-        console.log(lastSize,init_size)
-        that.moreTips = '已无更多订单'
+      if(that.moreTips === '已无更多订单'){
+        that.boonList = that.boonList
+      }else {
+        const auth_code = wx.getStorageSync('auth_code')
+        let init_size = that.size
+        let data = [that.page, init_size, auth_code]
+        const boonList = await that.$store.dispatch('myBoonList', {...data})
+        that.boonList = boonList.boon_orders
+
+        let lastSize = boonList.boon_orders.length
+        if(lastSize < init_size){
+          console.log(lastSize,init_size)
+          that.moreTips = '已无更多订单'
+        }
       }
+
+
+
       let userinfo = wx.getStorageSync('userinfo')
       that.userinfo = userinfo
 

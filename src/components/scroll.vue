@@ -66,17 +66,23 @@
         let title = e.currentTarget.dataset.title
 
         wx.navigateTo('/pages/project/main?boons_uuid=' + uuid + '&title=' + title)
+      },
+      async getInitData(){
+        let boonsData = await this.$store.dispatch('getBoonsToday')
+        this.boons = boonsData.boons
       }
 
     },
     async onLoad() {
-      let boonsData = await this.$store.dispatch('getBoonsToday')
-      this.boons = boonsData.boons
+      this.getInitData()
+
     },
 
     async onShow() {
-      let boonsData = await this.$store.dispatch('getBoonsToday')
-      this.boons = boonsData.boons
+//      let boonsData = await this.$store.dispatch('getBoonsToday')
+//      this.boons = boonsData.boons
+      this.getInitData()
+
     }
 
   }

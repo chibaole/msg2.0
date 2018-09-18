@@ -1,6 +1,8 @@
 <template>
   <div class="container">
     <Navbar :navbar_title="navbar_title" :delta="delta"></Navbar>
+    <OldUser v-if="oldUser"  v-on:oldUserValue="oldUserValue" :group_activities_uuid="group_activities_uuid"></OldUser>
+
     <!--<Card ></Card>-->
     <!--<Card :order_info="order_info"></Card>-->
     <div class="wrap">
@@ -68,44 +70,50 @@
       <div class="line"></div>
       <div class="group">
         <h2 class="group-game">拼团玩法</h2>
-        <p class="step1">1.免费领取 但要完成小作业，写食用反馈。</p>
-        <p class="step2">2.领取成功后，请扫码加群等待发货哦。</p>
+        <p class="step1">付款后邀请好友参团</p>
+        <p class="step2">达到拼团人数，顺利开团</p>
+        <p class="step2">若24小时内拼团不成功，全额退款</p>
       </div>
       <div class="line"></div>
+
       <div class="pjDetail">
-        商品详情
+       <p class="detailTitle">商品详情</p>
         <rich-text :nodes="order_info.group_activity.product.detail" class="pjdetail"></rich-text>
       </div>
+
+
     </div>
 
     <!--------------------------------------------------------------------------->
 
-    <form :report-submit="true" @submit="shareMenu">
+    <form :report-submit="true" @submit="shareMenu" v-if="order_info.status_display === '正在拼团'">
       <button class="form_button" formType="submit">
-        <div class="btn open_btn" data-status="1"><span>邀请好友一起享用</span></div>
+        <div class="btn open_btn" data-status="1"  ><span>邀请好友一起享用</span></div>
       </button>
     </form>
 
     <!---->
 
-    <form :report-submit="true" @submit="createGroup">
+    <form :report-submit="true" @submit="createGroup"  v-if="order_info.status_display === '拼团成功'">
       <button class="form_button" formType="submit">
-        <div class="btn open_btn" @click="createGroup" data-status="1" v-if="group_activity_initial_finish">
+        <div class="btn open_btn" @click="createGroup" data-status="1">
           <span>重新开团</span></div>
       </button>
     </form>
+
     <div class="pay" v-if="onekeyAttend">
       <div class="price">
-        ¥{{order_info.group_activity.current_price}}<span>还剩{{order_info.group_activity.product.num}}份</span></div>
+        ¥{{order_info.group_activity.current_price}}<span v-if="order_info.group_activity.product.num">还剩{{order_info.group_activity.product.num}}份</span></div>
       <div class="join-group" @click="attendGroup" :data-uuid="order_info.uuid">一键参与</div>
     </div>
+
 
     <div class="mask" v-if="showBox" @click="shareMenu">  <!-- 遮罩-->
 
       <div class="meunBox" v-if="showBox">
         <img class="x" src="http://pbmrxkahq.bkt.clouddn.com/close.png" alt="" @click="shareMenu">
 
-        <div class="title">分享加速抽奖</div>
+        <!--<div class="title">分享加速抽奖</div>-->
 
         <button class="friend" open-type="share">
           <img src="http://pbmrxkahq.bkt.clouddn.com/wechatF.png" alt="">
@@ -128,6 +136,7 @@
 
 <script>
   import Card from '@/components/groupCard'
+  import OldUser from '../../../components/oldUser'
   import CountDown from 'vue2-countdown'
   import Navbar from '@/components/navbar'
   import {showModal} from '@/utils/util'
@@ -151,7 +160,7 @@
         order_info: {},
         showBox: false,
         painting: {},
-        navbar_title: '团购',
+        navbar_title: '拼团详情',
         orderIdId: '',
         myDetail: '',
         scanCode: true,
@@ -160,12 +169,17 @@
         onekeyAttend: false,
         host: config.host,
         group_activity_order_uuid: '',
-        delta: 3
+        delta: 3,
+        oldUser:false,
+        group_activities_uuid:'',
+        invite:true
+
       }
     },
     components: {
       Card,
-      Navbar
+      Navbar,
+      OldUser
 
     },
 
@@ -197,34 +211,57 @@
         let uuid_authCode = [uuid, auth_code]
 //         参与拼团
         let group_activity_orders = await that.$store.dispatch('attendGroupActivities', {...uuid_authCode})
+              console.log(group_activity_orders)
+        if(group_activity_orders ){
+
+          let group_activity_order_uuid = group_activity_orders.group_activity_order.uuid
+          that.group_activity_order_uuid = group_activity_order_uuid
+          // 支付参与拼团的订单
+          let join_res = await that.$store.dispatch('group_pay', group_activity_order_uuid)
+
+          wx.requestPayment({
+            'timeStamp': String(join_res.time_stamp),
+            'nonceStr': String(join_res.nonce_str),
+            'package': String(join_res.package),
+            'signType': String(join_res.sign_type),
+            'paySign': String(join_res.pay_sign),
+            'success': function (res) {
+              console.log(res)
+              let user = wx.getStorageSync('userinfo')
+
+              let currentUser = that.order_info.users
+              let this_user = {
+                uuid:'',
+                nick_name:user.nick_name,
+                avatar_url:user.avatar_url,
+                is_initiator:false
+              }
+              that.order_info.users.concat(this_user)
+
+
+              that.onekeyAttend = false
+
+
+
+            },
+            'fail': function (res) {
+              console.log(res)
+              console.log('支付错误')
+              showModal('支付失败', '请尝试重新支付')
+
+
+            }
+          })
+        }else {
+          that.oldUser = true
+
+        }
 //      console.log(group_activity_orders)// group_activity_orders = underfind ? '参与失败'：参与成功
 
-        let group_activity_order_uuid = group_activity_orders.group_activity_order.uuid
-        that.group_activity_order_uuid = group_activity_order_uuid
-        // 支付参与拼团的订单
-        let join_res = await that.$store.dispatch('group_pay', group_activity_order_uuid)
 
-        wx.requestPayment({
-          'timeStamp': String(join_res.time_stamp),
-          'nonceStr': String(join_res.nonce_str),
-          'package': String(join_res.package),
-          'signType': String(join_res.sign_type),
-          'paySign': String(join_res.pay_sign),
-          'success': function (res) {
-            console.log(res)
-            that.onekeyAttend = false
-
-
-          },
-          'fail': function (res) {
-            console.log(res)
-            console.log('支付错误')
-            showModal('支付失败', '请尝试重新支付')
-
-
-          }
-        })
-
+      },
+      oldUserValue(oldUserValue){
+        this.oldUser = oldUserValue
       },
       getlastTime() {
         let that = this
@@ -302,15 +339,14 @@
       },
 
       shareMenu(e) {
-//        console.log(this.showBox)
-//        console.log(e.mp.detail.formId)
+
         this.showBox = !this.showBox
       },
 
       async getImg() {
         let that = this
         let uuid = that.group_activity_initial_uuid
-        let page = 'pages/isme/index'
+        let page = 'pages/groupPj/order/main'
         let data = [uuid, page]
         let res = await this.$store.dispatch('wxCode', {...data})
         let wxCodeImg = res.wxa_qrcode_url
@@ -390,7 +426,7 @@
               fontSize: 18.4,
               color: '#f83713',
               textAlign: 'left',
-              top: 260,
+              top: 257,
               left: 90                                                                      // 根据价格字符个数 变化
 
             },
@@ -400,7 +436,7 @@
               fontSize: 18.4,
               color: '#f83713',
               textAlign: 'left',
-              top: 260,
+              top: 257,
               left: 105                                                                     // 根据价格字符个数 变化
 //              textDecoration: 'line-through'
             },
@@ -408,22 +444,22 @@
             {
               type: 'text',
               content: '拼团价',                                                                       // 根据价格字符个数 变化
-              fontSize: 15,
+              fontSize: 14,
               color: '#f83713',
               textAlign: 'left',
-              top: 268,
-              left: 130                                                                     // 根据价格字符个数 变化
+              top: 261,
+              left: 150                                                                     // 根据价格字符个数 变化
 //              textDecoration: 'line-through'
             },
 
             {
               type: 'text',
               content: '¥'+that.order_info.group_activity.original_price,                                                                       // 根据价格字符个数 变化
-              fontSize: 15,
-              color: '#f83713',
+              fontSize: 11.5,
+              color: '#999999',
               textAlign: 'left',
-              top: 268,
-              left: 175 ,                                                                    // 根据价格字符个数 变化
+              top: 265,
+              left: 195 ,                                                                    // 根据价格字符个数 变化
               textDecoration: 'line-through'
             },
 
@@ -466,7 +502,7 @@
         }
         wx.setStorageSync('painting', this.painting)
         wx.navigateTo({
-          url: '/pages/test/main'
+          url: '/pages/poster/main'
         })
       },
       async fillAddress(e) {
@@ -504,14 +540,21 @@
         wx.switchTab({
           url: `/pages/home/main`
         })
+      },
+      async getOrderData(){
+        //获取页面数据函数
       }
 
     },
     async onLoad(options) {
-
+      wx.showLoading()
       var that = this
       let attend = options.attend
       let group_activity_initial_uuid = options.group_activity_initial_uuid // 发起拼团活动返回订单uuid
+      let group_activities_uuid = options.group_activities_uuid
+
+      that.group_activities_uuid = group_activities_uuid
+      console.log(that.group_activities_uuid)
 
       that.group_activity_initial_uuid = group_activity_initial_uuid
 
@@ -534,24 +577,19 @@
 
       orderData.group_activity_initial.users = order_user
 
-      if (attend === '已参团' && orderData.group_activity_initial.status === 'grouping' ) {
-        console.log(orderData.group_activity_initial.status + '本次拼团可以邀请')
-        that.group_activity_initial_finish_attend = false
-      }else if(attend === '已参团' && orderData.group_activity_initial.status === 'success' ){
-        that.group_activity_initial_finish_attend = true
-        console.log(orderData.group_activity_initial.status + '本次拼团可已结束  重新开团')
 
+
+      if (orderData.group_activity_initial.is_initiator === false && orderData.group_activity_initial.status_display === '正在拼团') {
+        that.onekeyAttend = true
+        //显示一键参与
+//        that.invite = false
 
       }
+
       that.order_info = orderData.group_activity_initial
 
-      if (that.order_info.is_initiator === false && that.group_activity_initial_finish === false) {
-        that.onekeyAttend = true
-      } else if(that.order_info.is_initiator === true && that.group_activity_initial_finish === true) {
-        that.onekeyAttend = false
-      }
-      console.log(that.onekeyAttend)
-      console.log(that.group_activity_initial_finish )
+      wx.hideLoading()
+
       that.getlastTime()
     },
     async mounted() {
@@ -566,7 +604,7 @@
         console.log(res.target)
       }
       return {
-        title: that.order_info.group_activity.title,
+        title: '耽误你10秒，帮我看看这个东西好不好',
         path: `/pages/groupPj/order/main?group_activity_initial_uuid=${uuid}`,
 //        imageUrl: that.order_info.group_activity.title_image_url
         // 参与拼团的页面
@@ -733,7 +771,7 @@
     }
   ;
     p {
-      width: 315px;
+      width: 325px;
       font-family: PingFangSC-Regular;
 
       font-size: 12px;
@@ -745,17 +783,32 @@
   }
 
   .pjDetail {
-    /*width: 348px;*/
-
-    margin: 0 auto;
-    padding: 0 25px;
+    width: 325px;
     font-family: PingFangSC-Regular;
 
     font-size: 12px;
     color: #4a4a4a;
     text-align: left;
-    margin-bottom: 68px;
+    margin: 0 auto 68px;
+    /*border:1px solid #000;*/
+    .detailTitle{
+      width: 64px;
+      height: 22px;
+      line-height: 22px;
+      font-family: PingFangSC-Medium;
+      font-size: 16px;
+      color: #333;
+      /*border:1px solid #000;*/
+      margin-top: -5px;
+      /*float: left;*/
+
+    }
   }
+
+
+
+
+
 
   .share {
     width: 180px;
@@ -879,7 +932,7 @@
 
   .meunBox {
     width: 375px;
-    height: 280px;
+    height: 230px;
     background: #fff;
     position: relative;
     z-index: 1000;
@@ -916,14 +969,14 @@
     .friend {
       display: inline-block;
       position: absolute;
-      top: 128px;
+      top: 78px;
       left: 80px;
       /*border: 1px solid #000;*/
     }
   ;
     .createImg {
       position: absolute;
-      top: 128px;
+      top: 78px;
       right: 80px;
     }
 
@@ -946,6 +999,7 @@
 
   .friend {
     position: relative;
+    background: #fff;
   }
 
   .friend img {
@@ -954,6 +1008,7 @@
     position: absolute;
     top: 17px;
     left: 17px;
+    /*display: none;*/
 
   }
 
@@ -962,7 +1017,7 @@
     /*border: 1px solid #000;*/
     display: inline-block;
     position: absolute;
-    top: 206px;
+    top: 156px;
     left: 82px;
     font-size: 14px;
     color: #666;
@@ -970,7 +1025,7 @@
 
   .shengchengImg {
     position: absolute;
-    top: 206px;
+    top: 156px;
     right: 68px;
     font-size: 14px;
     color: #666;
@@ -998,49 +1053,54 @@
     bottom: 0;
     left: 0;
     z-index: 100;
+    /*border: 1px solid red;*/
+    .price {
+      display: inline-block;
+
+      min-width: 90px;
+      height: 25px;
+      line-height: 25px;
+      color: #f7412d;
+      background: #fff;
+      font-size: 18px;
+      text-align: left;
+
+      margin-left: 25px;
+      margin-top: 18px;
+
+      /*border:1px solid #000;*/
+
+      span {
+        font-size: 12px;
+        color: #999;
+      }
+
+    };
+    .join-group {
+      display: inline-block;
+      width: 140px;
+      height: 44px;
+      line-height: 44px;
+      border-radius: 22px 22px 22px 22px;
+      background: #ff7f4f;
+      box-shadow: 0 0 8px #ff7f4f;
+      text-align: center;
+      font-weight: Medium;
+      margin-top: 8px;
+      margin-left: 95px;
+
+      font-family: PingFangSC-Medium;
+      font-size: 16px;
+      color: #fff;
+      /*border:1px solid blue;*/
+    }
 
   }
 
-  .price {
-    display: inline-block;
 
-    width: 90px;
-    height: 25px;
-    line-height: 25px;
-    color: #f7412d;
-    background: #fff;
-    font-size: 18px;
-    text-align: left;
 
-    margin-left: 25px;
-    margin-top: 18px;
 
-    /*border:1px solid #000;*/
 
-  }
-
-  .price span {
-    font-size: 12px;
-    color: #999;
-  }
-
-  .join-group {
-    display: inline-block;
-    width: 140px;
-    height: 44px;
-    line-height: 44px;
-    border-radius: 22px 22px 22px 22px;
-    background: #ff7f4f;
-    box-shadow: 0 0 8px #ff7f4f;
-    text-align: center;
-    font-weight: Medium;
-    margin-top: 8px;
-    margin-left: 95px;
-
-    font-family: PingFangSC-Medium;
-    font-size: 16px;
-    color: #fff;
-  }
 
   /*-----------*/
   .wrap {

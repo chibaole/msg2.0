@@ -1,0 +1,10 @@
+<template name="oldUser$09cdcb5e">
+  <view class="_div data-v-ec5a5c62 container">
+    <view class="_div data-v-ec5a5c62 mark" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}"></view>
+    <view class="_div data-v-ec5a5c62 oldUser">
+      <view class="_div data-v-ec5a5c62 title">新手福利团</view>
+      <view class="_div data-v-ec5a5c62 p">你是老用户了，把机会留给新朋友吧～</view>
+      <button bindtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}" class="_button data-v-ec5a5c62">走，自己开个团</button>
+    </view>
+  </view>
+</template>

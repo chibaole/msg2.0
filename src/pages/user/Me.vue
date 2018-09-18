@@ -6,7 +6,7 @@
       <div class="header">
         <div class="status-bar" :style="{height:statusBarHeight +'px'}"></div>
         <div class="title-bar" :style="{height:titleBarHeight + 'px'}">
-          <div class="title">我的研究院</div>
+          <div class="title">我的</div>
         </div>
       </div>
     </div>
@@ -221,12 +221,9 @@
         data = [uuid, auth_code, address]
         let address_res = await that.$store.dispatch('groupAddress', {...data})
 
-      }
-    },
-    async onShow() {
-      let that = this
-//      let userinfo = wx.getStorageSync('userinfo')
-
+      },
+      async getPorfile(){
+        let that = this
         let user_profile = await that.$store.dispatch('user_info')
         let user = user_profile.user
         let userinfoInit = {
@@ -243,10 +240,16 @@
         }else{
           that.login_show = true
         }
+      }
+    },
+    async onShow() {
+     this.getPorfile()
 
     },
     onLoad() {
       const vm = this
+      vm.getPorfile()
+
       wx.getSystemInfo({
         success: function (res) {
           let totalTopHeight = 68

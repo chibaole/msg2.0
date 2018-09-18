@@ -36,18 +36,30 @@
         let deltaNum= that.delta
         let title =that.navbar_title
 
-        if(title === '团购'){
-          deltaNum
+//        if(title === '团购'){
+//          deltaNum
+//        }else {
+//          deltaNum = 1
+//        }
+        var this_page = getCurrentPages()
+        var last_page = this_page[this_page.length-1]
+        console.log(this_page)
+        console.log(last_page)
+        if(last_page.route === "pages/groupPj/order/main"){
+          console.log('返回首页')
+                wx.switchTab({
+                  url:'/pages/home/main'
+                })
         }else {
-          deltaNum = 1
+          wx.navigateBack({
+            delta:1
+          })
+
+
         }
-        console.log('团购 返回 页面 栈')
-        console.log(deltaNum)
-        wx.navigateBack({
 
-          delta:deltaNum
 
-        })
+
       }
     },
 
@@ -124,17 +136,21 @@
   }
 
   .status-bar {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 1);
+    /*border: 1px solid #000;*/
+
   }
 
   .title-bar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /*border: 1px solid #000;*/
+    background: rgba(255, 255, 255, 1);
+
+    /*border: 1px solid red;*/
   }
 .back-btn{
-  /*border: 1px solid #000;*/
+  /*border: 1px solid blue;*/
   width: 100px;
 
 }

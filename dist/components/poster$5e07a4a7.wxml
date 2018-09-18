@@ -1,0 +1,9 @@
+<import src="navbar$7457f0be" />
+<template name="poster$5e07a4a7">
+  <view class="_div data-v-ce41642e container">
+    <template data="{{...$root[$kk+'0'], $root}}" is="navbar$7457f0be"></template>
+    <image src="{{shareImage}}" class="_img data-v-ce41642e share-image"></image>
+    <canvasdrawer painting="{{painting}}" class="_canvasdrawer data-v-ce41642e canvasdrawer" bindgetImage="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}"></canvasdrawer>
+    <button bindtap="handleProxy" class="_button data-v-ce41642e btn" data-eventid="{{'1'}}" data-comkey="{{$k}}">保存图片</button>
+  </view>
+</template>

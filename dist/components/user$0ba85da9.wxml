@@ -4,7 +4,7 @@
       <view class="_div data-v-3105212a header">
         <view class="_div data-v-3105212a status-bar" style=" {{('height:' + statusBarHeight + 'px' + ';')}}"></view>
         <view class="_div data-v-3105212a title-bar" style=" {{('height:' + titleBarHeight + 'px' + ';')}}">
-          <view class="_div data-v-3105212a title">我的研究院</view>
+          <view class="_div data-v-3105212a title">我的</view>
         </view>
       </view>
     </view>

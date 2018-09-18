@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <!--pages/test/canvas.wxml-->
+    <!--pages/poster/canvas.wxml-->
 
     <!-- 画布大小按需定制 这里我按照背景图的尺寸定的  -->
     <canvas canvas-id="shareImg" style="width:545px;height:771px"></canvas>

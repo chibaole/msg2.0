@@ -17,18 +17,19 @@
     </view>
     <view class="_div data-v-a0735dbe sponsorsBox" wx:if="{{boon.sponsor}}">
       <view class="_div data-v-a0735dbe sponsors">
-        <view class="_p data-v-a0735dbe sponsors-info">{{boon.sponsor.description}}</view>
+        <view class="_p data-v-a0735dbe sponsors-info">赞助商</view>
+        <view class="_div data-v-a0735dbe lineSponsors"></view>
         <navigator class="_navigator data-v-a0735dbe switchGoAnchor" target="miniProgram" open-type="navigate" app-id="{{boon.sponsor.app_id}}" path="{{boon.sponsor.app_path}}" extra-data version="release">
-          <image class="_img data-v-a0735dbe logo" src="{{boon.sponsor.avatar_url}}" alt></image>{{boon.sponsor.name}}
-          <image class="_img data-v-a0735dbe right_ico" src="../../../static/img/right.png" alt></image>
+          <image class="_img data-v-a0735dbe logo" src="{{boon.sponsor.avatar_url}}" alt></image>{{boon.sponsor.description}}
+          <image class="_img data-v-a0735dbe right_ico" src="http://pbmrxkahq.bkt.clouddn.com/right.png" alt></image>
         </navigator>
       </view>
     </view>
     <view class="_div data-v-a0735dbe process-prize" wx:if="{{ boon.status === 'published'}}">
-      <view class="_h2 data-v-a0735dbe">抽奖流程</view>
+      <view class="_h2 data-v-a0735dbe">抽奖玩法</view>
       <view class="_div data-v-a0735dbe steps">
-        <view class="_p data-v-a0735dbe step1">1.点击抽奖，等待开奖</view>
-        <view class="_p data-v-a0735dbe step2">2.领取成功后，请扫码加群等待发货哦</view>
+        <view class="_p data-v-a0735dbe step1">点击抽奖，等待开奖</view>
+        <view class="_p data-v-a0735dbe step2">研究员抽奖概率是普通用户的两倍，欢迎加入</view>
       </view>
       <view class="_div data-v-a0735dbe line"></view>
       <view class="_h2 data-v-a0735dbe">商品详情</view>

@@ -41,7 +41,6 @@
 </template>
 <script>
 import {get} from '@/util'
-import CommentList from '@/components/CommentList'
 import Card from '@/components/Card'
 import topBar from '@/components/top_bar'
 import topScroll from '@/components/topScroll'
@@ -158,7 +157,6 @@ export default {
     }
   },
   components: {
-    CommentList,
     Card,
     topBar,
     topScroll,

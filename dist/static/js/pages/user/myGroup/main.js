@@ -1,6 +1,6 @@
 global.webpackJsonp([8],{
 
-/***/ 118:
+/***/ 116:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -106,9 +106,8 @@ global.webpackJsonp([8],{
 
               case 7:
                 addData = _context.sent;
-
-                console.log(addData.group_activity_orders.length);
                 lastSize = addData.group_activity_orders.length;
+
 
                 if (lastSize < init_size) {
                   console.log(lastSize, init_size);
@@ -116,6 +115,7 @@ global.webpackJsonp([8],{
                 }
 
                 that.myGroup_list = that.myGroup_list.concat(addData.group_activity_orders);
+                console.log(that.myGroup_list);
 
               case 12:
               case 'end':
@@ -143,13 +143,30 @@ global.webpackJsonp([8],{
             case 0:
               that = _this2;
               init_size = that.size;
+
+
+              console.log('that.size that.page' + init_size, that.page);
+              console.log(that.moreTips);
+              console.log(that.myGroup_list);
+
+              if (!(that.moreTips === '已无更多订单')) {
+                _context2.next = 9;
+                break;
+              }
+
+              that.myGroup_list = that.myGroup_list;
+              _context2.next = 18;
+              break;
+
+            case 9:
               auth_code = wx.getStorageSync('auth_code');
               data = [that.page, init_size, auth_code];
-              _context2.next = 6;
+              _context2.next = 13;
               return that.$store.dispatch('myGroupList', __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends___default()({}, data));
 
-            case 6:
+            case 13:
               groupList = _context2.sent;
+
 
               that.all_list = groupList.group_activity_orders; //初始数据列表
 
@@ -157,17 +174,19 @@ global.webpackJsonp([8],{
 
               lastSize = groupList.group_activity_orders.length;
 
+
               if (lastSize < init_size) {
-                console.log(lastSize, init_size);
+                console.log(lastSize, init_size); // 0 4
                 that.moreTips = '已无更多订单';
               }
 
+            case 18:
               userinfo = wx.getStorageSync('userinfo');
 
 
               that.userinfo = userinfo;
 
-            case 13:
+            case 20:
             case 'end':
               return _context2.stop();
           }
@@ -179,14 +198,14 @@ global.webpackJsonp([8],{
 
 /***/ }),
 
-/***/ 180:
+/***/ 175:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 218:
+/***/ 211:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -282,16 +301,16 @@ if (false) {
 
 /***/ }),
 
-/***/ 74:
+/***/ 72:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_Me_vue__ = __webpack_require__(118);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_4656d1c7_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_Me_vue__ = __webpack_require__(218);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_Me_vue__ = __webpack_require__(116);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_4656d1c7_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_Me_vue__ = __webpack_require__(211);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(180)
+  __webpack_require__(175)
 }
 var normalizeComponent = __webpack_require__(1)
 /* script */
@@ -336,14 +355,14 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 89:
+/***/ 87:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Me__ = __webpack_require__(74);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Me__ = __webpack_require__(72);
 
 
 
@@ -352,5 +371,5 @@ app.$mount();
 
 /***/ })
 
-},[89]);
+},[87]);
 //# sourceMappingURL=main.js.map

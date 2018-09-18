@@ -14,5 +14,6 @@ export default{
       'navigationBarTextStyle': 'light',
       'navigationStyle': 'default'
     }
+
   }
 }

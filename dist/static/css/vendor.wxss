@@ -1,24 +1,4 @@
 
-.comment-list {
-  background: #eee;
-  font-size: 28rpx;
-}
-.comment-list .comment {
-  background: white;
-  margin-bottom: 20rpx;
-  padding: 10rpx 40rpx;
-}
-.comment-list .comment .content {
-  margin: 20rpx 0;
-}
-.comment-list .comment .user .inline {
-  display: inline;
-}
-.comment-list .comment .user .inline .avatar {
-  width: 40rpx;
-  height: 40rpx;
-  border-radius: 50%;
-}
 .book-card.data-v-3f27de43 {
   padding: 10rpx;
   overflow: hidden;
@@ -174,12 +154,13 @@
   border-bottom: 2rpx solid #f7f7f7;
 }
 .status-bar.data-v-ad332f3a {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 1);
 }
 .title-bar.data-v-ad332f3a {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background: rgba(255, 255, 255, 1);
 }
 .back-btn.data-v-ad332f3a {
   width: 200rpx;
@@ -271,4 +252,65 @@
   font-size: 20rpx;
   color: #999;
   text-decoration: line-through;
+}
+.container.data-v-ec5a5c62 {
+  font-size: 28rpx;
+  font-family: "PingFang SC";
+  font-weight: Regular;
+  text-align: center;
+}
+.mark.data-v-ec5a5c62 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 100;
+}
+.oldUser.data-v-ec5a5c62 {
+  height: 528rpx;
+  width: 650rpx;
+  border-radius: 10rpx;
+  background: #fff;
+  position: fixed;
+  top: 308rpx;
+  left: 50rpx;
+  z-index: 200;
+  text-align: center;
+  animation: olduser-data-v-ec5a5c62 0.8s;
+}
+.oldUser .title.data-v-ec5a5c62 {
+  font-family: PingFangSC-Medium;
+  font-size: 36rpx;
+  margin-top: 110rpx;
+}
+.oldUser .p.data-v-ec5a5c62 {
+  margin-top: 50rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 32rpx;
+}
+.oldUser ._button.data-v-ec5a5c62 {
+  width: 480rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  margin: 120rpx auto 72rpx;
+  font-size: 32rpx;
+  font-family: PingFangSC-Medium;
+  color: #fff;
+  background: #ff7f4f;
+  box-shadow: 0 0 16rpx 0 rgba(255, 127, 79, 0.4);
+  border-radius: 10rpx;
+}
+@keyframes olduser-data-v-ec5a5c62 {
+0% {
+    background: #FFFFFF;
+    left: 50rpx;
+    top: 0;
+}
+100% {
+    background: #FFFFFF;
+    left: 50rpx;
+    top: 308rpx;
+}
 }

@@ -74,14 +74,15 @@ export default {
      const auth_code = wx.getStorageSync('auth_code')
      const data = [that.page, init_size, auth_code]
       let  addData =   await that.$store.dispatch('myGroupList', {...data})
-     console.log(addData.group_activity_orders.length)
      let lastSize = addData.group_activity_orders.length
+
      if(lastSize < init_size){
         console.log(lastSize,init_size)
           that.moreTips = '已无更多订单'
      }
 
      that.myGroup_list = that.myGroup_list.concat(addData.group_activity_orders)
+     console.log( that.myGroup_list )
 
     },
     goDetail (e) {
@@ -96,18 +97,32 @@ export default {
     const that = this
     const init_size = that.size
 
-    const auth_code = wx.getStorageSync('auth_code')
-    const data = [that.page, init_size, auth_code]
-    const groupList = await that.$store.dispatch('myGroupList', {...data})
-    that.all_list = groupList.group_activity_orders //初始数据列表
 
-    that.myGroup_list = that.all_list
+    console.log('that.size that.page'+init_size,that.page)
+    console.log(that.moreTips)
+    console.log(that.myGroup_list)
+    if(that.moreTips === '已无更多订单'){
+      that.myGroup_list = that.myGroup_list
+    }else {
+      const auth_code = wx.getStorageSync('auth_code')
+      const data = [that.page, init_size, auth_code]
+      const groupList = await that.$store.dispatch('myGroupList', {...data})
 
-    let lastSize = groupList.group_activity_orders.length
-    if(lastSize < init_size){
-      console.log(lastSize,init_size)
-      that.moreTips = '已无更多订单'
+      that.all_list = groupList.group_activity_orders //初始数据列表
+
+      that.myGroup_list = that.all_list
+
+      let lastSize = groupList.group_activity_orders.length
+
+      if(lastSize < init_size){
+        console.log(lastSize,init_size) // 0 4
+        that.moreTips = '已无更多订单'
+      }
+
+
     }
+
+
 
     let userinfo = wx.getStorageSync('userinfo')
 

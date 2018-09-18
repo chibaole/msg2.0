@@ -11,8 +11,8 @@
     "pages/groupPj/groupDetail/main",
     "pages/groupPj/main",
     "pages/groupPj/order/main",
+    "pages/poster/main",
     "pages/project/main",
-    "pages/test/main",
     "pages/test2/main",
     "pages/user/main",
     "pages/user/myboonList/main",
@@ -21,10 +21,10 @@
     "pages/user/myGroup/myGroupDetail/main"
   ],
   "window": {
-    "backgroundTextStyle": "light",
+    "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#EA5149",
     "navigationBarTitleText": "没事干研究院很酷",
-    "navigationBarTextStyle": "light",
+    "navigationBarTextStyle": "black",
     "navigationStyle": "custom"
   },
   "tabBar": {

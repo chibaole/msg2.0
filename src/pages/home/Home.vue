@@ -13,7 +13,7 @@
     <Group></Group>
     <!--<More></More>-->
     <!--<button open-type="getUserInfo">登录</button>-->
-    <!--<button open-type="getUserInfo" @getuserinfo="test">登录的按钮</button>-->
+    <!--<button open-type="getUserInfo" @getuserinfo="poster">登录的按钮</button>-->
 
     <!--wx.getUserInfo(OBJECT)-->
     <!--注意：此接口有调整，使用该接口将不再出现授权弹窗，请使用  引导用户主动进行授权操作-->
@@ -81,7 +81,11 @@
     },
     mounted () {
 
+    },
+    onShareAppMessage(res) {
+
     }
+
 
   }
 </script>

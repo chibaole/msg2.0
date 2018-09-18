@@ -1,6 +1,7 @@
 <template>
   <div class="container">
     <!--<p>项目详情页</p>-->
+
     <Navbar :navbar_title="'抽奖详情'"></Navbar>
 
     <div class="pic-info">
@@ -20,11 +21,12 @@
     <!-- 福利简要信息    -->
     <div class="sponsorsBox" v-if="boon.sponsor">
       <div class="sponsors">
-        <p class="sponsors-info">{{boon.sponsor.description}}</p>
+        <p class="sponsors-info">赞助商</p>
+        <div class="lineSponsors"></div>
         <navigator class="switchGoAnchor" target="miniProgram" open-type="navigate" :app-id="boon.sponsor.app_id"
                    :path="boon.sponsor.app_path" extra-data="" version="release">
-          <img class="logo" :src="boon.sponsor.avatar_url" alt="">{{boon.sponsor.name}}<img class="right_ico"
-                                                                                            src="../../../static/img/right.png"
+          <img class="logo" :src="boon.sponsor.avatar_url" alt="">{{boon.sponsor.description}}<img class="right_ico"
+                                                                                            src="http://pbmrxkahq.bkt.clouddn.com/right.png"
                                                                                             alt="">
         </navigator>
 
@@ -32,10 +34,10 @@
     </div>
     <!--赞助上小程序   -->
     <div class="process-prize" v-if=" boon.status === 'published'">
-      <h2>抽奖流程</h2>
+      <h2>抽奖玩法</h2>
       <div class="steps">
-        <p class="step1">1.点击抽奖，等待开奖</p>
-        <p class="step2">2.领取成功后，请扫码加群等待发货哦</p>
+        <p class="step1">点击抽奖，等待开奖</p>
+        <p class="step2">研究员抽奖概率是普通用户的两倍，欢迎加入</p>
       </div>
       <div class="line"></div>
       <h2>商品详情</h2>
@@ -131,6 +133,7 @@
 </template>
 <script>
   import Diago from '../../components/diago'
+
   import Navbar from '@/components/navbar'
 
   import {get, post, showModal} from '@/utils/util'
@@ -157,7 +160,7 @@
         init_rewarded_users: [],
         showGetMoreBtn: false,
         boon_resText: '',
-        boon_resImg: ''
+        boon_resImg: '',
 
       }
     },
@@ -170,7 +173,6 @@
       // 参加福利 即抽奖操作
       async attendBoon() {
         var that = this
-        console.log('抽奖')
 
         let currentuser_code = wx.getStorageSync('auth_code')
 
@@ -186,6 +188,16 @@
         console.log(res)
         that.prize = '待开奖'
         that.prizeStyle = 'waiting'
+//        if(res.indexOf('抱歉')  !== -1){
+//          console.log('抽奖失败' + res)
+//          that.oldUser = true
+//
+//        }else {
+//          that.prize = '待开奖'
+//          that.prizeStyle = 'waiting'
+//
+//        }
+
       },
       openDiago() {
         var that = this
@@ -195,6 +207,7 @@
         this.open = childValue
         console.log(this.open)
       },
+
 // url: /api/v1/boons/:uuid/attend
 
       async getBoons() {
@@ -212,12 +225,18 @@
         console.log('绘制图片')
         let that = this
         let uuid = that.uuid
-        let page = 'pages/isme/index'
+        let page = 'pages/project/main'
         let data = [uuid, page]
         let res = await this.$store.dispatch('wxCodeBoon', {...data})
         let wxCodeImg = res.wxa_qrcode_url
 
         let titleContent = that.boon.title
+
+        if(titleContent.length>12){
+          titleContent = titleContent.substring(0,11)
+        }else{
+          titleContent = titleContent
+        }
 
         let num_of_participants =String(that.boon.num_of_participants)
         let num_left = 63
@@ -339,7 +358,7 @@
           ]
         }
         wx.setStorageSync('painting', painting)
-        wx.navigateTo({url: '/pages/test/main'})
+        wx.navigateTo({url: '/pages/poster/main'})
       },
       againPrice() {
         wx.switchTab({
@@ -390,16 +409,23 @@
 
     },
     async onLoad(options) {
+      wx.showLoading({
+        titile:'正在加载'
+      })
       let that = this
       that.uuid = options.boons_uuid // 获取上一页传递的唯一标准uuid
       that.navbar_title = that.$root.$mp.query.title // 获取上一页传递的福利名称 做navbar的标题
       let form_id = options.form_id
       let currentuser_code = wx.getStorageSync('auth_code')
+      let this_user = wx.getStorageSync('userinfo')
+      console.log(this_user)
       let uuid_authCode = [that.uuid, currentuser_code, form_id]
       // 根据获得uuid 查询数据出来
 //      that.getBoons()
       let boonData = await that.$store.dispatch('getBoons', {...uuid_authCode})
       that.boon = boonData.boon
+      wx.hideLoading()
+
 
       let init_rewarded_users = boonData.boon.rewarded_users
 
@@ -442,12 +468,14 @@
 
     onShareAppMessage(res) {
       let that = this
+      let user =  wx.getStorageSync('allUserinfo')
+      console.log(user)
       if (res.from === 'button') {
         // 来自页面内转发按钮
         console.log(res.target)
       }
       return {
-        title: '邀你抽奖',
+        title: user.nick_name + "邀请你参与抽奖",
         path: '/pages/project/main?boons_uuid=' + that.uuid,
 //        imageUrl: 'http://pbmrxkahq.bkt.clouddn.com/cover.png'
       }
@@ -538,6 +566,8 @@
 
   .sponsorsBox {
     background: #fff;
+    margin-top: 10px;
+    /*margin-bottom: 10px;*/
     /*border:1px solid #ccc;*/
 
   }
@@ -548,8 +578,11 @@
     color: #4a4a4a;
     font-size: 12px;
     font-family: PingFangSC-Regular;
-    /*border:1px solid #ccc;*/
-    margin-top: 10px;
+    /*border:1px solid red;*/
+    .lineSponsors{
+      height: 1px;
+      background: #ededed;
+    }
 
   }
 
@@ -559,7 +592,11 @@
     background: #fff;
     /*padding-left: 25px;*/
     width: 325px;
-    margin: 0 auto 2px;
+    margin: 0 auto ;
+    font-family: PingFangSC-Medium;
+    color: #454553;
+    font-size: 16px;
+
     /*margin-bottom: 2px;*/
     /*border:1px solid #000;*/
   }
@@ -598,7 +635,7 @@
 
   .process-prize {
     width: 375px;
-    margin: 16px auto 0;
+    margin: 10px auto 0;
     background: #fff;
     /*padding: 15px 25px;*/
     /*border:1px solid #000;*/
@@ -870,6 +907,7 @@
 
   /*开奖区域*/
   .openPrize {
+    margin-top: 10px;
     min-height: 457px;
     width: 375px;
     background: #fff;
@@ -879,25 +917,27 @@
       /*width: 80px ;*/
       /*height: 80px;*/
       margin: 0 auto 20px;
-      /*border: 1px solid #000;*/
-      height: 118px;
+      /*border: 1px solid red;*/
+      min-height: 155px;
 
       img {
         width: 80px;
         height: 80px;
         margin-left: 123px;
+        margin-top: 30px;
       }
     ;
       p {
 
-        height: 16px;
+        height: 18px;
         line-height: 16px;
         font-family: PingFangSC-Medium;
         font-size: 16px;
         color: #666;
         text-align: center;
-        margin-top: 14px;
-        /*border: 1px solid #000;*/
+        margin-top: 20px;
+        margin-bottom: 2px;
+        /*border: 1px solid blue;*/
       }
 
     }

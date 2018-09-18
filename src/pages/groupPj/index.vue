@@ -26,9 +26,11 @@
     </div>
     <!--<div class="line"></div>    &lt;!&ndash;分割线&ndash;&gt;-->
     <div class="group">
-      <h2 class="group-game">拼团方法</h2>
-      <p class="step1">1.免费领取 但要完成小作业，写食用反馈。</p>
-      <p class="step2">2.领取成功后，请扫码加群等待发货哦。</p>
+      <h2 class="group-game">拼团玩法</h2>
+      <p class="step1">付款后邀请好友参团</p>
+      <p class="step2">达到拼团人数，顺利开团</p>
+      <p class="step2">若24小时内拼团不成功，全额退款</p>
+
       <div class="line"></div>
 
     </div>
@@ -42,9 +44,7 @@
     </div>
 
     <div class="pay">
-      <!--<div class="price">¥{{group_activity.current_price}}<span>还剩{{group_activity.stock}}份</span></div>-->
 
-      <!--<div class="join-group" @click="initGroup" :data-prjname="pjname" >{{group_activity.button.text}}</div>-->
       <span class="price">¥&nbsp;{{group_activity.current_price}}<span v-if="group_activity.stock">还剩{{group_activity.stock}}份</span></span>
 
       <form @submit='initGroup' :report-submit=true>
@@ -57,12 +57,15 @@
 <script>
   import {get, post, showModal} from '@/utils/util'
   import Navbar from '@/components/navbar'
+  import OldUser from '../../components/oldUser'
+
   import config from '@/config'
 
   export default {
 
     components: {
-      Navbar
+      Navbar,
+      OldUser
     },
     data() {
       return {
@@ -74,6 +77,7 @@
         group_activities_uuid: '',
         time: {day: '', hours: '', minutes: '', seconds: ''},
         myDetail: '',
+        oldUser:false
       }
     },
     methods: {
@@ -95,24 +99,7 @@
         console.log(prjDetail)
         that.group_activity = prjDetail.group_activity
       },
-      // 发起拼团
-      async attendGroup() {
-        // 发起拼团
-        let that = this
-        let uuid = that.uuid
-        let currentuser_code = wx.getStorageSync('auth_code')
-        console.log(currentuser_code)
 
-//                      let res = await post(`/v1/group_activities/${that.uuid}/attend?auth_code=${currentuser_code}`)
-//
-//                      let order_uuid =res.group_activity_order.uuid
-
-        if (uuid) {
-          wx.navigateTo({
-            url: '/pages/groupPj/groupDetail/main?order_uuid=' + uuid
-          })
-        }
-      },
 // 发起拼团订单
       async initGroup(e) {
         let that = this
@@ -127,12 +114,18 @@
           let group_activity_order_uuid = initGroupData.group_activity_order.uuid  // 发起拼团返回的订单id
           that.group_activity_order_uuid = group_activity_order_uuid
           wx.navigateTo({
-            url: '/pages/groupPj/groupDetail/main?group_activity_orders_uuid=' + group_activity_order_uuid
+            url: '/pages/groupPj/groupDetail/main?group_activity_orders_uuid=' + group_activity_order_uuid + '& group_activities_uuid='+that.group_activities_uuid
           })
         } else {
-          showModal('发起失败', '你已经在这个拼团')
+
+          //显示弹窗
+
+//          that.oldUser = true
+          showModal('发起失败','库存不足，暂无法拼团')
         }
       },
+
+
       // 获取倒计时
       getlastTime() {
         let that = this
@@ -166,10 +159,17 @@
           leftTime = 0
           clearTimeout(param)
         }
-      }
+      },
+
+
+      //
+
 
     },
     async onLoad(options) {
+      wx.showLoading({
+        titile:'正在加载'
+      })
       let that = this
       that.getlastTime()
 
@@ -181,9 +181,16 @@
       let uuid_authCode = [uuid, currentuser_code, form_id]
       let group_activity = await that.$store.dispatch('getGrouDetail', {...uuid_authCode})  // 获取当前拼团活动详情
       that.group_activity = group_activity.group_activity
+
+      wx.hideLoading()
+
       // 通过富文本展示商品详情
       that.myDetail = that.group_activity.product.detail
-      that.myDetail = that.myDetail.replace(/\<img/g, '<img class="img" mode="aspectFill"')
+
+    },
+    onShow(){
+//      this.oldUser = false
+
     },
 
     async mounted() {
@@ -371,10 +378,7 @@
 
 
   }
-    .img {
 
-
-  }
   .pjdetail {
     font-family: PingFangSC-Medium;
     font-size: 16px;
@@ -427,7 +431,7 @@
     .price {
       display: inline-block;
       float: left;
-      width: 90px;
+      min-width: 90px;
       height: 44px;
       line-height: 44px;
       color: #f7412d;

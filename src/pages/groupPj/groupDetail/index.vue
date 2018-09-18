@@ -51,9 +51,11 @@
 
         order_uuid: '',
         order_info: {},
-        navbar_title: '订单详情',
+        navbar_title: '拼团详情',
         initGroupId: '',
-        group_activity_order_uuid: ''
+        group_activity_order_uuid: '',
+        group_activities_uuid:''
+
       }
     },
     components: {
@@ -83,7 +85,7 @@
 
             wx.setStorageSync('group_activity_initial_uuid', group_activity_initial_uuid)
             wx.navigateTo({
-              url: '/pages/groupPj/order/main?group_activity_initial_uuid=' + group_activity_initial_uuid
+              url: '/pages/groupPj/order/main?group_activity_initial_uuid=' + group_activity_initial_uuid + '&group_activities_uuid='+that.group_activities_uuid
             })
             console.log('/pages/groupPj/order/main?group_activity_initial_uuid=' + group_activity_initial_uuid)
           },
@@ -91,22 +93,20 @@
 
             showModal('支付失败', '请尝试重新支付')
 
-//          let group_activity_initial_uuid = that.order_info.group_activity_initial.uuid
-//
-//          wx.setStorageSync('group_activity_initial_uuid', group_activity_initial_uuid)
-//          wx.navigateTo({
-//            url: '/pages/groupPj/order/main?group_activity_initial_uuid=' + group_activity_initial_uuid
-//          })
-//          console.log('/pages/groupPj/order/main?group_activity_initial_uuid=' + group_activity_initial_uuid)
           }
         })
       }
 
     },
-    async onLoad() {
+    async onLoad(options) {
+      wx.showLoading()
       let that = this
       let group_activity_orders_uuid = this.$root.$mp.query.group_activity_orders_uuid // 获取发起拼团活动返回的订单ID
       that.group_activity_order_uuid = group_activity_orders_uuid
+
+      that.group_activities_uuid = options.group_activities_uuid
+
+      console.log(that.group_activities_uuid)
       let currentuser_code = wx.getStorageSync('auth_code')
       let uuid_authCode = [group_activity_orders_uuid, currentuser_code]
       const orderData = await that.$store.dispatch('groupActivities_order', {...uuid_authCode})
@@ -114,6 +114,7 @@
       console.log(orderData)
 
       that.order_info = orderData.group_activity_order
+      wx.hideLoading()
       console.log(that.order_info)
     },
 

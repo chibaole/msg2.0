@@ -170,7 +170,7 @@
 .pay .price.data-v-05960fcb {
   display: inline-block;
   float: left;
-  width: 180rpx;
+  min-width: 180rpx;
   height: 88rpx;
   line-height: 88rpx;
   color: #f7412d;

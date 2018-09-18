@@ -1,6 +1,6 @@
 global.webpackJsonp([6],{
 
-/***/ 120:
+/***/ 118:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -143,13 +143,24 @@ global.webpackJsonp([6],{
           switch (_context2.prev = _context2.next) {
             case 0:
               that = _this2;
+
+              if (!(that.moreTips === '已无更多订单')) {
+                _context2.next = 5;
+                break;
+              }
+
+              that.boonList = that.boonList;
+              _context2.next = 14;
+              break;
+
+            case 5:
               auth_code = wx.getStorageSync('auth_code');
               init_size = that.size;
               data = [that.page, init_size, auth_code];
-              _context2.next = 6;
+              _context2.next = 10;
               return that.$store.dispatch('myBoonList', __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends___default()({}, data));
 
-            case 6:
+            case 10:
               boonList = _context2.sent;
 
               that.boonList = boonList.boon_orders;
@@ -160,11 +171,13 @@ global.webpackJsonp([6],{
                 console.log(lastSize, init_size);
                 that.moreTips = '已无更多订单';
               }
+
+            case 14:
               userinfo = wx.getStorageSync('userinfo');
 
               that.userinfo = userinfo;
 
-            case 12:
+            case 16:
             case 'end':
               return _context2.stop();
           }
@@ -176,14 +189,14 @@ global.webpackJsonp([6],{
 
 /***/ }),
 
-/***/ 188:
+/***/ 183:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 225:
+/***/ 218:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -279,16 +292,16 @@ if (false) {
 
 /***/ }),
 
-/***/ 76:
+/***/ 74:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_Me_vue__ = __webpack_require__(120);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_7ec0cb2e_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_Me_vue__ = __webpack_require__(225);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_Me_vue__ = __webpack_require__(118);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_7ec0cb2e_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_Me_vue__ = __webpack_require__(218);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(188)
+  __webpack_require__(183)
 }
 var normalizeComponent = __webpack_require__(1)
 /* script */
@@ -333,14 +346,14 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 91:
+/***/ 89:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Me__ = __webpack_require__(76);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Me__ = __webpack_require__(74);
 
 
 
@@ -349,5 +362,5 @@ app.$mount();
 
 /***/ })
 
-},[91]);
+},[89]);
 //# sourceMappingURL=main.js.map

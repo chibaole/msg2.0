@@ -59,6 +59,7 @@
 }
 .sponsorsBox.data-v-a0735dbe {
   background: #fff;
+  margin-top: 20rpx;
 }
 .sponsors.data-v-a0735dbe {
   width: 750rpx;
@@ -66,14 +67,20 @@
   color: #4a4a4a;
   font-size: 24rpx;
   font-family: PingFangSC-Regular;
-  margin-top: 20rpx;
+}
+.sponsors .lineSponsors.data-v-a0735dbe {
+  height: 2rpx;
+  background: #ededed;
 }
 .sponsors-info.data-v-a0735dbe {
   height: 84rpx;
   line-height: 84rpx;
   background: #fff;
   width: 650rpx;
-  margin: 0 auto 4rpx;
+  margin: 0 auto;
+  font-family: PingFangSC-Medium;
+  color: #454553;
+  font-size: 32rpx;
 }
 .sponsors .switchGoAnchor.data-v-a0735dbe {
   width: 650rpx;
@@ -100,7 +107,7 @@
 }
 .process-prize.data-v-a0735dbe {
   width: 750rpx;
-  margin: 32rpx auto 0;
+  margin: 20rpx auto 0;
   background: #fff;
   padding-top: 30rpx;
   padding-bottom: 30rpx;
@@ -300,27 +307,30 @@
   right: 30rpx;
 }
 .openPrize.data-v-a0735dbe {
+  margin-top: 20rpx;
   min-height: 914rpx;
   width: 750rpx;
   background: #fff;
 }
 .openPrize .pic.data-v-a0735dbe {
   margin: 0 auto 40rpx;
-  height: 236rpx;
+  min-height: 310rpx;
 }
 .openPrize .pic ._img.data-v-a0735dbe {
   width: 160rpx;
   height: 160rpx;
   margin-left: 246rpx;
+  margin-top: 60rpx;
 }
 .openPrize .pic ._p.data-v-a0735dbe {
-  height: 32rpx;
+  height: 36rpx;
   line-height: 32rpx;
   font-family: PingFangSC-Medium;
   font-size: 32rpx;
   color: #666;
   text-align: center;
-  margin-top: 28rpx;
+  margin-top: 40rpx;
+  margin-bottom: 4rpx;
 }
 .openPrize .prizeWindow.data-v-a0735dbe,
 .openPrize .prizeWindowe.data-v-a0735dbe {

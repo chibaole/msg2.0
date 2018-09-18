@@ -1,47 +1,6 @@
 global.webpackJsonp([3],{
 
-/***/ 100:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["a"] = ({
-  data: function data() {
-    return {
-      showChild: 'true'
-    };
-  },
-
-  methods: {
-    cancleDiago: function cancleDiago() {
-      var open = false;
-      this.$emit('info', open);
-    },
-    closeChild: function closeChild() {
-      this.$emit('childByValue', false);
-    }
-  }
-
-});
-
-/***/ }),
-
-/***/ 114:
+/***/ 113:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -51,7 +10,7 @@ global.webpackJsonp([3],{
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_diago__ = __webpack_require__(202);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_diago__ = __webpack_require__(197);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_navbar__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__utils_util__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__config__ = __webpack_require__(4);
@@ -190,6 +149,9 @@ global.webpackJsonp([3],{
 //
 //
 //
+//
+//
+
 
 
 
@@ -240,9 +202,6 @@ global.webpackJsonp([3],{
             switch (_context.prev = _context.next) {
               case 0:
                 that = _this;
-
-                console.log('抽奖');
-
                 currentuser_code = wx.getStorageSync('auth_code');
 
                 //        let attendBoon_data = await post(`/v1/boons/${that.uuid}/attend?auth_code=${currentuser_code}`)
@@ -252,17 +211,26 @@ global.webpackJsonp([3],{
                 boonID = that.boon.uuid;
                 auth_code = currentuser_code;
                 uuid_authCode = [boonID, auth_code];
-                _context.next = 8;
+                _context.next = 7;
                 return that.$store.dispatch('attendBoon', __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends___default()({}, uuid_authCode));
 
-              case 8:
+              case 7:
                 res = _context.sent;
 
                 console.log(res);
                 that.prize = '待开奖';
                 that.prizeStyle = 'waiting';
+                //        if(res.indexOf('抱歉')  !== -1){
+                //          console.log('抽奖失败' + res)
+                //          that.oldUser = true
+                //
+                //        }else {
+                //          that.prize = '待开奖'
+                //          that.prizeStyle = 'waiting'
+                //
+                //        }
 
-              case 12:
+              case 11:
               case 'end':
                 return _context.stop();
             }
@@ -278,6 +246,7 @@ global.webpackJsonp([3],{
       this.open = childValue;
       console.log(this.open);
     },
+
 
     // url: /api/v1/boons/:uuid/attend
 
@@ -325,7 +294,7 @@ global.webpackJsonp([3],{
                 console.log('绘制图片');
                 that = _this3;
                 uuid = that.uuid;
-                page = 'pages/isme/index';
+                page = 'pages/project/main';
                 data = [uuid, page];
                 _context3.next = 7;
                 return _this3.$store.dispatch('wxCodeBoon', __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends___default()({}, data));
@@ -334,6 +303,14 @@ global.webpackJsonp([3],{
                 res = _context3.sent;
                 wxCodeImg = res.wxa_qrcode_url;
                 titleContent = that.boon.title;
+
+
+                if (titleContent.length > 12) {
+                  titleContent = titleContent.substring(0, 11);
+                } else {
+                  titleContent = titleContent;
+                }
+
                 num_of_participants = String(that.boon.num_of_participants);
                 num_left = 63;
 
@@ -444,9 +421,9 @@ global.webpackJsonp([3],{
                 };
 
                 wx.setStorageSync('painting', painting);
-                wx.navigateTo({ url: '/pages/test/main' });
+                wx.navigateTo({ url: '/pages/poster/main' });
 
-              case 16:
+              case 17:
               case 'end':
                 return _context3.stop();
             }
@@ -538,29 +515,36 @@ global.webpackJsonp([3],{
     var _this5 = this;
 
     return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee5() {
-      var that, form_id, currentuser_code, uuid_authCode, boonData, init_rewarded_users, _init_rewarded_users, isIphoneX;
+      var that, form_id, currentuser_code, this_user, uuid_authCode, boonData, init_rewarded_users, _init_rewarded_users, isIphoneX;
 
       return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee5$(_context5) {
         while (1) {
           switch (_context5.prev = _context5.next) {
             case 0:
+              wx.showLoading({
+                titile: '正在加载'
+              });
               that = _this5;
 
               that.uuid = options.boons_uuid; // 获取上一页传递的唯一标准uuid
               that.navbar_title = that.$root.$mp.query.title; // 获取上一页传递的福利名称 做navbar的标题
               form_id = options.form_id;
               currentuser_code = wx.getStorageSync('auth_code');
+              this_user = wx.getStorageSync('userinfo');
+
+              console.log(this_user);
               uuid_authCode = [that.uuid, currentuser_code, form_id];
               // 根据获得uuid 查询数据出来
               //      that.getBoons()
 
-              _context5.next = 8;
+              _context5.next = 11;
               return that.$store.dispatch('getBoons', __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends___default()({}, uuid_authCode));
 
-            case 8:
+            case 11:
               boonData = _context5.sent;
 
               that.boon = boonData.boon;
+              wx.hideLoading();
 
               init_rewarded_users = boonData.boon.rewarded_users;
 
@@ -592,7 +576,7 @@ global.webpackJsonp([3],{
 
               that.isIphoneX = isIphoneX;
 
-            case 15:
+            case 19:
             case 'end':
               return _context5.stop();
           }
@@ -609,12 +593,14 @@ global.webpackJsonp([3],{
   },
   onShareAppMessage: function onShareAppMessage(res) {
     var that = this;
+    var user = wx.getStorageSync('allUserinfo');
+    console.log(user);
     if (res.from === 'button') {
       // 来自页面内转发按钮
       console.log(res.target);
     }
     return {
-      title: '邀你抽奖',
+      title: user.nick_name + "邀请你参与抽奖",
       path: '/pages/project/main?boons_uuid=' + that.uuid
       //        imageUrl: 'http://pbmrxkahq.bkt.clouddn.com/cover.png'
     };
@@ -623,30 +609,30 @@ global.webpackJsonp([3],{
 
 /***/ }),
 
-/***/ 191:
+/***/ 186:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 195:
+/***/ 192:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 202:
+/***/ 197:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_diago_vue__ = __webpack_require__(100);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_f211043e_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_diago_vue__ = __webpack_require__(233);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_diago_vue__ = __webpack_require__(97);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_f211043e_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_diago_vue__ = __webpack_require__(228);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(195)
+  __webpack_require__(192)
 }
 var normalizeComponent = __webpack_require__(1)
 /* script */
@@ -691,7 +677,7 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 228:
+/***/ 221:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -734,7 +720,9 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "sponsors"
   }, [_c('p', {
     staticClass: "sponsors-info"
-  }, [_vm._v(_vm._s(_vm.boon.sponsor.description))]), _vm._v(" "), _c('navigator', {
+  }, [_vm._v("赞助商")]), _vm._v(" "), _c('div', {
+    staticClass: "lineSponsors"
+  }), _vm._v(" "), _c('navigator', {
     staticClass: "switchGoAnchor",
     attrs: {
       "target": "miniProgram",
@@ -750,21 +738,21 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "src": _vm.boon.sponsor.avatar_url,
       "alt": ""
     }
-  }), _vm._v(_vm._s(_vm.boon.sponsor.name)), _c('img', {
+  }), _vm._v(_vm._s(_vm.boon.sponsor.description)), _c('img', {
     staticClass: "right_ico",
     attrs: {
-      "src": __webpack_require__(36),
+      "src": "http://pbmrxkahq.bkt.clouddn.com/right.png",
       "alt": ""
     }
   })])], 1)]) : _vm._e(), _vm._v(" "), (_vm.boon.status === 'published') ? _c('div', {
     staticClass: "process-prize"
-  }, [_c('h2', [_vm._v("抽奖流程")]), _vm._v(" "), _c('div', {
+  }, [_c('h2', [_vm._v("抽奖玩法")]), _vm._v(" "), _c('div', {
     staticClass: "steps"
   }, [_c('p', {
     staticClass: "step1"
-  }, [_vm._v("1.点击抽奖，等待开奖")]), _vm._v(" "), _c('p', {
+  }, [_vm._v("点击抽奖，等待开奖")]), _vm._v(" "), _c('p', {
     staticClass: "step2"
-  }, [_vm._v("2.领取成功后，请扫码加群等待发货哦")])], 1), _vm._v(" "), _c('div', {
+  }, [_vm._v("研究员抽奖概率是普通用户的两倍，欢迎加入")])], 1), _vm._v(" "), _c('div', {
     staticClass: "line"
   }), _vm._v(" "), _c('h2', [_vm._v("商品详情")]), _vm._v(" "), _c('div', {
     staticClass: "boonDetail"
@@ -961,7 +949,7 @@ if (false) {
 
 /***/ }),
 
-/***/ 233:
+/***/ 228:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1007,16 +995,16 @@ if (false) {
 
 /***/ }),
 
-/***/ 70:
+/***/ 69:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_prj_vue__ = __webpack_require__(114);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_a0735dbe_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_prj_vue__ = __webpack_require__(228);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_prj_vue__ = __webpack_require__(113);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_a0735dbe_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_prj_vue__ = __webpack_require__(221);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(191)
+  __webpack_require__(186)
 }
 var normalizeComponent = __webpack_require__(1)
 /* script */
@@ -1061,14 +1049,14 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 85:
+/***/ 84:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__prj__ = __webpack_require__(70);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__prj__ = __webpack_require__(69);
 
 
 
@@ -1085,10 +1073,52 @@ app.$mount();
       'navigationBarTextStyle': 'light',
       'navigationStyle': 'default'
     }
+
   }
+});
+
+/***/ }),
+
+/***/ 97:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["a"] = ({
+  data: function data() {
+    return {
+      showChild: 'true'
+    };
+  },
+
+  methods: {
+    cancleDiago: function cancleDiago() {
+      var open = false;
+      this.$emit('info', open);
+    },
+    closeChild: function closeChild() {
+      this.$emit('childByValue', false);
+    }
+  }
+
 });
 
 /***/ })
 
-},[85]);
+},[84]);
 //# sourceMappingURL=main.js.map

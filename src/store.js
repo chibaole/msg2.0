@@ -24,7 +24,11 @@ export default new Vuex.Store({
       })
       let auth_code = ''
       auth_code = res.auth_code
+      console.log(res)
       wx.setStorageSync('auth_code', auth_code)
+      wx.setStorageSync('allUserinfo', res.user)
+
+
       return auth_code
     },
 
@@ -79,6 +83,7 @@ export default new Vuex.Store({
         method: 'post',
         url: `${apiDomain}/boons/${boonId}/attend?auth_code=${auth_code}`
       })
+      console.log(res)
       return res
     },
 
@@ -158,10 +163,6 @@ export default new Vuex.Store({
         method: 'post',
         url: `${apiDomain}/group_activity_initials/${uuid_authCode[0]}/attend?auth_code=${uuid_authCode[1]}`
       })
-      if (attendData == undefined) {
-        showModal('参与失败', '你已经在当前的拼团')
-
-      }
       return attendData
     },
 

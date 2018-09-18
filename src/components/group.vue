@@ -63,7 +63,7 @@
         } else if (Intial.group_activity_initial !== null) {
           console.log('已参与')
           wx.navigateTo({
-            url: `/pages/groupPj/order/main?group_activity_initial_uuid=${Intial.group_activity_initial.uuid}&from_id=${formId}&attend=${attend}` // 参与拼团的页面
+            url: `/pages/groupPj/order/main?group_activity_initial_uuid=${Intial.group_activity_initial.uuid}&from_id=${formId}&attend=${attend}&group_activities_uuid=${group_activities_uuid}` // 参与拼团的页面
           })
         }
       },
@@ -81,8 +81,11 @@
     },
 
     async onLoad() {
+      wx.showLoading()
       let group_activities = await this.$store.dispatch('getGroup')
       this.group_activities = group_activities.group_activities
+      wx.hideLoading()
+
     },
     async onShow() {
       let group_activities = await this.$store.dispatch('getGroup')
