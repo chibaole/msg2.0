@@ -5,181 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="445b3448-464f-4425-9da6-82c9cd343d54" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/components/CommentList$c533db88.wxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/components/test$063fe702.wxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/pages/cards/cardDetail/main.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/pages/cards/main.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/pages/test/main.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/pages/test/main.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/pages/test/main.wxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/pages/test/main.wxss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/pages/user/main.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/pages/user/myGroup/main.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/pages/user/myGroup/myGroupDetail/main.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/pages/user/myboonList/main.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/pages/user/myboonList/myBoon/main.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/static/css/pages/test/main.wxss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/static/js/pages/test/main.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/static/js/pages/test/main.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue-ydui/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue-ydui/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue-ydui/dist/lib.px/accordion/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue-ydui/dist/lib.px/actionsheet/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue-ydui/dist/lib.px/backtop/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue-ydui/dist/lib.px/badge/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue-ydui/dist/lib.px/button/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue-ydui/dist/lib.px/cell/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue-ydui/dist/lib.px/checkbox/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue-ydui/dist/lib.px/checklist/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue-ydui/dist/lib.px/cityselect/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue-ydui/dist/lib.px/countdown/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue-ydui/dist/lib.px/countup/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue-ydui/dist/lib.px/datetime/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue-ydui/dist/lib.px/dialog/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue-ydui/dist/lib.px/flexbox/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue-ydui/dist/lib.px/grids/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue-ydui/dist/lib.px/icons/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue-ydui/dist/lib.px/infinitescroll/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue-ydui/dist/lib.px/input/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue-ydui/dist/lib.px/keyboard/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue-ydui/dist/lib.px/layout/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue-ydui/dist/lib.px/lightbox/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue-ydui/dist/lib.px/list/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue-ydui/dist/lib.px/navbar/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue-ydui/dist/lib.px/popup/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue-ydui/dist/lib.px/preview/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue-ydui/dist/lib.px/progressbar/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue-ydui/dist/lib.px/pullrefresh/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue-ydui/dist/lib.px/radio/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue-ydui/dist/lib.px/rate/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue-ydui/dist/lib.px/rollnotice/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue-ydui/dist/lib.px/scrollnav/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue-ydui/dist/lib.px/scrolltab/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue-ydui/dist/lib.px/search/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue-ydui/dist/lib.px/sendcode/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue-ydui/dist/lib.px/slider/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue-ydui/dist/lib.px/spinner/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue-ydui/dist/lib.px/step/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue-ydui/dist/lib.px/switch/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue-ydui/dist/lib.px/tab/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue-ydui/dist/lib.px/tabbar/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue-ydui/dist/lib.px/textarea/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue-ydui/dist/lib.px/timeline/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue-ydui/dist/lib.rem/accordion/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue-ydui/dist/lib.rem/actionsheet/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue-ydui/dist/lib.rem/backtop/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue-ydui/dist/lib.rem/badge/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue-ydui/dist/lib.rem/button/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue-ydui/dist/lib.rem/cell/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue-ydui/dist/lib.rem/checkbox/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue-ydui/dist/lib.rem/checklist/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue-ydui/dist/lib.rem/cityselect/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue-ydui/dist/lib.rem/countdown/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue-ydui/dist/lib.rem/countup/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue-ydui/dist/lib.rem/datetime/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue-ydui/dist/lib.rem/dialog/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue-ydui/dist/lib.rem/flexbox/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue-ydui/dist/lib.rem/grids/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue-ydui/dist/lib.rem/icons/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue-ydui/dist/lib.rem/infinitescroll/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue-ydui/dist/lib.rem/input/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue-ydui/dist/lib.rem/keyboard/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue-ydui/dist/lib.rem/layout/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue-ydui/dist/lib.rem/lightbox/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue-ydui/dist/lib.rem/list/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue-ydui/dist/lib.rem/navbar/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue-ydui/dist/lib.rem/popup/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue-ydui/dist/lib.rem/preview/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue-ydui/dist/lib.rem/progressbar/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue-ydui/dist/lib.rem/pullrefresh/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue-ydui/dist/lib.rem/radio/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue-ydui/dist/lib.rem/rate/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue-ydui/dist/lib.rem/rollnotice/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue-ydui/dist/lib.rem/scrollnav/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue-ydui/dist/lib.rem/scrolltab/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue-ydui/dist/lib.rem/search/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue-ydui/dist/lib.rem/sendcode/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue-ydui/dist/lib.rem/slider/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue-ydui/dist/lib.rem/spinner/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue-ydui/dist/lib.rem/step/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue-ydui/dist/lib.rem/switch/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue-ydui/dist/lib.rem/tab/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue-ydui/dist/lib.rem/tabbar/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue-ydui/dist/lib.rem/textarea/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue-ydui/dist/lib.rem/timeline/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue-ydui/dist/ydui.base.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue-ydui/dist/ydui.flexible.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue-ydui/dist/ydui.px.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue-ydui/dist/ydui.px.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue-ydui/dist/ydui.rem.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue-ydui/dist/ydui.rem.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue-ydui/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/components/CommentList.vue" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/pages/test/Me.vue" afterPath="$PROJECT_DIR$/src/pages/poster/Me.vue" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/pages/test/main.js" afterPath="$PROJECT_DIR$/src/pages/poster/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/static/js/pages/cards/cardDetail/main.js.map" afterPath="$PROJECT_DIR$/dist/static/js/pages/cards/cardDetail/main.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/webpack.base.conf.js" afterPath="$PROJECT_DIR$/build/webpack.base.conf.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/webpack.prod.conf.js" afterPath="$PROJECT_DIR$/build/webpack.prod.conf.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/app.json" afterPath="$PROJECT_DIR$/dist/app.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/groupPj$6f1d46c8.wxml" afterPath="$PROJECT_DIR$/dist/components/groupPj$6f1d46c8.wxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/groupPj$85ce50ee.wxml" afterPath="$PROJECT_DIR$/dist/components/groupPj$85ce50ee.wxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/project$67981f42.wxml" afterPath="$PROJECT_DIR$/dist/components/project$67981f42.wxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/user$0ba85da9.wxml" afterPath="$PROJECT_DIR$/dist/components/user$0ba85da9.wxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/static/css/pages/groupPj/main.wxss" afterPath="$PROJECT_DIR$/dist/static/css/pages/groupPj/main.wxss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/static/css/pages/groupPj/order/main.wxss" afterPath="$PROJECT_DIR$/dist/static/css/pages/groupPj/order/main.wxss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/static/css/pages/project/main.wxss" afterPath="$PROJECT_DIR$/dist/static/css/pages/project/main.wxss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/static/css/vendor.wxss" afterPath="$PROJECT_DIR$/dist/static/css/vendor.wxss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/static/js/app.js" afterPath="$PROJECT_DIR$/dist/static/js/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/static/js/app.js.map" afterPath="$PROJECT_DIR$/dist/static/js/app.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/static/js/manifest.js.map" afterPath="$PROJECT_DIR$/dist/static/js/manifest.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/static/js/pages/cards/cardDetail/main.js" afterPath="$PROJECT_DIR$/dist/static/js/pages/cards/cardDetail/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/static/js/pages/cards/main.js" afterPath="$PROJECT_DIR$/dist/static/js/pages/cards/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/static/js/pages/cards/main.js.map" afterPath="$PROJECT_DIR$/dist/static/js/pages/cards/main.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/static/js/pages/groupPj/groupDetail/main.js" afterPath="$PROJECT_DIR$/dist/static/js/pages/groupPj/groupDetail/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/static/js/pages/groupPj/groupDetail/main.js.map" afterPath="$PROJECT_DIR$/dist/static/js/pages/groupPj/groupDetail/main.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/static/js/pages/groupPj/main.js" afterPath="$PROJECT_DIR$/dist/static/js/pages/groupPj/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/static/js/pages/groupPj/main.js.map" afterPath="$PROJECT_DIR$/dist/static/js/pages/groupPj/main.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/static/js/pages/groupPj/order/main.js" afterPath="$PROJECT_DIR$/dist/static/js/pages/groupPj/order/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/static/js/pages/groupPj/order/main.js.map" afterPath="$PROJECT_DIR$/dist/static/js/pages/groupPj/order/main.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/static/js/pages/home/main.js" afterPath="$PROJECT_DIR$/dist/static/js/pages/home/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/static/js/pages/home/main.js.map" afterPath="$PROJECT_DIR$/dist/static/js/pages/home/main.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/static/js/pages/project/main.js" afterPath="$PROJECT_DIR$/dist/static/js/pages/project/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/static/js/pages/project/main.js.map" afterPath="$PROJECT_DIR$/dist/static/js/pages/project/main.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/static/js/pages/test2/main.js" afterPath="$PROJECT_DIR$/dist/static/js/pages/test2/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/static/js/pages/test2/main.js.map" afterPath="$PROJECT_DIR$/dist/static/js/pages/test2/main.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/static/js/pages/user/main.js" afterPath="$PROJECT_DIR$/dist/static/js/pages/user/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/static/js/pages/user/main.js.map" afterPath="$PROJECT_DIR$/dist/static/js/pages/user/main.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/static/js/pages/user/myGroup/main.js" afterPath="$PROJECT_DIR$/dist/static/js/pages/user/myGroup/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/static/js/pages/user/myGroup/main.js.map" afterPath="$PROJECT_DIR$/dist/static/js/pages/user/myGroup/main.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/static/js/pages/user/myGroup/myGroupDetail/main.js" afterPath="$PROJECT_DIR$/dist/static/js/pages/user/myGroup/myGroupDetail/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/static/js/pages/user/myGroup/myGroupDetail/main.js.map" afterPath="$PROJECT_DIR$/dist/static/js/pages/user/myGroup/myGroupDetail/main.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/static/js/pages/user/myboonList/main.js" afterPath="$PROJECT_DIR$/dist/static/js/pages/user/myboonList/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/static/js/pages/user/myboonList/main.js.map" afterPath="$PROJECT_DIR$/dist/static/js/pages/user/myboonList/main.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/static/js/pages/user/myboonList/myBoon/main.js" afterPath="$PROJECT_DIR$/dist/static/js/pages/user/myboonList/myBoon/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/static/js/pages/user/myboonList/myBoon/main.js.map" afterPath="$PROJECT_DIR$/dist/static/js/pages/user/myboonList/myBoon/main.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/static/js/vendor.js" afterPath="$PROJECT_DIR$/dist/static/js/vendor.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/static/js/vendor.js.map" afterPath="$PROJECT_DIR$/dist/static/js/vendor.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/.npminstall.done" afterPath="$PROJECT_DIR$/node_modules/.npminstall.done" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/.recently_updates.txt" afterPath="$PROJECT_DIR$/node_modules/.recently_updates.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/group.vue" afterPath="$PROJECT_DIR$/src/components/group.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/navbar.vue" afterPath="$PROJECT_DIR$/src/components/navbar.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/scroll.vue" afterPath="$PROJECT_DIR$/src/components/scroll.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main.js" afterPath="$PROJECT_DIR$/src/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/cards/Card.vue" afterPath="$PROJECT_DIR$/src/pages/cards/Card.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/cards/cardDetail/Card.vue" afterPath="$PROJECT_DIR$/src/pages/cards/cardDetail/Card.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/groupPj/groupDetail/index.vue" afterPath="$PROJECT_DIR$/src/pages/groupPj/groupDetail/index.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/groupPj/index.vue" afterPath="$PROJECT_DIR$/src/pages/groupPj/index.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/groupPj/order/index.vue" afterPath="$PROJECT_DIR$/src/pages/groupPj/order/index.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/home/Home.vue" afterPath="$PROJECT_DIR$/src/pages/home/Home.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/project/main.js" afterPath="$PROJECT_DIR$/src/pages/project/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/project/prj.vue" afterPath="$PROJECT_DIR$/src/pages/project/prj.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/test2/index.vue" afterPath="$PROJECT_DIR$/src/pages/test2/index.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/user/Me.vue" afterPath="$PROJECT_DIR$/src/pages/user/Me.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/user/myGroup/Me.vue" afterPath="$PROJECT_DIR$/src/pages/user/myGroup/Me.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/user/myboonList/Me.vue" afterPath="$PROJECT_DIR$/src/pages/user/myboonList/Me.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/store.js" afterPath="$PROJECT_DIR$/src/store.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/poster/main.js" afterPath="$PROJECT_DIR$/src/pages/poster/main.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -265,27 +91,24 @@
       <file leaf-file-name="Me.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pages/poster/Me.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="402">
+            <state relative-caret-position="918">
               <caret line="54" column="15" lean-forward="false" selection-start-line="54" selection-start-column="15" selection-end-line="54" selection-end-column="15" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pages/groupPj/groupDetail/index.vue">
+      <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/pages/poster/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="382">
-              <caret line="116" column="22" lean-forward="false" selection-start-line="116" selection-start-column="22" selection-end-line="116" selection-end-column="22" />
-              <folding>
-                <element signature="e#1227#1268#0" expanded="true" />
-                <element signature="e#5151#5518#0" expanded="false" />
-              </folding>
+            <state relative-caret-position="102">
+              <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="prj.vue" pinned="false" current-in-tab="true">
+      <file leaf-file-name="prj.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pages/project/prj.vue">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="382">
@@ -413,8 +236,8 @@
       <find>step2</find>
       <find>.group</find>
       <find>test</find>
-      <find>lineSponsors</find>
       <find>getImg</find>
+      <find>lineSponsors</find>
     </findStrings>
     <replaceStrings>
       <replace>gray</replace>
@@ -437,7 +260,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/server/controllers/wxlogin.js" />
         <option value="$PROJECT_DIR$/server/app.js" />
         <option value="$PROJECT_DIR$/src/utils/util.js" />
         <option value="$PROJECT_DIR$/server/controllers/getGroupActive.js" />
@@ -488,6 +310,7 @@
         <option value="$PROJECT_DIR$/src/store.js" />
         <option value="$PROJECT_DIR$/src/pages/poster/Me.vue" />
         <option value="$PROJECT_DIR$/src/pages/project/prj.vue" />
+        <option value="$PROJECT_DIR$/src/pages/poster/main.js" />
       </list>
     </option>
   </component>
@@ -751,18 +574,18 @@
       <workItem from="1534320959304" duration="42699000" />
       <workItem from="1534743312774" duration="159005000" />
       <workItem from="1535367210788" duration="2063000" />
-      <workItem from="1535424454711" duration="375517000" />
+      <workItem from="1535424454711" duration="375648000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="904537000" />
+    <option name="totallyTimeSpent" value="904668000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="9" y="0" width="2098" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.116514206" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.116514206" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32889965" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1245,16 +1068,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/poster/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="52" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#21#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/project/main.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -1444,14 +1257,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/poster/Me.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="402">
-          <caret line="54" column="15" lean-forward="false" selection-start-line="54" selection-start-column="15" selection-end-line="54" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/groupPj/order/index.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="293">
@@ -1521,6 +1326,22 @@
             <element signature="e#24084#24204#0" expanded="false" />
             <element signature="e#24231#24495#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/poster/Me.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="918">
+          <caret line="54" column="15" lean-forward="false" selection-start-line="54" selection-start-column="15" selection-end-line="54" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/poster/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

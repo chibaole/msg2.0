@@ -190,7 +190,6 @@ var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a(__WEBPACK_IMPORTED_MOD
 app.$mount();
 /* harmony default export */ __webpack_exports__["default"] = ({
   config: {
-    // 这儿添加要用的小程序组件
     usingComponents: {
       'canvasdrawer': '../../../static/canvasdrawer/canvasdrawer'
     }
