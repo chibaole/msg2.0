@@ -421,6 +421,8 @@ global.webpackJsonp([4],{
               case 6:
                 res = _context3.sent;
                 wxCodeImg = res.wxa_qrcode_url;
+                //        if(wxCodeImg)
+
                 titleContent = that.order_info.group_activity.title;
                 title_left = 25;
 
@@ -689,6 +691,9 @@ global.webpackJsonp([4],{
 
             case 12:
               orderData = _context6.sent;
+
+              wx.hideLoading();
+
               order_user = orderData.group_activity_initial.users; // []
 
               left_user = orderData.group_activity_initial.users_left; // number
@@ -706,13 +711,11 @@ global.webpackJsonp([4],{
 
               if (orderData.group_activity_initial.is_initiator === false && orderData.group_activity_initial.status_display === '正在拼团') {
                 that.onekeyAttend = true;
-                //显示一键参与
-                //        that.invite = false
+              } else if (orderData.group_activity_initial.is_initiator === true && orderData.group_activity_initial.status_display === '正在拼团') {
+                that.onekeyAttend = false;
               }
 
               that.order_info = orderData.group_activity_initial;
-
-              wx.hideLoading();
 
               that.getlastTime();
 
