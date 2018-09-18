@@ -1035,7 +1035,6 @@ app.$mount();
             case 0:
               console.log('每次获取auth_code');
               auth_code = wx.getStorageSync('auth_code');
-              //      console.log("auth code")
 
               console.log(auth_code);
 

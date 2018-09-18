@@ -54,7 +54,7 @@ ajv@^4.11.2, ajv@^4.7.0, ajv@^4.9.1:
 
 ajv@^5.0.0, ajv@^5.1.0, ajv@^5.3.0:
   version "5.5.2"
-  resolved "https://registry.npmjs.org/ajv/-/ajv-5.5.2.tgz#73b5eeca3fab653e3d3f9422b341ad42205dc965"
+  resolved "https://registry.yarnpkg.com/ajv/-/ajv-5.5.2.tgz#73b5eeca3fab653e3d3f9422b341ad42205dc965"
   dependencies:
     co "^4.6.0"
     fast-deep-equal "^1.0.0"
@@ -190,7 +190,11 @@ arrify@^1.0.0:
 
 asap@~2.0.3:
   version "2.0.6"
+<<<<<<< HEAD
   resolved "https://registry.npmjs.org/asap/-/asap-2.0.6.tgz#e50347611d7e690943208bbdafebcbc2fb866d46"
+=======
+  resolved "https://registry.yarnpkg.com/asap/-/asap-2.0.6.tgz#e50347611d7e690943208bbdafebcbc2fb866d46"
+>>>>>>> 6db831f98fdc006e47b6d9d96fad767c47048487
 
 asn1.js@^4.0.0:
   version "4.10.1"
@@ -269,7 +273,11 @@ aws4@^1.2.1, aws4@^1.6.0:
 
 aws4@^1.8.0:
   version "1.8.0"
+<<<<<<< HEAD
   resolved "https://registry.npmjs.org/aws4/-/aws4-1.8.0.tgz#f0e003d9ca9e7f59c7a508945d7b2ef9a04a542f"
+=======
+  resolved "https://registry.yarnpkg.com/aws4/-/aws4-1.8.0.tgz#f0e003d9ca9e7f59c7a508945d7b2ef9a04a542f"
+>>>>>>> 6db831f98fdc006e47b6d9d96fad767c47048487
 
 babel-code-frame@^6.16.0, babel-code-frame@^6.22.0, babel-code-frame@^6.26.0:
   version "6.26.0"
@@ -1314,7 +1322,11 @@ clone@^1.0.2:
 
 clone@^2.1.1, clone@^2.1.2:
   version "2.1.2"
+<<<<<<< HEAD
   resolved "https://registry.npmjs.org/clone/-/clone-2.1.2.tgz#1b7f4b9f591f1e8f83670401600345a02887435f"
+=======
+  resolved "https://registry.yarnpkg.com/clone/-/clone-2.1.2.tgz#1b7f4b9f591f1e8f83670401600345a02887435f"
+>>>>>>> 6db831f98fdc006e47b6d9d96fad767c47048487
 
 co@^4.6.0:
   version "4.6.0"
@@ -1383,7 +1395,7 @@ colors@~1.1.2:
 
 combined-stream@1.0.6, combined-stream@^1.0.5, combined-stream@~1.0.5, combined-stream@~1.0.6:
   version "1.0.6"
-  resolved "https://registry.npmjs.org/combined-stream/-/combined-stream-1.0.6.tgz#723e7df6e801ac5613113a7e445a9b69cb632818"
+  resolved "https://registry.yarnpkg.com/combined-stream/-/combined-stream-1.0.6.tgz#723e7df6e801ac5613113a7e445a9b69cb632818"
   dependencies:
     delayed-stream "~1.0.0"
 
@@ -1575,7 +1587,11 @@ css-color-names@0.0.4:
 
 css-loader@^0.28.0:
   version "0.28.11"
+<<<<<<< HEAD
   resolved "https://registry.npmjs.org/css-loader/-/css-loader-0.28.11.tgz#c3f9864a700be2711bb5a2462b2389b1a392dab7"
+=======
+  resolved "https://registry.yarnpkg.com/css-loader/-/css-loader-0.28.11.tgz#c3f9864a700be2711bb5a2462b2389b1a392dab7"
+>>>>>>> 6db831f98fdc006e47b6d9d96fad767c47048487
   dependencies:
     babel-code-frame "^6.26.0"
     css-selector-tokenizer "^0.7.0"
@@ -1628,7 +1644,7 @@ cssesc@^0.1.0:
 
 cssnano@3.10.0, cssnano@^3.10.0:
   version "3.10.0"
-  resolved "https://registry.npmjs.org/cssnano/-/cssnano-3.10.0.tgz#4f38f6cea2b9b17fa01490f23f1dc68ea65c1c38"
+  resolved "https://registry.yarnpkg.com/cssnano/-/cssnano-3.10.0.tgz#4f38f6cea2b9b17fa01490f23f1dc68ea65c1c38"
   dependencies:
     autoprefixer "^6.3.1"
     decamelize "^1.1.2"
@@ -1934,7 +1950,7 @@ entities@^1.1.1, entities@~1.1.1:
 
 errno@^0.1.1, errno@^0.1.3:
   version "0.1.7"
-  resolved "https://registry.npmjs.org/errno/-/errno-0.1.7.tgz#4684d71779ad39af177e3f007996f7c67c852618"
+  resolved "https://registry.yarnpkg.com/errno/-/errno-0.1.7.tgz#4684d71779ad39af177e3f007996f7c67c852618"
   dependencies:
     prr "~1.0.1"
 
@@ -2258,7 +2274,11 @@ extend@^3.0.0, extend@~3.0.0, extend@~3.0.1:
 
 extend@~3.0.2:
   version "3.0.2"
+<<<<<<< HEAD
   resolved "https://registry.npmjs.org/extend/-/extend-3.0.2.tgz#f8b1136b4071fbd8eb140aff858b1019ec2915fa"
+=======
+  resolved "https://registry.yarnpkg.com/extend/-/extend-3.0.2.tgz#f8b1136b4071fbd8eb140aff858b1019ec2915fa"
+>>>>>>> 6db831f98fdc006e47b6d9d96fad767c47048487
 
 extglob@^0.3.1:
   version "0.3.2"
@@ -2332,7 +2352,11 @@ file-entry-cache@^2.0.0:
 
 file-loader@^0.11.1:
   version "0.11.2"
+<<<<<<< HEAD
   resolved "https://registry.npmjs.org/file-loader/-/file-loader-0.11.2.tgz#4ff1df28af38719a6098093b88c82c71d1794a34"
+=======
+  resolved "https://registry.yarnpkg.com/file-loader/-/file-loader-0.11.2.tgz#4ff1df28af38719a6098093b88c82c71d1794a34"
+>>>>>>> 6db831f98fdc006e47b6d9d96fad767c47048487
   dependencies:
     loader-utils "^1.0.2"
 
@@ -2457,7 +2481,7 @@ form-data@~2.1.1:
 
 form-data@~2.3.1, form-data@~2.3.2:
   version "2.3.2"
-  resolved "https://registry.npmjs.org/form-data/-/form-data-2.3.2.tgz#4970498be604c20c005d4f5c23aecd21d6b49099"
+  resolved "https://registry.yarnpkg.com/form-data/-/form-data-2.3.2.tgz#4970498be604c20c005d4f5c23aecd21d6b49099"
   dependencies:
     asynckit "^0.4.0"
     combined-stream "1.0.6"
@@ -2687,7 +2711,11 @@ har-validator@~5.0.3:
 
 har-validator@~5.1.0:
   version "5.1.0"
+<<<<<<< HEAD
   resolved "https://registry.npmjs.org/har-validator/-/har-validator-5.1.0.tgz#44657f5688a22cfd4b72486e81b3a3fb11742c29"
+=======
+  resolved "https://registry.yarnpkg.com/har-validator/-/har-validator-5.1.0.tgz#44657f5688a22cfd4b72486e81b3a3fb11742c29"
+>>>>>>> 6db831f98fdc006e47b6d9d96fad767c47048487
   dependencies:
     ajv "^5.3.0"
     har-schema "^2.0.0"
@@ -2925,7 +2953,11 @@ icss-replace-symbols@^1.1.0:
 
 icss-utils@^2.1.0:
   version "2.1.0"
+<<<<<<< HEAD
   resolved "https://registry.npmjs.org/icss-utils/-/icss-utils-2.1.0.tgz#83f0a0ec378bf3246178b6c2ad9136f135b1c962"
+=======
+  resolved "https://registry.yarnpkg.com/icss-utils/-/icss-utils-2.1.0.tgz#83f0a0ec378bf3246178b6c2ad9136f135b1c962"
+>>>>>>> 6db831f98fdc006e47b6d9d96fad767c47048487
   dependencies:
     postcss "^6.0.1"
 
@@ -2945,7 +2977,11 @@ ignore@^3.2.0:
 
 image-size@~0.5.0:
   version "0.5.5"
+<<<<<<< HEAD
   resolved "https://registry.npmjs.org/image-size/-/image-size-0.5.5.tgz#09dfd4ab9d20e29eb1c3e80b8990378df9e3cb9c"
+=======
+  resolved "https://registry.yarnpkg.com/image-size/-/image-size-0.5.5.tgz#09dfd4ab9d20e29eb1c3e80b8990378df9e3cb9c"
+>>>>>>> 6db831f98fdc006e47b6d9d96fad767c47048487
 
 imurmurhash@^0.1.4:
   version "0.1.4"
@@ -3412,7 +3448,11 @@ lcid@^1.0.0:
 
 less-loader@^4.1.0:
   version "4.1.0"
+<<<<<<< HEAD
   resolved "https://registry.npmjs.org/less-loader/-/less-loader-4.1.0.tgz#2c1352c5b09a4f84101490274fd51674de41363e"
+=======
+  resolved "https://registry.yarnpkg.com/less-loader/-/less-loader-4.1.0.tgz#2c1352c5b09a4f84101490274fd51674de41363e"
+>>>>>>> 6db831f98fdc006e47b6d9d96fad767c47048487
   dependencies:
     clone "^2.1.1"
     loader-utils "^1.1.0"
@@ -3420,7 +3460,11 @@ less-loader@^4.1.0:
 
 less@^3.7.1:
   version "3.8.1"
+<<<<<<< HEAD
   resolved "https://registry.npmjs.org/less/-/less-3.8.1.tgz#f31758598ef5a1930dd4caefa9e4340641e71e1d"
+=======
+  resolved "https://registry.yarnpkg.com/less/-/less-3.8.1.tgz#f31758598ef5a1930dd4caefa9e4340641e71e1d"
+>>>>>>> 6db831f98fdc006e47b6d9d96fad767c47048487
   dependencies:
     clone "^2.1.2"
   optionalDependencies:
@@ -3706,7 +3750,11 @@ mime-db@~1.33.0:
 
 mime-db@~1.36.0:
   version "1.36.0"
+<<<<<<< HEAD
   resolved "https://registry.npmjs.org/mime-db/-/mime-db-1.36.0.tgz#5020478db3c7fe93aad7bbcc4dcf869c43363397"
+=======
+  resolved "https://registry.yarnpkg.com/mime-db/-/mime-db-1.36.0.tgz#5020478db3c7fe93aad7bbcc4dcf869c43363397"
+>>>>>>> 6db831f98fdc006e47b6d9d96fad767c47048487
 
 mime-types@^2.1.12, mime-types@~2.1.17, mime-types@~2.1.18, mime-types@~2.1.7:
   version "2.1.18"
@@ -3716,7 +3764,11 @@ mime-types@^2.1.12, mime-types@~2.1.17, mime-types@~2.1.18, mime-types@~2.1.7:
 
 mime-types@~2.1.19:
   version "2.1.20"
+<<<<<<< HEAD
   resolved "https://registry.npmjs.org/mime-types/-/mime-types-2.1.20.tgz#930cb719d571e903738520f8470911548ca2cc19"
+=======
+  resolved "https://registry.yarnpkg.com/mime-types/-/mime-types-2.1.20.tgz#930cb719d571e903738520f8470911548ca2cc19"
+>>>>>>> 6db831f98fdc006e47b6d9d96fad767c47048487
   dependencies:
     mime-db "~1.36.0"
 
@@ -3730,7 +3782,7 @@ mime@1.4.1:
 
 mime@^1.3.4, mime@^1.4.1:
   version "1.6.0"
-  resolved "https://registry.npmjs.org/mime/-/mime-1.6.0.tgz#32cd9e5c64553bd58d19a568af452acff04981b1"
+  resolved "https://registry.yarnpkg.com/mime/-/mime-1.6.0.tgz#32cd9e5c64553bd58d19a568af452acff04981b1"
 
 mimic-fn@^1.0.0:
   version "1.2.0"
@@ -4090,7 +4142,11 @@ oauth-sign@~0.8.1, oauth-sign@~0.8.2:
 
 oauth-sign@~0.9.0:
   version "0.9.0"
+<<<<<<< HEAD
   resolved "https://registry.npmjs.org/oauth-sign/-/oauth-sign-0.9.0.tgz#47a7b016baa68b5fa0ecf3dee08a85c679ac6455"
+=======
+  resolved "https://registry.yarnpkg.com/oauth-sign/-/oauth-sign-0.9.0.tgz#47a7b016baa68b5fa0ecf3dee08a85c679ac6455"
+>>>>>>> 6db831f98fdc006e47b6d9d96fad767c47048487
 
 object-assign@^4.0.1, object-assign@^4.1.0, object-assign@^4.1.1:
   version "4.1.1"
@@ -4539,27 +4595,27 @@ postcss-minify-selectors@^2.0.4:
 
 postcss-modules-extract-imports@^1.2.0:
   version "1.2.0"
-  resolved "https://registry.npmjs.org/postcss-modules-extract-imports/-/postcss-modules-extract-imports-1.2.0.tgz#66140ecece38ef06bf0d3e355d69bf59d141ea85"
+  resolved "https://registry.yarnpkg.com/postcss-modules-extract-imports/-/postcss-modules-extract-imports-1.2.0.tgz#66140ecece38ef06bf0d3e355d69bf59d141ea85"
   dependencies:
     postcss "^6.0.1"
 
 postcss-modules-local-by-default@^1.2.0:
   version "1.2.0"
-  resolved "https://registry.npmjs.org/postcss-modules-local-by-default/-/postcss-modules-local-by-default-1.2.0.tgz#f7d80c398c5a393fa7964466bd19500a7d61c069"
+  resolved "https://registry.yarnpkg.com/postcss-modules-local-by-default/-/postcss-modules-local-by-default-1.2.0.tgz#f7d80c398c5a393fa7964466bd19500a7d61c069"
   dependencies:
     css-selector-tokenizer "^0.7.0"
     postcss "^6.0.1"
 
 postcss-modules-scope@^1.1.0:
   version "1.1.0"
-  resolved "https://registry.npmjs.org/postcss-modules-scope/-/postcss-modules-scope-1.1.0.tgz#d6ea64994c79f97b62a72b426fbe6056a194bb90"
+  resolved "https://registry.yarnpkg.com/postcss-modules-scope/-/postcss-modules-scope-1.1.0.tgz#d6ea64994c79f97b62a72b426fbe6056a194bb90"
   dependencies:
     css-selector-tokenizer "^0.7.0"
     postcss "^6.0.1"
 
 postcss-modules-values@^1.3.0:
   version "1.3.0"
-  resolved "https://registry.npmjs.org/postcss-modules-values/-/postcss-modules-values-1.3.0.tgz#ecffa9d7e192518389f42ad0e83f72aec456ea20"
+  resolved "https://registry.yarnpkg.com/postcss-modules-values/-/postcss-modules-values-1.3.0.tgz#ecffa9d7e192518389f42ad0e83f72aec456ea20"
   dependencies:
     icss-replace-symbols "^1.1.0"
     postcss "^6.0.1"
@@ -4709,7 +4765,11 @@ progress@^1.1.8:
 
 promise@^7.1.1:
   version "7.3.1"
+<<<<<<< HEAD
   resolved "https://registry.npmjs.org/promise/-/promise-7.3.1.tgz#064b72602b18f90f29192b8b1bc418ffd1ebd3bf"
+=======
+  resolved "https://registry.yarnpkg.com/promise/-/promise-7.3.1.tgz#064b72602b18f90f29192b8b1bc418ffd1ebd3bf"
+>>>>>>> 6db831f98fdc006e47b6d9d96fad767c47048487
   dependencies:
     asap "~2.0.3"
 
@@ -4734,7 +4794,11 @@ pseudomap@^1.0.1, pseudomap@^1.0.2:
 
 psl@^1.1.24:
   version "1.1.29"
+<<<<<<< HEAD
   resolved "https://registry.npmjs.org/psl/-/psl-1.1.29.tgz#60f580d360170bb722a797cc704411e6da850c67"
+=======
+  resolved "https://registry.yarnpkg.com/psl/-/psl-1.1.29.tgz#60f580d360170bb722a797cc704411e6da850c67"
+>>>>>>> 6db831f98fdc006e47b6d9d96fad767c47048487
 
 public-encrypt@^4.0.0:
   version "4.0.2"
@@ -4789,7 +4853,7 @@ qs@~6.4.0:
 
 qs@~6.5.1, qs@~6.5.2:
   version "6.5.2"
-  resolved "https://registry.npmjs.org/qs/-/qs-6.5.2.tgz#cb3ae806e8740444584ef154ce8ee98d403f3e36"
+  resolved "https://registry.yarnpkg.com/qs/-/qs-6.5.2.tgz#cb3ae806e8740444584ef154ce8ee98d403f3e36"
 
 query-string@^4.1.0:
   version "4.3.4"
@@ -5085,7 +5149,11 @@ request@2.87.0:
 
 request@^2.83.0:
   version "2.88.0"
+<<<<<<< HEAD
   resolved "https://registry.npmjs.org/request/-/request-2.88.0.tgz#9c2fca4f7d35b592efe57c7f0a55e81052124fef"
+=======
+  resolved "https://registry.yarnpkg.com/request/-/request-2.88.0.tgz#9c2fca4f7d35b592efe57c7f0a55e81052124fef"
+>>>>>>> 6db831f98fdc006e47b6d9d96fad767c47048487
   dependencies:
     aws-sign2 "~0.7.0"
     aws4 "^1.8.0"
@@ -5247,7 +5315,11 @@ schema-utils@^0.3.0:
 
 schema-utils@^0.4.5:
   version "0.4.7"
+<<<<<<< HEAD
   resolved "https://registry.npmjs.org/schema-utils/-/schema-utils-0.4.7.tgz#ba74f597d2be2ea880131746ee17d0a093c68187"
+=======
+  resolved "https://registry.yarnpkg.com/schema-utils/-/schema-utils-0.4.7.tgz#ba74f597d2be2ea880131746ee17d0a093c68187"
+>>>>>>> 6db831f98fdc006e47b6d9d96fad767c47048487
   dependencies:
     ajv "^6.1.0"
     ajv-keywords "^3.1.0"
@@ -5478,7 +5550,7 @@ source-map@^0.4.2:
 
 source-map@^0.6.1, source-map@~0.6.0, source-map@~0.6.1:
   version "0.6.1"
-  resolved "https://registry.npmjs.org/source-map/-/source-map-0.6.1.tgz#74722af32e9614e9c287a8d0bbde48b5e2f1a263"
+  resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.6.1.tgz#74722af32e9614e9c287a8d0bbde48b5e2f1a263"
 
 spdx-correct@^3.0.0:
   version "3.0.0"
@@ -5646,7 +5718,11 @@ strip-json-comments@~2.0.1:
 
 style-loader@^0.21.0:
   version "0.21.0"
+<<<<<<< HEAD
   resolved "https://registry.npmjs.org/style-loader/-/style-loader-0.21.0.tgz#68c52e5eb2afc9ca92b6274be277ee59aea3a852"
+=======
+  resolved "https://registry.yarnpkg.com/style-loader/-/style-loader-0.21.0.tgz#68c52e5eb2afc9ca92b6274be277ee59aea3a852"
+>>>>>>> 6db831f98fdc006e47b6d9d96fad767c47048487
   dependencies:
     loader-utils "^1.1.0"
     schema-utils "^0.4.5"
@@ -5784,7 +5860,11 @@ tough-cookie@~2.3.0, tough-cookie@~2.3.3:
 
 tough-cookie@~2.4.3:
   version "2.4.3"
+<<<<<<< HEAD
   resolved "https://registry.npmjs.org/tough-cookie/-/tough-cookie-2.4.3.tgz#53f36da3f47783b0925afa06ff9f3b165280f781"
+=======
+  resolved "https://registry.yarnpkg.com/tough-cookie/-/tough-cookie-2.4.3.tgz#53f36da3f47783b0925afa06ff9f3b165280f781"
+>>>>>>> 6db831f98fdc006e47b6d9d96fad767c47048487
   dependencies:
     psl "^1.1.24"
     punycode "^1.4.1"
@@ -5966,7 +6046,7 @@ utils-merge@1.0.1:
 
 uuid@^3.0.0, uuid@^3.1.0, uuid@^3.3.2:
   version "3.3.2"
-  resolved "https://registry.npmjs.org/uuid/-/uuid-3.3.2.tgz#1b4af4955eb3077c501c23872fc6513811587131"
+  resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.3.2.tgz#1b4af4955eb3077c501c23872fc6513811587131"
 
 validate-npm-package-license@^3.0.1:
   version "3.0.3"
@@ -5977,7 +6057,11 @@ validate-npm-package-license@^3.0.1:
 
 vant-weapp@^0.3.2:
   version "0.3.2"
+<<<<<<< HEAD
   resolved "https://registry.npmjs.org/vant-weapp/-/vant-weapp-0.3.2.tgz#460085b2f9a0a406b66947c4a7f1eec8c9b4f8aa"
+=======
+  resolved "https://registry.yarnpkg.com/vant-weapp/-/vant-weapp-0.3.2.tgz#460085b2f9a0a406b66947c4a7f1eec8c9b4f8aa"
+>>>>>>> 6db831f98fdc006e47b6d9d96fad767c47048487
 
 vary@~1.1.2:
   version "1.1.2"
@@ -6025,7 +6109,11 @@ vue-loader@^13.0.4:
 
 vue-step@^1.2.3:
   version "1.2.3"
+<<<<<<< HEAD
   resolved "https://registry.npmjs.org/vue-step/-/vue-step-1.2.3.tgz#81afdf81249a3cc81585fe94a36dcec87fa125f2"
+=======
+  resolved "https://registry.yarnpkg.com/vue-step/-/vue-step-1.2.3.tgz#81afdf81249a3cc81585fe94a36dcec87fa125f2"
+>>>>>>> 6db831f98fdc006e47b6d9d96fad767c47048487
 
 vue-style-loader@3.0.1:
   version "3.0.1"
@@ -6051,7 +6139,11 @@ vue-ydui@^1.2.2:
 
 vue2-countdown@^1.0.8:
   version "1.0.8"
+<<<<<<< HEAD
   resolved "https://registry.npmjs.org/vue2-countdown/-/vue2-countdown-1.0.8.tgz#e0f20b6af6badb33cf99c8cc3df51d2c77f2ef35"
+=======
+  resolved "https://registry.yarnpkg.com/vue2-countdown/-/vue2-countdown-1.0.8.tgz#e0f20b6af6badb33cf99c8cc3df51d2c77f2ef35"
+>>>>>>> 6db831f98fdc006e47b6d9d96fad767c47048487
 
 vuex@2.3.1:
   version "2.3.1"
