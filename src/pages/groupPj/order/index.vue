@@ -349,8 +349,9 @@
         let page = 'pages/groupPj/order/main'
         let data = [uuid, page]
         let res = await this.$store.dispatch('wxCode', {...data})
-        let wxCodeImg = res.wxa_qrcode_url
 
+        let wxCodeImg = res.wxa_qrcode_url
+//        if(wxCodeImg)
 
         let titleContent = that.order_info.group_activity.title
         let title_left = 25
@@ -562,6 +563,7 @@
       let uuid_authCode = [group_activity_initial_uuid, currentuser_code]
 
       let orderData = await that.$store.dispatch('groupActivitiesInit', {...uuid_authCode})
+      wx.hideLoading()
 
       let order_user = orderData.group_activity_initial.users // []
 
@@ -577,18 +579,16 @@
 
       orderData.group_activity_initial.users = order_user
 
-
-
       if (orderData.group_activity_initial.is_initiator === false && orderData.group_activity_initial.status_display === '正在拼团') {
         that.onekeyAttend = true
-        //显示一键参与
-//        that.invite = false
+      }else if (orderData.group_activity_initial.is_initiator === true && orderData.group_activity_initial.status_display === '正在拼团') {
+        that.onekeyAttend = false
 
       }
 
+
       that.order_info = orderData.group_activity_initial
 
-      wx.hideLoading()
 
       that.getlastTime()
     },
