@@ -2,9 +2,9 @@
   import {login} from '@/utils/wx'
 
   export default {
-    async created () {
+    async  onShow () {
       let auth_code = wx.getStorageSync('auth_code')
-      console.log("auth code")
+//      console.log("auth code")
       console.log(auth_code)
       if (auth_code) {
       } else {

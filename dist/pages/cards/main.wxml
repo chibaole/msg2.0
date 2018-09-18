@@ -1,1 +1,0 @@
-<import src="../../components/cards$70390c3f" /><template is="cards$70390c3f" data="{{ ...$root['0'], $root }}"/>
